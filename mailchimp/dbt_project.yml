@@ -4,8 +4,6 @@ config-version: 2
 
 profile: 'default'
 
-model-paths: ["{{ env_var('CTA_DATASET_ID') }}/models"]
-
 models:
   example_airflow_dbt:
     0_ctes:
