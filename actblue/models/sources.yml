@@ -1,0 +1,18 @@
+version: 2
+sources:
+
+- name: cta
+  database: "{{ var('CTA_PROJECT_ID') }}"
+  schema: "{{ var('CTA_DATASET_ID') }}"
+  tables: 
+  tables:
+  - name: _airbyte_raw_managed_form_contributions_stream
+  - name: _airbyte_raw_paid_contributions_stream
+  - name: _airbyte_raw_refunded_contributions_stream
+  - name: managed_form_contributions_stream
+  - name: paid_contributions_stream
+  - name: refunded_contributions_stream
+- name: partner
+  database: "{{ var('PARTNER_PROJECT_ID') }}"
+  schema: "{{ var('PARTNER_DATASET_ID') }}"
+  tables:
