@@ -1,0 +1,47 @@
+version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables:
+  - name: _airbyte_raw_adaccounts
+  - name: _airbyte_raw_ads
+  - name: _airbyte_raw_adsquads
+  - name: _airbyte_raw_campaigns
+  - name: _airbyte_raw_creatives
+  - name: _airbyte_raw_media
+  - name: _airbyte_raw_organizations
+  - name: _airbyte_raw_segments
+  - name: adaccounts_base
+  - name: adaccounts_regulations_base
+  - name: ads_base
+  - name: adsquads_base
+  - name: adsquads_skadnetwork_properties_base
+  - name: adsquads_targeting_base
+  - name: adsquads_targeting_geos_base
+  - name: campaigns_base
+  - name: creatives_base
+  - name: creatives_web_view_properties_base
+  - name: media_base
+  - name: segments_base
+  - name: organizations_base
+  - name: organizations_configuration_settings_base
+- name: partner
+  database: "{{ env_var('PARTNER_PROJECT_ID') }}"
+  schema: "{{ env_var('PARTNER_DATASET_ID') }}"
+  tables:
+  - name: ad_stats
+  - name: adaccounts
+  - name: adaccounts_regulations
+  - name: ads
+  - name: adsquads
+  - name: adsquads_skadnetwork_properties
+  - name: adsquads_targeting
+  - name: adsquads_targeting_geos
+  - name: campaigns
+  - name: creatives
+  - name: creatives_web_view_properties
+  - name: media
+  - name: segments
+  - name: organizations
+  - name: organizations_configuration_settings
