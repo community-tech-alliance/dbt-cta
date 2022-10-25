@@ -1,13 +1,14 @@
-name: 'example_airflow_dbt'
+name: default
 version: '1.0'
 config-version: 2
 
 profile: 'default'
 
-model-paths: ["{{ env_var('CTA_DATASET_ID') }}/models"]
+model-paths: ["{{ env_var('PARTNER_DATASET_ID') }}/models"]
+packages-install-path: "{{ env_var('PARTNER_DATASET_ID') }}/dbt-packages"
 
 models:
-  example_airflow_dbt:
+  default:
     0_ctes:
       +tags: 
         - cta
@@ -19,7 +20,6 @@ models:
     1_cta_incremental:
       +tags:
         - cta
-        - cta_incremental
       +materialized: incremental
       +on_schema_change: sync_all_columns
     2_partner_matviews:
