@@ -16,12 +16,10 @@ models:
     1_cta_base:
       +tags: 
         - cta
-      +materialized: table
-    1_cta_incremental:
-      +tags:
-        - cta
       +materialized: incremental
+      +incremental_strategy: insert_overwrite
       +on_schema_change: sync_all_columns
+      +full_refresh: false
     2_partner_matviews:
       +tags: 
         - partner
