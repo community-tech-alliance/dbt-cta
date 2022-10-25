@@ -37,7 +37,6 @@ sources:
   - name: adaccounts
   - name: adaccounts_regulations
   - name: ads
-  - name: ads_stats_daily
   - name: adsquads
   - name: adsquads_skadnetwork_properties
   - name: adsquads_targeting
