@@ -16,7 +16,7 @@ sources:
   - name: adaccounts_base
   - name: adaccounts_regulations_base
   - name: ads_base
-  - name: ads_stats_daily_base
+  - name: ad_stats_base
   - name: adsquads_base
   - name: adsquads_skadnetwork_properties_base
   - name: adsquads_targeting_base
