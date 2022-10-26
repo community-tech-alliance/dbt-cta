@@ -1,23 +1,24 @@
 -- depends_on: {{ source('partner', 'ad_stats') }}, {{ source('partner', 'ads') }}, {{ source('partner', 'creatives') }}, {{ source('partner', 'adsquads') }}, {{ source('partner', 'campaigns') }}
 
 with stats as (
-	select ad_id
-		, left(start_time, 10) as start_date
-		, swipe_ups as clicks
-		, total_impressions as impressions
-		, spend
-		, video_views
-		, quartile_1
-		, quartile_2
-		, quartile_3
-		, view_completion
-		, conversion_page_views
-		, case when total_impressions > 0 then spend / (total_impressions * 1000) else 0 end as cpm
-		, case when total_impressions > 0 then swipe_ups / total_impressions else 0 end as ctr
-		, case when total_impressions > 0 then conversion_page_views / total_impressions else 0 end as pvr
-		, case when video_views > 0 then view_completion / video_views else 0 end as vcr
-		, total_reach as reach --previously called "uniques"
-		, total_frequency as frequency
+	select  
+	     id as ad_id
+		,date(start_time) as start_date
+		,swipe_ups as clicks
+		,total_impressions as impressions
+		,spend
+		,video_views
+		,quartile_1
+		,quartile_2
+		,quartile_3
+		,view_completion
+		,conversion_page_views
+		,case when total_impressions > 0 then spend / (total_impressions * 1000) else 0 end as cpm
+		,case when total_impressions > 0 then swipe_ups / total_impressions else 0 end as ctr
+		,case when total_impressions > 0 then conversion_page_views / total_impressions else 0 end as pvr
+		,case when video_views > 0 then view_completion / video_views else 0 end as vcr
+		,total_reach as reach --previously called "uniques"
+		,frequency
 	from {{ source('partner', 'ad_stats') }}
 ),
 

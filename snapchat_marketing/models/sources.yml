@@ -6,6 +6,7 @@ sources:
   tables:
   - name: _airbyte_raw_adaccounts
   - name: _airbyte_raw_ads
+  - name: _airbyte_raw_ads_stats_daily
   - name: _airbyte_raw_adsquads
   - name: _airbyte_raw_campaigns
   - name: _airbyte_raw_creatives
@@ -15,6 +16,7 @@ sources:
   - name: adaccounts_base
   - name: adaccounts_regulations_base
   - name: ads_base
+  - name: ad_stats_base
   - name: adsquads_base
   - name: adsquads_skadnetwork_properties_base
   - name: adsquads_targeting_base
@@ -26,6 +28,7 @@ sources:
   - name: segments_base
   - name: organizations_base
   - name: organizations_configuration_settings_base
+
 - name: partner
   database: "{{ env_var('PARTNER_PROJECT_ID') }}"
   schema: "{{ env_var('PARTNER_DATASET_ID') }}"
