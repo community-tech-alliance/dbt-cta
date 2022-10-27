@@ -1,0 +1,34 @@
+version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables:
+  - name: _airbyte_raw_balance_transactions
+  - name: _airbyte_raw_bank_accounts
+  - name: _airbyte_raw_charges
+  - name: _airbyte_raw_checkout_sessions
+  - name: _airbyte_raw_checkout_sessions_line_items
+  - name: _airbyte_raw_coupons
+  - name: _airbyte_raw_customer_balance_transactions
+  - name: _airbyte_raw_customers
+  - name: _airbyte_raw_disputes
+  - name: _airbyte_raw_events
+  - name: _airbyte_raw_external_account_bank_accounts
+  - name: _airbyte_raw_external_account_cards
+  - name: _airbyte_raw_invoice_items
+  - name: _airbyte_raw_invoice_line_items
+  - name: _airbyte_raw_invoices
+  - name: _airbyte_raw_payment_intents
+  - name: _airbyte_raw_payouts
+  - name: _airbyte_raw_plans
+  - name: _airbyte_raw_products
+  - name: _airbyte_raw_promotion_codes
+  - name: _airbyte_raw_refunds
+  - name: _airbyte_raw_subscription_items
+  - name: _airbyte_raw_subscriptions
+  - name: _airbyte_raw_transfers
+
+- name: partner
+  database: "{{ env_var('PARTNER_PROJECT_ID') }}"
+  schema: "{{ env_var('PARTNER_DATASET_ID') }}"
