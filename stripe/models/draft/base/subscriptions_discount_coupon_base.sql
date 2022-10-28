@@ -29,7 +29,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_coupon_hashid
 from {{ ref('subscriptions_discount_coupon_ab3') }}
--- coupon at subscriptions/discount/coupon from {{ ref('subscriptions_discount') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

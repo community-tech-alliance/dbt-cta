@@ -19,7 +19,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_sepa_debit_hashid
 from {{ ref('charges_payment_method_details_card_sepa_debit_ab3') }}
--- sepa_debit at charges/payment_method_details/card/sepa_debit from {{ ref('charges_payment_method_details_card') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

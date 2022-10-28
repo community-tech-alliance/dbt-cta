@@ -17,7 +17,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_ach_credit_transfer_hashid
 from {{ ref('charges_payment_method_details_ach_credit_transfer_ab3') }}
--- ach_credit_transfer at charges/payment_method_details/ach_credit_transfer from {{ ref('charges_payment_method_details') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

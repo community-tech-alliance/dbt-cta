@@ -16,7 +16,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_checks_hashid
 from {{ ref('charges_payment_method_details_card_checks_ab3') }}
--- checks at charges/payment_method_details/card/checks from {{ ref('charges_payment_method_details_card') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -14,7 +14,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_fraud_details_hashid
 from {{ ref('charges_fraud_details_ab3') }}
--- fraud_details at charges/fraud_details from {{ ref('charges') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

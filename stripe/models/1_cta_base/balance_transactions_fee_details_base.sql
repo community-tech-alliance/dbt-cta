@@ -18,7 +18,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_fee_details_hashid
 from {{ ref('balance_transactions_fee_details_ab3') }}
--- fee_details at balance_transactions/fee_details from {{ ref('balance_transactions') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

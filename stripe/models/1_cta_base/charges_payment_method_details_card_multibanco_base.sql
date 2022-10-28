@@ -15,7 +15,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_multibanco_hashid
 from {{ ref('charges_payment_method_details_card_multibanco_ab3') }}
--- multibanco at charges/payment_method_details/card/multibanco from {{ ref('charges_payment_method_details_card') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 
