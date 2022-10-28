@@ -19,7 +19,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_address_hashid
 from {{ ref('charges_source_owner_address_ab3') }}
--- address at charges_base/source/owner/address from {{ ref('charges_source_owner') }}
+-- address at charges_base/source/owner/address from {{ ref('charges_source_owner_base') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

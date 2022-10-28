@@ -19,7 +19,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_receiver_hashid
 from {{ ref('charges_source_receiver_ab3') }}
--- receiver at charges_base/source/receiver from {{ ref('charges_source') }}
+-- receiver at charges_base/source/receiver from {{ ref('charges_source_base') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 
