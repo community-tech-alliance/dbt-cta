@@ -20,7 +20,7 @@ select
     ]) }} as _airbyte_owner_hashid,
     tmp.*
 from {{ ref('charges_source_owner_ab2') }} tmp
--- owner at charges/source/owner
+-- owner at charges_base/source/owner
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

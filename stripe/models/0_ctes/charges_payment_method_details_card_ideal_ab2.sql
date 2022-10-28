@@ -16,7 +16,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('charges_payment_method_details_card_ideal_ab1') }}
--- ideal at charges/payment_method_details/card/ideal
+-- ideal at charges_base/payment_method_details/card/ideal
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

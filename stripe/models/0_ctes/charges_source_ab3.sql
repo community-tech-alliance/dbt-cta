@@ -55,7 +55,7 @@ select
     ]) }} as _airbyte_source_hashid,
     tmp.*
 from {{ ref('charges_source_ab2') }} tmp
--- source at charges/source
+-- source at charges_base/source
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -16,7 +16,7 @@ select
     ]) }} as _airbyte_giropay_hashid,
     tmp.*
 from {{ ref('charges_payment_method_details_card_giropay_ab2') }} tmp
--- giropay at charges/payment_method_details/card/giropay
+-- giropay at charges_base/payment_method_details/card/giropay
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

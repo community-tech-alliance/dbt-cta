@@ -14,7 +14,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('charges_payment_method_details_card') }} as table_alias
--- p24 at charges/payment_method_details/card/p24
+-- p24 at charges_base/payment_method_details/card/p24
 where 1 = 1
 and p24 is not null
 {{ incremental_clause('_airbyte_emitted_at') }}

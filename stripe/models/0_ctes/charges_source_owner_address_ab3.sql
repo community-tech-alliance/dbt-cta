@@ -18,7 +18,7 @@ select
     ]) }} as _airbyte_address_hashid,
     tmp.*
 from {{ ref('charges_source_owner_address_ab2') }} tmp
--- address at charges/source/owner/address
+-- address at charges_base/source/owner/address
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

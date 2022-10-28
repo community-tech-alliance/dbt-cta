@@ -21,7 +21,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('charges_source_ach_credit_transfer_ab1') }}
--- ach_credit_transfer at charges/source/ach_credit_transfer
+-- ach_credit_transfer at charges_base/source/ach_credit_transfer
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

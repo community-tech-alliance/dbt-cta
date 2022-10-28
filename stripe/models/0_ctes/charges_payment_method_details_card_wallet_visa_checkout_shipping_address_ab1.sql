@@ -18,7 +18,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('charges_payment_method_details_card_wallet_visa_checkout') }} as table_alias
--- shipping_address at charges/payment_method_details/card/wallet/visa_checkout/shipping_address
+-- shipping_address at charges_base/payment_method_details/card/wallet/visa_checkout/shipping_address
 where 1 = 1
 and shipping_address is not null
 {{ incremental_clause('_airbyte_emitted_at') }}

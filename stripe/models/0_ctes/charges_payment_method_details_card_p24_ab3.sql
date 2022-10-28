@@ -14,7 +14,7 @@ select
     ]) }} as _airbyte_p24_hashid,
     tmp.*
 from {{ ref('charges_payment_method_details_card_p24_ab2') }} tmp
--- p24 at charges/payment_method_details/card/p24
+-- p24 at charges_base/payment_method_details/card/p24
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

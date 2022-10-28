@@ -16,7 +16,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('charges_source_redirect_ab1') }}
--- redirect at charges/source/redirect
+-- redirect at charges_base/source/redirect
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

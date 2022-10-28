@@ -18,7 +18,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('charges_payment_method_details_card_sofort_ab1') }}
--- sofort at charges/payment_method_details/card/sofort
+-- sofort at charges_base/payment_method_details/card/sofort
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

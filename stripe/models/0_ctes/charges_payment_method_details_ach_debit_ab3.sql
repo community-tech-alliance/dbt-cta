@@ -18,7 +18,7 @@ select
     ]) }} as _airbyte_ach_debit_hashid,
     tmp.*
 from {{ ref('charges_payment_method_details_ach_debit_ab2') }} tmp
--- ach_debit at charges/payment_method_details/ach_debit
+-- ach_debit at charges_base/payment_method_details/ach_debit
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

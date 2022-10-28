@@ -18,7 +18,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('charges_payment_method_details_bancontact_ab1') }}
--- bancontact at charges/payment_method_details/bancontact
+-- bancontact at charges_base/payment_method_details/bancontact
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

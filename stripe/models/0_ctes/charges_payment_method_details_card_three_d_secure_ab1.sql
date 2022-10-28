@@ -15,7 +15,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('charges_payment_method_details_card') }} as table_alias
--- three_d_secure at charges/payment_method_details/card/three_d_secure
+-- three_d_secure at charges_base/payment_method_details/card/three_d_secure
 where 1 = 1
 and three_d_secure is not null
 {{ incremental_clause('_airbyte_emitted_at') }}

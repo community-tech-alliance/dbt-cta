@@ -18,7 +18,7 @@ select
     ]) }} as _airbyte_sofort_hashid,
     tmp.*
 from {{ ref('charges_payment_method_details_card_sofort_ab2') }} tmp
--- sofort at charges/payment_method_details/card/sofort
+-- sofort at charges_base/payment_method_details/card/sofort
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

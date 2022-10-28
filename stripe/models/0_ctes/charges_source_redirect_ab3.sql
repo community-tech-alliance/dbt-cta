@@ -16,7 +16,7 @@ select
     ]) }} as _airbyte_redirect_hashid,
     tmp.*
 from {{ ref('charges_source_redirect_ab2') }} tmp
--- redirect at charges/source/redirect
+-- redirect at charges_base/source/redirect
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

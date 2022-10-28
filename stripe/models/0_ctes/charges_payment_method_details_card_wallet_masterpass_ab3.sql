@@ -16,7 +16,7 @@ select
     ]) }} as _airbyte_masterpass_hashid,
     tmp.*
 from {{ ref('charges_payment_method_details_card_wallet_masterpass_ab2') }} tmp
--- masterpass at charges/payment_method_details/card/wallet/masterpass
+-- masterpass at charges_base/payment_method_details/card/wallet/masterpass
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

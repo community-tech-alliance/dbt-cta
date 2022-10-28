@@ -20,7 +20,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('charges_payment_method_details_card_card_present') }} as table_alias
--- receipt at charges/payment_method_details/card/card_present/receipt
+-- receipt at charges_base/payment_method_details/card/card_present/receipt
 where 1 = 1
 and receipt is not null
 {{ incremental_clause('_airbyte_emitted_at') }}

@@ -18,7 +18,7 @@ select
     ]) }} as _airbyte_billing_address_hashid,
     tmp.*
 from {{ ref('charges_payment_method_details_card_wallet_visa_checkout_billing_address_ab2') }} tmp
--- billing_address at charges/payment_method_details/card/wallet/visa_checkout/billing_address
+-- billing_address at charges_base/payment_method_details/card/wallet/visa_checkout/billing_address
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

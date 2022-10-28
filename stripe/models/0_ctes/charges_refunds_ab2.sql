@@ -17,7 +17,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('charges_refunds_ab1') }}
--- refunds at charges/refunds
+-- refunds at charges_base/refunds
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

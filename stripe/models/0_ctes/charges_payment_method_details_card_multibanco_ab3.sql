@@ -14,7 +14,7 @@ select
     ]) }} as _airbyte_multibanco_hashid,
     tmp.*
 from {{ ref('charges_payment_method_details_card_multibanco_ab2') }} tmp
--- multibanco at charges/payment_method_details/card/multibanco
+-- multibanco at charges_base/payment_method_details/card/multibanco
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

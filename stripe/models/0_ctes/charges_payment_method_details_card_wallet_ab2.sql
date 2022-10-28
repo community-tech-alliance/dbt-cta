@@ -20,7 +20,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('charges_payment_method_details_card_wallet_ab1') }}
--- wallet at charges/payment_method_details/card/wallet
+-- wallet at charges_base/payment_method_details/card/wallet
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

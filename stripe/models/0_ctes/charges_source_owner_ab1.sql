@@ -20,7 +20,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('charges_source') }} as table_alias
--- owner at charges/source/owner
+-- owner at charges_base/source/owner
 where 1 = 1
 and owner is not null
 {{ incremental_clause('_airbyte_emitted_at') }}

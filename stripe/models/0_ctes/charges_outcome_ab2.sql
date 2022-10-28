@@ -18,7 +18,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('charges_outcome_ab1') }}
--- outcome at charges/outcome
+-- outcome at charges_base/outcome
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

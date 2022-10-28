@@ -36,7 +36,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('charges_card_ab1') }}
--- card at charges/card
+-- card at charges_base/card
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 
