@@ -22,7 +22,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_events_hashid
 from {{ ref('events_ab3') }}
--- events from {{ source('stripe_partner_a', '_airbyte_raw_events') }}
+-- events from {{ source('cta', '_airbyte_raw_events') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

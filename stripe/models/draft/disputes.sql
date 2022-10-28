@@ -27,7 +27,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_disputes_hashid
 from {{ ref('disputes_ab3') }}
--- disputes from {{ source('stripe_partner_a', '_airbyte_raw_disputes') }}
+-- disputes from {{ source('cta', '_airbyte_raw_disputes') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

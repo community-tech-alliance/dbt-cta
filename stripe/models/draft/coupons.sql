@@ -29,7 +29,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_coupons_hashid
 from {{ ref('coupons_ab3') }}
--- coupons from {{ source('stripe_partner_a', '_airbyte_raw_coupons') }}
+-- coupons from {{ source('cta', '_airbyte_raw_coupons') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

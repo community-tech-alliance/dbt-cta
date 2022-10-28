@@ -35,7 +35,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_plans_hashid
 from {{ ref('plans_ab3') }}
--- plans from {{ source('stripe_partner_a', '_airbyte_raw_plans') }}
+-- plans from {{ source('cta', '_airbyte_raw_plans') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

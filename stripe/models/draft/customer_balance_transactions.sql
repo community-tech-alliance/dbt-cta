@@ -26,6 +26,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_customer_balance_transactions_hashid
 from {{ ref('customer_balance_transactions_ab3') }}
--- customer_balance_transactions from {{ source('stripe_partner_a', '_airbyte_raw_customer_balance_transactions') }}
+-- customer_balance_transactions from {{ source('cta', '_airbyte_raw_customer_balance_transactions') }}
 where 1 = 1
 

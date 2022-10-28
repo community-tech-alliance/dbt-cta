@@ -25,7 +25,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_promotion_codes_hashid
 from {{ ref('promotion_codes_ab3') }}
--- promotion_codes from {{ source('stripe_partner_a', '_airbyte_raw_promotion_codes') }}
+-- promotion_codes from {{ source('cta', '_airbyte_raw_promotion_codes') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

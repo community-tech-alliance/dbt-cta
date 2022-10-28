@@ -40,7 +40,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_payouts_hashid
 from {{ ref('payouts_ab3') }}
--- payouts from {{ source('stripe_partner_a', '_airbyte_raw_payouts') }}
+-- payouts from {{ source('cta', '_airbyte_raw_payouts') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

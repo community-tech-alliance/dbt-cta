@@ -52,7 +52,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_charges_hashid
 from {{ ref('charges_ab3') }}
--- charges from {{ source('stripe_partner_a', '_airbyte_raw_charges') }}
+-- charges from {{ source('cta', '_airbyte_raw_charges') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

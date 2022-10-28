@@ -34,6 +34,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_subscription_items_hashid
 from {{ ref('subscription_items_ab3') }}
--- subscription_items from {{ source('stripe_partner_a', '_airbyte_raw_subscription_items') }}
+-- subscription_items from {{ source('cta', '_airbyte_raw_subscription_items') }}
 where 1 = 1
 

@@ -27,6 +27,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_external_account_bank_accounts_hashid
 from {{ ref('external_account_bank_accounts_ab3') }}
--- external_account_bank_accounts from {{ source('stripe_partner_a', '_airbyte_raw_external_account_bank_accounts') }}
+-- external_account_bank_accounts from {{ source('cta', '_airbyte_raw_external_account_bank_accounts') }}
 where 1 = 1
 

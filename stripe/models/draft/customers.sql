@@ -41,7 +41,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_customers_hashid
 from {{ ref('customers_ab3') }}
--- customers from {{ source('stripe_partner_a', '_airbyte_raw_customers') }}
+-- customers from {{ source('cta', '_airbyte_raw_customers') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

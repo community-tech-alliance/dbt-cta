@@ -31,6 +31,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_invoice_line_items_hashid
 from {{ ref('invoice_line_items_ab3') }}
--- invoice_line_items from {{ source('stripe_partner_a', '_airbyte_raw_invoice_line_items') }}
+-- invoice_line_items from {{ source('cta', '_airbyte_raw_invoice_line_items') }}
 where 1 = 1
 

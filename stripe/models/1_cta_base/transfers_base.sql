@@ -36,7 +36,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_transfers_hashid
 from {{ ref('transfers_ab3') }}
--- transfers from {{ source('stripe_partner_a', '_airbyte_raw_transfers') }}
+-- transfers from {{ source('cta', '_airbyte_raw_transfers') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 
