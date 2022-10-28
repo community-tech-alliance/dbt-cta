@@ -17,7 +17,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_visa_checkout_hashid
 from {{ ref('charges_payment_method_details_card_wallet_visa_checkout_ab3') }}
--- visa_checkout at charges_base/payment_method_details/card/wallet/visa_checkout from {{ ref('charges_payment_method_details_card_wallet') }}
+-- visa_checkout at charges_base/payment_method_details/card/wallet/visa_checkout from {{ ref('charges_payment_method_details_card_wallet_base') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -5,7 +5,7 @@
     tags = [ "nested-intermediate" ]
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ ref('charges_payment_method_details') }}
+-- depends_on: {{ ref('charges_payment_method_details_base') }}
 select
     _airbyte_payment_method_details_hashid,
     {{ json_extract_scalar('bancontact', ['bic'], ['bic']) }} as bic,
@@ -17,7 +17,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('charges_payment_method_details') }} as table_alias
+from {{ ref('charges_payment_method_details_base') }} as table_alias
 -- bancontact at charges_base/payment_method_details/bancontact
 where 1 = 1
 and bancontact is not null

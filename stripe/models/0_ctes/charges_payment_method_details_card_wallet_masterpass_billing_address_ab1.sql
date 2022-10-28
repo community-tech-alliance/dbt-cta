@@ -5,7 +5,7 @@
     tags = [ "nested-intermediate" ]
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ ref('charges_payment_method_details_card_wallet_masterpass') }}
+-- depends_on: {{ ref('charges_payment_method_details_card_wallet_masterpass_base') }}
 select
     _airbyte_masterpass_hashid,
     {{ json_extract_scalar('billing_address', ['city'], ['city']) }} as city,
@@ -17,7 +17,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('charges_payment_method_details_card_wallet_masterpass') }} as table_alias
+from {{ ref('charges_payment_method_details_card_wallet_masterpass_base') }} as table_alias
 -- billing_address at charges_base/payment_method_details/card/wallet/masterpass/billing_address
 where 1 = 1
 and billing_address is not null

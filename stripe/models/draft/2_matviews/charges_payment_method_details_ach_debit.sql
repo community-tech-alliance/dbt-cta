@@ -19,7 +19,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_ach_debit_hashid
 from {{ ref('charges_payment_method_details_ach_debit_ab3') }}
--- ach_debit at charges_base/payment_method_details/ach_debit from {{ ref('charges_payment_method_details') }}
+-- ach_debit at charges_base/payment_method_details/ach_debit from {{ ref('charges_payment_method_details_base') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

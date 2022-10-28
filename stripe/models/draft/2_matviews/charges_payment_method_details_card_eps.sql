@@ -14,7 +14,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_eps_hashid
 from {{ ref('charges_payment_method_details_card_eps_ab3') }}
--- eps at charges_base/payment_method_details/card/eps from {{ ref('charges_payment_method_details_card') }}
+-- eps at charges_base/payment_method_details/card/eps from {{ ref('charges_payment_method_details_card_base') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

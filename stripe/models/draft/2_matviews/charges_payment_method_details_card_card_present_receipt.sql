@@ -21,7 +21,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_receipt_hashid
 from {{ ref('charges_payment_method_details_card_card_present_receipt_ab3') }}
--- receipt at charges_base/payment_method_details/card/card_present/receipt from {{ ref('charges_payment_method_details_card_card_present') }}
+-- receipt at charges_base/payment_method_details/card/card_present/receipt from {{ ref('charges_payment_method_details_card_card_present_base') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

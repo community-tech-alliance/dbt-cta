@@ -17,7 +17,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_masterpass_hashid
 from {{ ref('charges_payment_method_details_card_wallet_masterpass_ab3') }}
--- masterpass at charges_base/payment_method_details/card/wallet/masterpass from {{ ref('charges_payment_method_details_card_wallet') }}
+-- masterpass at charges_base/payment_method_details/card/wallet/masterpass from {{ ref('charges_payment_method_details_card_wallet_base') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 
