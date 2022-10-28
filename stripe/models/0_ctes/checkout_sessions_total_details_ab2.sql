@@ -18,5 +18,5 @@ select
 from {{ ref('checkout_sessions_total_details_ab1') }}
 -- total_details at checkout_sessions/total_details
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

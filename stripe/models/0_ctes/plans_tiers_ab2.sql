@@ -17,5 +17,5 @@ select
 from {{ ref('plans_tiers_ab1') }}
 -- tiers at plans/tiers
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

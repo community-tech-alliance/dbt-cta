@@ -19,5 +19,5 @@ select
 from {{ ref('customers_subscriptions_ab2') }} tmp
 -- subscriptions at customers/subscriptions
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

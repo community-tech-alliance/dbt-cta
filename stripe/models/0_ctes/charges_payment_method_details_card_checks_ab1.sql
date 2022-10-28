@@ -18,5 +18,5 @@ from {{ ref('charges_payment_method_details_card') }} as table_alias
 -- checks at charges/payment_method_details/card/checks
 where 1 = 1
 and checks is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

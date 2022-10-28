@@ -20,5 +20,5 @@ select
 from {{ ref('charges_payment_method_details_card_wallet_masterpass_billing_address_ab2') }} tmp
 -- billing_address at charges/payment_method_details/card/wallet/masterpass/billing_address
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

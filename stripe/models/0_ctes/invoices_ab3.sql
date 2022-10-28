@@ -58,5 +58,5 @@ select
 from {{ ref('invoices_ab2') }} tmp
 -- invoices
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

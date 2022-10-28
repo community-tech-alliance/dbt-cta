@@ -38,5 +38,5 @@ from {{ ref('invoice_items') }} as table_alias
 -- plan at invoice_items/plan
 where 1 = 1
 and plan is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

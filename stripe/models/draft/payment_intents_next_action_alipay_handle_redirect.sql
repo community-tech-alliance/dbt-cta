@@ -19,5 +19,5 @@ select
 from {{ ref('payment_intents_next_action_alipay_handle_redirect_ab3') }}
 -- alipay_handle_redirect at payment_intents/next_action/alipay_handle_redirect from {{ ref('payment_intents_next_action') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

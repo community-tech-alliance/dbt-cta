@@ -20,5 +20,5 @@ from {{ ref('payment_intents') }} as table_alias
 -- charges at payment_intents/charges
 where 1 = 1
 and charges is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

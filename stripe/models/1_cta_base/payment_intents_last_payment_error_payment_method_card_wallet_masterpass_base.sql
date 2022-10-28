@@ -19,5 +19,5 @@ select
 from {{ ref('payment_intents_last_payment_error_payment_method_card_wallet_masterpass_ab3') }}
 -- masterpass at payment_intents/last_payment_error/payment_method/card/wallet/masterpass from {{ ref('payment_intents_last_payment_error_payment_method_card_wallet') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

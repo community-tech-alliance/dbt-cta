@@ -42,5 +42,5 @@ from {{ ref('disputes') }} as table_alias
 -- evidence at disputes/evidence
 where 1 = 1
 and evidence is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

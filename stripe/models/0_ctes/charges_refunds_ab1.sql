@@ -20,5 +20,5 @@ from {{ ref('charges') }} as table_alias
 -- refunds at charges/refunds
 where 1 = 1
 and refunds is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

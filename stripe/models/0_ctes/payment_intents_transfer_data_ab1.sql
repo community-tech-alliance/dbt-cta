@@ -17,5 +17,5 @@ from {{ ref('payment_intents') }} as table_alias
 -- transfer_data at payment_intents/transfer_data
 where 1 = 1
 and transfer_data is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -16,5 +16,5 @@ select
 from {{ ref('invoice_items_period_ab1') }}
 -- period at invoice_items/period
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

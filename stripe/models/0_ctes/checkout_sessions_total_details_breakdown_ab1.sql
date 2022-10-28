@@ -17,5 +17,5 @@ from {{ ref('checkout_sessions_total_details') }} as table_alias
 -- breakdown at checkout_sessions/total_details/breakdown
 where 1 = 1
 and breakdown is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

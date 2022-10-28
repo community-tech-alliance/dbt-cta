@@ -58,5 +58,5 @@ from {{ ref('charges') }} as table_alias
 -- source at charges/source
 where 1 = 1
 and source is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

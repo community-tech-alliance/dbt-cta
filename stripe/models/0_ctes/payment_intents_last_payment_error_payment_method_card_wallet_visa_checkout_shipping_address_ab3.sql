@@ -20,5 +20,5 @@ select
 from {{ ref('payment_intents_last_payment_error_payment_method_card_wallet_visa_checkout_shipping_address_ab2') }} tmp
 -- shipping_address at payment_intents/last_payment_error/payment_method/card/wallet/visa_checkout/shipping_address
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

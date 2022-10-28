@@ -29,5 +29,5 @@ select
 from {{ ref('checkout_sessions_total_details_breakdown_taxes_rate_ab3') }}
 -- rate at checkout_sessions/total_details/breakdown/taxes/rate from {{ ref('checkout_sessions_total_details_breakdown_taxes') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

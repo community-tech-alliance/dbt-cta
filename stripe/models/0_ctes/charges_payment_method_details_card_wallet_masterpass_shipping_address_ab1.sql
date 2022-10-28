@@ -21,5 +21,5 @@ from {{ ref('charges_payment_method_details_card_wallet_masterpass') }} as table
 -- shipping_address at charges/payment_method_details/card/wallet/masterpass/shipping_address
 where 1 = 1
 and shipping_address is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -27,5 +27,5 @@ select
 from {{ ref('promotion_codes_ab3') }}
 -- promotion_codes from {{ source('stripe_partner_a', '_airbyte_raw_promotion_codes') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -18,5 +18,5 @@ from {{ ref('promotion_codes') }} as table_alias
 -- restrictions at promotion_codes/restrictions
 where 1 = 1
 and restrictions is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

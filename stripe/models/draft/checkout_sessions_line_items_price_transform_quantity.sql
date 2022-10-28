@@ -17,5 +17,5 @@ select
 from {{ ref('checkout_sessions_line_items_price_transform_quantity_ab3') }}
 -- transform_quantity at checkout_sessions_line_items/price/transform_quantity from {{ ref('checkout_sessions_line_items_price') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

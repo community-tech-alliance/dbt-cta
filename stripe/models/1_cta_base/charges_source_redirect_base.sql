@@ -19,5 +19,5 @@ select
 from {{ ref('charges_source_redirect_ab3') }}
 -- redirect at charges/source/redirect from {{ ref('charges_source') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

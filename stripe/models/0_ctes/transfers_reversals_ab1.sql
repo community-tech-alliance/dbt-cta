@@ -20,5 +20,5 @@ from {{ ref('transfers') }} as table_alias
 -- reversals at transfers/reversals
 where 1 = 1
 and reversals is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

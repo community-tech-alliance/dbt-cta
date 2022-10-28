@@ -20,5 +20,5 @@ select
 from {{ ref('checkout_sessions_shipping_address_ab1') }}
 -- address at checkout_sessions/shipping/address
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -17,5 +17,5 @@ select
 from {{ ref('checkout_sessions_line_items_taxes_ab3') }}
 -- taxes at checkout_sessions_line_items/taxes from {{ ref('checkout_sessions_line_items') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

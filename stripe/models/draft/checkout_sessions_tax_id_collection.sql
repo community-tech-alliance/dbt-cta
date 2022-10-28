@@ -16,5 +16,5 @@ select
 from {{ ref('checkout_sessions_tax_id_collection_ab3') }}
 -- tax_id_collection at checkout_sessions/tax_id_collection from {{ ref('checkout_sessions') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

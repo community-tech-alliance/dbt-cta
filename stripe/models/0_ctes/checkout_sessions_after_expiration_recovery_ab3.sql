@@ -18,5 +18,5 @@ select
 from {{ ref('checkout_sessions_after_expiration_recovery_ab2') }} tmp
 -- recovery at checkout_sessions/after_expiration/recovery
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -16,5 +16,5 @@ select
 from {{ ref('charges_fraud_details_ab3') }}
 -- fraud_details at charges/fraud_details from {{ ref('charges') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -17,5 +17,5 @@ select
 from {{ ref('payment_intents_last_payment_error_payment_method_card_generated_from_payment_method_details_ab3') }}
 -- payment_method_details at payment_intents/last_payment_error/payment_method/card/generated_from/payment_method_details from {{ ref('payment_intents_last_payment_error_payment_method_card_generated_from') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

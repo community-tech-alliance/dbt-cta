@@ -21,5 +21,5 @@ from {{ ref('charges_payment_method_details') }} as table_alias
 -- bancontact at charges/payment_method_details/bancontact
 where 1 = 1
 and bancontact is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

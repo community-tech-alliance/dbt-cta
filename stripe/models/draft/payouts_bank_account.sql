@@ -28,5 +28,5 @@ select
 from {{ ref('payouts_bank_account_ab3') }}
 -- bank_account at payouts/bank_account from {{ ref('payouts') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

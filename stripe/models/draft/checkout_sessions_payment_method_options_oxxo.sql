@@ -16,5 +16,5 @@ select
 from {{ ref('checkout_sessions_payment_method_options_oxxo_ab3') }}
 -- oxxo at checkout_sessions/payment_method_options/oxxo from {{ ref('checkout_sessions_payment_method_options') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

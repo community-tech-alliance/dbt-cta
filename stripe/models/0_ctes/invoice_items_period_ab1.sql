@@ -17,5 +17,5 @@ from {{ ref('invoice_items') }} as table_alias
 -- period at invoice_items/period
 where 1 = 1
 and period is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

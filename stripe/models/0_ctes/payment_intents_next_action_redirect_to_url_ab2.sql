@@ -16,5 +16,5 @@ select
 from {{ ref('payment_intents_next_action_redirect_to_url_ab1') }}
 -- redirect_to_url at payment_intents/next_action/redirect_to_url
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -20,5 +20,5 @@ from {{ ref('payment_intents') }} as table_alias
 -- shipping at payment_intents/shipping
 where 1 = 1
 and shipping is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

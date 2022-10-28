@@ -19,5 +19,5 @@ select
 from {{ ref('payment_intents_last_payment_error_payment_method_card_wallet_visa_checkout_ab3') }}
 -- visa_checkout at payment_intents/last_payment_error/payment_method/card/wallet/visa_checkout from {{ ref('payment_intents_last_payment_error_payment_method_card_wallet') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

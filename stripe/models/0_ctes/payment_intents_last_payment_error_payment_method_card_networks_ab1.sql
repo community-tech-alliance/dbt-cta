@@ -17,5 +17,5 @@ from {{ ref('payment_intents_last_payment_error_payment_method_card') }} as tabl
 -- networks at payment_intents/last_payment_error/payment_method/card/networks
 where 1 = 1
 and networks is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

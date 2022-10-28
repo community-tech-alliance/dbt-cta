@@ -16,5 +16,5 @@ select
 from {{ ref('payment_intents_transfer_data_ab1') }}
 -- transfer_data at payment_intents/transfer_data
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

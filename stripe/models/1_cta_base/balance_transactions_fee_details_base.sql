@@ -20,5 +20,5 @@ select
 from {{ ref('balance_transactions_fee_details_ab3') }}
 -- fee_details at balance_transactions/fee_details from {{ ref('balance_transactions') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

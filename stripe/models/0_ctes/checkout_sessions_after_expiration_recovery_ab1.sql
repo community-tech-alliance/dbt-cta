@@ -19,5 +19,5 @@ from {{ ref('checkout_sessions_after_expiration') }} as table_alias
 -- recovery at checkout_sessions/after_expiration/recovery
 where 1 = 1
 and recovery is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

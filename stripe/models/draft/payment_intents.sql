@@ -51,5 +51,5 @@ select
 from {{ ref('payment_intents_ab3') }}
 -- payment_intents from {{ source('stripe_partner_a', '_airbyte_raw_payment_intents') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

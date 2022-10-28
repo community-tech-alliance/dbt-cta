@@ -17,5 +17,5 @@ select
 from {{ ref('charges_payment_method_details_card_three_d_secure_ab2') }} tmp
 -- three_d_secure at charges/payment_method_details/card/three_d_secure
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

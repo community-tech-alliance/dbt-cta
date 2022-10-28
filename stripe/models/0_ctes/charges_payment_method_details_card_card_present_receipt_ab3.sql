@@ -22,5 +22,5 @@ select
 from {{ ref('charges_payment_method_details_card_card_present_receipt_ab2') }} tmp
 -- receipt at charges/payment_method_details/card/card_present/receipt
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

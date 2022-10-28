@@ -18,5 +18,5 @@ from {{ ref('checkout_sessions_payment_method_options') }} as table_alias
 -- acss_debit at checkout_sessions/payment_method_options/acss_debit
 where 1 = 1
 and acss_debit is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

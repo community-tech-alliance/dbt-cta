@@ -16,5 +16,5 @@ from {{ ref('checkout_sessions') }} as table_alias
 -- consent at checkout_sessions/consent
 where 1 = 1
 and consent is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

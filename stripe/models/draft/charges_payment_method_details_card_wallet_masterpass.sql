@@ -19,5 +19,5 @@ select
 from {{ ref('charges_payment_method_details_card_wallet_masterpass_ab3') }}
 -- masterpass at charges/payment_method_details/card/wallet/masterpass from {{ ref('charges_payment_method_details_card_wallet') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

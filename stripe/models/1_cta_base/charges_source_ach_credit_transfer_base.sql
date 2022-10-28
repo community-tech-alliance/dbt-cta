@@ -24,5 +24,5 @@ select
 from {{ ref('charges_source_ach_credit_transfer_ab3') }}
 -- ach_credit_transfer at charges/source/ach_credit_transfer from {{ ref('charges_source') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

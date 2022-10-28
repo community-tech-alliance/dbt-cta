@@ -16,5 +16,5 @@ from {{ ref('payment_intents_last_payment_error_payment_method_card') }} as tabl
 -- three_d_secure_usage at payment_intents/last_payment_error/payment_method/card/three_d_secure_usage
 where 1 = 1
 and three_d_secure_usage is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

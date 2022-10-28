@@ -16,5 +16,5 @@ select
 from {{ ref('checkout_sessions_total_details_breakdown_ab1') }}
 -- breakdown at checkout_sessions/total_details/breakdown
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

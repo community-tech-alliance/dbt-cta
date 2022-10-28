@@ -20,5 +20,5 @@ select
 from {{ ref('charges_payment_method_details_ach_debit_ab1') }}
 -- ach_debit at charges/payment_method_details/ach_debit
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

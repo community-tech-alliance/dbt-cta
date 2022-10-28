@@ -16,5 +16,5 @@ from {{ ref('charges') }} as table_alias
 -- fraud_details at charges/fraud_details
 where 1 = 1
 and fraud_details is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -20,5 +20,5 @@ from {{ ref('checkout_sessions_line_items_price') }} as table_alias
 -- tiers at checkout_sessions_line_items/price/tiers
 where 1 = 1
 and tiers is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

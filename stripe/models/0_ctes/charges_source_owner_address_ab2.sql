@@ -20,5 +20,5 @@ select
 from {{ ref('charges_source_owner_address_ab1') }}
 -- address at charges/source/owner/address
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

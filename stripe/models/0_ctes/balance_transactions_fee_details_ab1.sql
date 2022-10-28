@@ -22,5 +22,5 @@ from {{ ref('balance_transactions') }} as table_alias
 {{ cross_join_unnest('balance_transactions', 'fee_details') }}
 where 1 = 1
 and fee_details is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

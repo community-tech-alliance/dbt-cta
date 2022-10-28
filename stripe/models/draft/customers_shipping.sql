@@ -18,5 +18,5 @@ select
 from {{ ref('customers_shipping_ab3') }}
 -- shipping at customers/shipping from {{ ref('customers') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

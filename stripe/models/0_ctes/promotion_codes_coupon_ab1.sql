@@ -31,5 +31,5 @@ from {{ ref('promotion_codes') }} as table_alias
 -- coupon at promotion_codes/coupon
 where 1 = 1
 and coupon is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

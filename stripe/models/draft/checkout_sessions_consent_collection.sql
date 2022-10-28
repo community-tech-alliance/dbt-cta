@@ -16,5 +16,5 @@ select
 from {{ ref('checkout_sessions_consent_collection_ab3') }}
 -- consent_collection at checkout_sessions/consent_collection from {{ ref('checkout_sessions') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -20,5 +20,5 @@ select
 from {{ ref('checkout_sessions_payment_method_options_acss_debit_mandate_options_ab3') }}
 -- mandate_options at checkout_sessions/payment_method_options/acss_debit/mandate_options from {{ ref('checkout_sessions_payment_method_options_acss_debit') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

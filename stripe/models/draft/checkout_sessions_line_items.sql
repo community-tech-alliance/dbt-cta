@@ -27,5 +27,5 @@ select
 from {{ ref('checkout_sessions_line_items_ab3') }}
 -- checkout_sessions_line_items from {{ source('stripe_partner_a', '_airbyte_raw_checkout_sessions_line_items') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

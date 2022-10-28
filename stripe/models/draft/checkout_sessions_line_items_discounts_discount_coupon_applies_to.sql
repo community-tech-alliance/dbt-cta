@@ -16,5 +16,5 @@ select
 from {{ ref('checkout_sessions_line_items_discounts_discount_coupon_applies_to_ab3') }}
 -- applies_to at checkout_sessions_line_items/discounts/discount/coupon/applies_to from {{ ref('checkout_sessions_line_items_discounts_discount_coupon') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

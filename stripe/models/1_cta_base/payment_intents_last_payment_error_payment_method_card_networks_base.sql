@@ -17,5 +17,5 @@ select
 from {{ ref('payment_intents_last_payment_error_payment_method_card_networks_ab3') }}
 -- networks at payment_intents/last_payment_error/payment_method/card/networks from {{ ref('payment_intents_last_payment_error_payment_method_card') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

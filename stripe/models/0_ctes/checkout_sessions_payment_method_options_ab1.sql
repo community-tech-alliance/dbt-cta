@@ -18,5 +18,5 @@ from {{ ref('checkout_sessions') }} as table_alias
 -- payment_method_options at checkout_sessions/payment_method_options
 where 1 = 1
 and payment_method_options is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

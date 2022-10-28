@@ -16,5 +16,5 @@ from {{ ref('checkout_sessions') }} as table_alias
 -- tax_id_collection at checkout_sessions/tax_id_collection
 where 1 = 1
 and tax_id_collection is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

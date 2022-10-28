@@ -21,5 +21,5 @@ from {{ ref('charges_payment_method_details') }} as table_alias
 -- ach_debit at charges/payment_method_details/ach_debit
 where 1 = 1
 and ach_debit is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

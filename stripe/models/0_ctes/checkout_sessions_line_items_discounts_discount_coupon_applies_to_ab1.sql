@@ -16,5 +16,5 @@ from {{ ref('checkout_sessions_line_items_discounts_discount_coupon') }} as tabl
 -- applies_to at checkout_sessions_line_items/discounts/discount/coupon/applies_to
 where 1 = 1
 and applies_to is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

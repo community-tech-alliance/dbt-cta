@@ -29,5 +29,5 @@ from {{ ref('checkout_sessions_line_items_taxes') }} as table_alias
 -- rate at checkout_sessions_line_items/taxes/rate
 where 1 = 1
 and rate is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

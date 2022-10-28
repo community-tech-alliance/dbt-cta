@@ -15,5 +15,5 @@ select
 from {{ ref('promotion_codes_coupon_applies_to_ab1') }}
 -- applies_to at promotion_codes/coupon/applies_to
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

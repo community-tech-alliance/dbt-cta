@@ -21,5 +21,5 @@ select
 from {{ ref('payment_intents_shipping_address_ab3') }}
 -- address at payment_intents/shipping/address from {{ ref('payment_intents_shipping') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

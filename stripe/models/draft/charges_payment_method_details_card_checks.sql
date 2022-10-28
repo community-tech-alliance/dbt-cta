@@ -18,5 +18,5 @@ select
 from {{ ref('charges_payment_method_details_card_checks_ab3') }}
 -- checks at charges/payment_method_details/card/checks from {{ ref('charges_payment_method_details_card') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

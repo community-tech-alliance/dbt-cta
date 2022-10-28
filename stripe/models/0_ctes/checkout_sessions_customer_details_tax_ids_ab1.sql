@@ -19,5 +19,5 @@ from {{ ref('checkout_sessions_customer_details') }} as table_alias
 {{ cross_join_unnest('customer_details', 'tax_ids') }}
 where 1 = 1
 and tax_ids is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

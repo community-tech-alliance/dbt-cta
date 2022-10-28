@@ -15,5 +15,5 @@ select
 from {{ ref('checkout_sessions_after_expiration_ab1') }}
 -- after_expiration at checkout_sessions/after_expiration
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

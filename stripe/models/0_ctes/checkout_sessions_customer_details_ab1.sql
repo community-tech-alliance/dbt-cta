@@ -19,5 +19,5 @@ from {{ ref('checkout_sessions') }} as table_alias
 -- customer_details at checkout_sessions/customer_details
 where 1 = 1
 and customer_details is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

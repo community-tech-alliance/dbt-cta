@@ -17,5 +17,5 @@ from {{ ref('charges_payment_method_details_card') }} as table_alias
 -- multibanco at charges/payment_method_details/card/multibanco
 where 1 = 1
 and multibanco is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -21,5 +21,5 @@ from {{ ref('customers') }} as table_alias
 -- discount at customers/discount
 where 1 = 1
 and discount is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

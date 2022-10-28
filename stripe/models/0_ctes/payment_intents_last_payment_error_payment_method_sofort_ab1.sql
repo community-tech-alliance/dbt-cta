@@ -16,5 +16,5 @@ from {{ ref('payment_intents_last_payment_error_payment_method') }} as table_ali
 -- sofort at payment_intents/last_payment_error/payment_method/sofort
 where 1 = 1
 and sofort is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

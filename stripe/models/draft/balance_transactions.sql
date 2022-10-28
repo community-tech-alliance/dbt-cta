@@ -30,5 +30,5 @@ select
 from {{ ref('balance_transactions_ab3') }}
 -- balance_transactions from {{ source('stripe_partner_a', '_airbyte_raw_balance_transactions') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

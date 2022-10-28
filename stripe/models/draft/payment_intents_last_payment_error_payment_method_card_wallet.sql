@@ -23,5 +23,5 @@ select
 from {{ ref('payment_intents_last_payment_error_payment_method_card_wallet_ab3') }}
 -- wallet at payment_intents/last_payment_error/payment_method/card/wallet from {{ ref('payment_intents_last_payment_error_payment_method_card') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

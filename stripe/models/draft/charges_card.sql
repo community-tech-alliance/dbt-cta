@@ -39,5 +39,5 @@ select
 from {{ ref('charges_card_ab3') }}
 -- card at charges/card from {{ ref('charges') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -16,5 +16,5 @@ select
 from {{ ref('payment_intents_last_payment_error_payment_method_boleto_ab3') }}
 -- boleto at payment_intents/last_payment_error/payment_method/boleto from {{ ref('payment_intents_last_payment_error_payment_method') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

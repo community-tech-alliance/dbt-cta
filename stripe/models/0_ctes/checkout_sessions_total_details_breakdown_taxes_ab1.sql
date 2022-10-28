@@ -19,5 +19,5 @@ from {{ ref('checkout_sessions_total_details_breakdown') }} as table_alias
 {{ cross_join_unnest('breakdown', 'taxes') }}
 where 1 = 1
 and taxes is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -31,5 +31,5 @@ select
 from {{ ref('checkout_sessions_line_items_discounts_discount_coupon_ab3') }}
 -- coupon at checkout_sessions_line_items/discounts/discount/coupon from {{ ref('checkout_sessions_line_items_discounts_discount') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

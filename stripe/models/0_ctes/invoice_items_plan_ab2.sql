@@ -37,5 +37,5 @@ select
 from {{ ref('invoice_items_plan_ab1') }}
 -- plan at invoice_items/plan
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

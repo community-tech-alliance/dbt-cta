@@ -30,5 +30,5 @@ select
 from {{ ref('coupons_ab2') }} tmp
 -- coupons
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

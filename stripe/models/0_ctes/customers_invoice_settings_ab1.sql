@@ -18,5 +18,5 @@ from {{ ref('customers') }} as table_alias
 -- invoice_settings at customers/invoice_settings
 where 1 = 1
 and invoice_settings is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

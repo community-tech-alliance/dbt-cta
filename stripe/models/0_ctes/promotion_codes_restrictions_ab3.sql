@@ -17,5 +17,5 @@ select
 from {{ ref('promotion_codes_restrictions_ab2') }} tmp
 -- restrictions at promotion_codes/restrictions
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

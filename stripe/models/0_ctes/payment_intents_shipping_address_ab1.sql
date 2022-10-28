@@ -21,5 +21,5 @@ from {{ ref('payment_intents_shipping') }} as table_alias
 -- address at payment_intents/shipping/address
 where 1 = 1
 and address is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

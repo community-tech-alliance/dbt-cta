@@ -20,5 +20,5 @@ select
 from {{ ref('charges_payment_method_details_card_wallet_visa_checkout_shipping_address_ab1') }}
 -- shipping_address at charges/payment_method_details/card/wallet/visa_checkout/shipping_address
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

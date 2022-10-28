@@ -23,5 +23,5 @@ select
 from {{ ref('charges_source_owner_ab3') }}
 -- owner at charges/source/owner from {{ ref('charges_source') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

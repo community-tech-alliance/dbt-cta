@@ -15,5 +15,5 @@ select
 from {{ ref('checkout_sessions_phone_number_collection_ab1') }}
 -- phone_number_collection at checkout_sessions/phone_number_collection
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

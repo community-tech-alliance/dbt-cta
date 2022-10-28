@@ -21,5 +21,5 @@ select
 from {{ ref('customers_address_ab3') }}
 -- address at customers/address from {{ ref('customers') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -24,5 +24,5 @@ select
 from {{ ref('payment_intents_last_payment_error_ab3') }}
 -- last_payment_error at payment_intents/last_payment_error from {{ ref('payment_intents') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

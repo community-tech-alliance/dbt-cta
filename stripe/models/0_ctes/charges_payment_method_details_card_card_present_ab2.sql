@@ -26,5 +26,5 @@ select
 from {{ ref('charges_payment_method_details_card_card_present_ab1') }}
 -- card_present at charges/payment_method_details/card/card_present
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -28,5 +28,5 @@ from {{ ref('payouts') }} as table_alias
 -- bank_account at payouts/bank_account
 where 1 = 1
 and bank_account is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

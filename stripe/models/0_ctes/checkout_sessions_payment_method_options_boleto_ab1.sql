@@ -16,5 +16,5 @@ from {{ ref('checkout_sessions_payment_method_options') }} as table_alias
 -- boleto at checkout_sessions/payment_method_options/boleto
 where 1 = 1
 and boleto is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

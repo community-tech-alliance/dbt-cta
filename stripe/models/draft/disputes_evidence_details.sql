@@ -19,5 +19,5 @@ select
 from {{ ref('disputes_evidence_details_ab3') }}
 -- evidence_details at disputes/evidence_details from {{ ref('disputes') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 
