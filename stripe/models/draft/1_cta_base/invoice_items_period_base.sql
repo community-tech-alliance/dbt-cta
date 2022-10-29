@@ -15,7 +15,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_period_hashid
 from {{ ref('invoice_items_period_ab3') }}
--- period at invoice_items/period from {{ ref('invoice_items') }}
+-- period at invoice_items_base/period from {{ ref('invoice_items_base') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

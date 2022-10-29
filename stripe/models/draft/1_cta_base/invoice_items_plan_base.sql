@@ -36,7 +36,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_plan_hashid
 from {{ ref('invoice_items_plan_ab3') }}
--- plan at invoice_items/plan from {{ ref('invoice_items') }}
+-- plan at invoice_items_base/plan from {{ ref('invoice_items_base') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

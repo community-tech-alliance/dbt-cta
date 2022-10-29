@@ -5,19 +5,16 @@
     tags = [ "nested" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('disputes_evidence_details_ab3') }}
+-- depends_on: {{ ref('disputes_balance_transactions_ab3') }}
 select
     _airbyte_disputes_hashid,
-    due_by,
-    past_due,
-    has_evidence,
-    submission_count,
+    id,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
-    _airbyte_evidence_details_hashid
-from {{ ref('disputes_evidence_details_ab3') }}
--- evidence_details at disputes/evidence_details from {{ ref('disputes') }}
+    _airbyte_balance_transactions_hashid
+from {{ ref('disputes_balance_transactions_ab3') }}
+-- balance_transactions at disputes_base/balance_transactions from {{ ref('disputes_base') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -17,7 +17,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_evidence_details_hashid
 from {{ ref('disputes_evidence_details_ab3') }}
--- evidence_details at disputes/evidence_details from {{ ref('disputes') }}
+-- evidence_details at disputes_base/evidence_details from {{ ref('disputes_base') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

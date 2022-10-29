@@ -15,7 +15,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('invoice_items_plan_tiers_ab1') }}
--- tiers at invoice_items/plan/tiers
+-- tiers at invoice_items_base/plan/tiers
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

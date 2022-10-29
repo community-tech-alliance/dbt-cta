@@ -14,7 +14,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_balance_transactions_hashid
 from {{ ref('disputes_balance_transactions_ab3') }}
--- balance_transactions at disputes/balance_transactions from {{ ref('disputes') }}
+-- balance_transactions at disputes_base/balance_transactions from {{ ref('disputes_base') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

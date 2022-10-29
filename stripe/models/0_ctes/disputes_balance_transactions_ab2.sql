@@ -5,18 +5,15 @@
     tags = [ "nested-intermediate" ]
 ) }}
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
--- depends_on: {{ ref('disputes_evidence_details_ab1') }}
+-- depends_on: {{ ref('disputes_balance_transactions_ab1') }}
 select
     _airbyte_disputes_hashid,
-    cast(due_by as {{ dbt_utils.type_float() }}) as due_by,
-    {{ cast_to_boolean('past_due') }} as past_due,
-    {{ cast_to_boolean('has_evidence') }} as has_evidence,
-    cast(submission_count as {{ dbt_utils.type_bigint() }}) as submission_count,
+    cast(id as {{ dbt_utils.type_string() }}) as id,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('disputes_evidence_details_ab1') }}
--- evidence_details at disputes/evidence_details
+from {{ ref('disputes_balance_transactions_ab1') }}
+-- balance_transactions at disputes_base/balance_transactions
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 
