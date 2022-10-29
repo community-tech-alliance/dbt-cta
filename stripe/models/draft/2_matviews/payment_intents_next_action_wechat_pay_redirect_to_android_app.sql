@@ -20,7 +20,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_wechat_pay_redirect_to_android_app_hashid
 from {{ ref('payment_intents_next_action_wechat_pay_redirect_to_android_app_ab3') }}
--- wechat_pay_redirect_to_android_app at payment_intents/next_action/wechat_pay_redirect_to_android_app from {{ ref('payment_intents_next_action') }}
+-- wechat_pay_redirect_to_android_app at payment_intents_base/next_action/wechat_pay_redirect_to_android_app from {{ ref('payment_intents_next_action') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -14,7 +14,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('payment_intents_next_action') }} as table_alias
--- redirect_to_url at payment_intents/next_action/redirect_to_url
+-- redirect_to_url at payment_intents_base/next_action/redirect_to_url
 where 1 = 1
 and redirect_to_url is not null
 {{ incremental_clause('_airbyte_emitted_at') }}

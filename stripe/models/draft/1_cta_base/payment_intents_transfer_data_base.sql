@@ -15,7 +15,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_transfer_data_hashid
 from {{ ref('payment_intents_transfer_data_ab3') }}
--- transfer_data at payment_intents/transfer_data from {{ ref('payment_intents') }}
+-- transfer_data at payment_intents_base/transfer_data from {{ ref('payment_intents_base') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

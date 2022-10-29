@@ -14,7 +14,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('payment_intents_next_action_wechat_pay_display_qr_code_ab1') }}
--- wechat_pay_display_qr_code at payment_intents/next_action/wechat_pay_display_qr_code
+-- wechat_pay_display_qr_code at payment_intents_base/next_action/wechat_pay_display_qr_code
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

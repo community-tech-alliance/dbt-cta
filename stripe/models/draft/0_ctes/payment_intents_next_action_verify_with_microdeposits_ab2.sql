@@ -14,7 +14,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('payment_intents_next_action_verify_with_microdeposits_ab1') }}
--- verify_with_microdeposits at payment_intents/next_action/verify_with_microdeposits
+-- verify_with_microdeposits at payment_intents_base/next_action/verify_with_microdeposits
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

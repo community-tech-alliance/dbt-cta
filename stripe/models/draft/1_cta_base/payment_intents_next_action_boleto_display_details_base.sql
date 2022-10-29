@@ -17,7 +17,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_boleto_display_details_hashid
 from {{ ref('payment_intents_next_action_boleto_display_details_ab3') }}
--- boleto_display_details at payment_intents/next_action/boleto_display_details from {{ ref('payment_intents_next_action') }}
+-- boleto_display_details at payment_intents_base/next_action/boleto_display_details from {{ ref('payment_intents_next_action') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

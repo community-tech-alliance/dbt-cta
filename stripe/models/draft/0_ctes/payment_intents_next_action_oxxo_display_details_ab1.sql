@@ -15,7 +15,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('payment_intents_next_action') }} as table_alias
--- oxxo_display_details at payment_intents/next_action/oxxo_display_details
+-- oxxo_display_details at payment_intents_base/next_action/oxxo_display_details
 where 1 = 1
 and oxxo_display_details is not null
 {{ incremental_clause('_airbyte_emitted_at') }}

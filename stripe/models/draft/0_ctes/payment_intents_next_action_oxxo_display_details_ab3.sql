@@ -15,7 +15,7 @@ select
     ]) }} as _airbyte_oxxo_display_details_hashid,
     tmp.*
 from {{ ref('payment_intents_next_action_oxxo_display_details_ab2') }} tmp
--- oxxo_display_details at payment_intents/next_action/oxxo_display_details
+-- oxxo_display_details at payment_intents_base/next_action/oxxo_display_details
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

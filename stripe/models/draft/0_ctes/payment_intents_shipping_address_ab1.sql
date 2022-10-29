@@ -18,7 +18,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('payment_intents_shipping') }} as table_alias
--- address at payment_intents/shipping/address
+-- address at payment_intents_base/shipping/address
 where 1 = 1
 and address is not null
 {{ incremental_clause('_airbyte_emitted_at') }}

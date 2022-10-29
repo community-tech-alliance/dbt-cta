@@ -23,7 +23,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_next_action_hashid
 from {{ ref('payment_intents_next_action_ab3') }}
--- next_action at payment_intents/next_action from {{ ref('payment_intents') }}
+-- next_action at payment_intents_base/next_action from {{ ref('payment_intents_base') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

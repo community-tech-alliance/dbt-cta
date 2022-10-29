@@ -14,7 +14,7 @@ select
     ]) }} as _airbyte_redirect_to_url_hashid,
     tmp.*
 from {{ ref('payment_intents_next_action_redirect_to_url_ab2') }} tmp
--- redirect_to_url at payment_intents/next_action/redirect_to_url
+-- redirect_to_url at payment_intents_base/next_action/redirect_to_url
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 
