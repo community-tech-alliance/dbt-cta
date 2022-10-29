@@ -28,7 +28,7 @@ select
     ]) }} as _airbyte_coupon_hashid,
     tmp.*
 from {{ ref('customers_discount_coupon_ab2') }} tmp
--- coupon at customers/discount/coupon
+-- coupon at customers_base/discount/coupon
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -17,7 +17,7 @@ select
     ]) }} as _airbyte_subscriptions_hashid,
     tmp.*
 from {{ ref('customers_subscriptions_ab2') }} tmp
--- subscriptions at customers/subscriptions
+-- subscriptions at customers_base/subscriptions
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

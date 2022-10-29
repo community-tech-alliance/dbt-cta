@@ -36,7 +36,7 @@ select
     ]) }} as _airbyte_cards_hashid,
     tmp.*
 from {{ ref('customers_cards_ab2') }} tmp
--- cards at customers/cards
+-- cards at customers_base/cards
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

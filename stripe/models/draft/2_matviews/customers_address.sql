@@ -19,7 +19,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_address_hashid
 from {{ ref('customers_address_ab3') }}
--- address at customers/address from {{ ref('customers') }}
+-- address at customers_base/address from {{ ref('customers_base') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

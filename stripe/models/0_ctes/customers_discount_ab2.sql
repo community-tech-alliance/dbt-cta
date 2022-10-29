@@ -18,7 +18,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('customers_discount_ab1') }}
--- discount at customers/discount
+-- discount at customers_base/discount
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

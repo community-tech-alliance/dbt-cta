@@ -15,7 +15,7 @@ select
     ]) }} as _airbyte_invoice_settings_hashid,
     tmp.*
 from {{ ref('customers_invoice_settings_ab2') }} tmp
--- invoice_settings at customers/invoice_settings
+-- invoice_settings at customers_base/invoice_settings
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

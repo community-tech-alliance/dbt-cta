@@ -18,7 +18,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_subscriptions_hashid
 from {{ ref('customers_subscriptions_ab3') }}
--- subscriptions at customers/subscriptions from {{ ref('customers') }}
+-- subscriptions at customers_base/subscriptions from {{ ref('customers_base') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -37,7 +37,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_cards_hashid
 from {{ ref('customers_cards_ab3') }}
--- cards at customers/cards from {{ ref('customers') }}
+-- cards at customers_base/cards from {{ ref('customers_base') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -15,7 +15,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('customers_invoice_settings_ab1') }}
--- invoice_settings at customers/invoice_settings
+-- invoice_settings at customers_base/invoice_settings
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

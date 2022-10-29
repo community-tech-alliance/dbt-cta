@@ -18,7 +18,7 @@ select
     ]) }} as _airbyte_address_hashid,
     tmp.*
 from {{ ref('customers_shipping_address_ab2') }} tmp
--- address at customers/shipping/address
+-- address at customers_base/shipping/address
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

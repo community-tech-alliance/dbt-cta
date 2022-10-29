@@ -19,7 +19,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_discount_hashid
 from {{ ref('customers_discount_ab3') }}
--- discount at customers/discount from {{ ref('customers') }}
+-- discount at customers_base/discount from {{ ref('customers_base') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

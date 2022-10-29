@@ -5,20 +5,20 @@
     tags = [ "nested-intermediate" ]
 ) }}
 -- SQL model to build a hash column based on the values of this record
--- depends_on: {{ ref('customers_discount_ab2') }}
+-- depends_on: {{ ref('customers_address_ab2') }}
 select
     {{ dbt_utils.surrogate_key([
         '_airbyte_customers_hashid',
-        adapter.quote('end'),
-        'start',
-        object_to_string('coupon'),
-        'object',
-        'customer',
-        'subscription',
-    ]) }} as _airbyte_discount_hashid,
+        'city',
+        'line1',
+        'line2',
+        'state',
+        'country',
+        'postal_code',
+    ]) }} as _airbyte_address_hashid,
     tmp.*
-from {{ ref('customers_discount_ab2') }} tmp
--- discount at customers/discount
+from {{ ref('customers_address_ab2') }} tmp
+-- address at customers_base/address
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

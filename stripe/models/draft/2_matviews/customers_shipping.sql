@@ -16,7 +16,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_shipping_hashid
 from {{ ref('customers_shipping_ab3') }}
--- shipping at customers/shipping from {{ ref('customers') }}
+-- shipping at customers_base/shipping from {{ ref('customers_base') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

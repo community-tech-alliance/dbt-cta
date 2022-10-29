@@ -5,21 +5,21 @@
     tags = [ "nested" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('customers_address_ab3') }}
+-- depends_on: {{ ref('customers_discount_ab3') }}
 select
     _airbyte_customers_hashid,
-    city,
-    line1,
-    line2,
-    state,
-    country,
-    postal_code,
+    {{ adapter.quote('end') }},
+    start,
+    coupon,
+    object,
+    customer,
+    subscription,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
-    _airbyte_address_hashid
-from {{ ref('customers_address_ab3') }}
--- address at customers/address from {{ ref('customers') }}
+    _airbyte_discount_hashid
+from {{ ref('customers_discount_ab3') }}
+-- discount at customers_base/discount from {{ ref('customers_base') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 
