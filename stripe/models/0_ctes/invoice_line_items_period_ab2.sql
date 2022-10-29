@@ -5,16 +5,15 @@
     tags = [ "nested-intermediate" ]
 ) }}
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
--- depends_on: {{ ref('invoice_line_items_plan_tiers_ab1') }}
+-- depends_on: {{ ref('invoice_line_items_period_ab1') }}
 select
-    _airbyte_plan_hashid,
-    cast(up_to as {{ dbt_utils.type_bigint() }}) as up_to,
-    cast(flat_amount as {{ dbt_utils.type_bigint() }}) as flat_amount,
-    cast(unit_amount as {{ dbt_utils.type_bigint() }}) as unit_amount,
+    _airbyte_invoice_line_items_hashid,
+    cast({{ adapter.quote('end') }} as {{ dbt_utils.type_float() }}) as {{ adapter.quote('end') }},
+    cast(start as {{ dbt_utils.type_bigint() }}) as start,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('invoice_line_items_plan_tiers_ab1') }}
--- tiers at invoice_line_items/plan/tiers
+from {{ ref('invoice_line_items_period_ab1') }}
+-- period at invoice_line_items_base/period
 where 1 = 1
 

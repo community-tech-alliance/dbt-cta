@@ -16,6 +16,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_tiers_hashid
 from {{ ref('invoice_line_items_plan_tiers_ab3') }}
--- tiers at invoice_line_items/plan/tiers from {{ ref('invoice_line_items_plan') }}
+-- tiers at invoice_line_items_base/plan/tiers from {{ ref('invoice_line_items_plan_base') }}
 where 1 = 1
 

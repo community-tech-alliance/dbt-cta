@@ -5,15 +5,16 @@
     tags = [ "nested-intermediate" ]
 ) }}
 -- SQL model to build a hash column based on the values of this record
--- depends_on: {{ ref('invoice_line_items_period_ab2') }}
+-- depends_on: {{ ref('invoice_line_items_plan_tiers_ab2') }}
 select
     {{ dbt_utils.surrogate_key([
-        '_airbyte_invoice_line_items_hashid',
-        adapter.quote('end'),
-        'start',
-    ]) }} as _airbyte_period_hashid,
+        '_airbyte_plan_hashid',
+        'up_to',
+        'flat_amount',
+        'unit_amount',
+    ]) }} as _airbyte_tiers_hashid,
     tmp.*
-from {{ ref('invoice_line_items_period_ab2') }} tmp
--- period at invoice_line_items/period
+from {{ ref('invoice_line_items_plan_tiers_ab2') }} tmp
+-- tiers at invoice_line_items_base/plan/tiers
 where 1 = 1
 

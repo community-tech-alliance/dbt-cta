@@ -35,6 +35,6 @@ select
     ]) }} as _airbyte_plan_hashid,
     tmp.*
 from {{ ref('invoice_line_items_plan_ab2') }} tmp
--- plan at invoice_line_items/plan
+-- plan at invoice_line_items_base/plan
 where 1 = 1
 
