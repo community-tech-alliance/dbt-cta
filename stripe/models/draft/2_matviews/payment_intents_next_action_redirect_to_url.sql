@@ -15,7 +15,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_redirect_to_url_hashid
 from {{ ref('payment_intents_next_action_redirect_to_url_ab3') }}
--- redirect_to_url at payment_intents_base/next_action/redirect_to_url from {{ ref('payment_intents_next_action') }}
+-- redirect_to_url at payment_intents_base/next_action/redirect_to_url from {{ ref('payment_intents_next_action_base') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

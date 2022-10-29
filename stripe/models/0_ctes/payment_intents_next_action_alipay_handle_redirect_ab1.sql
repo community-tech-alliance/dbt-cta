@@ -5,7 +5,7 @@
     tags = [ "nested-intermediate" ]
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ ref('payment_intents_next_action') }}
+-- depends_on: {{ ref('payment_intents_next_action_base') }}
 select
     _airbyte_next_action_hashid,
     {{ json_extract_scalar('alipay_handle_redirect', ['url'], ['url']) }} as url,
@@ -15,7 +15,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('payment_intents_next_action') }} as table_alias
+from {{ ref('payment_intents_next_action_base') }} as table_alias
 -- alipay_handle_redirect at payment_intents_base/next_action/alipay_handle_redirect
 where 1 = 1
 and alipay_handle_redirect is not null

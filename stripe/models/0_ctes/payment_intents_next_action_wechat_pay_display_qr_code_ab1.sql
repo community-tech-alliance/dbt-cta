@@ -5,17 +5,17 @@
     tags = [ "nested-intermediate" ]
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ ref('payment_intents_next_action') }}
+-- depends_on: {{ ref('payment_intents_next_action_base') }}
 select
     _airbyte_next_action_hashid,
-    {{ json_extract_scalar('verify_with_microdeposits', ['arrival_date'], ['arrival_date']) }} as arrival_date,
-    {{ json_extract_scalar('verify_with_microdeposits', ['hosted_verification_url'], ['hosted_verification_url']) }} as hosted_verification_url,
+    {{ json_extract_scalar('wechat_pay_display_qr_code', ['data'], ['data']) }} as data,
+    {{ json_extract_scalar('wechat_pay_display_qr_code', ['image_data_url'], ['image_data_url']) }} as image_data_url,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('payment_intents_next_action') }} as table_alias
--- verify_with_microdeposits at payment_intents_base/next_action/verify_with_microdeposits
+from {{ ref('payment_intents_next_action_base') }} as table_alias
+-- wechat_pay_display_qr_code at payment_intents_base/next_action/wechat_pay_display_qr_code
 where 1 = 1
-and verify_with_microdeposits is not null
+and wechat_pay_display_qr_code is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 
