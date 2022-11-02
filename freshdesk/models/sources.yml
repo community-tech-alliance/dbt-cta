@@ -4,6 +4,33 @@ sources:
   database: "{{env_var('CTA_PROJECT_ID') }}"
   schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables:
+    - name: _airbyte_raw_agents
+    - name: _airbyte_raw_business_hours
+    - name: _airbyte_raw_canned_response_folders
+    - name: _airbyte_raw_canned_responses
+    - name: _airbyte_raw_companies
+    - name: _airbyte_raw_contacts
+    - name: _airbyte_raw_conversations
+    - name: _airbyte_raw_discussion_categories
+    - name: _airbyte_raw_discussion_comments
+    - name: _airbyte_raw_discussion_forums
+    - name: _airbyte_raw_discussion_topics
+    - name: _airbyte_raw_email_configs
+    - name: _airbyte_raw_email_mailboxes
+    - name: _airbyte_raw_groups
+    - name: _airbyte_raw_products
+    - name: _airbyte_raw_roles
+    - name: _airbyte_raw_satisfaction_ratings
+    - name: _airbyte_raw_scenario_automations
+    - name: _airbyte_raw_settings
+    - name: _airbyte_raw_sla_policies
+    - name: _airbyte_raw_solution_articles
+    - name: _airbyte_raw_solution_categories
+    - name: _airbyte_raw_solution_folders
+    - name: _airbyte_raw_surveys
+    - name: _airbyte_raw_ticket_fields
+    - name: _airbyte_raw_tickets
+    - name: _airbyte_raw_time_entries
 - name: partner
   database: "{{ env_var('PARTNER_PROJECT_ID') }}"
   schema: "{{ env_var('PARTNER_DATASET_ID') }}"
