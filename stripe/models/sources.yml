@@ -136,7 +136,7 @@ sources:
   - name: payment_intents_last_payment_error_payment_method_card_generated_from_base
   - name: payment_intents_last_payment_error_payment_method_card_generated_from_payment_method_details_base
   - name: payment_intents_last_payment_error_payment_method_card_generated_from_payment_method_details_card_present_base
-  - name: payment_intents_last_payment_error_payment_method_card_generated_from_payment_method_details_card_present_receipt_bsql
+  - name: payment_intents_last_payment_error_payment_method_card_generated_from_payment_method_details_card_present_receipt_base
   - name: payment_intents_last_payment_error_payment_method_card_networks_base
   - name: payment_intents_last_payment_error_payment_method_card_three_d_secure_usage_base
   - name: payment_intents_last_payment_error_payment_method_card_wallet_base
@@ -184,6 +184,17 @@ sources:
   - name: subscriptions_plan_tiers_base
   - name: transfers_base
   - name: transfers_reversals_base
+  - name: bank_accounts_base
+  - name: customer_balance_transactions_base
+  - name: external_account_bank_accounts_base
+  - name: external_account_cards_base
+  - name: invoice_line_items_base
+  - name: invoice_line_items_period_base
+  - name: invoice_line_items_plan_base
+  - name: invoice_line_items_plan_tiers_base
+  - name: subscription_items_base
+  - name: subscription_items_plan_base
+  - name: subscription_items_plan_tiers_base
 
 - name: partner
   database: "{{ env_var('PARTNER_PROJECT_ID') }}"

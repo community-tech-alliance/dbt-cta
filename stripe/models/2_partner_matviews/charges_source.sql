@@ -1,0 +1,1 @@
+SELECT * FROM {{ source('cta','charges_source_base') }}

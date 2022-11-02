@@ -1,0 +1,1 @@
+SELECT * FROM {{ source('cta','checkout_sessions_total_details_breakdown_taxes_rate_base') }}

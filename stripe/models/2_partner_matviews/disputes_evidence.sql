@@ -1,0 +1,1 @@
+SELECT * FROM {{ source('cta','disputes_evidence_base') }}

@@ -1,0 +1,1 @@
+SELECT * FROM {{ source('cta','promotion_codes_restrictions_base') }}

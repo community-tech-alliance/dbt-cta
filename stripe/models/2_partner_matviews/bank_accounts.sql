@@ -1,0 +1,1 @@
+SELECT * FROM {{ source('cta','bank_accounts_base') }}

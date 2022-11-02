@@ -1,0 +1,1 @@
+SELECT * FROM {{ source('cta','subscription_items_plan_base') }}

@@ -1,0 +1,1 @@
+SELECT * FROM {{ source('cta','plans_tiers_base') }}
