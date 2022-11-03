@@ -236,3 +236,25 @@
 {% macro clickhouse__json_extract_array(json_column, json_path_list, normalized_json_path) -%}
     JSONExtractArrayRaw(assumeNotNull({{ json_column }}), {{ format_json_path(json_path_list) }})
 {%- endmacro %}
+
+{# json_extract_string_array -------------------------------------------------     #}
+
+{% macro json_extract_string_array(json_column, json_path_list, normalized_json_path) -%}
+    {{ adapter.dispatch('json_extract_string_array')(json_column, json_path_list, normalized_json_path) }}
+{%- endmacro %}
+
+{% macro default__json_extract_string_array(json_column, json_path_list, normalized_json_path) -%}
+    {{ json_extract_array(json_column, json_path_list, normalized_json_path) }}
+{%- endmacro %}
+
+{#
+See https://cloud.google.com/bigquery/docs/reference/standard-sql/json_functions#json_extract_string_array
+
+BigQuery does not allow NULL entries in REPEATED fields, so we replace those with literal "NULL" strings.
+#}
+{% macro bigquery__json_extract_string_array(json_column, json_path_list, normalized_json_path) -%}
+    array(
+        select ifnull(x, "NULL")
+        from unnest(json_value_array({{ json_column }}, {{ bigquery_new_format_json_path(normalized_json_path) }})) as x
+    )
+{%- endmacro %}
