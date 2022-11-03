@@ -1,7 +1,11 @@
+{% set partitions_to_replace = [
+    'timestamp_trunc(current_timestamp, day)',
+    'timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)'
+] %}
+
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    schema = "freshdesk_partner_a",
     tags = [ "nested" ]
 ) }}
 -- Final base SQL model
@@ -16,5 +20,7 @@ select
     _airbyte_wednesday_hashid
 from {{ ref('business_hours_business_hours_wednesday_ab3') }}
 -- wednesday at business_hours/business_hours/wednesday from {{ ref('business_hours_business_hours') }}
-where 1 = 1
+{% if is_incremental() %}
+where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
+{% endif %}
 

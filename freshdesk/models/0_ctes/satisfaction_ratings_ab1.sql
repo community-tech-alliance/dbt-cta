@@ -23,5 +23,5 @@ select
 from {{ source('cta', '_airbyte_raw_satisfaction_ratings') }} as table_alias
 -- satisfaction_ratings
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 
