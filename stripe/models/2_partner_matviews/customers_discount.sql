@@ -1,0 +1,1 @@
+SELECT * FROM {{ source('cta','customers_discount_base') }}

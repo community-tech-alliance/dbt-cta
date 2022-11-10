@@ -1,0 +1,1 @@
+SELECT * FROM {{ source('cta','coupons_base') }}

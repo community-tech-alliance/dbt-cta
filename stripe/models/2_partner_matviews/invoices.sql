@@ -1,0 +1,1 @@
+SELECT * FROM {{ source('cta','invoices_base') }}

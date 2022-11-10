@@ -1,0 +1,1 @@
+SELECT * FROM {{ source('cta','balance_transactions_base') }}
