@@ -30,6 +30,10 @@ models:
       +materialized: materialized_view
       +auto_refresh: true
       +refresh_interval_minutes: 1440
+    2_partner_tables:
+      +tags: 
+        - partner
+      +materialized: table
     3_partner_views:
       +tags: 
         - partner
