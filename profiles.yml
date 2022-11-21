@@ -13,7 +13,7 @@ default:
       method: oauth
       priority: batch
       retries: 1
-      threads: 8
+      threads: 4
       type: bigquery
     partner:
       project: "{{ env_var('PARTNER_PROJECT_ID') }}"
@@ -22,5 +22,5 @@ default:
       method: oauth
       priority: batch
       retries: 1
-      threads: 8
+      threads: 4
       type: bigquery  
