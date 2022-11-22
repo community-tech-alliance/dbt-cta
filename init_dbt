@@ -55,8 +55,9 @@ tar --strip-components=13 -C "$DIR_NAME" -zxvf "$TARBALL_LOCATION" "var/lib/dock
 
 gum format "Moving models folders..."
 
-mkdir -p "$DIR_NAME"/models/0_ctes "$DIR_NAME"/models/1_cta_base_tables
+mkdir -p "$DIR_NAME"/models/0_ctes "$DIR_NAME"/models/0_ctes
 mv "$DIR_NAME"/airbyte_* "$DIR_NAME"/models
+mv "$DIR_NAME"/models/airbyte_tables/* "$DIR_NAME"/models/1_cta_tables
 mv "$DIR_NAME"/models/airbyte_ctes/* "$DIR_NAME"/models/0_ctes
 mv "$DIR_NAME"/models/airbyte_incremental*/* "$DIR_NAME"/models/1_cta_base
 
