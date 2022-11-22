@@ -4,31 +4,37 @@ config-version: 2
 
 profile: 'default'
 
-model-paths: ["{{ env_var('PARTNER_DATASET_ID') }}/models"]
+model-paths: ["{{ env_var('SYNC_NAME') }}/models"]
 packages-install-path: "{{ env_var('PARTNER_DATASET_ID') }}/dbt-packages"
 
 models:
   default:
     0_ctes:
-      +tags: 
+      +tags:
         - cta
       +materialized: ephemeral
     1_cta_base:
-      +tags: 
-        - cta
-      +materialized: table
-    1_cta_incremental:
       +tags:
         - cta
       +materialized: incremental
+      +incremental_strategy: merge
       +on_schema_change: sync_all_columns
+      +full_refresh: false
+    1_cta_tables:
+      +tags:
+        - cta
+      +materialized: table
     2_partner_matviews:
-      +tags: 
+      +tags:
         - partner
       +materialized: materialized_view
       +auto_refresh: true
       +refresh_interval_minutes: 1440
+    2_partner_tables:
+      +tags:
+        - partner
+      +materialized: table
     3_partner_views:
-      +tags: 
+      +tags:
         - partner
       +materialized: view
