@@ -1,0 +1,47 @@
+# This file is necessary to install dbt-utils with dbt deps
+# the content will be overwritten by the transform function
+
+name: 'vfp_facebook_marketing'
+version: '1.0.0'
+config-version: 2
+
+profile: 'vfp_facebook_marketing'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "../build"  # directory which will store compiled SQL files
+log-path: "../logs"  # directory which will store DBT logs
+packages-install-path: "../dbt-packages"
+
+models:
+  vfp_facebook_marketing:
+    0_ctes:
+      +tags:
+        - cta
+        - 1_cta
+      +materialized: ephemeral
+    1_cta_tables:
+      +tags:
+        - cta
+        - 1_cta
+      +materialized: incremental
+      +incremental_strategy: insert_overwrite
+      +on_schema_change: sync_all_columns
+      +full_refresh: false
+    2_partner_matviews:
+      +tags:
+        - partner
+        - partner_matview
+      +materialized: materialized_view
+      +refresh_interval_minutes: 1440
+      +auto_refresh: true
+    3_partner_views:
+      +tags:
+        - partner
+        - partner_view
+      +materialized: view
