@@ -82,4 +82,4 @@ select
   Fundraiser_Contact_Last_Name,
   Fundraiser_Contact_First_Name,
   Card_Replaced_by_Account_Updater
-from {{ source("cta", "paid_contributions_base") }}
+from {{ source("cta", "paid_contributions_stream") }}

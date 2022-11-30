@@ -7,6 +7,6 @@ sources:
   - name: _airbyte_raw_managed_form_contributions_stream
   - name: _airbyte_raw_paid_contributions_stream
   - name: _airbyte_raw_refunded_contributions_stream
-  - name: managed_form_contributions_base
-  - name: paid_contributions_base
-  - name: refunded_contributions_base
+  - name: managed_form_contributions_stream
+  - name: paid_contributions_stream
+  - name: refunded_contributions_stream
