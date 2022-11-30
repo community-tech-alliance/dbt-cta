@@ -15,5 +15,5 @@ select
 from {{ ref('payments_approved_money_ab2') }} tmp
 -- approved_money at payments/approved_money
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -36,5 +36,5 @@ select
 from {{ source('cta', '_airbyte_raw_payments') }} as table_alias
 -- payments
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -12,7 +12,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('orders_line_items') }} as table_alias
+from {{ ref('orders_line_items_base') }} as table_alias
 -- gross_sales_money at orders/line_items/gross_sales_money
 where 1 = 1
 and gross_sales_money is not null

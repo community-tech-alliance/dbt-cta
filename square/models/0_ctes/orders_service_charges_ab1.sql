@@ -19,7 +19,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('orders') }} as table_alias
+from {{ ref('orders_base') }} as table_alias
 -- service_charges at orders/service_charges
 {{ cross_join_unnest('orders', 'service_charges') }}
 where 1 = 1

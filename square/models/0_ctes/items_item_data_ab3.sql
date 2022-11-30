@@ -24,5 +24,5 @@ select
 from {{ ref('items_item_data_ab2') }} tmp
 -- item_data at items/item_data
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

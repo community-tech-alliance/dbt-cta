@@ -21,5 +21,5 @@ select
 from {{ ref('discounts_ab1') }}
 -- discounts
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

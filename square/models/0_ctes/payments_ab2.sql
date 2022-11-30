@@ -36,5 +36,5 @@ select
 from {{ ref('payments_ab1') }}
 -- payments
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

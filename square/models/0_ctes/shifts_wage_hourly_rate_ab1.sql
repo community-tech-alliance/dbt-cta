@@ -12,7 +12,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('shifts_wage') }} as table_alias
+from {{ ref('shifts_wage_base') }} as table_alias
 -- hourly_rate at shifts/wage/hourly_rate
 where 1 = 1
 and hourly_rate is not null

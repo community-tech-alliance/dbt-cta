@@ -20,5 +20,5 @@ select
 from {{ source('cta', '_airbyte_raw_modifier_list') }} as table_alias
 -- modifier_list
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

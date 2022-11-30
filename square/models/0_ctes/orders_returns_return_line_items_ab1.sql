@@ -20,7 +20,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('orders_returns') }} as table_alias
+from {{ ref('orders_returns_base') }} as table_alias
 -- return_line_items at orders/returns/return_line_items
 {{ cross_join_unnest('returns', 'return_line_items') }}
 where 1 = 1

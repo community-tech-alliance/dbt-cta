@@ -12,7 +12,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('orders_line_items_applied_taxes') }} as table_alias
+from {{ ref('orders_line_items_applied_taxes_base') }} as table_alias
 -- applied_money at orders/line_items/applied_taxes/applied_money
 where 1 = 1
 and applied_money is not null

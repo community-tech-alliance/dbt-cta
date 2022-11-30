@@ -15,5 +15,5 @@ select
 from {{ ref('modifier_list_modifier_list_data_modifiers_modifier_data_price_money_ab1') }}
 -- price_money at modifier_list/modifier_list_data/modifiers/modifier_data/price_money
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

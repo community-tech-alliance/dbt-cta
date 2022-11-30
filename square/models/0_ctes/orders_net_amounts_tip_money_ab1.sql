@@ -12,7 +12,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('orders_net_amounts') }} as table_alias
+from {{ ref('orders_net_amounts_base') }} as table_alias
 -- tip_money at orders/net_amounts/tip_money
 where 1 = 1
 and tip_money is not null

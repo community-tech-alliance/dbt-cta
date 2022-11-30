@@ -15,5 +15,5 @@ select
 from {{ ref('items_item_data_variations_item_variation_data_price_money_ab1') }}
 -- price_money at items/item_data/variations/item_variation_data/price_money
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

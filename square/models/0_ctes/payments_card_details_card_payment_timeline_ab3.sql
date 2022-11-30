@@ -16,5 +16,5 @@ select
 from {{ ref('payments_card_details_card_payment_timeline_ab2') }} tmp
 -- card_payment_timeline at payments/card_details/card_payment_timeline
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

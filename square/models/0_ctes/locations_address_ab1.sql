@@ -15,7 +15,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('locations') }} as table_alias
+from {{ ref('locations_base') }} as table_alias
 -- address at locations/address
 where 1 = 1
 and address is not null

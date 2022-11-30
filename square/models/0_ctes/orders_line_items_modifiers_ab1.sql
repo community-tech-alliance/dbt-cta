@@ -16,7 +16,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('orders_line_items') }} as table_alias
+from {{ ref('orders_line_items_base') }} as table_alias
 -- modifiers at orders/line_items/modifiers
 {{ cross_join_unnest('line_items', 'modifiers') }}
 where 1 = 1

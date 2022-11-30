@@ -14,5 +14,5 @@ select
 from {{ ref('categories_category_data_ab2') }} tmp
 -- category_data at categories/category_data
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -15,5 +15,5 @@ select
 from {{ ref('refunds_processing_fee_amount_money_ab2') }} tmp
 -- amount_money at refunds/processing_fee/amount_money
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

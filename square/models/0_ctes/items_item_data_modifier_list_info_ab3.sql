@@ -18,5 +18,5 @@ select
 from {{ ref('items_item_data_modifier_list_info_ab2') }} tmp
 -- modifier_list_info at items/item_data/modifier_list_info
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

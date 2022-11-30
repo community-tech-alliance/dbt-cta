@@ -13,7 +13,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('orders_tenders') }} as table_alias
+from {{ ref('orders_tenders_base') }} as table_alias
 -- card_details at orders/tenders/card_details
 where 1 = 1
 and card_details is not null

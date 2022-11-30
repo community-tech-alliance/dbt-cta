@@ -15,5 +15,5 @@ select
 from {{ ref('items_item_data_variations_item_variation_data_location_overrides_ab1') }}
 -- location_overrides at items/item_data/variations/item_variation_data/location_overrides
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

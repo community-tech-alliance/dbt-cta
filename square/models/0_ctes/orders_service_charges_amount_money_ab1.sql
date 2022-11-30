@@ -12,7 +12,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('orders_service_charges') }} as table_alias
+from {{ ref('orders_service_charges_base') }} as table_alias
 -- amount_money at orders/service_charges/amount_money
 where 1 = 1
 and amount_money is not null

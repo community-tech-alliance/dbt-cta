@@ -12,7 +12,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('orders_line_items_modifiers') }} as table_alias
+from {{ ref('orders_line_items_modifiers_base') }} as table_alias
 -- base_price_money at orders/line_items/modifiers/base_price_money
 where 1 = 1
 and base_price_money is not null

@@ -16,10 +16,10 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('items_item_data') }} as table_alias
+from {{ ref('items_item_data_base') }} as table_alias
 -- modifier_list_info at items/item_data/modifier_list_info
 {{ cross_join_unnest('item_data', 'modifier_list_info') }}
 where 1 = 1
 and modifier_list_info is not null
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

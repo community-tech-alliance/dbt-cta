@@ -23,5 +23,5 @@ select
 from {{ source('cta', '_airbyte_raw_items') }} as table_alias
 -- items
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 

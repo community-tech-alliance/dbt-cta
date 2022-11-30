@@ -21,5 +21,5 @@ select
 from {{ ref('items_item_data_variations_item_variation_data_ab2') }} tmp
 -- item_variation_data at items/item_data/variations/item_variation_data
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{{ incremental_clause('_airbyte_emitted_at') }}
 
