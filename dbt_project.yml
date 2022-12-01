@@ -24,6 +24,11 @@ models:
       +tags:
         - cta
       +materialized: table
+    1_cta_incremental:
+      +tags:
+        - cta
+      +materialized: incremental
+      +on_schema_change: sync_all_columns
     2_partner_matviews:
       +tags: 
         - partner
