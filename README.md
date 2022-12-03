@@ -19,16 +19,16 @@ Do *you* want to automatically replace all static references to tables as genera
 To replace ctes:
 
 ```shell
-for file in $(ls mobilize_psql/models/0_ctes/); do
-	sed -i .bak -e 's/\`\prod.*\(_airbyte_raw_[^ ]*\)/{{ source('cta', "'"\1"'" \) }}/g' mobilize_psql/models/0_ctes/$file;
+for file in $(ls mobilize/models/0_ctes/); do
+	sed -i .bak -e 's/\`\prod.*\(_airbyte_raw_[^ ]*\)/{{ source("'"cta"'", "'"\1"'" \) }}/g' mobilize/models/0_ctes/$file;
 done
 ```
 
 To replace base tables:
 
 ```shell
-for file in $(ls mobilize_psql/models/1_cta_base_tables/); do
-	sed -i .bak -e 's/\`\prod.*\(_airbyte_raw_[^ ]*\)/{{ source('cta', "'"\1"'" \) }}/g' mobilize_psql/models/1_cta_base_tables/$file;
+for file in $(ls mobilize/models/1_cta_base_tables/); do
+	sed -i .bak -e 's/\`\prod.*\(_airbyte_raw_[^ ]*\)/{{ source("'"cta"'", "'"\1"'" \) }}/g' mobilize/models/1_cta_base_tables/$file;
 done
 ```
 
@@ -47,17 +47,17 @@ rm **/**/*.sql.bak
 For ctes:
 
 ```shell
-for file in $(ls mobilize_psql/models/0_ctes/); do
+for file in $(ls mobilize/models/0_ctes/); do
     newFile="${file#*airbyte_org_[0-9][a-z]*_}"
-    mv mobilize_psql/models/0_ctes/"$file" mobilize_psql/models/0_ctes/"$newFile"
+    mv mobilize/models/0_ctes/"$file" mobilize/models/0_ctes/"$newFile"
 done
 ```
 
 And base tables:
 ```shell
-for file in $(ls mobilize_psql/models/1_cta_base_tables/); do
+for file in $(ls mobilize/models/1_cta_base_tables/); do
     newFile="${file#*org_[0-9][a-z]*_}"
-    mv mobilize_psql/models/1_cta_base_tables/"$file" mobilize_psql/models/1_cta_base_tables/"$newFile"
+    mv mobilize/models/1_cta_base_tables/"$file" mobilize/models/1_cta_base_tables/"$newFile"
 done
 ```
 ### Generating Sources
@@ -75,7 +75,7 @@ sources:
     ...
 ```
 
-To generate the base set of sources (raw tables and base tables for `cta`) from the tables 
+To generate the base set of sources (raw tables and base tables for `cta`) from the tables
 loaded into BigQuery from the initial sync:
 
 ```shell

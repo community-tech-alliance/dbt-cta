@@ -2,7 +2,7 @@
 with __dbt__cte__group_members_ab1 as (
 
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: `prod8b61f23e`.cta_tech_app_users._airbyte_raw_group_members
+-- depends_on: {{ source("cta", "_airbyte_raw_group_members" ) }}
 select
     json_extract_scalar(_airbyte_data, "$['id']") as id,
     json_extract_scalar(_airbyte_data, "$['kind']") as kind,
@@ -12,7 +12,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     CURRENT_TIMESTAMP() as _airbyte_normalized_at
-from `prod8b61f23e`.cta_tech_app_users._airbyte_raw_group_members as table_alias
+from {{ source("cta", "_airbyte_raw_group_members" ) }} as table_alias
 -- group_members
 where 1 = 1
 
