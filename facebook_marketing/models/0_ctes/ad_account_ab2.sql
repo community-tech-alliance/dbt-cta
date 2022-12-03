@@ -10,7 +10,7 @@ select
     cast(age as {{ dbt_utils.type_float() }}) as age,
     cast(name as {{ dbt_utils.type_string() }}) as name,
     cast(owner as {{ dbt_utils.type_float() }}) as owner,
-    cast(tax_id as {{ dbt_utils.type_float() }}) as tax_id,
+    cast(tax_id as {{ dbt_utils.type_string() }}) as tax_id,
     cast(balance as {{ dbt_utils.type_string() }}) as balance,
     cast(partner as {{ dbt_utils.type_float() }}) as partner,
     cast(rf_spec as {{ type_json() }}) as rf_spec,
