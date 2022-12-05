@@ -87,7 +87,7 @@ jobs:
               --project=${GOOGLE_PROJECT_ID_DEV} \
               --location=us-central1
           else
-            echo "No DAGs to remove for files removed: ${file}"
+            echo "No dbt models to remove"
           fi
         done
 
