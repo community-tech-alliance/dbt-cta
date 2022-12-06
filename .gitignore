@@ -109,3 +109,6 @@ poetry.lock
 
 **/**/target/*
 **/**/dbt-packages/*
+
+# backup files
+**/**/*.bak
