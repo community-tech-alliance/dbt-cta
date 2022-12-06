@@ -1,4 +1,4 @@
-name: Deploy dbt Models
+name: Deploy dbt Models (PROD)
 
 # Run only on pushes to main
 on: 
@@ -14,7 +14,7 @@ env:
 
 jobs:
   deploy:
-    name: Deploy dbt Models
+    name: Deploy dbt Models (PROD)
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
