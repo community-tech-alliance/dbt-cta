@@ -15,5 +15,5 @@ select
     string
 ))) as _airbyte_group_members_hashid,
     tmp.*
-from {{ ref('group_members_ab2') }}
+from {{ ref('group_members_ab2') }} tmp
 where 1 = 1
