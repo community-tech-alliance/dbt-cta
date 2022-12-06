@@ -1,6 +1,5 @@
-
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source("cta", "_airbyte_raw_groups" ) }}
+-- depends_on: {{ source('cta', '_airbyte_raw_groups') }}
 select
     json_extract_scalar(_airbyte_data, "$['id']") as id,
     json_extract_scalar(_airbyte_data, "$['etag']") as etag,
@@ -13,6 +12,5 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     CURRENT_TIMESTAMP() as _airbyte_normalized_at
-from {{ source("cta", "_airbyte_raw_groups" ) }} as table_alias
--- groups
+from {{ source('cta', '_airbyte_raw_groups') }} as table_alias
 where 1 = 1

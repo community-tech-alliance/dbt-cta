@@ -1,0 +1,16 @@
+version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables:
+    - name: _airbyte_raw_users
+    - name: _airbyte_raw_group_members
+    - name: _airbyte_raw_groups
+    - name: _airbyte_raw_users_emails
+    - name: _airbyte_raw_users_externalIds
+    - name: _airbyte_raw_users_name
+    - name: _airbyte_raw_users_organizations
+    - name: _airbyte_raw_users_phones
+    - name: _airbyte_raw_users_relations
+    - name: users

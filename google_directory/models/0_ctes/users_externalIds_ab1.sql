@@ -1,6 +1,5 @@
-
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: `prod8b61f23e`.cta_tech_app_users.`users`
+-- depends_on: {{ source('cta', 'users') }}
 
 select
     _airbyte_users_hashid,
@@ -10,8 +9,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     CURRENT_TIMESTAMP() as _airbyte_normalized_at
-from `prod8b61f23e`.cta_tech_app_users.`users` as table_alias
--- externalIds at users/externalIds
+from {{ source('cta', 'users') }} as table_alias
 cross join unnest(externalIds) as externalIds
 where 1 = 1
 and externalIds is not null
