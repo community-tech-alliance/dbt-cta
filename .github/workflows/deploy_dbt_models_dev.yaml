@@ -55,8 +55,8 @@ jobs:
         mapfile -d ',' -t renamed_files < <(printf '%s,' '${{ steps.files.outputs.renamed }}')
         added_modified_renamed_files+=( "${added_modified_files[@]}" "${renamed_files[@]}" )
         for file in "${added_modified_renamed_files[@]}"; do
-          # Search entire directory for the filename
-          if [[ $(find . -name $(basename ${file})) ]]; then
+          # Search for filenames in `models` directories (scuffed but idk)
+          if [[ $(find models -name $(basename ${file})) ]]; then
             # Get full path of DAG file
             file_name=$(realpath ${file});
             path_to_file=$(dirname ${file});
