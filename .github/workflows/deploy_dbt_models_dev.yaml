@@ -56,6 +56,15 @@ jobs:
             # Get full path of DAG file
             file_name=$(realpath ${file});
             path_to_file=$(dirname ${file});
+
+            echo "running this import command: 
+            gcloud composer environments storage dags import \
+              --project=${GOOGLE_PROJECT_ID_DEV} \
+              --location=us-central1 \
+              --environment=${GOOGLE_COMPOSER_ENVIRONMENT_DEV} \
+              --destination=cta-dags/dbt-cta \
+              --source=${file_name}"
+              
             gcloud composer environments storage dags import \
               --project=${GOOGLE_PROJECT_ID_DEV} \
               --location=us-central1 \
