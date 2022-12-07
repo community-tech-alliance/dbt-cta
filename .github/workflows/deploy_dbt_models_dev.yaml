@@ -56,7 +56,7 @@ jobs:
         added_modified_renamed_files+=( "${added_modified_files[@]}" "${renamed_files[@]}" )
         for file in "${added_modified_renamed_files[@]}"; do
           # Search for filenames in `models` directories (scuffed but idk)
-          if [[ $(find models -name $(basename ${file})) ]]; then
+          if [[ $(find dbt-cta -name $(basename ${file})) ]]; then
             # Get full path of DAG file
             file_name=$(realpath ${file});
             path_to_file=$(dirname ${file});
