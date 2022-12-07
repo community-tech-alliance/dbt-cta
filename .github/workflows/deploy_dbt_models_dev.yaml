@@ -52,15 +52,14 @@ jobs:
         added_modified_renamed_files+=( "${added_modified_files[@]}" "${renamed_files[@]}" )
         for file in "${added_modified_renamed_files[@]}"; do
           # Get full path of DAG file
-          echo "running: file_name=$(realpath ${file})"
-          file_name=$(realpath ${file});
-          path_to_file=$(dirname ${file});
-          # gcloud composer environments storage dags import \
-          #   --project=${GOOGLE_PROJECT_ID_DEV} \
-          #   --location=us-central1 \
-          #   --environment=${GOOGLE_COMPOSER_ENVIRONMENT_DEV} \
-          #   --destination=cta-dags/dbt-cta \
-          #   --source=${file_name}
+          # file_name=$(realpath ${file});
+          # path_to_file=$(dirname ${file});
+          gcloud composer environments storage dags import \
+            --project=${GOOGLE_PROJECT_ID_DEV} \
+            --location=us-central1 \
+            --environment=${GOOGLE_COMPOSER_ENVIRONMENT_DEV} \
+            --destination=cta-dags/dbt-cta \
+            --source=example_dbt
         done
     # Delete any dags that were removed
     - name: Delete removed dbt
