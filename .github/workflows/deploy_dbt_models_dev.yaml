@@ -32,7 +32,7 @@ jobs:
         workload_identity_provider: ${{ secrets.GOOGLE_WORKLOAD_IDENTITY_PROVIDER_DEV }}
         service_account: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_DEV }}
     # Set service account for running gcloud
-    - id: 'gcloud config set account'
+    - id: 'gcloud_config_set_account'
       name: Set gcloud CLI account
       run: 'gcloud config set account ${{ secrets.GOOGLE_SERVICE_ACCOUNT_DEV }}'
     # Get list of files in last commit
