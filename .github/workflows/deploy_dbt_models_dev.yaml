@@ -54,7 +54,7 @@ jobs:
           # Get full path of DAG file
           echo "running: file_name=$(realpath ${file})"
           file_name=$(realpath ${file});
-          # path_to_file=$(dirname ${file});
+          path_to_file=$(dirname ${file});
           # gcloud composer environments storage dags import \
           #   --project=${GOOGLE_PROJECT_ID_DEV} \
           #   --location=us-central1 \
