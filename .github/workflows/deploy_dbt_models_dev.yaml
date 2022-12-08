@@ -72,12 +72,8 @@ jobs:
       run: |
         mapfile -d ',' -t removed_files < <(printf '%s,' '${{ steps.files.outputs.removed }}')
         for file in "${removed_files[@]}"; do
-          if [[ "$file" =~ "dbt-cta".* ]]; then
-            gcloud composer environments storage dags delete ${file} \
-              --environment=${GOOGLE_COMPOSER_ENVIRONMENT_DEV} \
-              --project=${GOOGLE_PROJECT_ID_DEV} \
-              --location=us-central1
-          else
-            echo "No dbt models to remove."
-          fi
+          gcloud composer environments storage dags delete ${file} \
+            --environment=${GOOGLE_COMPOSER_ENVIRONMENT_DEV} \
+            --project=${GOOGLE_PROJECT_ID_DEV} \
+            --location=us-central1
         done
