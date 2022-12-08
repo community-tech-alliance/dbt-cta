@@ -62,6 +62,7 @@ jobs:
               --environment=${GOOGLE_COMPOSER_ENVIRONMENT_DEV} \
               --destination=cta-dags/${path_to_file} \
               --source=${file_name}
+            echo "Deployed file: $(basename ${file}))"
           else
             echo "Skipping $(basename ${file})) (no new dbt to deploy)."
           fi
@@ -72,13 +73,9 @@ jobs:
       run: |
         mapfile -d ',' -t removed_files < <(printf '%s,' '${{ steps.files.outputs.removed }}')
         for file in "${removed_files[@]}"; do
-          echo "Running: 
-          gcloud composer environments storage dags delete cta-dags/${file} \
-            --environment=${GOOGLE_COMPOSER_ENVIRONMENT_DEV} \
-            --project=${GOOGLE_PROJECT_ID_DEV} \
-            --location=us-central1"
           gcloud composer environments storage dags delete cta-dags/${file} \
             --environment=${GOOGLE_COMPOSER_ENVIRONMENT_DEV} \
             --project=${GOOGLE_PROJECT_ID_DEV} \
             --location=us-central1
+          echo "Deleted file: ${file}"
         done
