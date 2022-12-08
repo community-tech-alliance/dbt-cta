@@ -64,14 +64,14 @@ jobs:
               --project=${GOOGLE_PROJECT_ID_DEV} \
               --location=us-central1 \
               --environment=${GOOGLE_COMPOSER_ENVIRONMENT_DEV} \
-              --destination=cta-dags/dbt-cta \
+              --destination=cta-dags/dbt-cta/${path_to_file} \
               --source=${file_name}"
 
             gcloud composer environments storage dags import \
               --project=${GOOGLE_PROJECT_ID_DEV} \
               --location=us-central1 \
               --environment=${GOOGLE_COMPOSER_ENVIRONMENT_DEV} \
-              --destination=${path_to_file} \
+              --destination=cta-dags/dbt-cta/${path_to_file} \
               --source=${file_name}
           else
             echo "No new dbt to deploy."
