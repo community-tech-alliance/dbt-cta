@@ -2,8 +2,6 @@ name: Deploy dbt Models (DEV)
 
 # Run only on pushes to main
 on:
-  pull_request:
-    types: [labeled, opened, synchronize, reopened]
   push:
     branches:
       - 'dev'
@@ -15,9 +13,7 @@ env:
   GOOGLE_SERVICE_ACCOUNT_DEV: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_DEV }}
 
 jobs:
-  deploy_dev:
-    # Only run if PR has the 'dev_deploy' label 
-    if: ${{ contains(github.event.pull_request.labels.*.name,'dev_deploy') }}
+  merge_dev:
     name: Deploy dbt Models (DEV)
     runs-on: ubuntu-latest
     permissions:
