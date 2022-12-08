@@ -63,7 +63,7 @@ jobs:
               --destination=cta-dags/${path_to_file} \
               --source=${file_name}
           else
-            echo "No new dbt to deploy."
+            echo "Skipping ${file} (no new dbt to deploy)."
           fi
         done
     # Delete any dags that were removed
