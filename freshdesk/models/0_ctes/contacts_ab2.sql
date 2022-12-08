@@ -19,7 +19,7 @@ select
     cast(time_zone as {{ dbt_utils.type_string() }}) as time_zone,
     cast(company_id as {{ dbt_utils.type_bigint() }}) as company_id,
     cast(created_at as {{ dbt_utils.type_string() }}) as created_at,
-    cast(twitter_id as {{ dbt_utils.type_bigint() }}) as twitter_id,
+    cast(twitter_id as {{ dbt_utils.type_string() }}) as twitter_id,
     cast(updated_at as {{ dbt_utils.type_string() }}) as updated_at,
     cast(csat_rating as {{ dbt_utils.type_bigint() }}) as csat_rating,
     cast(description as {{ dbt_utils.type_string() }}) as description,
