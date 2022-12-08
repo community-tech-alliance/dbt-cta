@@ -73,7 +73,7 @@ jobs:
         mapfile -d ',' -t removed_files < <(printf '%s,' '${{ steps.files.outputs.removed }}')
         for file in "${removed_files[@]}"; do
           path_to_file=$(dirname ${file});
-          gcloud composer environments storage dags delete cta-dags/$(basename ${file})) \
+          gcloud composer environments storage dags delete cta-dags/$(basename ${file}) \
             --environment=${GOOGLE_COMPOSER_ENVIRONMENT_DEV} \
             --project=${GOOGLE_PROJECT_ID_DEV} \
             --location=us-central1
