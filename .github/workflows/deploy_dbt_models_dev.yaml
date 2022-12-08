@@ -51,7 +51,7 @@ jobs:
         mapfile -d ',' -t renamed_files < <(printf '%s,' '${{ steps.files.outputs.renamed }}')
         added_modified_renamed_files+=( "${added_modified_files[@]}" "${renamed_files[@]}" )
         for file in "${added_modified_renamed_files[@]}"; do
-          # Search dbt-cta directory for the filename
+          # Search for the filename
           if [[ $(find dbt-cta -name $(basename ${file})) ]]; then
             # Get full path of DAG file
             file_name=$(realpath ${file});
@@ -60,10 +60,10 @@ jobs:
               --project=${GOOGLE_PROJECT_ID_DEV} \
               --location=us-central1 \
               --environment=${GOOGLE_COMPOSER_ENVIRONMENT_DEV} \
-              --destination=cta-dags/dbt-cta \
+              --destination=cta-dags/${path_to_file} \
               --source=${file_name}
           else
-            echo "No new dbt to deploy."
+            echo "Skipping $(basename ${file})) (no new dbt to deploy)."
           fi
         done
     # Delete any dags that were removed
