@@ -4,6 +4,9 @@ name: Deploy dbt Models (DEV)
 on:
   pull_request:
     types: [labeled, opened, synchronize, reopened]
+  push:
+    branches:
+      - 'dev'
 
 # Pull secrets from repo and assign to env vars
 env:
@@ -52,7 +55,7 @@ jobs:
         added_modified_renamed_files+=( "${added_modified_files[@]}" "${renamed_files[@]}" )
         for file in "${added_modified_renamed_files[@]}"; do
           # Search for the filename
-          if [[ $(find dbt-cta -name $(basename ${file})) ]]; then
+          if [[ $(find dbt-cta -name $(basename ${file})) ]] && [[ ${file} == *.sql ]]; then
             # Get full path of DAG file
             file_name=$(realpath ${file});
             path_to_file=$(dirname ${file});
