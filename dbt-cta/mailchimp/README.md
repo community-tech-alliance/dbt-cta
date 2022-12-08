@@ -1,5 +1,3 @@
-# Mailchimp?
-## In Airflow? 
-### In **this** economy?
+# Mailchimp
 
-Pretty much, yeah
+TKTKTK
