@@ -26,7 +26,6 @@ select
     json_extract_scalar(_airbyte_data, "$['agreedToTerms']") as agreedToTerms,
     json_extract_scalar(_airbyte_data, "$['ipWhitelisted']") as ipWhitelisted,
     json_extract_scalar(_airbyte_data, "$['lastLoginTime']") as lastLoginTime,
-    json_extract_array(_airbyte_data, "$['organizations']") as organizations,
     json_extract_scalar(_airbyte_data, "$['isMailboxSetup']") as isMailboxSetup,
     json_extract_scalar(_airbyte_data, "$['isDelegatedAdmin']") as isDelegatedAdmin,
     array(

@@ -38,8 +38,6 @@ select
     string
 ), ''), '-', coalesce(cast(lastLoginTime as 
     string
-), ''), '-', coalesce(cast(array_to_string(organizations, "|", "") as 
-    string
 ), ''), '-', coalesce(cast(isMailboxSetup as 
     string
 ), ''), '-', coalesce(cast(isDelegatedAdmin as 

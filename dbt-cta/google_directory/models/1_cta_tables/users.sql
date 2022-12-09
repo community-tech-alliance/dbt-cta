@@ -21,7 +21,6 @@ select
     agreedToTerms,
     ipWhitelisted,
     lastLoginTime,
-    organizations,
     isMailboxSetup,
     isDelegatedAdmin,
     nonEditableAliases,

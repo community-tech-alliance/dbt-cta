@@ -39,7 +39,6 @@ select
     cast(lastLoginTime as 
     string
 ) as lastLoginTime,
-    organizations,
     cast(isMailboxSetup as boolean) as isMailboxSetup,
     cast(isDelegatedAdmin as boolean) as isDelegatedAdmin,
     nonEditableAliases,
