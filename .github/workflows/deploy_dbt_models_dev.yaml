@@ -73,11 +73,14 @@ jobs:
       run: |
         mapfile -d ',' -t removed_files < <(printf '%s,' '${{ steps.files.outputs.removed }}')
         for file in "${removed_files[@]}"; do
-          if [[ ${file} == *.sql ]]; then
+          echo "file: ${file}"
+          echo "num characters: ${#file}"
+          if [[ ${#file} > 0 ]]; then
+            echo "Running:
             gcloud composer environments storage dags delete cta-dags/${file} \
-              --environment=${GOOGLE_COMPOSER_ENVIRONMENT} \
-              --project=${GOOGLE_PROJECT_ID} \
-              --location=us-central1
+              --environment=${GOOGLE_COMPOSER_ENVIRONMENT_DEV} \
+              --project=${GOOGLE_PROJECT_ID_DEV} \
+              --location=us-central1"
             echo "Deleted file: ${file}"
           else
             echo "No dbt to remove for file removed: ${file}"
