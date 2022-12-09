@@ -69,15 +69,19 @@ jobs:
             echo "Skipping $(basename ${file})) (no new dbt to deploy)."
           fi
         done
-    ## Delete any dbt models that were removed
-    #- name: Delete removed dbt
-    #  id: 'remove_dbt'
-    #  run: |
-    #    mapfile -d ',' -t removed_files < <(printf '%s,' '${{ steps.files.outputs.removed }}')
-    #    for file in "${removed_files[@]}"; do
-    #      gcloud composer environments storage dags delete cta-dags/${file} \
-    #        --environment=${GOOGLE_COMPOSER_ENVIRONMENT} \
-    #        --project=${GOOGLE_PROJECT_ID} \
-    #        --location=us-central1
-    #      echo "Deleted file: ${file}"
-    #    done
+    # Delete any dbt models that were removed
+    - name: Delete removed dbt
+      id: 'remove_dbt'
+      run: |
+        mapfile -d ',' -t removed_files < <(printf '%s,' '${{ steps.files.outputs.removed }}')
+        for file in "${removed_files[@]}"; do
+          if [[ ${#file} > 0 ]]; then
+            gcloud composer environments storage dags delete cta-dags/${file} \
+              --environment=${GOOGLE_COMPOSER_ENVIRONMENT} \
+              --project=${GOOGLE_PROJECT_ID} \
+              --location=us-central1
+            echo "Deleted file: ${file}"
+          else
+            echo "No dbt to remove for file removed: ${file}"
+          fi
+        done
