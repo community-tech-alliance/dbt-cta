@@ -103,5 +103,5 @@ select
     custom_fields.cf_contact_name_email as custom_cf_contact_name_email,
     custom_fields.cf_donation_if_different as custom_cf_donation_if_different,
 from {{ ref("tickets_ab3") }}
--- ticket from {{ source('cta', '_airbyte_raw_tickets }}
+-- ticket from {{ source('cta', '_airbyte_raw_tickets') }}
 where 1 = 1
