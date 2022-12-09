@@ -4,7 +4,6 @@ select
     cast(id as 
     string
 ) as id,
-    cast(orgUnitPath as array) as orgUnitPath,
     cast(primaryEmail as string) as primaryEmail,
     cast(recoveryEmail as string) as recoveryEmail,
     cast(kind as 
