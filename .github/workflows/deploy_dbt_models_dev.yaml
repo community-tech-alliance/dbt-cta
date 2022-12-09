@@ -73,7 +73,7 @@ jobs:
       run: |
         mapfile -d ',' -t removed_files < <(printf '%s,' '${{ steps.files.outputs.removed }}')
         for file in "${removed_files[@]}"; do
-          if [[ "$file" =~ "cta-dags".* ]] && [[ ${file} == *.sql ]]; then
+          if [[ ${file} == *.sql ]]; then
             gcloud composer environments storage dags delete cta-dags/${file} \
               --environment=${GOOGLE_COMPOSER_ENVIRONMENT} \
               --project=${GOOGLE_PROJECT_ID} \
