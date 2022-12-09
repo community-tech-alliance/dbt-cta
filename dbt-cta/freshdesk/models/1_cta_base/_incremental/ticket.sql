@@ -1,5 +1,5 @@
 {{ config(
-    unique_key = '_airbyte_ab_id',
+    unique_key = 'id',
     materialized = "incremental",
     incremental_strategy = "merge",
     on_schema_change = "sync_all_columns",
@@ -102,9 +102,6 @@ select
     custom_fields.cf_vendor_name as custom_cf_vendor_name,
     custom_fields.cf_contact_name_email as custom_cf_contact_name_email,
     custom_fields.cf_donation_if_different as custom_cf_donation_if_different,
-    custom_fields.cf_tool_498589 as custom_cf_tool_498589,
-    _airbyte_ab_id
 from {{ ref("tickets_ab3") }}
 -- ticket from {{ source('cta', '_airbyte_raw_tickets }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}

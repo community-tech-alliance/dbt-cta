@@ -11,4 +11,3 @@ select
 from {{ ref("tickets_ab3") }} tickets, UNNEST(tickets.cc_emails) as email
 -- ticket from {{ source('cta', '_airbyte_raw_tickets') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
