@@ -2,8 +2,7 @@
 -- depends_on: {{ ref('users_ab3') }}
 select
     id,
-    org,
-    orgSubUnit,
+    orgUnitPath,
     primaryEmail,
     recoveryEmail,
     kind,

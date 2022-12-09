@@ -4,10 +4,6 @@
 select
     to_hex(md5(cast(concat(coalesce(cast(id as 
     string
-), ''), '-', coalesce(cast(Org as 
-    string
-), ''), '-', coalesce(cast(orgSubUnit as 
-    string
 ), ''), '-', coalesce(cast(primaryEmail as 
     string
 ), ''), '-', coalesce(cast(recoveryEmail as 
