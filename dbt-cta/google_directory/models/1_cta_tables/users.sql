@@ -2,6 +2,10 @@
 -- depends_on: {{ ref('users_ab3') }}
 select
     id,
+    org,
+    OrgSubUnit,
+    primaryEmail,
+    recoveryEmail,
     kind,
     name,
     emails,
@@ -19,7 +23,6 @@ select
     agreedToTerms,
     ipWhitelisted,
     lastLoginTime,
-    organizations,
     isMailboxSetup,
     isDelegatedAdmin,
     nonEditableAliases,

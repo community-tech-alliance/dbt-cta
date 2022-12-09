@@ -4,6 +4,10 @@ select
     cast(id as 
     string
 ) as id,
+    cast(org as string) as org,
+    cast(OrgSubUnit as string) as OrgSubUnit,
+    cast(primaryEmail as string) as primaryEmail,
+    cast(recoveryEmail as string) as recoveryEmail,
     cast(kind as 
     string
 ) as kind,
@@ -37,7 +41,6 @@ select
     cast(lastLoginTime as 
     string
 ) as lastLoginTime,
-    organizations,
     cast(isMailboxSetup as boolean) as isMailboxSetup,
     cast(isDelegatedAdmin as boolean) as isDelegatedAdmin,
     nonEditableAliases,

@@ -2,6 +2,10 @@
 -- depends_on: {{ source('cta', '_airbyte_raw_users') }}
 select
     json_extract_scalar(_airbyte_data, "$['id']") as id,
+    json_extract_array(_airbyte_data, "$['orgUnitPath']")[safe_offset(1)] as org,
+    json_extract_array(_airbyte_data, "$['orgUnitPath']")[safe_offset(2)] as OrgSubUnit,
+    json_extract_scalar(_airbyte_data, "$['primaryEmail']") as primaryEmail,
+    json_extract_scalar(_airbyte_data, "$['recoveryEmail']") as recoveryEmail,
     json_extract_scalar(_airbyte_data, "$['kind']") as kind,
     
         json_extract(table_alias._airbyte_data, "$['name']")
@@ -24,7 +28,6 @@ select
     json_extract_scalar(_airbyte_data, "$['agreedToTerms']") as agreedToTerms,
     json_extract_scalar(_airbyte_data, "$['ipWhitelisted']") as ipWhitelisted,
     json_extract_scalar(_airbyte_data, "$['lastLoginTime']") as lastLoginTime,
-    json_extract_array(_airbyte_data, "$['organizations']") as organizations,
     json_extract_scalar(_airbyte_data, "$['isMailboxSetup']") as isMailboxSetup,
     json_extract_scalar(_airbyte_data, "$['isDelegatedAdmin']") as isDelegatedAdmin,
     array(
