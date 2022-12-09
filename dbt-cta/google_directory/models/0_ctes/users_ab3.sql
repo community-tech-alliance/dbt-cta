@@ -4,6 +4,14 @@
 select
     to_hex(md5(cast(concat(coalesce(cast(id as 
     string
+), ''), '-', coalesce(cast(org as 
+    string
+), ''), '-', coalesce(cast(OrgSubUnit as 
+    string
+), ''), '-', coalesce(cast(primaryEmail as 
+    string
+), ''), '-', coalesce(cast(recoveryEmail as 
+    string
 ), ''), '-', coalesce(cast(kind as 
     string
 ), ''), '-', coalesce(cast(name as 
@@ -37,8 +45,6 @@ select
 ), ''), '-', coalesce(cast(ipWhitelisted as 
     string
 ), ''), '-', coalesce(cast(lastLoginTime as 
-    string
-), ''), '-', coalesce(cast(array_to_string(organizations, "|", "") as 
     string
 ), ''), '-', coalesce(cast(isMailboxSetup as 
     string
