@@ -81,4 +81,5 @@ jobs:
             echo "Deleted file: ${file}"
           else
             echo "No dbt to remove for file removed: ${file}"
+          fi
         done
