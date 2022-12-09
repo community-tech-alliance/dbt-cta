@@ -4,6 +4,8 @@ select
     cast(id as 
     string
 ) as id,
+    cast(primaryEmail as string) as primaryEmail,
+    cast(recoveryEmail as string) as recoveryEmail,
     cast(kind as 
     string
 ) as kind,
