@@ -4,6 +4,8 @@ select
     cast(id as 
     string
 ) as id,
+    replace(split(orgUnitPath,'/')[safe_offset(1)],'"','') as org,
+    replace(split(orgUnitPath,'/')[safe_offset(2)],'"','') as OrgSubUnit,
     cast(org as string) as org,
     cast(OrgSubUnit as string) as OrgSubUnit,
     cast(primaryEmail as string) as primaryEmail,
