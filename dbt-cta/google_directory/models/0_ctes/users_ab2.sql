@@ -5,7 +5,7 @@ select
     string
 ) as id,
     replace(split(orgUnitPath,'/')[safe_offset(1)],'"','') as org,
-    replace(split(orgUnitPath,'/')[safe_offset(2)],'"','') as OrgSubUnit,
+    replace(split(orgUnitPath,'/')[safe_offset(2)],'"','') as orgSubUnit,
     cast(org as string) as org,
     cast(OrgSubUnit as string) as OrgSubUnit,
     cast(primaryEmail as string) as primaryEmail,

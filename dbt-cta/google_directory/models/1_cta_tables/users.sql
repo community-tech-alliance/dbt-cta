@@ -3,7 +3,7 @@
 select
     id,
     org,
-    OrgSubUnit,
+    orgSubUnit,
     primaryEmail,
     recoveryEmail,
     kind,
