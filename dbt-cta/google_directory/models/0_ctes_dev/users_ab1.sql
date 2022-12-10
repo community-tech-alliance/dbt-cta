@@ -2,8 +2,8 @@
 -- depends_on: {{ source('cta', '_airbyte_raw_users') }}
 select
     json_extract_scalar(_airbyte_data, "$['id']") as id,
-    json_extract_array(_airbyte_data, "$['orgUnitPath']")[safe_offset(1)] as org,
-    json_extract_array(_airbyte_data, "$['orgUnitPath']")[safe_offset(2)] as OrgSubUnit,
+    split(json_extract_array(_airbyte_data, "$['orgUnitPath']"),'/')[safe_offset(1)] as org,
+    split(json_extract_array(_airbyte_data, "$['orgUnitPath']"),'/')[safe_offset(2)] as OrgSubUnit,
     json_extract_scalar(_airbyte_data, "$['primaryEmail']") as primaryEmail,
     json_extract_scalar(_airbyte_data, "$['recoveryEmail']") as recoveryEmail,
     json_extract_scalar(_airbyte_data, "$['kind']") as kind,
