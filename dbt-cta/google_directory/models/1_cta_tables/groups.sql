@@ -1,5 +1,5 @@
 -- Final base SQL model
--- depends_on: {{ ref('groups_ab3') }}
+-- depends_on: {{ ref('groups_ab3') }}, {{ source('cta','users') }}
 select
     id,
     etag,
