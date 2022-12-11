@@ -1,9 +1,7 @@
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
-    schema = "_airbyte_vfp_stackadapt_raw",
-    tags = [ "top-level-intermediate" ]
+    unique_key = '_airbyte_ab_id'
 ) }}
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
 -- depends_on: {{ ref('advertisers_ab1') }}
