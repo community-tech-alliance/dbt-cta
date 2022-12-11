@@ -1,5 +1,5 @@
 -- Final base SQL model
--- depends_on: {{ ref('users_externalIds_ab3') }}
+-- depends_on: {{ ref('users_externalIds_ab3') }}, {{ source('cta','users') }}
 select
     _airbyte_users_hashid,
     type,
