@@ -1,16 +1,30 @@
--- depends_on: {{ ref('conversion_trackers_base') }}
+{% set partitions_to_replace = [
+    'timestamp_trunc(current_timestamp, day)',
+    'timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)'
+] %}
+{{ config(
+    cluster_by = "_airbyte_emitted_at",
+    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    partitions=partitions_to_replace
+) }}
+-- Final base SQL model
+-- depends_on: {{ ref('conversion_trackers_ab3') }}
 select
     _airbyte_conversion_trackers_hashid,
-    MAX(id) as id,
-    MAX(name) as name,
-    MAX(user_id) as user_id,
-    MAX(conv_type) as conv_type,
-    MAX(post_time) as post_time,
-    MAX(count_type) as count_type,
-    MAX(description) as description,
-    MAX(_airbyte_ab_id) as _airbyte_ab_id,
-    MAX(_airbyte_emitted_at) as _airbyte_emitted_at,
-    MAX(_airbyte_normalized_at) as _airbyte_normalized_at
-from {{ ref('conversion_trackers_base') }}
-where 1=1
-group by _airbyte_conversion_trackers_hashid
+    id,
+    name,
+    user_id,
+    conv_type,
+    post_time,
+    count_type,
+    description,
+    _airbyte_ab_id,
+    _airbyte_emitted_at,
+    _airbyte_normalized_at
+from {{ ref('conversion_trackers_ab3') }}
+{% if is_incremental() %}
+where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
+{% endif %}
+
+
+
