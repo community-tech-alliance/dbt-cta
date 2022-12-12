@@ -21,7 +21,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
 from {{ ref('surveys_ab2') }}
--- surveys from {{ source('cta', '_airbyte_raw_surveys') }}
+-- survey_base from {{ source('cta', '_airbyte_raw_surveys') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

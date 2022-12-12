@@ -10,7 +10,7 @@ select
   topics_count,
   posts_count,
   discussion_category_id
-from {{ ref('discussion_forums_base') }}
+from {{ source('cta', 'discussion_forums_base') }}
 -- companies from {{ source('cta', 'discussion_forums_base') }}
 
 

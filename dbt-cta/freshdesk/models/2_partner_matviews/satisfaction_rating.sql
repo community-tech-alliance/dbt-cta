@@ -10,7 +10,7 @@ select
   created_at,
   updated_at,
   contact_id
-from {{ ref('satisfaction_rating_base') }}
+from {{ source('cta', 'satisfaction_rating_base') }}
 -- companies from {{ source('cta', 'satisfaction_rating_base') }}
 
 

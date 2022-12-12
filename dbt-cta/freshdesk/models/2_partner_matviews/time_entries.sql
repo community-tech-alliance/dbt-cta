@@ -13,7 +13,7 @@ select
   updated_at,
   executed_at,
   start_time
-from {{ ref('time_entries_base') }}
+from {{ source('cta', 'time_entries_base') }}
 -- companies from {{ source('cta', 'time_entries_base') }}
 
 

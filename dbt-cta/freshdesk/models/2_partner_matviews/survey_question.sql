@@ -5,7 +5,7 @@ select
   id,
   accepted_ratings,
   label
-from {{ ref('survey_question_base') }}
+from {{ source('cta', 'survey_question_base') }}
 -- companies from {{ source('cta', 'survey_question_base') }}
 
 

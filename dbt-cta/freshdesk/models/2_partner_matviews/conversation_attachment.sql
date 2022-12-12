@@ -9,7 +9,7 @@ select
     JSON_EXTRACT_SCALAR(attachment, '$.attachment_url') as attachment_url,
     SAFE_CAST(JSON_EXTRACT_SCALAR(attachment, '$.created_at') as timestamp) as created_at,
     SAFE_CAST(JSON_EXTRACT_SCALAR(attachment, '$.updated_at') as timestamp) as updated_at,
-from {{ ref('conversation_base') }} conversations, UNNEST(conversations.attachments) as attachment
+from {{ source('cta', 'conversation_base') }} conversations, UNNEST(conversations.attachments) as attachment
 -- conversations from {{ source('cta', 'conversation_base') }}
 
 

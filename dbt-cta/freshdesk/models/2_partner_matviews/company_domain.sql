@@ -3,7 +3,7 @@
 select
     id as company_id,
     domain
-from {{ ref('company_base') }} companies, UNNEST(companies.domains) as domain
+from {{ source('cta', 'company_base') }} companies, UNNEST(companies.domains) as domain
 -- companies from {{ source('cta', 'company_base') }}
 
 

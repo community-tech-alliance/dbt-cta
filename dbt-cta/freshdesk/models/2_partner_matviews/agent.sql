@@ -20,7 +20,7 @@ select
   contact_time_zone,
   contact_created_at,
   contact_updated_at
-from {{ ref('agent_base') }}
+from {{ source('cta', 'agent_base') }}
 -- companies from {{ source('cta', 'agent_base') }}
 
 

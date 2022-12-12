@@ -17,7 +17,7 @@ select
     created_at,
     updated_at,
     custom_affiliate_organization
-from {{ ref('contact_base') }}
+from {{ source('cta', 'contact_base') }}
 -- companies from {{ source('cta', 'contact_base') }}
 
 

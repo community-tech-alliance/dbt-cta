@@ -17,6 +17,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('surveys_ab1') }}
--- surveys
+-- survey_base
 where 1 = 1
 

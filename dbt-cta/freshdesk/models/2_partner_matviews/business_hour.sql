@@ -6,5 +6,5 @@ select
   description,
   created_at,
   updated_at
-from {{ ref('business_hour_base') }}
+from {{ source('cta', 'business_hour_base') }}
 -- companies from {{ source('cta', 'business_hour_base') }}

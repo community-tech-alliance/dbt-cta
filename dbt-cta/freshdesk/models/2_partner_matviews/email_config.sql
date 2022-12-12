@@ -11,7 +11,7 @@ select
   active,
   created_at,
   updated_at
-from {{ ref('email_config_base') }}
+from {{ source('cta', 'email_config_base') }}
 -- companies from {{ source('cta', 'email_config_base') }}
 
 

@@ -6,5 +6,5 @@ select
   description,
   created_at,
   updated_at
-from {{ ref('discussion_category_base') }}
+from {{ source('cta', 'discussion_category_base') }}
 -- companies from {{ source('cta', 'discussion_category_base') }}

@@ -98,5 +98,5 @@ select
     custom_cf_contact_name_email,
     custom_cf_donation_if_different,
     custom_cf_tool_498589
-from {{ ref("ticket_base") }}
+from {{ source('cta', 'ticket_base') }}
 -- ticket_base from {{ source('cta', 'ticket_base') }}

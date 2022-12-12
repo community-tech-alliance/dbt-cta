@@ -10,7 +10,7 @@ select
   created_at,
   updated_at,
   auto_ticket_assign
-from {{ ref('group_base') }}
+from {{ source('cta', 'group_base') }}
 -- companies from {{ source('cta', 'group_base') }}
 
 

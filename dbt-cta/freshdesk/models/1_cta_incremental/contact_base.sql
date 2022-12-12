@@ -26,7 +26,7 @@ select
     SAFE_CAST(updated_at as timestamp) as updated_at,
     csat_rating,
     facebook_id,
-    JSON_EXTRACT_SCALAR(custom_fields, '$.affiliate_organization') as custom_affiliate_organization
+    JSON_EXTRACT_SCALAR(custom_fields, '$.affiliate_organization') as custom_affiliate_organization,
     preferred_source,
     unique_external_id,
     _airbyte_ab_id,

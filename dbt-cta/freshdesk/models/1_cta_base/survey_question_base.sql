@@ -18,7 +18,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
 from {{ ref('surveys_questions_ab2') }}
--- questions at surveys/questions from {{ ref('surveys') }}
+-- questions at survey_base/questions from {{ ref('survey_base') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

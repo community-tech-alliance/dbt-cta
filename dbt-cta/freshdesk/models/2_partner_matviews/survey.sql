@@ -5,7 +5,7 @@ select
   title,
   created_at,
   updated_at
-from {{ ref('survey_base') }}
+from {{ source('cta', 'survey_base') }}
 -- companies from {{ source('cta', 'survey_base') }}
 
 

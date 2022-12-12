@@ -13,7 +13,7 @@ select
   from_email,
   contact_id,
   private
-from {{ ref('conversation_base') }}
+from {{ source('cta', 'conversation_base') }}
 -- companies from {{ source('cta', 'conversation_base') }}
 
 

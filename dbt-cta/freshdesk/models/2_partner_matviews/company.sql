@@ -13,7 +13,7 @@ select
   custom_pod,
   custom_mini_pod,
   custom_internal_affiliate_list
-from {{ ref('company_base') }}
+from {{ source('cta', 'company_base') }}
 -- companies from {{ source('cta', 'company_base') }}
 
 

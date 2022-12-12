@@ -23,6 +23,7 @@ select
     JSON_EXTRACT_SCALAR(custom_fields, '$.pod') as custom_pod,
     JSON_EXTRACT_SCALAR(custom_fields, '$.mini_pod') as custom_mini_pod,
     JSON_EXTRACT_SCALAR(custom_fields, '$.internal_affiliate_list') as custom_internal_affiliate_list,
+    domains,
     _airbyte_ab_id,
     _airbyte_emitted_at,
 from {{ ref('companies_ab2') }}

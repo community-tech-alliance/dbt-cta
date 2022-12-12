@@ -7,7 +7,7 @@ select
   created_at,
   updated_at,
   {{ adapter.quote('default') }}
-from {{ ref('role_base') }}
+from {{ source('cta', 'role_base') }}
 -- companies from {{ source('cta', 'role_base') }}
 
 

@@ -3,5 +3,5 @@
 select
   id as ticket_id,
   email
-from {{ ref("ticket_base") }} tickets, UNNEST(tickets.cc_emails) as email
+from {{ source('cta', 'ticket_base') }} tickets, UNNEST(tickets.cc_emails) as email
 -- ticket_base from {{ source('cta', 'ticket_base') }}

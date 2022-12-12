@@ -3,5 +3,5 @@
 select
   id as ticket_id,
   tag
-from {{ ref("ticket_base") }} tickets, UNNEST(tickets.tags) as tag
+from {{ source('cta', 'ticket_base') }} tickets, UNNEST(tickets.tags) as tag
 -- ticket_base from {{ source('cta', 'ticket_base') }}
