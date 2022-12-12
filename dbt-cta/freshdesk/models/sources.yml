@@ -31,7 +31,31 @@ sources:
   - name: _airbyte_raw_ticket_fields
   - name: _airbyte_raw_tickets
   - name: _airbyte_raw_time_entries
-  - name: conversation_base
-  - name: ticket_base
-  - name: satisfaction_rating_base
+  - name: agent_base
+  - name: business_hour_base
+  - name: canned_response_folders_base
+  - name: canned_responses_base
   - name: company_base
+  - name: contact_base
+  - name: conversation_base
+  - name: discussion_category_base
+  - name: discussion_comments_base
+  - name: discussion_forums_base
+  - name: discussion_topics_base
+  - name: email_config_base
+  - name: email_mailboxes_base
+  - name: group_base
+  - name: products_base
+  - name: role_base
+  - name: satisfaction_rating_base
+  - name: scenario_automations_base
+  - name: settings_base
+  - name: sla_policies_base
+  - name: solution_articles_base
+  - name: solution_categories_base
+  - name: solution_folders_base
+  - name: survey_base
+  - name: survey_question_base
+  - name: ticket_base
+  - name: ticket_fields_base
+  - name: time_entries_base
