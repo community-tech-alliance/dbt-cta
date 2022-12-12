@@ -31,8 +31,7 @@ sources:
   - name: _airbyte_raw_ticket_fields
   - name: _airbyte_raw_tickets
   - name: _airbyte_raw_time_entries
-- name: partner
-  database: "{{ env_var('PARTNER_PROJECT_ID') }}"
-  schema: "{{ env_var('PARTNER_DATASET_ID') }}"
-  tables:
-  - name: agents
+  - name: conversation_base
+  - name: ticket_base
+  - name: satisfaction_rating_base
+  - name: company_base

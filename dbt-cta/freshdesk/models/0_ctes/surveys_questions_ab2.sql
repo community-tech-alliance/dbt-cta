@@ -6,7 +6,7 @@
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
 -- depends_on: {{ ref('surveys_questions_ab1') }}
 select
-    _airbyte_surveys_hashid,
+    survey_id,
     cast(id as {{ dbt_utils.type_string() }}) as id,
     cast(label as {{ dbt_utils.type_string() }}) as label,
     {{ cast_to_boolean(adapter.quote('default')) }} as {{ adapter.quote('default') }},
