@@ -1,5 +1,5 @@
 -- Final base SQL model
--- depends_on: {{ ref('discussion_forums_base') }}
+-- depends_on: {{ ref('discussion_forum_base') }}
 select
   id,
   name,
@@ -10,7 +10,7 @@ select
   topics_count,
   posts_count,
   discussion_category_id
-from {{ source('cta', 'discussion_forums_base') }}
--- companies from {{ source('cta', 'discussion_forums_base') }}
+from {{ source('cta', 'discussion_forum_base') }}
+-- companies from {{ source('cta', 'discussion_forum_base') }}
 
 

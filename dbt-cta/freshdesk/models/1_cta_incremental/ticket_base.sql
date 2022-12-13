@@ -108,6 +108,6 @@ select
     reply_cc_emails,
     tags,
     to_emails
-from {{ ref("tickets_ab2") }}
+from {{ ref("ticket_ab2") }}
 -- ticket from {{ source('cta', '_airbyte_raw_tickets') }}
 where 1 = 1

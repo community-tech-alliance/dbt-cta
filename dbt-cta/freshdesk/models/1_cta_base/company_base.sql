@@ -9,7 +9,7 @@
     unique_key = '_airbyte_ab_id',
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('companies_ab2') }}
+-- depends_on: {{ ref('company_ab2') }}
 select
     id,
     name,
@@ -26,7 +26,7 @@ select
     domains,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-from {{ ref('companies_ab2') }}
+from {{ ref('company_ab2') }}
 -- companies from {{ source('cta', '_airbyte_raw_companies') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

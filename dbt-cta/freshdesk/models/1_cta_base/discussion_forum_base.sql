@@ -10,18 +10,22 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('role_ab2') }}
+-- depends_on: {{ ref('discussion_forum_ab2') }}
 select
     id,
     name,
     description,
-    SAFE_CAST(created_at as timestamp) as created_at,
-    SAFE_CAST(updated_at as timestamp) as updated_at,
-    {{ adapter.quote('default') }},
+    position,
+    forum_type,
+    forum_visibility,
+    topics_count,
+    posts_count,
+    forum_category_id as discussion_category_id,
+    company_ids,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-from {{ ref('role_ab2') }}
--- roles from {{ source('cta', '_airbyte_raw_roles') }}
+from {{ ref('discussion_forum_ab2') }}
+-- discussion_forums from {{ source('cta', '_airbyte_raw_discussion_forums') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

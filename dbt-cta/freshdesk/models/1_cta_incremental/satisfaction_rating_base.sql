@@ -8,7 +8,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('satisfaction_ratings_ab2') }}
+-- depends_on: {{ ref('satisfaction_rating_ab2') }}
 select
     id,
     survey_id,
@@ -22,7 +22,7 @@ select
     ratings,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-from {{ ref('satisfaction_ratings_ab2') }}
+from {{ ref('satisfaction_rating_ab2') }}
 -- satisfaction_ratings from {{ source('cta', '_airbyte_raw_satisfaction_ratings') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

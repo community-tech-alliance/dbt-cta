@@ -9,7 +9,7 @@
     tags = [ "nested" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('surveys_questions_ab2') }}
+-- depends_on: {{ ref('survey_question_ab2') }}
 select
     survey_id,
     id,
@@ -17,7 +17,7 @@ select
     accepted_ratings,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-from {{ ref('surveys_questions_ab2') }}
+from {{ ref('survey_question_ab2') }}
 -- questions at survey_base/questions from {{ ref('survey_base') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

@@ -10,7 +10,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('conversations_ab2') }}
+-- depends_on: {{ ref('conversation_ab2') }}
 select
     ticket_id,
     id,
@@ -32,7 +32,7 @@ select
     source_additional_info,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-from {{ ref('conversations_ab2') }}
+from {{ ref('conversation_ab2') }}
 -- conversations from {{ source('cta', '_airbyte_raw_conversations') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

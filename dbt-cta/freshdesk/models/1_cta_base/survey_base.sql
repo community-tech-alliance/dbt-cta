@@ -10,7 +10,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('surveys_ab2') }}
+-- depends_on: {{ ref('survey_ab2') }}
 select
     id,
     title,
@@ -20,7 +20,7 @@ select
     questions,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-from {{ ref('surveys_ab2') }}
+from {{ ref('survey_ab2') }}
 -- survey_base from {{ source('cta', '_airbyte_raw_surveys') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

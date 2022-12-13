@@ -10,18 +10,20 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('role_ab2') }}
+-- depends_on: {{ ref('solution_category_ab3') }}
 select
     id,
     name,
+    created_at,
+    updated_at,
     description,
-    SAFE_CAST(created_at as timestamp) as created_at,
-    SAFE_CAST(updated_at as timestamp) as updated_at,
-    {{ adapter.quote('default') }},
+    visible_in_portals,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-from {{ ref('role_ab2') }}
--- roles from {{ source('cta', '_airbyte_raw_roles') }}
+    {{ current_timestamp() }} as _airbyte_normalized_at,
+    _airbyte_solution_categories_hashid
+from {{ ref('solution_category_ab3') }}
+-- solution_categories from {{ source('cta', '_airbyte_raw_solution_categories') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

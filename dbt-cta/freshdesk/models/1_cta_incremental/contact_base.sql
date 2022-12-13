@@ -7,7 +7,7 @@
     on_schema_change = "sync_all_columns",
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('contacts_ab2') }}
+-- depends_on: {{ ref('contact_ab2') }}
 select
     id,
     company_id,
@@ -31,7 +31,7 @@ select
     unique_external_id,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-from {{ ref('contacts_ab2') }}
+from {{ ref('contact_ab2') }}
 -- contacts from {{ source('cta', '_airbyte_raw_contacts') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

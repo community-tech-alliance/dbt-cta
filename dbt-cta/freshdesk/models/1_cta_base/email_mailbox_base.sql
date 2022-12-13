@@ -10,18 +10,31 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('role_ab2') }}
+-- depends_on: {{ ref('email_mailbox_ab3') }}
 select
     id,
     name,
-    description,
-    SAFE_CAST(created_at as timestamp) as created_at,
-    SAFE_CAST(updated_at as timestamp) as updated_at,
-    {{ adapter.quote('default') }},
+    port,
+    use_ssl,
+    group_id,
+    incoming,
+    password,
+    username,
+    product_id,
+    access_type,
+    mail_server,
+    mailbox_type,
+    support_email,
+    authentication,
+    custom_mailbox,
+    delete_from_server,
+    default_reply_email,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-from {{ ref('role_ab2') }}
--- roles from {{ source('cta', '_airbyte_raw_roles') }}
+    {{ current_timestamp() }} as _airbyte_normalized_at,
+    _airbyte_email_mailboxes_hashid
+from {{ ref('email_mailbox_ab3') }}
+-- email_mailboxes from {{ source('cta', '_airbyte_raw_email_mailboxes') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

@@ -10,7 +10,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('groups_ab2') }}
+-- depends_on: {{ ref('group_ab2') }}
 select
     id,
     escalate_to,
@@ -24,7 +24,7 @@ select
     group_type,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-from {{ ref('groups_ab2') }}
+from {{ ref('group_ab2') }}
 -- groups from {{ source('cta', '_airbyte_raw_groups') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

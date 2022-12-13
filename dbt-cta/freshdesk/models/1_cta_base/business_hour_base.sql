@@ -10,7 +10,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('business_hours_ab2') }}
+-- depends_on: {{ ref('business_hour_ab2') }}
 select
     id,
     name,
@@ -22,7 +22,7 @@ select
     business_hours,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-from {{ ref('business_hours_ab2') }}
+from {{ ref('business_hour_ab2') }}
 -- business_hours from {{ source('cta', '_airbyte_raw_business_hours') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

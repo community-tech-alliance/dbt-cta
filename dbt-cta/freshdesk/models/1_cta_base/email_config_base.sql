@@ -10,7 +10,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('email_configs_ab2') }}
+-- depends_on: {{ ref('email_config_ab2') }}
 select
     id,
     product_id,
@@ -24,7 +24,7 @@ select
     SAFE_CAST(updated_at as timestamp) as updated_at,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-from {{ ref('email_configs_ab2') }}
+from {{ ref('email_config_ab2') }}
 -- email_configs from {{ source('cta', '_airbyte_raw_email_configs') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

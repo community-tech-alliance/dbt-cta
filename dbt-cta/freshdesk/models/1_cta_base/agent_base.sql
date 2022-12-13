@@ -10,7 +10,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('agents_ab2') }}
+-- depends_on: {{ ref('agent_ab2') }}
 select
     id,
     available,
@@ -35,7 +35,7 @@ select
     last_active_at,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-from {{ ref('agents_ab2') }}
+from {{ ref('agent_ab2') }}
 -- agents from {{ source('cta', '_airbyte_raw_agents') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

@@ -9,7 +9,7 @@
     unique_key = '_airbyte_ab_id',
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('discussion_categories_ab2') }}
+-- depends_on: {{ ref('discussion_category_ab2') }}
 select
     id,
     name,
@@ -18,7 +18,7 @@ select
     SAFE_CAST(updated_at as timestamp) as updated_at,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-from {{ ref('discussion_categories_ab2') }}
+from {{ ref('discussion_category_ab2') }}
 -- discussion_categories from {{ source('cta', '_airbyte_raw_discussion_categories') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

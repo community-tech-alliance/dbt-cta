@@ -10,18 +10,22 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('role_ab2') }}
+-- depends_on: {{ ref('canned_response_ab3') }}
 select
     id,
-    name,
-    description,
-    SAFE_CAST(created_at as timestamp) as created_at,
-    SAFE_CAST(updated_at as timestamp) as updated_at,
-    {{ adapter.quote('default') }},
+    title,
+    content,
+    folder_id,
+    created_at,
+    updated_at,
+    attachments,
+    content_html,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-from {{ ref('role_ab2') }}
--- roles from {{ source('cta', '_airbyte_raw_roles') }}
+    {{ current_timestamp() }} as _airbyte_normalized_at,
+    _airbyte_canned_responses_hashid
+from {{ ref('canned_response_ab3') }}
+-- canned_responses from {{ source('cta', '_airbyte_raw_canned_responses') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
