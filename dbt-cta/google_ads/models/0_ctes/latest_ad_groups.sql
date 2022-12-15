@@ -12,4 +12,7 @@ select
   AdGroupId,
   AdGroupName
 from {{ source('partner', 'p_AdGroup_1731221521') }} as table_alias
-where _PARTITIONTIME = '{{ partition_time }}'
+--PROD
+--where _PARTITIONTIME = '{{ partition_time }}'
+--DEV
+where date_partition = '{{ partition_time }}'
