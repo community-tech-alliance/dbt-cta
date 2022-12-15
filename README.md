@@ -1,5 +1,9 @@
 # dbt-cta
 
+## Welcome!
+
+Whatever the events that conspired to bring you here, we at Community Tech Alliance welcome you to our humble repository, in which are contained most of our `dbt` models. As always, please [email us](mailto:help@techallies.org) with any questions, issues, or feature requests. We hope you enjoy your stay!
+
 ## Formatting
 
 Until this is implemented in CI/CD, please run `sqlfmt`:
