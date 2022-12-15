@@ -1,4 +1,4 @@
-{% set partition_time = latest_partition(get_custom_database(), get_custom_schema(), 'p_Budget_1731221521') %}
+{% set partition_time = latest_partition(generate_database_name(), generate_schema_name(), 'p_Budget_1731221521') %}
 
 select
   CampaignId,
