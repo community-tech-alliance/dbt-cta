@@ -1,3 +1,5 @@
+--Is there a way we could modify this so we could use it with variables?
+
 {% macro latest_partition(project, dataset, table_name) -%}
   
   {% call statement('get_max_partition', fetch_result=True) -%}
