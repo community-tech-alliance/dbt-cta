@@ -13,7 +13,7 @@ select
   CampaignName,
   BudgetId,
   UrlCustomParameters
-from {{ source('partner', '') }} as table_alias
+from {{ source('partner', 'p_Campaign_1731221521') }} as table_alias
 --PROD
 --where _PARTITIONTIME = '{{ partition_time }}'
 --DEV
