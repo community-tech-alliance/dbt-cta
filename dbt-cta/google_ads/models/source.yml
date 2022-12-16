@@ -1,0 +1,31 @@
+version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  quoting:
+    database: true
+    schema: true
+    identifier: true
+  tables:
+    - name: ad_stats_overview_base
+    - name: campaign_stats_overview_base
+
+- name: partner
+  database: "{{ env_var('PARTNER_PROJECT_ID') }}"
+  schema: "{{ env_var('PARTNER_DATASET_ID') }}"
+  tables:
+  quoting:
+    database: true
+    schema: true
+    identifier: true
+  tables:
+    - name: p_Campaign_1731221521
+    - name: p_CampaignBasicStats_1731221521
+    - name: p_CampaignCookieStats_1731221521
+    - name: p_Budget_1731221521
+    - name: p_AdGroup_1731221521
+    - name: p_Ad_1731221521
+    - name: p_AdStats_1731221521
+    - name: p_VideoNonClickStats_1731221521
+    - name: ads_final_url_suffix    
