@@ -4,7 +4,7 @@ sources:
   database: "{{env_var('CTA_PROJECT_ID') }}"
   schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables: "{{ env_var('CTA_SOURCE_TABLES') }}"
-#- name: partner
-#  database: "{{ env_var('PARTNER_PROJECT_ID') }}"
-#  schema: "{{ env_var('PARTNER_DATASET_ID') }}"
-#  tables: "{{ env_var('PARTNER_SOURCE_TABLES') }}"
+- name: partner
+  database: "{{ env_var('PARTNER_PROJECT_ID') }}"
+  schema: "{{ env_var('PARTNER_DATASET_ID') }}"
+  tables: "{{ env_var('PARTNER_SOURCE_TABLES') }}"
