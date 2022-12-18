@@ -30,7 +30,10 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
+
+--TODO(): reference this source from a variable configured in the config YAML
 from {{ source('cta', '_airbyte_raw_campaigns') }} as table_alias
+
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

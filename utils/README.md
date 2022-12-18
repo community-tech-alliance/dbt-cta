@@ -67,8 +67,8 @@ The sources.yml provides context to the dynamic lookups in the models. The file 
 version: 2
 sources:
 - name: cta
-  database: "{{ env_var('CTA_PROJECT_ID') }}"
-  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  database: "{{ env_var('PROJECT_ID') }}"
+  schema: "{{ env_var('DATASET_ID') }}"
   tables:
     - name: _airbyte_raw_affiliations
     - name: affiliatons

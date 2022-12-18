@@ -1,10 +1,10 @@
 version: 2
 sources:
 - name: cta
-  database: "{{ var('CTA_PROJECT_ID') }}"
-  schema: "{{ var('CTA_DATASET_ID') }}"
+  database: "{{ var('PROJECT_ID') }}"
+  schema: "{{ var('DATASET_ID') }}"
   tables:
 - name: partner
-  database: "{{ var('PARTNER_PROJECT_ID') }}"
-  schema: "{{ var('PARTNER_DATASET_ID') }}"
+  database: "{{ var('PROJECT_ID') }}"
+  schema: "{{ var('DATASET_ID') }}"
   tables:
