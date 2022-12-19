@@ -3,10 +3,11 @@ sources:
 - name: cta
   database: "{{env_var('CTA_PROJECT_ID') }}"
   schema: "{{ env_var('CTA_DATASET_ID') }}"
-  tables: "{{ var('cta_sources') }}"]
-  #- name: {{ env_var('CTA_SOURCES_DICT').get("campaigns_raw") }}
-  #- name: {{ env_var('CTA_SOURCES_DICT').get("campaigns_base") }}
+  tables:
+  - name: {{ env_var('SOURCES_DICT')["campaigns_raw"] }}
+  - name: {{ env_var('SOURCES_DICT')["campaigns_base"] }}
 - name: partner
   database: "{{env_var('PARTNER_PROJECT_ID') }}"
   schema: "{{ env_var('PARTNER_DATASET_ID') }}"
-  tables: "{{ var('partner_sources') }}"
+  tables:
+  - name: {{ env_var('SOURCES_DICT')["campaigns"] }}
