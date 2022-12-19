@@ -5,7 +5,7 @@ config-version: 2
 profile: 'default'
 
 model-paths: ["{{ env_var('SYNC_NAME') }}/models"]
-packages-install-path: "{{ env_var('SYNC_NAME') }}/dbt-packages"
+packages-install-path: "{{ env_var('PARTNER_DATASET_ID') }}/dbt-packages"
 
 models:
   default:

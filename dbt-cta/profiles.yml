@@ -7,8 +7,8 @@ config:
 default:
   outputs:
     cta:
-      project: "{{ env_var('PROJECT_ID') }}"
-      dataset: "{{ env_var('DATASET_ID') }}"
+      project: "{{ env_var('CTA_PROJECT_ID') }}"
+      dataset: "{{ env_var('CTA_DATASET_ID') }}"
       location: US
       method: oauth
       priority: batch
@@ -19,8 +19,8 @@ default:
       job_retries: 5
       job_retry_deadline_seconds: 1200
     partner:
-      project: "{{ env_var('PROJECT_ID') }}"
-      dataset: "{{ env_var('DATASET_ID') }}"
+      project: "{{ env_var('PARTNER_PROJECT_ID') }}"
+      dataset: "{{ env_var('PARTNER_DATASET_ID') }}"
       location: US
       method: oauth
       priority: batch
