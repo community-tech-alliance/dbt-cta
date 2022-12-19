@@ -32,6 +32,7 @@ SELECT
     ,MAX(needs_block_refresh) as needs_block_refresh
     ,MAX(_airbyte_ab_id) as _airbyte_ab_id
     ,MAX(_airbyte_emitted_at) as _airbyte_emitted_at
-{% set table_name = env_var("SOURCES_DICT")["campaigns_base"] %}
-from {{ source('cta', table_name) }}
+
+{% set table_name = var('campaigns_base') %}
+from {{ source('cta', table_name) }} as table_alias
 GROUP BY _airbyte_campaigns_hashid

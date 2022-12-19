@@ -4,10 +4,10 @@ sources:
   database: "{{env_var('CTA_PROJECT_ID') }}"
   schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables:
-  - name: {{ env_var('SOURCES_DICT')["campaigns_raw"] }}
-  - name: {{ env_var('SOURCES_DICT')["campaigns_base"] }}
+  - name: _airbyte_raw_campaigns
+  - name: campaigns_base
 - name: partner
   database: "{{env_var('PARTNER_PROJECT_ID') }}"
   schema: "{{ env_var('PARTNER_DATASET_ID') }}"
   tables:
-  - name: {{ env_var('SOURCES_DICT')["campaigns"] }}
+  - name: campaigns
