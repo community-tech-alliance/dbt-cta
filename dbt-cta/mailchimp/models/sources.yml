@@ -3,8 +3,8 @@ sources:
 - name: cta
   database: "{{env_var('PROJECT_ID') }}"
   schema: "{{ env_var('DATASET_ID') }}"
-  tables: "{{ var('source_tables') }}"
+  tables: "{{ var('cta_sources') }}"
 - name: partner
-  database: "{{ env_var('PROJECT_ID') }}"
+  database: "{{env_var('PROJECT_ID') }}"
   schema: "{{ env_var('DATASET_ID') }}"
-  tables: "{{ var('source_tables') }}"  
+  tables: "{{ var('partner_sources') }}"
