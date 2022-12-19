@@ -1,8 +1,8 @@
 version: 2
 sources:
 - name: cta
-  database: "{{ env_var('PROJECT_ID') }}"
-  schema: "{{ env_var('DATASET_ID') }}"
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables:
   - name: _airbyte_raw_balance_transactions
   - name: _airbyte_raw_bank_accounts
@@ -197,5 +197,5 @@ sources:
   - name: subscription_items_plan_tiers_base
 
 - name: partner
-  database: "{{ env_var('PROJECT_ID') }}"
-  schema: "{{ env_var('DATASET_ID') }}"
+  database: "{{ env_var('PARTNER_PROJECT_ID') }}"
+  schema: "{{ env_var('PARTNER_DATASET_ID') }}"

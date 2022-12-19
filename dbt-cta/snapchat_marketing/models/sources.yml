@@ -1,8 +1,8 @@
 version: 2
 sources:
 - name: cta
-  database: "{{ env_var('PROJECT_ID') }}"
-  schema: "{{ env_var('DATASET_ID') }}"
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables:
   - name: _airbyte_raw_adaccounts
   - name: _airbyte_raw_ads
@@ -30,8 +30,8 @@ sources:
   - name: organizations_configuration_settings_base
 
 - name: partner
-  database: "{{ env_var('PROJECT_ID') }}"
-  schema: "{{ env_var('DATASET_ID') }}"
+  database: "{{ env_var('PARTNER_PROJECT_ID') }}"
+  schema: "{{ env_var('PARTNER_DATASET_ID') }}"
   tables:
   - name: ad_stats
   - name: adaccounts

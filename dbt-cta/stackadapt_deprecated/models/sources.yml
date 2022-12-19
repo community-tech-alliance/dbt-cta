@@ -1,8 +1,8 @@
 version: 2
 sources:
 - name: cta
-  database: "{{ env_var('PROJECT_ID') }}"
-  schema: "{{ env_var('DATASET_ID') }}"
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables:
   - name: _airbyte_raw_account_campaigns_stats
   - name: _airbyte_raw_account_line_items_stats
@@ -28,8 +28,8 @@ sources:
   - name: account_native_ads_stats_base
 
 - name: partner
-  database: "{{ env_var('PROJECT_ID') }}"
-  schema: "{{ env_var('DATASET_ID') }}"
+  database: "{{ env_var('PARTNER_PROJECT_ID') }}"
+  schema: "{{ env_var('PARTNER_DATASET_ID') }}"
   tables:
   - name: account_native_ads_stats
   - name: campaigns
