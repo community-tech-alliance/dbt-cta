@@ -1,33 +1,28 @@
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
+    unique_key = '_airbyte_events_hashid',
     schema = "stripe_partner_a",
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('disputes_ab3') }}
+-- depends_on: {{ ref('events_ab3') }}
 select
     id,
-    amount,
-    charge,
+    data,
+    type,
     object,
-    reason,
-    status,
     created,
-    currency,
-    evidence,
+    request,
     livemode,
-    metadata,
-    evidence_details,
-    balance_transactions,
-    is_charge_refundable,
+    api_version,
+    pending_webhooks,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
-    _airbyte_disputes_hashid
-from {{ ref('disputes_ab3') }}
--- disputes from {{ source('cta', '_airbyte_raw_disputes') }}
+    _airbyte_events_hashid
+from {{ ref('events_ab3') }}
+-- events from {{ source('cta', '_airbyte_raw_events') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 
