@@ -1,7 +1,7 @@
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_invoices_hashid',
+    unique_key = '_airbyte_payment_intents_hashid',
     schema = "stripe_partner_a",
     tags = [ "top-level" ]
 ) }}
