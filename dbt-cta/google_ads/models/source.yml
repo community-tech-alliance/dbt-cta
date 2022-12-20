@@ -1,0 +1,34 @@
+version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  quoting:
+    database: true
+    schema: true
+    identifier: true
+  tables:
+    - name: ad_stats_overview_base
+    - name: campaign_stats_overview_base
+
+- name: partner
+  database: "{{ env_var('PARTNER_PROJECT_ID') }}"
+  schema: "{{ env_var('PARTNER_DATASET_ID') }}"
+  tables:
+  quoting:
+    database: true
+    schema: true
+    identifier: true
+  tables: 
+    # table names include account IDs
+    # so we configure them separately and pass to dbt using --vars
+
+    - name: "{{ var('Campaign') }}"
+    - name: "{{ var('CampaignBasicStats') }}"
+    - name: "{{ var('CampaignCookieStats') }}"
+    - name: "{{ var('Budget') }}"
+    - name: "{{ var('AdGroup') }}"
+    - name: "{{ var('Ad') }}"
+    - name: "{{ var('AdStats') }}"
+    - name: "{{ var('VideoNonClickStats') }}"
+    - name: "{{ var('ads_final_url_suffix') }}"
