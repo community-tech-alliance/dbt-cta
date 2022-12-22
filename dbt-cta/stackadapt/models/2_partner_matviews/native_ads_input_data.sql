@@ -1,0 +1,1 @@
+SELECT * FROM source('cta','native_ads_input_data')

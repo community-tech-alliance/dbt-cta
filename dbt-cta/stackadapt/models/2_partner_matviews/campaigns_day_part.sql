@@ -1,0 +1,1 @@
+SELECT * FROM source('cta','campaigns_day_part')

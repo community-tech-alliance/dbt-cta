@@ -1,0 +1,1 @@
+SELECT * FROM source('cta','account_campaigns_stats')

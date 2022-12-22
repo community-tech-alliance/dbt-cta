@@ -1,0 +1,1 @@
+SELECT * FROM source('cta','account_native_ads_stats_creatives')

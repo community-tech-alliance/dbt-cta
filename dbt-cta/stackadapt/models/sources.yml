@@ -12,6 +12,20 @@ sources:
   - name: _airbyte_raw_conversion_trackers
   - name: _airbyte_raw_line_items
   - name: _airbyte_raw_native_ads
+  - name: account_campaigns_stats
+  - name: account_line_items_stats
   - name: account_native_ads_stats
+  - name: account_native_ads_stats_creatives
+  - name: advertisers
   - name: campaigns
+  - name: campaigns_day_part
+  - name: conversion_trackers
   - name: line_items
+  - name: native_ads
+  - name: native_ads_creatives
+  - name: native_ads_icon
+  - name: native_ads_input_data
+  - name: native_ads_input_data_audio_creatives
+  - name: native_ads_input_data_display_js_creative
+  - name: native_ads_input_data_video_creatives
+  - name: native_ads_vast_trackers
