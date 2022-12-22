@@ -1,3 +1,7 @@
+{{ config(
+    auto_refresh = false,
+    full_refresh = false
+) }}
 select
   ad_stats.date,
   ad_stats.campaign_id,
@@ -12,8 +16,8 @@ select
   ad_stats.utm_campaign,
   ad_stats.utm_term,
   ad_stats.utm_content,
-  safe_cast(campaigns.budget as string) as campaign_budget,
-  safe_cast(line_items.budget as string) as line_item_budget,
+  safe_cast(campaigns_base.budget as string) as campaign_budget,
+  safe_cast(line_items_base.budget as string) as line_item_budget,
   ad_stats.imp as impressions,
   ad_stats.cost,
   ad_stats.ecpm,
@@ -32,6 +36,6 @@ select
   safe_divide(ad_stats.page_start, ad_stats.imp) as pageview_rate,
   ad_stats.reach,
   ad_stats.frequency
-from {{ source('cta', 'account_native_ads_stats') }} ad_stats
-join {{ source('cta', 'campaigns') }} campaigns on ad_stats.campaign_id = campaigns.id
-join {{ source('cta', 'line_items') }} line_items on ad_stats.line_item_id = line_items.id
+from {{ source('cta', 'account_native_ads_stats_base') }} ad_stats
+join {{ source('cta', 'campaigns_base') }} campaigns_base on ad_stats.campaign_id = campaigns_base.id
+join {{ source('cta', 'line_items_base') }} line_items_base on ad_stats.line_item_id = line_items_base.id

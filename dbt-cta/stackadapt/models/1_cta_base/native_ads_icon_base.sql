@@ -8,19 +8,20 @@
     partitions=partitions_to_replace
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('campaigns_day_part_ab3') }}
+-- depends_on: {{ ref('native_ads_icon_ab3') }}
 select
-    _airbyte_campaigns_hashid,
-    enabled,
-    end_hour,
-    timezone,
-    start_hour,
+    _airbyte_native_ads_hashid,
+    id,
+    url,
+    width,
+    height,
+    file_name,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
-    _airbyte_day_part_hashid
-from {{ ref('campaigns_day_part_ab3') }}
--- day_part at campaigns/day_part from {{ ref('campaigns') }}
+    _airbyte_icon_hashid
+from {{ ref('native_ads_icon_ab3') }}
+-- icon at native_ads/icon from {{ ref('native_ads_base') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

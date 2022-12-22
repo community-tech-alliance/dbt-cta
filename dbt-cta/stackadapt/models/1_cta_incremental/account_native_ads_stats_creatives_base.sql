@@ -13,7 +13,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_creatives_hashid
 from {{ ref('account_native_ads_stats_creatives_ab3') }}
--- creatives at account_native_ads_stats/creatives from {{ ref('account_native_ads_stats') }}
+-- creatives at account_native_ads_stats/creatives from {{ ref('account_native_ads_stats_base') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 
