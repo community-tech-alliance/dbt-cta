@@ -4,4 +4,4 @@ packages:
   - git: "https://github.com/fishtown-analytics/dbt-utils.git"
     revision: 0.8.5
   - git: "https://github.com/community-tech-alliance/dbt-materialized-views.git"
-    revision: 1.0.0
+    revision: 1.0.1
