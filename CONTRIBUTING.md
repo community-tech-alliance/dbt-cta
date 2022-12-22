@@ -4,7 +4,7 @@ No matter who you are, if you spot an error, omission, or bug, you're welcome to
 
 ## Bugs and Feature Requests
 
-The best way to let us know about any problems, submit feature requests, or provide general feedback is to [submit an Issue](https://github.com/community-tech-alliance/test-public-repo/issues/new).
+The best way to let us know about any problems, submit feature requests, or provide general feedback is to [submit an Issue](https://github.com/community-tech-alliance/dbt-cta/issues/new).
 
 ### Bugs
 
