@@ -1,5 +1,21 @@
 # dbt-cta
 
+## Welcome!
+
+Whatever whims of fate conspired to bring you here, we at Community Tech Alliance welcome you to this humble repository, in which are contained the `dbt` models we use to transform and deliver data to our partner organizations.
+
+This is an open-source project, and we invite you to contribute! Please check out our [contribution guidelines](CONTRIBUTING.md) for details on how to report bugs, submit feature requests, and contribute new code to this repository.
+
+If you have questions, concerns, or feedback about this project, the best way to let us know is by submitting an issue (please refer to the aforementioned [guidelines](CONTRIBUTING.md) for doing so). You can also reach us by [email](mailto:help@techallies.org). 
+
+We hope you enjoy your stay!
+
+## Initializing dbt projects from Airbyte syncs
+
+Most of our dbt originates from the default normalization that Airbyte runs for data synced from each vendor. Airbyte has instructions for how to export this dbt on their [website](https://docs.airbyte.com/operator-guides/transformation-and-normalization/transformations-with-dbt#exporting-dbt-normalization-project-outside-airbyte).
+
+We also have some tools and techniques (outlined below) that we use internally to make our lives easier (but you can, too!).
+
 ## Formatting
 
 Until this is implemented in CI/CD, please run `sqlfmt`:
