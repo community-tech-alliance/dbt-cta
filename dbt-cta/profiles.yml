@@ -1,0 +1,32 @@
+config:
+  partial_parse: true
+  printer_width: 120
+  send_anonymous_usage_stats: false
+  use_colors: true
+
+default:
+  outputs:
+    cta:
+      project: "{{ env_var('CTA_PROJECT_ID') }}"
+      dataset: "{{ env_var('CTA_DATASET_ID') }}"
+      location: US
+      method: oauth
+      priority: batch
+      threads: 4
+      type: bigquery
+      job_creation_timeout_seconds: 30
+      job_execution_timeout_seconds: 600
+      job_retries: 5
+      job_retry_deadline_seconds: 1200
+    partner:
+      project: "{{ env_var('PARTNER_PROJECT_ID') }}"
+      dataset: "{{ env_var('PARTNER_DATASET_ID') }}"
+      location: US
+      method: oauth
+      priority: batch
+      threads: 4
+      type: bigquery
+      job_creation_timeout_seconds: 30
+      job_execution_timeout_seconds: 600
+      job_retries: 5
+      job_retry_deadline_seconds: 1200

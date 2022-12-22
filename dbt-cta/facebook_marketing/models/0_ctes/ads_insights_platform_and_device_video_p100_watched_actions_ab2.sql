@@ -1,0 +1,26 @@
+{{ config(
+    cluster_by = "_airbyte_emitted_at",
+    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"}
+) }}
+-- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
+-- depends_on: {{ ref('ads_insights_platform_and_device_video_p100_watched_actions_ab1') }}
+select
+    _airbyte_ads_insights_platform_and_device_hashid,
+    cast(value as {{ dbt_utils.type_float() }}) as value,
+    cast(_1d_view as {{ dbt_utils.type_float() }}) as _1d_view,
+    cast(_7d_view as {{ dbt_utils.type_float() }}) as _7d_view,
+    cast(_1d_click as {{ dbt_utils.type_float() }}) as _1d_click,
+    cast(_28d_view as {{ dbt_utils.type_float() }}) as _28d_view,
+    cast(_7d_click as {{ dbt_utils.type_float() }}) as _7d_click,
+    cast(_28d_click as {{ dbt_utils.type_float() }}) as _28d_click,
+    cast(action_type as {{ dbt_utils.type_string() }}) as action_type,
+    cast(action_target_id as {{ dbt_utils.type_string() }}) as action_target_id,
+    cast(action_destination as {{ dbt_utils.type_string() }}) as action_destination,
+    _airbyte_ab_id,
+    _airbyte_emitted_at,
+    {{ current_timestamp() }} as _airbyte_normalized_at
+from {{ ref('ads_insights_platform_and_device_video_p100_watched_actions_ab1') }}
+-- video_p100_watched_actions at ads_insights_platform_and_device/video_p100_watched_actions
+where 1 = 1
+{{ incremental_clause('_airbyte_emitted_at') }}
+

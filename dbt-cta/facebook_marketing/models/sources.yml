@@ -1,0 +1,42 @@
+version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables:
+  - name: _airbyte_raw_activities
+  - name: _airbyte_raw_ad_account
+  - name: _airbyte_raw_ad_creatives
+  - name: _airbyte_raw_ad_sets
+  - name: _airbyte_raw_ads
+  - name: _airbyte_raw_ads_insights
+  - name: _airbyte_raw_ads_insights_action_type
+  - name: _airbyte_raw_ads_insights_platform_and_device
+  - name: _airbyte_raw_campaigns
+  - name: _airbyte_raw_images
+  - name: _airbyte_raw_videos
+  - name: ads_insights_overall_base
+  - name: ads_insights_platform_and_device_base
+  - name: ads_base
+  - name: ad_creatives_base
+  - name: ad_sets_base
+  - name: ad_account_base
+  - name: campaigns_base
+  - name: account_report_base
+  - name: campaign_report_base
+  - name: ad_set_report_base
+
+- name: partner
+  database: "{{ env_var('PARTNER_PROJECT_ID') }}"
+  schema: "{{ env_var('PARTNER_DATASET_ID') }}"
+  tables:
+  - name: ads_insights_overall
+  - name: ads_insights_platform_and_device
+  - name: ads
+  - name: ad_creatives
+  - name: ad_sets
+  - name: ad_account
+  - name: campaigns
+  - name: account_report
+  - name: campaign_report
+  - name: ad_set_report

@@ -1,0 +1,49 @@
+name: default
+version: '1.0'
+config-version: 2
+
+profile: 'default'
+
+model-paths: ["{{ env_var('SYNC_NAME') }}/models"]
+packages-install-path: "{{ env_var('SYNC_NAME') }}/dbt-packages"
+
+models:
+  default:
+    0_ctes:
+      +tags: 
+        - cta
+      +materialized: ephemeral
+    0_ctes_dev: #useful for debugging sometimes (eg, some field is being cast to the wrong data type and you need to figure out which)
+      +tags: 
+        - cta
+      +materialized: table
+    1_cta_base:
+      +tags: 
+        - cta
+      +materialized: incremental
+      +incremental_strategy: insert_overwrite
+      +on_schema_change: sync_all_columns
+      +full_refresh: false
+    1_cta_tables:
+      +tags:
+        - cta
+      +materialized: table
+    1_cta_incremental:
+      +tags:
+        - cta
+      +materialized: incremental
+      +on_schema_change: sync_all_columns
+    2_partner_matviews:
+      +tags: 
+        - partner
+      +materialized: materialized_view
+      +auto_refresh: true
+      +refresh_interval_minutes: 1440
+    2_partner_tables:
+      +tags: 
+        - partner
+      +materialized: table
+    3_partner_views:
+      +tags: 
+        - partner
+      +materialized: view

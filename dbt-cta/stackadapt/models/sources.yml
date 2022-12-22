@@ -1,0 +1,17 @@
+version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables:
+  - name: _airbyte_raw_account_campaigns_stats
+  - name: _airbyte_raw_account_line_items_stats
+  - name: _airbyte_raw_account_native_ads_stats
+  - name: _airbyte_raw_advertisers
+  - name: _airbyte_raw_campaigns
+  - name: _airbyte_raw_conversion_trackers
+  - name: _airbyte_raw_line_items
+  - name: _airbyte_raw_native_ads
+  - name: account_native_ads_stats
+  - name: campaigns
+  - name: line_items
