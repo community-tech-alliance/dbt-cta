@@ -16,6 +16,6 @@ select
     ]) }} as _airbyte_day_part_hashid,
     tmp.*
 from {{ ref('campaigns_day_part_ab2') }} tmp
--- day_part at campaigns/day_part
+-- day_part at campaigns_base/day_part
 where 1 = 1
 

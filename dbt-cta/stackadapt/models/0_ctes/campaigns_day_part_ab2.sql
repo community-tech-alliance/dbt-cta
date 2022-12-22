@@ -16,6 +16,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('campaigns_day_part_ab1') }}
--- day_part at campaigns/day_part
+-- day_part at campaigns_base/day_part
 where 1 = 1
 
