@@ -4,6 +4,7 @@
 ] %}
 
 {{ config(
+    partitions = partitions_to_replace,
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
     tags = [ "nested" ]

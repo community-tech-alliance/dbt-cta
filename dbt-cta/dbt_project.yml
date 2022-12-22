@@ -5,7 +5,7 @@ config-version: 2
 profile: 'default'
 
 model-paths: ["{{ env_var('SYNC_NAME') }}/models"]
-packages-install-path: "{{ env_var('PARTNER_DATASET_ID') }}/dbt-packages"
+packages-install-path: "{{ env_var('SYNC_NAME') }}/dbt-packages"
 
 models:
   default:
@@ -39,6 +39,9 @@ models:
       +materialized: materialized_view
       +auto_refresh: true
       +refresh_interval_minutes: 1440
+      +grant_access_to:
+        - project: "{{ env_var('CTA_PROJECT_ID') }}"
+          dataset: "{{ env_var('CTA_DATASET_ID') }}"
     2_partner_tables:
       +tags: 
         - partner
@@ -47,3 +50,6 @@ models:
       +tags: 
         - partner
       +materialized: view
+      +grant_access_to:
+        - project: "{{ env_var('CTA_PROJECT_ID') }}"
+          dataset: "{{ env_var('CTA_DATASET_ID') }}"

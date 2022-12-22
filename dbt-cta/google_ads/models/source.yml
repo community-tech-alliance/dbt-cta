@@ -19,13 +19,16 @@ sources:
     database: true
     schema: true
     identifier: true
-  tables:
-    - name: p_Campaign_1731221521
-    - name: p_CampaignBasicStats_1731221521
-    - name: p_CampaignCookieStats_1731221521
-    - name: p_Budget_1731221521
-    - name: p_AdGroup_1731221521
-    - name: p_Ad_1731221521
-    - name: p_AdStats_1731221521
-    - name: p_VideoNonClickStats_1731221521
-    - name: ads_final_url_suffix    
+  tables: 
+    # table names include account IDs
+    # so we configure them separately and pass to dbt using --vars
+
+    - name: "{{ var('Campaign') }}"
+    - name: "{{ var('CampaignBasicStats') }}"
+    - name: "{{ var('CampaignCookieStats') }}"
+    - name: "{{ var('Budget') }}"
+    - name: "{{ var('AdGroup') }}"
+    - name: "{{ var('Ad') }}"
+    - name: "{{ var('AdStats') }}"
+    - name: "{{ var('VideoNonClickStats') }}"
+    - name: "{{ var('ads_final_url_suffix') }}"

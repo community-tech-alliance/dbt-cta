@@ -1,57 +1,55 @@
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
+    unique_key = '_airbyte_payment_intents_hashid',
     schema = "stripe_partner_a",
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('charges_ab3') }}
+-- depends_on: {{ ref('payment_intents_ab3') }}
 select
     id,
-    card,
-    paid,
-    {{ adapter.quote('order') }},
     amount,
     object,
     review,
     source,
     status,
+    charges,
     created,
-    dispute,
     invoice,
-    outcome,
-    refunds,
-    captured,
     currency,
     customer,
     livemode,
     metadata,
-    refunded,
     shipping,
     application,
+    canceled_at,
     description,
-    destination,
-    failure_code,
+    next_action,
     on_behalf_of,
-    fraud_details,
+    client_secret,
     receipt_email,
-    payment_intent,
-    receipt_number,
+    transfer_data,
+    capture_method,
+    payment_method,
     transfer_group,
-    amount_refunded,
-    application_fee,
-    failure_message,
-    source_transfer,
-    balance_transaction,
-    statement_descriptor,
+    amount_received,
+    amount_capturable,
+    last_payment_error,
+    setup_future_usage,
+    cancellation_reason,
+    confirmation_method,
+    payment_method_types,
     statement_description,
-    payment_method_details,
+    application_fee_amount,
+    payment_method_options,
+    statement_descriptor_suffix,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
-    _airbyte_charges_hashid
-from {{ ref('charges_ab3') }}
+    _airbyte_payment_intents_hashid
+from {{ ref('payment_intents_ab3') }}
+-- payment_intents from {{ source('cta', '_airbyte_raw_payment_intents') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 

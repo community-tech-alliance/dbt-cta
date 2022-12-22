@@ -1,13 +1,13 @@
 version: 2
 sources:
 - name: cta
-  database: "{{env_var('CTA_PROJECT_ID') }}"
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
   schema: "{{ env_var('CTA_DATASET_ID') }}"
-  tables: 
-  - name: _airbyte_raw_campaigns
-  - name: campaigns_base
+  tables:
+  - name: "{{ var('campaigns_raw') }}"
+  - name: "{{ var('campaigns_base') }}"
 - name: partner
   database: "{{ env_var('PARTNER_PROJECT_ID') }}"
   schema: "{{ env_var('PARTNER_DATASET_ID') }}"
-  tables: 
-  - name: campaigns
+  tables:
+  - name: "{{ var('campaigns') }}"

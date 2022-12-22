@@ -1,3 +1,5 @@
+{% set CampaignCookieStats = var('CampaignCookieStats') %}
+
 {{
   config(
     unique_key='hash_id'
@@ -29,7 +31,7 @@ select
   ]) }} as hash_id
 from {{ ref('grouped_campaign_stats') }} campaign_stats
 join {{ ref('campaigns_with_budget') }} campaigns_budget on campaign_stats.CampaignId = campaigns_budget.CampaignId
-left join {{ source('partner', 'p_CampaignCookieStats_1731221521') }} cookie_stats
+left join {{ source('partner', CampaignCookieStats) }} cookie_stats
   on campaign_stats.Date = cookie_stats.Date
   and campaign_stats.CampaignId = cookie_stats.CampaignId
   and campaign_stats.AdNetworkType1 = cookie_stats.AdNetworkType1

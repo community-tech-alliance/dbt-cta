@@ -30,7 +30,8 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_campaigns') }} as table_alias
+
+{% set table_name = var('campaigns_raw') %}
+from {{ source('cta', table_name) }} as table_alias
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
-

@@ -8,5 +8,7 @@ select
   Sum(Conversions) as Conversions,
   Sum(Impressions) as Impressions,
   Sum(Interactions) as Interactions
-from {{ source('partner', 'p_CampaignBasicStats_1731221521') }}
+
+{% set CampaignBasicStats = var('CampaignBasicStats') %}
+from {{ source('partner', CampaignBasicStats) }} as table_alias
 group by Date, CampaignId, AdNetworkType1, AdNetworkType2
