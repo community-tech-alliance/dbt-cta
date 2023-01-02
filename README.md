@@ -10,6 +10,28 @@ If you have questions, concerns, or feedback about this project, the best way to
 
 We hope you enjoy your stay!
 
+## How CTA runs dbt
+
+CTA runs dbt in Composer, which is Airflow managed by Google Cloud Platform. It's just Airflow, but Google calls it Composer. Why? Because reasons.
+
+We use a combination of this repository (which is public - after all, you seem to be here) and a private repository that configures the variables passed to [profiles.yml](profiles.yml).
+
+### Preferred: dbt Operators
+
+The most commonly used package for running dbt in Airflow using Airflow operators is [airflow-dbt](https://github.com/gocardless/airflow-dbt). The latest release as of this writing is v0.4.0, which does not support passing variables into sources.yml, which is something we do. As a (hopefully temporary) workaround, CTA uses a PyPi package of our own creation, [airflow-dbt-cta](https://pypi.org/project/airflow-dbt-cta/), which implements the functionality we crave.
+
+### Hacky workaround: BashOperators
+
+You can run any bash commands you want within Airflow, so this approach does technically work. TKTKTK some details. We don't recommend it, though. It's messy and not 100% reliable.
+
+## How YOU can run dbt
+
+You can run dbt in as many ways as you can run, you know, any command-line tool.
+
+- Airflow, or any other orchestration tool
+- Run it in a container (eg using Google Workflows, or your platform of choice for running arbitrary code in the cloud)
+- Run it locally
+
 ## Initializing dbt projects from Airbyte syncs
 
 Most of our dbt originates from the default normalization that Airbyte runs for data synced from each vendor. Airbyte has instructions for how to export this dbt on their [website](https://docs.airbyte.com/operator-guides/transformation-and-normalization/transformations-with-dbt#exporting-dbt-normalization-project-outside-airbyte).
