@@ -1,16 +1,6 @@
 #!/usr/bin/env bash
 
-# This script assumes that you've already obtained a tarball of data from Airbyte (see below)
-#
-# PROJECT_ID=<CTA project id>
-# PROJECT_NAME=<dev|prod>
-# WORKSPACE_ID=<workspace ID>
-# export WORKSPACE_ID="$WORKSPACE_ID"; gcloud compute ssh --project=$PROJECT_ID --zone=us-central1-a $(gcloud compute instance-groups managed list-instances tf-igm-airbyte-${PROJECT_NAME} \
-# --zone=us-central1-a \
-# --project=$PROJECT_ID \
-# --filter="STATUS=running" \
-# --format="csv(NAME)[no-heading]") --command "sudo tar -cv /var/lib/docker/volumes/airbyte_workspace/_data/${WORKSPACE_ID}/0/" > $WORKSPACE_ID.tar.gz
-#
+# Confused? Check out the README!
 
 set -o pipefail
 
