@@ -1,3 +1,5 @@
+--depends on: {{ ref('ad_stats_overview_base') }}
+
 select
   Date,
   CampaignId,
@@ -27,4 +29,4 @@ select
   VideoQuartile50Rate,
   VideoQuartile25Rate,
   VideoViews
-from {{ source('partner', 'ad_stats_overview_base') }}
+from {{ ref('ad_stats_overview_base') }}
