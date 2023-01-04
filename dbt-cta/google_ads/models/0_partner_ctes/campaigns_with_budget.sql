@@ -1,3 +1,5 @@
+--depends on: {{ ref('latest_campaigns') }}, {{ ref('latest_budgets') }}
+
 select
   campaigns.CampaignId,
   campaigns.CampaignName,

@@ -1,3 +1,5 @@
+--depends on: {{ ref('campaign_stats_overview_base') }}
+
 select
   Date,
   CampaignId,
@@ -13,4 +15,4 @@ select
   Ctr,
   ImpressionReach,
   AverageFrequency
-from {{ source('partner', 'campaign_stats_overview_base') }}
+from {{ ref('campaign_stats_overview_base') }}
