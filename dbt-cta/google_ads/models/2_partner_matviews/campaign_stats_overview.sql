@@ -13,4 +13,4 @@ select
   Ctr,
   ImpressionReach,
   AverageFrequency
-from {{ source('cta', 'campaign_stats_overview_base') }}
+from {{ source('partner', 'campaign_stats_overview_base') }}

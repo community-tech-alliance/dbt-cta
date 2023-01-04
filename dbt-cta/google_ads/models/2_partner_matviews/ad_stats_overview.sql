@@ -27,4 +27,4 @@ select
   VideoQuartile50Rate,
   VideoQuartile25Rate,
   VideoViews
-from {{ source('cta', 'ad_stats_overview_base') }}
+from {{ source('partner', 'ad_stats_overview_base') }}
