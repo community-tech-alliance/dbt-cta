@@ -53,3 +53,13 @@ models:
       +grant_access_to:
         - project: "{{ env_var('CTA_PROJECT_ID') }}"
           dataset: "{{ env_var('CTA_DATASET_ID') }}"
+
+    # For the rare instances when raw data are synced directly into the partner project:
+    0_partner_ctes:
+      +tags: 
+        - partner
+      +materialized: ephemeral
+    1_partner_tables:
+      +tags:
+        - partner
+      +materialized: table

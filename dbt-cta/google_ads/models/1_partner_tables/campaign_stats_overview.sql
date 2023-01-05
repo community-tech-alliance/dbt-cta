@@ -6,7 +6,7 @@
   )
 }}
 
---depends on: {{ ref('grouped_campaign_stats') }}, {{ ref('campaigns_with_budget') }}
+--depends_on: {{ ref('grouped_campaign_stats') }}, {{ ref('campaigns_with_budget') }}
 
 select
   campaign_stats.Date,
@@ -31,7 +31,7 @@ select
   ]) }} as hash_id
 from {{ ref('grouped_campaign_stats') }} campaign_stats
 join {{ ref('campaigns_with_budget') }} campaigns_budget on campaign_stats.CampaignId = campaigns_budget.CampaignId
-left join {{ source('partner', CampaignCookieStats) }} cookie_stats
+left join {{ ('partner', CampaignCookieStats) }} cookie_stats
   on campaign_stats.Date = cookie_stats.Date
   and campaign_stats.CampaignId = cookie_stats.CampaignId
   and campaign_stats.AdNetworkType1 = cookie_stats.AdNetworkType1
