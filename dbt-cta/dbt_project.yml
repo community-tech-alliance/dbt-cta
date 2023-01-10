@@ -37,8 +37,7 @@ models:
       +tags: 
         - partner
       +materialized: materialized_view
-      +auto_refresh: true
-      +refresh_interval_minutes: 1440
+      +auto_refresh: false
       +grant_access_to:
         - project: "{{ env_var('CTA_PROJECT_ID') }}"
           dataset: "{{ env_var('CTA_DATASET_ID') }}"
