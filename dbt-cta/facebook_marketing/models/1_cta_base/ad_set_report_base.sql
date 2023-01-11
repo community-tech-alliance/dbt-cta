@@ -6,30 +6,34 @@
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_campaign_report_hashid'
+    partitions = partitions_to_replace,
+    unique_key = '_ad_set_report_hashid'
 ) }}
 
 -- depends_on: {{ ref('ads_insights_overall_base') }}
-
 with aggregations as (
 
-SELECT
+select
     date_start,
     account_id,
     account_name,
     campaign_id,
     campaign_name,
+    adset_id,
+    adset_name,
     timestamp_trunc(_airbyte_emitted_at, day) as _airbyte_emitted_at,
     sum(clicks) as clicks,
     sum(impressions) as impressions,
     sum(spend) as spend
-FROM  {{ ref('ads_insights_overall_base') }}
+from  {{ ref('ads_insights_overall_base') }}
 GROUP BY
     date_start,
     account_id,
     account_name,
     campaign_id,
     campaign_name,
+    adset_id,
+    adset_name,
     timestamp_trunc(_airbyte_emitted_at, day)
 )
 
@@ -40,11 +44,13 @@ SELECT
     'account_id',
     'account_name',
     'campaign_id',
-    'campaign_name'
-    ]) }} as _campaign_report_hashid
+    'campaign_name',
+    'adset_id',
+    'adset_name'
+    ]) }} as _ad_set_report_hashid
     ,current_timestamp as _airbyte_normalized_at
 FROM aggregations
 
 {% if is_incremental() %}
-WHERE timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
+where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
