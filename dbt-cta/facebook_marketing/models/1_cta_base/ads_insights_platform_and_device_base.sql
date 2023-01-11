@@ -6,17 +6,22 @@
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ads_insights_overall_hashid'
+    partitions = partitions_to_replace,
+    unique_key = '_airbyte_ads_insights_platform_and_device_hashid'
 ) }}
 
--- depends_on: {{ ref('ads_insights_overall_ab4') }}
+-- depends_on: {{ ref('ads_insights_platform_and_device_ab4') }}
 SELECT
-     _airbyte_ads_insights_overall_hashid
+     _airbyte_ads_insights_platform_and_device_hashid
     ,_airbyte_emitted_at
     ,_airbyte_ab_id
     ,ad_id
     ,date_start
     ,date_stop
+    --PLATFORM AND DEVICE
+    ,publisher_platform
+    ,platform_position
+    ,impression_device
     --METRICS
     ,cpc
     ,cpm
@@ -79,13 +84,13 @@ SELECT
     ,estimated_ad_recall_rate_lower_bound
     ,estimated_ad_recall_rate_upper_bound
     ,qualifying_question_qualify_answer_rate
-    ----VIDEO METRICS
+    --VIDEO METRICS
     ,video_played
-    ,video_continuous_2_sec_watched
+    ,video_continuous_2_sec_watched_actions
     ,cost_per_2_sec_continuous_video_view
-    ,video_15_sec_watched
+    ,video_15_sec_watched_actions
     ,cost_per_15_sec_video_view
-    ,video_30_sec_watched
+    ,video_30_sec_watched_actions
     ,cost_per_thruplay
     ,video_p25_watched
     ,video_p50_watched
@@ -96,7 +101,7 @@ SELECT
     ,landing_page_views
     ,shares
     ,conversion_values
-from {{ ref('ads_insights_overall_ab4') }}
+from {{ ref('ads_insights_platform_and_device_ab4') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

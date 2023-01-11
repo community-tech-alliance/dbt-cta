@@ -6,6 +6,7 @@
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    partitions = partitions_to_replace,
     unique_key = '_airbyte_ad_account_hashid'
 ) }}
 
