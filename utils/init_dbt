@@ -78,7 +78,7 @@ if [[ -d "${DIR_NAME}/models/airbyte_incremental/" ]]; then
 
     printf 'Modifying references in 1_cta_base for %s' "$DIR_NAME"
     for file in $(ls "$DIR_NAME"/models/1_cta_base/); do
-	    sed -i 's/\`\prod.*\(_airbyte_raw_[^ ]*\)/{{ source("'"cta"'", "'"\1"'" \) }}/g' "$DIR_NAME"/models/1_cta_base/$file;
+	    sed -i -E 's/\`\prod.*\(_airbyte_raw_[^ ]*\)/{{ source("'"cta"'", "'"\1"'" \) }}/g' "$DIR_NAME"/models/1_cta_base/$file;
     done
 fi
 
