@@ -1,16 +1,6 @@
 #!/usr/bin/env bash
 
-# This script assumes that you've already obtained a tarball of data from Airbyte (see below)
-#
-# PROJECT_ID=<CTA project id>
-# PROJECT_NAME=<dev|prod>
-# WORKSPACE_ID=<workspace ID>
-# export WORKSPACE_ID="$WORKSPACE_ID"; gcloud compute ssh --project=$PROJECT_ID --zone=us-central1-a $(gcloud compute instance-groups managed list-instances tf-igm-airbyte-${PROJECT_NAME} \
-# --zone=us-central1-a \
-# --project=$PROJECT_ID \
-# --filter="STATUS=running" \
-# --format="csv(NAME)[no-heading]") --command "sudo tar -cv /var/lib/docker/volumes/airbyte_workspace/_data/${WORKSPACE_ID}/0/" > $WORKSPACE_ID.tar.gz
-#
+# Confused? Check the README :D
 
 set -o pipefail
 
@@ -51,7 +41,7 @@ DIR_UNDER=${DIR_NAME//-\s/_}
 
 printf '%s' "Moving folders out of 0..."
 rm -rf $DIR_UNDER; mkdir $DIR_UNDER
-tar --strip-components=13 -C "$DIR_NAME" -zxvf "$TARBALL_LOCATION" "var/lib/docker/volumes/airbyte_workspace/_data/*/0/build/compiled/airbyte_utils/models/generated"
+tar --strip-components=11 -C "$DIR_NAME" -zxvf "$TARBALL_LOCATION" "var/lib/docker/volumes/airbyte_workspace/_data/*/0/normalize/models/generated"
 
 gum format "Moving models folders..."
 mkdir -p "$DIR_NAME"/models
@@ -64,8 +54,8 @@ printf '%s' "Moving ctes..."
 mv "$DIR_NAME"/models/airbyte_ctes*/**/ "$DIR_NAME"/models/0_ctes
 printf 'Modifying references in 0_ctes for %s' "$DIR_NAME"
 for file in $(ls "$DIR_NAME"/models/0_ctes/); do
-	sed -i .bak -e 's/\`\prod.*\(_airbyte_raw_[^ ]*\)/{{ source("'"cta"'", "'"\1"'" \) }}/g' "$DIR_NAME"/models/0_ctes/$file;
-    sed -i .bak -e 's/\`\prod.*\(\`\w+\`[^ ]*\)/{{ source("'"cta"'", "'"\1"'" \) }}/g' "$DIR_NAME"/models/0_ctes/$file;
+	sed -i -E 's/\`\prod.*\(_airbyte_raw_[^ ]*\)/{{ source("'"cta"'", "'"\1"'" \) }}/g' "$DIR_NAME"/models/0_ctes/$file;
+    sed -i -E 's/\`\prod.*\(\`\w+\`[^ ]*\)/{{ source("'"cta"'", "'"\1"'" \) }}/g' "$DIR_NAME"/models/0_ctes/$file;
 done
 
 # Move Airbyte-generated full-refresh tables and modify references
@@ -76,7 +66,7 @@ if [[ -d "${DIR_NAME}/models/airbyte_tables/" ]]; then
     
     printf 'Modifying references in 1_cta_base for %s' "$DIR_NAME"
     for file in $(ls "$DIR_NAME"/models/1_cta_tables/); do
-	    sed -i .bak -e 's/\`\prod.*\(_airbyte_raw_[^ ]*\)/{{ source("'"cta"'", "'"\1"'" \) }}/g' "$DIR_NAME"/models/1_cta_tables/$file;
+	    sed -i -E 's/\`\prod.*\(_airbyte_raw_[^ ]*\)/{{ source("'"cta"'", "'"\1"'" \) }}/g' "$DIR_NAME"/models/1_cta_tables/$file;
     done
 fi
 
@@ -88,7 +78,7 @@ if [[ -d "${DIR_NAME}/models/airbyte_incremental/" ]]; then
 
     printf 'Modifying references in 1_cta_base for %s' "$DIR_NAME"
     for file in $(ls "$DIR_NAME"/models/1_cta_base/); do
-	    sed -i .bak -e 's/\`\prod.*\(_airbyte_raw_[^ ]*\)/{{ source("'"cta"'", "'"\1"'" \) }}/g' "$DIR_NAME"/models/1_cta_base/$file;
+	    sed -i -E 's/\`\prod.*\(_airbyte_raw_[^ ]*\)/{{ source("'"cta"'", "'"\1"'" \) }}/g' "$DIR_NAME"/models/1_cta_base/$file;
     done
 fi
 
