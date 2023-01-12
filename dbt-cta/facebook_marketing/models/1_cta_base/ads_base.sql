@@ -6,32 +6,37 @@
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
-    schema = "dev_fb_marketing_latest_conn"
+    partitions = partitions_to_replace,
+    unique_key = '_airbyte_ads_hashid'
 ) }}
 
--- depends_on: {{ ref('ad_sets_ab3') }}
+-- depends_on: {{ ref('ads_ab3') }}
 select
-     _airbyte_ad_sets_hashid
+     _airbyte_ads_hashid
     ,_airbyte_emitted_at
     ,_airbyte_ab_id
+    ,JSON_EXTRACT_SCALAR(creative, "$.id") as creative_id
     ,id
     ,name
+    ,status
     ,adlabels
+    ,adset_id
     ,bid_info
-    ,end_time
+    ,bid_type
+    ,creative
     ,targeting
     ,account_id
-    ,start_time
+    ,bid_amount
     ,campaign_id
     ,created_time
-    ,daily_budget
+    ,source_ad_id
     ,updated_time
-    ,lifetime_budget
-    ,promoted_object
-    ,budget_remaining
+    ,tracking_specs
+    ,recommendations
+    ,conversion_specs
     ,effective_status
-from {{ ref('ad_sets_ab3') }}
+    ,last_updated_by_app_id
+from {{ ref('ads_ab3') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

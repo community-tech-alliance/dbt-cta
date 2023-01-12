@@ -6,7 +6,7 @@
   )
 }}
 
---depends on: {{ ref('grouped_campaign_stats') }}, {{ ref('campaigns_with_budget') }}
+--depends_on: {{ ref('grouped_campaign_stats') }}, {{ ref('campaigns_with_budget') }}
 
 select
   campaign_stats.Date,
