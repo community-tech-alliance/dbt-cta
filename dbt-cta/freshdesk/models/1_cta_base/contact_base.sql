@@ -1,10 +1,13 @@
+{% set partitions_to_replace = [
+    'timestamp_trunc(current_timestamp, day)',
+    'timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)'
+] %}
+
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_ab_id',
-    materialized = "incremental",
-    incremental_strategy = "merge",
-    on_schema_change = "sync_all_columns",
+    partitions = partitions_to_replace
 ) }}
 -- Final base SQL model
 -- depends_on: {{ ref('contact_ab2') }}
@@ -33,6 +36,8 @@ select
     _airbyte_emitted_at,
 from {{ ref('contact_ab2') }}
 -- contacts from {{ source('cta', '_airbyte_raw_contacts') }}
-where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
+{% if is_incremental() %}
+where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
+{% endif %}
+
 
