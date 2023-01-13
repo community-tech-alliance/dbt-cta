@@ -63,3 +63,8 @@ models:
       +tags:
         - partner
       +materialized: table
+    1_partner_incremental:
+      +tags:
+        - partner
+      +materialized: incremental
+      +on_schema_change: sync_all_columns
