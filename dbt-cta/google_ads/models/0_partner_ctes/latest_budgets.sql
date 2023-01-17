@@ -1,7 +1,7 @@
 {% set Budget = var('Budget') %}
 
 {%- call statement('latest_partition', fetch_result=True) -%}
-    select max(_PARTITIONDATE) from {{ source('partner',Budget) }};
+    select max(_PARTITIONTIME) from {{ source('partner',Budget) }};
 {%- endcall -%}
 
 {%- set partition_time = load_result('latest_partition')['data'][0][0] -%}

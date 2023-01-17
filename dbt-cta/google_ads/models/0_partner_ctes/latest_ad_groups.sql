@@ -1,7 +1,7 @@
 {% set AdGroup = var('AdGroup') %}
 
 {%- call statement('latest_partition', fetch_result=True) -%}
-    select max(_PARTITIONDATE) from {{ source('partner',AdGroup) }};
+    select max(_PARTITIONTIME) from {{ source('partner',AdGroup) }};
 {%- endcall -%}
 
 {%- set partition_time = load_result('latest_partition')['data'][0][0] -%}
