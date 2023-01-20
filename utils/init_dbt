@@ -54,8 +54,8 @@ printf '%s' "Moving ctes..."
 mv "$DIR_NAME"/models/airbyte_ctes*/**/ "$DIR_NAME"/models/0_ctes
 printf 'Modifying references in 0_ctes for %s' "$DIR_NAME"
 for file in $(ls "$DIR_NAME"/models/0_ctes/); do
-	sed -i -E 's/\`\prod.*\(_airbyte_raw_[^ ]*\)/{{ source("'"cta"'", "'"\1"'" \) }}/g' "$DIR_NAME"/models/0_ctes/$file;
-    sed -i -E 's/\`\prod.*\(\`\w+\`[^ ]*\)/{{ source("'"cta"'", "'"\1"'" \) }}/g' "$DIR_NAME"/models/0_ctes/$file;
+	sed -i 's/\`\prod.*\(_airbyte_raw_[^ ]*\)/{{ source("'"cta"'", "'"\1"'" \) }}/g' "$DIR_NAME"/models/0_ctes/$file;
+    sed -i 's/\`\prod.*\(\`\w+\`[^ ]*\)/{{ source("'"cta"'", "'"\1"'" \) }}/g' "$DIR_NAME"/models/0_ctes/$file;
 done
 
 # Move Airbyte-generated full-refresh tables and modify references
