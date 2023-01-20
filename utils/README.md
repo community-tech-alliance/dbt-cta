@@ -39,7 +39,7 @@ PROJECT_ID=<CTA project id>
 PROJECT_NAME=<dev|prod>
 WORKSPACE_ID=<workspace ID>
 export WORKSPACE_ID="$WORKSPACE_ID";
-gcloud compute ssh --project=$PROJECT_ID -zone=us-central1-a $(gcloud compute instance-groups managed list-instances f-igm-airbyte-${PROJECT_NAME} \
+gcloud compute ssh --project=$PROJECT_ID -zone=us-central1-a $(gcloud compute instance-groups managed list-instances tf-igm-airbyte-${PROJECT_NAME} \
  --zone=us-central1-a \
  --project=$PROJECT_ID \
  --filter="STATUS=running" \
