@@ -1,0 +1,48 @@
+version: 2
+sources:
+- name: public
+  quoting:
+    database: true
+    schema: false
+    identifier: false
+  tables:
+  - name: _airbyte_raw_all_campaign
+  - name: _airbyte_raw_all_tag
+  - name: _airbyte_raw_assignable_campaign_contacts
+  - name: _airbyte_raw_assignable_campaign_contacts_with_escalation_tags
+  - name: _airbyte_raw_assignable_campaigns
+  - name: _airbyte_raw_assignable_campaigns_with_needs_message
+  - name: _airbyte_raw_assignable_campaigns_with_needs_reply
+  - name: _airbyte_raw_assignable_needs_message
+  - name: _airbyte_raw_assignable_needs_reply
+  - name: _airbyte_raw_assignable_needs_reply_with_escalation_tags
+  - name: _airbyte_raw_assignment
+  - name: _airbyte_raw_campaign_team
+  - name: _airbyte_raw_canned_response
+  - name: _airbyte_raw_deliverability_report
+  - name: _airbyte_raw_external_list
+  - name: _airbyte_raw_external_system
+  - name: _airbyte_raw_interaction_step
+  - name: _airbyte_raw_invite
+  - name: _airbyte_raw_job_request
+  - name: _airbyte_raw_knex_migrations
+  - name: _airbyte_raw_knex_migrations_lock
+  - name: _airbyte_raw_link_domain
+  - name: _airbyte_raw_messaging_service
+  - name: _airbyte_raw_organization
+  - name: _airbyte_raw_pending_message_part
+  - name: _airbyte_raw_pg_stat_kcache
+  - name: _airbyte_raw_pg_stat_kcache_detail
+  - name: _airbyte_raw_pg_stat_statements
+  - name: _airbyte_raw_pg_stat_statements_info
+  - name: _airbyte_raw_question_response
+  - name: _airbyte_raw_tag
+  - name: _airbyte_raw_team
+  - name: _airbyte_raw_team_escalation_tags
+  - name: _airbyte_raw_troll_trigger
+  - name: _airbyte_raw_unhealthy_link_domain
+  - name: _airbyte_raw_user
+  - name: _airbyte_raw_user_cell
+  - name: _airbyte_raw_user_organization
+  - name: _airbyte_raw_user_team
+  - name: _airbyte_raw_zip_code
