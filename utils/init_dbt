@@ -66,7 +66,7 @@ if [[ -d "${DIR_NAME}/models/airbyte_tables/" ]]; then
     
     printf 'Modifying references in 1_cta_base for %s' "$DIR_NAME"
     for file in $(ls "$DIR_NAME"/models/1_cta_tables/); do
-	    sed -i -E 's/\`\prod.*\(_airbyte_raw_[^ ]*\)/{{ source("'"cta"'", "'"\1"'" \) }}/g' "$DIR_NAME"/models/1_cta_tables/$file;
+	    sed -i 's/\`\prod.*\(_airbyte_raw_[^ ]*\)/{{ source("'"cta"'", "'"\1"'" \) }}/g' "$DIR_NAME"/models/1_cta_tables/$file;
     done
 fi
 
@@ -78,7 +78,7 @@ if [[ -d "${DIR_NAME}/models/airbyte_incremental/" ]]; then
 
     printf 'Modifying references in 1_cta_base for %s' "$DIR_NAME"
     for file in $(ls "$DIR_NAME"/models/1_cta_base/); do
-	    sed -i -E 's/\`\prod.*\(_airbyte_raw_[^ ]*\)/{{ source("'"cta"'", "'"\1"'" \) }}/g' "$DIR_NAME"/models/1_cta_base/$file;
+	    sed -i 's/\`\prod.*\(_airbyte_raw_[^ ]*\)/{{ source("'"cta"'", "'"\1"'" \) }}/g' "$DIR_NAME"/models/1_cta_base/$file;
     done
 fi
 
@@ -89,4 +89,3 @@ rm -rf "$DIR_NAME"/models/airbyte_ctes "$DIR_NAME"/models/airbyte_incremental "$
 printf 'Modifying references in 0_ctes for %s' "$DIR_NAME"
 
 gum format "Have a proggy day! 🐸"
-
