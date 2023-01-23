@@ -162,6 +162,39 @@
 {% endmacro %}
 
 
+{# timestamp without time zone  -------------------------------------------------     #}
+
+{%- macro type_timestamp_without_timezone() -%}
+  {{ adapter.dispatch('type_timestamp_without_timezone')() }}
+{%- endmacro -%}
+
+{% macro default__type_timestamp_without_timezone() %}
+    timestamp
+{% endmacro %}
+
+{%- macro sqlserver__type_timestamp_without_timezone() -%}
+    {#-- in TSQL timestamp is really datetime or datetime2 --#}
+    {#-- https://docs.microsoft.com/en-us/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql?view=sql-server-ver15#DateandTimeDataTypes --#}
+    datetime2
+{%- endmacro -%}
+
+{% macro bigquery__type_timestamp_without_timezone() %}
+    datetime
+{% endmacro %}
+
+{% macro oracle__type_timestamp_without_timezone() %}
+    varchar2(4000)
+{% endmacro %}
+
+{% macro redshift__type_timestamp_without_timezone() %}
+    TIMESTAMP
+{% endmacro %}
+
+{% macro tidb__type_timestamp_without_timezone() %}
+    datetime
+{% endmacro %}
+
+
 {# date  -------------------------------------------------     #}
 
 {%- macro type_date() -%}
