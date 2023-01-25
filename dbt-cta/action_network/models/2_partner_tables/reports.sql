@@ -1,0 +1,22 @@
+select
+    id,
+    name,
+    uuid,
+    hidden,
+    status,
+    user_id,
+    group_id,
+    permalink,
+    created_at,
+    start_date,
+    updated_at,
+    csv_file_name,
+    csv_file_size,
+    next_run_date,
+    report_format,
+    csv_updated_at,
+    first_permalink,
+    csv_content_type,
+    recurring_emails,
+    recurring_interval
+from {{ source('cta','reports_base') }}
