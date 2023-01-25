@@ -12,3 +12,5 @@ select
     deleted_by_id,
     updated_by_id,
     from_entity_id,
+    entity_connection_type_id
+from {{ source('cta','entity_connections_base') }}

@@ -9,3 +9,4 @@ select
     deleted_by_id,
     updated_by_id,
     from_entity_id,
+from {{ source('cta','relationships_base') }}
