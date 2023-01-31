@@ -1,4 +1,5 @@
--- depends_on: {{ source('partner', 'ads_insights_overall') }}, {{ source('partner', 'ads_insights_platform_and_device') }}, {{ source('partner', 'ads') }}, {{ source('partner', 'ad_creatives') }}, {{ source('partner', 'ad_sets') }}, {{ source('partner', 'ad_account') }}, {{ source('partner', 'campaigns') }}, {{ source('partner', 'account_report') }}, {{ source('partner', 'campaign_report') }}, {{ source('partner', 'ad_set_report') }}
+-- depends_on: {{ ref('ad_account') }}, {{ ref('account_report') }}, {{ ref('ad_creatives') }}, {{ ref('ad_set_report') }}, {{ ref('ad_sets') }}, {{ ref('ads_insights_overall') }}, {{ ref('ads_insights_platform_and_device') }}, {{ ref('ads') }}, {{ ref('campaign_report') }}, {{ ref('campaigns') }}
+
 
 with stats as (
 	select

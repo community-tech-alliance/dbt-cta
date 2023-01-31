@@ -1,4 +1,4 @@
--- depends_on: {{ source('partner', 'ad_stats') }}, {{ source('partner', 'ads') }}, {{ source('partner', 'creatives') }}, {{ source('partner', 'adsquads') }}, {{ source('partner', 'campaigns') }}
+-- depends_on: {{ ref('adaccounts') }}, {{ ref('ad_stats') }}, {{ ref('ads') }}, {{ ref('adsquads_skadnetwork_properties') }}, {{ ref('adsquads_targeting_geos') }}, {{ ref('adsquads_targeting') }}, {{ ref('adsquads') }}, {{ ref('campaigns') }}, {{ ref('creatives_web_view_properties') }}, {{ ref('creatives') }}, {{ ref('media') }}, {{ ref('organizations_configuration_settings') }}, {{ ref('organizations') }}, {{ ref('segments') }}
 
 with stats as (
 	select  
