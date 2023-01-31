@@ -83,4 +83,5 @@ select
     ,MAX(_airbyte_emitted_at) as _airbyte_emitted_at
     ,MAX(_airbyte_normalized_at) as _airbyte_normalized_at
 FROM {{ source('cta', 'ad_stats_base') }}
+WHERE timestamp(end_time) BETWEEN timestamp('2023-01-01') AND timestamp('2023-12-31')
 GROUP BY _airbyte_ads_stats_daily_hashid
