@@ -1,3 +1,3 @@
 # Action Network SQL Mirror
 
-TODO: Right up those docs
+TODO: Write up those docs
