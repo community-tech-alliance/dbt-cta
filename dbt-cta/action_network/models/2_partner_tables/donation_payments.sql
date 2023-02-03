@@ -1,0 +1,21 @@
+select
+    id,
+    tip,
+    name,
+    error,
+    amount,
+    user_id,
+    group_id,
+    wepay_id,
+    recurring,
+    created_at,
+    error_code,
+    updated_at,
+    donation_id,
+    wepay_status,
+    error_message,
+    fundraising_id,
+    transaction_id,
+    donation_user_id,
+    recurring_period
+from {{ source('cta','donation_payments_base') }}

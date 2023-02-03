@@ -1,0 +1,19 @@
+select
+    id,
+    city,
+    phone,
+    state,
+    street,
+    country,
+    user_id,
+    language,
+    latitude,
+    owner_id,
+    zip_code,
+    last_name,
+    longitude,
+    created_at,
+    first_name,
+    owner_type,
+    updated_at
+from {{ source('cta','core_fields_base') }}
