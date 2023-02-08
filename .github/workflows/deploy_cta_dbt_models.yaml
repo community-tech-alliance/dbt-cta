@@ -44,22 +44,6 @@ jobs:
         with:
           project_id: ${{ env.GOOGLE_PROJECT_ID }}
 
-      ######################
-      ### .airflowignore ###
-      ######################
-
-      # Rename .airflowignore.prod to .airflowignore
-      - name: Rename .airflowignore.prod to .airflowignore
-        run: mv .airflowignore.prod .airflowignore
-      # Import .airflowignore to Composer
-      - name: Deploy .airflowignore to cta-dags/
-        run: |
-          gcloud composer environments storage dags import \
-            --project="$GOOGLE_PROJECT_ID" \
-            --location=us-central1 \
-            --environment="$GOOGLE_COMPOSER_ENVIRONMENT" \
-            --source="$GITHUB_WORKSPACE}"/.airflowignore
-
       ##########################
       ### deploy DAG changes ###
       ##########################
@@ -71,41 +55,45 @@ jobs:
         continue-on-error: true
         with:
           format: 'csv'
-      # Deploy each dag file that was added/modified
-      - name: Deploy added or modified DAGs
-        id: 'add_modify_dags'
+
+      # Deploy each dbt file that was added/modified
+      - name: Deploy added or modified dbt models
+        id: 'add_modify_dbt'
         run: |
           mapfile -d ',' -t added_modified_files < <(printf '%s,' '${{ steps.files.outputs.added_modified }}')
           mapfile -d ',' -t renamed_files < <(printf '%s,' '${{ steps.files.outputs.renamed }}')
           added_modified_renamed_files+=( "${added_modified_files[@]}" "${renamed_files[@]}" )
           for file in "${added_modified_renamed_files[@]}"; do
-            # Search cta-dags directory for the filename
-            if [[ $(find cta-dags -name $(basename ${file})) ]]; then
+            # Search for the filename
+            if [[ $(find dbt-cta -name $(basename ${file})) ]] && [[ ${file} == *.sql ]]; then
               # Get full path of DAG file
               file_name=$(realpath ${file});
               path_to_file=$(dirname ${file});
               gcloud composer environments storage dags import \
-                --project="$GOOGLE_PROJECT_ID" \
+                --project=$GOOGLE_PROJECT_ID \
                 --location=us-central1 \
-                --environment="$GOOGLE_COMPOSER_ENVIRONMENT" \
-                --destination="${path_to_file}/" \
-                --source="${file_name}"
+                --environment=$GOOGLE_COMPOSER_ENVIRONMENT \
+                --destination=cta-dags/${path_to_file} \
+                --source=${file_name}
+              echo "Deployed file: $(basename ${file}))"
             else
-              echo "No DAGs to add for ${file} changed."
+              echo "Skipping $(basename ${file})) (no new dbt to deploy)."
             fi
           done
-      # Delete any dags that were removed
-      - name: Delete removed DAGs
-        id: 'remove_dags'
+
+      # Delete any dbt that was removed
+      - name: Delete removed dbt
+        id: 'remove_dbt'
         run: |
           mapfile -d ',' -t removed_files < <(printf '%s,' '${{ steps.files.outputs.removed }}')
           for file in "${removed_files[@]}"; do
-            if [[ "$file" =~ "cta-dags".* ]]; then
-              gcloud composer environments storage dags delete "$file" \
-                --environment=$GOOGLE_COMPOSER_ENVIRONMENT \
-                --project=$GOOGLE_PROJECT_ID \
+            if [[ ${#file} > 0 ]]; then
+              gcloud composer environments storage dags delete cta-dags/${file} \
+                --environment=${GOOGLE_COMPOSER_ENVIRONMENT_DEV} \
+                --project=${GOOGLE_PROJECT_ID_DEV} \
                 --location=us-central1
+              echo "Deleted file: ${file}"
             else
-              echo "No DAGs to remove for files removed: ${file}"
+              echo "No dbt to remove for file removed: ${file}"
             fi
           done
