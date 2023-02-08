@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     uses: ./.github/workflows/deploy_cta_dbt_models.yaml
+    if: ${{ contains(github.event.pull_request.labels.*.name,'dev_deploy') }}
     with:
       environment: dev
       secrets: inherit
