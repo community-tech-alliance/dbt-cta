@@ -1,0 +1,14 @@
+name: Deploy Composer DAGs to Dev environment 
+
+# Run only on pull requests
+on:
+  pull_request:
+    types: [labeled, opened, synchronize, reopened]
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/deploy_cta_dbt_models.yaml
+    with:
+      environment: dev
+      secrets: inherit
+      
