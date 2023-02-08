@@ -89,8 +89,8 @@ jobs:
           for file in "${removed_files[@]}"; do
             if [[ ${#file} > 0 ]]; then
               gcloud composer environments storage dags delete cta-dags/${file} \
-                --environment=${GOOGLE_COMPOSER_ENVIRONMENT_DEV} \
-                --project=${GOOGLE_PROJECT_ID_DEV} \
+                --environment=$GOOGLE_COMPOSER_ENVIRONMENT \
+                --project=$GOOGLE_PROJECT_ID \
                 --location=us-central1
               echo "Deleted file: ${file}"
             else
