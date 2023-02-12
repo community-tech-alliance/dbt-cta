@@ -1,0 +1,99 @@
+name: Deploy Google Composer DAGs
+
+on:
+    workflow_call:
+      inputs:
+          environment:
+            default: dev
+            required: true
+            type: string
+
+# Pull vars from repo and assign to env vars
+env:
+  GOOGLE_PROJECT_ID: ${{ vars.GOOGLE_PROJECT_ID }}
+  GOOGLE_COMPOSER_ENVIRONMENT: ${{ vars.GOOGLE_COMPOSER_ENVIRONMENT }}
+  GOOGLE_SERVICE_ACCOUNT: ${{ vars.GOOGLE_SERVICE_ACCOUNT }}
+  GOOGLE_WORKLOAD_IDENTITY_PROVIDER: ${{ vars.GOOGLE_WORKLOAD_IDENTITY_PROVIDER }}
+
+jobs:
+  deploy:
+    name: Deploy Google Composer DAGs
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    steps:
+      #############
+      ### setup ###
+      #############
+
+      # Checkout repo, this needs to happen first
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Keyless Auth!
+      - id: 'auth'
+        name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v0
+        with:
+          workload_identity_provider: ${{ env.GOOGLE_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ env.GOOGLE_SERVICE_ACCOUNT }}
+      # Set up gcloud pointing to our airbyte-prod project
+      - name: Set up Cloud SDK
+        uses: 'google-github-actions/setup-gcloud@v0'
+        with:
+          project_id: ${{ env.GOOGLE_PROJECT_ID }}
+
+      ##########################
+      ### deploy DAG changes ###
+      ##########################
+
+      # Get list of files in last commit
+      - id: 'files'
+        name: Get list of changed files
+        uses: jitterbit/get-changed-files@v1
+        continue-on-error: true
+        with:
+          format: 'csv'
+
+      # Deploy each dbt file that was added/modified
+      - name: Deploy added or modified dbt models
+        id: 'add_modify_dbt'
+        run: |
+          mapfile -d ',' -t added_modified_files < <(printf '%s,' '${{ steps.files.outputs.added_modified }}')
+          mapfile -d ',' -t renamed_files < <(printf '%s,' '${{ steps.files.outputs.renamed }}')
+          added_modified_renamed_files+=( "${added_modified_files[@]}" "${renamed_files[@]}" )
+          for file in "${added_modified_renamed_files[@]}"; do
+            # Search for the filename
+            if [[ $(find dbt-cta -name $(basename ${file})) ]] && [[ ${file} == *.sql ]]; then
+              # Get full path of DAG file
+              file_name=$(realpath ${file});
+              path_to_file=$(dirname ${file});
+              gcloud composer environments storage dags import \
+                --project=$GOOGLE_PROJECT_ID \
+                --location=us-central1 \
+                --environment=$GOOGLE_COMPOSER_ENVIRONMENT \
+                --destination=cta-dags/${path_to_file} \
+                --source=${file_name}
+              echo "Deployed file: $(basename ${file}))"
+            else
+              echo "Skipping $(basename ${file})) (no new dbt to deploy)."
+            fi
+          done
+
+      # Delete any dbt that was removed
+      - name: Delete removed dbt
+        id: 'remove_dbt'
+        run: |
+          mapfile -d ',' -t removed_files < <(printf '%s,' '${{ steps.files.outputs.removed }}')
+          for file in "${removed_files[@]}"; do
+            if [[ ${#file} > 0 ]]; then
+              gcloud composer environments storage dags delete cta-dags/${file} \
+                --environment=$GOOGLE_COMPOSER_ENVIRONMENT \
+                --project=$GOOGLE_PROJECT_ID \
+                --location=us-central1
+              echo "Deleted file: ${file}"
+            else
+              echo "No dbt to remove for file removed: ${file}"
+            fi
+          done
