@@ -1,1 +1,1 @@
-select * from {{ source('cta','interaction_step_base') }}
+select * from {{ ref('interaction_step_base') }}

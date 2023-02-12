@@ -1,1 +1,1 @@
-select * from {{ source('cta','zip_code_base') }}
+select * from {{ ref('zip_code_base') }}

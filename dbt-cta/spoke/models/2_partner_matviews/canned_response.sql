@@ -1,1 +1,1 @@
-select * from {{ source('cta','canned_response_base') }}
+select * from {{ ref('canned_response_base') }}

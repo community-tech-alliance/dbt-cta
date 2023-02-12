@@ -1,1 +1,1 @@
-select * from {{ source('cta','campaign_contact_base') }}
+select * from {{ ref('campaign_contact_base') }}

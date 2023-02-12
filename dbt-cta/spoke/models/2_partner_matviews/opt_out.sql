@@ -1,1 +1,1 @@
-select * from {{ source('cta','opt_out_base') }}
+select * from {{ ref('opt_out_base') }}

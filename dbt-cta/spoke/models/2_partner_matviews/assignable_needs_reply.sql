@@ -1,1 +1,1 @@
-select * from {{ source('cta','assignable_needs_reply_base') }}
+select * from {{ ref('assignable_needs_reply_base') }}

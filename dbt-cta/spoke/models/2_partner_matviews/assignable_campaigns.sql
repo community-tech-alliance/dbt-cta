@@ -1,1 +1,1 @@
-select * from {{ source('cta','assignable_campaigns_base') }}
+select * from {{ ref('assignable_campaigns_base') }}

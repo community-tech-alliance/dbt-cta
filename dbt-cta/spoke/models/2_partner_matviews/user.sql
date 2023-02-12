@@ -1,1 +1,1 @@
-select * from {{ source('cta','user_base') }}
+select * from {{ ref('user_base') }}
