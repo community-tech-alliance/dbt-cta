@@ -1,1 +1,6 @@
-select * from {{ ref('message_base') }}
+{{ config(
+	auto_refresh = false,
+	full_refresh = false
+)}}
+
+select * from {{ source('cta','message_base') }}

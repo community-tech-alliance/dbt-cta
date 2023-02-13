@@ -1,1 +1,6 @@
-select * from {{ ref('assignable_campaign_contacts_base') }}
+{{ config(
+	auto_refresh = false,
+	full_refresh = false
+)}}
+
+select * from {{ source('cta','assignable_campaign_contacts_base') }}

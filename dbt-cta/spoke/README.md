@@ -1,4 +1,4 @@
-# Spoke (ScaleToWin flavor)
+# Spoke (Rewired flavor)
 
 This sync is a special snowflake because it runs in a DAG designed for syncing large Postgres tables to BigQuery. (Airbyte has a Postgres source connector, but it doesn't work very well when syncing large amounts of data.)
 

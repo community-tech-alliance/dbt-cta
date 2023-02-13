@@ -1,1 +1,6 @@
-select * from {{ ref('all_tag_base') }}
+{{ config(
+	auto_refresh = false,
+	full_refresh = false
+)}}
+
+select * from {{ source('cta','all_tag_base') }}

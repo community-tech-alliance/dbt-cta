@@ -1,1 +1,6 @@
-select * from {{ ref('user_team_base') }}
+{{ config(
+	auto_refresh = false,
+	full_refresh = false
+)}}
+
+select * from {{ source('cta','user_team_base') }}
