@@ -3,4 +3,4 @@
 	full_refresh = false
 )}}
 
-select * from {{ source('cta','user_base') }}
+select * from {{ source('cta','user_raw') }}

@@ -3,4 +3,4 @@
 	full_refresh = false
 )}}
 
-select * from {{ source('cta','assignment_base') }}
+select * from {{ source('cta','assignment_raw') }}

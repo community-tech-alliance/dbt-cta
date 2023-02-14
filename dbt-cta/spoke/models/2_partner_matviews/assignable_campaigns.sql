@@ -3,4 +3,4 @@
 	full_refresh = false
 )}}
 
-select * from {{ source('cta','assignable_campaigns_base') }}
+select * from {{ source('cta','assignable_campaigns_raw') }}

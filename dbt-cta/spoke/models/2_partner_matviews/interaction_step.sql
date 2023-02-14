@@ -3,4 +3,4 @@
 	full_refresh = false
 )}}
 
-select * from {{ source('cta','interaction_step_base') }}
+select * from {{ source('cta','interaction_step_raw') }}

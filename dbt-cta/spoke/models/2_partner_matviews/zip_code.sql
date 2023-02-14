@@ -3,4 +3,4 @@
 	full_refresh = false
 )}}
 
-select * from {{ source('cta','zip_code_base') }}
+select * from {{ source('cta','zip_code_raw') }}

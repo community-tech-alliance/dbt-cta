@@ -3,4 +3,4 @@
 	full_refresh = false
 )}}
 
-select * from {{ source('cta','canned_response_base') }}
+select * from {{ source('cta','canned_response_raw') }}

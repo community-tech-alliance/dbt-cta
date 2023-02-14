@@ -3,4 +3,4 @@
 	full_refresh = false
 )}}
 
-select * from {{ source('cta','campaign_contact_base') }}
+select * from {{ source('cta','campaign_contact_raw') }}

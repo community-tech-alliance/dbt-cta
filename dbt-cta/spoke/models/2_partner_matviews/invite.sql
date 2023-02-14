@@ -3,4 +3,4 @@
 	full_refresh = false
 )}}
 
-select * from {{ source('cta','invite_base') }}
+select * from {{ source('cta','invite_raw') }}
