@@ -1,0 +1,12 @@
+version: 2
+
+models:
+
+  - name: campaigns_ab1
+
+    description: This model extracts fields from the raw json
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null   
