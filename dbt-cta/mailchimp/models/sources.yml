@@ -5,6 +5,15 @@ sources:
   schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables:
   - name: "{{ var('campaigns_raw') }}"
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_emitted_at
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: "{{ var('campaigns_base') }}"
 - name: partner
   database: "{{ env_var('PARTNER_PROJECT_ID') }}"
