@@ -16,3 +16,5 @@ models:
         tests:
           - unique
           - not_null
+          - accepted_values:
+              values: ['foo','bar']
