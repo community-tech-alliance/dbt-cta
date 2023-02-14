@@ -1,0 +1,18 @@
+version: 2
+
+models:
+
+  - name: campaigns
+
+    description: >
+      This model materializes a view of the campaigns table and dedupes on our airbyte
+      hash ID.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null   
+      - name: id
+        tests:
+          - unique
+          - not_null
