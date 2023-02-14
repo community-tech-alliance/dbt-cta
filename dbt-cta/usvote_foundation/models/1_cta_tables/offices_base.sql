@@ -24,6 +24,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_offices_hashid
 from {{ ref('offices_ab3') }}
--- offices from {{ source('usvote_foundation', '_airbyte_raw_offices') }}
+-- offices from {{ source('cta', '_airbyte_raw_offices') }}
 where 1 = 1
 
