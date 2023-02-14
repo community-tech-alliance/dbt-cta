@@ -15,6 +15,15 @@ sources:
         tests:
           - not_null
   - name: "{{ var('campaigns_base') }}"
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null
+      - name: id
+        tests:
+          - unique
+          - not_null
 - name: partner
   database: "{{ env_var('PARTNER_PROJECT_ID') }}"
   schema: "{{ env_var('PARTNER_DATASET_ID') }}"
