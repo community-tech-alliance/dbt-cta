@@ -1,6 +1,6 @@
 version: 2
 sources:
-- name: usvote_foundation
+- name: cta
   quoting:
     database: "{{ env_var('CTA_PROJECT_ID') }}"
     schema: "{{ env_var('CTA_DATASET_ID') }}"
