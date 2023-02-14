@@ -11,7 +11,10 @@ models:
       - name: _airbyte_campaigns_hashid
         tests:
           - unique
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: string
+
       - name: id
         tests:
           - unique

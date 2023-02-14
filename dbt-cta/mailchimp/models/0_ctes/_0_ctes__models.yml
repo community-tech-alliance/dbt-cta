@@ -10,3 +10,23 @@ models:
         tests:
           - unique
           - not_null   
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+
+  - name: campaigns_ab2
+
+    description: >
+      This model casts our extracted fields to the correct types
+      NOTE: for some reason, dbt_expectations type checking tests aren't playing well
+      with the emphemeral materialization, so those tests get applied on the base model.
+
+  - name: campaigns_ab3
+
+    description: This model adds a surrogate key that we use for deduping.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null   
