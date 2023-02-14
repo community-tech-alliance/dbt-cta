@@ -17,6 +17,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_states_hashid
 from {{ ref('states_ab3') }}
--- states from {{ source('usvote_foundation', '_airbyte_raw_states') }}
+-- states from {{ source('cta', '_airbyte_raw_states') }}
 where 1 = 1
 

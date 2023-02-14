@@ -26,6 +26,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_officials_hashid
 from {{ ref('officials_ab3') }}
--- officials from {{ source('usvote_foundation', '_airbyte_raw_officials') }}
+-- officials from {{ source('cta', '_airbyte_raw_officials') }}
 where 1 = 1
 

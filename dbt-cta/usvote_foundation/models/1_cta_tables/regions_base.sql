@@ -24,6 +24,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_regions_hashid
 from {{ ref('regions_ab3') }}
--- regions from {{ source('usvote_foundation', '_airbyte_raw_regions') }}
+-- regions from {{ source('cta', '_airbyte_raw_regions') }}
 where 1 = 1
 
