@@ -3,4 +3,4 @@
 	full_refresh = false
 )}}
 
-select * from {{ source('cta','regions')}}
+select * from {{ source('cta','regions_base')}}
