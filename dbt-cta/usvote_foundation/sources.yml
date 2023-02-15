@@ -1,11 +1,17 @@
 version: 2
 sources:
 - name: cta
-  quoting:
-    database: "{{ env_var('CTA_PROJECT_ID') }}"
-    schema: "{{ env_var('CTA_DATASET_ID') }}"
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables:
   - name: _airbyte_raw_offices
   - name: _airbyte_raw_officials
   - name: _airbyte_raw_regions
   - name: _airbyte_raw_states
+  - name: offices_addresses_base
+  - name: offices_addresses_contacts_base
+  - name: offices_base
+  - name: offices_officials_base
+  - name: officials_base
+  - name: regions_base
+  - name: states_base
