@@ -1,0 +1,56 @@
+version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables:
+  - name: all_campaign_raw
+  - name: all_question_response_raw
+  - name: all_tag_raw
+  - name: assignable_campaign_contacts_raw
+  - name: assignable_campaign_contacts_with_escalation_tags_raw
+  - name: assignable_campaigns_raw
+  - name: assignable_needs_message_raw
+  - name: assignment_raw
+  - name: assignment_request_raw
+  - name: campaign_contact_raw
+  - name: campaign_contact_tag_raw
+  - name: campaign_team_raw
+  - name: canned_response_raw
+  - name: interaction_step_raw
+  - name: invite_raw
+  - name: message_raw
+  - name: opt_out_raw
+  - name: organization_raw
+  - name: question_response_raw
+  - name: tag_raw
+  - name: team_raw
+  - name: user_organization_raw
+  - name: user_raw
+  - name: user_team_raw
+  - name: zip_code_raw
+  - name: all_campaign_base
+  - name: all_question_response_base
+  - name: all_tag_base
+  - name: assignable_campaign_contacts_base
+  - name: assignable_campaign_contacts_with_escalation_tags_base
+  - name: assignable_campaigns_base
+  - name: assignable_needs_message_base
+  - name: assignment_base
+  - name: assignment_request_base
+  - name: campaign_contact_base
+  - name: campaign_contact_tag_base
+  - name: campaign_team_base
+  - name: canned_response_base
+  - name: interaction_step_base
+  - name: invite_base
+  - name: message_base
+  - name: opt_out_base
+  - name: organization_base
+  - name: question_response_base
+  - name: tag_base
+  - name: team_base
+  - name: user_organization_base
+  - name: user_base
+  - name: user_team_base
+  - name: zip_code_base
