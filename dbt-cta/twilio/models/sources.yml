@@ -1,0 +1,28 @@
+version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables:
+  - name: _airbyte_raw_accounts
+  - name: _airbyte_raw_addresses
+  - name: _airbyte_raw_alerts
+  - name: _airbyte_raw_applications
+  - name: _airbyte_raw_available_phone_number_countries
+  - name: _airbyte_raw_available_phone_numbers_local
+  - name: _airbyte_raw_available_phone_numbers_mobile
+  - name: _airbyte_raw_available_phone_numbers_toll_free
+  - name: _airbyte_raw_calls
+  - name: _airbyte_raw_conference_participants
+  - name: _airbyte_raw_conferences
+  - name: _airbyte_raw_dependent_phone_numbers
+  - name: _airbyte_raw_incoming_phone_numbers
+  - name: _airbyte_raw_keys
+  - name: _airbyte_raw_message_media
+  - name: _airbyte_raw_messages
+  - name: _airbyte_raw_outgoing_caller_ids
+  - name: _airbyte_raw_queues
+  - name: _airbyte_raw_recordings
+  - name: _airbyte_raw_transcriptions
+  - name: _airbyte_raw_usage_records
+  - name: _airbyte_raw_usage_triggers
