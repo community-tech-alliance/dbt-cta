@@ -5,7 +5,7 @@ import yaml
 # As an example, these are the vars set for the mailchimp sync
 DBT_VARS = os.getenv(
     "DBT_VARS",
-    '{"campaigns_raw": "_airbyte_raw_campaigns", "campaigns_base": "campaigns_base", "campaigns": "campaigns"}',
+    '{"campaigns_raw": "_airbyte_raw_campaigns", "campaigns_base": "campaigns_base", "campaigns": "campaigns"}', # noqa
 )
 
 TARGETS = ["cta", "partner"]
@@ -51,7 +51,7 @@ def list_models(dir: str):
 def get_model_config(model_name: str, target: str):
     """Run the dbt codegen generate_model_yaml for a given model and target, and return
     the model yaml parsed to a dictionary"""
-    command = f"""dbt run-operation generate_model_yaml --args '{{"model_name": "{model_name}"}}' -t {target} --vars '{DBT_VARS}'"""
+    command = f"""dbt run-operation generate_model_yaml --args '{{"model_name": "{model_name}"}}' -t {target} --vars '{DBT_VARS}'""" # noqa
 
     stream = os.popen(command)
     output = stream.read()
