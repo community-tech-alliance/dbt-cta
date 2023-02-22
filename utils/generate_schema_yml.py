@@ -12,6 +12,9 @@ TARGETS = ["cta", "partner"]
 
 
 class LineBreakDumper(yaml.SafeDumper):
+    """This is a custom yaml dumper class that adds some additional indents and line
+    breaks"""
+
     def write_line_break(self, data=None):
         super().write_line_break(data)
 
@@ -22,7 +25,8 @@ class LineBreakDumper(yaml.SafeDumper):
         return super(LineBreakDumper, self).increase_indent(flow, False)
 
 
-def list_model_directories(sync_name):
+def list_model_directories(sync_name:str):
+    """Given a sync name, list all the possible model directories"""
     base = f"{sync_name}/models"
 
     # Will need to tweak this if we nest models any further
@@ -33,7 +37,9 @@ def list_model_directories(sync_name):
     return model_directories
 
 
-def list_models(dir):
+def list_models(dir:str):
+    """List all the models (sql files) in a directory, and return a list of model
+    names"""
     files = os.listdir(dir)
 
     # trim the file extension off
@@ -42,7 +48,9 @@ def list_models(dir):
     return models
 
 
-def get_model_config(model_name, target):
+def get_model_config(model_name:str, target:str):
+    """Run the dbt codegen generate_model_yaml for a given model and target, and return
+    the model yaml parsed to a dictionary"""
     command = f"""dbt run-operation generate_model_yaml --args '{{"model_name": "{model_name}"}}' -t {target} --vars '{DBT_VARS}'"""
 
     stream = os.popen(command)
@@ -55,7 +63,9 @@ def get_model_config(model_name, target):
     return model_dict
 
 
-def write_to_file(dict, filename, overwrite=False):
+def write_to_file(dict:dict, filename:str, overwrite:bool=False):
+    """Given a dictionary, write it out as a yaml file, and optionally overwrite at
+    the destination"""
     if os.path.exists(filename):
         if overwrite:
             print(f"{filename} already exists, overwriting(!).")
@@ -68,6 +78,7 @@ def write_to_file(dict, filename, overwrite=False):
 
 
 def generate_filename(path, postfix=""):
+    """Given a dbt model path, generate the schema.yml name, per dbt's best practices"""
     yaml_file_name = f'_{path.split("/")[-1]}__models{postfix}.yml'
 
     full_path = os.path.join(path, yaml_file_name)
@@ -76,6 +87,8 @@ def generate_filename(path, postfix=""):
 
 
 def generate_schema_dict(directory_path):
+    """Given a path to some dbt models, generate a dictionary for a schema.yml file
+    for all models in the directory."""
     model_directory = directory_path.split("/")[-1]
 
     if model_directory == "0_ctes":
