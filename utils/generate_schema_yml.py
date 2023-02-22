@@ -120,7 +120,7 @@ def main():
         if schema_dict:
             out_file = generate_filename(d)
 
-            write_to_file(schema_dict, out_file, overwrite=True)
+            write_to_file(schema_dict, out_file)
 
         # TODO: load current schema.yml file and only add columns
 
