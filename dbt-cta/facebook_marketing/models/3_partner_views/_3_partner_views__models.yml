@@ -1,0 +1,398 @@
+version: 2
+
+models:
+
+  - name: ctam_ads_insights_platform_and_device
+    description: ''
+    columns:
+      - name: date_start
+        description: ''
+      - name: date_stop
+        description: ''
+      - name: ad_id
+        description: ''
+      - name: publisher_platform
+        description: ''
+      - name: platform_position
+        description: ''
+      - name: impression_device
+        description: ''
+      - name: adset_id
+        description: ''
+      - name: campaign_id
+        description: ''
+      - name: campaign_name
+        description: ''
+      - name: campaign_objective
+        description: ''
+      - name: adset_name
+        description: ''
+      - name: adset_daily_budget
+        description: ''
+      - name: adset_lifetime_budget
+        description: ''
+      - name: creative_id
+        description: ''
+      - name: ad_name
+        description: ''
+      - name: title
+        description: ''
+      - name: body
+        description: ''
+      - name: utm_source
+        description: ''
+      - name: utm_medium
+        description: ''
+      - name: utm_campaign
+        description: ''
+      - name: utm_term
+        description: ''
+      - name: utm_content
+        description: ''
+      - name: cpc
+        description: ''
+      - name: cpm
+        description: ''
+      - name: cpp
+        description: ''
+      - name: ctr
+        description: ''
+      - name: website_ctr
+        description: ''
+      - name: ctr_calculated
+        description: ''
+      - name: page_view_rate_calculated
+        description: ''
+      - name: video_completion_rate_calculated
+        description: ''
+      - name: reach
+        description: ''
+      - name: spend
+        description: ''
+      - name: clicks
+        description: ''
+      - name: labels
+        description: ''
+      - name: location
+        description: ''
+      - name: wish_bid
+        description: ''
+      - name: frequency
+        description: ''
+      - name: objective
+        description: ''
+      - name: account_id
+        description: ''
+      - name: unique_ctr
+        description: ''
+      - name: auction_bid
+        description: ''
+      - name: buying_type
+        description: ''
+      - name: impressions
+        description: ''
+      - name: account_name
+        description: ''
+      - name: created_time
+        description: ''
+      - name: social_spend
+        description: ''
+      - name: updated_time
+        description: ''
+      - name: age_targeting
+        description: ''
+      - name: unique_clicks
+        description: ''
+      - name: full_view_reach
+        description: ''
+      - name: quality_ranking
+        description: ''
+      - name: account_currency
+        description: ''
+      - name: gender_targeting
+        description: ''
+      - name: optimization_goal
+        description: ''
+      - name: inline_link_clicks
+        description: ''
+      - name: attribution_setting
+        description: ''
+      - name: canvas_avg_view_time
+        description: ''
+      - name: cost_per_unique_click
+        description: ''
+      - name: full_view_impressions
+        description: ''
+      - name: inline_link_click_ctr
+        description: ''
+      - name: estimated_ad_recallers
+        description: ''
+      - name: inline_post_engagement
+        description: ''
+      - name: unique_link_clicks_ctr
+        description: ''
+      - name: auction_competitiveness
+        description: ''
+      - name: canvas_avg_view_percent
+        description: ''
+      - name: conversion_rate_ranking
+        description: ''
+      - name: engagement_rate_ranking
+        description: ''
+      - name: estimated_ad_recall_rate
+        description: ''
+      - name: unique_inline_link_clicks
+        description: ''
+      - name: auction_max_competitor_bid
+        description: ''
+      - name: cost_per_inline_link_click
+        description: ''
+      - name: unique_inline_link_click_ctr
+        description: ''
+      - name: cost_per_estimated_ad_recallers
+        description: ''
+      - name: cost_per_inline_post_engagement
+        description: ''
+      - name: cost_per_unique_inline_link_click
+        description: ''
+      - name: instant_experience_clicks_to_open
+        description: ''
+      - name: estimated_ad_recallers_lower_bound
+        description: ''
+      - name: estimated_ad_recallers_upper_bound
+        description: ''
+      - name: instant_experience_clicks_to_start
+        description: ''
+      - name: estimated_ad_recall_rate_lower_bound
+        description: ''
+      - name: estimated_ad_recall_rate_upper_bound
+        description: ''
+      - name: qualifying_question_qualify_answer_rate
+        description: ''
+      - name: video_played
+        description: ''
+      - name: video_continuous_2_sec_watched_actions
+        description: ''
+      - name: cost_per_2_sec_continuous_video_view
+        description: ''
+      - name: video_15_sec_watched_actions
+        description: ''
+      - name: cost_per_15_sec_video_view
+        description: ''
+      - name: thruplays
+        description: ''
+      - name: cost_per_thruplay
+        description: ''
+      - name: video_p25_watched
+        description: ''
+      - name: video_p50_watched
+        description: ''
+      - name: video_p75_watched
+        description: ''
+      - name: video_p95_watched
+        description: ''
+      - name: video_p100_watched
+        description: ''
+      - name: shares
+        description: ''
+      - name: landing_page_views
+        description: ''
+      - name: conversion_values
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+
+  - name: ctam_ads_insights_overall
+    description: ''
+    columns:
+      - name: date_start
+        description: ''
+      - name: date_stop
+        description: ''
+      - name: ad_id
+        description: ''
+      - name: adset_id
+        description: ''
+      - name: campaign_id
+        description: ''
+      - name: campaign_name
+        description: ''
+      - name: campaign_objective
+        description: ''
+      - name: adset_name
+        description: ''
+      - name: adset_daily_budget
+        description: ''
+      - name: adset_lifetime_budget
+        description: ''
+      - name: creative_id
+        description: ''
+      - name: ad_name
+        description: ''
+      - name: title
+        description: ''
+      - name: body
+        description: ''
+      - name: utm_source
+        description: ''
+      - name: utm_medium
+        description: ''
+      - name: utm_campaign
+        description: ''
+      - name: utm_term
+        description: ''
+      - name: utm_content
+        description: ''
+      - name: cpc
+        description: ''
+      - name: cpm
+        description: ''
+      - name: cpp
+        description: ''
+      - name: ctr
+        description: ''
+      - name: website_ctr
+        description: ''
+      - name: ctr_calculated
+        description: ''
+      - name: page_view_rate_calculated
+        description: ''
+      - name: video_completion_rate_calculated
+        description: ''
+      - name: reach
+        description: ''
+      - name: spend
+        description: ''
+      - name: clicks
+        description: ''
+      - name: labels
+        description: ''
+      - name: location
+        description: ''
+      - name: wish_bid
+        description: ''
+      - name: frequency
+        description: ''
+      - name: objective
+        description: ''
+      - name: account_id
+        description: ''
+      - name: unique_ctr
+        description: ''
+      - name: auction_bid
+        description: ''
+      - name: buying_type
+        description: ''
+      - name: impressions
+        description: ''
+      - name: account_name
+        description: ''
+      - name: created_time
+        description: ''
+      - name: social_spend
+        description: ''
+      - name: updated_time
+        description: ''
+      - name: age_targeting
+        description: ''
+      - name: unique_clicks
+        description: ''
+      - name: full_view_reach
+        description: ''
+      - name: quality_ranking
+        description: ''
+      - name: account_currency
+        description: ''
+      - name: gender_targeting
+        description: ''
+      - name: optimization_goal
+        description: ''
+      - name: inline_link_clicks
+        description: ''
+      - name: attribution_setting
+        description: ''
+      - name: canvas_avg_view_time
+        description: ''
+      - name: cost_per_unique_click
+        description: ''
+      - name: full_view_impressions
+        description: ''
+      - name: inline_link_click_ctr
+        description: ''
+      - name: estimated_ad_recallers
+        description: ''
+      - name: inline_post_engagement
+        description: ''
+      - name: unique_link_clicks_ctr
+        description: ''
+      - name: auction_competitiveness
+        description: ''
+      - name: canvas_avg_view_percent
+        description: ''
+      - name: conversion_rate_ranking
+        description: ''
+      - name: engagement_rate_ranking
+        description: ''
+      - name: estimated_ad_recall_rate
+        description: ''
+      - name: unique_inline_link_clicks
+        description: ''
+      - name: auction_max_competitor_bid
+        description: ''
+      - name: cost_per_inline_link_click
+        description: ''
+      - name: unique_inline_link_click_ctr
+        description: ''
+      - name: cost_per_estimated_ad_recallers
+        description: ''
+      - name: cost_per_inline_post_engagement
+        description: ''
+      - name: cost_per_unique_inline_link_click
+        description: ''
+      - name: instant_experience_clicks_to_open
+        description: ''
+      - name: estimated_ad_recallers_lower_bound
+        description: ''
+      - name: estimated_ad_recallers_upper_bound
+        description: ''
+      - name: instant_experience_clicks_to_start
+        description: ''
+      - name: estimated_ad_recall_rate_lower_bound
+        description: ''
+      - name: estimated_ad_recall_rate_upper_bound
+        description: ''
+      - name: qualifying_question_qualify_answer_rate
+        description: ''
+      - name: video_played
+        description: ''
+      - name: video_continuous_2_sec_watched
+        description: ''
+      - name: cost_per_2_sec_continuous_video_view
+        description: ''
+      - name: video_15_sec_watched
+        description: ''
+      - name: cost_per_15_sec_video_view
+        description: ''
+      - name: thruplays
+        description: ''
+      - name: cost_per_thruplay
+        description: ''
+      - name: video_p25_watched
+        description: ''
+      - name: video_p50_watched
+        description: ''
+      - name: video_p75_watched
+        description: ''
+      - name: video_p95_watched
+        description: ''
+      - name: video_p100_watched
+        description: ''
+      - name: shares
+        description: ''
+      - name: landing_page_views
+        description: ''
+      - name: conversion_values
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+
