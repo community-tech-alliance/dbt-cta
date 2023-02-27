@@ -202,6 +202,9 @@ models:
         description: ''
       - name: _ad_set_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: _airbyte_normalized_at
         description: ''
 
@@ -210,6 +213,9 @@ models:
     columns:
       - name: _airbyte_ad_account_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_ab_id
@@ -350,6 +356,9 @@ models:
         description: ''
       - name: _campaign_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: _airbyte_normalized_at
         description: ''
 
@@ -372,6 +381,9 @@ models:
         description: ''
       - name: _account_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: _airbyte_normalized_at
         description: ''
 
@@ -380,6 +392,9 @@ models:
     columns:
       - name: _airbyte_campaigns_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_ab_id
@@ -434,6 +449,9 @@ models:
     columns:
       - name: _airbyte_ad_creatives_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_ab_id
@@ -520,6 +538,9 @@ models:
     columns:
       - name: _airbyte_ad_sets_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_ab_id
@@ -562,6 +583,9 @@ models:
     columns:
       - name: _airbyte_ads_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_ab_id
@@ -614,6 +638,9 @@ models:
     columns:
       - name: _airbyte_ads_insights_platform_and_device_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_ab_id
