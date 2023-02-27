@@ -112,7 +112,7 @@ def generate_schema_dict(directory_path):
 
 
 def main():
-    dirs = list_model_directories("actblue")
+    dirs = list_model_directories(os.getenv('SYNC_NAME'))
 
     for d in dirs:
         schema_dict = generate_schema_dict(d)
