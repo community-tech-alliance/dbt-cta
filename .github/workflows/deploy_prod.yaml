@@ -11,5 +11,5 @@ jobs:
     uses: ./.github/workflows/deploy_cta_dbt_models.yaml
     with:
       environment: prod
-      secrets: inherit
+    secrets: inherit
       

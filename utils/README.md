@@ -28,6 +28,12 @@ sh init_dbt.sh
 
 Congratulations! Now you have a cleaned-up dbt project you can use to start hacking away. (Which is where the real fun begins - best of luck to you.)
 
+Double check these few things before venturing too far forward:
+1. Make sure the sources.yml file lands in the models folder.
+2. Create a README.md file in the base (partner name) folder.
+3. In the 0_ctes folder, make sure wherever the code says `source('..', '_airbyte_raw_...')` that the first string in the list is 'cta', not '{​partner_name}'.
+4. Check the spacing in `sources.yml`. Make sure that `database` and `schema` are nested under `name` and aligned with `tables`.
+
 ## Generating the tarball
 
 ### CTA: run some commands
@@ -64,7 +70,6 @@ Because CTA uses an Instance Group Manager, the instance name changes regularly 
 
 You can use the same command - just replace the ```$(gcloud compute instance-groups managed list-instances ...)``` command with the name of the GCE instance you're using to run Airbyte.
 
-
 # generate_schema_yml.py
 This script generates starter schema.yml files for a new dbt project. It uses dbt's
 [codegen](https://github.com/dbt-labs/dbt-codegen) package to run a series of 
@@ -90,3 +95,4 @@ same tests on a set list of column names.
  a list of models, rather than parsing them one at a time.
  - If we have existing schema.yml files, an additional run of this script could be
  configured to merge in changes, rather than overwriting them.
+

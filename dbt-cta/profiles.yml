@@ -24,7 +24,7 @@ default:
       location: US
       method: oauth
       priority: batch
-      threads: 4
+      threads: 1
       type: bigquery
       job_creation_timeout_seconds: 30
       job_execution_timeout_seconds: 600
