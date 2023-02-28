@@ -5,9 +5,7 @@ models:
   - name: organizations_configuration_settings
     description: ''
     columns:
-      - name: _airbyte_configuration_settings_hashid
-        description: ''
-      - name: _airbyte_organizations_hashid
+      - name: organization_id
         description: ''
       - name: notifications_enabled
         description: ''
@@ -21,13 +19,15 @@ models:
   - name: adsquads_targeting
     description: ''
     columns:
-      - name: _airbyte_targeting_hashid
+      - name: ad_squad_id
         description: ''
       - name: geos
         description: ''
       - name: demographics
         description: ''
       - name: regulated_content
+        description: ''
+      - name: _airbyte_ab_id
         description: ''
       - name: _airbyte_emitted_at
         description: ''
@@ -37,8 +37,6 @@ models:
   - name: organizations
     description: ''
     columns:
-      - name: _airbyte_organizations_hashid
-        description: ''
       - name: id
         description: ''
       - name: name
@@ -93,8 +91,6 @@ models:
   - name: creatives
     description: ''
     columns:
-      - name: _airbyte_creatives_hashid
-        description: ''
       - name: id
         description: ''
       - name: name
@@ -155,9 +151,17 @@ models:
     columns:
       - name: _airbyte_geos_hashid
         description: ''
-      - name: _airbyte_targeting_hashid
+      - name: ad_squad_id
         description: ''
       - name: country_code
+        description: ''
+      - name: geo_level
+        description: ''
+      - name: geo_value
+        description: ''
+      - name: operation
+        description: ''
+      - name: _airbyte_ab_id
         description: ''
       - name: _airbyte_emitted_at
         description: ''
@@ -167,8 +171,6 @@ models:
   - name: segments
     description: ''
     columns:
-      - name: _airbyte_segments_hashid
-        description: ''
       - name: id
         description: ''
       - name: name
@@ -197,6 +199,8 @@ models:
         description: ''
       - name: approximate_number_users
         description: ''
+      - name: _airbyte_ab_id
+        description: ''
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
@@ -205,9 +209,9 @@ models:
   - name: media
     description: ''
     columns:
-      - name: _airbyte_media_hashid
-        description: ''
       - name: id
+        description: ''
+      - name: hash
         description: ''
       - name: name
         description: ''
@@ -237,6 +241,8 @@ models:
         description: ''
       - name: duration_in_seconds
         description: ''
+      - name: _airbyte_ab_id
+        description: ''
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
@@ -245,9 +251,11 @@ models:
   - name: adsquads_skadnetwork_properties
     description: ''
     columns:
-      - name: _airbyte_skadnetwork_properties_hashid
+      - name: ad_squad_id
         description: ''
       - name: status
+        description: ''
+      - name: _airbyte_ab_id
         description: ''
       - name: _airbyte_emitted_at
         description: ''
@@ -257,7 +265,7 @@ models:
   - name: creatives_web_view_properties
     description: ''
     columns:
-      - name: _airbyte_web_view_properties_hashid
+      - name: creative_id
         description: ''
       - name: url
         description: ''
@@ -279,12 +287,16 @@ models:
         description: ''
       - name: allow_snap_javascript_sdk
         description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
 
   - name: ads
     description: ''
     columns:
-      - name: _airbyte_ads_hashid
-        description: ''
       - name: id
         description: ''
       - name: name
@@ -317,8 +329,6 @@ models:
   - name: ad_stats
     description: ''
     columns:
-      - name: _airbyte_ads_stats_daily_hashid
-        description: ''
       - name: id
         description: ''
       - name: type
@@ -471,12 +481,12 @@ models:
         description: ''
       - name: _airbyte_normalized_at
         description: ''
+      - name: _airbyte_ads_stats_daily_hashid
+        description: ''
 
   - name: campaigns
     description: ''
     columns:
-      - name: _airbyte_campaigns_hashid
-        description: ''
       - name: id
         description: ''
       - name: name
@@ -497,6 +507,8 @@ models:
         description: ''
       - name: delivery_status
         description: ''
+      - name: _airbyte_ab_id
+        description: ''
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
@@ -505,8 +517,6 @@ models:
   - name: adaccounts
     description: ''
     columns:
-      - name: _airbyte_adaccounts_hashid
-        description: ''
       - name: id
         description: ''
       - name: name
@@ -549,8 +559,6 @@ models:
   - name: adsquads
     description: ''
     columns:
-      - name: _airbyte_adsquads_hashid
-        description: ''
       - name: id
         description: ''
       - name: name
@@ -602,6 +610,8 @@ models:
       - name: skadnetwork_properties
         description: ''
       - name: targeting_reach_status
+        description: ''
+      - name: _airbyte_ab_id
         description: ''
       - name: _airbyte_emitted_at
         description: ''
