@@ -18,6 +18,8 @@ models:
           - unique
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string
+          - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string   
       - name: parent_sid
         description: ''
@@ -61,6 +63,8 @@ models:
         tests:
           - unique
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string   
       - name: region
@@ -115,6 +119,8 @@ models:
         tests:
           - unique
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string   
       - name: price
@@ -241,6 +247,8 @@ models:
           - unique
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string
+          - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string   
       - name: from
         description: ''
@@ -325,6 +333,8 @@ models:
           - unique
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string
+          - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string   
       - name: body
         description: ''
@@ -385,6 +395,8 @@ models:
         tests:
           - unique
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string   
       - name: as_of

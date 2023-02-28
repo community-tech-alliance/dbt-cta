@@ -16,7 +16,9 @@ models:
         description: ''
         tests:
           - unique
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: sms_url
         description: ''
       - name: trunk_sid
@@ -100,7 +102,9 @@ models:
         description: ''
         tests:
           - unique
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: city
         description: ''
       - name: region
@@ -160,7 +164,9 @@ models:
         description: ''
         tests:
           - unique
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: type
         description: ''
       - name: price
@@ -214,7 +220,9 @@ models:
         description: ''
         tests:
           - unique
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: account_sid
         description: ''
       - name: date_created
@@ -256,7 +264,9 @@ models:
         description: ''
         tests:
           - unique
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: beta
         description: ''
       - name: origin
@@ -444,7 +454,9 @@ models:
         description: ''
         tests:
           - unique
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: type
         description: ''
       - name: status
@@ -492,7 +504,9 @@ models:
         description: ''
         tests:
           - unique
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: max_size
         description: ''
       - name: account_sid
@@ -575,7 +589,9 @@ models:
         description: ''
         tests:
           - unique
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: beta
         description: ''
       - name: country
@@ -633,7 +649,9 @@ models:
         description: ''
         tests:
           - unique
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: hold
         description: ''
       - name: label
@@ -691,7 +709,9 @@ models:
         description: ''
         tests:
           - unique
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: sms_url
         description: ''
       - name: voice_url
@@ -761,7 +781,9 @@ models:
         description: ''
         tests:
           - unique
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: recurring
         description: ''
       - name: date_fired
