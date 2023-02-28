@@ -1,0 +1,494 @@
+version: 2
+
+models:
+
+  - name: addresses_ab1
+
+    description: This model extracts fields from the raw json
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null   
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+
+
+  - name: alerts_ab1
+
+    description: This model extracts fields from the raw json
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null   
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+
+
+  - name: applications_ab1
+
+    description: This model extracts fields from the raw json
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null   
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+
+
+  - name: available_phone_number_countries_ab1
+
+    description: This model extracts fields from the raw json
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null   
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+
+
+  - name: available_phone_numbers_local_ab1
+
+    description: This model extracts fields from the raw json
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null   
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+
+
+  - name: available_phone_numbers_mobile_ab1
+
+    description: This model extracts fields from the raw json
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null   
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+
+
+  - name: available_phone_numbers_toll_free_ab1
+
+    description: This model extracts fields from the raw json
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null   
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+
+
+  - name: calls_ab1
+
+    description: This model extracts fields from the raw json
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null   
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+
+
+  - name: conference_participants_ab1
+
+    description: This model extracts fields from the raw json
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null   
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+
+
+  - name: conferences_ab1
+
+    description: This model extracts fields from the raw json
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null   
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+
+
+  - name: dependent_phone_numbers_ab1
+
+    description: This model extracts fields from the raw json
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null   
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+
+
+  - name: incoming_phone_numbers_ab1
+
+    description: This model extracts fields from the raw json
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null   
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+
+
+  - name: keys_ab1
+
+    description: This model extracts fields from the raw json
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null   
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+
+
+  - name: message_media_ab1
+
+    description: This model extracts fields from the raw json
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null   
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+
+
+  - name: messages_ab1
+
+    description: This model extracts fields from the raw json
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null   
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+
+
+  - name: outgoing_caller_ids_ab1
+
+    description: This model extracts fields from the raw json
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null   
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+
+
+  - name: queues_ab1
+
+    description: This model extracts fields from the raw json
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null   
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+
+
+  - name: recordings_ab1
+
+    description: This model extracts fields from the raw json
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null   
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+
+
+  - name: transcriptions_ab1
+
+    description: This model extracts fields from the raw json
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null   
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+
+
+  - name: usage_records_ab1
+
+    description: This model extracts fields from the raw json
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null   
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+
+
+  - name: usage_triggers_ab1
+
+    description: This model extracts fields from the raw json
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null   
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+
+  - name: accounts_ab3
+
+    description: This model adds a surrogate key that we use for deduping.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: addresses_ab3
+
+    description: This model adds a surrogate key that we use for deduping.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: alerts_ab3
+
+    description: This model adds a surrogate key that we use for deduping.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: applications_ab3
+
+    description: This model adds a surrogate key that we use for deduping.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: available_phone_number_countries_ab3
+
+    description: This model adds a surrogate key that we use for deduping.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: available_phone_numbers_local_ab3
+
+    description: This model adds a surrogate key that we use for deduping.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: available_phone_numbers_mobile_ab3
+
+    description: This model adds a surrogate key that we use for deduping.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: available_phone_numbers_toll_free_ab3
+
+    description: This model adds a surrogate key that we use for deduping.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: calls_ab3
+
+    description: This model adds a surrogate key that we use for deduping.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: conference_participants_ab3
+
+    description: This model adds a surrogate key that we use for deduping.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: conferences_ab3
+
+    description: This model adds a surrogate key that we use for deduping.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: dependent_phone_numbers_ab3
+
+    description: This model adds a surrogate key that we use for deduping.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: incoming_phone_numbers_ab3
+
+    description: This model adds a surrogate key that we use for deduping.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: keys_ab3
+
+    description: This model adds a surrogate key that we use for deduping.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: message_media_ab3
+
+    description: This model adds a surrogate key that we use for deduping.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: messages_ab3
+
+    description: This model adds a surrogate key that we use for deduping.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: outgoing_caller_ids_ab3
+
+    description: This model adds a surrogate key that we use for deduping.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: queues_ab3
+
+    description: This model adds a surrogate key that we use for deduping.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: recordings_ab3
+
+    description: This model adds a surrogate key that we use for deduping.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: transcriptions_ab3
+
+    description: This model adds a surrogate key that we use for deduping.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: usage_records_ab3
+
+    description: This model adds a surrogate key that we use for deduping.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: usage_triggers_ab3
+
+    description: This model adds a surrogate key that we use for deduping.
+    columns:
+      - name: _airbyte_campaigns_hashid
+        tests:
+          - unique
+          - not_null
