@@ -7,8 +7,16 @@ models:
     columns:
       - name: sid
         description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: uri
         description: ''
+        tests:
+          - unique
+          - not_null   
       - name: sms_url
         description: ''
       - name: trunk_sid
@@ -29,8 +37,16 @@ models:
         description: ''
       - name: date_created
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: date_updated
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: phone_number
         description: ''
       - name: voice_method
@@ -75,8 +91,16 @@ models:
     columns:
       - name: sid
         description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: uri
         description: ''
+        tests:
+          - unique
+          - not_null   
       - name: city
         description: ''
       - name: region
@@ -95,8 +119,16 @@ models:
         description: ''
       - name: date_created
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: date_updated
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: customer_name
         description: ''
       - name: friendly_name
@@ -119,8 +151,16 @@ models:
     columns:
       - name: sid
         description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: uri
         description: ''
+        tests:
+          - unique
+          - not_null   
       - name: type
         description: ''
       - name: price
@@ -137,8 +177,16 @@ models:
         description: ''
       - name: date_created
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: date_updated
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: recording_sid
         description: ''
       - name: transcription_text
@@ -157,14 +205,30 @@ models:
     columns:
       - name: sid
         description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: uri
         description: ''
+        tests:
+          - unique
+          - not_null   
       - name: account_sid
         description: ''
       - name: date_created
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: date_updated
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: phone_number
         description: ''
       - name: friendly_name
@@ -183,8 +247,16 @@ models:
     columns:
       - name: sid
         description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: uri
         description: ''
+        tests:
+          - unique
+          - not_null   
       - name: beta
         description: ''
       - name: origin
@@ -215,8 +287,16 @@ models:
         description: ''
       - name: date_created
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: date_updated
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: identity_sid
         description: ''
       - name: phone_number
@@ -355,8 +435,16 @@ models:
     columns:
       - name: sid
         description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: uri
         description: ''
+        tests:
+          - unique
+          - not_null   
       - name: type
         description: ''
       - name: status
@@ -365,8 +453,16 @@ models:
         description: ''
       - name: date_created
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: date_updated
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: friendly_name
         description: ''
       - name: subresource_uris
@@ -387,8 +483,16 @@ models:
     columns:
       - name: sid
         description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: uri
         description: ''
+        tests:
+          - unique
+          - not_null   
       - name: max_size
         description: ''
       - name: account_sid
@@ -397,8 +501,16 @@ models:
         description: ''
       - name: date_created
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: date_updated
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: friendly_name
         description: ''
       - name: subresource_uris
@@ -461,6 +573,9 @@ models:
     columns:
       - name: uri
         description: ''
+        tests:
+          - unique
+          - not_null   
       - name: beta
         description: ''
       - name: country
@@ -483,10 +598,23 @@ models:
     columns:
       - name: sid
         description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: date_created
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: date_updated
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: friendly_name
         description: ''
       - name: _airbyte_ab_id
@@ -503,6 +631,9 @@ models:
     columns:
       - name: uri
         description: ''
+        tests:
+          - unique
+          - not_null   
       - name: hold
         description: ''
       - name: label
@@ -519,8 +650,16 @@ models:
         description: ''
       - name: date_created
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: date_updated
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: conference_sid
         description: ''
       - name: call_sid_to_coach
@@ -543,8 +682,16 @@ models:
     columns:
       - name: sid
         description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: uri
         description: ''
+        tests:
+          - unique
+          - not_null   
       - name: sms_url
         description: ''
       - name: voice_url
@@ -557,8 +704,16 @@ models:
         description: ''
       - name: date_created
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: date_updated
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: voice_method
         description: ''
       - name: friendly_name
@@ -597,8 +752,16 @@ models:
     columns:
       - name: sid
         description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: uri
         description: ''
+        tests:
+          - unique
+          - not_null   
       - name: recurring
         description: ''
       - name: date_fired
@@ -613,8 +776,16 @@ models:
         description: ''
       - name: date_created
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: date_updated
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: current_value
         description: ''
       - name: friendly_name

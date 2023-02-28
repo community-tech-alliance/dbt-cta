@@ -7,8 +7,18 @@ models:
     columns:
       - name: sid
         description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: uri
         description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: parent_sid
         description: ''
       - name: account_sid
@@ -17,8 +27,16 @@ models:
         description: ''
       - name: date_created
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: date_updated
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: date_created
       - name: _airbyte_ab_id
         description: ''
       - name: _airbyte_emitted_at
@@ -33,8 +51,18 @@ models:
     columns:
       - name: sid
         description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: uri
         description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: region
         description: ''
       - name: status
@@ -45,8 +73,16 @@ models:
         description: ''
       - name: date_created
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: date_updated
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: date_created
       - name: friendly_name
         description: ''
       - name: subresource_uris
@@ -69,8 +105,18 @@ models:
     columns:
       - name: sid
         description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: uri
         description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: price
         description: ''
       - name: source
@@ -97,8 +143,16 @@ models:
         description: ''
       - name: date_created
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: date_updated
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: date_created
       - name: conference_sid
         description: ''
       - name: subresource_uris
@@ -119,6 +173,11 @@ models:
     columns:
       - name: sid
         description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: url
         description: ''
       - name: log_level
@@ -139,8 +198,16 @@ models:
         description: ''
       - name: date_created
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: date_updated
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: date_created
       - name: resource_sid
         description: ''
       - name: date_generated
@@ -163,8 +230,18 @@ models:
         description: ''
       - name: sid
         description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: uri
         description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: from
         description: ''
       - name: price
@@ -199,8 +276,16 @@ models:
         description: ''
       - name: date_created
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: date_updated
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: date_created
       - name: to_formatted
         description: ''
       - name: forwarded_from
@@ -229,8 +314,18 @@ models:
         description: ''
       - name: sid
         description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: uri
         description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: body
         description: ''
       - name: from
@@ -255,8 +350,16 @@ models:
         description: ''
       - name: date_created
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
       - name: date_updated
         description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: date_created
       - name: num_segments
         description: ''
       - name: error_message
@@ -279,6 +382,11 @@ models:
     columns:
       - name: uri
         description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: as_of
         description: ''
       - name: count
