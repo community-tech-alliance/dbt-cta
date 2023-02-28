@@ -9,15 +9,15 @@
     unique_key = '_airbyte_regulations_hashid'
 ) }}
 
--- depends_on: {{ source('cta','adaccounts_base') }}, {{ ref('adaccounts_regulations_ab3') }}
+-- depends_on: {{ ref('adaccounts_base') }}, {{ ref('adaccounts_regulations_ab2') }}
 select
-    _airbyte_adaccounts_hashid,
+    ad_account_id,
     restricted_delivery_signals,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-    {{ current_timestamp() }} as _airbyte_normalized_at,
-    _airbyte_regulations_hashid
-from {{ ref('adaccounts_regulations_ab3') }}
+    {{ current_timestamp() }} as _airbyte_normalized_at
+    
+from {{ ref('adaccounts_regulations_ab2') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

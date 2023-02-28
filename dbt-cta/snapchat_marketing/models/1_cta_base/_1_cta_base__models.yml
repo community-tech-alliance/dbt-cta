@@ -46,11 +46,6 @@ models:
         description: ''
       - name: _airbyte_normalized_at
         description: ''
-      - name: _airbyte_adaccounts_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
 
   - name: adsquads_skadnetwork_properties_base
     description: ''
@@ -598,7 +593,7 @@ models:
       contain ads for Credit, Housing or Employment, and therefore is subject to
       additional regulations. For political advertisers, this should be false.
     columns:
-      - name: _airbyte_adaccounts_hashid
+      - name: ad_account_id
         description: ''
         tests:
           - unique
@@ -611,11 +606,6 @@ models:
         description: ''
       - name: _airbyte_normalized_at
         description: ''
-      - name: _airbyte_regulations_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
 
   - name: ads_base
     description: ''
@@ -651,11 +641,6 @@ models:
         description: ''
       - name: _airbyte_normalized_at
         description: ''
-      - name: _airbyte_ads_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
 
   - name: organizations_configuration_settings_base
     description: ''
