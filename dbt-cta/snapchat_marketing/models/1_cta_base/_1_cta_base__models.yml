@@ -399,10 +399,15 @@ models:
         description: ''
 
   - name: ad_stats_base
-    description: ''
+    description: >
+      A table at the ad x day level of ad performance statistics.
+
+      _airbyte_ads_stats_daily_hashid is used as a surrogate primary key, but we also
+      check to ensure that id x granularity x start_time is unique, per the Airbyte
+      docs: https://github.com/airbytehq/airbyte/blob/master/docs/integrations/sources/snapchat-marketing.md#supported-streams-and-sync-modes 
     columns:
       - name: id
-        description: ''
+        description: 'Ad ID'
       - name: type
         description: ''
       - name: saves
@@ -555,6 +560,15 @@ models:
         description: ''
       - name: _airbyte_ads_stats_daily_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
+    tests:
+    - dbt_utils.unique_combination_of_columns:
+        combination_of_columns:
+          - id
+          - granularity
+          - start_time
 
   - name: adsquads_targeting_geos_base
     description: ''
