@@ -155,11 +155,6 @@ models:
         description: ''
       - name: _airbyte_normalized_at
         description: ''
-      - name: _airbyte_targeting_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
 
   - name: campaigns_base
     description: ''

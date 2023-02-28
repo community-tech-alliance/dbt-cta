@@ -9,7 +9,7 @@
     unique_key = 'ad_squad_id'
 ) }}
 
--- depends_on: {{ ref('adsquads_targeting_ab3') }}
+-- depends_on: {{ ref('adsquads_targeting_ab2') }}
 select
     ad_squad_id,
     _airbyte_adsquads_hashid,
@@ -18,9 +18,8 @@ select
     regulated_content,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-    {{ current_timestamp() }} as _airbyte_normalized_at,
-    _airbyte_targeting_hashid
-from {{ ref('adsquads_targeting_ab3') }}
+    {{ current_timestamp() }} as _airbyte_normalized_at
+from {{ ref('adsquads_targeting_ab2') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
