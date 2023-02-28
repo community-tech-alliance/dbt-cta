@@ -5,6 +5,7 @@
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ ref('adsquads_base') }}
 select
+    id as ad_squad_id,
     _airbyte_adsquads_hashid,
     {{ json_extract_array('targeting', ['geos'], ['geos']) }} as geos,
     {{ json_extract_array('targeting', ['demographics'], ['demographics']) }} as demographics,

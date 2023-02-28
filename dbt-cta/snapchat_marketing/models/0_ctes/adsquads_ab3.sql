@@ -8,9 +8,7 @@
 select
     {{ dbt_utils.surrogate_key([
         'id',
-        'end_time',
         'created_at',
-        'start_time',
     ]) }} as _airbyte_adsquads_hashid,
     tmp.*
 from {{ ref('adsquads_ab2') }} tmp

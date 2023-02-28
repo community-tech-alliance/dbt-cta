@@ -132,9 +132,17 @@ models:
 
   - name: adsquads_targeting_base
     description: ''
-    columns:
+    columns: 
+      - name: ad_squad_id
+        description: 'The ID of the ad squad this targeting criteria applies to.'
+        tests:
+          - unique
+          - not_null
       - name: _airbyte_adsquads_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: geos
         description: ''
       - name: demographics
@@ -149,6 +157,9 @@ models:
         description: ''
       - name: _airbyte_targeting_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: campaigns_base
     description: ''

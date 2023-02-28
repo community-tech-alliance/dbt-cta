@@ -6,11 +6,12 @@
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id'
+    unique_key = 'ad_squad_id'
 ) }}
 
 -- depends_on: {{ ref('adsquads_targeting_ab3') }}
 select
+    ad_squad_id,
     _airbyte_adsquads_hashid,
     geos,
     demographics,
