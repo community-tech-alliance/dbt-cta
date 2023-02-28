@@ -7,6 +7,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: name
         description: ''
       - name: type
@@ -45,6 +48,9 @@ models:
         description: ''
       - name: _airbyte_adaccounts_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: adsquads_skadnetwork_properties_base
     description: ''
