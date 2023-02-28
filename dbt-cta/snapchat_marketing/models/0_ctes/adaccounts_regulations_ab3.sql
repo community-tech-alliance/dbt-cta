@@ -6,8 +6,7 @@
 -- depends_on: {{ ref('adaccounts_regulations_ab2') }}
 select
     {{ dbt_utils.surrogate_key([
-        '_airbyte_adaccounts_hashid',
-        boolean_to_string('restricted_delivery_signals'),
+        '_airbyte_adaccounts_hashid'
     ]) }} as _airbyte_regulations_hashid,
     tmp.*
 from {{ ref('adaccounts_regulations_ab2') }} tmp

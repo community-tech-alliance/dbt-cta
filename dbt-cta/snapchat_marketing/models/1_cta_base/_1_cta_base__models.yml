@@ -587,10 +587,16 @@ models:
         description: ''
 
   - name: adaccounts_regulations_base
-    description: ''
+    description: >
+      This table is at the ad account level, and indicates whether the account will
+      contain ads for Credit, Housing or Employment, and therefore is subject to
+      additional regulations. For political advertisers, this should be false.
     columns:
       - name: _airbyte_adaccounts_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: restricted_delivery_signals
         description: ''
       - name: _airbyte_ab_id
@@ -601,6 +607,9 @@ models:
         description: ''
       - name: _airbyte_regulations_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ads_base
     description: ''
