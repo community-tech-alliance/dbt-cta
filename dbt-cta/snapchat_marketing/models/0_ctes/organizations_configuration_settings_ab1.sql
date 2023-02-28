@@ -3,7 +3,7 @@
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"}
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('cta','organizations_base') }}
+-- depends_on: {{ ref('organizations_base') }}
 select
     id as organization_id,
     {{ json_extract_scalar('configuration_settings', ['notifications_enabled'], ['notifications_enabled']) }} as notifications_enabled,
