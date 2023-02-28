@@ -11,7 +11,7 @@
 
 -- depends_on: {{ ref('adsquads_targeting_geos_ab3') }}
 select
-   _airbyte_geos_hashid,
+    _airbyte_geos_hashid,
     ad_squad_id,
     country_code,
     case
