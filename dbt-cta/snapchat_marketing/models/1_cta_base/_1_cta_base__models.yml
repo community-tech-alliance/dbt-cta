@@ -243,8 +243,11 @@ models:
   - name: creatives_web_view_properties_base
     description: ''
     columns:
-      - name: _airbyte_creatives_hashid
+      - name: creative_id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: url
         description: ''
       - name: utm_source
@@ -270,8 +273,6 @@ models:
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_web_view_properties_hashid
         description: ''
 
   - name: creatives_base
