@@ -73,6 +73,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: name
         description: ''
       - name: type
@@ -123,6 +126,9 @@ models:
         description: ''
       - name: _airbyte_organizations_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: adsquads_targeting_base
     description: ''
@@ -149,6 +155,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: name
         description: ''
       - name: status
@@ -175,6 +184,9 @@ models:
         description: ''
       - name: _airbyte_campaigns_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: adsquads_base
     description: ''
@@ -285,6 +297,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: name
         description: ''
       - name: type
@@ -339,6 +354,9 @@ models:
         description: ''
       - name: _airbyte_creatives_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: segments_base
     description: ''
@@ -631,6 +649,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: hash
         description: ''
       - name: name
@@ -669,4 +690,6 @@ models:
         description: ''
       - name: _airbyte_media_hashid
         description: ''
-
+        tests:
+          - unique
+          - not_null
