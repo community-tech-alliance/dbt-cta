@@ -9,7 +9,7 @@
     unique_key = 'id'
 ) }}
 
--- depends_on: {{ ref('segments_ab3') }}
+-- depends_on: {{ ref('segments_ab2') }}
 select
     id,
     name,
@@ -27,9 +27,8 @@ select
     approximate_number_users,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-    {{ current_timestamp() }} as _airbyte_normalized_at,
-    _airbyte_segments_hashid
-from {{ ref('segments_ab3') }}
+    {{ current_timestamp() }} as _airbyte_normalized_at
+from {{ ref('segments_ab2') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

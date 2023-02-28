@@ -120,11 +120,6 @@ models:
         description: ''
       - name: _airbyte_normalized_at
         description: ''
-      - name: _airbyte_organizations_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
 
   - name: adsquads_targeting_base
     description: ''
@@ -345,6 +340,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: name
         description: ''
       - name: status
@@ -376,8 +374,6 @@ models:
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_segments_hashid
         description: ''
 
   - name: ad_stats_base
@@ -683,8 +679,3 @@ models:
         description: ''
       - name: _airbyte_normalized_at
         description: ''
-      - name: _airbyte_media_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null

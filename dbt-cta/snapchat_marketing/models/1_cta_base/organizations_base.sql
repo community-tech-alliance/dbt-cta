@@ -9,7 +9,7 @@
     unique_key = 'id'
 ) }}
 
--- depends_on: {{ ref('organizations_ab3') }}
+-- depends_on: {{ ref('organizations_ab2') }}
 select
     id,
     name,
@@ -35,9 +35,8 @@ select
     administrative_district_level_1,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-    {{ current_timestamp() }} as _airbyte_normalized_at,
-    _airbyte_organizations_hashid
-from {{ ref('organizations_ab3') }}
+    {{ current_timestamp() }} as _airbyte_normalized_at
+from {{ ref('organizations_ab2') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
