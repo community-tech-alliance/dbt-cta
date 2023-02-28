@@ -69,3 +69,30 @@ Because CTA uses an Instance Group Manager, the instance name changes regularly 
 ### Not CTA, but still running Airbyte in a GCE instance:
 
 You can use the same command - just replace the ```$(gcloud compute instance-groups managed list-instances ...)``` command with the name of the GCE instance you're using to run Airbyte.
+
+# generate_schema_yml.py
+This script generates starter schema.yml files for a new dbt project. It uses dbt's
+[codegen](https://github.com/dbt-labs/dbt-codegen) package to run a series of 
+`generate_model_yaml` commands, and then aggregates them all together in a single
+yaml file.
+
+## Requirements
+1. Have all the necessary environmental variables set to run dbt, including `SYNC_NAME`.
+ Make sure to run `dbt deps` to install the codegen package.
+2. Be in the `/dbt-cta` directory
+3. Run `python ./utils/generate_schema_yml.py`
+
+## Limitations
+dbt's codegen package does not currently work on ephemeral models. The way our
+directories are structured, we have an entire folder of CTEs, so this script just skips
+those.
+
+## Next Steps
+ - Ideally, this script would generate some basic tests, perhaps configured to set the
+same tests on a set list of column names.
+ - We're using an outdated version of the codegen package to play nicely with our other
+ dependencies. The latest version (`0.9.0`) woudd let us generate schema.yml files for
+ a list of models, rather than parsing them one at a time.
+ - If we have existing schema.yml files, an additional run of this script could be
+ configured to merge in changes, rather than overwriting them.
+
