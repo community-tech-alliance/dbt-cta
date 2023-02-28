@@ -1,0 +1,318 @@
+version: 2
+
+models:
+
+  - name: message_media_base
+    description: ''
+    columns:
+      - name: sid
+        description: ''
+      - name: uri
+        description: ''
+      - name: parent_sid
+        description: ''
+      - name: account_sid
+        description: ''
+      - name: content_type
+        description: ''
+      - name: date_created
+        description: ''
+      - name: date_updated
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_message_media_hashid
+        description: ''
+
+  - name: conferences_base
+    description: ''
+    columns:
+      - name: sid
+        description: ''
+      - name: uri
+        description: ''
+      - name: region
+        description: ''
+      - name: status
+        description: ''
+      - name: account_sid
+        description: ''
+      - name: api_version
+        description: ''
+      - name: date_created
+        description: ''
+      - name: date_updated
+        description: ''
+      - name: friendly_name
+        description: ''
+      - name: subresource_uris
+        description: ''
+      - name: reason_conference_ended
+        description: ''
+      - name: call_sid_ending_conference
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_conferences_hashid
+        description: ''
+
+  - name: recordings_base
+    description: ''
+    columns:
+      - name: sid
+        description: ''
+      - name: uri
+        description: ''
+      - name: price
+        description: ''
+      - name: source
+        description: ''
+      - name: status
+        description: ''
+      - name: call_sid
+        description: ''
+      - name: channels
+        description: ''
+      - name: duration
+        description: ''
+      - name: media_url
+        description: ''
+      - name: error_code
+        description: ''
+      - name: price_unit
+        description: ''
+      - name: start_time
+        description: ''
+      - name: account_sid
+        description: ''
+      - name: api_version
+        description: ''
+      - name: date_created
+        description: ''
+      - name: date_updated
+        description: ''
+      - name: conference_sid
+        description: ''
+      - name: subresource_uris
+        description: ''
+      - name: encryption_details
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_recordings_hashid
+        description: ''
+
+  - name: alerts_base
+    description: ''
+    columns:
+      - name: sid
+        description: ''
+      - name: url
+        description: ''
+      - name: log_level
+        description: ''
+      - name: more_info
+        description: ''
+      - name: alert_text
+        description: ''
+      - name: error_code
+        description: ''
+      - name: account_sid
+        description: ''
+      - name: api_version
+        description: ''
+      - name: request_url
+        description: ''
+      - name: service_sid
+        description: ''
+      - name: date_created
+        description: ''
+      - name: date_updated
+        description: ''
+      - name: resource_sid
+        description: ''
+      - name: date_generated
+        description: ''
+      - name: request_method
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_alerts_hashid
+        description: ''
+
+  - name: calls_base
+    description: ''
+    columns:
+      - name: to
+        description: ''
+      - name: sid
+        description: ''
+      - name: uri
+        description: ''
+      - name: from
+        description: ''
+      - name: price
+        description: ''
+      - name: status
+        description: ''
+      - name: duration
+        description: ''
+      - name: end_time
+        description: ''
+      - name: direction
+        description: ''
+      - name: group_sid
+        description: ''
+      - name: trunk_sid
+        description: ''
+      - name: annotation
+        description: ''
+      - name: price_unit
+        description: ''
+      - name: queue_time
+        description: ''
+      - name: start_time
+        description: ''
+      - name: account_sid
+        description: ''
+      - name: answered_by
+        description: ''
+      - name: api_version
+        description: ''
+      - name: caller_name
+        description: ''
+      - name: date_created
+        description: ''
+      - name: date_updated
+        description: ''
+      - name: to_formatted
+        description: ''
+      - name: forwarded_from
+        description: ''
+      - name: from_formatted
+        description: ''
+      - name: parent_call_sid
+        description: ''
+      - name: phone_number_sid
+        description: ''
+      - name: subresource_uris
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_calls_hashid
+        description: ''
+
+  - name: messages_base
+    description: ''
+    columns:
+      - name: to
+        description: ''
+      - name: sid
+        description: ''
+      - name: uri
+        description: ''
+      - name: body
+        description: ''
+      - name: from
+        description: ''
+      - name: price
+        description: ''
+      - name: status
+        description: ''
+      - name: date_sent
+        description: ''
+      - name: direction
+        description: ''
+      - name: num_media
+        description: ''
+      - name: error_code
+        description: ''
+      - name: price_unit
+        description: ''
+      - name: account_sid
+        description: ''
+      - name: api_version
+        description: ''
+      - name: date_created
+        description: ''
+      - name: date_updated
+        description: ''
+      - name: num_segments
+        description: ''
+      - name: error_message
+        description: ''
+      - name: subresource_uris
+        description: ''
+      - name: messaging_service_sid
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_messages_hashid
+        description: ''
+
+  - name: usage_records_base
+    description: ''
+    columns:
+      - name: uri
+        description: ''
+      - name: as_of
+        description: ''
+      - name: count
+        description: ''
+      - name: price
+        description: ''
+      - name: usage
+        description: ''
+      - name: category
+        description: ''
+      - name: end_date
+        description: ''
+      - name: count_unit
+        description: ''
+      - name: price_unit
+        description: ''
+      - name: start_date
+        description: ''
+      - name: usage_unit
+        description: ''
+      - name: account_sid
+        description: ''
+      - name: api_version
+        description: ''
+      - name: description
+        description: ''
+      - name: subresource_uris
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_usage_records_hashid
+        description: ''
+
