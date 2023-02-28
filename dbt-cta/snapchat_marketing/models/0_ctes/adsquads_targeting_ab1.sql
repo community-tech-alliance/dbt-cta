@@ -6,7 +6,6 @@
 -- depends_on: {{ ref('adsquads_base') }}
 select
     id as ad_squad_id,
-    _airbyte_adsquads_hashid,
     {{ json_extract_array('targeting', ['geos'], ['geos']) }} as geos,
     {{ json_extract_array('targeting', ['demographics'], ['demographics']) }} as demographics,
     {{ json_extract_scalar('targeting', ['regulated_content'], ['regulated_content']) }} as regulated_content,

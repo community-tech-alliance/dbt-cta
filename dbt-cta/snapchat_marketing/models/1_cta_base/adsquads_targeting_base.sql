@@ -12,7 +12,6 @@
 -- depends_on: {{ ref('adsquads_targeting_ab2') }}
 select
     ad_squad_id,
-    _airbyte_adsquads_hashid,
     geos,
     demographics,
     regulated_content,

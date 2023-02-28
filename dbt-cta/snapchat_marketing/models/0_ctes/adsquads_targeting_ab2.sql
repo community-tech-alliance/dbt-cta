@@ -6,7 +6,6 @@
 -- depends_on: {{ ref('adsquads_targeting_ab1') }}
 select
     ad_squad_id,
-    _airbyte_adsquads_hashid,
     geos,
     demographics,
     {{ cast_to_boolean('regulated_content') }} as regulated_content,

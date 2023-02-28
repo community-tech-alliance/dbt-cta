@@ -5,7 +5,7 @@
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
 -- depends_on: {{ ref('adsquads_skadnetwork_properties_ab1') }}
 select
-    _airbyte_adsquads_hashid,
+    ad_squad_id,
     cast(status as {{ dbt_utils.type_string() }}) as status,
     _airbyte_ab_id,
     _airbyte_emitted_at,

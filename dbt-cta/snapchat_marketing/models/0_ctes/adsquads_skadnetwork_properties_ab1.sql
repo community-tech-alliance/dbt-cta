@@ -5,7 +5,7 @@
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ source('cta','adsquads_base') }}
 select
-    _airbyte_adsquads_hashid,
+    id as ad_squad_id,
     {{ json_extract_scalar('skadnetwork_properties', ['status'], ['status']) }} as status,
     _airbyte_ab_id,
     _airbyte_emitted_at,

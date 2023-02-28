@@ -50,8 +50,11 @@ models:
   - name: adsquads_skadnetwork_properties_base
     description: ''
     columns:
-      - name: _airbyte_adsquads_hashid
+      - name: ad_squad_id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: status
         description: ''
       - name: _airbyte_ab_id
@@ -59,8 +62,6 @@ models:
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_skadnetwork_properties_hashid
         description: ''
 
   - name: organizations_base
@@ -130,11 +131,6 @@ models:
     columns: 
       - name: ad_squad_id
         description: 'The ID of the ad squad this targeting criteria applies to.'
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_adsquads_hashid
-        description: ''
         tests:
           - unique
           - not_null
@@ -253,11 +249,6 @@ models:
         description: ''
       - name: _airbyte_normalized_at
         description: ''
-      - name: _airbyte_adsquads_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
 
   - name: creatives_web_view_properties_base
     description: ''
