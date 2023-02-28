@@ -6,8 +6,12 @@
 -- depends_on: {{ ref('adsquads_targeting_geos_ab2') }}
 select
     {{ dbt_utils.surrogate_key([
-        '_airbyte_targeting_hashid',
+        'ad_squad_id',
         'country_code',
+        'region_id',
+        'metro',
+        'postal_code',
+        'operation'
     ]) }} as _airbyte_geos_hashid,
     tmp.*
 from {{ ref('adsquads_targeting_geos_ab2') }} tmp

@@ -551,18 +551,30 @@ models:
   - name: adsquads_targeting_geos_base
     description: ''
     columns:
-      - name: _airbyte_targeting_hashid
-        description: ''
+      - name: _airbyte_geos_hashid
+        description: >
+          This is a surrogate key created at the ad_squad x 
+        tests:
+          - unique
+          - not_null
+      - name: ad_squad_id
+        description: 'Ad squad being geo-targeted'
       - name: country_code
         description: ''
+        tests:
+          - not_null
+      - name: geo_level
+        tests:
+          - accepted_values:
+              values: ['region','metro','postal_code']
+      - name: geo_value
       - name: _airbyte_ab_id
         description: ''
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
-      - name: _airbyte_geos_hashid
-        description: ''
+    tests:
 
   - name: adaccounts_regulations_base
     description: >
