@@ -7,6 +7,7 @@ name = "pypi"
 dbt-core = "*"
 dbt-bigquery = "==1.3.0b2"
 gcloud = "*"
+pyyaml = "*"
 
 [dev-packages]
 
