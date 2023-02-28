@@ -179,11 +179,6 @@ models:
         description: ''
       - name: _airbyte_normalized_at
         description: ''
-      - name: _airbyte_campaigns_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
 
   - name: adsquads_base
     description: ''
@@ -344,11 +339,6 @@ models:
         description: ''
       - name: _airbyte_normalized_at
         description: ''
-      - name: _airbyte_creatives_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
 
   - name: segments_base
     description: ''
