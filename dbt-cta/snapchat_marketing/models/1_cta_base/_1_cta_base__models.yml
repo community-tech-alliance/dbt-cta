@@ -575,6 +575,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: name
         description: ''
       - name: type
@@ -603,6 +606,9 @@ models:
         description: ''
       - name: _airbyte_ads_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: organizations_configuration_settings_base
     description: ''
