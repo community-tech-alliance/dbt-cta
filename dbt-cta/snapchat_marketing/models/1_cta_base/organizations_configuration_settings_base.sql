@@ -8,15 +8,14 @@
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"}
 ) }}
 
--- depends_on: {{ ref('organizations_configuration_settings_ab3') }}
+-- depends_on: {{ ref('organizations_configuration_settings_ab2') }}
 select
-    _airbyte_organizations_hashid,
+    organization_id,
     notifications_enabled,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-    {{ current_timestamp() }} as _airbyte_normalized_at,
-    _airbyte_configuration_settings_hashid
-from {{ ref('organizations_configuration_settings_ab3') }}
+    {{ current_timestamp() }} as _airbyte_normalized_at
+from {{ ref('organizations_configuration_settings_ab2') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

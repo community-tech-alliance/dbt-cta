@@ -575,7 +575,6 @@ models:
         description: ''
       - name: _airbyte_normalized_at
         description: ''
-    tests:
 
   - name: adaccounts_regulations_base
     description: >
@@ -635,8 +634,11 @@ models:
   - name: organizations_configuration_settings_base
     description: ''
     columns:
-      - name: _airbyte_organizations_hashid
+      - name: organization_id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: notifications_enabled
         description: ''
       - name: _airbyte_ab_id
@@ -644,8 +646,6 @@ models:
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_configuration_settings_hashid
         description: ''
 
   - name: media_base
