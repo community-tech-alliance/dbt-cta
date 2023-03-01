@@ -5,12 +5,75 @@ sources:
   schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables:
   - name: _airbyte_raw_accounts
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_emitted_at
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_addresses
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_emitted_at
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_alerts
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_emitted_at
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_applications
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_emitted_at
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_available_phone_number_countries
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_emitted_at
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_available_phone_numbers_local
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_emitted_at
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_available_phone_numbers_mobile
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_emitted_at
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_available_phone_numbers_toll_free
   - name: _airbyte_raw_calls
   - name: _airbyte_raw_conference_participants
