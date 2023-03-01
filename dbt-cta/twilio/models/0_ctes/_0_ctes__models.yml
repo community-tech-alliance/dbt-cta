@@ -27,8 +27,8 @@ models:
         tests:
           - not_null      
 	    - name: _airbyte_ab_id
-          tests:
-            - not_null
+        tests:
+          - not_null
 
   - name: alerts_ab1
 
@@ -41,8 +41,8 @@ models:
         tests:
           - not_null      
 	    - name: _airbyte_ab_id
-          tests:
-            - not_null
+        tests:
+          - not_null
 
   - name: applications_ab1
 
@@ -55,8 +55,8 @@ models:
         tests:
           - not_null      
 	    - name: _airbyte_ab_id
-          tests:
-            - not_null
+        tests:
+          - not_null
 
   - name: available_phone_number_countries_ab1
 
