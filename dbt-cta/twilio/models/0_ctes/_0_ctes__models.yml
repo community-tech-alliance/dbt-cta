@@ -8,10 +8,19 @@ models:
     columns:
       - name: sid
         tests:
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string      
+      - name: uri
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string      
       - name: _airbyte_ab_id
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
 
   - name: addresses_ab1
 
@@ -19,10 +28,19 @@ models:
     columns:
       - name: sid
         tests:
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string      
+      - name: uri
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string        
       - name: _airbyte_ab_id
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
 
 
   - name: alerts_ab1
@@ -31,10 +49,19 @@ models:
     columns:
       - name: sid
         tests:
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string      
+      - name: uri
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string        
       - name: _airbyte_ab_id
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
 
 
   - name: applications_ab1
@@ -43,19 +70,35 @@ models:
     columns:
       - name: sid
         tests:
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string      
+      - name: uri
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string        
       - name: _airbyte_ab_id
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
 
 
   - name: available_phone_number_countries_ab1
 
     description: This model extracts fields from the raw json
-    columns:
+    columns:   
+      - name: uri
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
       - name: _airbyte_ab_id
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
 
 
   - name: available_phone_numbers_local_ab1
@@ -65,6 +108,8 @@ models:
       - name: _airbyte_ab_id
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
 
 
   - name: available_phone_numbers_mobile_ab1
@@ -74,6 +119,8 @@ models:
       - name: _airbyte_ab_id
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
 
 
   - name: available_phone_numbers_toll_free_ab1
@@ -83,6 +130,8 @@ models:
       - name: _airbyte_ab_id
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
 
 
   - name: calls_ab1
@@ -91,10 +140,19 @@ models:
     columns:
       - name: sid
         tests:
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string         
+      - name: uri
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string     
       - name: _airbyte_ab_id
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
 
 
   - name: conference_participants_ab1
@@ -104,6 +162,8 @@ models:
       - name: _airbyte_ab_id
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
 
 
   - name: conferences_ab1
@@ -112,10 +172,19 @@ models:
     columns:
       - name: sid
         tests:
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string         
+      - name: uri
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string     
       - name: _airbyte_ab_id
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
 
 
   - name: dependent_phone_numbers_ab1
@@ -124,10 +193,19 @@ models:
     columns:
       - name: sid
         tests:
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string        
+      - name: uri
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string      
       - name: _airbyte_ab_id
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
 
 
   - name: incoming_phone_numbers_ab1
@@ -136,10 +214,19 @@ models:
     columns:
       - name: sid
         tests:
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string         
+      - name: uri
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string     
       - name: _airbyte_ab_id
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
 
 
   - name: keys_ab1
@@ -148,10 +235,14 @@ models:
     columns:
       - name: sid
         tests:
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string      
       - name: _airbyte_ab_id
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
 
 
   - name: message_media_ab1
@@ -160,10 +251,19 @@ models:
     columns:
       - name: sid
         tests:
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string         
+      - name: uri
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string     
       - name: _airbyte_ab_id
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
 
 
   - name: messages_ab1
@@ -172,10 +272,19 @@ models:
     columns:
       - name: sid
         tests:
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string         
+      - name: uri
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string     
       - name: _airbyte_ab_id
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
 
 
   - name: outgoing_caller_ids_ab1
@@ -184,10 +293,19 @@ models:
     columns:
       - name: sid
         tests:
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string         
+      - name: uri
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string     
       - name: _airbyte_ab_id
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
 
 
   - name: queues_ab1
@@ -196,10 +314,19 @@ models:
     columns:
       - name: sid
         tests:
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string         
+      - name: uri
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string     
       - name: _airbyte_ab_id
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
 
 
   - name: recordings_ab1
@@ -208,10 +335,19 @@ models:
     columns:
       - name: sid
         tests:
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string         
+      - name: uri
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string     
       - name: _airbyte_ab_id
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
 
 
   - name: transcriptions_ab1
@@ -220,19 +356,35 @@ models:
     columns:
       - name: sid
         tests:
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string         
+      - name: uri
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string     
       - name: _airbyte_ab_id
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
 
 
   - name: usage_records_ab1
 
     description: This model extracts fields from the raw json
-    columns:  
+    columns:     
+      - name: uri
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string     
       - name: _airbyte_ab_id
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
 
 
   - name: usage_triggers_ab1
@@ -241,7 +393,16 @@ models:
     columns:
       - name: sid
         tests:
-          - not_null   
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string         
+      - name: uri
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string     
       - name: _airbyte_ab_id
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
