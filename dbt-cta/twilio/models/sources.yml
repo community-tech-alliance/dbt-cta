@@ -4,13 +4,28 @@ sources:
   database: "{{ env_var('CTA_PROJECT_ID') }}"
   schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables:
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_accounts
     columns:
       - name: _airbyte_ab_id
         tests:
           - unique
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_data
+        tests:
+          - not_null
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
       - name: _airbyte_data
         tests:
           - not_null
@@ -20,7 +35,6 @@ sources:
         tests:
           - unique
           - not_null
-      - name: _airbyte_emitted_at
       - name: _airbyte_data
         tests:
           - not_null
@@ -30,7 +44,6 @@ sources:
         tests:
           - unique
           - not_null
-      - name: _airbyte_emitted_at
       - name: _airbyte_data
         tests:
           - not_null
@@ -40,7 +53,6 @@ sources:
         tests:
           - unique
           - not_null
-      - name: _airbyte_emitted_at
       - name: _airbyte_data
         tests:
           - not_null
@@ -50,7 +62,6 @@ sources:
         tests:
           - unique
           - not_null
-      - name: _airbyte_emitted_at
       - name: _airbyte_data
         tests:
           - not_null
@@ -60,7 +71,6 @@ sources:
         tests:
           - unique
           - not_null
-      - name: _airbyte_emitted_at
       - name: _airbyte_data
         tests:
           - not_null
@@ -70,25 +80,144 @@ sources:
         tests:
           - unique
           - not_null
-      - name: _airbyte_emitted_at
       - name: _airbyte_data
         tests:
           - not_null
   - name: _airbyte_raw_available_phone_numbers_toll_free
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_calls
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_conference_participants
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_conferences
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_dependent_phone_numbers
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_incoming_phone_numbers
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_keys
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_message_media
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_messages
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_outgoing_caller_ids
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_queues
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_recordings
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_transcriptions
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_usage_records
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_usage_triggers
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: accounts_base
   - name: addresses_base
   - name: applications_base
