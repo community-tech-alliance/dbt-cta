@@ -36,7 +36,7 @@ models:
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
+                column_type: timestamp
       - name: _airbyte_ab_id
         description: ''
       - name: _airbyte_emitted_at
@@ -82,7 +82,7 @@ models:
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
+                column_type: timestamp
       - name: friendly_name
         description: ''
       - name: subresource_uris
@@ -152,7 +152,7 @@ models:
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
+                column_type: timestamp
       - name: conference_sid
         description: ''
       - name: subresource_uris
@@ -207,7 +207,7 @@ models:
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
+                column_type: timestamp
       - name: resource_sid
         description: ''
       - name: date_generated
@@ -285,7 +285,7 @@ models:
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
+                column_type: timestamp
       - name: to_formatted
         description: ''
       - name: forwarded_from
@@ -359,7 +359,7 @@ models:
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
+                column_type: timestamp
       - name: num_segments
         description: ''
       - name: error_message
