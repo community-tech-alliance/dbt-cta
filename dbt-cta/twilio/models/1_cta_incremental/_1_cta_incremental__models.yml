@@ -19,8 +19,6 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string   
       - name: parent_sid
         description: ''
       - name: account_sid
@@ -65,8 +63,6 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string   
       - name: region
         description: ''
       - name: status
@@ -121,8 +117,6 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string   
       - name: price
         description: ''
       - name: source
@@ -248,8 +242,6 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string   
       - name: from
         description: ''
       - name: price
@@ -334,8 +326,6 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string   
       - name: body
         description: ''
       - name: from
@@ -397,8 +387,6 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string   
       - name: as_of
         description: ''
       - name: count
