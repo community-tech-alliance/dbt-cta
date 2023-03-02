@@ -8,10 +8,21 @@ models:
     columns:
       - name: sid
         tests:
+          - unique
           - not_null
       - name: uri
         tests:
           - not_null
+      - name: date_created
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: date_updated
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
     
   - name: addresses_ab1
 
@@ -19,10 +30,21 @@ models:
     columns:
       - name: sid
         tests:
+          - unique
           - not_null 
       - name: uri
         tests:
           - not_null
+      - name: date_created
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: date_updated
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
 
   - name: alerts_ab1
 
@@ -30,10 +52,26 @@ models:
     columns:
       - name: sid
         tests:
+          - unique
           - not_null 
       - name: url
         tests:
           - not_null
+      - name: date_created
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: date_updated
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: date_generated
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
 
   - name: applications_ab1
 
@@ -41,10 +79,21 @@ models:
     columns:
       - name: sid
         tests:
+          - unique
           - not_null 
       - name: uri
         tests:
           - not_null
+      - name: date_created
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: date_updated
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
 
   - name: available_phone_number_countries_ab1
 
@@ -84,10 +133,21 @@ models:
     columns:
       - name: sid
         tests:
+          - unique
           - not_null 
       - name: uri
         tests:
           - not_null
+      - name: date_created
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: date_updated
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
 
   - name: conference_participants_ab1
 
@@ -96,6 +156,16 @@ models:
       - name: uri
         tests:
           - not_null
+      - name: date_created
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: date_updated
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
 
   - name: conferences_ab1
 
@@ -103,10 +173,21 @@ models:
     columns:
       - name: sid
         tests:
+          - unique
           - not_null 
       - name: uri
         tests:
           - not_null
+      - name: date_created
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: date_updated
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
 
   - name: dependent_phone_numbers_ab1
 
@@ -114,10 +195,21 @@ models:
     columns:
       - name: sid
         tests:
+          - unique
           - not_null      
       - name: uri
         tests:
           - not_null
+      - name: date_created
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: date_updated
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
 
   - name: incoming_phone_numbers_ab1
 
@@ -125,10 +217,21 @@ models:
     columns:
       - name: sid
         tests:
+          - unique
           - not_null 
       - name: uri
         tests:
           - not_null
+      - name: date_created
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: date_updated
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
 
   - name: keys_ab1
 
@@ -136,7 +239,18 @@ models:
     columns:
       - name: sid
         tests:
+          - unique
           - not_null
+      - name: date_created
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: date_updated
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
 
   - name: message_media_ab1
 
@@ -144,10 +258,21 @@ models:
     columns:
       - name: sid
         tests:
+          - unique
           - not_null 
       - name: uri
         tests:
           - not_null
+      - name: date_created
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: date_updated
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
 
   - name: messages_ab1
 
@@ -155,10 +280,21 @@ models:
     columns:
       - name: sid
         tests:
+          - unique
           - not_null 
       - name: uri
         tests:
           - not_null
+      - name: date_created
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: date_updated
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
 
   - name: outgoing_caller_ids_ab1
 
@@ -166,10 +302,21 @@ models:
     columns:
       - name: sid
         tests:
+          - unique
           - not_null 
       - name: uri
         tests:
           - not_null
+      - name: date_created
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: date_updated
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
 
   - name: queues_ab1
 
@@ -177,10 +324,21 @@ models:
     columns:
       - name: sid
         tests:
+          - unique
           - not_null 
       - name: uri
         tests:
           - not_null
+      - name: date_created
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: date_updated
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
 
   - name: recordings_ab1
 
@@ -188,10 +346,21 @@ models:
     columns:
       - name: sid
         tests:
+          - unique
           - not_null 
       - name: uri
         tests:
           - not_null
+      - name: date_created
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: date_updated
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
 
   - name: transcriptions_ab1
 
@@ -199,10 +368,21 @@ models:
     columns:
       - name: sid
         tests:
-          - not_null 
+          - unique
+          - not_null
       - name: uri
         tests:
           - not_null
+      - name: date_created
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: date_updated
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
 
   - name: usage_records_ab1
 
@@ -211,6 +391,11 @@ models:
       - name: uri
         tests:
           - not_null
+      - name: start_date
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
 
   - name: usage_triggers_ab1
 
@@ -218,7 +403,18 @@ models:
     columns:
       - name: sid
         tests:
+          - unique
           - not_null 
       - name: uri
         tests:
           - not_null
+      - name: date_created
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: date_updated
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
