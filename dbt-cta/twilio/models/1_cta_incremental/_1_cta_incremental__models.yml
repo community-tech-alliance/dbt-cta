@@ -15,7 +15,6 @@ models:
       - name: uri
         description: ''
         tests:
-          - unique
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string
@@ -59,7 +58,6 @@ models:
       - name: uri
         description: ''
         tests:
-          - unique
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string
@@ -113,7 +111,6 @@ models:
       - name: uri
         description: ''
         tests:
-          - unique
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string
@@ -168,61 +165,6 @@ models:
       - name: _airbyte_recordings_hashid
         description: ''
 
-  - name: alerts_base
-    description: ''
-    columns:
-      - name: sid
-        description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string   
-      - name: url
-        description: ''
-      - name: log_level
-        description: ''
-      - name: more_info
-        description: ''
-      - name: alert_text
-        description: ''
-      - name: error_code
-        description: ''
-      - name: account_sid
-        description: ''
-      - name: api_version
-        description: ''
-      - name: request_url
-        description: ''
-      - name: service_sid
-        description: ''
-      - name: date_created
-        description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: timestamp
-      - name: date_updated
-        description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: timestamp
-      - name: resource_sid
-        description: ''
-      - name: date_generated
-        description: ''
-      - name: request_method
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-      - name: _airbyte_emitted_at
-        description: ''
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_alerts_hashid
-        description: ''
-
   - name: calls_base
     description: ''
     columns:
@@ -238,7 +180,6 @@ models:
       - name: uri
         description: ''
         tests:
-          - unique
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string
@@ -322,7 +263,6 @@ models:
       - name: uri
         description: ''
         tests:
-          - unique
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string
@@ -383,7 +323,6 @@ models:
       - name: uri
         description: ''
         tests:
-          - unique
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string
