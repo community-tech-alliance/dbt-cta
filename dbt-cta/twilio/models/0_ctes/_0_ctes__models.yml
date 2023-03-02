@@ -11,9 +11,6 @@ models:
           - not_null
       - name: uri
         tests:
-          - not_null 
-      - name: _airbyte_ab_id
-        tests:
           - not_null
     
   - name: addresses_ab1
@@ -24,9 +21,6 @@ models:
         tests:
           - not_null 
       - name: uri
-        tests:
-          - not_null      
-	    - name: _airbyte_ab_id
         tests:
           - not_null
 
@@ -39,9 +33,6 @@ models:
           - not_null 
       - name: url
         tests:
-          - not_null      
-	    - name: _airbyte_ab_id
-        tests:
           - not_null
 
   - name: applications_ab1
@@ -53,9 +44,6 @@ models:
           - not_null 
       - name: uri
         tests:
-          - not_null      
-	    - name: _airbyte_ab_id
-        tests:
           - not_null
 
   - name: available_phone_number_countries_ab1
@@ -65,23 +53,20 @@ models:
       - name: uri
         tests:
           - not_null
-      - name: _airbyte_ab_id
-        tests:
-          - not_null
 
   - name: available_phone_numbers_local_ab1
 
     description: This model extracts fields from the raw json
     columns:
-      - name: _airbyte_ab_id
+      - name: phone_number
         tests:
           - not_null
 
   - name: available_phone_numbers_mobile_ab1
 
     description: This model extracts fields from the raw json
-    columns:  
-      - name: _airbyte_ab_id
+    columns:
+      - name: phone_number
         tests:
           - not_null
 
@@ -89,7 +74,7 @@ models:
 
     description: This model extracts fields from the raw json
     columns:
-      - name: _airbyte_ab_id
+      - name: phone_number
         tests:
           - not_null
 
@@ -103,15 +88,12 @@ models:
       - name: uri
         tests:
           - not_null
-      - name: _airbyte_ab_id
-        tests:
-          - not_null
 
   - name: conference_participants_ab1
 
     description: This model extracts fields from the raw json
-    columns: 
-      - name: _airbyte_ab_id
+    columns:
+      - name: uri
         tests:
           - not_null
 
@@ -125,9 +107,6 @@ models:
       - name: uri
         tests:
           - not_null
-      - name: _airbyte_ab_id
-        tests:
-          - not_null
 
   - name: dependent_phone_numbers_ab1
 
@@ -137,9 +116,6 @@ models:
         tests:
           - not_null      
       - name: uri
-        tests:
-          - not_null 
-      - name: _airbyte_ab_id
         tests:
           - not_null
 
@@ -153,18 +129,12 @@ models:
       - name: uri
         tests:
           - not_null
-      - name: _airbyte_ab_id
-        tests:
-          - not_null
 
   - name: keys_ab1
 
     description: This model extracts fields from the raw json
     columns:
       - name: sid
-        tests:
-          - not_null 
-      - name: _airbyte_ab_id
         tests:
           - not_null
 
@@ -178,9 +148,6 @@ models:
       - name: uri
         tests:
           - not_null
-      - name: _airbyte_ab_id
-        tests:
-          - not_null
 
   - name: messages_ab1
 
@@ -190,9 +157,6 @@ models:
         tests:
           - not_null 
       - name: uri
-        tests:
-          - not_null
-      - name: _airbyte_ab_id
         tests:
           - not_null
 
@@ -206,9 +170,6 @@ models:
       - name: uri
         tests:
           - not_null
-      - name: _airbyte_ab_id
-        tests:
-          - not_null
 
   - name: queues_ab1
 
@@ -218,9 +179,6 @@ models:
         tests:
           - not_null 
       - name: uri
-        tests:
-          - not_null
-      - name: _airbyte_ab_id
         tests:
           - not_null
 
@@ -234,9 +192,6 @@ models:
       - name: uri
         tests:
           - not_null
-      - name: _airbyte_ab_id
-        tests:
-          - not_null
 
   - name: transcriptions_ab1
 
@@ -248,18 +203,12 @@ models:
       - name: uri
         tests:
           - not_null
-      - name: _airbyte_ab_id
-        tests:
-          - not_null
 
   - name: usage_records_ab1
 
     description: This model extracts fields from the raw json
     columns:     
       - name: uri
-        tests:
-          - not_null
-      - name: _airbyte_ab_id
         tests:
           - not_null
 
@@ -271,8 +220,5 @@ models:
         tests:
           - not_null 
       - name: uri
-        tests:
-          - not_null
-      - name: _airbyte_ab_id
         tests:
           - not_null
