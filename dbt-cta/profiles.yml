@@ -30,11 +30,11 @@ default:
       job_execution_timeout_seconds: 600
       job_retries: 5
       job_retry_deadline_seconds: 1200
-    elementary:
-      outputs:
-        default:
-          type: bigquery
-          method: oauth
-          project: "{{ env_var('CTA_PROJECT_ID') }}"
-          dataset: elementary
-          threads: 4
+elementary:
+  outputs:
+    default:
+      type: bigquery
+      method: oauth
+      project: "{{ env_var('CTA_PROJECT_ID') }}"
+      dataset: elementary
+      threads: 4
