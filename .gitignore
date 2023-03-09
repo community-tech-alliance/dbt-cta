@@ -112,3 +112,8 @@ poetry.lock
 
 # backup files
 **/**/*.bak
+
+# elementary files
+.user_id
+dbt-cta/*.html
+dbt-cta/elementary_output.json
