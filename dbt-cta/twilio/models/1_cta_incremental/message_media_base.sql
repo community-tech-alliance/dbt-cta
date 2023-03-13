@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('message_media_ab3') }}
+-- depends_on: {{ ref('message_media_ab5') }}
 select
     sid,
     uri,
@@ -18,7 +18,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_message_media_hashid
-from {{ ref('message_media_ab3') }}
+from {{ ref('message_media_ab5') }}
 -- message_media from {{ source('cta', '_airbyte_raw_message_media') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

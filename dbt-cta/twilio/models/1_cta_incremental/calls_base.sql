@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('calls_ab3') }}
+-- depends_on: {{ ref('calls_ab5') }}
 select
     {{ adapter.quote('to') }},
     sid,
@@ -38,7 +38,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_calls_hashid
-from {{ ref('calls_ab3') }}
+from {{ ref('calls_ab5') }}
 -- calls from {{ source('cta', '_airbyte_raw_calls') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

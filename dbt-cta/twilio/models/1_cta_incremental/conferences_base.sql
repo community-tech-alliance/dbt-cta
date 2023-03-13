@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('conferences_ab3') }}
+-- depends_on: {{ ref('conferences_ab5') }}
 select
     sid,
     uri,
@@ -23,7 +23,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_conferences_hashid
-from {{ ref('conferences_ab3') }}
+from {{ ref('conferences_ab5') }}
 -- conferences from {{ source('cta', '_airbyte_raw_conferences') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
