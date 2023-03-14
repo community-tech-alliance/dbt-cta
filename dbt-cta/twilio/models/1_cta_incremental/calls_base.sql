@@ -31,10 +31,7 @@ select
     from_formatted,
     parent_call_sid,
     phone_number_sid,
-    subresource_uris,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
-    {{ current_timestamp() }} as _airbyte_normalized_at
+    subresource_uris
 from {{ ref('calls_ab3') }}
 where 1 = 1
 

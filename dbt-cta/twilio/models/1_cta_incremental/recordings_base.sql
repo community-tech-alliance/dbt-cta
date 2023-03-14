@@ -23,10 +23,6 @@ select
     date_updated,
     conference_sid,
     subresource_uris,
-    encryption_details,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
-    {{ current_timestamp() }} as _airbyte_normalized_at,
-    _airbyte_recordings_hashid
+    encryption_details
 from {{ ref('recordings_ab3') }}
 
