@@ -396,8 +396,16 @@ models:
   - name: account_report_base
     description: ''
     columns:
+      - name: _account_report_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
       - name: date_start
         description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: date 
       - name: account_id
         description: ''
         tests:
@@ -415,11 +423,6 @@ models:
         description: ''
       - name: spend
         description: ''
-      - name: _account_report_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
 
