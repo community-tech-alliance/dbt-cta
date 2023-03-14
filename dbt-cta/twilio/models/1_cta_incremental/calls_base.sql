@@ -3,7 +3,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('calls_ab4') }}
+-- depends_on: {{ ref('calls_ab3') }}
 select
     {{ adapter.quote('to') }},
     sid,
@@ -35,6 +35,6 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('calls_ab4') }}
+from {{ ref('calls_ab3') }}
 where 1 = 1
 
