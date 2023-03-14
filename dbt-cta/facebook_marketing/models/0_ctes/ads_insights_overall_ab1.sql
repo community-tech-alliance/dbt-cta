@@ -123,5 +123,3 @@ select
 from {{ source('cta', '_airbyte_raw_ads_insights') }} as table_alias
 -- ads_insights
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
-

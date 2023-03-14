@@ -1,12 +1,6 @@
-{% set partitions_to_replace = [
-    'timestamp_trunc(current_timestamp, day)',
-    'timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)'
-] %}
-
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    partitions = partitions_to_replace,
     unique_key = '_airbyte_ads_insights_overall_hashid'
 ) }}
 
@@ -98,7 +92,3 @@ SELECT
     ,shares
     ,conversion_values
 from {{ ref('ads_insights_overall_ab4') }}
-
-{% if is_incremental() %}
-where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
-{% endif %}

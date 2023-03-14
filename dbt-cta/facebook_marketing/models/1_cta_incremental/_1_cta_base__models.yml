@@ -10,12 +10,23 @@ models:
         tests:
           - unique
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string 
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_ab_id
         description: ''
       - name: ad_id
         description: ''
+        tests:
+          - not_null
+          - relationships:
+              to: ref('ads_base')
+              field: id
+              config:
+                severity: error
+                error_if: ">10"
+                warn_if: ">0"
       - name: date_start
         description: ''
       - name: date_stop
@@ -179,6 +190,11 @@ models:
         description: ''
       - name: conversion_values
         description: ''
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ad_id
+            - date_start
 
   - name: ad_set_report_base
     description: ''
