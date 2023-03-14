@@ -1,11 +1,9 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
-    tags = [ "top-level" ]
+    unique_key = 'sid'
 ) }}
+
 -- Final base SQL model
--- depends_on: {{ ref('conferences_ab5') }}
+-- depends_on: {{ ref('conferences_ab3') }}
 select
     sid,
     uri,
@@ -23,8 +21,4 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_conferences_hashid
-from {{ ref('conferences_ab5') }}
--- conferences from {{ source('cta', '_airbyte_raw_conferences') }}
-where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
-
+from {{ ref('conferences_ab3') }}
