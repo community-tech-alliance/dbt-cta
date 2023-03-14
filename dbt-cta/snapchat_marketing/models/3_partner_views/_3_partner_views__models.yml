@@ -1,0 +1,64 @@
+version: 2
+
+models:
+
+  - name: snapchat_ctam
+    description: ''
+    columns:
+      - name: start_date
+        description: ''
+      - name: campaign_objective
+        description: ''
+      - name: campaign_name
+        description: ''
+      - name: adset_name
+        description: ''
+      - name: ad_name
+        description: ''
+      - name: ad_type
+        description: ''
+      - name: utm_source
+        description: ''
+      - name: utm_medium
+        description: ''
+      - name: utm_campaign
+        description: ''
+      - name: utm_term
+        description: ''
+      - name: utm_content
+        description: ''
+      - name: spend
+        description: ''
+      - name: adsquad_daily_budget
+        description: ''
+      - name: adsquad_lifetime_budget
+        description: ''
+      - name: clicks
+        description: ''
+      - name: impressions
+        description: ''
+      - name: video_views
+        description: ''
+      - name: quartile_1
+        description: ''
+      - name: quartile_2
+        description: ''
+      - name: quartile_3
+        description: ''
+      - name: view_completion
+        description: ''
+      - name: conversion_page_views
+        description: ''
+      - name: cpm
+        description: ''
+      - name: ctr
+        description: ''
+      - name: pvr
+        description: ''
+      - name: vcr
+        description: ''
+      - name: reach
+        description: ''
+      - name: frequency
+        description: ''
+

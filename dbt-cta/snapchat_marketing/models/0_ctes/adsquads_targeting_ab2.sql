@@ -5,7 +5,7 @@
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
 -- depends_on: {{ ref('adsquads_targeting_ab1') }}
 select
-    _airbyte_adsquads_hashid,
+    ad_squad_id,
     geos,
     demographics,
     {{ cast_to_boolean('regulated_content') }} as regulated_content,
