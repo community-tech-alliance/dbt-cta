@@ -884,3 +884,50 @@ models:
       - name: _airbyte_usage_triggers_hashid
         description: ''
 
+
+
+  - name: usage_records_base
+    description: ''
+    columns:
+      - name: uri
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string
+      - name: as_of
+        description: ''
+      - name: count
+        description: ''
+      - name: price
+        description: ''
+      - name: usage
+        description: ''
+      - name: category
+        description: ''
+      - name: end_date
+        description: ''
+      - name: count_unit
+        description: ''
+      - name: price_unit
+        description: ''
+      - name: start_date
+        description: ''
+      - name: usage_unit
+        description: ''
+      - name: account_sid
+        description: ''
+      - name: api_version
+        description: ''
+      - name: description
+        description: ''
+      - name: subresource_uris
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_usage_records_hashid
+        description: ''
