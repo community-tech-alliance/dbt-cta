@@ -6,7 +6,7 @@
     tags = [ "top-level-intermediate" ]
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('usvote_foundation', '_airbyte_raw_offices') }}
+-- depends_on: {{ source('cta', '_airbyte_raw_offices') }}
 select
     {{ json_extract_scalar('_airbyte_data', ['id'], ['id']) }} as id,
     {{ json_extract_scalar('_airbyte_data', ['type'], ['type']) }} as type,

@@ -5,7 +5,7 @@
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ ref('creatives_base') }}
 select
-    _airbyte_creatives_hashid,
+    id as creative_id,
     {{ json_extract_scalar('web_view_properties', ['url'], ['url']) }} as url,
     {{ json_extract_scalar('web_view_properties', ['block_preload'], ['block_preload']) }} as block_preload,
     {{ json_extract_array('web_view_properties', ['deep_link_urls'], ['deep_link_urls']) }} as deep_link_urls,

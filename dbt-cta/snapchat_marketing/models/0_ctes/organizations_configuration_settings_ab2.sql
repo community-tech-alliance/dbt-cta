@@ -5,7 +5,7 @@
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
 -- depends_on: {{ ref('organizations_configuration_settings_ab1') }}
 select
-    _airbyte_organizations_hashid,
+    organization_id,
     {{ cast_to_boolean('notifications_enabled') }} as notifications_enabled,
     _airbyte_ab_id,
     _airbyte_emitted_at,

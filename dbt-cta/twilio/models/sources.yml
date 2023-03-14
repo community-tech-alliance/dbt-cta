@@ -1,0 +1,226 @@
+version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables:
+  - name: _airbyte_raw_accounts
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_addresses
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_alerts
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_applications
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_available_phone_number_countries
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_available_phone_numbers_local
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_available_phone_numbers_mobile
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_available_phone_numbers_toll_free
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_calls
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_conference_participants
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_conferences
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_dependent_phone_numbers
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_incoming_phone_numbers
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_keys
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_message_media
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_messages
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_outgoing_caller_ids
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_queues
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_recordings
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_transcriptions
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_usage_records
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_usage_triggers
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: accounts_base
+  - name: addresses_base
+  - name: applications_base
+  - name: available_phone_number_countries_base
+  - name: available_phone_numbers_local_base
+  - name: available_phone_numbers_mobile_base
+  - name: available_phone_numbers_toll_free_base
+  - name: conference_participants_base
+  - name: dependent_phone_numbers_base
+  - name: incoming_phone_numbers_base
+  - name: keys_base
+  - name: outgoing_caller_ids_base
+  - name: queues_base
+  - name: transcriptions_base
+  - name: usage_triggers_base
+  - name: alerts_base
+  - name: calls_base
+  - name: conferences_base
+  - name: message_media_base
+  - name: messages_base
+  - name: recordings_base
+  - name: usage_records_base
