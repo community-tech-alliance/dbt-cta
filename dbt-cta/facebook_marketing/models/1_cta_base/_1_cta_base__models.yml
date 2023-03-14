@@ -581,7 +581,7 @@ models:
   - name: ads_base
     description: ''
     columns:
-      - name: _airbyte_ads_hashid
+      - name: id
         description: ''
         tests:
           - unique
@@ -591,8 +591,6 @@ models:
       - name: _airbyte_ab_id
         description: ''
       - name: creative_id
-        description: ''
-      - name: id
         description: ''
       - name: name
         description: ''
