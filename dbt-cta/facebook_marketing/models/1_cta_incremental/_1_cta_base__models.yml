@@ -390,16 +390,16 @@ models:
   - name: campaigns_base
     description: ''
     columns:
-      - name: _airbyte_campaigns_hashid
+      - name: id
         description: ''
         tests:
           - unique
           - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string 
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_ab_id
-        description: ''
-      - name: id
         description: ''
       - name: name
         description: ''
@@ -563,6 +563,11 @@ models:
         description: ''
       - name: campaign_id
         description: ''
+        tests:
+          - not_null
+          - relationships:
+              to: ref('campaigns_base')
+              field: id
       - name: created_time
         description: ''
       - name: daily_budget
@@ -605,7 +610,7 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('creatives_base')
+              to: ref('ad_sets_base')
               field: id
       - name: bid_info
         description: ''
@@ -621,6 +626,11 @@ models:
         description: ''
       - name: campaign_id
         description: ''
+        tests:
+          - not_null
+          - relationships:
+              to: ref('campaigns_base')
+              field: id
       - name: created_time
         description: ''
       - name: source_ad_id
