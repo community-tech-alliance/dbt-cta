@@ -176,7 +176,7 @@ select
   ,stats.cost_per_2_sec_continuous_video_view
   ,stats.video_15_sec_watched_actions
   ,stats.cost_per_15_sec_video_view
-  ,stats.video_15_sec_watched as thruplays
+  ,stats.thruplays
   ,stats.cost_per_thruplay
   ,stats.video_p25_watched
   ,stats.video_p50_watched

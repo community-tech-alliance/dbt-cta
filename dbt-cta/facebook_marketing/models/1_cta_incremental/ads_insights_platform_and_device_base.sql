@@ -89,6 +89,7 @@ SELECT
     ,video_continuous_2_sec_watched_actions
     ,cost_per_2_sec_continuous_video_view
     ,video_15_sec_watched_actions
+    ,video_15_sec_watched_actions as thruplays
     ,cost_per_15_sec_video_view
     ,video_30_sec_watched_actions
     ,cost_per_thruplay

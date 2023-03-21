@@ -201,6 +201,14 @@ models:
         description: ''
       - name: _airbyte_emitted_at
         description: ''
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ad_id
+            - date_start
+            - publisher_platform
+            - platform_position
+            - impression_device
 
   - name: ctam_ads_insights_overall
     description: ''
@@ -395,4 +403,8 @@ models:
         description: ''
       - name: _airbyte_emitted_at
         description: ''
-
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - ad_id
+            - date_start
