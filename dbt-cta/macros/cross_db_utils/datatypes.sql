@@ -75,9 +75,9 @@
 
 
 {# int  ------------------------------------------------- #}
-{% macro default__type_int() %}
+{# {% macro default__type_int() %}
     signed
-{% endmacro %}
+{% endmacro %} #}
 
 {% macro oracle__type_int() %}
     int
