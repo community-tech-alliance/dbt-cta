@@ -199,6 +199,11 @@ models:
   - name: ad_set_report_base
     description: ''
     columns:
+      - name: _ad_set_report_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
       - name: date_start
         description: ''
       - name: account_id
@@ -226,13 +231,13 @@ models:
         description: ''
       - name: spend
         description: ''
-      - name: _ad_set_report_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - adset_id
+            - date_start
 
   - name: ad_account_base
     description: ''
