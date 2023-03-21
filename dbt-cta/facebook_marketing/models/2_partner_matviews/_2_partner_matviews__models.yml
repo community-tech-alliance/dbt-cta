@@ -27,6 +27,9 @@ models:
         description: ''
       - name: _airbyte_normalized_at
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','campaign_report_base')
 
   - name: account_report
     description: ''
@@ -49,6 +52,9 @@ models:
         description: ''
       - name: _airbyte_normalized_at
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','account_report_base')
 
   - name: ad_sets
     description: ''
@@ -89,6 +95,9 @@ models:
         description: ''
       - name: _airbyte_emitted_at
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','ad_sets_base')
 
   - name: ad_account
     description: ''
@@ -209,6 +218,9 @@ models:
         description: ''
       - name: _airbyte_emitted_at
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','ad_account_base')
 
   - name: ads_insights_platform_and_device
     description: ''
@@ -385,6 +397,9 @@ models:
         description: ''
       - name: conversion_values
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','ads_insights_platform_and_device_base')
 
   - name: ads
     description: ''
@@ -435,6 +450,10 @@ models:
         description: ''
       - name: _airbyte_emitted_at
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','ads_base')
+
 
   - name: ads_insights_overall
     description: ''
@@ -603,6 +622,10 @@ models:
         description: ''
       - name: conversion_values
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','ads_insights_overall_base')
+
 
   - name: campaigns
     description: ''
@@ -655,6 +678,10 @@ models:
         description: ''
       - name: _airbyte_emitted_at
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','campaigns_base')
+
 
   - name: ad_set_report
     description: ''
@@ -685,6 +712,10 @@ models:
         description: ''
       - name: _airbyte_normalized_at
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','ad_set_report_base')
+
 
   - name: ad_creatives
     description: ''
@@ -769,4 +800,7 @@ models:
         description: ''
       - name: _airbyte_emitted_at
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','ad_creatives_base')
 
