@@ -367,6 +367,11 @@ models:
   - name: campaign_report_base
     description: ''
     columns:
+      - name: _campaign_report_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
       - name: date_start
         description: ''
       - name: account_id
@@ -380,6 +385,11 @@ models:
         description: ''
       - name: campaign_id
         description: ''
+        tests:
+          - not_null
+          - relationships:
+              to: ref('campaigns_base')
+              field: id
       - name: campaign_name
         description: ''
       - name: _airbyte_emitted_at
@@ -390,13 +400,13 @@ models:
         description: ''
       - name: spend
         description: ''
-      - name: _campaign_report_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - campaign_id
+            - date_start
 
   - name: account_report_base
     description: ''
@@ -731,6 +741,11 @@ models:
         description: ''
       - name: ad_id
         description: ''
+        tests:
+          - not_null
+          - relationships:
+              to: ref('ads_base')
+              field: id
       - name: date_start
         description: ''
       - name: date_stop
