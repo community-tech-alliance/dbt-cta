@@ -17,13 +17,22 @@ models:
       +tags: 
         - cta
       +materialized: table
-    1_cta_base:
+    1_cta_base: # this is semantically equivalent to `1_cta_full_refresh` but the ambiguous name was causing confusion!
+    #TODO(): switch all models to use `1_cta_full_refresh` and delete `1_cta_base` from this file
+    #...but don't break anything in the process pls
       +tags: 
         - cta
       +materialized: incremental
       +incremental_strategy: insert_overwrite
       +on_schema_change: sync_all_columns
       +full_refresh: false
+    1_cta_full_refresh: # USE THIS for full-refresh-overwrite models going forward!
+      +tags: 
+        - cta
+      +materialized: incremental
+      +incremental_strategy: insert_overwrite
+      +on_schema_change: sync_all_columns
+      +full_refresh: false # this avoids dropping-and-rebuilding tables in this model, which would break the downstream matviews
     1_cta_tables:
       +tags:
         - cta
