@@ -7,18 +7,8 @@ models:
     columns:
       - name: sid
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: uri
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: max_size
         description: ''
       - name: account_sid
@@ -27,40 +17,25 @@ models:
         description: ''
       - name: date_created
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: date_updated
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: friendly_name
         description: ''
       - name: subresource_uris
         description: ''
       - name: average_wait_time
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','queues_base')
 
   - name: accounts
     description: ''
     columns:
       - name: sid
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: uri
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: type
         description: ''
       - name: status
@@ -69,40 +44,25 @@ models:
         description: ''
       - name: date_created
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: date_updated
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: friendly_name
         description: ''
       - name: subresource_uris
         description: ''
       - name: owner_account_sid
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','accounts_base')
 
   - name: incoming_phone_numbers
     description: ''
     columns:
       - name: sid
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: uri
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: beta
         description: ''
       - name: origin
@@ -133,16 +93,8 @@ models:
         description: ''
       - name: date_created
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: date_updated
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: identity_sid
         description: ''
       - name: phone_number
@@ -179,17 +131,15 @@ models:
         description: ''
       - name: emergency_address_status
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','incoming_phone_numbers_base')
 
   - name: usage_records
     description: ''
     columns:
       - name: uri
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: as_of
         description: ''
       - name: count
@@ -218,6 +168,9 @@ models:
         description: ''
       - name: subresource_uris
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','usage_records_base')
 
   - name: available_phone_numbers_local
     description: ''
@@ -254,24 +207,17 @@ models:
         description: ''
       - name: address_requirements
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','available_phone_numbers_local_base')
 
   - name: applications
     description: ''
     columns:
       - name: sid
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: uri
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: sms_url
         description: ''
       - name: voice_url
@@ -284,16 +230,8 @@ models:
         description: ''
       - name: date_created
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: date_updated
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: voice_method
         description: ''
       - name: friendly_name
@@ -318,24 +256,17 @@ models:
         description: ''
       - name: public_application_connect_enabled
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','applications_base')
 
   - name: message_media
     description: ''
     columns:
       - name: sid
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: uri
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: parent_sid
         description: ''
       - name: account_sid
@@ -344,34 +275,19 @@ models:
         description: ''
       - name: date_created
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: date_updated
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','message_media_base')
 
   - name: addresses
     description: ''
     columns:
       - name: sid
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: uri
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: city
         description: ''
       - name: region
@@ -390,16 +306,8 @@ models:
         description: ''
       - name: date_created
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: date_updated
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: customer_name
         description: ''
       - name: friendly_name
@@ -408,24 +316,17 @@ models:
         description: ''
       - name: emergency_enabled
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','addresses_base')
 
   - name: transcriptions
     description: ''
     columns:
       - name: sid
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: uri
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: type
         description: ''
       - name: price
@@ -442,31 +343,21 @@ models:
         description: ''
       - name: date_created
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: date_updated
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: recording_sid
         description: ''
       - name: transcription_text
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','transcriptions_base')
 
   - name: conference_participants
     description: ''
     columns:
       - name: uri
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: hold
         description: ''
       - name: label
@@ -483,16 +374,8 @@ models:
         description: ''
       - name: date_created
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: date_updated
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: conference_sid
         description: ''
       - name: call_sid_to_coach
@@ -501,42 +384,30 @@ models:
         description: ''
       - name: start_conference_on_enter
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','conference_participants_base')
 
   - name: outgoing_caller_ids
     description: ''
     columns:
       - name: sid
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: uri
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: account_sid
         description: ''
       - name: date_created
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: date_updated
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: phone_number
         description: ''
       - name: friendly_name
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','outgoing_caller_ids_base')
 
   - name: messages
     description: ''
@@ -545,18 +416,8 @@ models:
         description: ''
       - name: sid
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: uri
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: body
         description: ''
       - name: from
@@ -581,16 +442,8 @@ models:
         description: ''
       - name: date_created
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: date_updated
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: num_segments
         description: ''
       - name: error_message
@@ -599,6 +452,9 @@ models:
         description: ''
       - name: messaging_service_sid
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','messages_base')
 
   - name: available_phone_numbers_toll_free
     description: ''
@@ -635,24 +491,17 @@ models:
         description: ''
       - name: address_requirements
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','available_phone_numbers_toll_free_base')
 
   - name: conferences
     description: ''
     columns:
       - name: sid
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: uri
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: region
         description: ''
       - name: status
@@ -663,16 +512,8 @@ models:
         description: ''
       - name: date_created
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: date_updated
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: friendly_name
         description: ''
       - name: subresource_uris
@@ -681,49 +522,32 @@ models:
         description: ''
       - name: call_sid_ending_conference
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','conferences_base')
 
   - name: keys
     description: ''
     columns:
       - name: sid
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: date_created
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: date_updated
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: friendly_name
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','keys_base')
 
   - name: dependent_phone_numbers
     description: ''
     columns:
       - name: sid
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: uri
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: sms_url
         description: ''
       - name: trunk_sid
@@ -744,16 +568,8 @@ models:
         description: ''
       - name: date_created
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: date_updated
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: phone_number
         description: ''
       - name: voice_method
@@ -784,24 +600,17 @@ models:
         description: ''
       - name: voice_caller_id_lookup
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','dependent_phone_numbers_base')
 
   - name: recordings
     description: ''
     columns:
       - name: sid
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: uri
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: price
         description: ''
       - name: source
@@ -828,22 +637,17 @@ models:
         description: ''
       - name: date_created
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: date_updated
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: conference_sid
         description: ''
       - name: subresource_uris
         description: ''
       - name: encryption_details
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','recordings_base')
 
   - name: available_phone_numbers_mobile
     description: ''
@@ -878,24 +682,17 @@ models:
         description: ''
       - name: address_requirements
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','available_phone_numbers_mobile_base')
 
   - name: usage_triggers
     description: ''
     columns:
       - name: sid
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: uri
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: recurring
         description: ''
       - name: date_fired
@@ -910,16 +707,8 @@ models:
         description: ''
       - name: date_created
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: date_updated
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: current_value
         description: ''
       - name: friendly_name
@@ -932,17 +721,15 @@ models:
         description: ''
       - name: usage_record_uri
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','usage_triggers_base')
 
   - name: available_phone_number_countries
     description: ''
     columns:
       - name: uri
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: beta
         description: ''
       - name: country
@@ -951,6 +738,9 @@ models:
         description: ''
       - name: subresource_uris
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','available_phone_number_countries_base')
 
   - name: calls
     description: ''
@@ -959,18 +749,8 @@ models:
         description: ''
       - name: sid
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: uri
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: from
         description: ''
       - name: price
@@ -1005,16 +785,8 @@ models:
         description: ''
       - name: date_created
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: date_updated
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: to_formatted
         description: ''
       - name: forwarded_from
@@ -1027,17 +799,15 @@ models:
         description: ''
       - name: subresource_uris
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','calls_base')
 
   - name: alerts
     description: ''
     columns:
       - name: sid
         description: ''
-        tests:
-          - unique
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
       - name: url
         description: ''
       - name: log_level
@@ -1058,20 +828,15 @@ models:
         description: ''
       - name: date_created
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: date_updated
         description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: date_created
       - name: resource_sid
         description: ''
       - name: date_generated
         description: ''
       - name: request_method
         description: ''
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: source('cta','alerts_base')
 
