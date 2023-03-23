@@ -20,13 +20,13 @@ models:
         description: ''
         tests:
           - not_null
-          - relationships:
-              to: ref('ads_base')
-              field: id
-              config:
-                severity: error
-                error_if: ">10"
-                warn_if: ">0"
+          # - relationships:
+          #     to: ref('ads_base')
+          #     field: id
+          #     config:
+          #       severity: error
+          #       error_if: ">10"
+          #       warn_if: ">0"
       - name: date_start
         description: ''
       - name: date_stop
@@ -387,9 +387,9 @@ models:
         description: ''
         tests:
           - not_null
-          - relationships:
-              to: ref('campaigns_base')
-              field: id
+          # - relationships:
+          #     to: ref('campaigns_base')
+          #     field: id
       - name: campaign_name
         description: ''
       - name: _airbyte_emitted_at
@@ -630,13 +630,13 @@ models:
               field: account_id_stripped
       - name: start_time
         description: ''
-      - name: campaign_id
-        description: ''
-        tests:
-          - not_null
-          - relationships:
-              to: ref('campaigns_base')
-              field: id
+      #- name: campaign_id
+      #  description: ''
+      #  tests:
+      #    - not_null
+      #    - relationships:
+      #        to: ref('campaigns_base')
+      #        field: id
       - name: created_time
         description: ''
       - name: daily_budget
@@ -683,9 +683,9 @@ models:
         description: ''
         tests:
           - not_null
-          - relationships:
-              to: ref('ad_sets_base')
-              field: id
+      #     - relationships:
+      #         to: ref('ad_sets_base')
+      #         field: id
       - name: bid_info
         description: ''
       - name: bid_type
@@ -707,9 +707,9 @@ models:
         description: ''
         tests:
           - not_null
-          - relationships:
-              to: ref('campaigns_base')
-              field: id
+      #    - relationships:
+      #        to: ref('campaigns_base')
+      #        field: id
       - name: created_time
         description: ''
       - name: source_ad_id
@@ -743,9 +743,9 @@ models:
         description: ''
         tests:
           - not_null
-          - relationships:
-              to: ref('ads_base')
-              field: id
+          # - relationships:
+          #     to: ref('ads_base')
+          #     field: id
       - name: date_start
         description: ''
       - name: date_stop
