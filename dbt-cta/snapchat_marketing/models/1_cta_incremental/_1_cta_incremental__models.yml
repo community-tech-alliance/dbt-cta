@@ -1,0 +1,749 @@
+version: 2
+
+models:
+
+  - name: adaccounts_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: ''
+      - name: type
+        description: ''
+      - name: status
+        description: ''
+      - name: currency
+        description: ''
+      - name: timezone
+        description: ''
+      - name: created_at
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: regulations
+        description: ''
+      - name: billing_type
+        description: ''
+      - name: organization_id
+        description: ''
+        tests:
+          - relationships:
+              to: ref('organizations_base')
+              field: id
+      - name: billing_center_id
+        description: ''
+      - name: funding_source_ids
+        description: ''
+      - name: client_paying_invoices
+        description: ''
+      - name: advertiser_organization_id
+        description: ''
+      - name: agency_representing_client
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+
+  - name: adsquads_skadnetwork_properties_base
+    description: ''
+    columns:
+      - name: ad_squad_id
+        description: ''
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('adsquads_base')
+              field: id
+      - name: status
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+
+  - name: organizations_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: ''
+      - name: type
+        description: ''
+      - name: roles
+        description: ''
+      - name: state
+        description: ''
+      - name: country
+        description: ''
+      - name: locality
+        description: ''
+      - name: created_at
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: postal_code
+        description: ''
+      - name: contact_name
+        description: ''
+      - name: my_member_id
+        description: ''
+      - name: contact_email
+        description: ''
+      - name: contact_phone
+        description: ''
+      - name: address_line_1
+        description: ''
+      - name: createdbycaller
+        description: ''
+      - name: my_display_name
+        description: ''
+      - name: my_invited_email
+        description: ''
+      - name: contact_phone_optin
+        description: ''
+      - name: accepted_term_version
+        description: ''
+      - name: configuration_settings
+        description: ''
+      - name: administrative_district_level_1
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+
+  - name: adsquads_targeting_base
+    description: ''
+    columns: 
+      - name: ad_squad_id
+        description: 'The ID of the ad squad this targeting criteria applies to.'
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('adsquads_base')
+              field: id
+      - name: geos
+        description: ''
+      - name: demographics
+        description: ''
+      - name: regulated_content
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+
+  - name: campaigns_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: ''
+      - name: status
+        description: ''
+      - name: buy_model
+        description: ''
+      - name: objective
+        description: ''
+      - name: created_at
+        description: ''
+      - name: start_time
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: ad_account_id
+        description: ''
+        tests:
+          - relationships:
+              to: ref('adaccounts_base')
+              field: id
+      - name: delivery_status
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+
+  - name: adsquads_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: ''
+      - name: type
+        description: ''
+      - name: status
+        description: ''
+      - name: auto_bid
+        description: ''
+      - name: end_time
+        description: ''
+      - name: placement
+        description: ''
+      - name: targeting
+        description: ''
+      - name: created_at
+        description: ''
+      - name: start_time
+        description: ''
+      - name: target_bid
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: campaign_id
+        description: ''
+      - name: pacing_type
+        description: ''
+      - name: bid_strategy
+        description: ''
+      - name: billing_event
+        description: ''
+      - name: child_ad_type
+        description: ''
+      - name: creation_state
+        description: ''
+      - name: delivery_status
+        description: ''
+      - name: optimization_goal
+        description: ''
+      - name: daily_budget_micro
+        description: ''
+      - name: delivery_constraint
+        description: ''
+      - name: forced_view_setting
+        description: ''
+      - name: lifetime_budget_micro
+        description: ''
+      - name: skadnetwork_properties
+        description: ''
+      - name: targeting_reach_status
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+
+  - name: creatives_web_view_properties_base
+    description: ''
+    columns:
+      - name: creative_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('creatives_base')
+              field: id
+      - name: url
+        description: ''
+      - name: utm_source
+        description: ''
+      - name: utm_medium
+        description: ''
+      - name: utm_campaign
+        description: ''
+      - name: utm_term
+        description: ''
+      - name: utm_content
+        description: ''
+      - name: block_preload
+        description: ''
+      - name: deep_link_urls
+        description: ''
+      - name: use_immersive_mode
+        description: ''
+      - name: allow_snap_javascript_sdk
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+
+  - name: creatives_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: ''
+      - name: type
+        description: ''
+      - name: headline
+        description: ''
+      - name: shareable
+        description: ''
+      - name: ad_product
+        description: ''
+      - name: brand_name
+        description: ''
+      - name: created_at
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: render_type
+        description: ''
+      - name: ad_account_id
+        description: ''
+        tests:
+          - relationships:
+              to: ref('adaccounts_base')
+              field: id
+      - name: review_status
+        description: ''
+      - name: call_to_action
+        description: ''
+      - name: packaging_status
+        description: ''
+      - name: top_snap_media_id
+        description: ''
+        tests:
+          - relationships:
+              to: ref('media_base')
+              field: id
+      - name: web_view_properties
+        description: ''
+      - name: utm_source
+        description: ''
+      - name: utm_medium
+        description: ''
+      - name: utm_campaign
+        description: ''
+      - name: utm_term
+        description: ''
+      - name: utm_content
+        description: ''
+      - name: review_status_details
+        description: ''
+      - name: top_snap_crop_position
+        description: ''
+      - name: forced_view_eligibility
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+
+  - name: segments_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: ''
+      - name: status
+        description: ''
+      - name: created_at
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: visible_to
+        description: ''
+      - name: description
+        description: ''
+      - name: source_type
+        description: ''
+      - name: ad_account_id
+        description: ''
+        tests:
+          - relationships:
+              to: ref('adaccounts_base')
+              field: id
+      - name: upload_status
+        description: ''
+      - name: organization_id
+        description: ''
+        tests:
+          - relationships:
+              to: ref('organizations_base')
+              field: id
+      - name: retention_in_days
+        description: ''
+      - name: targetable_status
+        description: ''
+      - name: approximate_number_users
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+
+  - name: ad_stats_base
+    description: >
+      A table at the ad x day level of ad performance statistics.
+
+      _airbyte_ads_stats_daily_hashid is used as a surrogate primary key, but we also
+      check to ensure that id x granularity x start_time is unique, per the Airbyte
+      docs: https://github.com/airbytehq/airbyte/blob/master/docs/integrations/sources/snapchat-marketing.md#supported-streams-and-sync-modes 
+    columns:
+      - name: id
+        description: 'Ad ID'
+        tests:
+          - relationships:
+              to: ref('ads_base')
+              field: id
+      - name: type
+        description: ''
+      - name: saves
+        description: ''
+      - name: spend
+        description: ''
+      - name: shares
+        description: ''
+      - name: swipe_ups
+        description: ''
+      - name: uniques
+        description: ''
+      - name: end_time
+        description: ''
+      - name: frequency
+        description: ''
+      - name: quartile_1
+        description: ''
+      - name: quartile_2
+        description: ''
+      - name: quartile_3
+        description: ''
+      - name: start_time
+        description: ''
+      - name: granularity
+        description: ''
+      - name: impressions
+        description: ''
+      - name: total_reach
+        description: ''
+      - name: video_views
+        description: ''
+      - name: earned_reach
+        description: ''
+      - name: ios_installs
+        description: ''
+      - name: native_leads
+        description: ''
+      - name: custom_event_1
+        description: ''
+      - name: custom_event_2
+        description: ''
+      - name: custom_event_3
+        description: ''
+      - name: custom_event_4
+        description: ''
+      - name: custom_event_5
+        description: ''
+      - name: total_installs
+        description: ''
+      - name: conversion_rate
+        description: ''
+      - name: conversion_save
+        description: ''
+      - name: video_views_15s
+        description: ''
+      - name: view_completion
+        description: ''
+      - name: android_installs
+        description: ''
+      - name: conversion_login
+        description: ''
+      - name: conversion_share
+        description: ''
+      - name: paid_impressions
+        description: ''
+      - name: play_time_millis
+        description: ''
+      - name: swipe_up_percent
+        description: ''
+      - name: view_time_millis
+        description: ''
+      - name: conversion_invite
+        description: ''
+      - name: total_impressions
+        description: ''
+      - name: attachment_uniques
+        description: ''
+      - name: conversion_ad_view
+        description: ''
+      - name: conversion_reserve
+        description: ''
+      - name: earned_impressions
+        description: ''
+      - name: screen_time_millis
+        description: ''
+      - name: conversion_ad_click
+        description: ''
+      - name: conversion_add_cart
+        description: ''
+      - name: conversion_searches
+        description: ''
+      - name: attachment_frequency
+        description: ''
+      - name: avg_view_time_millis
+        description: ''
+      - name: conversion_app_opens
+        description: ''
+      - name: conversion_list_view
+        description: ''
+      - name: conversion_purchases
+        description: ''
+      - name: conversion_subscribe
+        description: ''
+      - name: attachment_quartile_1
+        description: ''
+      - name: attachment_quartile_2
+        description: ''
+      - name: attachment_quartile_3
+        description: ''
+      - name: conversion_page_views
+        description: ''
+      - name: attachment_impressions
+        description: ''
+      - name: avg_screen_time_millis
+        description: ''
+      - name: conversion_add_billing
+        description: ''
+      - name: conversion_start_trial
+        description: ''
+      - name: video_views_time_based
+        description: ''
+      - name: conversion_view_content
+        description: ''
+      - name: conversion_spend_credits
+        description: ''
+      - name: conversion_start_checkout
+        description: ''
+      - name: attachment_view_completion
+        description: ''
+      - name: conversion_add_to_wishlist
+        description: ''
+      - name: conversion_level_completes
+        description: ''
+      - name: conversion_purchases_value
+        description: ''
+      - name: conversion_complete_tutorial
+        description: ''
+      - name: attachment_avg_view_time_millis
+        description: ''
+      - name: conversion_achievement_unlocked
+        description: ''
+      - name: attachment_total_view_time_millis
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ads_stats_daily_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+    tests:
+    - dbt_utils.unique_combination_of_columns:
+        combination_of_columns:
+          - id
+          - granularity
+          - start_time
+
+  - name: adsquads_targeting_geos_base
+    description: ''
+    columns:
+      - name: _airbyte_geos_hashid
+        description: >
+          This is a surrogate key created at the ad_squad x 
+        tests:
+          - unique
+          - not_null
+      - name: ad_squad_id
+        description: 'Ad squad being geo-targeted'
+        tests:
+          - relationships:
+              to: ref('adsquads_base')
+              field: id
+      - name: country_code
+        description: ''
+        tests:
+          - not_null
+      - name: geo_level
+        tests:
+          - accepted_values:
+              values: ['region','metro','postal_code']
+      - name: geo_value
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+
+  - name: adaccounts_regulations_base
+    description: >
+      This table is at the ad account level, and indicates whether the account will
+      contain ads for Credit, Housing or Employment, and therefore is subject to
+      additional regulations. For political advertisers, this should be false.
+    columns:
+      - name: ad_account_id
+        description: ''
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('adaccounts_base')
+              field: id
+      - name: restricted_delivery_signals
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+
+  - name: ads_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: ''
+      - name: type
+        description: ''
+      - name: status
+        description: ''
+      - name: created_at
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: ad_squad_id
+        description: ''
+        tests:
+          - relationships:
+              to: ref('adsquads_base')
+              field: id
+      - name: creative_id
+        description: ''
+        tests:
+          - relationships:
+              to: ref('creatives_base')
+              field: id
+      - name: render_type
+        description: ''
+      - name: review_status
+        description: ''
+      - name: delivery_status
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+
+  - name: organizations_configuration_settings_base
+    description: ''
+    columns:
+      - name: organization_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('organizations_base')
+              field: id
+      - name: notifications_enabled
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+
+  - name: media_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: hash
+        description: ''
+      - name: name
+        description: ''
+      - name: type
+        description: ''
+      - name: file_name
+        description: ''
+      - name: created_at
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: visibility
+        description: ''
+      - name: media_status
+        description: ''
+      - name: ad_account_id
+        description: ''
+      - name: download_link
+        description: ''
+      - name: is_demo_media
+        description: ''
+      - name: image_metadata
+        description: ''
+      - name: video_metadata
+        description: ''
+      - name: file_size_in_bytes
+        description: ''
+      - name: duration_in_seconds
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
