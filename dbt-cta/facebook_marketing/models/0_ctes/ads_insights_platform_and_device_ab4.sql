@@ -130,7 +130,3 @@ left join {{ ref('ads_insights_platform_and_device_actions_ab2') }} as shares
   and landing_page_views.action_type = 'post'
 left join {{ ref('ads_insights_platform_and_device_conversion_values_ab2') }} as conversion_values
   on conversion_values._airbyte_ads_insights_platform_and_device_hashid = insights._airbyte_ads_insights_platform_and_device_hashid  
-
-
-where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
