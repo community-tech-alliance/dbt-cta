@@ -1,22 +1,15 @@
-{% set partitions_to_replace = [
-    'timestamp_trunc(current_timestamp, day)',
-    'timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)'
-] %}
-
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    partitions = partitions_to_replace,
-    unique_key = '_airbyte_ad_account_hashid'
+    unique_key = 'id'
 ) }}
 
--- depends_on: {{ ref('ad_account_ab3') }}
+-- depends_on: {{ ref('ad_account_ab2') }}
 select
-     _airbyte_ad_account_hashid
+     id
     ,_airbyte_emitted_at
     ,_airbyte_ab_id
     ,right(id, 16) as account_id_stripped
-    ,id
     ,age
     ,name
     ,owner
@@ -71,8 +64,4 @@ select
     ,extended_credit_invoice_group
     ,is_attribution_spec_system_default
     ,is_in_3ds_authorization_enabled_market
-from {{ ref('ad_account_ab3') }}
-
-{% if is_incremental() %}
-where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
-{% endif %}
+from {{ ref('ad_account_ab2') }}
