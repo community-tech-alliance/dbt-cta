@@ -8,25 +8,24 @@
 -- depends_on: {{ ref('usage_records_ab2') }}
 select
     {{ dbt_utils.surrogate_key([
-        'uri',
-        'as_of',
-        'count',
-        'price',
-        'usage',
-        'category',
-        'end_date',
-        'count_unit',
-        'price_unit',
-        'start_date',
-        'usage_unit',
-        'account_sid',
-        'api_version',
-        'description',
-        object_to_string('subresource_uris'),
+    'uri',
+    'as_of',
+    'count',
+    'price',
+    'usage',
+    'category',
+    'end_date',
+    'count_unit',
+    'price_unit',
+    'start_date',
+    'usage_unit',
+    'account_sid',
+    'api_version',
+    'description',
+    'subresource_uris'
     ]) }} as _airbyte_usage_records_hashid,
     tmp.*
 from {{ ref('usage_records_ab2') }} tmp
 -- usage_records
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
 
