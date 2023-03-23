@@ -54,8 +54,6 @@ models:
         description: ''
       - name: _airbyte_normalized_at
         description: ''
-      - name: _airbyte_alerts_hashid
-        description: ''
 
   - name: message_media_base
     description: ''
@@ -96,8 +94,6 @@ models:
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_message_media_hashid
         description: ''
 
   - name: conferences_base
@@ -149,8 +145,6 @@ models:
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_conferences_hashid
         description: ''
 
   - name: recordings_base
@@ -216,8 +210,6 @@ models:
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_recordings_hashid
         description: ''
 
   - name: calls_base
@@ -300,8 +292,6 @@ models:
         description: ''
       - name: _airbyte_normalized_at
         description: ''
-      - name: _airbyte_calls_hashid
-        description: ''
 
   - name: messages_base
     description: ''
@@ -368,6 +358,4 @@ models:
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_messages_hashid
         description: ''
