@@ -4,7 +4,7 @@
     unique_key = '_airbyte_ads_insights_overall_hashid'
 ) }}
 
--- depends_on: {{ ref('ads_insights_overall_ab4') }}
+-- depends_on: {{ ref('ads_insights_overall_ab5') }}
 SELECT
      _airbyte_ads_insights_overall_hashid
     ,_airbyte_emitted_at
@@ -91,4 +91,4 @@ SELECT
     ,landing_page_views
     ,shares
     ,conversion_values
-from {{ ref('ads_insights_overall_ab4') }}
+from {{ ref('ads_insights_overall_ab5') }}
