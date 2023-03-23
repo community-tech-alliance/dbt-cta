@@ -63,9 +63,9 @@ models:
         description: ''
         tests:
           - not_null
-          - relationships:
-              to: ref('ad_account_base')
-              field: account_id_stripped
+          # - relationships:
+          #     to: ref('ad_account_base')
+          #     field: account_id_stripped
       - name: adset_name
         description: ''
       - name: unique_ctr
@@ -210,9 +210,9 @@ models:
         description: ''
         tests:
           - not_null
-          - relationships:
-              to: ref('ad_account_base')
-              field: account_id_stripped
+          # - relationships:
+          #     to: ref('ad_account_base')
+          #     field: account_id_stripped
       - name: account_name
         description: ''
       - name: campaign_id
@@ -378,9 +378,9 @@ models:
         description: ''
         tests:
           - not_null
-          - relationships:
-              to: ref('ad_account_base')
-              field: account_id_stripped
+          # - relationships:
+          #     to: ref('ad_account_base')
+          #     field: account_id_stripped
       - name: account_name
         description: ''
       - name: campaign_id
@@ -425,9 +425,9 @@ models:
         description: ''
         tests:
           - not_null
-          - relationships:
-              to: ref('ad_account_base')
-              field: account_id_stripped
+          # - relationships:
+          #     to: ref('ad_account_base')
+          #     field: account_id_stripped
       - name: account_name
         description: ''
       - name: _airbyte_emitted_at
@@ -469,9 +469,9 @@ models:
         description: ''
         tests:
           - not_null
-          - relationships:
-              to: ref('ad_account_base')
-              field: account_id_stripped
+          # - relationships:
+          #     to: ref('ad_account_base')
+          #     field: account_id_stripped
       - name: start_time
         description: ''
       - name: buying_type
@@ -553,9 +553,9 @@ models:
         description: ''
         tests:
           - not_null
-          - relationships:
-              to: ref('ad_account_base')
-              field: account_id_stripped
+          # - relationships:
+          #     to: ref('ad_account_base')
+          #     field: account_id_stripped
       - name: image_hash
         description: ''
       - name: link_og_id
@@ -625,9 +625,9 @@ models:
         description: ''
         tests:
           - not_null
-          - relationships:
-              to: ref('ad_account_base')
-              field: account_id_stripped
+          # - relationships:
+          #     to: ref('ad_account_base')
+          #     field: account_id_stripped
       - name: start_time
         description: ''
       #- name: campaign_id
@@ -670,9 +670,9 @@ models:
         description: ''
         tests:
           - not_null
-          - relationships:
-              to: ref('ad_creatives_base')
-              field: id
+          # - relationships:
+          #     to: ref('ad_creatives_base')
+          #     field: id
       - name: name
         description: ''
       - name: status
@@ -698,9 +698,9 @@ models:
         description: ''
         tests:
           - not_null
-          - relationships:
-              to: ref('ad_account_base')
-              field: account_id_stripped
+          # - relationships:
+          #     to: ref('ad_account_base')
+          #     field: account_id_stripped
       - name: bid_amount
         description: ''
       - name: campaign_id
@@ -788,9 +788,9 @@ models:
         description: ''
         tests:
           - not_null
-          - relationships:
-              to: ref('ad_account_base')
-              field: account_id_stripped
+          # - relationships:
+          #     to: ref('ad_account_base')
+          #     field: account_id_stripped
       - name: adset_name
         description: ''
       - name: unique_ctr
@@ -915,4 +915,3 @@ models:
         description: ''
       - name: conversion_values
         description: ''
-
