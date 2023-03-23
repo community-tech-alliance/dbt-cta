@@ -2,6 +2,59 @@ version: 2
 
 models:
 
+  - name: alerts_base
+    description: ''
+    columns:
+      - name: sid
+        description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string   
+      - name: url
+        description: ''
+      - name: log_level
+        description: ''
+      - name: more_info
+        description: ''
+      - name: alert_text
+        description: ''
+      - name: error_code
+        description: ''
+      - name: account_sid
+        description: ''
+      - name: api_version
+        description: ''
+      - name: request_url
+        description: ''
+      - name: service_sid
+        description: ''
+      - name: date_created
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: date_updated
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: resource_sid
+        description: ''
+      - name: date_generated
+        description: ''
+      - name: request_method
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+
   - name: message_media_base
     description: ''
     columns:
@@ -41,8 +94,6 @@ models:
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_message_media_hashid
         description: ''
 
   - name: conferences_base
@@ -94,8 +145,6 @@ models:
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_conferences_hashid
         description: ''
 
   - name: recordings_base
@@ -161,8 +210,6 @@ models:
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_recordings_hashid
         description: ''
 
   - name: calls_base
@@ -245,8 +292,6 @@ models:
         description: ''
       - name: _airbyte_normalized_at
         description: ''
-      - name: _airbyte_calls_hashid
-        description: ''
 
   - name: messages_base
     description: ''
@@ -314,52 +359,3 @@ models:
         description: ''
       - name: _airbyte_normalized_at
         description: ''
-      - name: _airbyte_messages_hashid
-        description: ''
-
-  - name: usage_records_base
-    description: ''
-    columns:
-      - name: uri
-        description: ''
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-                column_type: string
-      - name: as_of
-        description: ''
-      - name: count
-        description: ''
-      - name: price
-        description: ''
-      - name: usage
-        description: ''
-      - name: category
-        description: ''
-      - name: end_date
-        description: ''
-      - name: count_unit
-        description: ''
-      - name: price_unit
-        description: ''
-      - name: start_date
-        description: ''
-      - name: usage_unit
-        description: ''
-      - name: account_sid
-        description: ''
-      - name: api_version
-        description: ''
-      - name: description
-        description: ''
-      - name: subresource_uris
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-      - name: _airbyte_emitted_at
-        description: ''
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_usage_records_hashid
-        description: ''
-

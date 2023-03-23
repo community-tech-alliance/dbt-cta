@@ -14,5 +14,3 @@ select
 from {{ ref('ads_insights_overall_ab2') }} tmp
 -- ads_insights
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
-

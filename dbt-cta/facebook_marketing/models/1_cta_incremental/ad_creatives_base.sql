@@ -1,21 +1,14 @@
-{% set partitions_to_replace = [
-    'timestamp_trunc(current_timestamp, day)',
-    'timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)'
-] %}
-
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    partitions = partitions_to_replace,
-    unique_key = '_airbyte_ad_creatives_hashid'
+    unique_key = 'id'
 ) }}
 
--- depends_on: {{ ref('ad_creatives_ab3') }}
+-- depends_on: {{ ref('ad_creatives_ab2') }}
 select
-     _airbyte_ad_creatives_hashid
+    id
     ,_airbyte_emitted_at
     ,_airbyte_ab_id
-    ,id
     ,body
     ,name
     ,title
@@ -53,9 +46,4 @@ select
     ,instagram_permalink_url
     ,effective_object_story_id
     ,effective_instagram_story_id
-from {{ ref('ad_creatives_ab3') }}
-
-{% if is_incremental() %}
-where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
-{% endif %}
-
+from {{ ref('ad_creatives_ab2') }}

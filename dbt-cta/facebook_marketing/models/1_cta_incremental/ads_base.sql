@@ -1,22 +1,15 @@
-{% set partitions_to_replace = [
-    'timestamp_trunc(current_timestamp, day)',
-    'timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)'
-] %}
-
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    partitions = partitions_to_replace,
-    unique_key = '_airbyte_ads_hashid'
+    unique_key = 'id'
 ) }}
 
--- depends_on: {{ ref('ads_ab3') }}
+-- depends_on: {{ ref('ads_ab2') }}
 select
-     _airbyte_ads_hashid
+    id
     ,_airbyte_emitted_at
     ,_airbyte_ab_id
     ,JSON_EXTRACT_SCALAR(creative, "$.id") as creative_id
-    ,id
     ,name
     ,status
     ,adlabels
@@ -36,8 +29,4 @@ select
     ,conversion_specs
     ,effective_status
     ,last_updated_by_app_id
-from {{ ref('ads_ab3') }}
-
-{% if is_incremental() %}
-where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
-{% endif %}
+from {{ ref('ads_ab2') }}

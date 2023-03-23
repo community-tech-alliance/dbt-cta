@@ -1,9 +1,7 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
-    tags = [ "top-level" ]
+    unique_key = 'sid'
 ) }}
+
 -- Final base SQL model
 -- depends_on: {{ ref('messages_ab3') }}
 select
@@ -26,13 +24,5 @@ select
     num_segments,
     error_message,
     subresource_uris,
-    messaging_service_sid,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
-    {{ current_timestamp() }} as _airbyte_normalized_at,
-    _airbyte_messages_hashid
+    messaging_service_sid
 from {{ ref('messages_ab3') }}
--- messages from {{ source('cta', '_airbyte_raw_messages') }}
-where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
-
