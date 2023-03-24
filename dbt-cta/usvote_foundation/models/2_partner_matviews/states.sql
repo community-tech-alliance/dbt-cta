@@ -3,4 +3,4 @@
 	full_refresh = false
 )}}
 
-select * from {{ source('cta','states')}}
+select * from {{ source('cta','states_base')}}
