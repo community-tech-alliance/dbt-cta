@@ -8,7 +8,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('cancelled_recurring_contributions_stream_ab3') }}
+-- depends_on: {{ ref('cancelled_recurring_contributions_stream_ab2') }}
 select
     Donor_ZIP,
     Donor_City,
