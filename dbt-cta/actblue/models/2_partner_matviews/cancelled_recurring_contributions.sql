@@ -1,4 +1,4 @@
-select,
+select
     Donor_ZIP,
     Donor_City,
     Receipt_ID,
