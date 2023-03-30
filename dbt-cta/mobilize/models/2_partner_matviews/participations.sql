@@ -1,3 +1,7 @@
+{% set partitions_to_replace = [
+    'timestamp_trunc(current_timestamp, day)',
+    'timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)'
+] %}
 {{
     config(
         cluster_by="_airbyte_emitted_at",
@@ -58,3 +62,6 @@ select
     max(_airbyte_emitted_at) as _airbyte_emitted_at
 from {{ source("cta", "participations_base") }}
 group by _airbyte_participations_hashid
+{% if is_incremental() %}
+where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
+{% endif %}
