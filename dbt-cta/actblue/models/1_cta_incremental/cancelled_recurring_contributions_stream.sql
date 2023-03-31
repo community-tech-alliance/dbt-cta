@@ -8,7 +8,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('cancelled_recurring_contributions_stream_ab2') }}
+-- depends_on: {{ ref('cancelled_recurring_contributions_stream_ab3') }}
 select
     Donor_ZIP,
     Donor_City,
@@ -35,7 +35,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('cancelled_recurring_contributions_stream_ab2') }}
+from {{ ref('cancelled_recurring_contributions_stream_ab3') }}
 -- cancelled_recurring_contributions_stream from {{ source('cta', '_airbyte_raw_cancelled_recurring_contributions_stream') }}
 where 1 = 1
 
