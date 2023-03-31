@@ -11,7 +11,7 @@ select
 from (
   select
     *,
-    row_number() over(partition by Receipt_ID order by Cancelled_On) as row_num
+    row_number() over(partition by Receipt_ID order by Cancelled_On desc) as row_num
   from {{ ref('cancelled_recurring_contributions_stream_ab2') }}
 )
 where row_num = 1
