@@ -4,28 +4,158 @@ sources:
   database: "{{ env_var('CTA_PROJECT_ID') }}"
   schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables:
+  # Source tests check uniqueness by PK for all source tables.
+  # All but two tables use `id` as a unique primary key.
+  # Exceptions: 
+  # - campaign_contact (`campaign_contact_id`)
+  # - zip_code (`zip`)
   - name: all_campaign_raw
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: all_question_response_raw
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: all_tag_raw
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: assignable_campaign_contacts_raw
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: assignable_campaign_contacts_with_escalation_tags_raw
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: assignable_campaigns_raw
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: assignable_needs_message_raw
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: assignment_raw
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: assignment_request_raw
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: campaign_contact_raw
+    columns:
+      - name: campaign_contact_id
+        tests:
+          - unique
+          - not_null
   - name: campaign_contact_tag_raw
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: campaign_team_raw
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: canned_response_raw
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: interaction_step_raw
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: invite_raw
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: message_raw
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: opt_out_raw
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: organization_raw
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: question_response_raw
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: tag_raw
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: team_raw
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: user_organization_raw
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: user_raw
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: user_team_raw
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: zip_code_raw
+    columns:
+      - name: zip
+        tests:
+          - unique
+          - not_null
