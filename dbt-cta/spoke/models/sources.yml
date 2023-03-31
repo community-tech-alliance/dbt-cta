@@ -45,12 +45,6 @@ sources:
         tests:
           - unique
           - not_null
-  - name: assignable_needs_message_raw
-    columns:
-      - name: id
-        tests:
-          - unique
-          - not_null
   - name: assignment_raw
     columns:
       - name: id
@@ -65,13 +59,13 @@ sources:
           - not_null
   - name: campaign_contact_raw
     columns:
-      - name: campaign_contact_id
+      - name: id
         tests:
           - unique
           - not_null
   - name: campaign_contact_tag_raw
     columns:
-      - name: id
+      - name: campaign_contact_id
         tests:
           - unique
           - not_null
