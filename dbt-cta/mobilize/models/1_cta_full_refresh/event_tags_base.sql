@@ -1,3 +1,15 @@
+{% set partitions_to_replace = [
+    'timestamp_trunc(current_timestamp, day)',
+    'timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)'
+] %}
+
+{{ config(
+    partitions = partitions_to_replace,
+    cluster_by = "_airbyte_emitted_at",
+    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_ab_id',
+    tags = [ "top-level" ]
+) }}
 
 with
     __dbt__cte___airbyte_org_7e6abb14a314439581d38bb69eaa0083_event_tags_ab1 as (
@@ -93,3 +105,11 @@ select
 from __dbt__cte___airbyte_org_7e6abb14a314439581d38bb69eaa0083_event_tags_ab3
 -- event_tags from {{ source("cta", "_airbyte_raw_event_tags" ) }}
 where 1 = 1
+{% if is_incremental() %}
+where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
+{% endif %}
+
+-- before edits: 276 records in base, 276 in partner
+-- after adding prefix/suffix: error
+--  Cannot replace a table with a different partitioning spec. Instead, DROP the table, and then recreate it. New partitioning spec is interval(type:day,field:_airbyte_emitted_at) clustering(_airbyte_emitted_at) and existing spec is none
+

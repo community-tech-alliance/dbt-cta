@@ -1,3 +1,15 @@
+{% set partitions_to_replace = [
+    'timestamp_trunc(current_timestamp, day)',
+    'timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)'
+] %}
+
+{{ config(
+    partitions = partitions_to_replace,
+    cluster_by = "_airbyte_emitted_at",
+    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_ab_id',
+    tags = [ "top-level" ]
+) }}
 
 with
     __dbt__cte___airbyte_org_7e6abb14a314439581d38bb69eaa0083_sms_opt_ins_ab1 as (
@@ -99,4 +111,10 @@ select
     _airbyte_sms_opt_ins_hashid
 from __dbt__cte___airbyte_org_7e6abb14a314439581d38bb69eaa0083_sms_opt_ins_ab3
 -- sms_opt_ins from {{ source("cta", "_airbyte_raw_sms_opt_ins" ) }}
-where 1 = 1
+-- where 1 = 1
+{% if is_incremental() %}
+where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
+{% endif %}
+
+-- before edits: 67 records in base, 67 in partner
+-- after adding prefix/suffix: 

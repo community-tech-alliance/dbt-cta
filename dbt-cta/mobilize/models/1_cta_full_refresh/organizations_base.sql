@@ -1,3 +1,15 @@
+{% set partitions_to_replace = [
+    'timestamp_trunc(current_timestamp, day)',
+    'timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)'
+] %}
+
+{{ config(
+    partitions = partitions_to_replace,
+    cluster_by = "_airbyte_emitted_at",
+    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_ab_id',
+    tags = [ "top-level" ]
+) }}
 
 with
     __dbt__cte___airbyte_org_7e6abb14a314439581d38bb69eaa0083_organizations_ab1 as (
@@ -78,9 +90,15 @@ select
     _airbyte_organizations_hashid
 from __dbt__cte___airbyte_org_7e6abb14a314439581d38bb69eaa0083_organizations_ab3
 -- organizations from {{ source("cta", "_airbyte_raw_organizations" ) }}
-where
-    1 = 1
+-- where
+--     1 = 1
 
 
-    and cast(_airbyte_emitted_at as timestamp)
-    >= cast('2022-11-04 23:50:15.399000+00:00' as timestamp)
+--     and cast(_airbyte_emitted_at as timestamp)
+--     >= cast('2022-11-04 23:50:15.399000+00:00' as timestamp)
+{% if is_incremental() %}
+where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
+{% endif %}
+
+-- before edits: 1 records in base, 1 in partner
+-- after adding prefix/suffix: 
