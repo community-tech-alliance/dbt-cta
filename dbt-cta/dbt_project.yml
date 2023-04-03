@@ -19,7 +19,7 @@ models:
       +tags: 
         - cta
       +materialized: table
-    1_cta_base:
+    1_cta_full_refresh:
       +tags: 
         - cta
       +materialized: incremental

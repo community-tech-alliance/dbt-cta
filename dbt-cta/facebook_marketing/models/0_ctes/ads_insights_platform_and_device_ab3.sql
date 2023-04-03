@@ -17,5 +17,3 @@ select
 from {{ ref('ads_insights_platform_and_device_ab2') }} tmp
 -- ads_insights_platform_and_device
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
-
