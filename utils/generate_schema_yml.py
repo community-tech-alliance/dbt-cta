@@ -69,12 +69,13 @@ def write_to_file(dict: dict, filename: str, overwrite: bool = False):
     if os.path.exists(filename):
         if overwrite:
             print(f"{filename} already exists, overwriting(!).")
+
+            with open(filename, "w") as file:
+                yaml.dump(dict, file, sort_keys=False, Dumper=LineBreakDumper)
+                print(f"YAML written to {filename}!")
+
         else:
             print(f"{filename} already exists, not modifying.")
-
-    with open(filename, "w") as file:
-        yaml.dump(dict, file, sort_keys=False, Dumper=LineBreakDumper)
-        print(f"YAML written to {filename}!")
 
 
 def generate_filename(path, postfix=""):
