@@ -1,155 +1,204 @@
 version: 2
-sources:
-- name: cta
-  database: "{{ env_var('CTA_PROJECT_ID') }}"
-  schema: "{{ env_var('CTA_DATASET_ID') }}"
-  tables:
-  # Source tests check uniqueness by PK for all source tables.
-  # All but two tables use `id` as a unique primary key.
-  # Exceptions: 
-  # - campaign_contact (`campaign_contact_id`)
-  # - zip_code (`zip`)
-  - name: all_campaign_raw
+
+models:
+
+  - name: all_campaign
+    description: ''
     columns:
       - name: id
+        description: ''
         tests:
           - unique
           - not_null
-  - name: all_question_response_raw
+  - name: all_question_response
+    description: ''
     columns:
       - name: id
+        description: ''
         tests:
           - unique
           - not_null
-  - name: all_tag_raw
+  - name: all_tag
+    description: ''
     columns:
       - name: id
+        description: ''
         tests:
           - unique
           - not_null
-  - name: assignable_campaign_contacts_raw
+  - name: assignment
+    description: ''
     columns:
       - name: id
+        description: ''
         tests:
           - unique
           - not_null
-  - name: assignable_campaign_contacts_with_escalation_tags_raw
+  - name: assignment_request
+    description: ''
     columns:
       - name: id
+        description: ''
         tests:
           - unique
           - not_null
-  - name: assignable_campaigns_raw
+  - name: campaign_contact
+    description: ''
     columns:
       - name: id
+        description: ''
         tests:
           - unique
           - not_null
-  - name: assignment_raw
-    columns:
-      - name: id
-        tests:
-          - unique
-          - not_null
-  - name: assignment_request_raw
-    columns:
-      - name: id
-        tests:
-          - unique
-          - not_null
-  - name: campaign_contact_raw
-    columns:
-      - name: id
-        tests:
-          - unique
-          - not_null
-  - name: campaign_contact_tag_raw
+  - name: campaign_contact_tag
+    description: ''
     columns:
       - name: campaign_contact_id
+        description: ''
         tests:
           - unique
           - not_null
-  - name: campaign_team_raw
+  - name: campaign_team
+    description: ''
     columns:
       - name: id
+        description: ''
         tests:
           - unique
           - not_null
-  - name: canned_response_raw
+  - name: canned_response
+    description: ''
     columns:
       - name: id
+        description: ''
         tests:
           - unique
           - not_null
-  - name: interaction_step_raw
+  - name: interaction_step
+    description: ''
     columns:
       - name: id
+        description: ''
         tests:
           - unique
           - not_null
-  - name: invite_raw
+  - name: invite
+    description: ''
     columns:
       - name: id
+        description: ''
         tests:
           - unique
           - not_null
-  - name: message_raw
+  - name: message
+    description: ''
     columns:
       - name: id
+        description: ''
         tests:
           - unique
           - not_null
-  - name: opt_out_raw
+  - name: opt_out
+    description: ''
     columns:
       - name: id
+        description: ''
         tests:
           - unique
           - not_null
-  - name: organization_raw
+  - name: organization
+    description: ''
     columns:
       - name: id
+        description: ''
         tests:
           - unique
           - not_null
-  - name: question_response_raw
+  - name: team
+    description: ''
     columns:
       - name: id
+        description: ''
         tests:
           - unique
           - not_null
-  - name: tag_raw
+  - name: user_organization
+    description: ''
     columns:
       - name: id
+        description: ''
         tests:
           - unique
           - not_null
-  - name: team_raw
+  - name: user_team
+    description: ''
     columns:
       - name: id
+        description: ''
         tests:
           - unique
           - not_null
-  - name: user_organization_raw
+  - name: assignable_campaign_contacts
+    description: ''
     columns:
       - name: id
+        description: ''
         tests:
           - unique
           - not_null
-  - name: user_raw
+  - name: assignable_campaign_contacts_with_escalation_tags
+    description: ''
     columns:
       - name: id
+        description: ''
         tests:
           - unique
           - not_null
-  - name: user_team_raw
+  - name: assignable_campaigns
+    description: ''
     columns:
       - name: id
+        description: ''
         tests:
           - unique
           - not_null
-  - name: zip_code_raw
+  - name: deliverability_report
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+  - name: question_response
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+  - name: tag
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+  - name: user
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+  - name: zip_code
+    description: ''
     columns:
       - name: zip
+        description: ''
         tests:
           - unique
           - not_null
