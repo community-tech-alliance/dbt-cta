@@ -70,12 +70,13 @@ def write_to_file(dict: dict, filename: str, overwrite: bool = False):
         if overwrite:
             print(f"{filename} already exists, overwriting(!).")
 
-            with open(filename, "w") as file:
-                yaml.dump(dict, file, sort_keys=False, Dumper=LineBreakDumper)
-                print(f"YAML written to {filename}!")
-
         else:
             print(f"{filename} already exists, not modifying.")
+            return
+    
+    with open(filename, "w") as file:
+        yaml.dump(dict, file, sort_keys=False, Dumper=LineBreakDumper)
+        print(f"YAML written to {filename}!")
 
 
 def generate_filename(path, postfix=""):
@@ -111,9 +112,60 @@ def generate_schema_dict(directory_path):
 
     return {"version": 2, "models": [m[0] for m in model_configs]}
 
+def merge_schema_dicts(existing_schema, new_schema):
+    existing_models = existing_schema["models"]
 
-def main():
-    dirs = list_model_directories(os.getenv('SYNC_NAME'))
+    new_models = new_schema["models"]
+
+    # filter to models that don't exist already, by name
+    new_models = [
+        m for m in new_models if m["name"] not in [e["name"] for e in existing_models]
+    ]
+
+    # merge_models are models that exist in both the existing schema and the new schema
+    merge_models = [
+        m for m in new_models if m["name"] in [e["name"] for e in existing_models]
+    ]
+
+    # for each merge model, we need to merge the columns
+    for merge_model in merge_models:
+        existing_model = [e for e in existing_models if e["name"] == merge_model["name"]][0]
+
+        existing_columns = existing_model["columns"]
+        new_columns = merge_model["columns"]
+
+        # filter to columns that don't exist already, by name
+        new_columns = [
+            c for c in new_columns if c["name"] not in [e["name"] for e in existing_columns]
+        ]
+
+        # merge the columns
+        existing_model["columns"] = existing_columns + new_columns
+
+        # for existing columns, we need to merge the tests
+        for existing_column in existing_columns:
+            new_column = [c for c in new_columns if c["name"] == existing_column["name"]][0]
+
+            existing_tests = existing_column["tests"]
+            new_tests = new_column["tests"]
+
+            # filter to tests that don't exist already, by name
+            new_tests = [
+                t for t in new_tests if t["name"] not in [e["name"] for e in existing_tests]
+            ]
+
+            # merge the tests
+            existing_column["tests"] = existing_tests + new_tests
+
+    existing_models["models"] = existing_models + new_models
+
+    return existing_schema
+
+
+def main(sync_name: str, merge: bool = False):
+    merge = True
+
+    dirs = list_model_directories(sync_name)
 
     for d in dirs:
         schema_dict = generate_schema_dict(d)
@@ -121,11 +173,16 @@ def main():
         if schema_dict:
             out_file = generate_filename(d)
 
-            write_to_file(schema_dict, out_file)
+            if merge:
+                existing_schema = yaml.load(open(out_file), Loader=yaml.Loader)
 
-        # TODO: load current schema.yml file and only add columns
+                if existing_schema:
+                    schema_dict = merge_schema_dicts(existing_schema, schema_dict)
+                else:
+                    print(f"Existing schema not found at {out_file}, skipping merge.")
 
+            write_to_file(schema_dict, out_file, overwrite=merge)
 
 if __name__ == "__main__":
     # TODO: add light CLI to control overwrite
-    main()
+    main(sync_name="facebook_marketing")
