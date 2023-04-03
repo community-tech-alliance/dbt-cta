@@ -200,12 +200,12 @@ select
     _airbyte_affiliations_hashid
 from __dbt__cte___airbyte_org_7e6abb14a314439581d38bb69eaa0083_affiliations_ab3
 -- affiliations from {{ source("cta", "_airbyte_raw_affiliations" ) }}
-where
-    1 = 1
+-- where
+--     1 = 1
 
 
-    and cast(_airbyte_emitted_at as timestamp)
-    >= cast('2022-11-04 23:50:15.399000+00:00' as timestamp)
+--     and cast(_airbyte_emitted_at as timestamp)
+--     >= cast('2022-11-04 23:50:15.399000+00:00' as timestamp)
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
