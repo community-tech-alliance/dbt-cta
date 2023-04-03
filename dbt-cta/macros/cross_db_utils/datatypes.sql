@@ -75,6 +75,7 @@
 
 
 {# int  ------------------------------------------------- #}
+{# BQ does not have a "signed" data type, so this is commented out #}
 {# {% macro default__type_int() %}
     signed
 {% endmacro %} #}
