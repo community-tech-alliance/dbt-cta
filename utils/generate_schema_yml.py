@@ -5,7 +5,7 @@ import yaml
 # As an example, these are the vars set for the mailchimp sync
 DBT_VARS = os.getenv(
     "DBT_VARS",
-    '{"campaigns_raw": "_airbyte_raw_campaigns", "campaigns_base": "campaigns_base", "campaigns": "campaigns"}', # noqa
+    '{"campaigns_raw": "_airbyte_raw_campaigns", "campaigns_base": "campaigns_base", "campaigns": "campaigns"}',  # noqa
 )
 
 TARGETS = ["cta", "partner"]
@@ -51,7 +51,7 @@ def list_models(dir: str):
 def get_model_config(model_name: str, target: str):
     """Run the dbt codegen generate_model_yaml for a given model and target, and return
     the model yaml parsed to a dictionary"""
-    command = f"""dbt run-operation generate_model_yaml --args '{{"model_name": "{model_name}"}}' -t {target} --vars '{DBT_VARS}'""" # noqa
+    command = f"""dbt run-operation generate_model_yaml --args '{{"model_name": "{model_name}"}}' -t {target} --vars '{DBT_VARS}'"""  # noqa
 
     stream = os.popen(command)
     output = stream.read()
@@ -73,7 +73,7 @@ def write_to_file(dict: dict, filename: str, overwrite: bool = False):
         else:
             print(f"{filename} already exists, not modifying.")
             return
-    
+
     with open(filename, "w") as file:
         yaml.dump(dict, file, sort_keys=False, Dumper=LineBreakDumper)
         print(f"YAML written to {filename}!")
@@ -87,18 +87,24 @@ def generate_filename(path, postfix=""):
 
     return full_path
 
-def add_universal_tests(model_configs: dict, universal_tests_file = "../utils/universal_tests.yml"):
+
+def add_universal_tests(
+    model_configs: dict, universal_tests_file="../utils/universal_tests.yml"
+):
     """Given a list of model configs, add universal tests to each model"""
     with open(universal_tests_file, "r") as file:
-        universal_tests = yaml.load(file, Loader=yaml.Loader)['columns']
+        universal_tests = yaml.load(file, Loader=yaml.Loader)["columns"]
 
     for model_config in model_configs[0]:
         for column in model_config["columns"]:
-            matching_column = [c for c in universal_tests if c["name"] == column["name"]]
+            matching_column = [
+                c for c in universal_tests if c["name"] == column["name"]
+            ]
             if matching_column:
                 column["tests"] = matching_column[0]["tests"]
 
     return model_configs
+
 
 def generate_schema_dict(directory_path):
     """Given a path to some dbt models, generate a dictionary for a schema.yml file
@@ -125,8 +131,9 @@ def generate_schema_dict(directory_path):
 
     return {"version": 2, "models": [m[0] for m in model_configs]}
 
+
 def merge_schema_dicts(existing_schema: dict, new_schema: dict):
-    """Given an existing schema.yml dictionary, and a new schema.yml dictionary, 
+    """Given an existing schema.yml dictionary, and a new schema.yml dictionary,
     merge.
      - Entirely new models are added to the existing schema
      - New columns are added to existing models
@@ -138,7 +145,9 @@ def merge_schema_dicts(existing_schema: dict, new_schema: dict):
 
     # filter to models that don't exist already, by name
     new_models = [
-        m for m in generated_models if m["name"] not in [e["name"] for e in existing_models]
+        m
+        for m in generated_models
+        if m["name"] not in [e["name"] for e in existing_models]
     ]
 
     # merge_models are models that exist in both the existing schema and the new schema
@@ -148,14 +157,18 @@ def merge_schema_dicts(existing_schema: dict, new_schema: dict):
 
     # for each merge model, we need to merge the columns
     for merge_model in merge_models:
-        existing_model = [e for e in existing_models if e["name"] == merge_model["name"]][0]
+        existing_model = [
+            e for e in existing_models if e["name"] == merge_model["name"]
+        ][0]
 
         existing_columns = existing_model.get("columns", [])
         generated_columns = merge_model["columns"]
 
         # filter to columns that don't exist already, by name
         new_columns = [
-            c for c in generated_columns if c["name"] not in [e["name"] for e in existing_columns]
+            c
+            for c in generated_columns
+            if c["name"] not in [e["name"] for e in existing_columns]
         ]
 
         # merge the columns
@@ -163,13 +176,19 @@ def merge_schema_dicts(existing_schema: dict, new_schema: dict):
 
         # for existing columns, we need to merge the tests
         for existing_column in existing_columns:
-            generated_column = [c for c in generated_columns if c["name"] == existing_column["name"]][0]
+            generated_column = [
+                c for c in generated_columns if c["name"] == existing_column["name"]
+            ][0]
 
             # We have to do this because dbt tests can be a mix of strings and dicts
             existing_tests = existing_column.get("tests", [])
-            existing_test_names = [list(t.keys())[0] if type(t) is dict else t for t in existing_tests]
+            existing_test_names = [
+                list(t.keys())[0] if type(t) is dict else t for t in existing_tests
+            ]
             generated_tests = generated_column.get("tests", [])
-            generated_test_names = [list(t.keys())[0] if type(t) is dict else t for t in generated_tests]
+            generated_test_names = [
+                list(t.keys())[0] if type(t) is dict else t for t in generated_tests
+            ]
 
             # filter to tests that don't exist already, by name
             new_tests = []
@@ -207,6 +226,7 @@ def main(sync_name: str, merge: bool = False):
                     print(f"Existing schema not found at {out_file}, skipping merge.")
 
             write_to_file(schema_dict, out_file, overwrite=merge)
+
 
 if __name__ == "__main__":
     # TODO: add light CLI to control overwrite
