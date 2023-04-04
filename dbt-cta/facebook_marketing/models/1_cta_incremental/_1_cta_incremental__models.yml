@@ -27,6 +27,7 @@ models:
                 severity: error
                 error_if: ">10"
                 warn_if: ">0"
+                where: "created_time > '2022-01-01'"
       - name: date_start
         description: ''
       - name: date_stop
@@ -66,6 +67,8 @@ models:
           - relationships:
               to: ref('ad_account_base')
               field: account_id_stripped
+              config:
+                where: "created_time > '2022-01-01'"
       - name: adset_name
         description: ''
       - name: unique_ctr
@@ -213,6 +216,8 @@ models:
           - relationships:
               to: ref('ad_account_base')
               field: account_id_stripped
+              config:
+                where: "created_time > '2022-01-01'"
       - name: account_name
         description: ''
       - name: campaign_id
@@ -381,6 +386,8 @@ models:
           - relationships:
               to: ref('ad_account_base')
               field: account_id_stripped
+              config:
+                where: "created_time > '2022-01-01'"
       - name: account_name
         description: ''
       - name: campaign_id
@@ -390,6 +397,8 @@ models:
           - relationships:
               to: ref('campaigns_base')
               field: id
+              config:
+                where: "created_time > '2022-01-01'"
       - name: campaign_name
         description: ''
       - name: _airbyte_emitted_at
@@ -472,6 +481,8 @@ models:
           - relationships:
               to: ref('ad_account_base')
               field: account_id_stripped
+              config:
+                where: "created_time > '2022-01-01'"
       - name: start_time
         description: ''
       - name: buying_type
@@ -556,6 +567,8 @@ models:
           - relationships:
               to: ref('ad_account_base')
               field: account_id_stripped
+              config:
+                where: "created_time > '2022-01-01'"
       - name: image_hash
         description: ''
       - name: link_og_id
@@ -628,6 +641,8 @@ models:
           - relationships:
               to: ref('ad_account_base')
               field: account_id_stripped
+              config:
+                where: "created_time > '2022-01-01'"
       - name: start_time
         description: ''
       - name: campaign_id
@@ -637,6 +652,8 @@ models:
           - relationships:
               to: ref('campaigns_base')
               field: id
+              config:
+                where: "created_time > '2022-01-01'"
       - name: created_time
         description: ''
       - name: daily_budget
@@ -673,6 +690,8 @@ models:
           - relationships:
               to: ref('ad_creatives_base')
               field: id
+              config:
+                where: "created_time > '2022-01-01'"
       - name: name
         description: ''
       - name: status
@@ -686,6 +705,8 @@ models:
           - relationships:
               to: ref('ad_sets_base')
               field: id
+              config:
+                where: "created_time > '2022-01-01'"
       - name: bid_info
         description: ''
       - name: bid_type
@@ -701,6 +722,8 @@ models:
           - relationships:
               to: ref('ad_account_base')
               field: account_id_stripped
+              config:
+                where: "created_time > '2022-01-01'"
       - name: bid_amount
         description: ''
       - name: campaign_id
@@ -710,6 +733,8 @@ models:
           - relationships:
               to: ref('campaigns_base')
               field: id
+              config:
+                where: "created_time > '2022-01-01'"
       - name: created_time
         description: ''
       - name: source_ad_id
@@ -746,6 +771,8 @@ models:
           - relationships:
               to: ref('ads_base')
               field: id
+              config:
+                where: "created_time > '2022-01-01'"
       - name: date_start
         description: ''
       - name: date_stop
@@ -791,6 +818,8 @@ models:
           - relationships:
               to: ref('ad_account_base')
               field: account_id_stripped
+              config:
+                where: "created_time > '2022-01-01'"
       - name: adset_name
         description: ''
       - name: unique_ctr
