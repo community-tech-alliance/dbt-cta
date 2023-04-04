@@ -217,7 +217,7 @@ models:
               to: ref('ad_account_base')
               field: account_id_stripped
               config:
-                where: "created_time > '2022-01-01'"
+                where: "date_start > '2022-01-01'"
       - name: account_name
         description: ''
       - name: campaign_id
@@ -387,7 +387,7 @@ models:
               to: ref('ad_account_base')
               field: account_id_stripped
               config:
-                where: "created_time > '2022-01-01'"
+                where: "date_start > '2022-01-01'"
       - name: account_name
         description: ''
       - name: campaign_id
@@ -397,8 +397,10 @@ models:
           - relationships:
               to: ref('campaigns_base')
               field: id
+              # Depending on how airbyte is configured, we may have insights records for
+              # campaigns that are inactive/not in the campaigns table
               config:
-                where: "created_time > '2022-01-01'"
+                where: "date_start > '2022-01-01' and spend > 0"
       - name: campaign_name
         description: ''
       - name: _airbyte_emitted_at
@@ -567,8 +569,6 @@ models:
           - relationships:
               to: ref('ad_account_base')
               field: account_id_stripped
-              config:
-                where: "created_time > '2022-01-01'"
       - name: image_hash
         description: ''
       - name: link_og_id
@@ -772,7 +772,7 @@ models:
               to: ref('ads_base')
               field: id
               config:
-                where: "created_time > '2022-01-01'"
+                where: "date_start > '2022-01-01'"
       - name: date_start
         description: ''
       - name: date_stop
