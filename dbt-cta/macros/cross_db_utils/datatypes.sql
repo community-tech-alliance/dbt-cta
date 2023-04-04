@@ -75,9 +75,10 @@
 
 
 {# int  ------------------------------------------------- #}
-{% macro default__type_int() %}
+{# BQ does not have a "signed" data type, so this is commented out #}
+{# {% macro default__type_int() %}
     signed
-{% endmacro %}
+{% endmacro %} #}
 
 {% macro oracle__type_int() %}
     int
