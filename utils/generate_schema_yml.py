@@ -87,6 +87,18 @@ def generate_filename(path, postfix=""):
 
     return full_path
 
+def add_universal_tests(model_configs: dict, universal_tests_file = "../utils/universal_tests.yml"):
+    """Given a list of model configs, add universal tests to each model"""
+    with open(universal_tests_file, "r") as file:
+        universal_tests = yaml.load(file, Loader=yaml.Loader)['columns']
+
+    for model_config in model_configs[0]:
+        for column in model_config["columns"]:
+            matching_column = [c for c in universal_tests if c["name"] == column["name"]]
+            if matching_column:
+                column["tests"] = matching_column[0]["tests"]
+
+    return model_configs
 
 def generate_schema_dict(directory_path):
     """Given a path to some dbt models, generate a dictionary for a schema.yml file
@@ -108,7 +120,8 @@ def generate_schema_dict(directory_path):
 
     model_configs = [get_model_config(m, target) for m in models]
 
-    # TODO: Add test generation based on column name
+    # Add universal tests
+    model_configs = add_universal_tests(model_configs)
 
     return {"version": 2, "models": [m[0] for m in model_configs]}
 
@@ -146,16 +159,22 @@ def merge_schema_dicts(existing_schema, new_schema):
         for existing_column in existing_columns:
             generated_column = [c for c in generated_columns if c["name"] == existing_column["name"]][0]
 
+            # We have to do this because dbt tests can be a mix of strings and dicts
             existing_tests = existing_column.get("tests", [])
-            generated_tests = generated_column.get("tests", "")
+            existing_test_names = [list(t.keys())[0] if type(t) is dict else t for t in existing_tests]
+            generated_tests = generated_column.get("tests", [])
+            generated_test_names = [list(t.keys())[0] if type(t) is dict else t for t in generated_tests]
 
             # filter to tests that don't exist already, by name
-            new_tests = [
-                t for t in generated_tests if t["name"] not in [e["name"] for e in existing_tests]
-            ]
+            new_tests = []
+
+            for i in range(len(generated_tests)):
+                if generated_test_names[i] not in existing_test_names:
+                    new_tests.append(generated_tests[i])
 
             # merge the tests
-            existing_column["tests"] = existing_tests + new_tests
+            if len(new_tests) > 0:
+                existing_column["tests"] = existing_tests + new_tests
 
     existing_schema["models"] = existing_models + new_models
 
