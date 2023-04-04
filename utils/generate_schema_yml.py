@@ -209,7 +209,6 @@ def merge_schema_dicts(existing_schema: dict, new_schema: dict):
 
 
 def main(args):
-
     dirs = list_model_directories(args.sync_name)
 
     for d in dirs:
@@ -226,18 +225,32 @@ def main(args):
                 else:
                     print(f"Existing schema not found at {out_file}, skipping merge.")
 
-            write_to_file(schema_dict, out_file, overwrite=args.merge)
+            write_to_file(schema_dict, out_file, overwrite=args.overwrite)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("sync_name", help="Name of the sync to generate schema.yml for",
-                        default=os.environ.get("SYNC_NAME", None))
+    parser.add_argument(
+        "sync_name",
+        help="Name of the sync to generate schema.yml for",
+        default=os.environ.get("SYNC_NAME", None),
+    )
     parser.add_argument(
         "--merge",
-        help="Merge with existing schema.yml, if it exists",
+        help="Merge with existing schema.yml, if it exists. Defaults to False.",
         action="store_true",
     )
+    parser.add_argument(
+        "--overwrite",
+        help="Overwrite existing schema.yml, if it exists. Defaults to False. If --merge is set, this is ignored.",
+        action="store_true",
+        default=False,
+    )
+    parser.add_argument(
+        "--universal-tests",
+        help="Path to universal tests file",
+        default="../utils/universal_tests.yml",
+    )
     args = parser.parse_args()
-    
+
     main(args)
