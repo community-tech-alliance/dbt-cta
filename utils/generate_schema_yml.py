@@ -125,7 +125,13 @@ def generate_schema_dict(directory_path):
 
     return {"version": 2, "models": [m[0] for m in model_configs]}
 
-def merge_schema_dicts(existing_schema, new_schema):
+def merge_schema_dicts(existing_schema: dict, new_schema: dict):
+    """Given an existing schema.yml dictionary, and a new schema.yml dictionary, 
+    merge.
+     - Entirely new models are added to the existing schema
+     - New columns are added to existing models
+     - New tests are added to existing columns
+    """
     existing_models = existing_schema["models"]
 
     generated_models = new_schema["models"]

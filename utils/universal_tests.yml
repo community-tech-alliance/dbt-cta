@@ -1,3 +1,7 @@
+# "Universal Tests" are tests that should be applied to every column in a project
+# with a given name. For example, every column named "_airbyte_ab_id" should be unique
+# and not null. This file contains a list of such tests, in standard dbt test format.
+
 columns:
   - name: _airbyte_ab_id
     tests:
