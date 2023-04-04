@@ -2,6 +2,8 @@ import os
 
 import yaml
 
+import argparse
+
 # As an example, these are the vars set for the mailchimp sync
 DBT_VARS = os.getenv(
     "DBT_VARS",
@@ -206,10 +208,9 @@ def merge_schema_dicts(existing_schema: dict, new_schema: dict):
     return existing_schema
 
 
-def main(sync_name: str, merge: bool = False):
-    merge = True
+def main(args):
 
-    dirs = list_model_directories(sync_name)
+    dirs = list_model_directories(args.sync_name)
 
     for d in dirs:
         schema_dict = generate_schema_dict(d)
@@ -217,7 +218,7 @@ def main(sync_name: str, merge: bool = False):
         if schema_dict:
             out_file = generate_filename(d)
 
-            if merge:
+            if args.merge:
                 existing_schema = yaml.load(open(out_file), Loader=yaml.Loader)
 
                 if existing_schema:
@@ -225,9 +226,18 @@ def main(sync_name: str, merge: bool = False):
                 else:
                     print(f"Existing schema not found at {out_file}, skipping merge.")
 
-            write_to_file(schema_dict, out_file, overwrite=merge)
+            write_to_file(schema_dict, out_file, overwrite=args.merge)
 
 
 if __name__ == "__main__":
-    # TODO: add light CLI to control overwrite
-    main(sync_name=os.environ["SYNC_NAME"])
+    parser = argparse.ArgumentParser()
+    parser.add_argument("sync_name", help="Name of the sync to generate schema.yml for",
+                        default=os.environ.get("SYNC_NAME", None))
+    parser.add_argument(
+        "--merge",
+        help="Merge with existing schema.yml, if it exists",
+        action="store_true",
+    )
+    args = parser.parse_args()
+    
+    main(args)
