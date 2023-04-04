@@ -104,7 +104,7 @@ select
     _airbyte_event_tags_hashid
 from __dbt__cte___airbyte_org_7e6abb14a314439581d38bb69eaa0083_event_tags_ab3
 -- event_tags from {{ source("cta", "_airbyte_raw_event_tags" ) }}
-where 1 = 1
+-- where 1 = 1
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
