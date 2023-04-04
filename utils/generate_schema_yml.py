@@ -115,28 +115,28 @@ def generate_schema_dict(directory_path):
 def merge_schema_dicts(existing_schema, new_schema):
     existing_models = existing_schema["models"]
 
-    new_models = new_schema["models"]
+    generated_models = new_schema["models"]
 
     # filter to models that don't exist already, by name
     new_models = [
-        m for m in new_models if m["name"] not in [e["name"] for e in existing_models]
+        m for m in generated_models if m["name"] not in [e["name"] for e in existing_models]
     ]
 
     # merge_models are models that exist in both the existing schema and the new schema
     merge_models = [
-        m for m in new_models if m["name"] in [e["name"] for e in existing_models]
+        m for m in generated_models if m["name"] in [e["name"] for e in existing_models]
     ]
 
     # for each merge model, we need to merge the columns
     for merge_model in merge_models:
         existing_model = [e for e in existing_models if e["name"] == merge_model["name"]][0]
 
-        existing_columns = existing_model["columns"]
-        new_columns = merge_model["columns"]
+        existing_columns = existing_model.get("columns", [])
+        generated_columns = merge_model["columns"]
 
         # filter to columns that don't exist already, by name
         new_columns = [
-            c for c in new_columns if c["name"] not in [e["name"] for e in existing_columns]
+            c for c in generated_columns if c["name"] not in [e["name"] for e in existing_columns]
         ]
 
         # merge the columns
@@ -144,20 +144,20 @@ def merge_schema_dicts(existing_schema, new_schema):
 
         # for existing columns, we need to merge the tests
         for existing_column in existing_columns:
-            new_column = [c for c in new_columns if c["name"] == existing_column["name"]][0]
+            generated_column = [c for c in generated_columns if c["name"] == existing_column["name"]][0]
 
-            existing_tests = existing_column["tests"]
-            new_tests = new_column["tests"]
+            existing_tests = existing_column.get("tests", [])
+            generated_tests = generated_column.get("tests", "")
 
             # filter to tests that don't exist already, by name
             new_tests = [
-                t for t in new_tests if t["name"] not in [e["name"] for e in existing_tests]
+                t for t in generated_tests if t["name"] not in [e["name"] for e in existing_tests]
             ]
 
             # merge the tests
             existing_column["tests"] = existing_tests + new_tests
 
-    existing_models["models"] = existing_models + new_models
+    existing_schema["models"] = existing_models + new_models
 
     return existing_schema
 
@@ -185,4 +185,4 @@ def main(sync_name: str, merge: bool = False):
 
 if __name__ == "__main__":
     # TODO: add light CLI to control overwrite
-    main(sync_name="facebook_marketing")
+    main(sync_name=os.environ["SYNC_NAME"])
