@@ -3,36 +3,35 @@
     'timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)'
 ] %}
 {{ config(
+    partitions=partitions_to_replace,
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = 'sid',
+    unique_key = '_airbyte_ab_id',
     tags = [ "top-level" ]
 ) }}
+
 -- Final base SQL model
--- depends_on: {{ ref('alerts_ab3') }}
+-- depends_on: {{ ref('usage_records_ab3') }}
 select
-    sid,
-    url,
-    log_level,
-    more_info,
-    alert_text,
-    error_code,
+    uri,
+    as_of,
+    count,
+    price,
+    usage,
+    category,
+    end_date,
+    count_unit,
+    price_unit,
+    start_date,
+    usage_unit,
     account_sid,
     api_version,
-    request_url,
-    service_sid,
-    date_created,
-    date_updated,
-    resource_sid,
-    date_generated,
-    request_method,
+    description,
+    subresource_uris,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-    {{ current_timestamp() }} as _airbyte_normalized_at,
-    _airbyte_alerts_hashid
-from {{ ref('alerts_ab3') }}
--- alerts from {{ source('cta', '_airbyte_raw_alerts') }}
+    {{ current_timestamp() }} as _airbyte_normalized_at
+from {{ ref('usage_records_ab3') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
-

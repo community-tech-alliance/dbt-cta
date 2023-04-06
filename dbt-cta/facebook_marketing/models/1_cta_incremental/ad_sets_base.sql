@@ -1,32 +1,27 @@
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = 'id'
+    unique_key = 'id',
 ) }}
 
--- depends_on: {{ ref('ads_ab2') }}
+-- depends_on: {{ ref('ad_sets_ab2') }}
 select
     id
     ,_airbyte_emitted_at
     ,_airbyte_ab_id
-    ,JSON_EXTRACT_SCALAR(creative, "$.id") as creative_id
     ,name
-    ,status
     ,adlabels
-    ,adset_id
     ,bid_info
-    ,bid_type
-    ,creative
+    ,end_time
     ,targeting
     ,account_id
-    ,bid_amount
+    ,start_time
     ,campaign_id
     ,created_time
-    ,source_ad_id
+    ,daily_budget
     ,updated_time
-    ,tracking_specs
-    ,recommendations
-    ,conversion_specs
+    ,lifetime_budget
+    ,promoted_object
+    ,budget_remaining
     ,effective_status
-    ,last_updated_by_app_id
-from {{ ref('ads_ab2') }}
+from {{ ref('ad_sets_ab2') }}
