@@ -10,6 +10,7 @@ packages-install-path: "dbt-packages"
 models:
   elementary:
     schema: "elementary"
+    database:  "{{ env_var('CTA_PROJECT_ID') }}"
   default:
     0_ctes:
       +tags: 
@@ -25,7 +26,7 @@ models:
       +materialized: incremental
       +incremental_strategy: insert_overwrite
       +on_schema_change: sync_all_columns
-      +full_refresh: false
+      # +full_refresh: false
     1_cta_tables:
       +tags:
         - cta
