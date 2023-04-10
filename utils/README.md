@@ -18,12 +18,13 @@ The script assumes that you've already obtained a tarball of data from Airbyte u
 
 ## Running init_dbt.sh
 
-In the Terminal, navigate yourself to a folder that includes both init_dbt.sh and the tarball containing the default Airbyte dbt files.
+In the Terminal, navigate yourself to the root directory of our dbt project
+("/dbt-cta/dbt-cta") and make sure it contains the tarball of default Airbyte dbt files.
 
 Then:
 
 ```
-sh init_dbt.sh
+sh ../utils/init_dbt.sh
 ```
 
 Congratulations! Now you have a cleaned-up dbt project you can use to start hacking away. (Which is where the real fun begins - best of luck to you.)
@@ -74,7 +75,10 @@ You can use the same command - just replace the ```$(gcloud compute instance-gro
 This script generates starter schema.yml files for a new dbt project. It uses dbt's
 [codegen](https://github.com/dbt-labs/dbt-codegen) package to run a series of 
 `generate_model_yaml` commands, and then aggregates them all together in a single
-yaml file.
+yaml file. It queries the database to get the column names, and then uses the
+`universal_tests.yml` file to generate a set of tests for each column.
+
+This script runs at the end of `init_dbt`, but can also be run independently.
 
 ## Requirements
 1. Have all the necessary environmental variables set to run dbt, including `SYNC_NAME`.
@@ -82,17 +86,28 @@ yaml file.
 2. Be in the `/dbt-cta` directory
 3. Run `python ./utils/generate_schema_yml.py`
 
+## Arguments
+`--sync-name`: The name of the sync you want to generate schema.yml files for.
+ If not provided, the script will use the value of the `SYNC_NAME` environmental variable.
+
+`--overwrite`: If set, the script will overwrite any existing schema.yml files
+ for the provided sync. If not set, the script will skip any models that already have
+ a schema.yml file.
+
+`--merge`: If set, the script will merge any changes into existing schema.yml
+ files. If this is set, the script will also set the `--overwrite` flag to True.
+
+`--universal-tests`: A path to a "universal tests" yml file (defaults to
+`../utils/universal_tests.yml`). This file should contain a list of tests, in dbt test
+format, that should be configured on every column with the same name.
+
+
 ## Limitations
 dbt's codegen package does not currently work on ephemeral models. The way our
 directories are structured, we have an entire folder of CTEs, so this script just skips
 those.
 
 ## Next Steps
- - Ideally, this script would generate some basic tests, perhaps configured to set the
-same tests on a set list of column names.
  - We're using an outdated version of the codegen package to play nicely with our other
  dependencies. The latest version (`0.9.0`) woudd let us generate schema.yml files for
  a list of models, rather than parsing them one at a time.
- - If we have existing schema.yml files, an additional run of this script could be
- configured to merge in changes, rather than overwriting them.
-
