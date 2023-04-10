@@ -38,7 +38,7 @@ Double check these few things before venturing too far forward:
 
 ### CTA: run some commands
 
-If you are a CTA engineer looking for the tarball file containing your sync's auto-generated dbt, download and run the shell script contained in [this Cacher snippet](https://snippets.cacher.io/snippet/2b77280d537736f980f9).
+If you are a CTA engineer looking for the tarball file containing your sync's auto-generated dbt, download and run the shell script contained in [this Cacher snippet](https://snippets.cacher.io/snippet/093ede6b991a307580d8).
 
 ### Not CTA, but still running Airbyte in a GCE instance:
 
