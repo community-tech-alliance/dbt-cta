@@ -776,7 +776,6 @@ models:
           - relationships:
               to: ref('ads_base')
               field: id
-              description:
               # There are a handful of edge cases where ads appear in the insights table
               # but not the ads table, likely as a result of how Airbyte handles date
               # filtering. We can safely ignore these cases.
