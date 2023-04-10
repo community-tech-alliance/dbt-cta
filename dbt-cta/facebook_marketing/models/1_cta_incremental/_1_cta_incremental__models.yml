@@ -23,6 +23,9 @@ models:
           - relationships:
               to: ref('ads_base')
               field: id
+              # There are a handful of edge cases where ads appear in the insights table
+              # but not the ads table, likely as a result of how Airbyte handles date
+              # filtering. We can safely ignore these cases.
               config:
                 severity: error
                 error_if: ">10"
@@ -773,10 +776,15 @@ models:
           - relationships:
               to: ref('ads_base')
               field: id
-              # Depending on how airbyte is configured, we may have insights records for
-              # ads that are inactive/not in the ads table
+              description:
+              # There are a handful of edge cases where ads appear in the insights table
+              # but not the ads table, likely as a result of how Airbyte handles date
+              # filtering. We can safely ignore these cases.
               config:
                 where: "date_start > '2022-01-01' and spend > 0"
+                severity: error
+                error_if: ">10"
+                warn_if: ">0"
       - name: date_start
         description: ''
       - name: date_stop
