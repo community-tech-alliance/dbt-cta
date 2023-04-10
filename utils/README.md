@@ -14,7 +14,7 @@ Specifically, it makes the dbt files:
 
 It moves around some folders, renames some files, and does some string replacements in the dbt project that Airbyte generates when running a sync using default normalization. (See [Airbyte's documentation](https://docs.airbyte.com/operator-guides/transformation-and-normalization/transformations-with-dbt/) for more context.)
 
-The script assumes that you've already obtained a tarball of data from Airbyte using one of the methods described [below](#generating-the-tarball).
+The script assumes that you've already obtained a tarball of data from Airbyte using one of the methods described [below](#generating-the-tarball). Place the tarball in `dbt-cta/dbt-cta`. This is temporary - we will remove the file later.
 
 ## Running init_dbt.sh
 
@@ -24,12 +24,14 @@ In the Terminal, navigate yourself to the root directory of our dbt project
 Then:
 
 ```
-sh ../utils/init_dbt.sh
+sh ../utils/init_dbt
 ```
 
 Congratulations! Now you have a cleaned-up dbt project you can use to start hacking away. (Which is where the real fun begins - best of luck to you.)
 
 Double check these few things before venturing too far forward:
+
+0. Delete the tarball file we used to initialize the dbt - we don't need it anymore. :wave:
 1. Make sure the sources.yml file lands in the models folder.
 2. Create a README.md file in the base (partner name) folder.
 3. In the 0_ctes folder, make sure wherever the code says `source('..', '_airbyte_raw_...')` that the first string in the list is 'cta', not '{​partner_name}'.
