@@ -439,6 +439,8 @@ models:
           - relationships:
               to: ref('ad_account_base')
               field: account_id_stripped
+              config:
+                where: "date_start > '2022-01-01'"
       - name: account_name
         description: ''
       - name: _airbyte_emitted_at
@@ -821,7 +823,7 @@ models:
               to: ref('ad_account_base')
               field: account_id_stripped
               config:
-                where: "created_time > '2022-01-01'"
+                where: "created_time > '2022-01-01' and spend > 0"
       - name: adset_name
         description: ''
       - name: unique_ctr
