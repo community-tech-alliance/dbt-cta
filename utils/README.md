@@ -38,33 +38,7 @@ Double check these few things before venturing too far forward:
 
 ### CTA: run some commands
 
-These commands were written for CTA internal use, which assumes Airbyte is running in a Google Compute Engine instance managed by an Instance Group Manager.
-
-```
-PROJECT_ID=<CTA project id>
-PROJECT_NAME=<dev|prod>
-WORKSPACE_ID=<workspace ID>
-export WORKSPACE_ID="$WORKSPACE_ID";
-gcloud compute ssh --project=$PROJECT_ID --zone=us-central1-a $(gcloud compute instance-groups managed list-instances tf-igm-airbyte-${PROJECT_NAME} \
- --zone=us-central1-a \
- --project=$PROJECT_ID \
- --filter="STATUS=running" \
- --format="csv(NAME)[no-heading]") --command "sudo tar -cv /var/lib/docker/volumes/airbyte_workspace/_data/${WORKSPACE_ID}/0/" > $WORKSPACE_ID.tar.gz
-```
-
-### What is this doing?
-
-Basically just connecting to our remote instance (via SSH) and running this command:
-
-```"sudo tar -cv /var/lib/docker/volumes/airbyte_workspace/_data/${WORKSPACE_ID}/0/" > $WORKSPACE_ID.tar.gz```
-
-1) `tar` creates a tarball of the dbt files located deep inside the docker container running Airbyte, and then 
-
-2) we save it locally to `$WORKSPACE_ID.tar.gz`.
-
-Everything else is just a bunch of variables needed for ```gcloud compute ssh``` to connect to the instance running Airbyte.
-
-Because CTA uses an Instance Group Manager, the instance name changes regularly - thus we need to run ```$(gcloud compute instance-groups managed list-instances ...)``` to fetch the latest.
+If you are a CTA engineer looking for the tarball file containing your sync's auto-generated dbt, download and run the shell script contained in [this Cacher snippet](https://snippets.cacher.io/snippet/2b77280d537736f980f9).
 
 ### Not CTA, but still running Airbyte in a GCE instance:
 
