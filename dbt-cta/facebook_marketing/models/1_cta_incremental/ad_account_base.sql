@@ -9,7 +9,7 @@ select
      id
     ,_airbyte_emitted_at
     ,_airbyte_ab_id
-    ,right(id, 16) as account_id_stripped
+    ,SPLIT(id,'_')[OFFSET(1)] as account_id_stripped
     ,age
     ,name
     ,owner
