@@ -231,8 +231,8 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "sync_name",
-        help="Name of the sync to generate schema.yml for",
+        "--sync_name",
+        help="Name of the sync to generate schema.yml for. Defaults to the value of the SYNC_NAME environment variable.",
         default=os.environ.get("SYNC_NAME", None),
     )
     parser.add_argument(
