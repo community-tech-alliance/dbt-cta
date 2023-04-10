@@ -101,6 +101,23 @@ This script runs at the end of `init_dbt`, but can also be run independently.
 `../utils/universal_tests.yml`). This file should contain a list of tests, in dbt test
 format, that should be configured on every column with the same name.
 
+## Example Usage
+
+Overwrite all schema.yml files for the sync designated by the `SYNC_NAME` environmental variable:
+```bash
+cd dbt-cta/dbt-cta
+python ../utils/generate_schema_yml.py --overwrite
+```
+
+Merge changes into existing schema.yml files for the Mailchimp sync:
+```bash
+python ../utils/generate_schema_yml.py --merge --sync-name mailchimp
+```
+
+Set up schema.yml files for a new Twitter sync, and use a different universal tests file:
+```bash
+python ../utils/generate_schema_yml.py --sync-name twitter --universal-tests ../utils/twitter_universal_tests.yml
+```
 
 ## Limitations
 dbt's codegen package does not currently work on ephemeral models. The way our
