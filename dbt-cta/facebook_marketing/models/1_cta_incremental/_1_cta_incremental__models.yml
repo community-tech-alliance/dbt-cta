@@ -20,13 +20,17 @@ models:
         description: ''
         tests:
           - not_null
-          # - relationships:
-          #     to: ref('ads_base')
-          #     field: id
-          #     config:
-          #       severity: error
-          #       error_if: ">10"
-          #       warn_if: ">0"
+          - relationships:
+              to: ref('ads_base')
+              field: id
+              # There are a handful of edge cases where ads appear in the insights table
+              # but not the ads table, likely as a result of how Airbyte handles date
+              # filtering. We can safely ignore these cases.
+              config:
+                severity: error
+                error_if: ">10"
+                warn_if: ">0"
+                where: "created_time > '2022-01-01'"
       - name: date_start
         description: ''
       - name: date_stop
@@ -63,9 +67,11 @@ models:
         description: ''
         tests:
           - not_null
-          # - relationships:
-          #     to: ref('ad_account_base')
-          #     field: account_id_stripped
+          - relationships:
+              to: ref('ad_account_base')
+              field: account_id_stripped
+              config:
+                where: "created_time > '2022-01-01'"
       - name: adset_name
         description: ''
       - name: unique_ctr
@@ -210,9 +216,11 @@ models:
         description: ''
         tests:
           - not_null
-          # - relationships:
-          #     to: ref('ad_account_base')
-          #     field: account_id_stripped
+          - relationships:
+              to: ref('ad_account_base')
+              field: account_id_stripped
+              config:
+                where: "date_start > '2022-01-01'"
       - name: account_name
         description: ''
       - name: campaign_id
@@ -378,18 +386,24 @@ models:
         description: ''
         tests:
           - not_null
-          # - relationships:
-          #     to: ref('ad_account_base')
-          #     field: account_id_stripped
+          - relationships:
+              to: ref('ad_account_base')
+              field: account_id_stripped
+              config:
+                where: "date_start > '2022-01-01'"
       - name: account_name
         description: ''
       - name: campaign_id
         description: ''
         tests:
           - not_null
-          # - relationships:
-          #     to: ref('campaigns_base')
-          #     field: id
+          - relationships:
+              to: ref('campaigns_base')
+              field: id
+              # Depending on how airbyte is configured, we may have insights records for
+              # campaigns that are inactive/not in the campaigns table
+              config:
+                where: "date_start > '2022-01-01' and spend > 0"
       - name: campaign_name
         description: ''
       - name: _airbyte_emitted_at
@@ -425,9 +439,11 @@ models:
         description: ''
         tests:
           - not_null
-          # - relationships:
-          #     to: ref('ad_account_base')
-          #     field: account_id_stripped
+          - relationships:
+              to: ref('ad_account_base')
+              field: account_id_stripped
+              config:
+                where: "date_start > '2022-01-01'"
       - name: account_name
         description: ''
       - name: _airbyte_emitted_at
@@ -469,9 +485,11 @@ models:
         description: ''
         tests:
           - not_null
-          # - relationships:
-          #     to: ref('ad_account_base')
-          #     field: account_id_stripped
+          - relationships:
+              to: ref('ad_account_base')
+              field: account_id_stripped
+              config:
+                where: "created_time > '2022-01-01'"
       - name: start_time
         description: ''
       - name: buying_type
@@ -553,9 +571,9 @@ models:
         description: ''
         tests:
           - not_null
-          # - relationships:
-          #     to: ref('ad_account_base')
-          #     field: account_id_stripped
+          - relationships:
+              to: ref('ad_account_base')
+              field: account_id_stripped
       - name: image_hash
         description: ''
       - name: link_og_id
@@ -625,18 +643,22 @@ models:
         description: ''
         tests:
           - not_null
-          # - relationships:
-          #     to: ref('ad_account_base')
-          #     field: account_id_stripped
+          - relationships:
+              to: ref('ad_account_base')
+              field: account_id_stripped
+              config:
+                where: "created_time > '2022-01-01'"
       - name: start_time
         description: ''
-      #- name: campaign_id
-      #  description: ''
-      #  tests:
-      #    - not_null
-      #    - relationships:
-      #        to: ref('campaigns_base')
-      #        field: id
+      - name: campaign_id
+        description: ''
+        tests:
+          - not_null
+          - relationships:
+              to: ref('campaigns_base')
+              field: id
+              config:
+                where: "created_time > '2022-01-01'"
       - name: created_time
         description: ''
       - name: daily_budget
@@ -670,9 +692,11 @@ models:
         description: ''
         tests:
           - not_null
-          # - relationships:
-          #     to: ref('ad_creatives_base')
-          #     field: id
+          - relationships:
+              to: ref('ad_creatives_base')
+              field: id
+              config:
+                where: "created_time > '2022-01-01'"
       - name: name
         description: ''
       - name: status
@@ -683,9 +707,11 @@ models:
         description: ''
         tests:
           - not_null
-      #     - relationships:
-      #         to: ref('ad_sets_base')
-      #         field: id
+          - relationships:
+              to: ref('ad_sets_base')
+              field: id
+              config:
+                where: "created_time > '2022-01-01'"
       - name: bid_info
         description: ''
       - name: bid_type
@@ -698,18 +724,22 @@ models:
         description: ''
         tests:
           - not_null
-          # - relationships:
-          #     to: ref('ad_account_base')
-          #     field: account_id_stripped
+          - relationships:
+              to: ref('ad_account_base')
+              field: account_id_stripped
+              config:
+                where: "created_time > '2022-01-01'"
       - name: bid_amount
         description: ''
       - name: campaign_id
         description: ''
         tests:
           - not_null
-      #    - relationships:
-      #        to: ref('campaigns_base')
-      #        field: id
+          - relationships:
+              to: ref('campaigns_base')
+              field: id
+              config:
+                where: "created_time > '2022-01-01'"
       - name: created_time
         description: ''
       - name: source_ad_id
@@ -743,9 +773,17 @@ models:
         description: ''
         tests:
           - not_null
-          # - relationships:
-          #     to: ref('ads_base')
-          #     field: id
+          - relationships:
+              to: ref('ads_base')
+              field: id
+              # There are a handful of edge cases where ads appear in the insights table
+              # but not the ads table, likely as a result of how Airbyte handles date
+              # filtering. We can safely ignore these cases.
+              config:
+                where: "date_start > '2022-01-01' and spend > 0"
+                severity: error
+                error_if: ">10"
+                warn_if: ">0"
       - name: date_start
         description: ''
       - name: date_stop
@@ -788,9 +826,11 @@ models:
         description: ''
         tests:
           - not_null
-          # - relationships:
-          #     to: ref('ad_account_base')
-          #     field: account_id_stripped
+          - relationships:
+              to: ref('ad_account_base')
+              field: account_id_stripped
+              config:
+                where: "created_time > '2022-01-01' and spend > 0"
       - name: adset_name
         description: ''
       - name: unique_ctr
