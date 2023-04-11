@@ -55,7 +55,9 @@ yaml file. It queries the database to get the column names, and then uses the
 This script runs at the end of `init_dbt`, but can also be run independently.
 
 ## Requirements
-1. Have all the necessary environmental variables set to run dbt, including `SYNC_NAME`.
+1. Have all the necessary environmental variables set to run dbt, including `SYNC_NAME`,
+`CTA_PROJECT_ID`, and `CTA_DATASET_ID`. Make sure you can run `dbt debug --target cta`
+successfully. Make sure to run `dbt deps` to install the codegen package.
  Make sure to run `dbt deps` to install the codegen package.
 2. Be in the `/dbt-cta` directory
 3. Run `python ./utils/generate_schema_yml.py`
