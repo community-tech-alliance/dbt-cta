@@ -92,6 +92,6 @@ printf 'Modifying references in 0_ctes for %s' "$DIR_NAME"
 gum format "Running test generation script..."
 
 # Run test generation script
-python3.9 ../utils/generate_schema_yml.py --sync-name "$DIR_NAME" --merge
+python ../utils/generate_schema_yml.py --sync-name "$DIR_NAME" --merge
 
 gum format "Have a proggy day! 🐸"
