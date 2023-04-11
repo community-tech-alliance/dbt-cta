@@ -53,11 +53,15 @@ def list_models(dir: str):
 def get_model_config(model_name: str, target: str):
     """Run the dbt codegen generate_model_yaml for a given model and target, and return
     the model yaml parsed to a dictionary"""
-    command = f"""dbt run-operation generate_model_yaml --args '{{"model_name": "{model_name}"}}' -t {target} --vars '{DBT_VARS}'"""  # noqa
+    command = f"""dbt run-operation generate_model_yaml --args '{{"model_name": "{model_name}"}}' -t {target} --vars '{DBT_VARS}' --profiles-dir ."""  # noqa
 
     stream = os.popen(command)
     output = stream.read()
 
+    print('Model: ', model_name)
+    print('----------------- DBT CMD OUTPUT -----------------')
+    print(output)
+    print('--------------- END DBT CMD OUTPUT ---------------')
     model_config = output.split("models:")[1]
 
     model_dict = yaml.load(model_config, Loader=yaml.Loader)
@@ -212,6 +216,7 @@ def main(args):
     dirs = list_model_directories(args.sync_name)
 
     for d in dirs:
+        print(f"Generating schema.yml for {d}...")
         schema_dict = generate_schema_dict(d)
 
         if schema_dict:
@@ -231,7 +236,7 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--sync_name",
+        "--sync-name",
         help="Name of the sync to generate schema.yml for. Defaults to the value of the SYNC_NAME environment variable.",
         default=os.environ.get("SYNC_NAME", None),
     )
