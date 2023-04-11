@@ -95,6 +95,40 @@ Set up schema.yml files for a new Twitter sync, and use a different universal te
 python ../utils/generate_schema_yml.py --sync-name twitter --universal-tests ../utils/twitter_universal_tests.yml
 ```
 
+### Running in pipenv
+
+If you find yourself using pipenv because your global python configuration is messed up and you don't know why (sure, that's a personal problem, but still), here are the commands you run to get that to work.
+
+First, create a `.env` file in `dbt-cta/dbt-cta` with the variables necessary to run dbt commands:
+
+```
+export CTA_PROJECT_ID=(DEV CTA PROJECT)
+export CTA_DATASET_ID=partner_a_empower
+export PARTNER_PROJECT_ID=(DEV PARTNER PROJECT)
+export PARTNER_DATASET_ID=empower
+export SYNC_NAME=empower
+```
+
+Then you will need to install `pyyaml` in your pipenv:
+
+```
+pipenv install pyyaml
+```
+
+Make sure your pipenv has access to the environment variables in your .env file:
+
+```
+pipenv run source .env
+```
+
+(This throws me an error but it seems to have done the job?)
+
+And finally you can run the script using commands as in the examples listed above:
+
+```
+pipenv run python ../utils/generate_schema_yml.py --overwrite
+```
+
 ## Limitations
 dbt's codegen package does not currently work on ephemeral models. The way our
 directories are structured, we have an entire folder of CTEs, so this script just skips
