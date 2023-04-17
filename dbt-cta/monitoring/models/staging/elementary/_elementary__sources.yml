@@ -11,6 +11,9 @@ sources:
         "run", "test", "build", etc. This table is populated by the elementary package.
       columns:
         - name: invocation_id
+          tests:
+            - not_null
+            - unique
         - name: job_id
         - name: job_name
         - name: job_run_id
@@ -47,6 +50,9 @@ sources:
         test. This table is populated by the elementary package.
       columns:
         - name: model_execution_id
+          tests:
+            - not_null
+            - unique
         - name: unique_id
         - name: invocation_id
         - name: generated_at
