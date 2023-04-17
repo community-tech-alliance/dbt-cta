@@ -1,0 +1,67 @@
+version: 2
+sources:
+- name: elementary
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: elementary
+  tables:
+    - name: dbt_invocations
+      description: >-
+        This table contains information about the dbt invocations that have been
+        performed on this project. A dbt "invocation" is a single call of the dbt CLI,
+        "run", "test", "build", etc. This table is populated by the elementary package.
+      columns:
+        - name: invocation_id
+        - name: job_id
+        - name: job_name
+        - name: job_run_id
+        - name: run_started_at
+        - name: run_completed_at
+        - name: generated_at
+        - name: command
+        - name: dbt_version
+        - name: elementary_version
+        - name: full_refresh
+        - name: invocation_vars
+        - name: vars
+        - name: target_name
+        - name: target_database
+        - name: target_schema
+        - name: target_profile_name
+        - name: threads
+        - name: selected
+        - name: yaml_selector
+        - name: project_id
+        - name: project_name
+        - name: env
+        - name: env_id
+        - name: cause_category
+        - name: cause
+        - name: pull_request_id
+        - name: git_sha
+        - name: orchestrator
+        - name: dbt_user
+    - name: dbt_run_results
+      description: >-
+        This table contains information about the dbt runs that have been
+        performed on this project. A dbt "run" is a single execution of a dbt model.
+        This table is populated by the elementary package.
+      columns:
+        - name: model_execution_id
+        - name: unique_id
+        - name: invocation_id
+        - name: generated_at
+        - name: name
+        - name: message
+        - name: status
+        - name: resource_type
+        - name: execution_time
+        - name: execute_started_at
+        - name: execute_completed_at
+        - name: compile_started_at
+        - name: compile_completed_at
+        - name: rows_affected
+        - name: full_refresh
+        - name: compiled_code
+        - name: failures
+        - name: query_id
+        - name: thread_id
