@@ -43,8 +43,8 @@ sources:
     - name: dbt_run_results
       description: >-
         This table contains information about the dbt runs that have been
-        performed on this project. A dbt "run" is a single execution of a dbt model.
-        This table is populated by the elementary package.
+        performed on this project. A dbt "run" is a single execution of a dbt model or
+        test. This table is populated by the elementary package.
       columns:
         - name: model_execution_id
         - name: unique_id

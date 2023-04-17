@@ -1,0 +1,62 @@
+version: 2
+
+models:
+
+  - name: int_group_by_invocation_status_type
+    description: >
+      An intermediate model that joins run results into our invocations staging table,
+      and then groups by invocation resource type (model, test, etc) and status (
+      success, failure, etc).
+    columns:
+      - name: invocation_id
+      - name: run_started_at
+      - name: run_completed_at
+      - name: command
+      - name: target_name
+      - name: selected
+      - name: sync_name
+      - name: partner_name
+      - name: airflow_run_id
+      - name: resource_type
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["model", "test"]
+      - name: status
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["error","success","fail","warn","pass"]
+      - name: count
+    tests:
+      # test a unique comination of columns
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns: ["invocation_id", "resource_type", "status"]
+  - name: int_group_by_run
+    description: >
+      An intermediate model that groups our invocation status table by airflow run id, 
+      and then counts the number of model and test runs that were successful or failed.
+    columns:
+      - name: sync_name
+        tests:
+          - not_null
+      - name: partner_name
+        tests:
+          - not_null
+      - name: airflow_run_id
+        tests:
+          - not_null
+      - name: num_steps
+      - name: run_started_at
+      - name: run_completed_at
+      - name: test_errors
+      - name: model_errors
+      - name: total_tests
+      - name: total_models
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns: ["airflow_run_id","sync_name","partner_name"]
+      - dbt_utils.expression_is_true:
+          expression: "test_errors <= total_tests"
+      - dbt_utils.expression_is_true:
+          expression: "model_errors <= total_models"
