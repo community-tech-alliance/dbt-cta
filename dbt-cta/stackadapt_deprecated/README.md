@@ -1,3 +1,0 @@
-# StackAdapt (DEPRECATED)
-
-TKTKTK
