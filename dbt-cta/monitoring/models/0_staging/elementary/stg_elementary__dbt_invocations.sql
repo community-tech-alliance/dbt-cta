@@ -43,15 +43,23 @@ with
 
         from cast_datatypes
     ),
+    convert_timezones as (
+        select
+            *,
+            {{ dbt_date.convert_timezone("run_started_at", 'America/New_York', 'UTC') }} as run_started_at_et,
+            {{ dbt_date.convert_timezone("run_completed_at", 'America/New_York', 'UTC') }} as run_completed_at_et,
+            {{ dbt_date.convert_timezone("generated_at", 'America/New_York', 'UTC') }} as generated_at_et
+        from extract_vars
+    ),
     final as (
         select
             invocation_id,
             job_id,
             job_name,
             job_run_id,
-            run_started_at,
-            run_completed_at,
-            generated_at,
+            run_started_at_et as run_started_at,
+            run_completed_at_et as run_completed_at,
+            generated_at_et as generated_at,
             command,
             dbt_version,
             elementary_version,
@@ -78,7 +86,7 @@ with
             sync_name,
             partner_name,
             airflow_run_id
-        from extract_vars
+        from convert_timezones
     )
 
 select *

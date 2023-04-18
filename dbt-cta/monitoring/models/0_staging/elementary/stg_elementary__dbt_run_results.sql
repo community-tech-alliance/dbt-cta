@@ -24,28 +24,37 @@ with
         from source
 
     ),
+    convert_timezones as (
+        select *,
+            {{ dbt_date.convert_timezone("generated_at", 'America/New_York', 'UTC') }} as generated_at_et,
+            {{ dbt_date.convert_timezone("execute_started_at", 'America/New_York', 'UTC') }} as execute_started_at_et,
+            {{ dbt_date.convert_timezone("execute_completed_at", 'America/New_York', 'UTC') }} as execute_completed_at_et,
+            {{ dbt_date.convert_timezone("compile_started_at", 'America/New_York', 'UTC') }} as compile_started_at_et,
+            {{ dbt_date.convert_timezone("compile_completed_at", 'America/New_York', 'UTC') }} as compile_completed_at_et
+        from cast_datatypes
+    ),
     final as (
         select
             model_execution_id,
             unique_id,
             invocation_id,
-            generated_at,
+            generated_at_et as generated_at,
             name,
             message,
             status,
             resource_type,
             execution_time,
-            execute_started_at,
-            execute_completed_at,
-            compile_started_at,
-            compile_completed_at,
+            execute_started_at_et as execute_started_at,
+            execute_completed_at_et as execute_completed_at,
+            compile_started_at_et as compile_started_at,
+            compile_completed_at_et as compile_completed_at,
             rows_affected,
             full_refresh,
             compiled_code,
             failures,
             query_id,
             thread_id
-        from cast_datatypes
+        from convert_timezones
     )
 
 select *
