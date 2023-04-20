@@ -1,3 +1,10 @@
+{{ config(
+    partitions = partitions_to_replace,
+    cluster_by = "_airbyte_emitted_at",
+    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_ab_id',
+    tags = [ "top-level" ]
+) }}
 -- Final base SQL model
 -- depends_on: {{ ref('event_tags_ab3') }}
 select
