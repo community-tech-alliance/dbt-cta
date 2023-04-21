@@ -104,6 +104,8 @@ poetry.lock
 
 # cta build
 **/**/*.tar.gz
+.cta/
+airbyte_dbt_export
 
 # dbt build
 
@@ -117,3 +119,6 @@ poetry.lock
 .user_id
 elementary_output.json
 test-*.html
+
+# Virtual Environment
+.venv/
