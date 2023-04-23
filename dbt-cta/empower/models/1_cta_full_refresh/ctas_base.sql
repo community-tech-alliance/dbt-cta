@@ -1,24 +1,11 @@
+{% set partitions_to_replace = [
+    'timestamp_trunc(current_timestamp, day)',
+    'timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)'
+] %}
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_ab_id',
-    schema = "empower_partner_a",
-    post_hook = ["
-                    {%
-                        set scd_table_relation = adapter.get_relation(
-                            database=this.database,
-                            schema=this.schema,
-                            identifier='ctas_scd'
-                        )
-                    %}
-                    {%
-                        if scd_table_relation is not none
-                    %}
-                    {%
-                            do adapter.drop_relation(scd_table_relation)
-                    %}
-                    {% endif %}
-                        "],
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
@@ -63,5 +50,8 @@ select
     _airbyte_ctas_hashid
 from {{ ref('ctas_ab3') }}
 -- ctas from {{ source('empower_partner_a', '_airbyte_raw_ctas') }}
-where 1 = 1
+{% if is_incremental() %}
+where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
+{% endif %}
+
 
