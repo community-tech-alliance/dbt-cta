@@ -71,3 +71,11 @@ models:
         - partner
       +materialized: incremental
       +on_schema_change: sync_all_columns
+
+    # for the /monitoring project
+    0_staging:
+      +materialized: view
+    1_intermediate:
+      +materialized: view
+    2_reporting:
+      +materialized: view
