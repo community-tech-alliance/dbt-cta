@@ -22,4 +22,4 @@ select
     state,
     relationship,
     email,
-from {{ ref('profiles_base') }}
+from {{ source('cta','profiles_base') }}

@@ -6,4 +6,4 @@ select
     name,
     description,
     id,
-from {{ ref('regions_base') }}
+from {{ source('cta','regions_base') }}

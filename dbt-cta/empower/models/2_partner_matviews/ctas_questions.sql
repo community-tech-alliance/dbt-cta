@@ -5,4 +5,4 @@ select
     text,
     type,
     key,
-from {{ ref('ctas_questions_base') }}
+from {{ source('cta','ctas_questions_base') }}

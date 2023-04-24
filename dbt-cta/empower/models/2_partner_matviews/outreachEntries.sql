@@ -11,4 +11,4 @@ select
     outreachSnoozeUntilMts,
     targetEid,
     outreachContactMode,
-from {{ ref('outreachEntries_base') }}
+from {{ source('cta','outreachEntries_base') }}

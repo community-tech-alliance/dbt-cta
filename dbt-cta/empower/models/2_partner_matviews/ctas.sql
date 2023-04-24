@@ -32,4 +32,4 @@ select
     shouldDisplayElectionDayPollingLocation,
     isGeocodingDone,
     advancedTargetingFilter,
-from {{ ref('ctas_base') }}
+from {{ source('cta','ctas_base') }}

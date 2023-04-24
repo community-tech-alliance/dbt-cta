@@ -5,4 +5,4 @@ select
     contactedMts,
     answers,
     answerIdsByPromptId,
-from {{ ref('ctaResults_base') }}
+from {{ source('cta','ctaResults_base') }}

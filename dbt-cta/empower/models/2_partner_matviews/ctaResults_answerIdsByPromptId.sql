@@ -7,4 +7,4 @@ select
     _13800,
     _13303,
     _13304,
-from {{ ref('ctaResults_answerIdsByPromptId_base') }}
+from {{ source('cta','ctaResults_answerIdsByPromptId_base') }}
