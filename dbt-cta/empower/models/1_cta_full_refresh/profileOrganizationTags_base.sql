@@ -18,7 +18,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_profileOrganizationTags_hashid
 from {{ ref('profileOrganizationTags_ab3') }}
--- profileOrganizationTags from {{ source('empower_partner_a', '_airbyte_raw_profileOrganizationTags') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

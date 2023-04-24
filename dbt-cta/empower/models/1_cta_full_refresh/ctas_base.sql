@@ -49,7 +49,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_ctas_hashid
 from {{ ref('ctas_ab3') }}
--- ctas from {{ source('empower_partner_a', '_airbyte_raw_ctas') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
