@@ -223,7 +223,6 @@ models:
       - name: _airbyte_ab_id
         description: ''
         tests:
-          - unique
           - not_null
       - name: _airbyte_emitted_at
         description: ''
@@ -331,7 +330,6 @@ models:
       - name: _airbyte_ab_id
         description: ''
         tests:
-          - unique
           - not_null
       - name: _airbyte_emitted_at
         description: ''
@@ -369,7 +367,6 @@ models:
       - name: _airbyte_ab_id
         description: ''
         tests:
-          - unique
           - not_null
       - name: _airbyte_emitted_at
         description: ''
@@ -413,7 +410,6 @@ models:
       - name: _airbyte_ab_id
         description: ''
         tests:
-          - unique
           - not_null
       - name: _airbyte_emitted_at
         description: ''
@@ -495,7 +491,7 @@ models:
           - unique
           - not_null
 
-  - name: ctaresults_answeridsbypromptid
+  - name: ctaresults_answeridsbypromptid_base
     description: ''
     columns:
       - name: _airbyte_ctaresults_hashid
