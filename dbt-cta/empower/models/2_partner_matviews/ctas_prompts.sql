@@ -8,4 +8,4 @@ select
     id,
     promptText,
     dependsOnInitialDispositionResponse,
-from {{ source('cta','ctas_prompts_base') }}
+from {{ ref('ctas_prompts_base') }}

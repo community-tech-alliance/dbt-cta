@@ -2,4 +2,4 @@ select
     displayLabel,
     type,
     url,
-from {{ source('cta','ctas_shareables_base') }}
+from {{ ref('ctas_shareables_base') }}

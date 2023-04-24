@@ -5,4 +5,4 @@ select
     ordering,
     promptId,
     id,
-from {{ source('cta','ctas_prompts_answers_base') }}
+from {{ ref('ctas_prompts_answers_base') }}
