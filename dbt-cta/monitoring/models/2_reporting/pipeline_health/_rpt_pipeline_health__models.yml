@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: rpt_pipeline_health
+    description: >
+      A reporting model that joins the elementary dbt invocations and run results tables
+      to produce a pipeline-run-level table (one row per sync, per partner, per airflow
+      run) with high-level information about the status of a given pipeline run.
+    columns:
+      - name: sync_name
+        description: >
+          The name of the sync that this dbt run is a part of.
+        tests:
+          - not_null
+      - name: partner_name
+        description: >
+          The name of the partner that this dbt project was run for
+        tests:
+          - not_null
+      - name: airflow_run_id
+        description: >
+          The airflow run id that this dbt run was a part of.
+        tests:
+          - not_null
+      - name: num_steps
+        description: >
+          The number of dbt airflow tasks that were run in this pipeline run.
+      - name: run_started_at
+        description: >
+          The time at which the first dbt task in this pipeline run started. NOTE: this
+          is just the dbt tasks, not the entire airflow/airbyte run.
+      - name: run_completed_at
+      - name: test_errors
+      - name: successful_tests
+      - name: total_tests
+      - name: model_errors
+      - name: successful_models
+      - name: total_models
+      - name: success
+        description: A boolean indicating whether or not the pipeline run was successful.
+      - name: success_int
+        description: >
+          An integer indicating whether or not the pipeline run was successful. 1 for
+          success, 0 for failure.
+      - name: most_recent_run_per_day
+        description: >
+          A boolean indicating whether or not this pipeline run is the most recent run
+          for this sync, partner, and day.
+      - name: runtime
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns: ["airflow_run_id","sync_name","partner_name"]

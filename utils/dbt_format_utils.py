@@ -130,7 +130,7 @@ def restructure_airbyte_dbt(airbyte_workspace_path, dbt_cta_path):
 
             # Move files to target path
             for file_path in files_to_move:
-                file_name = file_path.split("/")[-1]
+                file_name = os.path.basename(file_path)
                 moved_file = move(src=file_path, dst=f"{target_path}/{file_name}")
                 print(f"Moved {file_path} -> {moved_file}")
 
