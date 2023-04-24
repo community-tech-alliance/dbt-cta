@@ -92,8 +92,20 @@ def main():
         )
 
 
-# Function to grab Airbyte Generated dbt and move into CTA structured folder (✨Progify it✨)
 def restructure_airbyte_dbt(airbyte_workspace_path, dbt_cta_path):
+    """
+    Restructures the Airbyte export directory at the given `airbyte_workspace_path` into a dbt-cta directory structure
+    at the given `dbt_cta_path`. Also moves over the `sources.yml` file, and modifies the content of the dbt models
+    in the `0_ctes`, `1_cta_full_refresh`, and `1_cta_incremental` directories using the `modify_dbt_models` function.
+
+    Args:
+        airbyte_workspace_path (str): The path to the Airbyte workspace directory.
+        dbt_cta_path (str): The path to the dbt-cta directory.
+
+    Returns:
+        None
+    """
+
     # Mapping of Airbyte folders -> CTA folders
     airbyte_cta_dir_mapping = {
         "airbyte_ctes": "0_ctes",
@@ -136,53 +148,32 @@ def restructure_airbyte_dbt(airbyte_workspace_path, dbt_cta_path):
 
     # Cool, files are moved so now lets modify the file content
     modify_dbt_models(f"{dbt_cta_path}/models/0_ctes", "cte")
-    modify_full_refresh_models(f"{dbt_cta_path}/models/1_cta_full_refresh")
+    modify_dbt_models(f"{dbt_cta_path}/models/1_cta_full_refresh", "full_refresh")
     modify_dbt_models(f"{dbt_cta_path}/models/1_cta_incremental", "incremental")
 
 
 # Function to modify ctes and incremental models. For these its just gonna be
 # swapping out the config section, and changing source to cta.
 def modify_dbt_models(path_to_models, model_type):
-    # Default Config Section thats gonna be used to replace Airbyte generated config
-    config = (
+    """
+    Modifies the dbt models at the given path by replacing the default config section with a new config section,
+    and by selectively writing each line of each model to a temporary file, with some modifications to the source names.
+
+    Args:
+        path_to_models (str): The path to the dbt models directory.
+        model_type (str): The type of model to modify. Can be 'cte', 'incremental', or 'full_refresh'.
+
+    Returns:
+        None
+    """
+    # Headers/Footers that should be added to dbt models
+    default_header = (
         "{{ config(\n"
         '    cluster_by = "_airbyte_emitted_at",\n'
         '    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},\n'
         '    unique_key = "_airbyte_ab_id"\n'
         ") }}\n"
     )
-    stop_skip_pattern = "-- SQL model" if model_type == "cte" else "-- Final base SQL"
-
-    # Get all dbt Models
-    cte_model_files = glob(f"{path_to_models}/*.sql", recursive=True)
-
-    # Iterate through models and read each one line by line
-    # Then selectively write line to temp file.
-    # Finally, replace file content with temp file content
-    for model_file_path in cte_model_files:
-        skip_line = True
-        with tempfile.TemporaryFile(mode="r+") as temp_file:
-            temp_file.write(config)
-            with open(model_file_path, "r") as model_file:
-                for line in model_file:
-                    # Dont start writing to file if were still in config section
-                    if stop_skip_pattern in line:
-                        skip_line = False
-                    if skip_line:
-                        continue
-                    # Substitute source with 'cta' if regex match
-                    line = re.sub("(?<=source\(').*?(?=', '_airbyte_raw_)", "cta", line)
-                    temp_file.write(line)
-            temp_file.seek(0)
-            with open(f"{model_file_path}", "w") as output_file:
-                output_file.write(temp_file.read())
-
-
-# Function to modify sql files for full-refresh models
-# this will add the logic for partition replacement strat
-def modify_full_refresh_models(path_to_models):
-    # Default Config Section thats gonna be used to replace Airbyte generated config.
-    # This also contains the partition replacement header.
     partition_replacement_header = (
         "{% set partitions_to_replace = [\n"
         '    "timestamp_trunc(current_timestamp, day)",\n'
@@ -195,14 +186,24 @@ def modify_full_refresh_models(path_to_models):
         '    unique_key = "_airbyte_ab_id"\n'
         ") }}\n"
     )
-
     partition_replacement_footer = (
         "{% if is_incremental() %}\n"
         'where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(",") }})\n'
         "{% endif %}"
     )
 
-    # Get all full-refresh Models
+    # Determine which header/footer to use based on dbt model
+    if model_type == "full_refresh":
+        header = partition_replacement_header
+        footer = partition_replacement_footer
+    else:
+        header = default_header
+        footer = None
+    
+    start_skip_config_pattern = "{{ config("
+    stop_skip_config_pattern = ") }}"
+
+    # Get all dbt Models
     cte_model_files = glob(f"{path_to_models}/*.sql", recursive=True)
 
     # Iterate through models and read each one line by line
@@ -211,21 +212,21 @@ def modify_full_refresh_models(path_to_models):
     for model_file_path in cte_model_files:
         skip_line = True
         with tempfile.TemporaryFile(mode="r+") as temp_file:
-            temp_file.write(partition_replacement_header)
+            temp_file.write(header)
             with open(model_file_path, "r") as model_file:
                 for line in model_file:
                     # Dont start writing to file if were still in config section
-                    if "-- Final base SQL" in line:
-                        skip_line = False
-                    # For these models, get rid of default where statement
-                    if "where 1 = 1" in line:
+                    if start_skip_config_pattern in line:
                         skip_line = True
+                    if stop_skip_config_pattern in line:
+                        skip_line = False
                     if skip_line:
                         continue
                     # Substitute source with 'cta' if regex match
                     line = re.sub("(?<=source\(').*?(?=', '_airbyte_raw_)", "cta", line)
                     temp_file.write(line)
-            temp_file.write(partition_replacement_footer)
+                if footer:
+                    temp_file.write(footer)
             temp_file.seek(0)
             with open(f"{model_file_path}", "w") as output_file:
                 output_file.write(temp_file.read())
@@ -233,6 +234,19 @@ def modify_full_refresh_models(path_to_models):
 
 # Function to grab the content of a specified cacher sript
 def download_cacher_script(script_guid, api_key, api_token, output_path):
+    """
+    Downloads a script from Cacher using its unique identifier (GUID) and saves it to the specified output path.
+
+    Args:
+        script_guid (str): The unique identifier (GUID) of the Cacher script to download.
+        api_key (str): The API key used to authenticate the request to the Cacher API.
+        api_token (str): The API token used to authenticate the request to the Cacher API.
+        output_path (str): The file path to save the downloaded script.
+    
+    Returns:
+        None
+    """
+
     # Make API request to get all cacher snippets for a user
     cacher_url = "https://api.cacher.io/integrations/show_all"
     headers = {
@@ -264,6 +278,15 @@ def download_cacher_script(script_guid, api_key, api_token, output_path):
 
 # Function to append "_base" to all files in a directory
 def add_base_to_filenames(base_tables_path):
+    """
+    Renames all SQL files in the specified directory by appending '_base' to the filename, except those that already contain '_base' in the name.
+
+    Args:
+        base_tables_path (str): The path to the directory containing the SQL files to be renamed.
+
+    Returns:
+        None. The function modifies the files in place by renaming them.
+    """
     base_tables = [
         f
         for f in os.listdir(base_tables_path)
@@ -289,6 +312,19 @@ def add_base_to_filenames(base_tables_path):
 
 
 def create_matview_dbt_files_from_base(base_tables_path, output_path):
+    """
+    Creates DBT materialized view files based on base tables by removing Airbyte specific columns
+    and writing SQL to a new file. (SQL will be a select all columns except Airbyte columns) 
+
+    Args:
+        base_tables_path (str): The path to the directory containing the base tables.
+        output_path (str): The path to the directory where the new files will be written.
+
+    Returns:
+        None. The function writes the new files to the specified output directory.
+
+    """
+
     # Make sure path structure is consistent
     base_tables_path = (
         base_tables_path if base_tables_path[-1] != "/" else base_tables_path[:-1]

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Confused? Check the README :D
+
 ####  FUNCTIONS  ####
 copy_dbt_from_airbyte() {
 
@@ -134,15 +136,21 @@ generate_dbt_tests() {
 }
 
 init() {
+    cd $ROOT_PATH
     pip install pipenv
     pipenv install
 }
 
 #### ENTRY POINT ####
-# Confused? Check the README :D
 
 set -o pipefail
-ROOT_PATH=$PWD
+# Absolute path to this script
+SCRIPT=$(readlink -f "$0")
+# Absolute path this script is in
+SCRIPT_PATH=$(dirname "$SCRIPT")
+# Move to root of git repo and set as ROOT_PATH
+ROOT_PATH=$(cd "$SCRIPT_PATH"/..; pwd)
+echo $ROOT_PATH
 
 command="gum -v &>/dev/null"
 if [[ "$(command)" -ne 0 ]]; then
