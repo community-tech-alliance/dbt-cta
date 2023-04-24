@@ -1,4 +1,4 @@
 select
     profileEid,
     tagId,
-from {{ source('cta','profileOrganizationTags_base') }}
+from {{ source('cta','profileorganizationtags_base') }}

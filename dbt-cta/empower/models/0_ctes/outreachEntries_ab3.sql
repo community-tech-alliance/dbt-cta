@@ -2,11 +2,9 @@
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_ab_id',
-    schema = "_airbyte_empower_partner_a",
-    tags = [ "top-level-intermediate" ]
 ) }}
 -- SQL model to build a hash column based on the values of this record
--- depends_on: {{ ref('outreachEntries_ab2') }}
+-- depends_on: {{ ref('outreachentries_ab2') }}
 select
     {{ dbt_utils.surrogate_key([
         'outreachCurrentCtaId',
@@ -21,9 +19,9 @@ select
         'outreachSnoozeUntilMts',
         'targetEid',
         'outreachContactMode',
-    ]) }} as _airbyte_outreachEntries_hashid,
+    ]) }} as _airbyte_outreachentries_hashid,
     tmp.*
-from {{ ref('outreachEntries_ab2') }} tmp
--- outreachEntries
+from {{ ref('outreachentries_ab2') }} tmp
+-- outreachentries
 where 1 = 1
 

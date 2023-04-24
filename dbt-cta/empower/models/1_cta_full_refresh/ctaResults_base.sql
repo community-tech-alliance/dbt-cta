@@ -9,19 +9,19 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('ctaResults_ab3') }}
+-- depends_on: {{ ref('ctaresults_ab3') }}
 select
     profileEid,
     ctaId,
     notes,
     contactedMts,
     answers,
-    answerIdsByPromptId,
+    answeridsbypromptid,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
-    _airbyte_ctaResults_hashid
-from {{ ref('ctaResults_ab3') }}
+    _airbyte_ctaresults_hashid
+from {{ ref('ctaresults_ab3') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

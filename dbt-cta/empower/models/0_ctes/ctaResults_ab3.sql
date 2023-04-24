@@ -2,11 +2,9 @@
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_ab_id',
-    schema = "_airbyte_empower_partner_a",
-    tags = [ "top-level-intermediate" ]
 ) }}
 -- SQL model to build a hash column based on the values of this record
--- depends_on: {{ ref('ctaResults_ab2') }}
+-- depends_on: {{ ref('ctaresults_ab2') }}
 select
     {{ dbt_utils.surrogate_key([
         'profileEid',
@@ -14,10 +12,10 @@ select
         'notes',
         'contactedMts',
         object_to_string('answers'),
-        object_to_string('answerIdsByPromptId'),
-    ]) }} as _airbyte_ctaResults_hashid,
+        object_to_string('answeridsbypromptid'),
+    ]) }} as _airbyte_ctaresults_hashid,
     tmp.*
-from {{ ref('ctaResults_ab2') }} tmp
--- ctaResults
+from {{ ref('ctaresults_ab2') }} tmp
+-- ctaresults
 where 1 = 1
 

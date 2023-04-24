@@ -4,7 +4,7 @@ sources:
   database: "{{ env_var('CTA_PROJECT_ID') }}"
   schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables:
-  - name: _airbyte_raw_ctaResults
+  - name: _airbyte_raw_ctaresults
     columns:
       - name: _airbyte_ab_id
         tests:
@@ -24,7 +24,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-  - name: _airbyte_raw_outreachEntries
+  - name: _airbyte_raw_outreachentries
     columns:
       - name: _airbyte_ab_id
         tests:
@@ -34,7 +34,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-  - name: _airbyte_raw_profileOrganizationTags
+  - name: _airbyte_raw_profileorganizationtags
     columns:
       - name: _airbyte_ab_id
         tests:
@@ -63,16 +63,16 @@ sources:
       - name: _airbyte_emitted_at
       - name: _airbyte_data
         tests:
-          - not_nulls
-    name: ctaResults_answerIdsByPromptId_base
-    name: ctaResults_answers_base
-    name: ctaResults_base
-    name: ctas_base
-    name: ctas_prompts_answers_base
-    name: ctas_prompts_base
-    name: ctas_questions_base
-    name: ctas_shareables_base
-    name: outreachEntries_base
-    name: profileOrganizationTags_base
-    name: profiles_base
-    name: regions_base
+          - not_null
+  - name: ctaresults_answeridsbypromptid_base
+  - name: ctaresults_answers_base
+  - name: ctaresults_base
+  - name: ctas_base
+  - name: ctas_prompts_answers_base
+  - name: ctas_prompts_base
+  - name: ctas_questions_base
+  - name: ctas_shareables_base
+  - name: outreachentries_base
+  - name: profileorganizationtags_base
+  - name: profiles_base
+  - name: regions_base

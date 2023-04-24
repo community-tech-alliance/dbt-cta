@@ -9,7 +9,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('outreachEntries_ab3') }}
+-- depends_on: {{ ref('outreachentries_ab3') }}
 select
     outreachCurrentCtaId,
     outreachEngagementLevel,
@@ -26,8 +26,8 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
-    _airbyte_outreachEntries_hashid
-from {{ ref('outreachEntries_ab3') }}
+    _airbyte_outreachentries_hashid
+from {{ ref('outreachentries_ab3') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

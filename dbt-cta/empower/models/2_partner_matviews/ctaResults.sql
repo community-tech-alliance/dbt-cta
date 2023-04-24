@@ -4,5 +4,5 @@ select
     notes,
     contactedMts,
     answers,
-    answerIdsByPromptId,
-from {{ source('cta','ctaResults_base') }}
+    answeridsbypromptid,
+from {{ source('cta','ctaresults_base') }}

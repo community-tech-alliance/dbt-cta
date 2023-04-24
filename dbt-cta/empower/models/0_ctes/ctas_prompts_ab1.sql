@@ -1,12 +1,10 @@
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    schema = "_airbyte_empower_partner_a",
-    tags = [ "nested-intermediate" ]
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ ref('ctas') }}
-{{ unnest_cte(ref('ctas'), 'ctas', 'prompts') }}
+-- depends_on: {{ ref('ctas_base') }}
+{{ unnest_cte(ref('ctas_base'), 'ctas', 'prompts') }}
 select
     _airbyte_ctas_hashid,
     {{ json_extract_scalar(unnested_column_value('prompts'), ['ctaId'], ['ctaId']) }} as ctaId,
@@ -21,7 +19,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('ctas') }} as table_alias
+from {{ ref('ctas_base') }} as table_alias
 -- prompts at ctas/prompts
 {{ cross_join_unnest('ctas', 'prompts') }}
 where 1 = 1
