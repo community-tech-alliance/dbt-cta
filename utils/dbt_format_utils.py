@@ -199,7 +199,7 @@ def modify_dbt_models(path_to_models, model_type):
     else:
         header = default_header
         footer = None
-    
+
     start_skip_config_pattern = "{{ config("
     stop_skip_config_pattern = ") }}"
 
@@ -242,7 +242,7 @@ def download_cacher_script(script_guid, api_key, api_token, output_path):
         api_key (str): The API key used to authenticate the request to the Cacher API.
         api_token (str): The API token used to authenticate the request to the Cacher API.
         output_path (str): The file path to save the downloaded script.
-    
+
     Returns:
         None
     """
@@ -314,7 +314,7 @@ def add_base_to_filenames(base_tables_path):
 def create_matview_dbt_files_from_base(base_tables_path, output_path):
     """
     Creates DBT materialized view files based on base tables by removing Airbyte specific columns
-    and writing SQL to a new file. (SQL will be a select all columns except Airbyte columns) 
+    and writing SQL to a new file. (SQL will be a select all columns except Airbyte columns)
 
     Args:
         base_tables_path (str): The path to the directory containing the base tables.
