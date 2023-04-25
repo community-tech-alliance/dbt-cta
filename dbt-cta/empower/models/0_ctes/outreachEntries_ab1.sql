@@ -22,6 +22,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ source('cta', '_airbyte_raw_outreachEntries') }} as table_alias
--- outreachEntries
 where 1 = 1
 

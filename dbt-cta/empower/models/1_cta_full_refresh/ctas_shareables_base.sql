@@ -20,7 +20,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_shareables_hashid
 from {{ ref('ctas_shareables_ab3') }}
--- shareables at ctas/shareables from {{ ref('ctas') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(",") }})

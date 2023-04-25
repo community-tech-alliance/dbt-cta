@@ -16,6 +16,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ source('cta', '_airbyte_raw_ctaResults') }} as table_alias
--- ctaResults
 where 1 = 1
 

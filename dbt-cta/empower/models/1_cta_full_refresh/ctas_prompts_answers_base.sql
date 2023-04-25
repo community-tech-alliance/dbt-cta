@@ -23,7 +23,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_answers_hashid
 from {{ ref('ctas_prompts_answers_ab3') }}
--- answers at ctas/prompts/answers from {{ ref('ctas_prompts') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(",") }})
