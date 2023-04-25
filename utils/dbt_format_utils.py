@@ -345,7 +345,7 @@ def create_matview_dbt_files_from_base(base_tables_path, output_path):
     base_tables = [
         f
         for f in os.listdir(base_tables_path)
-        if os.path.isfile(os.path.join(base_tables_path, f))
+        if f.endswith('.sql')
     ]
     for table in base_tables:
         with open(f"{base_tables_path}/{table}", "r") as infile:
@@ -362,7 +362,8 @@ def create_matview_dbt_files_from_base(base_tables_path, output_path):
                         write_to_file = False
                         outfile.write(f"from {{{{ source('cta','{table_name}') }}}}")
                     if write_to_file:
-                        if not "_airbyte" in line or "_hashid" in line:
+                        if not any(substring in line for substring in
+                                   ['_airbyte_emitted_at', '_airbyte_ab_id', '_airbyte_normalized_at']):
                             outfile.write(line)
 
 
