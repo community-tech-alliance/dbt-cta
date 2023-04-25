@@ -2,7 +2,7 @@ version: 2
 
 models:
 
-  - name: outreachEntries_base
+  - name: outreachEntries
     description: ''
     columns:
       - name: outreachcurrentctaid
@@ -29,25 +29,10 @@ models:
         description: ''
       - name: outreachcontactmode
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
       - name: _airbyte_outreachentries_hashid
         description: ''
 
-  - name: ctaResults_answers_base
+  - name: ctaResults_answers
     description: ''
     columns:
       - name: _airbyte_ctaresults_hashid
@@ -58,21 +43,6 @@ models:
         description: ''
       - name: _10
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
       - name: _airbyte_outreachentries_hashid
         description: ''
       - name: _airbyte_answers_hashid
@@ -81,7 +51,7 @@ models:
           - unique
           - not_null
 
-  - name: ctas_base
+  - name: ctas
     description: ''
     columns:
       - name: turfcuttingtype
@@ -150,28 +120,13 @@ models:
         description: ''
       - name: advancedtargetingfilter
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
       - name: _airbyte_ctas_hashid
         description: ''
         tests:
           - unique
           - not_null
 
-  - name: regions_base
+  - name: regions
     description: ''
     columns:
       - name: organizationid
@@ -188,28 +143,13 @@ models:
         description: ''
       - name: id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
       - name: _airbyte_regions_hashid
         description: ''
         tests:
           - unique
           - not_null
 
-  - name: ctas_shareables_base
+  - name: ctas_shareables
     description: ''
     columns:
       - name: _airbyte_ctas_hashid
@@ -220,27 +160,13 @@ models:
         description: ''
       - name: url
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
       - name: _airbyte_shareables_hashid
         description: ''
         tests:
           - unique
           - not_null
 
-  - name: profiles_base
+  - name: profiles
     description: ''
     columns:
       - name: zip
@@ -289,28 +215,13 @@ models:
         description: ''
       - name: email
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
       - name: _airbyte_profiles_hashid
         description: ''
         tests:
           - unique
           - not_null
 
-  - name: ctas_questions_base
+  - name: ctas_questions
     description: ''
     columns:
       - name: _airbyte_ctas_hashid
@@ -327,27 +238,13 @@ models:
         description: ''
       - name: key
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
       - name: _airbyte_questions_hashid
         description: ''
         tests:
           - unique
           - not_null
 
-  - name: ctas_prompts_answers_base
+  - name: ctas_prompts_answers
     description: ''
     columns:
       - name: _airbyte_prompts_hashid
@@ -364,27 +261,13 @@ models:
         description: ''
       - name: id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
       - name: _airbyte_answers_hashid
         description: ''
         tests:
           - unique
           - not_null
 
-  - name: ctas_prompts_base
+  - name: ctas_prompts
     description: ''
     columns:
       - name: _airbyte_ctas_hashid
@@ -407,27 +290,13 @@ models:
         description: ''
       - name: dependsoninitialdispositionresponse
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
       - name: _airbyte_prompts_hashid
         description: ''
         tests:
           - unique
           - not_null
 
-  - name: ctaResults_base
+  - name: ctaResults
     description: ''
     columns:
       - name: profileeid
@@ -442,56 +311,26 @@ models:
         description: ''
       - name: answeridsbypromptid
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
       - name: _airbyte_ctaresults_hashid
         description: ''
         tests:
           - unique
           - not_null
 
-  - name: profileOrganizationTags_base
+  - name: profileOrganizationTags
     description: ''
     columns:
       - name: profileeid
         description: ''
       - name: tagid
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
       - name: _airbyte_profileorganizationtags_hashid
         description: ''
         tests:
           - unique
           - not_null
 
-  - name: ctaResults_answerIdsByPromptid_base
+  - name: ctaResults_answerIdsByPromptid
     description: ''
     columns:
       - name: _airbyte_ctaresults_hashid
@@ -512,21 +351,6 @@ models:
         description: ''
       - name: _13304
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
       - name: _airbyte_answeridsbypromptid_hashid
         description: ''
         tests:
