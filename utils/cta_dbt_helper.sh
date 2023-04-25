@@ -20,6 +20,7 @@ copy_dbt_from_airbyte() {
         # https://docs.airbyte.com/operator-guides/transformation-and-normalization/transformations-with-dbt/#exporting-dbt-normalization-project-outside-airbyte
         CACHER_SNIPPET_GUID="2b77280d537736f980f9" 
 
+        mkdir -p $ROOT_PATH/.cta
         cd $ROOT_PATH/.cta
         pipenv run python $ROOT_PATH/utils/dbt_format_utils.py getCacherScript \
         --cacherSnippetGUID $CACHER_SNIPPET_GUID \
