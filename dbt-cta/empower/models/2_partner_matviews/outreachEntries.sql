@@ -1,4 +1,15 @@
-SELECT
-    *
-EXCEPT (_airbyte_ab_id, _airbyte_emitted_at, _airbyte_normalized_at)
-FROM {{ source('cta','outreachentries_base') }}
+select
+    outreachCurrentCtaId,
+    outreachEngagementLevel,
+    outreachCreatedMts,
+    outreachCtaProgress,
+    outreachSnoozeType,
+    outreachNote,
+    outreachScheduledFollowUpMts,
+    organizerEid,
+    outreachDidGetResponse,
+    outreachSnoozeUntilMts,
+    targetEid,
+    outreachContactMode,
+    _airbyte_outreachEntries_hashid
+from {{ source('cta','outreachEntries_base') }}

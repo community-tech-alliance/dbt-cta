@@ -64,15 +64,15 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-  - name: ctaresults_answeridsbypromptid_base
-  - name: ctaresults_answers_base
-  - name: ctaresults_base
+  - name: ctaResults_base
+  - name: ctaResults_answerIdsByPromptId_base
+  - name: ctaResults_answers_base
   - name: ctas_base
-  - name: ctas_prompts_answers_base
   - name: ctas_prompts_base
+  - name: ctas_prompts_answers_base
   - name: ctas_questions_base
   - name: ctas_shareables_base
-  - name: outreachentries_base
-  - name: profileorganizationtags_base
+  - name: outreachEntries_base
+  - name: profileOrganizationTags_base
   - name: profiles_base
   - name: regions_base

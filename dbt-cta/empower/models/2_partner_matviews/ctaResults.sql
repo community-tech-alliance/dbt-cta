@@ -1,4 +1,9 @@
-SELECT
-    *
-EXCEPT (_airbyte_ab_id, _airbyte_emitted_at, _airbyte_normalized_at)
-FROM {{ source('cta','ctaresults_base') }}
+select
+    profileEid,
+    ctaId,
+    notes,
+    contactedMts,
+    answers,
+    answerIdsByPromptId,
+    _airbyte_ctaResults_hashid
+from {{ source('cta','ctaResults_base') }}

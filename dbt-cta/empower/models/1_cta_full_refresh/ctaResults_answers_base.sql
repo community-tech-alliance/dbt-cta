@@ -1,16 +1,17 @@
 {% set partitions_to_replace = [
-    'timestamp_trunc(current_timestamp, day)',
-    'timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)'
+    "timestamp_trunc(current_timestamp, day)",
+    "timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)"
 ] %}
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    tags = [ "nested" ]
+    partitions = partitions_to_replace,
+    unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('ctaresults_answers_ab3') }}
+-- depends_on: {{ ref('ctaResults_answers_ab3') }}
 select
-    _airbyte_ctaresults_hashid,
+    _airbyte_ctaResults_hashid,
     _11,
     _1,
     _10,
@@ -18,9 +19,9 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_answers_hashid
-from {{ ref('ctaresults_answers_ab3') }}
+from {{ ref('ctaResults_answers_ab3') }}
+-- answers at ctaResults/answers from {{ ref('ctaResults') }}
+
 {% if is_incremental() %}
-where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
+where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(",") }})
 {% endif %}
-
-

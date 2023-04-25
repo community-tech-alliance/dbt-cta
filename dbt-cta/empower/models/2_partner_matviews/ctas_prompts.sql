@@ -1,4 +1,13 @@
-SELECT
-    *
-EXCEPT (_airbyte_ab_id, _airbyte_emitted_at, _airbyte_normalized_at)
-FROM {{ source('cta','ctas_prompts_base') }}
+select
+    _airbyte_ctas_hashid,
+    ctaId,
+    vanId,
+    isDeleted,
+    ordering,
+    answers,
+    answerInputType,
+    id,
+    promptText,
+    dependsOnInitialDispositionResponse,
+    _airbyte_prompts_hashid
+from {{ source('cta','ctas_prompts_base') }}

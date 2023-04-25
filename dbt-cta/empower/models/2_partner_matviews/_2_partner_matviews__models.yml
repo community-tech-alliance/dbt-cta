@@ -2,7 +2,7 @@ version: 2
 
 models:
 
-  - name: outreachentries
+  - name: outreachEntries
     description: ''
     columns:
       - name: outreachcurrentctaid
@@ -32,7 +32,7 @@ models:
       - name: _airbyte_outreachentries_hashid
         description: ''
 
-  - name: ctaresults_answers
+  - name: ctaResults_answers
     description: ''
     columns:
       - name: _airbyte_ctaresults_hashid
@@ -296,7 +296,7 @@ models:
           - unique
           - not_null
 
-  - name: ctaresults
+  - name: ctaResults
     description: ''
     columns:
       - name: profileeid
@@ -317,7 +317,7 @@ models:
           - unique
           - not_null
 
-  - name: profileorganizationtags
+  - name: profileOrganizationTags
     description: ''
     columns:
       - name: profileeid
@@ -330,7 +330,7 @@ models:
           - unique
           - not_null
 
-  - name: ctaresults_answeridsbypromptid
+  - name: ctaResults_answerIdsByPromptid
     description: ''
     columns:
       - name: _airbyte_ctaresults_hashid

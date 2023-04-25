@@ -1,4 +1,36 @@
-SELECT
-    *
-EXCEPT (_airbyte_ab_id, _airbyte_emitted_at, _airbyte_normalized_at)
-FROM {{ source('cta','ctas_base') }}
+select
+    turfCuttingType,
+    textCanvassingType,
+    associatedElectionId,
+    defaultPriorityLabelKey,
+    createdMts,
+    questions,
+    description,
+    regionIds,
+    customRecruitmentPromptText,
+    organizationId,
+    scheduledLaunchTimeMts,
+    shouldDisplayEarlyVotingPollingLocation,
+    updatedMts,
+    spokeCampaignId,
+    id,
+    shareables,
+    recruitmentTrainingUrl,
+    prompts,
+    isIntroCta,
+    recruitmentQuestionType,
+    shouldUseAdvancedTargeting,
+    hasAssignableTurfs,
+    isBatchImportDone,
+    prioritizations,
+    isPersonal,
+    activeUntilMts,
+    actionType,
+    instructionsHtml,
+    name,
+    conversationStarter,
+    shouldDisplayElectionDayPollingLocation,
+    isGeocodingDone,
+    advancedTargetingFilter,
+    _airbyte_ctas_hashid
+from {{ source('cta','ctas_base') }}

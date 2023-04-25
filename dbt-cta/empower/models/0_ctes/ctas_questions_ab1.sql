@@ -1,10 +1,11 @@
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ ref('ctas_base') }}
-{{ unnest_cte(ref('ctas_base'), 'ctas', 'questions') }}
+-- depends_on: {{ ref('ctas') }}
+{{ unnest_cte(ref('ctas'), 'ctas', 'questions') }}
 select
     _airbyte_ctas_hashid,
     {{ json_extract_scalar(unnested_column_value('questions'), ['surveyQuestionVanId'], ['surveyQuestionVanId']) }} as surveyQuestionVanId,
@@ -16,7 +17,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('ctas_base') }} as table_alias
+from {{ ref('ctas') }} as table_alias
 -- questions at ctas/questions
 {{ cross_join_unnest('ctas', 'questions') }}
 where 1 = 1

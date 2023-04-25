@@ -1,4 +1,5 @@
-SELECT
-    *
-EXCEPT (_airbyte_ab_id, _airbyte_emitted_at, _airbyte_normalized_at)
-FROM {{ source('cta','profileorganizationtags_base') }}
+select
+    profileEid,
+    tagId,
+    _airbyte_profileOrganizationTags_hashid
+from {{ source('cta','profileOrganizationTags_base') }}

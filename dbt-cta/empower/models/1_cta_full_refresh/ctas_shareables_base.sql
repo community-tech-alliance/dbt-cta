@@ -1,11 +1,12 @@
 {% set partitions_to_replace = [
-    'timestamp_trunc(current_timestamp, day)',
-    'timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)'
+    "timestamp_trunc(current_timestamp, day)",
+    "timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)"
 ] %}
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    tags = [ "nested" ]
+    partitions = partitions_to_replace,
+    unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
 -- depends_on: {{ ref('ctas_shareables_ab3') }}
@@ -19,8 +20,8 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_shareables_hashid
 from {{ ref('ctas_shareables_ab3') }}
+-- shareables at ctas/shareables from {{ ref('ctas') }}
+
 {% if is_incremental() %}
-where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
+where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(",") }})
 {% endif %}
-
-
