@@ -172,7 +172,6 @@ def modify_dbt_models(path_to_models, model_type):
         '    cluster_by = "_airbyte_emitted_at",\n'
         '    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},\n'
         '    unique_key = "_airbyte_ab_id"\n'
-        ") }}\n"
     )
     partition_replacement_header = (
         "{% set partitions_to_replace = [\n"
@@ -184,7 +183,6 @@ def modify_dbt_models(path_to_models, model_type):
         '    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},\n'
         "    partitions = partitions_to_replace,\n"
         '    unique_key = "_airbyte_ab_id"\n'
-        ") }}\n"
     )
     partition_replacement_footer = (
         "{% if is_incremental() %}\n"
@@ -204,12 +202,12 @@ def modify_dbt_models(path_to_models, model_type):
     stop_skip_config_pattern = ") }}"
 
     # Get all dbt Models
-    cte_model_files = glob(f"{path_to_models}/*.sql", recursive=True)
+    dbt_model_files = glob(f"{path_to_models}/*.sql", recursive=True)
 
     # Iterate through models and read each one line by line
     # Then selectively write line to temp file.
     # Finally, replace file content with temp file content
-    for model_file_path in cte_model_files:
+    for model_file_path in dbt_model_files:
         skip_line = True
         with tempfile.TemporaryFile(mode="r+") as temp_file:
             temp_file.write(header)
@@ -220,6 +218,9 @@ def modify_dbt_models(path_to_models, model_type):
                         skip_line = True
                     if stop_skip_config_pattern in line:
                         skip_line = False
+                    if "where 1 = 1" in line and model_type == "full_refresh":
+                        # Dont write 'where 1 = 1' for full_refresh models
+                        continue
                     if skip_line:
                         continue
                     # Substitute source with 'cta' if regex match
@@ -292,6 +293,10 @@ def add_base_to_filenames(base_tables_path):
         for f in os.listdir(base_tables_path)
         if os.path.isfile(os.path.join(base_tables_path, f))
     ]
+    # Make sure path structure is consistent
+    base_tables_path = (
+        base_tables_path if base_tables_path[-1] != "/" else base_tables_path[:-1]
+    )
     base_tables.sort()
     for table_file in base_tables:
         table_name = table_file.split(".")[0]
@@ -305,8 +310,8 @@ def add_base_to_filenames(base_tables_path):
             continue
 
         os.rename(
-            f"{base_tables_path}{table_file}",
-            f"{base_tables_path}{table_name}_base.sql",
+            f"{base_tables_path}/{table_file}",
+            f"{base_tables_path}/{table_name}_base.sql",
         )
         print(f"- name: {table_name}_base")
 
@@ -357,7 +362,7 @@ def create_matview_dbt_files_from_base(base_tables_path, output_path):
                         write_to_file = False
                         outfile.write(f"from {{{{ source('cta','{table_name}') }}}}")
                     if write_to_file:
-                        if not "_airbyte" in line:
+                        if not "_airbyte" in line or "_hashid" in line:
                             outfile.write(line)
 
 

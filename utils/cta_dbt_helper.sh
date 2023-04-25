@@ -16,7 +16,9 @@ copy_dbt_from_airbyte() {
         # Get Cacher creds from user
         CACHER_API_KEY=$(gum input --placeholder "Enter your Cacher API Key -> https://app.cacher.io/enter?action=view_api_creds")
         CACHER_API_TOKEN=$(gum input --placeholder "Enter your Cacher API Token -> https://app.cacher.io/enter?action=view_api_creds")
-        CACHER_SNIPPET_GUID="2b77280d537736f980f9"
+        # This is just the ID to the Cacher snippet that holds a script to extract an Airbyte Workspace from the Airbyte server.
+        # https://docs.airbyte.com/operator-guides/transformation-and-normalization/transformations-with-dbt/#exporting-dbt-normalization-project-outside-airbyte
+        CACHER_SNIPPET_GUID="2b77280d537736f980f9" 
 
         cd $ROOT_PATH/.cta
         pipenv run python $ROOT_PATH/utils/dbt_format_utils.py getCacherScript \
@@ -132,7 +134,8 @@ generate_dbt_tests() {
     done
     gum confirm "Confirm the vendor name is correct: $INPUT_DIR_NAME" || exit 1
 
-    pipenv run python $ROOT_PATH/utils/generate_schema_yml.py --sync-name "dbt-cta/$INPUT_DIR_NAME" --merge
+    cd $ROOT_PATH
+    pipenv run python $ROOT_PATH/utils/generate_schema_yml.py --sync-name "$INPUT_DIR_NAME" --merge
 }
 
 init() {
@@ -150,7 +153,6 @@ SCRIPT=$(readlink -f "$0")
 SCRIPT_PATH=$(dirname "$SCRIPT")
 # Move to root of git repo and set as ROOT_PATH
 ROOT_PATH=$(cd "$SCRIPT_PATH"/..; pwd)
-echo $ROOT_PATH
 
 command="gum -v &>/dev/null"
 if [[ "$(command)" -ne 0 ]]; then
