@@ -1,14 +1,4 @@
-select
-    outreachCurrentCtaId,
-    outreachEngagementLevel,
-    outreachCreatedMts,
-    outreachCtaProgress,
-    outreachSnoozeType,
-    outreachNote,
-    outreachScheduledFollowUpMts,
-    organizerEid,
-    outreachDidGetResponse,
-    outreachSnoozeUntilMts,
-    targetEid,
-    outreachContactMode,
-from {{ source('cta','outreachentries_base') }}
+SELECT
+    *
+EXCEPT (_airbyte_ab_id, _airbyte_emitted_at, _airbyte_normalized_at)
+FROM {{ source('cta','outreachentries_base') }}

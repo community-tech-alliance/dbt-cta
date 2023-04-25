@@ -1,8 +1,4 @@
-select
-    profileEid,
-    ctaId,
-    notes,
-    contactedMts,
-    answers,
-    answeridsbypromptid,
-from {{ source('cta','ctaresults_base') }}
+SELECT
+    *
+EXCEPT (_airbyte_ab_id, _airbyte_emitted_at, _airbyte_normalized_at)
+FROM {{ source('cta','ctaresults_base') }}

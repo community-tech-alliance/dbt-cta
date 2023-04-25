@@ -1,25 +1,4 @@
-select
-    zip,
-    lastUsedEmpowerMts,
-    eid,
-    lastName,
-    canvassedByCtaId,
-    role,
-    notes,
-    address,
-    myCampaignVanId,
-    city,
-    address2,
-    createdMts,
-    parentEid,
-    activeCtaIds,
-    firstName,
-    currentCtaId,
-    vanId,
-    updatedMts,
-    phone,
-    regionId,
-    state,
-    relationship,
-    email,
-from {{ source('cta','profiles_base') }}
+SELECT
+    *
+EXCEPT (_airbyte_ab_id, _airbyte_emitted_at, _airbyte_normalized_at)
+FROM {{ source('cta','profiles_base') }}

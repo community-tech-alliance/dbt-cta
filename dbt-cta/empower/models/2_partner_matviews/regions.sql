@@ -1,9 +1,4 @@
-select
-    organizationId,
-    inviteCodeCreatedMts,
-    ctaId,
-    inviteCode,
-    name,
-    description,
-    id,
-from {{ source('cta','regions_base') }}
+SELECT
+    *
+EXCEPT (_airbyte_ab_id, _airbyte_emitted_at, _airbyte_normalized_at)
+FROM {{ source('cta','regions_base') }}

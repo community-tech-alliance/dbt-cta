@@ -1,11 +1,4 @@
-select
-    ctaId,
-    vanId,
-    isDeleted,
-    ordering,
-    answers,
-    answerInputType,
-    id,
-    promptText,
-    dependsOnInitialDispositionResponse,
-from {{ source('cta','ctas_prompts_base') }}
+SELECT
+    *
+EXCEPT (_airbyte_ab_id, _airbyte_emitted_at, _airbyte_normalized_at)
+FROM {{ source('cta','ctas_prompts_base') }}

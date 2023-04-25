@@ -1,3 +1,4 @@
-select
+SELECT
     *
-from {{ source('cta','ctaresults_answers_base') }}
+EXCEPT (_airbyte_ab_id, _airbyte_emitted_at, _airbyte_normalized_at)
+FROM {{ source('cta','ctaresults_answers_base') }}
