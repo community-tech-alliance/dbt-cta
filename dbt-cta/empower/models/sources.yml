@@ -4,7 +4,7 @@ sources:
   database: "{{ env_var('CTA_PROJECT_ID') }}"
   schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables:
-  - name: _airbyte_raw_ctaresults
+  - name: _airbyte_raw_ctaResults
     columns:
       - name: _airbyte_ab_id
         tests:
@@ -24,7 +24,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-  - name: _airbyte_raw_outreachentries
+  - name: _airbyte_raw_outreachEntries
     columns:
       - name: _airbyte_ab_id
         tests:
@@ -34,7 +34,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-  - name: _airbyte_raw_profileorganizationtags
+  - name: _airbyte_raw_profileOrganizationTags
     columns:
       - name: _airbyte_ab_id
         tests:

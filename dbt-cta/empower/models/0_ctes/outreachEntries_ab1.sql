@@ -4,7 +4,7 @@
     unique_key = '_airbyte_ab_id',
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('cta', '_airbyte_raw_outreachentries') }}
+-- depends_on: {{ source('cta', '_airbyte_raw_outreachEntries') }}
 select
     {{ json_extract_scalar('_airbyte_data', ['outreachCurrentCtaId'], ['outreachCurrentCtaId']) }} as outreachCurrentCtaId,
     {{ json_extract('table_alias', '_airbyte_data', ['outreachEngagementLevel']) }} as outreachEngagementLevel,
@@ -21,7 +21,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_outreachentries') }} as table_alias
+from {{ source('cta', '_airbyte_raw_outreachEntries') }} as table_alias
 -- outreachentries
 where 1 = 1
 
