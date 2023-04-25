@@ -21,7 +21,9 @@ with
             run.resource_type,
             run.status,
             run.failures,
-            run.rows_affected
+            run.rows_affected,
+            run.message,
+            run.compiled_code
 
         from filter_invocations as inv
         left join run_results run using (invocation_id)
