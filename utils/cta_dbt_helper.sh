@@ -135,7 +135,7 @@ generate_dbt_tests() {
     done
     gum confirm "Confirm the vendor name is correct: $INPUT_DIR_NAME" || exit 1
 
-    cd $ROOT_PATH
+    cd $ROOT_PATH/dbt-cta/
     pipenv run python $ROOT_PATH/utils/generate_schema_yml.py --sync-name "$INPUT_DIR_NAME" --merge
 }
 
