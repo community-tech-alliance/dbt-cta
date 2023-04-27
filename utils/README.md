@@ -24,7 +24,7 @@ In the Terminal, navigate yourself to the root directory of our dbt project
 Then:
 
 ```
-sh ./utils/cta_dbt_helper.sh
+sh ../utils/cta_dbt_helper.sh
 ```
 
 This will start an interactive session that will let you do various things. Here's some more info on each option

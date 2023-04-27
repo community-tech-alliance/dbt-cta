@@ -119,7 +119,7 @@ generate_matviews() {
             exit 1
         fi
     done
-    gum confirm "Confirm the Base models path is correct: $ROOT_PATH/$OUTPUT_DIR_NAME" || exit 1
+    gum confirm "Confirm the path where matviews will be written to is correct: $ROOT_PATH/$OUTPUT_DIR_NAME" || exit 1
 
     pipenv run python $ROOT_PATH/utils/dbt_format_utils.py createMatViews --basePath $ROOT_PATH/$INPUT_DIR_NAME --outputPath $ROOT_PATH/$OUTPUT_DIR_NAME
 }
