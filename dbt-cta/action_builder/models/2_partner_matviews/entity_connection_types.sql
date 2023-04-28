@@ -7,5 +7,6 @@ select
     updated_by_id,
     display_position,
     entity_type_1_id,
-    entity_type_2_id
+    entity_type_2_id,
+    _airbyte_entity_connection_types_hashid
 from {{ source('cta','entity_connection_types_base') }}

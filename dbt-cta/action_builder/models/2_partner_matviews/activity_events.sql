@@ -11,5 +11,6 @@ select
     event_type,
     updated_at,
     campaign_id,
-    target_type
+    target_type,
+    _airbyte_activity_events_hashid
 from {{ source('cta','activity_events_base') }}

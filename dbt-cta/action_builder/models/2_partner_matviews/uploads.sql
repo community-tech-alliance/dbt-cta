@@ -15,5 +15,6 @@ select
     entity_type_id,
     visibility_status,
     processing_options,
-    identification_field
+    identification_field,
+    _airbyte_uploads_hashid
 from {{ source('cta','uploads_base') }}

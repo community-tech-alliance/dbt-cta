@@ -6,5 +6,6 @@ select
     item_type,
     whodunnit,
     created_at,
-    object_changes
+    object_changes,
+    _airbyte_versions_hashid
 from {{ source('cta','versions_base') }}

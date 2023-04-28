@@ -7,5 +7,6 @@ select
     updated_at,
     completed_at,
     pending_count,
-    completed_count
+    completed_count,
+    _airbyte_action_entities_hashid
 from {{ source('cta','action_entities_base') }}

@@ -15,5 +15,6 @@ select
     show_electoral_districts,
     allow_organizers_to_export,
     restricted_exporting_settings,
-    activity_stream_as_initial_entity_view
+    activity_stream_as_initial_entity_view,
+    _airbyte_campaigns_hashid
 from {{ source('cta','campaigns_base') }}

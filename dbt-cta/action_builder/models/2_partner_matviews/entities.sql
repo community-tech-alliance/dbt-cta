@@ -22,5 +22,6 @@ select
     linked_user_id,
     organization_id,
     preferred_language,
-    calculated_birth_date
+    calculated_birth_date,
+    _airbyte_entities_hashid
 from {{ source('cta','entities_base') }}

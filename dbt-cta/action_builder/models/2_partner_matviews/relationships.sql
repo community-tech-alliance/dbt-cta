@@ -9,4 +9,5 @@ select
     deleted_by_id,
     updated_by_id,
     from_entity_id,
+    _airbyte_relationships_hashid
 from {{ source('cta','relationships_base') }}

@@ -9,6 +9,7 @@ select
     api_access,
     created_at,
     deleted_at,
+    disable_on,
     first_name,
     updated_at,
     confirmed_at,
@@ -34,5 +35,6 @@ select
     allow_password_change,
     invitation_created_at,
     invitation_accepted_at,
-    reset_password_sent_at
+    reset_password_sent_at,
+    _airbyte_users_hashid
 from {{ source('cta','users_base') }}

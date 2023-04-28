@@ -22,5 +22,6 @@ select
     created_by_id,
     updated_by_id,
     geocode_source,
-    street_address
+    street_address,
+    _airbyte_addresses_hashid
 from {{ source('cta','addresses_base') }}

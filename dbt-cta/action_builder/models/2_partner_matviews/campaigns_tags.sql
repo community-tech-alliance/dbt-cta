@@ -3,5 +3,6 @@ select
     tag_id,
     created_at,
     updated_at,
-    campaign_id
+    campaign_id,
+    _airbyte_campaigns_tags_hashid
 from {{ source('cta','campaigns_tags_base') }}

@@ -10,5 +10,6 @@ select
     updated_at,
     interact_id,
     created_by_id,
-    updated_by_id
+    updated_by_id,
+    _airbyte_emails_hashid
 from {{ source('cta','emails_base') }}

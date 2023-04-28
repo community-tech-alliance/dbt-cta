@@ -12,5 +12,6 @@ select
     interact_id,
     number_type,
     created_by_id,
-    updated_by_id
+    updated_by_id,
+    _airbyte_phone_numbers_hashid
 from {{ source('cta','phone_numbers_base') }}

@@ -8,5 +8,6 @@ select
     access_token,
     service_name,
     client_secret,
-    token_updated_at
+    token_updated_at,
+    _airbyte_external_services_hashid
 from {{ source('cta','external_services_base') }}

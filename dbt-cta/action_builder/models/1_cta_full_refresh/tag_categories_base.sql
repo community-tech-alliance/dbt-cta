@@ -1,8 +1,12 @@
+{% set partitions_to_replace = [
+    "timestamp_trunc(current_timestamp, day)",
+    "timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)"
+] %}
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
-    tags = [ "top-level" ]
+    partitions = partitions_to_replace,
+    unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
 -- depends_on: {{ ref('tag_categories_ab3') }}
@@ -19,6 +23,7 @@ select
     tag_group_id,
     multiselectable,
     read_only_category,
+    attachments_enabled,
     allow_create_tag_type,
     multiselect_same_tag_behavior,
     _airbyte_ab_id,
@@ -27,5 +32,7 @@ select
     _airbyte_tag_categories_hashid
 from {{ ref('tag_categories_ab3') }}
 -- tag_categories from {{ source('cta', '_airbyte_raw_tag_categories') }}
-where 1 = 1
 
+{% if is_incremental() %}
+where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(",") }})
+{% endif %}

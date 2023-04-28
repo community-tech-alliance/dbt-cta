@@ -10,5 +10,6 @@ select
     updated_at,
     interact_id,
     target_type,
-    tag_category_id
+    tag_category_id,
+    _airbyte_tags_hashid
 from {{ source('cta','tags_base') }}

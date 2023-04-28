@@ -8,5 +8,6 @@ select
     linkable_type,
     external_entity_id,
     external_entity_type,
-    organization_integration_id
+    organization_integration_id,
+    _airbyte_organization_integration_links_hashid
 from {{ source('cta','organization_integration_links_base') }}

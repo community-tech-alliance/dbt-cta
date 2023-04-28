@@ -8,5 +8,6 @@ select
     updated_at,
     campaign_id,
     targetable_id,
-    targetable_type
+    targetable_type,
+    _airbyte_campaign_topline_setting_items_hashid
 from {{ source('cta','campaign_topline_setting_items_base') }}

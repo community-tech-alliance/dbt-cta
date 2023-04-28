@@ -13,5 +13,7 @@ select
     quick_check_in,
     canvassing_type,
     canvassing_enabled,
-    targets_query_json
+    targets_query_json,
+    notification_enabled,
+    _airbyte_actions_hashid
 from {{ source('cta','actions_base') }}

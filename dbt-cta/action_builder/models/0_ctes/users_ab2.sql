@@ -1,8 +1,7 @@
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
-    tags = [ "top-level-intermediate" ]
+    unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
 -- depends_on: {{ ref('users_ab1') }}
@@ -17,6 +16,7 @@ select
     {{ cast_to_boolean('api_access') }} as api_access,
     cast({{ empty_string_to_null('created_at') }} as {{ type_timestamp_without_timezone() }}) as created_at,
     cast({{ empty_string_to_null('deleted_at') }} as {{ type_timestamp_without_timezone() }}) as deleted_at,
+    cast({{ empty_string_to_null('disable_on') }} as {{ type_timestamp_without_timezone() }}) as disable_on,
     cast(first_name as {{ dbt_utils.type_string() }}) as first_name,
     cast({{ empty_string_to_null('updated_at') }} as {{ type_timestamp_without_timezone() }}) as updated_at,
     cast({{ empty_string_to_null('confirmed_at') }} as {{ type_timestamp_without_timezone() }}) as confirmed_at,

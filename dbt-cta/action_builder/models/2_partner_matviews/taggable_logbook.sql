@@ -13,5 +13,6 @@ select
     taggable_id,
     signature_id,
     taggable_type,
-    updated_by_id
+    updated_by_id,
+    _airbyte_taggable_logbook_hashid
 from {{ source('cta','taggable_logbook_base') }}

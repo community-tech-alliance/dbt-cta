@@ -10,5 +10,6 @@ select
     external_compared_id,
     external_compared_type,
     service_integration_type,
-    organization_integration_id
+    organization_integration_id,
+    _airbyte_entity_sync_states_hashid
 from {{ source('cta','entity_sync_states_base') }}

@@ -7,5 +7,6 @@ select
     updated_at,
     campaign_id,
     created_by_id,
-    updated_by_id
+    updated_by_id,
+    _airbyte_assessments_hashid
 from {{ source('cta','assessments_base') }}
