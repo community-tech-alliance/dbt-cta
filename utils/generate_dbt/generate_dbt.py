@@ -25,7 +25,7 @@ Returns:
 
 Example Usage:
 
-    pipenv run python generate_dbt.py -p dev3869c056 -d flambe
+    pipenv run python generate_dbt.py -p PROJECT_ID -d flambe
 """
 
 import argparse
