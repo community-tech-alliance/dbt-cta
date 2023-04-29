@@ -85,7 +85,42 @@ def main():
     tables = [table for table in tables if 'raw' in table.table_id]
 
     with tempfile.TemporaryDirectory() as temp_dir_TODO:
+
+        #######################
+        # MAKE SOME DIRECTORIES
+        #######################
+
+        # Define the file path directories
+        temp_dir = "temp_dir"
+        sync_dir = "flambe"  # dataset_id
+        models_dir = "models"
+        models_subdir = "1_cta_full_refresh"
+        matviews_subdir = "2_partner_matviews"
+
+        # Join the path segments
+        models_path = os.path.join(temp_dir,
+                                   sync_dir,
+                                   models_dir
+                                   )
+        models_subdir_path = os.path.join(models_path,
+                                          models_subdir
+                                          )
+        matviews_subdir_path = os.path.join(models_path,
+                                            matviews_subdir
+                                            )
+
+        # Create the new directories
+        os.makedirs(models_subdir_path, exist_ok=True)
+        os.makedirs(matviews_subdir_path, exist_ok=True)
+
+        ####################
+        # CREATE SOURCES.YML
+        ####################
+
         # Create the sources.yml file
+        source_tables_list = [{"name": table.table_id} for table in tables]\
+                             + [{"name": table.table_id.replace('raw','base')} for table in tables]
+
         sources_dict = {
             "version": 2,
             "sources": [
@@ -93,29 +128,14 @@ def main():
                     "name": "cta",
                     "database": "{{ env_var('CTA_PROJECT_ID') }}",
                     "schema": "{{ env_var('CTA_DATASET_ID') }}",
-                    "tables": [{"name": table.table_id} for table in tables]
+                    "tables": source_tables_list
                 }
             ]
         }
 
-        temp_dir = "temp_dir"
-        sync_dir = "flambe" #dataset_id
-        models_dir = "models"
-        models_subdir = "1_cta_full_refresh"
-
-        # Join the path segments
-        models_subdir_path = os.path.join(temp_dir,
-                                          sync_dir,
-                                          models_dir,
-                                          models_subdir
-                                          )
-
-        # Create the new directories
-        os.makedirs(models_subdir_path, exist_ok=True)
-
         # Write the sources.yml file
-        sources_yml_path = os.path.join(temp_dir, sync_dir, models_dir, "sources.yml")
-        with open(sources_yml_path, "w") as sources_yml_file:
+        sources_yml_file_name = os.path.join(models_path, "sources.yml")
+        with open(sources_yml_file_name, "w") as sources_yml_file:
             yaml.dump(sources_dict,
                       sources_yml_file,
                       sort_keys=False,
@@ -138,13 +158,18 @@ def main():
                     new_field = field
                 fields_revised.append(new_field)
 
+
+            ##############################
+            # CREATE THE _BASE MODEL
+            ##############################
+
             # Define the SQL query
             table_schema_fields = ",\n    ".join(
                 f"CAST(`{field.name}` AS {field.field_type}) AS `{field.name}`"
                 for field in fields_revised
             )
 
-            concat_fields = ",\n                                        "\
+            concat_fields = ",\n                                        " \
                 .join(f"`{field.name}`" for field in table_schema)
 
             sql = f"""SELECT
@@ -157,9 +182,9 @@ where timestamp_trunc({datetime_field}, day) in ({{{{ partitions_to_replace | jo
 {{% endif %}}
             """
 
-            # Write the SQL query to a file
-            model_name = table.table_id.replace('raw', 'base')\
-                if 'raw' in table.table_id else table.table_id+"_base"
+            # Write the SQL query to the _base model file
+            model_name = table.table_id.replace('raw', 'base') \
+                if 'raw' in table.table_id else table.table_id + "_base"
             file_path = os.path.join(models_subdir_path, f"{model_name}.sql")
             with open(file_path, "w") as f:
                 dbt_config = f"""{{% set partitions_to_replace = [
@@ -179,8 +204,33 @@ where timestamp_trunc({datetime_field}, day) in ({{{{ partitions_to_replace | jo
                 f.write(dbt_config)
                 f.write(sql)
 
-    # Write the contents of temp_dir to a ZIP file
+            ##############################
+            # CREATE THE PARTNER MATVIEW
+            ##############################
 
+            matview_fields = ",\n    ".join(
+                f"{field.name}"
+                for field in fields_revised
+            )
+
+            source_table_name = table.table_id.replace('raw', 'base')
+
+            matview_sql = f"""SELECT
+    {matview_fields},
+    _unique_row_id
+FROM {{{{ source('cta', '{source_table_name}') }}}}
+                        """
+
+            # Name the matview model file
+            matview_name = table.table_id.replace('_raw', '') \
+                if 'raw' in table.table_id else table.table_id + "_final"
+            matview_file_path = os.path.join(matviews_subdir_path, f"{matview_name}.sql")
+
+            # Write the matview SQL to the file
+            with open(matview_file_path, "w") as matview_file:
+                matview_file.write(matview_sql)
+
+    # Write the contents of temp_dir to a ZIP file
     with zipfile.ZipFile(output_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
         for root, dirs, files in os.walk(temp_dir):
             for file in files:
