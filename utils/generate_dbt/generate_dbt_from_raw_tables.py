@@ -129,10 +129,19 @@ def main():
             table_ref = f"{dataset_id}.{table.table_id}"
             table_schema = client.get_table(table_ref).schema
 
+            # Replace FLOAT with FLOAT64 field type
+            fields_revised = []
+            for field in table_schema:
+                if field.field_type == 'FLOAT':
+                    new_field = bigquery.SchemaField(field.name, 'FLOAT64')
+                else:
+                    new_field = field
+                fields_revised.append(new_field)
+
             # Define the SQL query
             table_schema_fields = ",\n    ".join(
                 f"CAST(`{field.name}` AS {field.field_type}) AS `{field.name}`"
-                for field in table_schema
+                for field in fields_revised
             )
 
             concat_fields = ",\n                                        "\
