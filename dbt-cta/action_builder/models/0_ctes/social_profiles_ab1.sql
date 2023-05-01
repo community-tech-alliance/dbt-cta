@@ -11,6 +11,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['source'], ['source']) }} as source,
     {{ json_extract_scalar('_airbyte_data', ['status'], ['status']) }} as status,
     {{ json_extract_scalar('_airbyte_data', ['profile'], ['profile']) }} as profile,
+    {{ json_extract_scalar('_airbyte_data', ['entity_id'], ['entity_id']) }} as entity_id,
     {{ json_extract_scalar('_airbyte_data', ['owner_id'], ['owner_id']) }} as owner_id,
     {{ json_extract_scalar('_airbyte_data', ['created_at'], ['created_at']) }} as created_at,
     {{ json_extract_scalar('_airbyte_data', ['owner_type'], ['owner_type']) }} as owner_type,

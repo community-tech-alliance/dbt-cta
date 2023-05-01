@@ -12,6 +12,7 @@ select
         'source',
         'status',
         'profile',
+        'entity_id',
         'owner_id',
         'created_at',
         'owner_type',

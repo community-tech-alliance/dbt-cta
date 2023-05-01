@@ -11,6 +11,7 @@ select
     cast(source as {{ dbt_utils.type_string() }}) as source,
     cast(status as {{ dbt_utils.type_string() }}) as status,
     cast(profile as {{ dbt_utils.type_string() }}) as profile,
+    cast(entity_id as {{ dbt_utils.type_bigint() }}) as entity_id,
     cast(owner_id as {{ dbt_utils.type_bigint() }}) as owner_id,
     cast({{ empty_string_to_null('created_at') }} as {{ type_timestamp_without_timezone() }}) as created_at,
     cast(owner_type as {{ dbt_utils.type_string() }}) as owner_type,
