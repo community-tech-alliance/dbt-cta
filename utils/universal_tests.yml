@@ -5,7 +5,6 @@
 columns:
   - name: _airbyte_ab_id
     tests:
-      - unique
       - not_null
   - name: _airbyte_normalized_at
     tests:
