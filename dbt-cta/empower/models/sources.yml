@@ -1,14 +1,78 @@
 version: 2
 sources:
-- name: empower_partner_a
-  quoting:
-    database: true
-    schema: false
-    identifier: false
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables:
   - name: _airbyte_raw_ctaResults
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_emitted_at
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_ctas
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_emitted_at
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_outreachEntries
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_emitted_at
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_profileOrganizationTags
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_emitted_at
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_profiles
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_emitted_at
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: _airbyte_raw_regions
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_emitted_at
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: ctaResults_base
+  - name: ctaResults_answerIdsByPromptId_base
+  - name: ctaResults_answers_base
+  - name: ctas_base
+  - name: ctas_prompts_base
+  - name: ctas_prompts_answers_base
+  - name: ctas_questions_base
+  - name: ctas_shareables_base
+  - name: outreachEntries_base
+  - name: profileOrganizationTags_base
+  - name: profiles_base
+  - name: regions_base
