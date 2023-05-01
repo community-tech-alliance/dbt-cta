@@ -8,6 +8,69 @@ sources:
     schema: false
     identifier: false
   tables:
+  - name: _airbyte_raw_action_assignment_group_users
+  - name: _airbyte_raw_action_assignment_groups
+  - name: _airbyte_raw_action_assignments
+  - name: _airbyte_raw_action_entities
+  - name: _airbyte_raw_action_fields
+  - name: _airbyte_raw_actions
+  - name: _airbyte_raw_activity_events
+  - name: _airbyte_raw_addresses
+  - name: _airbyte_raw_addresses_electoral_districts
+  - name: _airbyte_raw_api_keys
+  - name: _airbyte_raw_ar_internal_metadata
+  - name: _airbyte_raw_assessments
+  - name: _airbyte_raw_campaign_configuration_tag_categories
+  - name: _airbyte_raw_campaign_context_notes
+  - name: _airbyte_raw_campaign_entity_type_configurations
+  - name: _airbyte_raw_campaign_entity_types
+  - name: _airbyte_raw_campaign_participations
+  - name: _airbyte_raw_campaign_topline_setting_items
+  - name: _airbyte_raw_campaigns
+  - name: _airbyte_raw_campaigns_entities
+  - name: _airbyte_raw_campaigns_entity_connection_types
+  - name: _airbyte_raw_campaigns_tag_categories
+  - name: _airbyte_raw_campaigns_tag_groups
+  - name: _airbyte_raw_campaigns_tags
+  - name: _airbyte_raw_contact_attempts
+  - name: _airbyte_raw_contact_sources
+  - name: _airbyte_raw_contact_statuses
+  - name: _airbyte_raw_electoral_districts
+  - name: _airbyte_raw_emails
+  - name: _airbyte_raw_entities
+  - name: _airbyte_raw_entity_connection_types
+  - name: _airbyte_raw_entity_connections
+  - name: _airbyte_raw_entity_sync_cursors
+  - name: _airbyte_raw_entity_sync_states
+  - name: _airbyte_raw_entity_sync_stored_operations
+  - name: _airbyte_raw_entity_types
+  - name: _airbyte_raw_external_services
+  - name: _airbyte_raw_follow_ups
+  - name: _airbyte_raw_global_notes
+  - name: _airbyte_raw_integrations
+  - name: _airbyte_raw_organization_integration_links
+  - name: _airbyte_raw_organization_integrations
+  - name: _airbyte_raw_organizations
+  - name: _airbyte_raw_phone_numbers
+  - name: _airbyte_raw_queries
+  - name: _airbyte_raw_query_results
+  - name: _airbyte_raw_relationships
+  - name: _airbyte_raw_schema_migrations
+  - name: _airbyte_raw_shift_times
+  - name: _airbyte_raw_shifts
+  - name: _airbyte_raw_signatures
+  - name: _airbyte_raw_social_profiles
+  - name: _airbyte_raw_subscription_statuses
+  - name: _airbyte_raw_tag_categories
+  - name: _airbyte_raw_tag_groups
+  - name: _airbyte_raw_taggable_logbook
+  - name: _airbyte_raw_tags
+  - name: _airbyte_raw_tasks
+  - name: _airbyte_raw_turf_assignments
+  - name: _airbyte_raw_turf_tags
+  - name: _airbyte_raw_uploads
+  - name: _airbyte_raw_users
+  - name: _airbyte_raw_versions
   - name: action_assignment_group_users_base
   - name: action_assignment_groups_base
   - name: action_assignments_base
