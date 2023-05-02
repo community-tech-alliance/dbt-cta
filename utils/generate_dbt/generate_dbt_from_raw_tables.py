@@ -28,15 +28,29 @@ Returns:
 
 Example Usage:
 
-    pipenv run python generate_dbt_from_raw_tables.py -p PROJECT_ID -d flambe
+    pipenv run python generate_dbt_from_raw_tables.py -p PROJECT_ID -d flambe -s rewired_spoke_table_spec.json
 """
 
 import argparse
+import json
 import os
 import tempfile
 import yaml
 import zipfile
 from google.cloud import bigquery
+
+from dbt_file_contents import get_base_sql,\
+    get_base_config
+
+def get_spec_dict_from_file(spec_json_path):
+    # open the JSON file in read mode
+    with open(spec_json_path, "r") as f:
+        # load the contents of the file into a string
+        spec_json_str = f.read()
+        # parse the JSON string into a list of dictionaries
+        spec_json_dict = json.loads(spec_json_str)
+
+    return spec_json_dict
 
 
 def main():
@@ -50,32 +64,26 @@ def main():
                         '-d',
                         help='Dataset id.'
                         )
-    # Optional arguments
-    parser.add_argument('--unique_key',
-                        '-uk',
-                        help='Unique key for tables in this dataset'
-                             ' (default: _cta_sync_rowid',
-                        default='_cta_sync_rowid'
-                        )
-    parser.add_argument('--datetime_field',
-                        '-dt',
-                        help='Datetime field for partitioning'
-                             ' (default: _cta_sync_datetime_utc',
-                        default='_cta_sync_datetime_utc'
-                        )
     parser.add_argument('--output_path',
                         '-o',
                         help='Path to the output ZIP (default: dbt_models.zip',
                         default='dbt_models.zip'
                         )
+    parser.add_argument('--spec_json_path',
+                        '-s',
+                        help='Path to the JSON containing sync modes,'
+                             ' unique keys, and cursor fields for each table',
+                        default='rewired_spoke_table_spec.json'
+                        )
+
     args = parser.parse_args()
 
     # Parse the arguments
     project_id = args.project_id
     dataset_id = args.dataset_id
     output_path = args.output_path
-    unique_key = args.unique_key
-    datetime_field = args.datetime_field
+    spec_json_path = args.spec_json_path
+    spec_json_dict = get_spec_dict_from_file(spec_json_path)
 
     # Set up the BigQuery client and list all tables in the dataset
     client = bigquery.Client(project=project_id)
@@ -83,6 +91,9 @@ def main():
 
     # Include only tables with "raw" in the name
     tables = [table for table in tables if 'raw' in table.table_id]
+
+    # Include only tables that are present in the table spec
+    tables = [table for table in tables if table.table_id.replace('_raw','') in spec_json_dict.keys()]
 
     with tempfile.TemporaryDirectory() as temp_dir_TODO:
 
@@ -94,24 +105,14 @@ def main():
         temp_dir = "temp_dir"
         sync_dir = "flambe"  # dataset_id
         models_dir = "models"
-        models_subdir = "1_cta_full_refresh"
         matviews_subdir = "2_partner_matviews"
 
-        # Join the path segments
+        # Create the `models` subdirectory
         models_path = os.path.join(temp_dir,
                                    sync_dir,
                                    models_dir
                                    )
-        models_subdir_path = os.path.join(models_path,
-                                          models_subdir
-                                          )
-        matviews_subdir_path = os.path.join(models_path,
-                                            matviews_subdir
-                                            )
-
-        # Create the new directories
-        os.makedirs(models_subdir_path, exist_ok=True)
-        os.makedirs(matviews_subdir_path, exist_ok=True)
+        os.makedirs(models_path, exist_ok=True)
 
         ####################
         # CREATE SOURCES.YML
@@ -144,10 +145,21 @@ def main():
                       )
 
         # Iterate over the tables and generate a SQL file for each
+        # 'tables' has all the table names ending in _raw
         for table in tables:
-            # Get the schema for the table
-            table_ref = f"{dataset_id}.{table.table_id}"
-            table_schema = client.get_table(table_ref).schema
+
+            table_id_raw = table.table_id
+            table_id_base = table_id_raw.replace('raw', 'base')
+            table_id = table_id_raw.replace('_raw', '')
+
+            # Load configs from the spec dict
+            unique_key = spec_json_dict[table_id].get('unique_key', '_cta_row_id')
+            partition_datetime_field = spec_json_dict[table_id].get('partition_datetime_field', '_cta_sync_datetime_utc')
+            sync_mode = spec_json_dict[table_id].get('sync_mode', 'full_refresh')
+
+            # Get the schema for the _raw table
+            raw_table_ref = f"{dataset_id}.{table_id_raw}"
+            table_schema = client.get_table(raw_table_ref).schema
 
             # Replace FLOAT with FLOAT64 field type
             fields_revised = []
@@ -158,10 +170,16 @@ def main():
                     new_field = field
                 fields_revised.append(new_field)
 
-
             ##############################
             # CREATE THE _BASE MODEL
             ##############################
+
+            # Create the subdirectory if it doesn't already exist
+            models_subdir = f"1_cta_{sync_mode}"
+            models_subdir_path = os.path.join(models_path,
+                                              models_subdir
+                                              )
+            os.makedirs(models_subdir_path, exist_ok=True)
 
             # Define the SQL query
             table_schema_fields = ",\n    ".join(
@@ -172,35 +190,24 @@ def main():
             concat_fields = ",\n                                        " \
                 .join(f"`{field.name}`" for field in table_schema)
 
-            sql = f"""SELECT
-    {table_schema_fields},
-    FORMAT("%x", FARM_FINGERPRINT(CONCAT({concat_fields}))) AS _unique_row_id
-FROM {{{{ source('cta', '{table.table_id}') }}}}
+            dbt_config = get_base_config(
+                partition_datetime_field=partition_datetime_field,
+                unique_key=unique_key,
+                sync_mode=sync_mode
+            )
 
-{{% if is_incremental() %}}
-where timestamp_trunc({datetime_field}, day) in ({{{{ partitions_to_replace | join(",") }}}})
-{{% endif %}}
-            """
+            sql = get_base_sql(
+                    table_schema_fields=table_schema_fields,
+                    concat_fields=concat_fields,
+                    table_id=table_id_raw,
+                    partition_datetime_field=partition_datetime_field,
+                    sync_mode=sync_mode
+            )
 
-            # Write the SQL query to the _base model file
-            model_name = table.table_id.replace('raw', 'base') \
-                if 'raw' in table.table_id else table.table_id + "_base"
-            file_path = os.path.join(models_subdir_path, f"{model_name}.sql")
+            # Write the dbt config and SQL query to the _base model file
+            file_path = os.path.join(models_subdir_path, f"{table_id_base}.sql")
+
             with open(file_path, "w") as f:
-                dbt_config = f"""{{% set partitions_to_replace = [
-    "timestamp_trunc(current_timestamp, day)",
-    "timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)"
-] %}}
-
-{{{{config(
-    cluster_by="_cta_sync_datetime_utc",
-    partition_by={{"field": "{datetime_field}", "data_type": "timestamp", "granularity": "day"}},
-    partitions=partitions_to_replace,
-    unique_key="{unique_key}"
-)}}}}
-
--- Final base SQL model
-"""
                 f.write(dbt_config)
                 f.write(sql)
 
@@ -208,23 +215,27 @@ where timestamp_trunc({datetime_field}, day) in ({{{{ partitions_to_replace | jo
             # CREATE THE PARTNER MATVIEW
             ##############################
 
+            # Create the subdirectory if it doesn't already exist
+            matviews_subdir = "2_partner_matviews"
+            matviews_subdir_path = os.path.join(models_path,
+                                              matviews_subdir
+                                              )
+            os.makedirs(matviews_subdir_path, exist_ok=True)
+
             matview_fields = ",\n    ".join(
                 f"{field.name}"
                 for field in fields_revised
             )
 
-            source_table_name = table.table_id.replace('raw', 'base')
-
             matview_sql = f"""SELECT
     {matview_fields},
     _unique_row_id
-FROM {{{{ source('cta', '{source_table_name}') }}}}
+FROM {{{{ source('cta', '{table_id_base}') }}}}
                         """
 
             # Name the matview model file
-            matview_name = table.table_id.replace('_raw', '') \
-                if 'raw' in table.table_id else table.table_id + "_final"
-            matview_file_path = os.path.join(matviews_subdir_path, f"{matview_name}.sql")
+            # `table_id` = name of the table without _raw or _base
+            matview_file_path = os.path.join(matviews_subdir_path, f"{table_id}.sql")
 
             # Write the matview SQL to the file
             with open(matview_file_path, "w") as matview_file:
