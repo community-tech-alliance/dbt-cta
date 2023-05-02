@@ -1,0 +1,31 @@
+version: 2
+sources:
+- name: composer_logs
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: monitoring
+  tables:
+    - name: airflow_scheduler
+      identifier: airflow_scheduler_*
+      description: >-
+        This table is created by a GCS "log sink" that is configured to export logs from
+        Composer to BigQuery. We filter to only logs from the Airflow Scheduler that
+        contain the text "DagRun Finished" in the textPayload.
+        
+        The dev sync is called `dev-airflow-dag-runs`
+      columns:
+        - name: logName
+        - name: resource
+        - name: textPayload
+        - name: timestamp
+        - name: receiveTimestamp
+        - name: severity
+        - name: insertId
+        - name: httpRequest
+        - name: labels
+        - name: operation
+        - name: trace
+        - name: spanId
+        - name: traceSampled
+        - name: sourceLocation
+        - name: split
+  

@@ -1,0 +1,39 @@
+version: 2
+
+models: 
+  - name: int_parse_scheduler_logs
+    description: >
+      This model takes the raw log sink table of all the "DAGrun Finished" logs from
+      Composer and parses out a bunch of relevent fields about the DAG run from the
+      text payload.
+    columns:
+      - name: insert_id
+        tests: 
+          - not_null
+          - unique
+      - name: log_timestamp
+      - name: received_timestamp
+      - name: project_id
+        tests: 
+          - not_null
+      - name: environment_name
+      - name: dag_id
+        tests: 
+          - not_null
+      - name: execution_date
+      - name: run_id
+        tests:
+          - not_null
+      - name: run_start_date
+      - name: run_end_date
+      - name: run_duration
+      - name: state
+        # TODO(Jack): add accepted values tests here
+      - name: external_trigger
+      - name: run_type
+      - name: data_interval_start
+      - name: data_interval_end
+      - name: dag_hash
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns: [dag_id, run_id]
