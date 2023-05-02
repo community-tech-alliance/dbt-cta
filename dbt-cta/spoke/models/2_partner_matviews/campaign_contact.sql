@@ -1,5 +1,10 @@
-SELECT
-    _cta_sync_rowid,
+{{ config(
+	auto_refresh = false,
+	full_refresh = false
+)}}
+
+    SELECT
+        _cta_sync_rowid,
     _cta_sync_datetime_utc,
     archived,
     assignment_id,
@@ -17,6 +22,5 @@ SELECT
     timezone,
     updated_at,
     zip,
-    _unique_row_id
-FROM {{ source('cta', 'campaign_contact_base') }}
-                        
+        id
+    FROM {{ source('cta', 'campaign_contact_base') }}

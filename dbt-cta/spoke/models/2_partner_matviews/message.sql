@@ -1,5 +1,10 @@
-SELECT
-    _cta_sync_rowid,
+{{ config(
+	auto_refresh = false,
+	full_refresh = false
+)}}
+
+    SELECT
+        _cta_sync_rowid,
     _cta_sync_datetime_utc,
     assignment_id,
     campaign_contact_id,
@@ -24,6 +29,5 @@ SELECT
     updated_at,
     user_id,
     user_number,
-    _unique_row_id
-FROM {{ source('cta', 'message_base') }}
-                        
+        id
+    FROM {{ source('cta', 'message_base') }}

@@ -1,5 +1,10 @@
-SELECT
-    _cta_sync_rowid,
+{{ config(
+	auto_refresh = false,
+	full_refresh = false
+)}}
+
+    SELECT
+        _cta_sync_rowid,
     _cta_sync_datetime_utc,
     assignment_id,
     cell,
@@ -8,6 +13,5 @@ SELECT
     organization_id,
     reason_code,
     updated_at,
-    _unique_row_id
-FROM {{ source('cta', 'opt_out_base') }}
-                        
+        id
+    FROM {{ source('cta', 'opt_out_base') }}

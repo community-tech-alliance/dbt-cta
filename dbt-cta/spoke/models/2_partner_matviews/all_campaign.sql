@@ -1,5 +1,10 @@
-SELECT
-    _cta_sync_rowid,
+{{ config(
+	auto_refresh = false,
+	full_refresh = false
+)}}
+
+    SELECT
+        _cta_sync_rowid,
     _cta_sync_datetime_utc,
     autosend_limit,
     autosend_limit_max_contact_id,
@@ -30,6 +35,5 @@ SELECT
     title,
     updated_at,
     use_dynamic_assignment,
-    _unique_row_id
-FROM {{ source('cta', 'all_campaign_base') }}
-                        
+        id
+    FROM {{ source('cta', 'all_campaign_base') }}

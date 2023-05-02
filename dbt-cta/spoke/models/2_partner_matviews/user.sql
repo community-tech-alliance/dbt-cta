@@ -1,5 +1,10 @@
-SELECT
-    _cta_sync_rowid,
+{{ config(
+	auto_refresh = false,
+	full_refresh = false
+)}}
+
+    SELECT
+        _cta_sync_rowid,
     _cta_sync_datetime_utc,
     assigned_cell,
     auth0_id,
@@ -14,6 +19,5 @@ SELECT
     notification_frequency,
     terms,
     updated_at,
-    _unique_row_id
-FROM {{ source('cta', 'user_base') }}
-                        
+        id
+    FROM {{ source('cta', 'user_base') }}

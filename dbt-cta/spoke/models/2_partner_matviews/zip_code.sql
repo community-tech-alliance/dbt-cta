@@ -1,5 +1,10 @@
-SELECT
-    _cta_sync_rowid,
+{{ config(
+	auto_refresh = false,
+	full_refresh = false
+)}}
+
+    SELECT
+        _cta_sync_rowid,
     _cta_sync_datetime_utc,
     city,
     has_dst,
@@ -8,6 +13,5 @@ SELECT
     state,
     timezone_offset,
     zip,
-    _unique_row_id
-FROM {{ source('cta', 'zip_code_base') }}
-                        
+        zip
+    FROM {{ source('cta', 'zip_code_base') }}

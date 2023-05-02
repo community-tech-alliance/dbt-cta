@@ -1,5 +1,10 @@
-SELECT
-    _cta_sync_rowid,
+{{ config(
+	auto_refresh = false,
+	full_refresh = false
+)}}
+
+    SELECT
+        _cta_sync_rowid,
     _cta_sync_datetime_utc,
     created_at,
     hash,
@@ -7,6 +12,5 @@ SELECT
     is_valid,
     payload,
     updated_at,
-    _unique_row_id
-FROM {{ source('cta', 'invite_base') }}
-                        
+        id
+    FROM {{ source('cta', 'invite_base') }}
