@@ -28,7 +28,7 @@ Returns:
 
 Example Usage:
 
-    pipenv run python generate_dbt_from_raw_tables.py -p PROJECT_ID -d flambe -s rewired_spoke_table_spec.json
+    pipenv run python generate_dbt_from_raw_tables.py -p PROJECT_ID -d flambe -s sample_table_spec.json
 """
 
 import argparse
@@ -73,7 +73,7 @@ def main():
                         '-s',
                         help='Path to the JSON containing sync modes,'
                              ' unique keys, and cursor fields for each table',
-                        default='rewired_spoke_table_spec.json'
+                        default='sample_table_spec.json'
                         )
 
     args = parser.parse_args()
