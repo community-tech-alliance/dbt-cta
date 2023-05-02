@@ -101,12 +101,12 @@
     "sync_mode": "incremental"
   },
   "campaign_contact": {
-    "unique_key": "campaign_contact_id",
+    "unique_key": "id",
     "partition_datetime_field": "updated_at",
     "sync_mode": "incremental"
   },
   "campaign_contact_tag": {
-    "unique_key": "id",
+    "unique_key": "campaign_contact_id",
     "partition_datetime_field": "updated_at",
     "sync_mode": "incremental"
   },
