@@ -1,8 +1,7 @@
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
-    tags = [ "top-level-intermediate" ]
+    unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('users_ab2') }}
@@ -18,6 +17,7 @@ select
         boolean_to_string('api_access'),
         'created_at',
         'deleted_at',
+        'disable_on',
         'first_name',
         'updated_at',
         'confirmed_at',

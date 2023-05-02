@@ -3,6 +3,10 @@ sources:
 - name: cta
   database: "{{ env_var('CTA_PROJECT_ID') }}"
   schema: "{{ env_var('CTA_DATASET_ID') }}"
+  quoting:
+    database: true
+    schema: false
+    identifier: false
   tables:
   - name: _airbyte_raw_action_assignment_group_users
   - name: _airbyte_raw_action_assignment_groups
@@ -79,6 +83,7 @@ sources:
   - name: api_keys_base
   - name: ar_internal_metadata_base
   - name: assessments_base
+  - name: attachments_base
   - name: campaign_configuration_tag_categories_base
   - name: campaign_context_notes_base
   - name: campaign_entity_type_configurations_base
@@ -130,3 +135,4 @@ sources:
   - name: uploads_base
   - name: users_base
   - name: versions_base
+  

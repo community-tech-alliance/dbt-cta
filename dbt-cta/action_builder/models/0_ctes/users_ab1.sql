@@ -1,8 +1,7 @@
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
-    tags = [ "top-level-intermediate" ]
+    unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ source('cta', '_airbyte_raw_users') }}
@@ -17,6 +16,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['api_access'], ['api_access']) }} as api_access,
     {{ json_extract_scalar('_airbyte_data', ['created_at'], ['created_at']) }} as created_at,
     {{ json_extract_scalar('_airbyte_data', ['deleted_at'], ['deleted_at']) }} as deleted_at,
+    {{ json_extract_scalar('_airbyte_data', ['disable_on'], ['disable_on']) }} as disable_on,
     {{ json_extract_scalar('_airbyte_data', ['first_name'], ['first_name']) }} as first_name,
     {{ json_extract_scalar('_airbyte_data', ['updated_at'], ['updated_at']) }} as updated_at,
     {{ json_extract_scalar('_airbyte_data', ['confirmed_at'], ['confirmed_at']) }} as confirmed_at,
