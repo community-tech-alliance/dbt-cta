@@ -1,18 +1,12 @@
-{% set partitions_to_replace = [
-    "timestamp_trunc(current_timestamp, day)",
-    "timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)"
-] %}
+ {{ config(
+            cluster_by = "updated_at",
+            partition_by = {"field": "updated_at", "data_type": "timestamp", "granularity": "day"},
+            unique_key = 'id'
+        ) }}
 
-{{config(
-    cluster_by="_cta_sync_datetime_utc",
-    partition_by={"field": "_cta_sync_datetime_utc", "data_type": "timestamp", "granularity": "day"},
-    partitions=partitions_to_replace,
-    unique_key="_cta_sync_rowid"
-)}}
-
--- Final base SQL model
-SELECT
-    CAST(`_cta_sync_rowid` AS STRING) AS `_cta_sync_rowid`,
+            -- Final base SQL model
+            SELECT
+        CAST(`_cta_sync_rowid` AS STRING) AS `_cta_sync_rowid`,
     CAST(`_cta_sync_datetime_utc` AS TIMESTAMP) AS `_cta_sync_datetime_utc`,
     CAST(`autosend_limit` AS STRING) AS `autosend_limit`,
     CAST(`autosend_limit_max_contact_id` AS STRING) AS `autosend_limit_max_contact_id`,
@@ -43,7 +37,7 @@ SELECT
     CAST(`title` AS STRING) AS `title`,
     CAST(`updated_at` AS TIMESTAMP) AS `updated_at`,
     CAST(`use_dynamic_assignment` AS STRING) AS `use_dynamic_assignment`,
-    FORMAT("%x", FARM_FINGERPRINT(CONCAT(`_cta_sync_rowid`,
+        FORMAT("%x", FARM_FINGERPRINT(CONCAT(`_cta_sync_rowid`,
                                         `_cta_sync_datetime_utc`,
                                         `autosend_limit`,
                                         `autosend_limit_max_contact_id`,
@@ -74,9 +68,6 @@ SELECT
                                         `title`,
                                         `updated_at`,
                                         `use_dynamic_assignment`))) AS _unique_row_id
-FROM {{ source('cta', 'all_campaign_raw') }}
-
-{% if is_incremental() %}
-where timestamp_trunc(_cta_sync_datetime_utc, day) in ({{ partitions_to_replace | join(",") }})
-{% endif %}
-            
+    FROM {{ source('cta', 'all_campaign_raw') }}
+    
+    

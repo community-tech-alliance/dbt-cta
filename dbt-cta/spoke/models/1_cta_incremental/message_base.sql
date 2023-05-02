@@ -1,18 +1,12 @@
-{% set partitions_to_replace = [
-    "timestamp_trunc(current_timestamp, day)",
-    "timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)"
-] %}
+ {{ config(
+            cluster_by = "updated_at",
+            partition_by = {"field": "updated_at", "data_type": "timestamp", "granularity": "day"},
+            unique_key = 'id'
+        ) }}
 
-{{config(
-    cluster_by="_cta_sync_datetime_utc",
-    partition_by={"field": "_cta_sync_datetime_utc", "data_type": "timestamp", "granularity": "day"},
-    partitions=partitions_to_replace,
-    unique_key="_cta_sync_rowid"
-)}}
-
--- Final base SQL model
-SELECT
-    CAST(`_cta_sync_rowid` AS STRING) AS `_cta_sync_rowid`,
+            -- Final base SQL model
+            SELECT
+        CAST(`_cta_sync_rowid` AS STRING) AS `_cta_sync_rowid`,
     CAST(`_cta_sync_datetime_utc` AS TIMESTAMP) AS `_cta_sync_datetime_utc`,
     CAST(`assignment_id` AS INTEGER) AS `assignment_id`,
     CAST(`campaign_contact_id` AS INTEGER) AS `campaign_contact_id`,
@@ -37,7 +31,7 @@ SELECT
     CAST(`updated_at` AS TIMESTAMP) AS `updated_at`,
     CAST(`user_id` AS INTEGER) AS `user_id`,
     CAST(`user_number` AS INTEGER) AS `user_number`,
-    FORMAT("%x", FARM_FINGERPRINT(CONCAT(`_cta_sync_rowid`,
+        FORMAT("%x", FARM_FINGERPRINT(CONCAT(`_cta_sync_rowid`,
                                         `_cta_sync_datetime_utc`,
                                         `assignment_id`,
                                         `campaign_contact_id`,
@@ -62,9 +56,6 @@ SELECT
                                         `updated_at`,
                                         `user_id`,
                                         `user_number`))) AS _unique_row_id
-FROM {{ source('cta', 'message_raw') }}
-
-{% if is_incremental() %}
-where timestamp_trunc(_cta_sync_datetime_utc, day) in ({{ partitions_to_replace | join(",") }})
-{% endif %}
-            
+    FROM {{ source('cta', 'message_raw') }}
+    
+    
