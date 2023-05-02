@@ -40,7 +40,8 @@ import zipfile
 from google.cloud import bigquery
 
 from dbt_file_contents import get_base_sql,\
-    get_base_config
+    get_base_config,\
+    get_matview_sql
 
 def get_spec_dict_from_file(spec_json_path):
     # open the JSON file in read mode
@@ -227,11 +228,11 @@ def main():
                 for field in fields_revised
             )
 
-            matview_sql = f"""SELECT
-    {matview_fields},
-    _unique_row_id
-FROM {{{{ source('cta', '{table_id_base}') }}}}
-                        """
+            matview_sql = get_matview_sql(
+                matview_fields=matview_fields,
+                unique_key=unique_key,
+                table_id_base=table_id_base
+                )
 
             # Name the matview model file
             # `table_id` = name of the table without _raw or _base

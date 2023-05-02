@@ -5,7 +5,6 @@ def get_base_sql(
         partition_datetime_field,
         sync_mode
 ):
-
     sql = f"""SELECT
         {table_schema_fields},
         FORMAT("%x", FARM_FINGERPRINT(CONCAT({concat_fields}))) AS _unique_row_id
@@ -34,7 +33,6 @@ def get_base_config(
         unique_key,
         sync_mode
 ):
-
     if sync_mode == 'full_refresh':
         dbt_config = f"""{{% set partitions_to_replace = [
             "timestamp_trunc(current_timestamp, day)",
@@ -68,3 +66,16 @@ def get_base_config(
     else:
 
         raise ValueError("Invalid sync mode (supported values: 'full_refresh', 'incremental')")
+
+
+def get_matview_sql(
+        matview_fields,
+        unique_key,
+        table_id_base
+):
+    matview_sql = f"""SELECT
+        {matview_fields},
+        {unique_key}
+    FROM {{{{ source('cta', '{table_id_base}') }}}}"""
+
+    return matview_sql
