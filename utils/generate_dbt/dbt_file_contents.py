@@ -73,7 +73,12 @@ def get_matview_sql(
         unique_key,
         table_id_base
 ):
-    matview_sql = f"""SELECT
+    matview_sql = f"""{{{{ config(
+	auto_refresh = false,
+	full_refresh = false
+)}}}}
+
+    SELECT
         {matview_fields},
         {unique_key}
     FROM {{{{ source('cta', '{table_id_base}') }}}}"""
