@@ -28,7 +28,9 @@ models:
       - name: run_end_date
       - name: run_duration
       - name: state
-        # TODO(Jack): add accepted values tests here
+        tests:
+          - accepted_values:
+              values: ['success', 'failed']
       - name: external_trigger
       - name: run_type
       - name: data_interval_start
