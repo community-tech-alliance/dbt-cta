@@ -55,6 +55,15 @@ models:
         tests:
           - not_null
       - name: num_steps
+        description: >
+          The number of distinct dbt steps in a given dag. This is _usually_ six, (
+          test CTA sources, run CTA, test CTA, test partner sources, run partner, test
+          partner) but does vary across syncs.
+      - name: num_steps_run
+        description: >
+          The number of dbt invocations that have been run for a given airflow run id.
+          If everything succeeded on the first time, then num_steps == num_steps_run,
+          but num_steps_run > num_steps if there were failures and re-runs.
       - name: run_started_at
       - name: run_completed_at
       - name: test_errors
