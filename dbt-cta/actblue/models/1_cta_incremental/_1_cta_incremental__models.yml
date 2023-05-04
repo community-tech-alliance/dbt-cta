@@ -9,6 +9,8 @@ models:
         description: ''
       - name: date
         description: ''
+        tests:
+          - not_null
       - name: amount
         description: ''
       - name: mobile
@@ -173,10 +175,19 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: _airbyte_emitted_at
         description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
       - name: _airbyte_normalized_at
         description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
       - name: _airbyte_managed_form_contributions_stream_hashid
         description: ''
 
@@ -356,6 +367,60 @@ models:
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_refunded_contributions_stream_hashid
+        description: ''
+
+  - name: cancelled_recurring_contributions_stream
+    description: ''
+    columns:
+      - name: donor_zip
+        description: ''
+      - name: donor_city
+        description: ''
+      - name: receipt_id
+        description: ''
+      - name: donor_email
+        description: ''
+      - name: donor_phone
+        description: ''
+      - name: donor_state
+        description: ''
+      - name: cancelled_on
+        description: ''
+      - name: total_amount
+        description: ''
+      - name: donor_address
+        description: ''
+      - name: donor_country
+        description: ''
+      - name: express_donor
+        description: ''
+      - name: donor_employer
+        description: ''
+      - name: reference_code
+        description: ''
+      - name: donor_last_name
+        description: ''
+      - name: donor_first_name
+        description: ''
+      - name: donor_occupation
+        description: ''
+      - name: recurrence_amount
+        description: ''
+      - name: bump_recurring_seen
+        description: ''
+      - name: recurrence_frequency
+        description: ''
+      - name: initial_pledge_length
+        description: ''
+      - name: bump_recurring_succeeded
+        description: ''
+      - name: initial_contribution_date
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
         description: ''
 
   - name: paid_contributions_stream
