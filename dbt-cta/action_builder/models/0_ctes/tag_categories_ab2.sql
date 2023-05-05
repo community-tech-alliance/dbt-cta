@@ -1,8 +1,7 @@
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
-    tags = [ "top-level-intermediate" ]
+    unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
 -- depends_on: {{ ref('tag_categories_ab1') }}
@@ -19,6 +18,7 @@ select
     cast(tag_group_id as {{ dbt_utils.type_bigint() }}) as tag_group_id,
     {{ cast_to_boolean('multiselectable') }} as multiselectable,
     {{ cast_to_boolean('read_only_category') }} as read_only_category,
+    {{ cast_to_boolean('attachments_enabled') }} as attachments_enabled,
     cast(allow_create_tag_type as {{ dbt_utils.type_string() }}) as allow_create_tag_type,
     cast(multiselect_same_tag_behavior as {{ dbt_utils.type_bigint() }}) as multiselect_same_tag_behavior,
     _airbyte_ab_id,
