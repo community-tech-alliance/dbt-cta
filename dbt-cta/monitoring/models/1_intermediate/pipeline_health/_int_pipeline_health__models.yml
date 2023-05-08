@@ -27,7 +27,7 @@ models:
       - name: most_recent_invocation_type
         description: >
           This is a calculated windowed field that tells us which row is the most recent
-          run of an invocation type for a given sync run. This is used to fitler out
+          run of an invocation type for a given sync run. This is used to filter out
           tasks that may have failed an then been re-run. i.e. if a test fails, we might
           re-run the "2 - Test CTA" step for a given Airflow Run ID / Partner / Sync 
           combo. If this succeeds, we want to use this success to determine overall
