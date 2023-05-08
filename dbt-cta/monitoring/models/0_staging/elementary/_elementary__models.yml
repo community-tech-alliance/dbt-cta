@@ -47,7 +47,7 @@ models:
       - name: selected
         description: >
           A cleaned up value of the "selected" field, replacing characters with
-          underscrores.
+          underscores.
       - name: invocation_type
         description: >
           A calculated field that tells us what type of dbt invocation this was,
