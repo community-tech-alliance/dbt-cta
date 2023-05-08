@@ -36,11 +36,12 @@ with
     ),
     extract_vars as (
         select
-            *,
+            * except(selected),
             json_extract_scalar(vars, "$.sync_name") as sync_name,
             json_extract_scalar(vars, "$.partner_name") as partner_name,
-            json_extract_scalar(vars, "$.airflow_run_id") as airflow_run_id
-
+            json_extract_scalar(vars, "$.airflow_run_id") as airflow_run_id,
+            -- remove quotes, brackets, and replace other non-alphanumeric characters with underscores
+            regexp_replace(regexp_replace(selected, '["\\[\\]]', ''), '[^a-zA-Z0-9]+', '_') as selected
         from cast_datatypes
     ),
     convert_timezones as (
@@ -50,6 +51,23 @@ with
             {{ dbt_date.convert_timezone("run_completed_at", 'America/New_York', 'UTC') }} as run_completed_at_et,
             {{ dbt_date.convert_timezone("generated_at", 'America/New_York', 'UTC') }} as generated_at_et
         from extract_vars
+    ),
+    add_invocation_type as (
+        select *
+        ,  target_name || '_' || command || '_' || selected as invocation_type
+        from convert_timezones
+    ),
+    classify_invocation_type as (
+        select * except(invocation_type)
+        , case
+            when invocation_type = 'cta_test__0_ctes_source_cta' then '0 - Test CTA Sources'
+            when invocation_type = 'cta_run_tag_cta' then '1 - Build CTA Models'
+            when invocation_type = 'cta_test_tag_cta' then '2 - Test CTA Models'
+            when invocation_type = 'partner_test__2_partner_matviews_source_cta' then '3 - Test Partner Sources'
+            when invocation_type = 'partner_run_tag_partner' then '4 - Build Partner Models'
+            when invocation_type = 'partner_test_tag_partner' then '5 - Test Partner Models'
+            else invocation_type end as invocation_type
+        from add_invocation_type
     ),
     final as (
         select
@@ -72,6 +90,7 @@ with
             target_profile_name,
             threads,
             selected,
+            invocation_type,
             yaml_selector,
             project_id,
             project_name,
@@ -86,7 +105,7 @@ with
             sync_name,
             partner_name,
             airflow_run_id
-        from convert_timezones
+        from classify_invocation_type
     )
 
 select *
