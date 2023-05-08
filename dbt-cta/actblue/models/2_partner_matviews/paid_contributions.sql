@@ -83,5 +83,6 @@ select
   Fundraiser_Contact_First_Name,
   Card_Replaced_by_Account_Updater,
   _airbyte_ab_id,
-  _airbyte_emitted_at
+  _airbyte_emitted_at,
+  _airbyte_paid_contributions_stream_hashid
 from {{ source("cta", "paid_contributions_stream") }}
