@@ -44,3 +44,17 @@ models:
         tests:
           - not_null
           - unique
+      - name: selected
+        description: >
+          A cleaned up value of the "selected" field, replacing characters with
+          underscores.
+      - name: invocation_type
+        description: >
+          A calculated field that tells us what type of dbt invocation this was,
+          generally one of the following:
+            - '0 - Test CTA Sources'
+            - '1 - Build CTA Models'
+            - '2 - Test CTA Models'
+            - '3 - Test Partner Sources'
+            - '4 - Build Partner Models'
+            - '5 - Test Partner Models'
