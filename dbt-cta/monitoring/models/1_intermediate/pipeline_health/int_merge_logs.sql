@@ -3,12 +3,16 @@ with
 
     elementary_logs as (select * from {{ ref("int_group_by_run") }}),
 
+    /*
+        We need to exclude composer logs that are already present in elementary logs,
+        which we do by joining on airflow run ID. This means that if elementary fails
+        to upload logs for whatever reason, we'll fall back on the composer status.
+    */
     exclude_elementary_logs as (
         select *
         from composer_logs cl
         left join elementary_logs el on cl.run_id = el.airflow_run_id
         where el.airflow_run_id is null
-        order by received_timestamp
     ),
     
     union_sources as (
