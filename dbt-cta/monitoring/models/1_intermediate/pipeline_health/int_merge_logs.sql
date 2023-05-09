@@ -1,7 +1,7 @@
 with
     composer_logs as (select * from {{ ref("int_parse_scheduler_logs") }}),
 
-    elementary_logs as (select * from {{ ref("int_parse_elementary_logs") }}),
+    elementary_logs as (select * from {{ ref("int_group_by_run") }}),
 
     exclude_elementary_logs as (
         select *
