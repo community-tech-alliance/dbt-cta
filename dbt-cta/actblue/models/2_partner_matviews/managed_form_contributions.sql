@@ -81,5 +81,8 @@ select
   Recurring_Upsell_Succeeded,
   Fundraiser_Contact_Last_Name,
   Fundraiser_Contact_First_Name,
-  Card_Replaced_by_Account_Updater
+  Card_Replaced_by_Account_Updater,
+  _airbyte_ab_id,
+  _airbyte_emitted_at,
+  _airbyte_managed_form_contributions_stream_hashid
 from {{ source("cta", "managed_form_contributions_stream") }}
