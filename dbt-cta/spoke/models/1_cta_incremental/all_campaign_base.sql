@@ -67,7 +67,7 @@
                                         `timezone`,
                                         `title`,
                                         `updated_at`,
-                                        `use_dynamic_assignment`))) AS _unique_row_id
+                                        `use_dynamic_assignment`))) AS _cta_hashid
     FROM {{ source('cta', 'all_campaign_raw') }}
     
     

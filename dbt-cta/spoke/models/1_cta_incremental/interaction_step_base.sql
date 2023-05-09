@@ -29,7 +29,7 @@
                                         `parent_interaction_id`,
                                         `question`,
                                         `script_options`,
-                                        `updated_at`))) AS _unique_row_id
+                                        `updated_at`))) AS _cta_hashid
     FROM {{ source('cta', 'interaction_step_raw') }}
     
     

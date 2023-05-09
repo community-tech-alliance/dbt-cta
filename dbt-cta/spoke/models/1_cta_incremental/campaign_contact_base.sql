@@ -41,7 +41,7 @@
                                         `message_status`,
                                         `timezone`,
                                         `updated_at`,
-                                        `zip`))) AS _unique_row_id
+                                        `zip`))) AS _cta_hashid
     FROM {{ source('cta', 'campaign_contact_raw') }}
     
     

@@ -25,7 +25,7 @@
                                         `contact_timezone`,
                                         `id`,
                                         `message_status`,
-                                        `texting_hours_end`))) AS _unique_row_id
+                                        `texting_hours_end`))) AS _cta_hashid
     FROM {{ source('cta', 'assignable_campaign_contacts_raw') }}
     
     {% if is_incremental() %}

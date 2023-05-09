@@ -29,7 +29,7 @@
                                         `longitude`,
                                         `state`,
                                         `timezone_offset`,
-                                        `zip`))) AS _unique_row_id
+                                        `zip`))) AS _cta_hashid
     FROM {{ source('cta', 'zip_code_raw') }}
     
     {% if is_incremental() %}

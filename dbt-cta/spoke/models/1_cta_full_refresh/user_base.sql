@@ -41,7 +41,7 @@
                                         `last_name`,
                                         `notification_frequency`,
                                         `terms`,
-                                        `updated_at`))) AS _unique_row_id
+                                        `updated_at`))) AS _cta_hashid
     FROM {{ source('cta', 'user_raw') }}
     
     {% if is_incremental() %}

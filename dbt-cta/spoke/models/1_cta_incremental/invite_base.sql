@@ -21,7 +21,7 @@
                                         `id`,
                                         `is_valid`,
                                         `payload`,
-                                        `updated_at`))) AS _unique_row_id
+                                        `updated_at`))) AS _cta_hashid
     FROM {{ source('cta', 'invite_raw') }}
     
     

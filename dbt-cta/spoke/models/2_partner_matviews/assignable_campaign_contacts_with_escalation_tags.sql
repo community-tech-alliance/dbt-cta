@@ -6,6 +6,7 @@
     SELECT
         _cta_sync_rowid,
     _cta_sync_datetime_utc,
+    _cta_hashid,
     applied_escalation_tags,
     campaign_id,
     contact_timezone,

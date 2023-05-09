@@ -29,7 +29,7 @@
                                         `interaction_step_id`,
                                         `is_deleted`,
                                         `updated_at`,
-                                        `value`))) AS _unique_row_id
+                                        `value`))) AS _cta_hashid
     FROM {{ source('cta', 'question_response_raw') }}
     
     {% if is_incremental() %}

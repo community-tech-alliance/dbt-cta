@@ -35,7 +35,7 @@
                                         `organization_id`,
                                         `text_color`,
                                         `title`,
-                                        `updated_at`))) AS _unique_row_id
+                                        `updated_at`))) AS _cta_hashid
     FROM {{ source('cta', 'team_raw') }}
     
     

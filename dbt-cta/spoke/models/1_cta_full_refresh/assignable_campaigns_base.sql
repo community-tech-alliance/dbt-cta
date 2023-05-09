@@ -25,7 +25,7 @@
                                         `id`,
                                         `limit_assignment_to_teams`,
                                         `organization_id`,
-                                        `title`))) AS _unique_row_id
+                                        `title`))) AS _cta_hashid
     FROM {{ source('cta', 'assignable_campaigns_raw') }}
     
     {% if is_incremental() %}

@@ -37,7 +37,7 @@
                                         `texting_hours_enforced`,
                                         `texting_hours_start`,
                                         `updated_at`,
-                                        `uuid`))) AS _unique_row_id
+                                        `uuid`))) AS _cta_hashid
     FROM {{ source('cta', 'organization_raw') }}
     
     

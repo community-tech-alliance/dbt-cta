@@ -21,7 +21,7 @@
                                         `request_status`,
                                         `role`,
                                         `updated_at`,
-                                        `user_id`))) AS _unique_row_id
+                                        `user_id`))) AS _cta_hashid
     FROM {{ source('cta', 'user_organization_raw') }}
     
     

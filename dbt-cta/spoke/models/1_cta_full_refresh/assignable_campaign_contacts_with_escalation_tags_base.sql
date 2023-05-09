@@ -25,7 +25,7 @@
                                         `campaign_id`,
                                         `contact_timezone`,
                                         `id`,
-                                        `message_status`))) AS _unique_row_id
+                                        `message_status`))) AS _cta_hashid
     FROM {{ source('cta', 'assignable_campaign_contacts_with_escalation_tags_raw') }}
     
     {% if is_incremental() %}

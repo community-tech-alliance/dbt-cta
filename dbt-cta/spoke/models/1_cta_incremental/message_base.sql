@@ -55,7 +55,7 @@
                                         `text`,
                                         `updated_at`,
                                         `user_id`,
-                                        `user_number`))) AS _unique_row_id
+                                        `user_number`))) AS _cta_hashid
     FROM {{ source('cta', 'message_raw') }}
     
     

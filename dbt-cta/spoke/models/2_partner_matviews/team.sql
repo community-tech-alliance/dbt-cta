@@ -6,6 +6,7 @@
     SELECT
         _cta_sync_rowid,
     _cta_sync_datetime_utc,
+    _cta_hashid,
     assignment_priority,
     assignment_type,
     author_id,

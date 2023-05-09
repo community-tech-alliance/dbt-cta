@@ -19,7 +19,7 @@
                                         `created_at`,
                                         `tag_id`,
                                         `tagger_id`,
-                                        `updated_at`))) AS _unique_row_id
+                                        `updated_at`))) AS _cta_hashid
     FROM {{ source('cta', 'campaign_contact_tag_raw') }}
     
     

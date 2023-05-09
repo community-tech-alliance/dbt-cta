@@ -45,7 +45,7 @@
                                         `text_color`,
                                         `title`,
                                         `updated_at`,
-                                        `webhook_url`))) AS _unique_row_id
+                                        `webhook_url`))) AS _cta_hashid
     FROM {{ source('cta', 'tag_raw') }}
     
     {% if is_incremental() %}
