@@ -5,14 +5,8 @@ Takes a BigQuery dataset containing raw tables and generates "cta base" models f
 This script assumes the following:
 
 - the raw tables are already normalized and exist in a BQ dataset
-(TODO: write a script that parses an unflattened JSON, such as _airbyte_data)
-(TODO: chain that together with this one using a shell script and gum (a la cta_dbt_helper.sh)
-(TODO: maybe add these scripts as functionality in cta_dbt_helper?)
 - all tables in the BQ dataset should have a model created
 - base tables should be created in the same dataset as the raw tables
-- all tables update using full refresh overwrite
-(that is, whatever process is delivering those tables is dropping and recreating them on each run)
-(TODO: add a way to create incremental models - tbd how that would work...)
 
 Parameters:
     project_id (str): the name of the google project ID containing the dataset with "raw" tables
@@ -23,7 +17,6 @@ Parameters:
 Returns:
     None.
     The script will produce a compressed ZIP file in the directory where it was run.
-    Right now it also creates folders in a directory called `temp_dir` - the intent was for this to truly be a temporary directory,
 
 Example Usage:
 
@@ -99,13 +92,14 @@ def main():
     # Include only tables that are present in the table spec
     tables = [table for table in tables if table.table_id.replace('_raw','') in spec_json_dict.keys()]
 
-    with tempfile.TemporaryDirectory() as temp_dir:
+    with tempfile.TemporaryDirectory() as temp_dir_TODO:
 
         #######################
         # MAKE SOME DIRECTORIES
         #######################
 
         # Define the file path directories
+        temp_dir = "temp_dir"
         sync_dir = dataset_id
         models_dir = "models"
         matviews_subdir = "2_partner_matviews"

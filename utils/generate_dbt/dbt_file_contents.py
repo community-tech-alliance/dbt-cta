@@ -5,10 +5,11 @@ def get_base_sql(
         partition_datetime_field,
         sync_mode
 ):
-    sql = f"""SELECT
-        {table_schema_fields},
-        FORMAT("%x", FARM_FINGERPRINT(CONCAT({concat_fields}))) AS _cta_hashid
-    FROM {{{{ source('cta', '{table_id}') }}}}
+    sql = f"""
+SELECT
+    {table_schema_fields},
+    FORMAT("%x", FARM_FINGERPRINT(CONCAT({concat_fields}))) AS _cta_hashid
+FROM {{{{ source('cta', '{table_id}') }}}}
     
     """
 
@@ -34,17 +35,18 @@ def get_base_config(
         sync_mode
 ):
     if sync_mode == 'full_refresh':
-        dbt_config = f"""{{% set partitions_to_replace = [
-            "timestamp_trunc(current_timestamp, day)",
-            "timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)"
-        ] %}}
+        dbt_config = f"""
+{{% set partitions_to_replace = [
+    "timestamp_trunc(current_timestamp, day)",
+    "timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)"
+] %}}
     
-        {{{{config(
-            cluster_by="_cta_sync_datetime_utc",
-            partition_by={{"field": "{partition_datetime_field}", "data_type": "timestamp", "granularity": "day"}},
-            partitions=partitions_to_replace,
-            unique_key="{unique_key}"
-        )}}}}
+{{{{config(
+    cluster_by="_cta_sync_datetime_utc",
+    partition_by={{"field": "{partition_datetime_field}", "data_type": "timestamp", "granularity": "day"}},
+    partitions=partitions_to_replace,
+    unique_key="{unique_key}"
+)}}}}
     
         -- Final base SQL model
         """
@@ -52,13 +54,14 @@ def get_base_config(
         return dbt_config
 
     elif sync_mode == 'incremental':
-        dbt_config = f""" {{{{ config(
-            cluster_by = "{partition_datetime_field}",
-            partition_by = {{"field": "{partition_datetime_field}", "data_type": "timestamp", "granularity": "day"}},
-            unique_key = '{unique_key}'
-        ) }}}}
+        dbt_config = f"""
+{{{{ config(
+    cluster_by = "{partition_datetime_field}",
+    partition_by = {{"field": "{partition_datetime_field}", "data_type": "timestamp", "granularity": "day"}},
+    unique_key = '{unique_key}'
+) }}}}
 
-            -- Final base SQL model
+-- Final base SQL model
             """
 
         return dbt_config
@@ -73,7 +76,8 @@ def get_matview_sql(
         unique_key,
         table_id_base
 ):
-    matview_sql = f"""{{{{ config(
+    matview_sql = f"""
+{{{{ config(
 	auto_refresh = false,
 	full_refresh = false
 )}}}}
