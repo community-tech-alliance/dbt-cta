@@ -44,6 +44,7 @@ with
             partner_name,
             airflow_run_id,
             num_steps,
+            num_steps_run,
             run_started_at,
             run_completed_at,
             test_errors,
