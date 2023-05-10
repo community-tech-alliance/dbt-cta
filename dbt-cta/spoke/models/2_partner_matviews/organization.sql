@@ -3,10 +3,9 @@
 	full_refresh = false
 )}}
 
-    SELECT
-        _cta_sync_rowid,
+SELECT
+    _cta_sync_rowid,
     _cta_sync_datetime_utc,
-    _cta_hashid,
     autosending_mps,
     created_at,
     default_texting_tz,
@@ -21,5 +20,5 @@
     texting_hours_start,
     updated_at,
     uuid,
-        id
-    FROM {{ source('cta', 'organization_base') }}
+    _cta_hashid
+FROM {{ source('cta', 'organization_base') }}

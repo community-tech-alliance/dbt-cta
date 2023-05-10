@@ -3,10 +3,9 @@
 	full_refresh = false
 )}}
 
-    SELECT
-        _cta_sync_rowid,
+SELECT
+    _cta_sync_rowid,
     _cta_sync_datetime_utc,
-    _cta_hashid,
     city,
     has_dst,
     latitude,
@@ -14,5 +13,5 @@
     state,
     timezone_offset,
     zip,
-        zip
-    FROM {{ source('cta', 'zip_code_base') }}
+    _cta_hashid
+FROM {{ source('cta', 'zip_code_base') }}

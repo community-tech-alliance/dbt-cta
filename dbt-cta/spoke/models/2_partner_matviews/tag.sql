@@ -3,10 +3,9 @@
 	full_refresh = false
 )}}
 
-    SELECT
-        _cta_sync_rowid,
+SELECT
+    _cta_sync_rowid,
     _cta_sync_datetime_utc,
-    _cta_hashid,
     author_id,
     background_color,
     confirmation_steps,
@@ -22,5 +21,5 @@
     title,
     updated_at,
     webhook_url,
-        id
-    FROM {{ source('cta', 'tag_base') }}
+    _cta_hashid
+FROM {{ source('cta', 'tag_base') }}

@@ -3,10 +3,9 @@
 	full_refresh = false
 )}}
 
-    SELECT
-        _cta_sync_rowid,
+SELECT
+    _cta_sync_rowid,
     _cta_sync_datetime_utc,
-    _cta_hashid,
     assignment_id,
     cell,
     created_at,
@@ -14,5 +13,5 @@
     organization_id,
     reason_code,
     updated_at,
-        id
-    FROM {{ source('cta', 'opt_out_base') }}
+    _cta_hashid
+FROM {{ source('cta', 'opt_out_base') }}
