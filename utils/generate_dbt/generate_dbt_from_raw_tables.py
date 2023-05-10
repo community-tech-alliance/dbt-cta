@@ -15,20 +15,23 @@ This script assumes the following:
 (TODO: add a way to create incremental models - tbd how that would work...)
 
 Parameters:
-    project_id (str): the name of the google project ID containing the dataset for generating dbt models.
-    dataset_id (str): the name of the dataset.
-    TODO (not yet implemented):
-    table_configs (dict): a dict containing dbt config info to pass into each model.
-    If none is provided, assume full refresh for all models, using date partition replacement.
-    (something like: {"table_id":"customers","refresh_mode":"incremental","unique_key":"customer_id"}
+    project_id (str): the name of the google project ID containing the dataset with "raw" tables
+    dataset_id (str): the name of the dataset containing "raw" tables
+    output_path (str): path to the output ZIP (default: dbt_models.zip)
+    spec_json_path (str): path to a json file specifying configurations for each table (see `sample_table_spec.json`)
 
 Returns:
     None.
     The script will produce a compressed ZIP file in the directory where it was run.
+    Right now it also creates folders in a directory called `temp_dir` - the intent was for this to truly be a temporary directory,
 
 Example Usage:
 
-    pipenv run python generate_dbt_from_raw_tables.py -p PROJECT_ID -d flambe -s sample_table_spec.json
+    pipenv run python generate_dbt_from_raw_tables.py \
+    -p PROJECT_ID \
+    -d DATASET_ID \
+    -s sample_table_spec.json \
+    -o mycoolmodels.zip
 """
 
 import argparse
@@ -67,7 +70,7 @@ def main():
                         )
     parser.add_argument('--output_path',
                         '-o',
-                        help='Path to the output ZIP (default: dbt_models.zip',
+                        help='Path to the output ZIP (default: dbt_models.zip)',
                         default='dbt_models.zip'
                         )
     parser.add_argument('--spec_json_path',
@@ -96,15 +99,14 @@ def main():
     # Include only tables that are present in the table spec
     tables = [table for table in tables if table.table_id.replace('_raw','') in spec_json_dict.keys()]
 
-    with tempfile.TemporaryDirectory() as temp_dir_TODO:
+    with tempfile.TemporaryDirectory() as temp_dir:
 
         #######################
         # MAKE SOME DIRECTORIES
         #######################
 
         # Define the file path directories
-        temp_dir = "temp_dir"
-        sync_dir = "flambe"  # dataset_id
+        sync_dir = dataset_id
         models_dir = "models"
         matviews_subdir = "2_partner_matviews"
 
