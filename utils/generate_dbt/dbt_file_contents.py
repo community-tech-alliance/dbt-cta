@@ -7,7 +7,7 @@ def get_base_sql(
 ):
     sql = f"""SELECT
         {table_schema_fields},
-        FORMAT("%x", FARM_FINGERPRINT(CONCAT({concat_fields}))) AS _unique_row_id
+        FORMAT("%x", FARM_FINGERPRINT(CONCAT({concat_fields}))) AS _cta_hashid
     FROM {{{{ source('cta', '{table_id}') }}}}
     
     """
@@ -78,9 +78,9 @@ def get_matview_sql(
 	full_refresh = false
 )}}}}
 
-    SELECT
-        {matview_fields},
-        {unique_key}
-    FROM {{{{ source('cta', '{table_id_base}') }}}}"""
+SELECT
+    {matview_fields},
+    _cta_hashid
+FROM {{{{ source('cta', '{table_id_base}') }}}}"""
 
     return matview_sql
