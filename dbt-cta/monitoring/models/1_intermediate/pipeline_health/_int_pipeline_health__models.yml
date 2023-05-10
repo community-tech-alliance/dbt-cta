@@ -2,13 +2,16 @@ version: 2
 
 models:
 
-  - name: int_group_by_invocation_status_type
+  - name: int_group_by_invocation
     description: >
       An intermediate model that joins run results into our invocations staging table,
-      and then groups by invocation resource type (model, test, etc) and status (
-      success, failure, etc).
+      and then groups by invocation.
     columns:
       - name: invocation_id
+        tests:
+          - not_null
+          - unique
+      - name: invocation_type
       - name: run_started_at
       - name: run_completed_at
       - name: command
@@ -17,21 +20,26 @@ models:
       - name: sync_name
       - name: partner_name
       - name: airflow_run_id
-      - name: resource_type
-        tests:
-          - not_null
-          - accepted_values:
-              values: ["model", "test"]
-      - name: status
-        tests:
-          - not_null
-          - accepted_values:
-              values: ["error","success","fail","warn","pass","skipped"]
-      - name: count
+      - name: test_errors
+      - name: total_tests
+      - name: model_errors
+      - name: total_models
+      - name: most_recent_invocation_type
+        description: >
+          This is a calculated windowed field that tells us which row is the most recent
+          run of an invocation type for a given sync run. This is used to filter out
+          tasks that may have failed an then been re-run. i.e. if a test fails, we might
+          re-run the "2 - Test CTA" step for a given Airflow Run ID / Partner / Sync 
+          combo. If this succeeds, we want to use this success to determine overall
+          run success, not the original filter.
+
+          We compute most recent using the run_started_at field.
     tests:
-      # test a unique comination of columns
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns: ["invocation_id", "resource_type", "status"]
+          combination_of_columns: ["airflow_run_id","sync_name","partner_name","invocation_type"]
+          config:
+              where: "most_recent_invocation_type = 1"
+
   - name: int_group_by_run
     description: >
       An intermediate model that groups our invocation status table by airflow run id, 
@@ -47,6 +55,15 @@ models:
         tests:
           - not_null
       - name: num_steps
+        description: >
+          The number of distinct dbt steps in a given dag. This is _usually_ six, (
+          test CTA sources, run CTA, test CTA, test partner sources, run partner, test
+          partner) but does vary across syncs.
+      - name: num_steps_run
+        description: >
+          The number of dbt invocations that have been run for a given airflow run id.
+          If everything succeeded on the first time, then num_steps == num_steps_run,
+          but num_steps_run > num_steps if there were failures and re-runs.
       - name: run_started_at
       - name: run_completed_at
       - name: test_errors
