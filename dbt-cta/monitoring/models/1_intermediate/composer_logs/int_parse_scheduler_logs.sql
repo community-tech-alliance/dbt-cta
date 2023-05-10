@@ -81,7 +81,7 @@ with
     )
     , filter_unused_dag as (
         select * from cast_data_types
-        where dag_id not in ('airflow_monitoring', 'dbt_monitoring','composer_sample_kubernetes_pod') 
+        where dag_id not in ('airflow_monitoring', 'dbt_monitoring') 
         -- nulls are not allowed and will be caught by a test, but I don't want them
         -- to get filtered out here
         or dag_id is null
