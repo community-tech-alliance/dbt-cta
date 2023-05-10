@@ -1,12 +1,14 @@
- {{ config(
-            cluster_by = "updated_at",
-            partition_by = {"field": "updated_at", "data_type": "timestamp", "granularity": "day"},
-            unique_key = 'id'
-        ) }}
 
-            -- Final base SQL model
-            SELECT
-        CAST(`_cta_sync_rowid` AS STRING) AS `_cta_sync_rowid`,
+{{ config(
+    cluster_by = "updated_at",
+    partition_by = {"field": "updated_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = 'id'
+) }}
+
+-- Final base SQL model
+            
+SELECT
+    CAST(`_cta_sync_rowid` AS STRING) AS `_cta_sync_rowid`,
     CAST(`_cta_sync_datetime_utc` AS TIMESTAMP) AS `_cta_sync_datetime_utc`,
     CAST(`assignment_id` AS INTEGER) AS `assignment_id`,
     CAST(`campaign_contact_id` AS INTEGER) AS `campaign_contact_id`,
@@ -31,7 +33,7 @@
     CAST(`updated_at` AS TIMESTAMP) AS `updated_at`,
     CAST(`user_id` AS INTEGER) AS `user_id`,
     CAST(`user_number` AS INTEGER) AS `user_number`,
-        FORMAT("%x", FARM_FINGERPRINT(CONCAT(`_cta_sync_rowid`,
+    FORMAT("%x", FARM_FINGERPRINT(CONCAT(`_cta_sync_rowid`,
                                         `_cta_sync_datetime_utc`,
                                         `assignment_id`,
                                         `campaign_contact_id`,
@@ -56,6 +58,6 @@
                                         `updated_at`,
                                         `user_id`,
                                         `user_number`))) AS _cta_hashid
-    FROM {{ source('cta', 'message_raw') }}
+FROM {{ source('cta', 'message_raw') }}
     
     
