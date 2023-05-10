@@ -1,0 +1,39 @@
+version: 2
+
+models:
+
+  - name: stg_composer_logs__scheduler
+    description: >
+      A staging model of the raw log sync data from the Composer Scheduler. A bunch of
+      these columns are wild nested fields that we don't really need.
+    columns:
+      - name: logName
+        tests:
+          - not_null
+      - name: resource
+      - name: textPayload
+        description: >
+          This is the raw log text field that we eventually want to parse.
+        tests:
+          - not_null
+      - name: log_timestamp
+      - name: received_timestamp
+      - name: severity
+      - name: insert_id
+        tests:
+          - not_null
+          - unique
+      - name: httpRequest
+      - name: labels
+      - name: operation
+      - name: trace
+      - name: spanId
+      - name: traceSampled
+      - name: sourceLocation
+      - name: split
+      - name: resource_type
+        tests:
+          - accepted_values:
+              values: ['cloud_composer_environment']
+      - name: project_id
+      - name: environment_name
