@@ -1,8 +1,7 @@
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
-    tags = [ "top-level-intermediate" ]
+    unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
 -- depends_on: {{ ref('entity_types_ab1') }}
@@ -16,6 +15,7 @@ select
     cast(name_plural as {{ dbt_utils.type_string() }}) as name_plural,
     {{ cast_to_boolean('email_enabled') }} as email_enabled,
     cast(name_singular as {{ dbt_utils.type_string() }}) as name_singular,
+    {{ cast_to_boolean('social_enabled') }} as social_enabled,
     {{ cast_to_boolean('address_enabled') }} as address_enabled,
     {{ cast_to_boolean('language_enabled') }} as language_enabled,
     {{ cast_to_boolean('phone_number_enabled') }} as phone_number_enabled,

@@ -1,8 +1,7 @@
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
-    tags = [ "top-level-intermediate" ]
+    unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('social_profiles_ab2') }}
@@ -14,7 +13,9 @@ select
         'status',
         'profile',
         'entity_id',
+        'owner_id',
         'created_at',
+        'owner_type',
         'updated_at',
         'created_by_id',
         'updated_by_id',

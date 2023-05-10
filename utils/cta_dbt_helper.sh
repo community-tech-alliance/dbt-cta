@@ -113,7 +113,7 @@ generate_matviews() {
 
     # Get target path for directory where matviews should be created
     while [ -z "$OUTPUT_DIR_NAME" ]; do
-        OUTPUT_DIR_NAME=$(gum input --prompt "Enter the directory name where matviews should be placed: " --placeholder "(ex. dbt-cta/actblue/2_partner_matviews/)")
+        OUTPUT_DIR_NAME=$(gum input --prompt "Enter the directory name where matviews should be placed: " --placeholder "(ex. dbt-cta/actblue/models/2_partner_matviews/)")
         if [[ $? != 0 ]]; then
             echo "Ctrl-C caught, exiting..."
             exit 1

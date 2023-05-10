@@ -1,8 +1,7 @@
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
-    tags = [ "top-level-intermediate" ]
+    unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ source('cta', '_airbyte_raw_entity_types') }}
@@ -16,6 +15,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['name_plural'], ['name_plural']) }} as name_plural,
     {{ json_extract_scalar('_airbyte_data', ['email_enabled'], ['email_enabled']) }} as email_enabled,
     {{ json_extract_scalar('_airbyte_data', ['name_singular'], ['name_singular']) }} as name_singular,
+    {{ json_extract_scalar('_airbyte_data', ['social_enabled'], ['social_enabled']) }} as social_enabled,
     {{ json_extract_scalar('_airbyte_data', ['address_enabled'], ['address_enabled']) }} as address_enabled,
     {{ json_extract_scalar('_airbyte_data', ['language_enabled'], ['language_enabled']) }} as language_enabled,
     {{ json_extract_scalar('_airbyte_data', ['phone_number_enabled'], ['phone_number_enabled']) }} as phone_number_enabled,
