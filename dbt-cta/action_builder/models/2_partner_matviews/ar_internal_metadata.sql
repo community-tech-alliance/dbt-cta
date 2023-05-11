@@ -1,4 +1,5 @@
 select
+    _airbyte_emitted_at,
     key,
     value,
     created_at,
