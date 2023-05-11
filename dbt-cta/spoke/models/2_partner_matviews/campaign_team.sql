@@ -3,4 +3,13 @@
 	full_refresh = false
 )}}
 
-select * from {{ source('cta','campaign_team_raw') }}
+SELECT
+    _cta_sync_rowid,
+    _cta_sync_datetime_utc,
+    campaign_id,
+    created_at,
+    id,
+    team_id,
+    updated_at,
+    _cta_hashid
+FROM {{ source('cta', 'campaign_team_base') }}
