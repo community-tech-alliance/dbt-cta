@@ -1,6 +1,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('satisfaction_rating_base') }}
 select
+  _airbyte_emitted_at,
   id,
   survey_id,
   agent_id,

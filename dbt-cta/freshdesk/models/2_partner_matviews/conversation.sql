@@ -1,6 +1,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('conversation_base') }}
 select
+  _airbyte_emitted_at,
   ticket_id,
   id,
   body_text,
