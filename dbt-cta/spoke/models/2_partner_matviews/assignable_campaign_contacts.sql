@@ -3,4 +3,13 @@
 	full_refresh = false
 )}}
 
-select * from {{ source('cta','assignable_campaign_contacts_raw') }}
+SELECT
+    _cta_sync_rowid,
+    _cta_sync_datetime_utc,
+    campaign_id,
+    contact_timezone,
+    id,
+    message_status,
+    texting_hours_end,
+    _cta_hashid
+FROM {{ source('cta', 'assignable_campaign_contacts_base') }}

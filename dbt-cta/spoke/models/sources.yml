@@ -153,3 +153,148 @@ sources:
         tests:
           - unique
           - not_null
+
+  - name: all_campaign_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: all_question_response_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: all_tag_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: assignable_campaign_contacts_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: assignable_campaign_contacts_with_escalation_tags_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: assignable_campaigns_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: assignment_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: assignment_request_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: campaign_contact_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: campaign_contact_tag_base
+    columns:
+      - name: campaign_contact_id
+        tests:
+          - unique
+          - not_null
+  - name: campaign_team_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: canned_response_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: interaction_step_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: invite_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: message_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: opt_out_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: organization_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: question_response_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: tag_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: team_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: user_organization_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: user_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: user_team_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: zip_code_base
+    columns:
+      - name: zip
+        tests:
+          - unique
+          - not_null
