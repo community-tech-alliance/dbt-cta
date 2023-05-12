@@ -16,7 +16,7 @@ models:
       +tags: 
         - cta
       +materialized: ephemeral
-    0_ctes_dev: #useful for debugging sometimes (eg., some field is being cast to the wrong data type and you need to figure out which)
+    0_ctes_dev: #useful for debugging sometimes (eg, some field is being cast to the wrong data type and you need to figure out which)
       +tags: 
         - cta
       +materialized: table
