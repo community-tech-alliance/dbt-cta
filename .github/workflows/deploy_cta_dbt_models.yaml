@@ -1,4 +1,4 @@
-name: Deploy Google Composer DAGs
+name: Deploy dbt to Google Composer
 
 on:
     workflow_call:
@@ -17,7 +17,7 @@ env:
 
 jobs:
   deploy:
-    name: Deploy Google Composer DAGs
+    name: Deploy dbt to Google Composer
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     permissions:
@@ -45,7 +45,7 @@ jobs:
           project_id: ${{ env.GOOGLE_PROJECT_ID }}
 
       ##########################
-      ### deploy DAG changes ###
+      ### deploy dbt changes ###
       ##########################
 
       # Get list of files in last commit
@@ -66,7 +66,7 @@ jobs:
           for file in "${added_modified_renamed_files[@]}"; do
             # Search for the filename
             if [[ $(find dbt-cta -name $(basename ${file})) ]] && [[ ${file} == *.sql || ${file} == *.yml || ${file} == *.yaml]]; then
-              # Get full path of DAG file
+              # Get full path of file
               file_name=$(realpath ${file});
               path_to_file=$(dirname ${file});
               gcloud composer environments storage dags import \
