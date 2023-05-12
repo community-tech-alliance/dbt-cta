@@ -12,4 +12,11 @@ jobs:
     with:
       environment: dev
     secrets: inherit
+
+  deploy_TEST:
+    uses: ./.github/workflows/test_workflow.yaml
+    if: ${{ contains(github.event.pull_request.labels.*.name,'dev_deploy') }}
+    with:
+      environment: dev
+    secrets: inherit
       
