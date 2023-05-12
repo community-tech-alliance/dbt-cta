@@ -1,0 +1,12 @@
+version: 2
+
+models:
+
+  - name: v_campaigns
+
+    description: >
+      This model is just a select * from the materialized view, so we just ensure that
+      we have the same number of rows.
+    tests:
+      - dbt_expectations.expect_table_row_count_to_equal_other_table:
+          compare_model: ref("campaigns")
