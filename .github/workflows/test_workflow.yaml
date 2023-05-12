@@ -63,11 +63,135 @@ jobs:
 
       - name: List all changed files
         run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_and_modified_files }}; do
-            echo "$file was changed or modified"
+        
+          echo "ADDED:"
+          for file in ${{ steps.changed-files.outputs.added_files }}; do
+            if [[ ${#file} > 0 ]]; then
+              echo "$file was added"
+            else
+              echo "No files added."
+            fi
           done
+        
+          echo "MODIFIED:"
+          for file in ${{ steps.changed-files.outputs.modified_files }}; do
+            if [[ ${#file} > 0 ]]; then
+              echo "$file was modified."
+            else
+              echo "No files modified."
+            fi
+          done
+
+          echo "RENAMED:"
+          for file in ${{ steps.changed-files.outputs.modified_files }}; do
+            if [[ ${#file} > 0 ]]; then
+              export old_name="$(echo "$file" | cut -d ',' -f 1)"
+              export new_name="$(echo "$file" | cut -d ',' -f 2)"
+              echo "$old_name was renamed to $new_name"
+            else
+              echo "No files renamed."
+            fi
+          done
+
+      # Deploy each dbt file that was added or modified
+      - name: Deploy added files
+        id: 'deploy_new'
+        run: |
+          for file in ${{ steps.changed-files.outputs.added_files }}; do
+            if [[ ${#file} > 0 ]]; then
+              # Search for the filename
+              if [[ $(find dbt-cta -name $(basename ${file})) ]] && [[ ${file} == *.sql || ${file} == *.yml || ${file} == *.yaml ]]; then
+                # Get full path of file
+                file_name=$(realpath ${file});
+                path_to_file=$(dirname ${file});
+                gcloud composer environments storage dags import \
+                  --project=$GOOGLE_PROJECT_ID \
+                  --location=us-central1 \
+                  --environment=$GOOGLE_COMPOSER_ENVIRONMENT \
+                  --destination=cta-dags/${path_to_file} \
+                  --source=${file_name}
+                echo "Deployed new file: $(basename ${file}))"
+              else
+                echo "No new files to deploy."
+              fi
+            fi
+          done
+
+      - name: Deploy modified files
+        id: 'deploy_modified'
+        run: |
+          for file in ${{ steps.changed-files.outputs.modified_files }}; do
+            if [[ ${#file} > 0 ]]; then
+              # Search for the filename
+              if [[ $(find dbt-cta -name $(basename ${file})) ]] && [[ ${file} == *.sql || ${file} == *.yml || ${file} == *.yaml ]]; then
+                # Get full path of file
+                file_name=$(realpath ${file});
+                path_to_file=$(dirname ${file});
+                gcloud composer environments storage dags import \
+                  --project=$GOOGLE_PROJECT_ID \
+                  --location=us-central1 \
+                  --environment=$GOOGLE_COMPOSER_ENVIRONMENT \
+                  --destination=cta-dags/${path_to_file} \
+                  --source=${file_name}
+                echo "Deployed modified file: $(basename ${file}))"
+              else
+                echo "No modified files to deploy."
+              fi
+            fi
+          done
+
+      - name: Deploy renamed files
+        id: 'deploy_renamed'
+        run: |
+          for file in ${{ steps.changed-files.outputs.renamed_files }}; do
+            if [[ ${#file} > 0 ]]; then
+              # Search for the filename
+              if [[ $(find dbt-cta -name $(basename ${file})) ]] && [[ ${file} == *.sql || ${file} == *.yml || ${file} == *.yaml ]]; then
+                # Get full path of file
+                file_name=$(realpath ${file});
+                path_to_file=$(dirname ${file});
+                gcloud composer environments storage dags import \
+                  --project=$GOOGLE_PROJECT_ID \
+                  --location=us-central1 \
+                  --environment=$GOOGLE_COMPOSER_ENVIRONMENT \
+                  --destination=cta-dags/${path_to_file} \
+                  --source=${file_name}
+                echo "Deployed renamed file: $(basename ${file}))"
+              else
+                echo "No renamed files to deploy."
+              fi
+            fi
+          done
+
+      # Delete any files that were removed or renamed
+      - name: Delete removed files
+        id: 'delete_removed'
+        run: |
+          for file in ${{ steps.changed-files.outputs.deleted_files }}; do
+            if [[ ${#file} > 0 ]]; then
+              gcloud composer environments storage dags delete cta-dags/${file} \
+                --environment=$GOOGLE_COMPOSER_ENVIRONMENT \
+                --project=$GOOGLE_PROJECT_ID \
+                --location=us-central1
+              echo "Deleted file: ${file}"
+              else
+                echo "No files to delete"
+            fi
+          done
+
+      - name: Delete renamed files
+        id: 'delete_renamed'
+        run: |
           for file in ${{ steps.changed-files.outputs.all_old_new_renamed_files }}; do
             export old_name="$(echo "$file" | cut -d ',' -f 1)"
             export new_name="$(echo "$file" | cut -d ',' -f 2)"
-            echo "$old_name was renamed to $new_name"
+            if [[ ${#file} > 0 ]]; then
+              gcloud composer environments storage dags delete cta-dags/${old_name} \
+                --environment=$GOOGLE_COMPOSER_ENVIRONMENT \
+                --project=$GOOGLE_PROJECT_ID \
+                --location=us-central1
+              echo "Deleted renamed file: ${old_name} (renamed to ${new_name})"
+              else
+                echo "No renamed files to delete"
+            fi
           done
