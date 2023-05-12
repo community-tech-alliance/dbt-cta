@@ -24,7 +24,7 @@ jobs:
       contents: 'read'
       id-token: 'write'
     steps:
-    
+
       #############
       ### setup ###
       #############
@@ -32,6 +32,7 @@ jobs:
       # Checkout repo, this needs to happen first
       - name: Checkout
         uses: actions/checkout@v3
+
       # Keyless Auth!
       - id: 'auth'
         name: Authenticate to Google Cloud
@@ -39,6 +40,7 @@ jobs:
         with:
           workload_identity_provider: ${{ env.GOOGLE_WORKLOAD_IDENTITY_PROVIDER }}
           service_account: ${{ env.GOOGLE_SERVICE_ACCOUNT }}
+          
       # Set up gcloud pointing to our airbyte-prod project
       - name: Set up Cloud SDK
         uses: 'google-github-actions/setup-gcloud@v0'
