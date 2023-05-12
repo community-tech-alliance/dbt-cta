@@ -67,7 +67,7 @@ jobs:
             echo "$file was changed or modified"
           done
           for file in ${{ steps.changed-files.outputs.all_old_new_renamed_files }}; do
-            EXPORT old_name="$file" | cut -d ',' -f 1
-            EXPORT new_name="$file" | cut -d ',' -f 2
+            export old_name="$(echo "$file" | cut -d ',' -f 1)"
+            export new_name="$(echo "$file" | cut -d ',' -f 2)"
             echo "$old_name was renamed to $new_name"
           done
