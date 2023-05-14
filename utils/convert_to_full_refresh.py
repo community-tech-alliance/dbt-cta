@@ -24,6 +24,13 @@ Example usage:
 2. When prompted, enter the path to the folder containing the SQL files you want to modify.
    Example input: ../dbt-cta/stripe/models/1_cta_tables
 3. The script will update the SQL files in the specified folder and rename the folder to "1_cta_full_refresh".
+4. Test that your new dbt is working as intended:
+
+```
+cd ../dbt-cta
+pipenv run dbt run --target cta --select tag:cta
+```
+
 """
 
 
