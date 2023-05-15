@@ -73,6 +73,12 @@ models:
       - name: external_trigger
       - name: run_type
       - name: data_interval_start
+        description: >
+          The "data_interval_" fields come directly from Airflow, and theoretically
+          represent the range of data that the DAG run is processing. In practice, we
+          are not actually using these fields in our DAGs to do any filtering.
+
+          More details: https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dag-run.html#data-interval
       - name: data_interval_end
       - name: dag_hash
     tests:
