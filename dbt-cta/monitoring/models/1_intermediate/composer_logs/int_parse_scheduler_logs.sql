@@ -1,6 +1,8 @@
 with
     source as (select * from {{ ref("stg_composer_logs__scheduler") }}),
 
+    dag_metadata as (select * from {{ ref("stg_meta__dag_mapping") }}),
+
     split_log_data as (
         select *, split(textpayload, 'DagRun Finished: ')[offset(1)] as log_data
         from source
@@ -86,6 +88,16 @@ with
         -- to get filtered out here
         or dag_id is null
     )
+    
+    , join_metadata as (
+        select dm.sync as sync_name
+        , dm.partner_name
+        , dm.data_type as data_source_type
+        , cl.*
+    from filter_unused_dag cl
+    left join dag_metadata dm on cl.dag_id = dm.dag_id
+    )
+    
 
 select *
-from filter_unused_dag
+from join_metadata

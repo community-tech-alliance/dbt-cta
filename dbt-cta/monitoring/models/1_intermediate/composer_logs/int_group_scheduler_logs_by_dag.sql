@@ -23,6 +23,9 @@ with
                 "project_id",
                 "environment_name",
                 "execution_date",
+                "partner_name",
+                "sync_name",
+                "data_source_type"
             ] %}
             {% for field in most_recent_fields %}
 

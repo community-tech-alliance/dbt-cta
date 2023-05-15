@@ -6,6 +6,9 @@ models:
       This model takes the raw log sink table of all the "DAGrun Finished" logs from
       Composer and parses out a bunch of relevent fields about the DAG run from the
       text payload.
+
+      We also join in some metadata about the DAGs from the `dag_mapping` table, which
+      is backed by a Google Sheet.
     columns:
       - name: insert_id
         tests: 
@@ -36,6 +39,9 @@ models:
       - name: data_interval_start
       - name: data_interval_end
       - name: dag_hash
+      - name: sync_name
+      - name: partner_name
+      - name: data_source_type
   
   - name: int_group_scheduler_logs_by_dag
     description: >
@@ -81,6 +87,9 @@ models:
           More details: https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dag-run.html#data-interval
       - name: data_interval_end
       - name: dag_hash
+      - name: sync_name
+      - name: partner_name
+      - name: data_source_type
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns: [dag_id, run_id]

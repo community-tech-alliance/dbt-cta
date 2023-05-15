@@ -93,11 +93,13 @@ models:
       - name: sync_name
         tests:
           - not_null
+      - name: dag_id
+        description: >
+          For Daggy McDagface syncs, this is the name of the sync. For other syncs,
+          the name and DAG ID might differ slightly.
       - name: partner_name
         tests:
-          - not_null:
-              config:
-                where: "log_source = 'elementary'"
+          - not_null
       - name: run_id
         tests:
           - not_null

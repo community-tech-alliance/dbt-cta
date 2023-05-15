@@ -9,16 +9,17 @@ with
         to upload logs for whatever reason, we'll fall back on the composer status.
     */
     exclude_elementary_logs as (
-        select *
+        select cl.*
         from composer_logs cl
         left join elementary_logs el on cl.run_id = el.airflow_run_id
         where el.airflow_run_id is null
     ),
-    
+
     union_sources as (
         select
-            dag_id as sync_name,
-            null as partner_name,
+            sync_name,
+            dag_id,
+            partner_name,
             run_id,
             run_start_date as run_started_at,
             run_end_date as run_finished_at,
@@ -26,7 +27,7 @@ with
             null as num_rows_affected,
             null as num_rows_updated,
             null as num_rows_added,
-            null as data_source_type,
+            data_source_type,
             null as data_source,
             'composer' as log_source
 
@@ -36,6 +37,7 @@ with
 
         select
             sync_name,
+            sync_name as dag_id,
             partner_name as partner_name,
             airflow_run_id as run_id,
             run_started_at as run_started_at,
