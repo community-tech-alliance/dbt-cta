@@ -1,4 +1,5 @@
 select
+    _airbyte_emitted_at,
     _airbyte_ctas_hashid,
     ctaId,
     vanId,
