@@ -20,6 +20,7 @@ sources:
   - name: _airbyte_raw_api_keys
   - name: _airbyte_raw_ar_internal_metadata
   - name: _airbyte_raw_assessments
+  - name: _airbyte_raw_attachments
   - name: _airbyte_raw_campaign_configuration_tag_categories
   - name: _airbyte_raw_campaign_context_notes
   - name: _airbyte_raw_campaign_entity_type_configurations
