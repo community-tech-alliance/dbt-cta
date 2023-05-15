@@ -1,5 +1,5 @@
 with
-    composer_logs as (select * from {{ ref("int_parse_scheduler_logs") }}),
+    composer_logs as (select * from {{ ref("int_group_scheduler_logs_by_dag") }}),
 
     elementary_logs as (select * from {{ ref("int_group_by_run") }}),
 
