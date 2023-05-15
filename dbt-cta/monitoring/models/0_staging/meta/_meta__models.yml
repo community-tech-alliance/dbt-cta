@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_meta__dag_mapping
+    columns:
+      - name: dag_id
+        tests:
+          - not_null
+          - unique
+      - name: sync
+        tests:
+          - not_null
+      - name: partner_name
+        tests:
+          - not_null
+      - name: data_type
