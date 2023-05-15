@@ -1,6 +1,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('group_base') }}
 select
+  _airbyte_emitted_at,
   id,
   escalate_to,
   business_hour_id,

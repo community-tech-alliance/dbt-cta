@@ -1,6 +1,7 @@
 -- Final Materialized View SQL model
 -- depends_on: {{ ref('conversation_base') }}
 select
+  _airbyte_emitted_at,
     id as conversation_id,
     SAFE_CAST(JSON_EXTRACT_SCALAR(attachment, '$.id') as int64) as id,
     JSON_EXTRACT_SCALAR(attachment, '$.content_type') as content_type,

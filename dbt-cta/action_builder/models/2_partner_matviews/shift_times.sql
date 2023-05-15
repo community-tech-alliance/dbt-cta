@@ -1,4 +1,5 @@
 select
+    _airbyte_emitted_at,
     id,
     end_time,
     shift_id,

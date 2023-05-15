@@ -1,6 +1,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('email_config_base') }}
 select
+  _airbyte_emitted_at,
   id,
   product_id,
   group_id,

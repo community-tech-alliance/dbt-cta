@@ -1,6 +1,7 @@
 -- Final Materialized View SQL model
 -- depends_on: {{ ref('ticket_base') }}
 select
+  _airbyte_emitted_at,
     id,
     email_config_id,
     group_id,

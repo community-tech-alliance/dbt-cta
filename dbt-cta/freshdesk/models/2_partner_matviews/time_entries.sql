@@ -1,6 +1,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('time_entries_base') }}
 select
+  _airbyte_emitted_at,
   id,
   agent_id,
   ticket_id,
