@@ -32,6 +32,8 @@ jobs:
       # Checkout repo, this needs to happen first
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
 
       # Keyless Auth!
       - id: 'auth'
