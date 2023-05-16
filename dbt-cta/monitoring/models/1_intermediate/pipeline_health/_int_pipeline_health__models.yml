@@ -91,15 +91,21 @@ models:
 
     columns:
       - name: sync_name
+        description: >
+          The name of a given sync. In most cases this will match the DAG ID. We allow
+          for a bit of null-ness since occasionally we maybe testing a new sync and it
+          might not exist in one of our mapping files quite yet.
         tests:
-          - not_null
+          - dbt_utils.not_null_proportion:
+              at_least: 0.95
       - name: dag_id
         description: >
           For Daggy McDagface syncs, this is the name of the sync. For other syncs,
           the name and DAG ID might differ slightly.
       - name: partner_name
         tests:
-          - not_null
+          - dbt_utils.not_null_proportion:
+              at_least: 0.95
       - name: run_id
         tests:
           - not_null
