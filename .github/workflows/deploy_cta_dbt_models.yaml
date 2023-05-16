@@ -81,7 +81,7 @@ jobs:
           done
 
           echo "RENAMED:"
-          for file in ${{ steps.changed-files.outputs.modified_files }}; do
+          for file in ${{ steps.changed-files.outputs.all_old_new_renamed_files }}; do
             if [[ ${#file} > 0 ]]; then
               export old_name="$(echo "$file" | cut -d ',' -f 1)"
               export new_name="$(echo "$file" | cut -d ',' -f 2)"
