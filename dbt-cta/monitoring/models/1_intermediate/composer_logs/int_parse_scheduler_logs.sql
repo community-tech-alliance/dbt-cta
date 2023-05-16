@@ -1,7 +1,9 @@
 with
     source as (select * from {{ ref("stg_composer_logs__scheduler") }}),
 
-    dag_metadata as (select * from {{ ref("stg_meta__dag_mapping") }}),
+    composer_dag_metadata as (select * from {{ ref("stg_meta__dag_mapping") }}),
+
+    airbyte_dag_metadata as (select * from {{ ref("stg_meta__configured_syncs") }}),
 
     split_log_data as (
         select *, split(textpayload, 'DagRun Finished: ')[offset(1)] as log_data
@@ -89,15 +91,24 @@ with
         or dag_id is null
     )
     
-    , join_metadata as (
+    , join_composer_metadata as (
         select dm.sync as sync_name
         , dm.partner_name
         , dm.data_type as data_source_type
         , cl.*
     from filter_unused_dag cl
-    left join dag_metadata dm on cl.dag_id = dm.dag_id
+    left join composer_dag_metadata dm on cl.dag_id = dm.dag_id
+    )
+
+    , join_airbyte_metadata as (
+        select coalesce(cl.sync_name, am.dag_id) as sync_name
+        , coalesce(cl.partner_name, am.partner_name) as partner_name
+        , cl.* except(sync_name, partner_name)
+
+        from join_composer_metadata cl
+        left join airbyte_dag_metadata am on cl.dag_id = am.dag_id
     )
     
 
 select *
-from join_metadata
+from join_airbyte_metadata
