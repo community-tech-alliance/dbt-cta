@@ -4,7 +4,7 @@ with
         select
             *,
             row_number() over (
-                partition by dag_id, run_id order by log_timestamp desc
+                partition by dag_id, run_id, partner_name order by log_timestamp desc
             ) as most_recent
         from source
     ),
@@ -12,7 +12,8 @@ with
         select
 
             dag_id,
-            run_id
+            run_id,
+            partner_name
 
             {% set most_recent_fields = [
                 "log_timestamp",
@@ -23,7 +24,6 @@ with
                 "project_id",
                 "environment_name",
                 "execution_date",
-                "partner_name",
                 "sync_name",
                 "data_source_type"
             ] %}
@@ -42,7 +42,7 @@ with
             array_agg(insert_id) as insert_id
 
         from add_most_recent_flag
-        group by 1, 2
+        group by 1, 2, 3
     )
 
 select *
