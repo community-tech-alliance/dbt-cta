@@ -1,4 +1,5 @@
 select
+    _airbyte_emitted_at,
     id,
     hidden,
     user_id,

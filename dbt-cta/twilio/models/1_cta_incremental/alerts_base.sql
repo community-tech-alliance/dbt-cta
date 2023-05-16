@@ -19,6 +19,7 @@ select
     date_updated,
     resource_sid,
     date_generated,
-    request_method
+    request_method,
+    _airbyte_emitted_at
 from {{ ref('alerts_ab3') }}
 

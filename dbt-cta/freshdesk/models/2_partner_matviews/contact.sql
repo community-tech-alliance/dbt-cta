@@ -1,6 +1,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('contact_base') }}
 select
+  _airbyte_emitted_at,
     id,
     company_id,
     active,
