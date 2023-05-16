@@ -36,7 +36,7 @@ models:
           The airflow run id that this dbt run was a part of.
 
   - name: stg_elementary__dbt_invocations
-      A staging model of the elementary-generated dbt_invocations table.
+    description:  A staging model of the elementary-generated dbt_invocations table.
     columns:
       - name: invocation_id
         description: >
