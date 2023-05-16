@@ -1,5 +1,14 @@
 name: Deploy dbt to Google Composer
 
+# BEWARE DUPLICATE FILES IN YOUR DEV DEPLOYS:
+# After you deploy a branch to dev, the workflow will always be comparing your branch to main -
+# so if (for example) you create a file and then delete it after triggering the dev deploy,
+# the workflow will deploy the file when you create it, but it WILL NOT subsequently delete it.
+# This is because the run triggered by the commit deleting the file will compare `main` to your branch,
+# neither of which contain the file you added and deleted, so no action will be taken.
+# Since your earlier commit deployed the file, it will continue to linger in dev.
+# (This quirk does not apply to prod deploys since the workflow only runs once, when the PR is merged.)
+
 on:
     workflow_call:
       inputs:
