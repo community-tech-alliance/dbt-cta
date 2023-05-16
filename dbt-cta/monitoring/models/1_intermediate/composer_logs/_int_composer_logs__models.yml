@@ -13,7 +13,6 @@ models:
       - name: insert_id
         tests: 
           - not_null
-          - unique
       - name: log_timestamp
       - name: received_timestamp
       - name: project_id
@@ -42,6 +41,11 @@ models:
       - name: sync_name
       - name: partner_name
       - name: data_source_type
+    tests:
+      # Joining in partner metadata means we sometimes associate a single dag run with
+      # multiple partners.
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns: ['insert_id','partner_name']
   
   - name: int_group_scheduler_logs_by_dag
     description: >
@@ -92,4 +96,4 @@ models:
       - name: data_source_type
     tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns: [dag_id, run_id]
+          combination_of_columns: [dag_id, run_id, partner_name]
