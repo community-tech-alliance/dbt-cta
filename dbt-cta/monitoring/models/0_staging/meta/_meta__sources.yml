@@ -28,6 +28,24 @@ sources:
             data_type: STRING
           - name: data_type
             data_type: STRING
+      - name: excluded_dags
+        description: >-
+          This table is an external table backed by a Google Sheet that contains a list
+          of dag_ids to exlcude from monitoring.
+
+          If we need to update the structure of the data (not the data itself), it can
+          be updated by running the following
+          cmd:
+            dbt run-operation stage_external_sources -t cta   
+        external:
+          location: https://docs.google.com/spreadsheets/d/1drlo-3lWRFOkFlXqDXW9EPqpRNhRMA2uNR7X_6647RY/edit
+          options:
+            format: GOOGLE_SHEETS
+            skip_leading_rows: 1
+        columns:
+          - name: dag_id
+            data_type: STRING
+
       - name: configured_syncs
         description: >
           This is an external table that is built off some json config living in

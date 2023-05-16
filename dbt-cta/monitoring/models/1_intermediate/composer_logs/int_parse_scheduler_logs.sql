@@ -5,6 +5,8 @@ with
 
     airbyte_dag_metadata as (select * from {{ ref("stg_meta__configured_syncs") }}),
 
+    excluded_dags as (select * from {{ ref('stg_meta__excluded_dags') }}),
+
     split_log_data as (
         select *, split(textpayload, 'DagRun Finished: ')[offset(1)] as log_data
         from source
@@ -84,10 +86,8 @@ with
         from unpack_values
     )
     , filter_unused_dag as (
-        select * from cast_data_types
-        where dag_id not in ('airflow_monitoring', 'dbt_monitoring','composer_sample_kubernetes_pod') 
-        -- nulls are not allowed and will be caught by a test, but I don't want them
-        -- to get filtered out here
+        select cast_data_types.* from cast_data_types
+        where dag_id not in (select dag_id from excluded_dags)
         or dag_id is null
     )
     
