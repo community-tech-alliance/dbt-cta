@@ -45,7 +45,11 @@ string_to_add = """{% set partitions_to_replace = [
 """
 
 # Define the strings for replacement
-old_string = """
+old_string_1 = """
+where 1 = 1
+{{ incremental_clause('_airbyte_emitted_at') }}
+"""
+old_string_2 = """
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 """
@@ -73,7 +77,8 @@ for filename in os.listdir(folder_path):
         new_file_content = string_to_add + file_content
         
         # Replace the old string with the new string
-        new_file_content = new_file_content.replace(old_string, new_string)
+        new_file_content = new_file_content.replace(old_string_1, new_string)
+        new_file_content = new_file_content.replace(old_string_2, new_string)
         
         # Write the new content to the file
         with open(os.path.join(folder_path, filename), 'w') as file:
