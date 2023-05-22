@@ -1,6 +1,12 @@
 with
     source as (select * from {{ ref("stg_composer_logs__scheduler") }}),
 
+    composer_dag_metadata as (select * from {{ ref("stg_meta__dag_mapping") }}),
+
+    airbyte_dag_metadata as (select * from {{ ref("stg_meta__configured_syncs") }}),
+
+    excluded_dags as (select * from {{ ref('stg_meta__excluded_dags') }}),
+
     split_log_data as (
         select *, split(textpayload, 'DagRun Finished: ')[offset(1)] as log_data
         from source
@@ -80,12 +86,29 @@ with
         from unpack_values
     )
     , filter_unused_dag as (
-        select * from cast_data_types
-        where dag_id not in ('airflow_monitoring', 'dbt_monitoring','composer_sample_kubernetes_pod') 
-        -- nulls are not allowed and will be caught by a test, but I don't want them
-        -- to get filtered out here
+        select cast_data_types.* from cast_data_types
+        where dag_id not in (select dag_id from excluded_dags)
         or dag_id is null
     )
+    
+    , join_composer_metadata as (
+        select dm.sync as sync_name
+        , dm.partner_name
+        , dm.data_type as data_source_type
+        , cl.*
+    from filter_unused_dag cl
+    left join composer_dag_metadata dm on cl.dag_id = dm.dag_id
+    )
+
+    , join_airbyte_metadata as (
+        select coalesce(cl.sync_name, am.dag_id) as sync_name
+        , coalesce(cl.partner_name, am.partner_name) as partner_name
+        , cl.* except(sync_name, partner_name)
+
+        from join_composer_metadata cl
+        left join airbyte_dag_metadata am on cl.dag_id = am.dag_id
+    )
+    
 
 select *
-from filter_unused_dag
+from join_airbyte_metadata
