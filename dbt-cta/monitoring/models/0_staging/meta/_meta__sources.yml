@@ -15,7 +15,7 @@ sources:
           cmd:
             dbt run-operation stage_external_sources -t cta   
         external:
-          location: https://docs.google.com/spreadsheets/d/13xNwLfmT8frlqnPrqKVM1-YH00yRakoK1wRcXDOMjuc/edit
+          location: https://docs.google.com/spreadsheets/d/{{ env_var('DAG_MAPPING_SHEET_ID') }}/edit
           options:
             format: GOOGLE_SHEETS
             skip_leading_rows: 1
@@ -38,7 +38,7 @@ sources:
           cmd:
             dbt run-operation stage_external_sources -t cta   
         external:
-          location: https://docs.google.com/spreadsheets/d/1drlo-3lWRFOkFlXqDXW9EPqpRNhRMA2uNR7X_6647RY/edit
+          location: https://docs.google.com/spreadsheets/d/{{ env_var('DAG_EXCLUSIONS_SHEET_ID') }}/edit
           options:
             format: GOOGLE_SHEETS
             skip_leading_rows: 1
