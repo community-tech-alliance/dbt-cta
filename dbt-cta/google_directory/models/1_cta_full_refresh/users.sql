@@ -1,3 +1,13 @@
+{% set partitions_to_replace = [
+    'timestamp_trunc(current_timestamp, day)',
+    'timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)'
+] %}
+
+{{ config(
+    cluster_by = "_airbyte_emitted_at",
+    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+) }}
+
 -- Final base SQL model
 -- depends_on: {{ ref('users_ab3') }}
 select
@@ -33,5 +43,6 @@ select
     CURRENT_TIMESTAMP() as _airbyte_normalized_at,
     _airbyte_users_hashid
 from {{ ref('users_ab3') }}
-where 1 = 1
-and cast(_airbyte_emitted_at as timestamp) >= cast('2022-12-02 10:00:40+00:00' as timestamp)
+{% if is_incremental() %}
+where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
+{% endif %}
