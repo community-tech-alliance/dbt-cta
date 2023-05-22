@@ -32,6 +32,15 @@ with
         , case when elementary_success = false then 'failed' else run_status end as status
         from compute_successes
     ),
+    add_total_errors as (
+        select *
+        -- For elementray failures, use the number of errors from the Elementary logs,
+        -- otherwise just use '1' for the number of errors if the run failed
+        , case
+            when status = 'failed' then greatest(1, coalesce(model_errors,0) + coalesce(test_errors,0))
+            else coalesce(model_errors+test_errors,0) end as total_errors
+        from coalesce_status
+    ),
     add_most_recent_run as (
         select
             *,
@@ -46,7 +55,7 @@ with
                 then 1
                 else 0
             end as most_recent_run_per_day,
-        from coalesce_status
+        from add_total_errors
     ),
     add_run_time as (
         select *, datetime_diff(run_finished_at, run_started_at, minute) as runtime
@@ -58,19 +67,20 @@ with
             sync_name,
             partner_name,
             run_id,
-            num_steps,
-            num_steps_run,
             run_started_at,
             run_finished_at as run_completed_at,
             status,
             most_recent_run_per_day,
             runtime,
+            total_errors,
+            num_steps,
+            num_steps_run,
             test_errors,
             successful_tests,
             total_tests,
             model_errors,
             successful_models,
-            total_models,
+            total_models
 
         from add_run_time
     )
