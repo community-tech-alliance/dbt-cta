@@ -1,5 +1,8 @@
 with
-    source as (select * from {{ ref("int_group_by_run") }}),
+    unioned_logs as (select * from {{ ref("int_merge_logs") }}),
+    elementary_logs as (select * from {{ ref("int_group_by_run") }}),
+    join_elementary_model_info 
+
     compute_successes as (
 
         select
