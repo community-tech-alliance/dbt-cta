@@ -7,17 +7,27 @@ models:
       to produce a pipeline-run-level table (one row per sync, per partner, per airflow
       run) with high-level information about the status of a given pipeline run.
     columns:
+      - name: dag_id
+        description: >
+          The ID of the DAG in airflow. This is _usually_ a concat of the sync name and
+          the partner name, but may vary slightly for non-DMDF syncs.
       - name: sync_name
         description: >
-          The name of the sync that this dbt run is a part of.
+          The name of the sync that this dbt run is a part of. Like in the intermediate
+          tables, we allow for some slight nullness here when we're testing new syncs.
+
+          To ensure this column and the partner name populates, be sure to add the DAG
+          to our DAG Mapping Google Sheet.
         tests:
-          - not_null
+          - dbt_utils.not_null_proportion:
+              at_least: 0.95
       - name: partner_name
         description: >
           The name of the partner that this dbt project was run for
         tests:
-          - not_null
-      - name: airflow_run_id
+          - dbt_utils.not_null_proportion:
+              at_least: 0.95
+      - name: run_id
         description: >
           The airflow run id that this dbt run was a part of.
         tests:
@@ -56,4 +66,4 @@ models:
       - name: runtime
     tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns: ["airflow_run_id","sync_name","partner_name"]
+          combination_of_columns: ["run_id","sync_name","partner_name"]
