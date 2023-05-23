@@ -51,7 +51,6 @@ where 1 = 1
 """
 old_string_2 = """
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
 """
 new_string = """
 {% if is_incremental() %}
