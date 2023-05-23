@@ -19,14 +19,12 @@ models:
           To ensure this column and the partner name populates, be sure to add the DAG
           to our DAG Mapping Google Sheet.
         tests:
-          - dbt_utils.not_null_proportion:
-              at_least: 0.95
+          - not_null
       - name: partner_name
         description: >
           The name of the partner that this dbt project was run for
         tests:
-          - dbt_utils.not_null_proportion:
-              at_least: 0.95
+          - not_null
       - name: run_id
         description: >
           The airflow run id that this dbt run was a part of.
