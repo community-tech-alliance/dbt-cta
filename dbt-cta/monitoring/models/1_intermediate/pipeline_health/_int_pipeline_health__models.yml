@@ -92,12 +92,18 @@ models:
     columns:
       - name: sync_name
         description: >
-          The name of a given sync. In most cases this will match the DAG ID. We allow
-          for a bit of null-ness since occasionally we maybe testing a new sync and it
-          might not exist in one of our mapping files quite yet.
+          The name of a given sync. In most cases this will match the DAG ID. 
+
+          We're joining together logs directly from Composer and logs from our dbt
+          pipelines. The stuff coming directly from Composer is much more limited and
+          so we have to join in some metadata to populate partner_name and sync_name.
+
+          We allow for a bit of null-ness (currently 10%) since occasionally we maybe
+          testing a new sync and it might not exist in one of our mapping files quite
+          yet.
         tests:
           - dbt_utils.not_null_proportion:
-              at_least: 0.95
+              at_least: 0.90
       - name: dag_id
         description: >
           For Daggy McDagface syncs, this is the name of the sync. For other syncs,
@@ -105,7 +111,7 @@ models:
       - name: partner_name
         tests:
           - dbt_utils.not_null_proportion:
-              at_least: 0.95
+              at_least: 0.90
       - name: run_id
         tests:
           - not_null
