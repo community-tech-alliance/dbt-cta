@@ -64,8 +64,8 @@ with
     final as (
         select
             dag_id,
-            sync_name,
-            partner_name,
+            coalesce(sync_name,'NA') as sync_name,
+            coalesce(partner_name,'NA') as partner_name,
             run_id,
             run_started_at,
             run_finished_at as run_completed_at,
