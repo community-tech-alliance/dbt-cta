@@ -85,12 +85,21 @@ with
 
         from unpack_values
     )
+    , convert_timezones as (
+        {% set timestamp_cols = ['log_timestamp','received_timestamp','execution_date','run_start_date','run_end_date','data_interval_start','data_interval_end'] %}
+
+        select
+            * except({% for col in timestamp_cols %}{{ col }}{% if not loop.last%},{% endif%}{% endfor%})
+            {% for col in timestamp_cols %}
+            , {{ dbt_date.convert_timezone(col, 'America/New_York', 'UTC') }} as {{ col }}
+            {% endfor %}
+        from cast_data_types
+    )
     , filter_unused_dag as (
-        select cast_data_types.* from cast_data_types
+        select convert_timezones.* from convert_timezones
         where dag_id not in (select dag_id from excluded_dags)
         or dag_id is null
     )
-    
     , join_composer_metadata as (
         select dm.sync as sync_name
         , dm.partner_name
