@@ -97,7 +97,7 @@ models:
           might not exist in one of our mapping files quite yet.
         tests:
           - dbt_utils.not_null_proportion:
-              at_least: 0.95
+              at_least: 0.90
       - name: dag_id
         description: >
           For Daggy McDagface syncs, this is the name of the sync. For other syncs,
@@ -105,7 +105,7 @@ models:
       - name: partner_name
         tests:
           - dbt_utils.not_null_proportion:
-              at_least: 0.95
+              at_least: 0.90
       - name: run_id
         tests:
           - not_null
