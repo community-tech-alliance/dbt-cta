@@ -5,4 +5,4 @@ select
     updated_at,
     email_campaign_id,
     _airbyte_email_campaign_members_hashid
-from {{ source('cta','email_campaign_members_base') }}
+from {{ ref('cta','email_campaign_members_base') }}

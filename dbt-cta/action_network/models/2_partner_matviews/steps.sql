@@ -9,4 +9,4 @@ select
     next_step_id,
     alternate_next_step_id,
     _airbyte_steps_hashid
-from {{ source('cta','steps_base') }}
+from {{ ref('steps_base') }}

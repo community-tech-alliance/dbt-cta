@@ -57,4 +57,4 @@ select
     display_sharing_options,
     form_builder_output_json,
     _airbyte_petitions_hashid
-from {{ source('cta','petitions_base') }}
+from {{ ref('petitions_base') }}

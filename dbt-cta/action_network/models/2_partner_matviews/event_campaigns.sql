@@ -72,4 +72,4 @@ select
     default_facebook_image_content_type,
     default_auto_response_email_template_id,
     _airbyte_event_campaigns_hashid
-from {{ source('cta','event_campaigns_base') }}
+from {{ ref('event_campaigns_base') }}

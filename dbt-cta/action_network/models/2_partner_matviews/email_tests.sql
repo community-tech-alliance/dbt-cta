@@ -11,4 +11,4 @@ select
     updated_at,
     winning_email_id,
     _airbyte_email_tests_hashid
-from {{ source('cta','email_tests_base') }}
+from {{ ref('email_tests_base') }}

@@ -15,4 +15,4 @@ select
     event_campaign_id,
     event_campaign_upload_id,
     _airbyte_locations_hashid
-from {{ source('cta','locations_base') }}
+from {{ ref('locations_base') }}

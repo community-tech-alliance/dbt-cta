@@ -6,4 +6,4 @@ select
     updated_at,
     source_code,
     _airbyte_source_codes_hashid
-from {{ source('cta','source_codes_base') }}
+from {{ ref('source_codes_base') }}

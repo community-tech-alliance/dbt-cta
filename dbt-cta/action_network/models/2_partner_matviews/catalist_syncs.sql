@@ -13,4 +13,4 @@ select
     token_expires_in,
     token_updated_at,
     _airbyte_catalist_syncs_hashid
-from {{ source('cta','catalist_syncs_base') }}
+from {{ ref('catalist_syncs_base') }}

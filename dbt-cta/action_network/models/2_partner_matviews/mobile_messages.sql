@@ -22,4 +22,4 @@ select
     first_permalink,
     administrative_title,
     _airbyte_mobile_messages_hashid
-from {{ source('cta','mobile_messages_base') }}
+from {{ ref('mobile_messages_base') }}

@@ -13,4 +13,4 @@ select
     auto_end_date,
     schedule_action,
     _airbyte_ladders_hashid
-from {{ source('cta','ladders_base') }}
+from {{ ref('ladders_base') }}

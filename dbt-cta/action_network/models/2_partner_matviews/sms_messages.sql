@@ -12,4 +12,4 @@ select
     message_type,
     twilio_message_id,
     _airbyte_sms_messages_hashid
-from {{ source('cta','sms_messages_base') }}
+from {{ ref('sms_messages_base') }}

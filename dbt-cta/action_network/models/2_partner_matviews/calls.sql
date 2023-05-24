@@ -21,4 +21,4 @@ select
     call_campaign_id,
     originating_system,
     _airbyte_calls_hashid
-from {{ source('cta','calls_base') }}
+from {{ ref('calls_base') }}

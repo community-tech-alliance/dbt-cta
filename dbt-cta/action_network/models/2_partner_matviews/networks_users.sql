@@ -6,4 +6,4 @@ select
     updated_at,
     accepted_terms,
     _airbyte_networks_users_hashid
-from {{ source('cta','networks_users_base') }}
+from {{ ref('networks_users_base') }}

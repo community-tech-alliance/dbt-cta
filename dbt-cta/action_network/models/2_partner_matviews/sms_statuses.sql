@@ -10,4 +10,4 @@ select
     source_action_id,
     source_action_type,
     _airbyte_sms_statuses_hashid
-from {{ source('cta','sms_statuses_base') }}
+from {{ ref('sms_statuses_base') }}

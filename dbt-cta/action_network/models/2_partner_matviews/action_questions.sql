@@ -8,4 +8,4 @@ select
     custom_json,
     question_id,
     _airbyte_action_questions_hashid
-from {{ source('cta','action_questions_base') }}
+from {{ ref('action_questions_base') }}

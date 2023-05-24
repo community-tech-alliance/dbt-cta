@@ -4,4 +4,4 @@ select
     updated_at,
     county_state,
     _airbyte_counties_hashid
-from {{ source('cta','counties_base') }}
+from {{ ref('counties_base') }}

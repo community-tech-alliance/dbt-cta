@@ -6,4 +6,4 @@ select
     created_at,
     updated_at,
     _airbyte_email_campaigns_hashid
-from {{ source('cta','email_campaigns_base') }}
+from {{ ref('email_campaigns_base') }}

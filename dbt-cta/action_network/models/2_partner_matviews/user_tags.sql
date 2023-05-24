@@ -7,4 +7,4 @@ select
     created_at,
     updated_at,
     _airbyte_user_tags_hashid
-from {{ source('cta','user_tags_base') }}
+from {{ ref('user_tags_base') }}

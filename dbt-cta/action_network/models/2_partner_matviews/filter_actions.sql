@@ -8,4 +8,4 @@ select
     action_type,
     network_group_id,
     _airbyte_filter_actions_hashid
-from {{ source('cta','filter_actions_base') }}
+from {{ ref('filter_actions_base') }}

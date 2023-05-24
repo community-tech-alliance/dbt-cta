@@ -88,4 +88,4 @@ select
     mobile_message_stats_csv_updated_at,
     mobile_message_stats_csv_content_type,
     _airbyte_groups_hashid
-from {{ source('cta','groups_base') }}
+from {{ ref('groups_base') }}

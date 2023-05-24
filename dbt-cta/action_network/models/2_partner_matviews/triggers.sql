@@ -14,4 +14,4 @@ select
     exclude_uploads,
     only_text_to_join,
     _airbyte_triggers_hashid
-from {{ source('cta','triggers_base') }}
+from {{ ref('triggers_base') }}

@@ -24,4 +24,4 @@ select
     updates_from_creator,
     updates_from_sponsor,
     _airbyte_deliveries_hashid
-from {{ source('cta','deliveries_base') }}
+from {{ ref('deliveries_base') }}

@@ -17,4 +17,4 @@ select
     logo_dimensions,
     logo_content_type,
     _airbyte_email_templates_hashid
-from {{ source('cta','email_templates_base') }}
+from {{ ref('cta','email_templates_base') }}

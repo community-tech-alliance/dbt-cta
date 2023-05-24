@@ -21,4 +21,4 @@ select
     updates_from_creator,
     updates_from_sponsor,
     _airbyte_answers_hashid
-from {{ source('cta','answers_base') }}
+from {{ ref('answers_base') }}

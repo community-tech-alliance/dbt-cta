@@ -20,4 +20,4 @@ select
     recurring_emails,
     recurring_interval,
     _airbyte_reports_hashid
-from {{ source('cta','reports_base') }}
+from {{ ref('reports_base') }}

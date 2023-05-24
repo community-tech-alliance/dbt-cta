@@ -56,4 +56,4 @@ select
     targets_not_found_sms_text,
     targets_not_found_sms_enabled,
     _airbyte_call_campaigns_hashid
-from {{ source('cta','call_campaigns_base') }}
+from {{ ref('call_campaigns_base') }}

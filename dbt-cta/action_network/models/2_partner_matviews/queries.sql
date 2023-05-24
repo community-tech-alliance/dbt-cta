@@ -9,4 +9,4 @@ select
     creator_id,
     updated_at,
     _airbyte_queries_hashid
-from {{ source('cta','queries_base') }}
+from {{ ref('queries_base') }}

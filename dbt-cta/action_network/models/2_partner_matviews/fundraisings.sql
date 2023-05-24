@@ -54,4 +54,4 @@ select
     form_builder_output_json,
     recurring_upsell_description,
     _airbyte_fundraisings_hashid
-from {{ source('cta','fundraisings_base') }}
+from {{ ref('fundraisings_base') }}

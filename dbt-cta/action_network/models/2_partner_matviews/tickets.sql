@@ -10,4 +10,4 @@ select
     description,
     ticketed_event_id,
     _airbyte_tickets_hashid
-from {{ source('cta','tickets_base') }}
+from {{ ref('tickets_base') }}

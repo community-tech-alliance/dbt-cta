@@ -7,4 +7,4 @@ select
     updated_at,
     field_name_id,
     _airbyte_field_values_hashid
-from {{ source('cta','field_values_base') }}
+from {{ ref('field_values_base') }}

@@ -8,4 +8,4 @@ select
     inviter_id,
     updated_at,
     _airbyte_group_invites_hashid
-from {{ source('cta','group_invites_base') }}
+from {{ ref('group_invites_base') }}

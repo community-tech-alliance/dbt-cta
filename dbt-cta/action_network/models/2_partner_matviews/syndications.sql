@@ -23,4 +23,4 @@ select
     originating_system,
     photo_content_type,
     _airbyte_syndications_hashid
-from {{ source('cta','syndications_base') }}
+from {{ ref('syndications_base') }}

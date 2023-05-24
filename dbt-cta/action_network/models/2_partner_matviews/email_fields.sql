@@ -9,4 +9,4 @@ select
     builder_html,
     builder_json,
     _airbyte_email_fields_hashid
-from {{ source('cta','email_fields_base') }}
+from {{ ref('email_fields_base') }}

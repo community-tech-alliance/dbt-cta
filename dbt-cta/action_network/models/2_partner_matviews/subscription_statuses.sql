@@ -10,4 +10,4 @@ select
     source_action_id,
     source_action_type,
     _airbyte_subscription_statuses_hashid
-from {{ source('cta','subscription_statuses_base') }}
+from {{ ref('subscription_statuses_base') }}

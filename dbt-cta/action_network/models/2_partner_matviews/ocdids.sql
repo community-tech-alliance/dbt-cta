@@ -5,4 +5,4 @@ select
     updated_at,
     ocdid_value,
     _airbyte_ocdids_hashid
-from {{ source('cta','ocdids_base') }}
+from {{ ref('ocdids_base') }}

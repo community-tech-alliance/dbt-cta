@@ -13,4 +13,4 @@ select
     network_share,
     csv_content_type,
     _airbyte_targets_hashid
-from {{ source('cta','targets_base') }}
+from {{ ref('targets_base') }}

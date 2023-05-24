@@ -21,4 +21,4 @@ select
     captcha_required,
     letter_template_id,
     _airbyte_delivery_targets_hashid
-from {{ source('cta','delivery_targets_base') }}
+from {{ ref('delivery_targets_base') }}

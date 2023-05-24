@@ -12,4 +12,4 @@ select
     csv_content_type,
     event_campaign_id,
     _airbyte_event_campaign_uploads_hashid
-from {{ source('cta','event_campaign_uploads_base') }}
+from {{ ref('event_campaign_uploads_base') }}

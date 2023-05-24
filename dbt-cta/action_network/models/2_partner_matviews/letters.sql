@@ -51,4 +51,4 @@ select
     display_sharing_options,
     form_builder_output_json,
     _airbyte_letters_hashid
-from {{ source('cta','letters_base') }}
+from {{ ref('letters_base') }}

@@ -36,4 +36,4 @@ select
     clear_blank_fields,
     overwrite_sms_subs,
     _airbyte_lists_hashid
-from {{ source('cta','lists_base') }}
+from {{ ref('lists_base') }}

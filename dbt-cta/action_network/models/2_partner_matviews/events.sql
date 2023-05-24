@@ -81,4 +81,4 @@ select
     event_campaign_upload_id,
     form_builder_output_json,
     _airbyte_events_hashid
-from {{ source('cta','events_base') }}
+from {{ ref('events_base') }}
