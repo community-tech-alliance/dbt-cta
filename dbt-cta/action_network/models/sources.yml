@@ -149,6 +149,8 @@ sources:
   - name: donation_recipients_base
   - name: donations_base
   - name: donations_recurring_donations_base
+  - name: email_activities_base
+  - name: email_activities_1_base
   - name: email_activities_10_base
   - name: email_activities_11_base
   - name: email_activities_12_base
@@ -156,7 +158,6 @@ sources:
   - name: email_activities_14_base
   - name: email_activities_15_base
   - name: email_activities_16_base
-  - name: email_activities_1_base
   - name: email_activities_2_base
   - name: email_activities_3_base
   - name: email_activities_4_base
@@ -165,7 +166,6 @@ sources:
   - name: email_activities_7_base
   - name: email_activities_8_base
   - name: email_activities_9_base
-  - name: email_activities_base
   - name: email_campaign_members_base
   - name: email_campaigns_base
   - name: email_fields_base
@@ -223,8 +223,8 @@ sources:
   - name: source_codes_base
   - name: steps_base
   - name: subscription_statuses_base
-  - name: subscriptions_1_base
   - name: subscriptions_base
+  - name: subscriptions_1_base
   - name: syndications_base
   - name: tag_syndications_base
   - name: tags_base
@@ -236,8 +236,8 @@ sources:
   - name: unsubscriptions_base
   - name: user_files_base
   - name: user_ladder_statuses_base
-  - name: user_merge_logs_1_base
   - name: user_merge_logs_base
+  - name: user_merge_logs_1_base
   - name: user_source_codes_base
   - name: user_tags_base
   - name: user_tickets_base

@@ -1,0 +1,20 @@
+select
+    id,
+    city,
+    phone,
+    state,
+    street,
+    country,
+    user_id,
+    language,
+    latitude,
+    owner_id,
+    zip_code,
+    last_name,
+    longitude,
+    created_at,
+    first_name,
+    owner_type,
+    updated_at,
+    _airbyte_core_fields_hashid
+from {{ ref('core_fields_base') }}
