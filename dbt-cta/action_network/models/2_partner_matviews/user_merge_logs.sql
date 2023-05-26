@@ -9,4 +9,4 @@ select
     merged_user_email,
     removed_user_email,
     _airbyte_user_merge_logs_hashid
-from {{ ref('user_merge_logs_base') }}
+from {{ source('cta','user_merge_logs_base') }}

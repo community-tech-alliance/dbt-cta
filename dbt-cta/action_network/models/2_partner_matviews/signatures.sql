@@ -21,4 +21,4 @@ select
     updates_from_creator,
     updates_from_sponsor,
     _airbyte_signatures_hashid
-from {{ ref('signatures_base') }}
+from {{ source('cta','signatures_base') }}

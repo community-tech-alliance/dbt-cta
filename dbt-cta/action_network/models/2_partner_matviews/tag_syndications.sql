@@ -8,4 +8,4 @@ select
     updated_at,
     source_group_id,
     _airbyte_tag_syndications_hashid
-from {{ ref('tag_syndications_base') }}
+from {{ source('cta','tag_syndications_base') }}

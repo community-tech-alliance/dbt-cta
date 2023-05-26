@@ -16,4 +16,4 @@ select
     source_action_id,
     source_action_type,
     _airbyte_unsubscriptions_hashid
-from {{ ref('unsubscriptions_base') }}
+from {{ source('cta','unsubscriptions_base') }}

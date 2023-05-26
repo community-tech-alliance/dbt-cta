@@ -8,4 +8,4 @@ select
     mobile_message_id,
     mobile_message_field_id,
     _airbyte_mobile_message_stats_hashid
-from {{ ref('mobile_message_stats_base') }}
+from {{ source('cta','mobile_message_stats_base') }}

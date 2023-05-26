@@ -10,4 +10,4 @@ select
     action_type,
     syndication_id,
     _airbyte_groups_syndications_hashid
-from {{ ref('groups_syndications_base') }}
+from {{ source('cta','groups_syndications_base') }}

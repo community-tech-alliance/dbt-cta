@@ -10,4 +10,4 @@ select
     source_action_id,
     source_action_type,
     _airbyte_phone_change_logs_hashid
-from {{ ref('phone_change_logs_base') }}
+from {{ source('cta','phone_change_logs_base') }}

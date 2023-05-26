@@ -6,4 +6,4 @@ select
     network_id,
     updated_at,
     _airbyte_collections_hashid
-from {{ ref('collections_base') }}
+from {{ source('cta','collections_base') }}

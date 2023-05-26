@@ -16,4 +16,4 @@ select
     target_district,
     target_position,
     _airbyte_call_targets_hashid
-from {{ ref('call_targets_base') }}
+from {{ source('cta','call_targets_base') }}

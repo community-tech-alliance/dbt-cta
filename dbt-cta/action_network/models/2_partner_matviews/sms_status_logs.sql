@@ -11,4 +11,4 @@ select
     subscriber_id,
     subscription_id,
     _airbyte_sms_status_logs_hashid
-from {{ ref('sms_status_logs_base') }}
+from {{ source('cta','sms_status_logs_base') }}

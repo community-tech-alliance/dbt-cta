@@ -10,4 +10,4 @@ select
     kept_core_field_id,
     removed_core_field_id,
     _airbyte_phone_dedupe_logs_hashid
-from {{ ref('phone_dedupe_logs_base') }}
+from {{ source('cta','phone_dedupe_logs_base') }}

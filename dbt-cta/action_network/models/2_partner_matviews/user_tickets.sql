@@ -8,4 +8,4 @@ select
     ticket_price,
     ticket_receipt_id,
     _airbyte_user_tickets_hashid
-from {{ ref('user_tickets_base') }}
+from {{ source('cta','user_tickets_base') }}

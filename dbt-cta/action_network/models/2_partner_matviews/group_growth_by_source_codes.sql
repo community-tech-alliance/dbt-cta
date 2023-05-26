@@ -10,4 +10,4 @@ select
     new_users_count,
     last_subscription_id,
     _airbyte_group_growth_by_source_codes_hashid
-from {{ ref('group_growth_by_source_codes_base') }}
+from {{ source('cta','group_growth_by_source_codes_base') }}

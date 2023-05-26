@@ -28,4 +28,4 @@ select
     updates_from_creator,
     updates_from_sponsor,
     _airbyte_donations_hashid
-from {{ ref('donations_base') }}
+from {{ source('cta','donations_base') }}

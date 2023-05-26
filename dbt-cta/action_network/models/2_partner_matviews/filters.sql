@@ -11,4 +11,4 @@ select
     filterable_id,
     filterable_type,
     _airbyte_filters_hashid
-from {{ ref('filters_base') }}
+from {{ source('cta','filters_base') }}

@@ -7,4 +7,4 @@ select
     permissions,
     source_group_id,
     _airbyte_child_permissions_hashid
-from {{ ref('child_permissions_base') }}
+from {{ source('cta','child_permissions_base') }}

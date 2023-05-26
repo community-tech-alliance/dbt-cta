@@ -11,4 +11,4 @@ select
     recipient_id,
     email_stat_id,
     _airbyte_email_activities_hashid
-from {{ ref('email_activities_base') }}
+from {{ source('cta','email_activities_base') }}

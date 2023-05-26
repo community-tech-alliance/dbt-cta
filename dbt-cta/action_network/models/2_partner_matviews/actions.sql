@@ -6,4 +6,4 @@ select
     campaign_id,
     source_type,
     _airbyte_actions_hashid
-from {{ ref('actions_base') }}
+from {{ source('cta','actions_base') }}

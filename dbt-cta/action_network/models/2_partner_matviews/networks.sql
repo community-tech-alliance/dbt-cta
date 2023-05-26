@@ -14,4 +14,4 @@ select
     top_level_group_id,
     opted_in_mobile_number,
     _airbyte_networks_hashid
-from {{ ref('networks_base') }}
+from {{ source('cta','networks_base') }}

@@ -7,4 +7,4 @@ select
     updated_at,
     action_type,
     _airbyte_action_keywords_hashid
-from {{ ref('action_keywords_base') }}
+from {{ source('cta','action_keywords_base') }}

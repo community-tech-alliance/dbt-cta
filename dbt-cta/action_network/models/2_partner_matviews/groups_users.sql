@@ -11,4 +11,4 @@ select
     join_message,
     user_permissions,
     _airbyte_groups_users_hashid
-from {{ ref('groups_users_base') }}
+from {{ source('cta','groups_users_base') }}

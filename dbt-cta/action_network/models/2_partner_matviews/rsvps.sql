@@ -22,4 +22,4 @@ select
     updates_from_creator,
     updates_from_sponsor,
     _airbyte_rsvps_hashid
-from {{ ref('rsvps_base') }}
+from {{ source('cta','rsvps_base') }}

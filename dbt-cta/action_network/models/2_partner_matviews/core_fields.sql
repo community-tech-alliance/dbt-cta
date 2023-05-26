@@ -17,4 +17,4 @@ select
     owner_type,
     updated_at,
     _airbyte_core_fields_hashid
-from {{ ref('core_fields_base') }}
+from {{ source('cta','core_fields_base') }}

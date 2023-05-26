@@ -11,4 +11,4 @@ select
     source_action_type,
     last_subscription_id,
     _airbyte_group_growth_by_source_actions_hashid
-from {{ ref('group_growth_by_source_actions_base') }}
+from {{ source('cta','group_growth_by_source_actions_base') }}
