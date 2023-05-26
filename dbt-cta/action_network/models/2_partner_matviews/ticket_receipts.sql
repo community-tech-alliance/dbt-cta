@@ -27,4 +27,4 @@ select
     ticketed_event_id,
     originating_system,
     _airbyte_ticket_receipts_hashid
-from {{ ref('ticket_receipts_base') }}
+from {{ source('cta','ticket_receipts_base') }}

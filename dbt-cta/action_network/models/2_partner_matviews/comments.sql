@@ -11,4 +11,4 @@ select
     commentable_id,
     commentable_type,
     _airbyte_comments_hashid
-from {{ ref('comments_base') }}
+from {{ source('cta','comments_base') }}

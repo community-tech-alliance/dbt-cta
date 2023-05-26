@@ -54,4 +54,4 @@ select
     display_sharing_options,
     form_builder_output_json,
     _airbyte_forms_hashid
-from {{ ref('forms_base') }}
+from {{ source('cta','forms_base') }}

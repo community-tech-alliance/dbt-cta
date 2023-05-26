@@ -8,4 +8,4 @@ select
     action_type,
     sending_type,
     _airbyte_message_actions_hashid
-from {{ ref('message_actions_base') }}
+from {{ source('cta','message_actions_base') }}

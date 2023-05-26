@@ -7,4 +7,4 @@ select
     third_parties_emails,
     notificate_third_parties,
     _airbyte_notification_settings_hashid
-from {{ ref('notification_settings_base') }}
+from {{ source('cta','notification_settings_base') }}

@@ -12,4 +12,4 @@ select
     validation_regexp,
     validation_description,
     _airbyte_field_names_hashid
-from {{ ref('field_names_base') }}
+from {{ source('cta','field_names_base') }}

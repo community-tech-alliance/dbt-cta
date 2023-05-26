@@ -16,4 +16,4 @@ select
     user_file_file_size,
     user_file_content_type,
     _airbyte_user_files_hashid
-from {{ ref('user_files_base') }}
+from {{ source('cta','user_files_base') }}

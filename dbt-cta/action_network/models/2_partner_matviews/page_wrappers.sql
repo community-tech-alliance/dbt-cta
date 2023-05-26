@@ -14,4 +14,4 @@ select
     logo_dimensions,
     logo_content_type,
     _airbyte_page_wrappers_hashid
-from {{ ref('page_wrappers_base') }}
+from {{ source('cta','page_wrappers_base') }}

@@ -14,4 +14,4 @@ select
     mobile_message_stat_id,
     mobile_message_field_id,
     _airbyte_sms_message_activities_hashid
-from {{ ref('sms_message_activities_base') }}
+from {{ source('cta','sms_message_activities_base') }}

@@ -64,4 +64,4 @@ select
     donations_without_email,
     form_builder_output_json,
     _airbyte_ticketed_events_hashid
-from {{ ref('ticketed_events_base') }}
+from {{ source('cta','ticketed_events_base') }}

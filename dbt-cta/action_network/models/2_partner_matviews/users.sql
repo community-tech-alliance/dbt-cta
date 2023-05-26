@@ -43,4 +43,4 @@ select
     salesforce_sync_successful,
     receive_transactional_email,
     _airbyte_users_hashid
-from {{ ref('users_base') }}
+from {{ source('cta','users_base') }}

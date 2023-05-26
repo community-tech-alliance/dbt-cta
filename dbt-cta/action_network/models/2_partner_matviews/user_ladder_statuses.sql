@@ -9,4 +9,4 @@ select
     extra_data,
     updated_at,
     _airbyte_user_ladder_statuses_hashid
-from {{ ref('user_ladder_statuses_base') }}
+from {{ source('cta','user_ladder_statuses_base') }}

@@ -35,4 +35,4 @@ select
     email_template_id,
     administrative_title,
     _airbyte_emails_hashid
-from {{ ref('emails_base') }}
+from {{ source('cta','emails_base') }}

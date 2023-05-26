@@ -7,4 +7,4 @@ select
     target_url,
     updated_at,
     _airbyte_webhooks_hashid
-from {{ ref('webhooks_base') }}
+from {{ source('cta','webhooks_base') }}

@@ -6,4 +6,4 @@ select
     updated_at,
     fundraising_id,
     _airbyte_donation_recipients_hashid
-from {{ ref('donation_recipients_base') }}
+from {{ source('cta','donation_recipients_base') }}

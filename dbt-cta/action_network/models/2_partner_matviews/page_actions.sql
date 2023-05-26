@@ -6,4 +6,4 @@ select
     action_type,
     page_wrapper_id,
     _airbyte_page_actions_hashid
-from {{ ref('page_actions_base') }}
+from {{ source('cta','page_actions_base') }}

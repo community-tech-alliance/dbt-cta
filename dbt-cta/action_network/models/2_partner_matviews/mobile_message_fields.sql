@@ -7,4 +7,4 @@ select
     updated_at,
     mobile_message_id,
     _airbyte_mobile_message_fields_hashid
-from {{ ref('mobile_message_fields_base') }}
+from {{ source('cta','mobile_message_fields_base') }}

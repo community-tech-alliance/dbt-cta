@@ -11,4 +11,4 @@ select
     source_type,
     mobile_message_stat_id,
     _airbyte_sms_unsubscriptions_hashid
-from {{ ref('sms_unsubscriptions_base') }}
+from {{ source('cta','sms_unsubscriptions_base') }}

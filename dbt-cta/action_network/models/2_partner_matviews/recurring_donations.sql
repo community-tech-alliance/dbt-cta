@@ -10,4 +10,4 @@ select
     fundraising_id,
     recurring_period,
     _airbyte_recurring_donations_hashid
-from {{ ref('recurring_donations_base') }}
+from {{ source('cta','recurring_donations_base') }}

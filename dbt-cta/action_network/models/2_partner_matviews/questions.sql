@@ -16,4 +16,4 @@ select
     sent_to_children,
     originating_system,
     _airbyte_questions_hashid
-from {{ ref('questions_base') }}
+from {{ source('cta','questions_base') }}

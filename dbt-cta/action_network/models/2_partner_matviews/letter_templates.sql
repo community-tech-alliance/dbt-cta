@@ -12,4 +12,4 @@ select
     updated_at,
     image_attribution,
     _airbyte_letter_templates_hashid
-from {{ ref('letter_templates_base') }}
+from {{ source('cta','letter_templates_base') }}

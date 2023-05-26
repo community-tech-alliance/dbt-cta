@@ -8,4 +8,4 @@ select
     updated_at,
     actions_count,
     _airbyte_email_stats_hashid
-from {{ ref('email_stats_base') }}
+from {{ source('cta','email_stats_base') }}

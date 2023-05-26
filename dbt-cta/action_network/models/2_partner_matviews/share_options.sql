@@ -29,4 +29,4 @@ select
     facebook_image_file_size,
     facebook_image_content_type,
     _airbyte_share_options_hashid
-from {{ ref('share_options_base') }}
+from {{ source('cta','share_options_base') }}

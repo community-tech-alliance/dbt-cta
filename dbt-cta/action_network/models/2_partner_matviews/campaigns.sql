@@ -19,4 +19,4 @@ select
     photo_content_type,
     administrative_title,
     _airbyte_campaigns_hashid
-from {{ ref('campaigns_base') }}
+from {{ source('cta','campaigns_base') }}
