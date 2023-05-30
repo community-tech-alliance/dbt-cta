@@ -14,6 +14,7 @@ with
             coalesce(sum(case when most_recent_invocation_type = 1 then total_tests else null end),0) as total_tests,
             coalesce(sum(case when most_recent_invocation_type = 1 then model_errors else null end),0) as model_errors,
             coalesce(sum(case when most_recent_invocation_type = 1 then total_models else null end),0) as total_models,
+            string_agg(error_message, '\n') as error_message
         from source
         group by 1, 2, 3
     ),

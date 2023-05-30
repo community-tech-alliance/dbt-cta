@@ -29,6 +29,7 @@ with
             null as num_rows_added,
             data_source_type,
             null as data_source,
+            null as error_message,
             'composer' as log_source
 
         from exclude_elementary_logs
@@ -50,6 +51,7 @@ with
             null as num_rows_added,
             null as data_source_type,
             null as data_source,
+            error_message as error_message,
             'elementary' as log_source
 
         from elementary_logs

@@ -24,6 +24,10 @@ models:
       - name: total_tests
       - name: model_errors
       - name: total_models
+      - name: error_message
+        description: >
+          A concatted string of all error messages surfaced by dbt (and collected by
+          elementary) for a given invocation.
       - name: most_recent_invocation_type
         description: >
           This is a calculated windowed field that tells us which row is the most recent
@@ -70,6 +74,10 @@ models:
       - name: model_errors
       - name: total_tests
       - name: total_models
+      - name: error_message
+        description: >
+          A concatted string of all error messages surfaced by dbt (and collected by
+          elementary) for a given invocation.
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns: ["airflow_run_id","sync_name","partner_name"]

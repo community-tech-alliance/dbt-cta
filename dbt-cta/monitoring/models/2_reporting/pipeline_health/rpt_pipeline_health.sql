@@ -80,7 +80,8 @@ with
             total_tests,
             model_errors,
             successful_models,
-            total_models
+            total_models,
+            error_message
 
         from add_run_time
     )
