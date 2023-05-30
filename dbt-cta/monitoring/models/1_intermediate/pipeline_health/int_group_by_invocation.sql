@@ -66,7 +66,7 @@ with
             ) as total_tests,
             coalesce(
                 sum(case when resource_type = 'model' then 1 end), 0
-            ) as total_models,
+            ) as total_models
             , string_agg(error_message,'\n ') as error_message
         from join_run_results
         group by 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
