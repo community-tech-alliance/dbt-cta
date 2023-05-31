@@ -27,10 +27,6 @@ models:
       +incremental_strategy: insert_overwrite
       +on_schema_change: sync_all_columns
       +full_refresh: false
-    1_cta_tables:
-      +tags:
-        - cta
-      +materialized: table
     1_cta_incremental:
       +tags:
         - cta
@@ -45,10 +41,6 @@ models:
       +grant_access_to:
         - project: "{{ env_var('CTA_PROJECT_ID') }}"
           dataset: "{{ env_var('CTA_DATASET_ID') }}"
-    2_partner_tables:
-      +tags: 
-        - partner
-      +materialized: table
     3_partner_views:
       +tags: 
         - partner
@@ -57,15 +49,12 @@ models:
         - project: "{{ env_var('CTA_PROJECT_ID') }}"
           dataset: "{{ env_var('CTA_DATASET_ID') }}"
 
-    # For the rare instances when raw data are synced directly into the partner project:
+    # These two models are specifically for google_ads,
+    # which delivers raw data to the partner project instead of CTA:
     0_partner_ctes:
       +tags: 
         - partner
       +materialized: ephemeral
-    1_partner_tables:
-      +tags:
-        - partner
-      +materialized: table
     1_partner_incremental:
       +tags:
         - partner
