@@ -24,7 +24,9 @@ with
             run.failures,
             run.rows_affected,
             run.message,
-            run.compiled_code
+            run.compiled_code,
+            case when run.status != 'success' then concat(run.name||': '||run.message)
+            else null end as error_message
 
         from filter_invocations as inv
         left join run_results run using (invocation_id)
@@ -65,6 +67,7 @@ with
             coalesce(
                 sum(case when resource_type = 'model' then 1 end), 0
             ) as total_models
+            , string_agg(error_message,'\n ') as error_message
         from join_run_results
         group by 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 

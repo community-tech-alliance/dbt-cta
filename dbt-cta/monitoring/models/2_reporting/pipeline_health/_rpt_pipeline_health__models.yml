@@ -73,6 +73,7 @@ models:
       - name: model_errors
       - name: successful_models
       - name: total_models
+      - name: error_message
 
     tests:
       - dbt_utils.unique_combination_of_columns:
