@@ -1,7 +1,3 @@
-{% set partitions_to_replace = [
-    "timestamp_trunc(current_timestamp, day)",
-    "timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)"
-] %}
 {{
     config(
         cluster_by="_airbyte_emitted_at",
@@ -35,7 +31,3 @@ select
     as _account_report_hashid,
     current_timestamp as _airbyte_normalized_at
 from aggregations
-
-{% if is_incremental() %}
-where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(",") }})
-{% endif %}
