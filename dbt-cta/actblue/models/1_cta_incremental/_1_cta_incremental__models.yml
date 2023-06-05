@@ -193,6 +193,10 @@ models:
         tests:
           - not_null
           - unique
+    tests:
+      - elementary.volume_anomalies:
+          timestamp_column: date
+          backfill_days: 14
 
   - name: refunded_contributions_stream
     description: ''
