@@ -30,7 +30,7 @@ models:
                 severity: error
                 error_if: ">10"
                 warn_if: ">0"
-                where: "created_time > '2022-01-01'"
+                where: "created_time > '2023-01-01'"
       - name: date_start
         description: ''
       - name: date_stop
@@ -71,7 +71,7 @@ models:
               to: ref('ad_account_base')
               field: account_id_stripped
               config:
-                where: "created_time > '2022-01-01'"
+                where: "created_time > '2023-01-01'"
       - name: adset_name
         description: ''
       - name: unique_ctr
@@ -220,7 +220,7 @@ models:
               to: ref('ad_account_base')
               field: account_id_stripped
               config:
-                where: "date_start > '2022-01-01'"
+                where: "date_start > '2023-01-01'"
       - name: account_name
         description: ''
       - name: campaign_id
@@ -390,7 +390,7 @@ models:
               to: ref('ad_account_base')
               field: account_id_stripped
               config:
-                where: "date_start > '2022-01-01'"
+                where: "date_start > '2023-01-01'"
       - name: account_name
         description: ''
       - name: campaign_id
@@ -403,7 +403,7 @@ models:
               # Depending on how airbyte is configured, we may have insights records for
               # campaigns that are inactive/not in the campaigns table
               config:
-                where: "date_start > '2022-01-01' and spend > 0"
+                where: "date_start > '2023-01-01' and spend > 0"
       - name: campaign_name
         description: ''
       - name: _airbyte_emitted_at
@@ -443,7 +443,7 @@ models:
               to: ref('ad_account_base')
               field: account_id_stripped
               config:
-                where: "date_start > '2022-01-01'"
+                where: "date_start > '2023-01-01'"
       - name: account_name
         description: ''
       - name: _airbyte_emitted_at
@@ -489,7 +489,7 @@ models:
               to: ref('ad_account_base')
               field: account_id_stripped
               config:
-                where: "created_time > '2022-01-01'"
+                where: "created_time > '2023-01-01'"
       - name: start_time
         description: ''
       - name: buying_type
@@ -647,7 +647,7 @@ models:
               to: ref('ad_account_base')
               field: account_id_stripped
               config:
-                where: "created_time > '2022-01-01'"
+                where: "created_time > '2023-01-01'"
       - name: start_time
         description: ''
       - name: campaign_id
@@ -658,7 +658,7 @@ models:
               to: ref('campaigns_base')
               field: id
               config:
-                where: "created_time > '2022-01-01'"
+                where: "created_time > '2023-01-01'"
       - name: created_time
         description: ''
       - name: daily_budget
@@ -696,7 +696,7 @@ models:
               to: ref('ad_creatives_base')
               field: id
               config:
-                where: "created_time > '2022-01-01'"
+                where: "created_time > '2023-01-01'"
       - name: name
         description: ''
       - name: status
@@ -711,7 +711,7 @@ models:
               to: ref('ad_sets_base')
               field: id
               config:
-                where: "created_time > '2022-01-01'"
+                where: "created_time > '2023-01-01'"
       - name: bid_info
         description: ''
       - name: bid_type
@@ -728,7 +728,7 @@ models:
               to: ref('ad_account_base')
               field: account_id_stripped
               config:
-                where: "created_time > '2022-01-01'"
+                where: "created_time > '2023-01-01'"
       - name: bid_amount
         description: ''
       - name: campaign_id
@@ -739,7 +739,7 @@ models:
               to: ref('campaigns_base')
               field: id
               config:
-                where: "created_time > '2022-01-01'"
+                where: "created_time > '2023-01-01'"
       - name: created_time
         description: ''
       - name: source_ad_id
@@ -780,7 +780,7 @@ models:
               # but not the ads table, likely as a result of how Airbyte handles date
               # filtering. We can safely ignore these cases.
               config:
-                where: "date_start > '2022-01-01' and spend > 0"
+                where: "date_start > '2023-01-01' and spend > 0"
                 severity: error
                 error_if: ">10"
                 warn_if: ">0"
@@ -830,7 +830,7 @@ models:
               to: ref('ad_account_base')
               field: account_id_stripped
               config:
-                where: "created_time > '2022-01-01' and spend > 0"
+                where: "created_time > '2023-01-01' and spend > 0"
       - name: adset_name
         description: ''
       - name: unique_ctr
