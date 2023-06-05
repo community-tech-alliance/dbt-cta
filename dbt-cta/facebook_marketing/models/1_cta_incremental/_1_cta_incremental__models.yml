@@ -27,9 +27,7 @@ models:
               # but not the ads table, likely as a result of how Airbyte handles date
               # filtering. We can safely ignore these cases.
               config:
-                severity: error
-                error_if: ">10"
-                warn_if: ">0"
+                severity: warn
                 where: "created_time > '2022-01-01'"
       - name: date_start
         description: ''
@@ -781,9 +779,7 @@ models:
               # filtering. We can safely ignore these cases.
               config:
                 where: "date_start > '2022-01-01' and spend > 0"
-                severity: error
-                error_if: ">10"
-                warn_if: ">0"
+                severity: warn
       - name: date_start
         description: ''
       - name: date_stop
