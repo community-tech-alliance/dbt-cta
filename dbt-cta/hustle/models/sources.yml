@@ -1,0 +1,44 @@
+version: 2
+sources:
+- name: cta
+  database: '{{ env_var("CTA_PROJECT_ID") }}'
+  schema: '{{ env_var("CTA_DATASET_ID") }}'
+  tables:
+  - name: _actions_raw
+  - name: _agent_actions_raw
+  - name: _agents_raw
+  - name: _goal_externals_raw
+  - name: _goal_steps_raw
+  - name: _goals_raw
+  - name: _group_memberships_raw
+  - name: _groups_raw
+  - name: _integrations_raw
+  - name: _lead_externals_raw
+  - name: _lead_tags_raw
+  - name: _leads_raw
+  - name: _messages_raw
+  - name: _organizations_raw
+  - name: _survey_questions_raw
+  - name: _survey_responses_raw
+  - name: _threads_raw
+  - name: _users_raw
+  - name: _workflows_raw
+  - name: actions_base
+  - name: agent_actions_base
+  - name: agents_base
+  - name: goal_externals_base
+  - name: goal_steps_base
+  - name: goals_base
+  - name: group_memberships_base
+  - name: groups_base
+  - name: integrations_base
+  - name: lead_externals_base
+  - name: lead_tags_base
+  - name: leads_base
+  - name: messages_base
+  - name: organizations_base
+  - name: survey_questions_base
+  - name: survey_responses_base
+  - name: threads_base
+  - name: users_base
+  - name: workflows_base
