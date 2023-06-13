@@ -6,6 +6,5 @@
     
 -- Final base SQL model
         
-SELECT
-    *
+SELECT * EXCEPT (rownum)
 FROM {{ ref('lead_externals_cte2') }}

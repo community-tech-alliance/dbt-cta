@@ -13,16 +13,10 @@ SELECT
     CAST(`organization_id` AS STRING) AS `organization_id`,
     CAST(`updated_at` AS TIMESTAMP) AS `updated_at`,
     CAST(`id` AS STRING) AS `id`,
-    FORMAT("%x", FARM_FINGERPRINT(CONCAT(`message_id`,
-                                        `goal_step_id`,
-                                        `value_str`,
-                                        `agent_id`,
-                                        `created_at`,
-                                        `lead_id`,
-                                        `goal_id`,
-                                        `organization_id`,
-                                        `updated_at`,
-                                        `id`))) AS _cta_hashid,
+    TO_HEX(MD5(CONCAT(
+                      `updated_at`,
+                      `id`
+                    ))) AS _cta_hashid,
     CURRENT_TIMESTAMP() as _cta_sync_datetime_utc
 FROM {{ source('cta', '_agent_actions_raw') }}
     

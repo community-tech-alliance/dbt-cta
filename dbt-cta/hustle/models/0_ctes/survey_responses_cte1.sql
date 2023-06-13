@@ -11,14 +11,13 @@ SELECT
     CAST(`van_survey_response_id` AS INTEGER) AS `van_survey_response_id`,
     CAST(`created_at` AS TIMESTAMP) AS `created_at`,
     CAST(`id` AS STRING) AS `id`,
-    FORMAT("%x", FARM_FINGERPRINT(CONCAT(`integration_id`,
-                                        `formatted_value`,
-                                        `updated_at`,
-                                        `survey_question_id`,
-                                        `organization_id`,
-                                        `van_survey_response_id`,
-                                        `created_at`,
-                                        `id`))) AS _cta_hashid,
+    TO_HEX(MD5(CONCAT(`integration_id`,
+                      `updated_at`,
+                      `survey_question_id`,
+                      `organization_id`,
+                      `van_survey_response_id`,
+                      `created_at`,
+                      `id`))) AS _cta_hashid,
     CURRENT_TIMESTAMP() as _cta_sync_datetime_utc
 FROM {{ source('cta', '_survey_responses_raw') }}
     

@@ -21,24 +21,9 @@ SELECT
     CAST(`last_name` AS STRING) AS `last_name`,
     CAST(`externals` AS STRING) AS `externals`,
     CAST(`updated_at` AS TIMESTAMP) AS `updated_at`,
-    FORMAT("%x", FARM_FINGERPRINT(CONCAT(`custom_fields`,
-                                        `tags`,
-                                        `notes`,
-                                        `email`,
-                                        `phone_number_type`,
-                                        `occupation`,
-                                        `global_opted_out`,
-                                        `organization_id`,
-                                        `employer`,
-                                        `opt_out_type`,
-                                        `phone_number`,
-                                        `first_name`,
-                                        `created_at`,
-                                        `id`,
-                                        `pii_redacted_at`,
-                                        `last_name`,
-                                        `externals`,
-                                        `updated_at`))) AS _cta_hashid,
+    TO_HEX(MD5(CONCAT(
+                      `id`,
+                      `updated_at`))) AS _cta_hashid,
     CURRENT_TIMESTAMP() as _cta_sync_datetime_utc
 FROM {{ source('cta', '_leads_raw') }}
     

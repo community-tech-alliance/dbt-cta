@@ -15,18 +15,10 @@ SELECT
     CAST(`survey_question_id` AS STRING) AS `survey_question_id`,
     CAST(`updated_at` AS TIMESTAMP) AS `updated_at`,
     CAST(`id` AS STRING) AS `id`,
-    FORMAT("%x", FARM_FINGERPRINT(CONCAT(`goal_step_id`,
-                                        `survey_response_id`,
-                                        `value_str`,
-                                        `goal_id`,
-                                        `agent_id`,
-                                        `type`,
-                                        `created_at`,
-                                        `lead_id`,
-                                        `organization_id`,
-                                        `survey_question_id`,
-                                        `updated_at`,
-                                        `id`))) AS _cta_hashid,
+    TO_HEX(MD5(CONCAT(
+                        `updated_at`,
+                        `id`
+                    ))) AS _cta_hashid,
     CURRENT_TIMESTAMP() as _cta_sync_datetime_utc
 FROM {{ source('cta', '_actions_raw') }}
     

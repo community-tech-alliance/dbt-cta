@@ -5,8 +5,8 @@
 SELECT
     CAST(`tag_id` AS STRING) AS `tag_id`,
     CAST(`lead_id` AS STRING) AS `lead_id`,
-    FORMAT("%x", FARM_FINGERPRINT(CONCAT(`tag_id`,
-                                        `lead_id`))) AS _cta_hashid,
+    TO_HEX(MD5(CONCAT(`tag_id`,
+                      `lead_id`))) AS _cta_hashid,
     CURRENT_TIMESTAMP() as _cta_sync_datetime_utc
 FROM {{ source('cta', '_lead_tags_raw') }}
     

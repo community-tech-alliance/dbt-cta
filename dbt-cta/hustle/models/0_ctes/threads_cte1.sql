@@ -11,14 +11,14 @@ SELECT
     CAST(`type` AS STRING) AS `type`,
     CAST(`created_at` AS TIMESTAMP) AS `created_at`,
     CAST(`updated_at` AS TIMESTAMP) AS `updated_at`,
-    FORMAT("%x", FARM_FINGERPRINT(CONCAT(`deleted_at`,
-                                        `id`,
-                                        `group_id`,
-                                        `organization_id`,
-                                        `lead_id`,
-                                        `type`,
-                                        `created_at`,
-                                        `updated_at`))) AS _cta_hashid,
+    TO_HEX(MD5(CONCAT(
+                      `id`,
+                      `group_id`,
+                      `organization_id`,
+                      `lead_id`,
+                      `type`,
+                      `created_at`,
+                      `updated_at`))) AS _cta_hashid,
     CURRENT_TIMESTAMP() as _cta_sync_datetime_utc
 FROM {{ source('cta', '_threads_raw') }}
     

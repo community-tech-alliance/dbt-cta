@@ -10,12 +10,12 @@ SELECT
     CAST(`type` AS STRING) AS `type`,
     CAST(`integration_id` AS STRING) AS `integration_id`,
     CAST(`goal_id` AS STRING) AS `goal_id`,
-    FORMAT("%x", FARM_FINGERPRINT(CONCAT(`identifiers`,
-                                        `version`,
-                                        `updated_at`,
-                                        `created_at`,
-                                        `type`,
-                                        `integration_id`,
-                                        `goal_id`))) AS _cta_hashid,
+    TO_HEX(MD5(CONCAT(
+                    `updated_at`,
+                    `created_at`,
+                    `type`,
+                    `integration_id`,
+                    `goal_id`
+                    ))) AS _cta_hashid,
     CURRENT_TIMESTAMP() as _cta_sync_datetime_utc
 FROM {{ source('cta', '_goal_externals_raw') }}

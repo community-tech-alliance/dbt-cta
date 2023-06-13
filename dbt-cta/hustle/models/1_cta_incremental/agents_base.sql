@@ -7,8 +7,7 @@
 
 -- Final base SQL model
             
-SELECT
-*
+SELECT * EXCEPT (rownum)
 FROM {{ ref('agents_cte2') }}
     
     

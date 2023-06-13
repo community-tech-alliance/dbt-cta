@@ -11,14 +11,13 @@ SELECT
     CAST(`username` AS STRING) AS `username`,
     CAST(`full_name` AS STRING) AS `full_name`,
     CAST(`id` AS STRING) AS `id`,
-    FORMAT("%x", FARM_FINGERPRINT(CONCAT(`updated_at`,
-                                        `created_at`,
-                                        `phone_number`,
-                                        `preferred_name`,
-                                        `email`,
-                                        `username`,
-                                        `full_name`,
-                                        `id`))) AS _cta_hashid,
+    TO_HEX(MD5(CONCAT(`updated_at`,
+                      `created_at`,
+                      `phone_number`,
+                      `email`,
+                      `username`,
+                      `full_name`,
+                      `id`))) AS _cta_hashid,
     CURRENT_TIMESTAMP() as _cta_sync_datetime_utc
 FROM {{ source('cta', '_users_raw') }}
     
