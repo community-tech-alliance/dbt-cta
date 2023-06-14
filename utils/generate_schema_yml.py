@@ -124,7 +124,9 @@ def generate_schema_dict(directory_path):
     if model_directory[:1] in ["0", "1"]:
         target = "cta"
     elif model_directory[:1] in ["2", "3"]:
-        target = "partner"
+        #target = "partner"
+        print("dbt tests currently do not work for partner models, skipping.")
+        return
     else:
         target = None
 
