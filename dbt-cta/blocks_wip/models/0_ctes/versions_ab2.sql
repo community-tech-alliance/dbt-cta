@@ -10,7 +10,7 @@ select
     cast(item_id as {{ dbt_utils.type_bigint() }}) as item_id,
     cast(item_type as {{ dbt_utils.type_string() }}) as item_type,
     cast(object_yaml as {{ dbt_utils.type_string() }}) as object_yaml,
-    cast({{ empty_string_to_null('created_at') }} as {{ type_timestamp_without_timezone() }}) as created_at,
+    cast(created_at as {{ dbt_utils.type_string() }}) as created_at, --some values are messed up and don't work as timestamps :(
     cast(id as {{ dbt_utils.type_bigint() }}) as id,
     cast(event as {{ dbt_utils.type_string() }}) as event,
     cast(whodunnit as {{ dbt_utils.type_string() }}) as whodunnit,
