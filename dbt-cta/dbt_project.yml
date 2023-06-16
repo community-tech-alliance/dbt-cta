@@ -31,7 +31,9 @@ models:
         - cta
       +materialized: incremental
       +on_schema_change: sync_all_columns
-    1_cta_views:
+    # Intermediate views used to create Type 2 Slowly Changing Dimensions (SCD) Tables
+    # (for an example, check out the `blocks` sync)
+    1_cta_stg:
       +tags:
         - cta
       +materialized: view
