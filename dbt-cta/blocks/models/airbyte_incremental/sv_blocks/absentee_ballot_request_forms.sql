@@ -4,6 +4,7 @@
     unique_key = '_airbyte_ab_id',
     tags = [ "top-level" ]
 ) }}
+
 -- Final base SQL model
 -- depends_on: {{ ref('absentee_ballot_request_forms_ab3') }}
 select

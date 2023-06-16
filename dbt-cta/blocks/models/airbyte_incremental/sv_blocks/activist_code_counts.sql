@@ -4,6 +4,7 @@
     unique_key = '_airbyte_ab_id',
     tags = [ "top-level" ]
 ) }}
+
 -- Final base SQL model
 -- depends_on: {{ ref('activist_code_counts_ab3') }}
 select

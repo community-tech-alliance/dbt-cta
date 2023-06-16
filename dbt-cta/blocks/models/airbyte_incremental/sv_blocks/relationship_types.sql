@@ -4,6 +4,7 @@
     unique_key = "_airbyte_ab_id",
     tags = [ "top-level" ]
 ) }}
+
 -- Final base SQL model
 -- depends_on: {{ ref('relationship_types_ab3') }}
 select
