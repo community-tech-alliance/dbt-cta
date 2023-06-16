@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('landing_page_signups_scd') }}
+-- depends_on: {{ ref('landing_page_signups_ab3') }}
 select
     mailing_county,
     state_api_submission_result,
@@ -66,6 +66,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_landing_page_signups_hashid
-from {{ ref('landing_page_signups_scd') }}
+from {{ ref('landing_page_signups_ab3') }}
 -- landing_page_signups from {{ source('sv_blocks', '_airbyte_raw_landing_page_signups') }}
 

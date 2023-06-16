@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('voter_registration_scan_batch_cover_sheets_scd') }}
+-- depends_on: {{ ref('voter_registration_scan_batch_cover_sheets_ab3') }}
 select
     updated_at,
     voter_registration_scan_batch_id,
@@ -16,6 +16,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_voter_registration_scan_batch_cover_sheets_hashid
-from {{ ref('voter_registration_scan_batch_cover_sheets_scd') }}
+from {{ ref('voter_registration_scan_batch_cover_sheets_ab3') }}
 -- voter_registration_scan_batch_cover_sheets from {{ source('sv_blocks', '_airbyte_raw_voter_registration_scan_batch_cover_sheets') }}
 

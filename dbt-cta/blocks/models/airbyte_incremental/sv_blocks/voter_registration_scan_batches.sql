@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('voter_registration_scan_batches_scd') }}
+-- depends_on: {{ ref('voter_registration_scan_batches_ab3') }}
 select
     scans_count,
     needs_separation,
@@ -29,6 +29,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_voter_registration_scan_batches_hashid
-from {{ ref('voter_registration_scan_batches_scd') }}
+from {{ ref('voter_registration_scan_batches_ab3') }}
 -- voter_registration_scan_batches from {{ source('sv_blocks', '_airbyte_raw_voter_registration_scan_batches') }}
 

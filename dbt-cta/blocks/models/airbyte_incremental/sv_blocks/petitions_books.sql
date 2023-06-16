@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('petitions_books_scd') }}
+-- depends_on: {{ ref('petitions_books_ab3') }}
 select
     petition_book_number,
     program_type,
@@ -23,6 +23,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_petitions_books_hashid
-from {{ ref('petitions_books_scd') }}
+from {{ ref('petitions_books_ab3') }}
 -- petitions_books from {{ source('sv_blocks', '_airbyte_raw_petitions_books') }}
 

@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('catalist_uploads_scd') }}
+-- depends_on: {{ ref('catalist_uploads_ab3') }}
 select
     updated_at,
     remote_file_url,
@@ -18,6 +18,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_catalist_uploads_hashid
-from {{ ref('catalist_uploads_scd') }}
+from {{ ref('catalist_uploads_ab3') }}
 -- catalist_uploads from {{ source('sv_blocks', '_airbyte_raw_catalist_uploads') }}
 

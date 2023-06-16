@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('scheduled_exports_scd') }}
+-- depends_on: {{ ref('scheduled_exports_ab3') }}
 select
     day_of_the_week,
     paused,
@@ -27,6 +27,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_scheduled_exports_hashid
-from {{ ref('scheduled_exports_scd') }}
+from {{ ref('scheduled_exports_ab3') }}
 -- scheduled_exports from {{ source('sv_blocks', '_airbyte_raw_scheduled_exports') }}
 

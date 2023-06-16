@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('organizations_scd') }}
+-- depends_on: {{ ref('organizations_ab3') }}
 select
     street_address,
     notes,
@@ -42,6 +42,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_organizations_hashid
-from {{ ref('organizations_scd') }}
+from {{ ref('organizations_ab3') }}
 -- organizations from {{ source('sv_blocks', '_airbyte_raw_organizations') }}
 

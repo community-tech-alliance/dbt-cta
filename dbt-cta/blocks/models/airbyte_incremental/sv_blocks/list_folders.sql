@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('list_folders_scd') }}
+-- depends_on: {{ ref('list_folders_ab3') }}
 select
     updated_at,
     user_id,
@@ -16,6 +16,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_list_folders_hashid
-from {{ ref('list_folders_scd') }}
+from {{ ref('list_folders_ab3') }}
 -- list_folders from {{ source('sv_blocks', '_airbyte_raw_list_folders') }}
 

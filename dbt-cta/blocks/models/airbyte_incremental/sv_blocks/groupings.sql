@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('groupings_scd') }}
+-- depends_on: {{ ref('groupings_ab3') }}
 select
     collection_id,
     updated_at,
@@ -18,6 +18,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_groupings_hashid
-from {{ ref('groupings_scd') }}
+from {{ ref('groupings_ab3') }}
 -- groupings from {{ source('sv_blocks', '_airbyte_raw_groupings') }}
 

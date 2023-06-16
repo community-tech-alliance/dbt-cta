@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('roles_scd') }}
+-- depends_on: {{ ref('roles_ab3') }}
 select
     needs_training,
     admin,
@@ -25,6 +25,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_roles_hashid
-from {{ ref('roles_scd') }}
+from {{ ref('roles_ab3') }}
 -- roles from {{ source('sv_blocks', '_airbyte_raw_roles') }}
 

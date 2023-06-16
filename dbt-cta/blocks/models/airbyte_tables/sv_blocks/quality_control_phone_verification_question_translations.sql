@@ -13,7 +13,7 @@
                         set scd_table_relation = adapter.get_relation(
                             database=this.database,
                             schema=this.schema,
-                            identifier='quality_control_phone_verification_question_translations_scd'
+                            identifier='quality_control_phone_verification_question_translations_ab3'
                         )
                     %}
                     {%

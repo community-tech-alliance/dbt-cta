@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('import_files_scd') }}
+-- depends_on: {{ ref('import_files_ab3') }}
 select
     tenant_id,
     updated_at,
@@ -20,6 +20,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_import_files_hashid
-from {{ ref('import_files_scd') }}
+from {{ ref('import_files_ab3') }}
 -- import_files from {{ source('sv_blocks', '_airbyte_raw_import_files') }}
 

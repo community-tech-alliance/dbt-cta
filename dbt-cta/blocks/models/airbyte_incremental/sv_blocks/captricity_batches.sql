@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('captricity_batches_scd') }}
+-- depends_on: {{ ref('captricity_batches_ab3') }}
 select
     rejected_at,
     submitted_at,
@@ -24,6 +24,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_captricity_batches_hashid
-from {{ ref('captricity_batches_scd') }}
+from {{ ref('captricity_batches_ab3') }}
 -- captricity_batches from {{ source('sv_blocks', '_airbyte_raw_captricity_batches') }}
 

@@ -13,7 +13,7 @@
                         set scd_table_relation = adapter.get_relation(
                             database=this.database,
                             schema=this.schema,
-                            identifier='email_templates_events_scd'
+                            identifier='email_templates_events_ab3'
                         )
                     %}
                     {%

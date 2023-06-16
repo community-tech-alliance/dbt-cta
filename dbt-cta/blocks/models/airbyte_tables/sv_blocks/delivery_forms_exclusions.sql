@@ -13,7 +13,7 @@
                         set scd_table_relation = adapter.get_relation(
                             database=this.database,
                             schema=this.schema,
-                            identifier='delivery_forms_exclusions_scd'
+                            identifier='delivery_forms_exclusions_ab3'
                         )
                     %}
                     {%

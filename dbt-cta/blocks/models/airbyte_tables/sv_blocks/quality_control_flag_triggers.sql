@@ -13,7 +13,7 @@
                         set scd_table_relation = adapter.get_relation(
                             database=this.database,
                             schema=this.schema,
-                            identifier='quality_control_flag_triggers_scd'
+                            identifier='quality_control_flag_triggers_ab3'
                         )
                     %}
                     {%

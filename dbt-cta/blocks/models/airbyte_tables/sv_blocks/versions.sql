@@ -13,7 +13,7 @@
                         set scd_table_relation = adapter.get_relation(
                             database=this.database,
                             schema=this.schema,
-                            identifier='versions_scd'
+                            identifier='versions_ab3'
                         )
                     %}
                     {%

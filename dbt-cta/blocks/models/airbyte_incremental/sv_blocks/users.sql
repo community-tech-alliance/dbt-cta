@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('users_scd') }}
+-- depends_on: {{ ref('users_ab3') }}
 select
     current_longitude,
     datatable_settings,
@@ -56,6 +56,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_users_hashid
-from {{ ref('users_scd') }}
+from {{ ref('users_ab3') }}
 -- users from {{ source('sv_blocks', '_airbyte_raw_users') }}
 

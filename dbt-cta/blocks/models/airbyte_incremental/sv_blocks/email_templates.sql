@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('email_templates_scd') }}
+-- depends_on: {{ ref('email_templates_ab3') }}
 select
     updated_at,
     template_content,
@@ -18,6 +18,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_email_templates_hashid
-from {{ ref('email_templates_scd') }}
+from {{ ref('email_templates_ab3') }}
 -- email_templates from {{ source('sv_blocks', '_airbyte_raw_email_templates') }}
 

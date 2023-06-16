@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('dashboard_layouts_scd') }}
+-- depends_on: {{ ref('dashboard_layouts_ab3') }}
 select
     updated_at,
     name,
@@ -17,6 +17,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_dashboard_layouts_hashid
-from {{ ref('dashboard_layouts_scd') }}
+from {{ ref('dashboard_layouts_ab3') }}
 -- dashboard_layouts from {{ source('sv_blocks', '_airbyte_raw_dashboard_layouts') }}
 

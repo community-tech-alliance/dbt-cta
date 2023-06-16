@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('parties_scd') }}
+-- depends_on: {{ ref('parties_ab3') }}
 select
     updated_at,
     name,
@@ -16,6 +16,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_parties_hashid
-from {{ ref('parties_scd') }}
+from {{ ref('parties_ab3') }}
 -- parties from {{ source('sv_blocks', '_airbyte_raw_parties') }}
 

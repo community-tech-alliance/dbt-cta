@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('petitions_pages_scd') }}
+-- depends_on: {{ ref('petitions_pages_ab3') }}
 select
     date,
     possible_fraud,
@@ -34,6 +34,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_petitions_pages_hashid
-from {{ ref('petitions_pages_scd') }}
+from {{ ref('petitions_pages_ab3') }}
 -- petitions_pages from {{ source('sv_blocks', '_airbyte_raw_petitions_pages') }}
 

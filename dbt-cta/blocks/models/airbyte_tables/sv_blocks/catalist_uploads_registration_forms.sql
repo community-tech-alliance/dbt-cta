@@ -13,7 +13,7 @@
                         set scd_table_relation = adapter.get_relation(
                             database=this.database,
                             schema=this.schema,
-                            identifier='catalist_uploads_registration_forms_scd'
+                            identifier='catalist_uploads_registration_forms_ab3'
                         )
                     %}
                     {%

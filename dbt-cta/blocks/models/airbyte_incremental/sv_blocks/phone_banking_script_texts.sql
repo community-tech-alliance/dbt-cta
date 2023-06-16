@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('phone_banking_script_texts_scd') }}
+-- depends_on: {{ ref('phone_banking_script_texts_ab3') }}
 select
     updated_at,
     extras,
@@ -17,6 +17,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_phone_banking_script_texts_hashid
-from {{ ref('phone_banking_script_texts_scd') }}
+from {{ ref('phone_banking_script_texts_ab3') }}
 -- phone_banking_script_texts from {{ source('sv_blocks', '_airbyte_raw_phone_banking_script_texts') }}
 

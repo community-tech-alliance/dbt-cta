@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('ar_internal_metadata_scd') }}
+-- depends_on: {{ ref('ar_internal_metadata_ab3') }}
 select
     updated_at,
     created_at,
@@ -15,6 +15,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_ar_internal_metadata_hashid
-from {{ ref('ar_internal_metadata_scd') }}
+from {{ ref('ar_internal_metadata_ab3') }}
 -- ar_internal_metadata from {{ source('sv_blocks', '_airbyte_raw_ar_internal_metadata') }}
 

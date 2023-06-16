@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('schedules_scd') }}
+-- depends_on: {{ ref('schedules_ab3') }}
 select
     date,
     count,
@@ -24,6 +24,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_schedules_hashid
-from {{ ref('schedules_scd') }}
+from {{ ref('schedules_ab3') }}
 -- schedules from {{ source('sv_blocks', '_airbyte_raw_schedules') }}
 

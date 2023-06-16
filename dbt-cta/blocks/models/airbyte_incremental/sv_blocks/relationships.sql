@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('relationships_scd') }}
+-- depends_on: {{ ref('relationships_ab3') }}
 select
     first_person_id,
     updated_at,
@@ -18,6 +18,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_relationships_hashid
-from {{ ref('relationships_scd') }}
+from {{ ref('relationships_ab3') }}
 -- relationships from {{ source('sv_blocks', '_airbyte_raw_relationships') }}
 

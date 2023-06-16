@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('events_scd') }}
+-- depends_on: {{ ref('events_ab3') }}
 select
     notes,
     extras,
@@ -37,6 +37,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_events_hashid
-from {{ ref('events_scd') }}
+from {{ ref('events_ab3') }}
 -- events from {{ source('sv_blocks', '_airbyte_raw_events') }}
 

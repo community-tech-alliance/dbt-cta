@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('quality_control_phone_verification_calls_scd') }}
+-- depends_on: {{ ref('quality_control_phone_verification_calls_ab3') }}
 select
     number,
     external,
@@ -21,6 +21,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_quality_control_phone_verification_calls_hashid
-from {{ ref('quality_control_phone_verification_calls_scd') }}
+from {{ ref('quality_control_phone_verification_calls_ab3') }}
 -- quality_control_phone_verification_calls from {{ source('sv_blocks', '_airbyte_raw_quality_control_phone_verification_calls') }}
 
