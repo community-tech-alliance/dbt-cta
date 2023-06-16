@@ -20,5 +20,5 @@ select
 from {{ ref('tag_ab1') }}
 -- tag
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

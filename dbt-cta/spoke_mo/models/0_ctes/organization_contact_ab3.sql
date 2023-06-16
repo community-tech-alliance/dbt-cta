@@ -24,5 +24,5 @@ select
 from {{ ref('organization_contact_ab2') }} tmp
 -- organization_contact
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

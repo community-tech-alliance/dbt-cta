@@ -24,5 +24,5 @@ select
 from {{ source('cta', '_airbyte_raw_job_request') }} as table_alias
 -- job_request
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

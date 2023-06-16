@@ -17,5 +17,5 @@ select
 from {{ ref('user_cell_ab1') }}
 -- user_cell
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

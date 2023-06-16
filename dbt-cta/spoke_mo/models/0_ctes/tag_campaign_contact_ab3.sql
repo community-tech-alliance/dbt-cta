@@ -18,5 +18,5 @@ select
 from {{ ref('tag_campaign_contact_ab2') }} tmp
 -- tag_campaign_contact
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

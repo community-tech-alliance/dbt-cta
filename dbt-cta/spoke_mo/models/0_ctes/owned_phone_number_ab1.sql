@@ -22,5 +22,5 @@ select
 from {{ source('cta', '_airbyte_raw_owned_phone_number') }} as table_alias
 -- owned_phone_number
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

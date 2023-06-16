@@ -17,5 +17,5 @@ select
 from {{ ref('question_response_ab1') }}
 -- question_response
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

@@ -20,5 +20,5 @@ select
 from {{ source('cta', '_airbyte_raw_canned_response') }} as table_alias
 -- canned_response
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

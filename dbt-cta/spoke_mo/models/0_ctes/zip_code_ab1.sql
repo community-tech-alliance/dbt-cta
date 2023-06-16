@@ -19,5 +19,5 @@ select
 from {{ source('cta', '_airbyte_raw_zip_code') }} as table_alias
 -- zip_code
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

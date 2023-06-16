@@ -18,5 +18,5 @@ select
 from {{ source('cta', '_airbyte_raw_opt_out') }} as table_alias
 -- opt_out
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

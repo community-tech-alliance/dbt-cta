@@ -14,5 +14,5 @@ select
 from {{ ref('knex_migrations_lock_ab2') }} tmp
 -- knex_migrations_lock
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

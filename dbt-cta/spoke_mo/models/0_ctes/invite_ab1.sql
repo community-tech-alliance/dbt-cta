@@ -16,5 +16,5 @@ select
 from {{ source('cta', '_airbyte_raw_invite') }} as table_alias
 -- invite
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

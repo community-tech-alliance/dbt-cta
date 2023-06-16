@@ -19,5 +19,5 @@ select
 from {{ ref('zip_code_ab1') }}
 -- zip_code
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

@@ -20,5 +20,5 @@ select
 from {{ ref('pending_message_part_ab2') }} tmp
 -- pending_message_part
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

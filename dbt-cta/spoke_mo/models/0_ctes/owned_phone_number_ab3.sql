@@ -22,5 +22,5 @@ select
 from {{ ref('owned_phone_number_ab2') }} tmp
 -- owned_phone_number
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

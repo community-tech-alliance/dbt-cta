@@ -22,5 +22,5 @@ select
 from {{ source('cta', '_airbyte_raw_interaction_step') }} as table_alias
 -- interaction_step
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

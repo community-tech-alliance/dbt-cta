@@ -24,5 +24,5 @@ select
 from {{ ref('job_request_ab1') }}
 -- job_request
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

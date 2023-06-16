@@ -19,5 +19,5 @@ select
 from {{ ref('log_ab2') }} tmp
 -- log
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

@@ -36,5 +36,5 @@ select
 from {{ ref('campaign_ab1') }}
 -- campaign
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

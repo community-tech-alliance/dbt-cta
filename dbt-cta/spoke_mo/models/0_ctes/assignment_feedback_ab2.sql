@@ -19,5 +19,5 @@ select
 from {{ ref('assignment_feedback_ab1') }}
 -- assignment_feedback
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

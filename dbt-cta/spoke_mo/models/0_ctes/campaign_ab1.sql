@@ -36,5 +36,5 @@ select
 from {{ source('cta', '_airbyte_raw_campaign') }} as table_alias
 -- campaign
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

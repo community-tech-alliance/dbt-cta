@@ -18,5 +18,5 @@ select
 from {{ source('cta', '_airbyte_raw_tag_campaign_contact') }} as table_alias
 -- tag_campaign_contact
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

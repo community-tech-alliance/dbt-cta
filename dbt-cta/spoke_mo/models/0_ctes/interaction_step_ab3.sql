@@ -22,5 +22,5 @@ select
 from {{ ref('interaction_step_ab2') }} tmp
 -- interaction_step
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

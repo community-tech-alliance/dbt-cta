@@ -19,5 +19,5 @@ select
 from {{ source('cta', '_airbyte_raw_log') }} as table_alias
 -- log
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

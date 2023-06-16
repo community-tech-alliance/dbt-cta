@@ -16,5 +16,5 @@ select
 from {{ ref('user_organization_ab2') }} tmp
 -- user_organization
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

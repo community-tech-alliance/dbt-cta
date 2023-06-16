@@ -16,5 +16,5 @@ select
 from {{ source('cta', '_airbyte_raw_knex_migrations') }} as table_alias
 -- knex_migrations
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

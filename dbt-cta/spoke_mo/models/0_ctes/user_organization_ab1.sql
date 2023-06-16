@@ -16,5 +16,5 @@ select
 from {{ source('cta', '_airbyte_raw_user_organization') }} as table_alias
 -- user_organization
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

@@ -18,5 +18,5 @@ select
 from {{ ref('opt_out_ab2') }} tmp
 -- opt_out
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

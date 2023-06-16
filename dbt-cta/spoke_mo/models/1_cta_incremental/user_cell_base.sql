@@ -1,3 +1,7 @@
+{% set partitions_to_replace = [
+    'timestamp_trunc(current_timestamp, day)',
+    'timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)'
+] %}
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
@@ -17,6 +21,7 @@ select
     _airbyte_user_cell_hashid
 from {{ ref('user_cell_ab3') }}
 -- user_cell from {{ source('cta', '_airbyte_raw_user_cell') }}
-where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+{% if is_incremental() %}
+where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
+{% endif %}
 

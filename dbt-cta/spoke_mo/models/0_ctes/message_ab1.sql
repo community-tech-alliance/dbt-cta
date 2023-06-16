@@ -31,5 +31,5 @@ select
 from {{ source('cta', '_airbyte_raw_message') }} as table_alias
 -- message
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

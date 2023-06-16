@@ -17,5 +17,5 @@ select
 from {{ source('cta', '_airbyte_raw_assignment') }} as table_alias
 -- assignment
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

@@ -20,5 +20,5 @@ select
 from {{ source('cta', '_airbyte_raw_pending_message_part') }} as table_alias
 -- pending_message_part
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at', this) }}
+
 
