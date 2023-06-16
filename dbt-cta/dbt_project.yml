@@ -31,6 +31,10 @@ models:
         - cta
       +materialized: incremental
       +on_schema_change: sync_all_columns
+    1_cta_views:
+      +tags:
+        - cta
+      +materialized: view
     2_partner_matviews:
       +tags: 
         - partner
