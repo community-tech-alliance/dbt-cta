@@ -1,13 +1,12 @@
 {{ config(
     cluster_by = ["_airbyte_unique_key","_airbyte_emitted_at"],
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_unique_key",
+    unique_key = "_airbyte_ab_id",
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
 -- depends_on: {{ ref('list_folders_scd') }}
 select
-    _airbyte_unique_key,
     updated_at,
     user_id,
     name,
@@ -19,7 +18,4 @@ select
     _airbyte_list_folders_hashid
 from {{ ref('list_folders_scd') }}
 -- list_folders from {{ source('sv_blocks', '_airbyte_raw_list_folders') }}
-where 1 = 1
-and _airbyte_active_row = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
 

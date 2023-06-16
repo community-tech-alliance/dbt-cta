@@ -1,13 +1,12 @@
 {{ config(
     cluster_by = ["_airbyte_unique_key","_airbyte_emitted_at"],
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_unique_key",
+    unique_key = "_airbyte_ab_id",
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
 -- depends_on: {{ ref('metrics_scd') }}
 select
-    _airbyte_unique_key,
     updated_at,
     name,
     metric_type,
@@ -22,7 +21,4 @@ select
     _airbyte_metrics_hashid
 from {{ ref('metrics_scd') }}
 -- metrics from {{ source('sv_blocks', '_airbyte_raw_metrics') }}
-where 1 = 1
-and _airbyte_active_row = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
 

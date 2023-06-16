@@ -24,6 +24,4 @@ select
     _airbyte_activities_hashid
 from {{ ref('activities_ab3') }}
 -- activities from {{ source('sv_blocks', '_airbyte_raw_activities') }}
-where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
 

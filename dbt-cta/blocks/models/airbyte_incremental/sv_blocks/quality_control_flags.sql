@@ -1,13 +1,12 @@
 {{ config(
     cluster_by = ["_airbyte_unique_key","_airbyte_emitted_at"],
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_unique_key",
+    unique_key = "_airbyte_ab_id",
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
 -- depends_on: {{ ref('quality_control_flags_scd') }}
 select
-    _airbyte_unique_key,
     notes,
     canvasser_id,
     trigger_id,
@@ -27,7 +26,4 @@ select
     _airbyte_quality_control_flags_hashid
 from {{ ref('quality_control_flags_scd') }}
 -- quality_control_flags from {{ source('sv_blocks', '_airbyte_raw_quality_control_flags') }}
-where 1 = 1
-and _airbyte_active_row = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
 

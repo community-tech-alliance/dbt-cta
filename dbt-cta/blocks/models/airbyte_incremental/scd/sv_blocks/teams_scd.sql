@@ -156,7 +156,6 @@ dedup_data as (
     from scd_data
 )
 select
-    _airbyte_unique_key,
     _airbyte_unique_key_scd,
     updated_at,
     turf_id,

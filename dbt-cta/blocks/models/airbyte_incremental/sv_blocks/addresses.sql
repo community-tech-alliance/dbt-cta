@@ -26,6 +26,4 @@ select
     _airbyte_addresses_hashid
 from {{ ref('addresses_ab3') }}
 -- addresses from {{ source('sv_blocks', '_airbyte_raw_addresses') }}
-where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
 

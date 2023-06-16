@@ -20,6 +20,4 @@ select
     _airbyte_announcements_hashid
 from {{ ref('announcements_ab3') }}
 -- announcements from {{ source('sv_blocks', '_airbyte_raw_announcements') }}
-where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
 

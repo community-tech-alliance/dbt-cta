@@ -1,13 +1,12 @@
 {{ config(
     cluster_by = ["_airbyte_unique_key","_airbyte_emitted_at"],
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_unique_key",
+    unique_key = "_airbyte_ab_id",
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
 -- depends_on: {{ ref('event_attendees_scd') }}
 select
-    _airbyte_unique_key,
     needs,
     marked_no_show_at,
     marked_walk_in_at,
@@ -26,7 +25,4 @@ select
     _airbyte_event_attendees_hashid
 from {{ ref('event_attendees_scd') }}
 -- event_attendees from {{ source('sv_blocks', '_airbyte_raw_event_attendees') }}
-where 1 = 1
-and _airbyte_active_row = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
 

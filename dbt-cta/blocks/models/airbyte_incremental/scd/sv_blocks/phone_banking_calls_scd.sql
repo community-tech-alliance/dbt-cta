@@ -160,7 +160,6 @@ dedup_data as (
     from scd_data
 )
 select
-    _airbyte_unique_key,
     _airbyte_unique_key_scd,
     phone_bank_id,
     round_canvass_status,

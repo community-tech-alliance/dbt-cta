@@ -34,6 +34,4 @@ select
     _airbyte_absentee_ballot_request_forms_hashid
 from {{ ref('absentee_ballot_request_forms_ab3') }}
 -- absentee_ballot_request_forms from {{ source('sv_blocks', '_airbyte_raw_absentee_ballot_request_forms') }}
-where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
 

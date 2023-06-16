@@ -1,13 +1,12 @@
 {{ config(
     cluster_by = ["_airbyte_unique_key","_airbyte_emitted_at"],
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_unique_key",
+    unique_key = "_airbyte_ab_id",
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
 -- depends_on: {{ ref('landing_page_signups_scd') }}
 select
-    _airbyte_unique_key,
     mailing_county,
     state_api_submission_result,
     language,
@@ -69,7 +68,4 @@ select
     _airbyte_landing_page_signups_hashid
 from {{ ref('landing_page_signups_scd') }}
 -- landing_page_signups from {{ source('sv_blocks', '_airbyte_raw_landing_page_signups') }}
-where 1 = 1
-and _airbyte_active_row = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -20,6 +20,4 @@ select
     _airbyte_activist_code_counts_hashid
 from {{ ref('activist_code_counts_ab3') }}
 -- activist_code_counts from {{ source('sv_blocks', '_airbyte_raw_activist_code_counts') }}
-where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
 

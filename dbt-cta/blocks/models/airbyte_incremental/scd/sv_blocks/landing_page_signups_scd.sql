@@ -199,7 +199,6 @@ dedup_data as (
     from scd_data
 )
 select
-    _airbyte_unique_key,
     _airbyte_unique_key_scd,
     mailing_county,
     state_api_submission_result,
