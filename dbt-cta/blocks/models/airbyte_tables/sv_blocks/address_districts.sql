@@ -2,12 +2,13 @@
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_ab_id',
+
     post_hook = ["
                     {%
                         set scd_table_relation = adapter.get_relation(
                             database=this.database,
                             schema=this.schema,
-                            identifier='address_districts_scd'
+                            identifier='deliveries_scd'
                         )
                     %}
                     {%
@@ -18,6 +19,7 @@
                     %}
                     {% endif %}
                         "],
+    tags = [ "top-level" ]
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
@@ -32,5 +34,7 @@ select
     _airbyte_address_districts_hashid
 from {{ ref('address_districts_ab3') }}
 -- address_districts from {{ source('sv_blocks', '_airbyte_raw_address_districts') }}
-where 1 = 1
+{% if is_incremental() %}
+where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
+{% endif %}
 

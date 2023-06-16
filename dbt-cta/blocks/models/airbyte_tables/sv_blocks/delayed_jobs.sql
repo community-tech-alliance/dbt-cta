@@ -1,4 +1,10 @@
+{% set partitions_to_replace = [
+    'timestamp_trunc(current_timestamp, day)',
+    'timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)'
+] %}
+
 {{ config(
+    partitions = partitions_to_replace,
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_ab_id',
@@ -17,7 +23,7 @@
                             do adapter.drop_relation(scd_table_relation)
                     %}
                     {% endif %}
-                        "],
+                        "]
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
@@ -41,5 +47,7 @@ select
     _airbyte_delayed_jobs_hashid
 from {{ ref('delayed_jobs_ab3') }}
 -- delayed_jobs from {{ source('sv_blocks', '_airbyte_raw_delayed_jobs') }}
-where 1 = 1
+{% if is_incremental() %}
+where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
+{% endif %}
 
