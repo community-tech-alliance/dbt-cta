@@ -1,0 +1,30 @@
+{{ config(
+    cluster_by = "_airbyte_emitted_at",
+    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_ab_id',
+    schema = "sv_blocks",
+    tags = [ "top-level" ]
+) }}
+-- Final base SQL model
+-- depends_on: {{ ref('activities_ab3') }}
+select
+    recipient_type,
+    trackable_id,
+    updated_at,
+    owner_id,
+    created_at,
+    id,
+    trackable_type,
+    parameters,
+    key,
+    owner_type,
+    recipient_id,
+    _airbyte_ab_id,
+    _airbyte_emitted_at,
+    {{ current_timestamp() }} as _airbyte_normalized_at,
+    _airbyte_activities_hashid
+from {{ ref('activities_ab3') }}
+-- activities from {{ source('sv_blocks', '_airbyte_raw_activities') }}
+where 1 = 1
+{{ incremental_clause('_airbyte_emitted_at') }}
+
