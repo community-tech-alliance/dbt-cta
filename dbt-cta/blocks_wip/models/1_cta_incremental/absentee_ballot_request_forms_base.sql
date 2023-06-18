@@ -4,6 +4,7 @@
     unique_key = '_airbyte_ab_id',
     tags = [ "top-level" ]
 ) }}
+
 -- Final base SQL model
 -- depends_on: {{ ref('absentee_ballot_request_forms_ab3') }}
 select
@@ -33,4 +34,5 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_absentee_ballot_request_forms_hashid
 from {{ ref('absentee_ballot_request_forms_ab3') }}
-where 1 = 1
+-- absentee_ballot_request_forms from {{ source('cta', '_airbyte_raw_absentee_ballot_request_forms') }}
+

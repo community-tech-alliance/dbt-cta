@@ -21,7 +21,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_organizations_teams_hashid
 from {{ ref('organizations_teams_ab3') }}
--- organizations_teams from {{ source('sv_blocks', '_airbyte_raw_organizations_teams') }}
+-- organizations_teams from {{ source('cta', '_airbyte_raw_organizations_teams') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

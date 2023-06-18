@@ -28,7 +28,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_contact_methods_hashid
 from {{ ref('contact_methods_ab3') }}
--- contact_methods from {{ source('sv_blocks', '_airbyte_raw_contact_methods') }}
+-- contact_methods from {{ source('cta', '_airbyte_raw_contact_methods') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

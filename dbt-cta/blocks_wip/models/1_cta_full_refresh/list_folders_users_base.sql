@@ -21,7 +21,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_list_folders_users_hashid
 from {{ ref('list_folders_users_ab3') }}
--- list_folders_users from {{ source('sv_blocks', '_airbyte_raw_list_folders_users') }}
+-- list_folders_users from {{ source('cta', '_airbyte_raw_list_folders_users') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

@@ -22,7 +22,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_tags_hashid
 from {{ ref('tags_ab3') }}
--- tags from {{ source('sv_blocks', '_airbyte_raw_tags') }}
+-- tags from {{ source('cta', '_airbyte_raw_tags') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

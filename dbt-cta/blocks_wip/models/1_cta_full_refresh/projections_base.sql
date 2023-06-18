@@ -20,7 +20,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_projections_hashid
 from {{ ref('projections_ab3') }}
--- projections from {{ source('sv_blocks', '_airbyte_raw_projections') }}
+-- projections from {{ source('cta', '_airbyte_raw_projections') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

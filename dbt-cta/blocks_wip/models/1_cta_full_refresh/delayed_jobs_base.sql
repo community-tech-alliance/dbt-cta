@@ -31,7 +31,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_delayed_jobs_hashid
 from {{ ref('delayed_jobs_ab3') }}
--- delayed_jobs from {{ source('sv_blocks', '_airbyte_raw_delayed_jobs') }}
+-- delayed_jobs from {{ source('cta', '_airbyte_raw_delayed_jobs') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

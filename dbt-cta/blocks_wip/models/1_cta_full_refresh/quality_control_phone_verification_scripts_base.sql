@@ -23,7 +23,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_quality_control_phone_verification_scripts_hashid
 from {{ ref('quality_control_phone_verification_scripts_ab3') }}
--- quality_control_phone_verification_scripts from {{ source('sv_blocks', '_airbyte_raw_quality_control_phone_verification_scripts') }}
+-- quality_control_phone_verification_scripts from {{ source('cta', '_airbyte_raw_quality_control_phone_verification_scripts') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

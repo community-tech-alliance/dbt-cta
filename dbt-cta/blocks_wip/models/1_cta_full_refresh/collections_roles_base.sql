@@ -21,7 +21,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_collections_roles_hashid
 from {{ ref('collections_roles_ab3') }}
--- collections_roles from {{ source('sv_blocks', '_airbyte_raw_collections_roles') }}
+-- collections_roles from {{ source('cta', '_airbyte_raw_collections_roles') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

@@ -5,7 +5,7 @@
     tags = [ "top-level-intermediate" ]
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('sv_blocks', '_airbyte_raw_locations') }}
+-- depends_on: {{ source('cta', '_airbyte_raw_locations') }}
 select
     {{ json_extract_scalar('_airbyte_data', ['street_address'], ['street_address']) }} as street_address,
     {{ json_extract_scalar('_airbyte_data', ['primary_point_of_contact'], ['primary_point_of_contact']) }} as primary_point_of_contact,
@@ -50,7 +50,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('sv_blocks', '_airbyte_raw_locations') }} as table_alias
+from {{ source('cta', '_airbyte_raw_locations') }} as table_alias
 -- locations
 where 1 = 1
 

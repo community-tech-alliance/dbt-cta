@@ -60,7 +60,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_shifts_hashid
 from {{ ref('shifts_ab3') }}
--- shifts from {{ source('sv_blocks', '_airbyte_raw_shifts') }}
+-- shifts from {{ source('cta', '_airbyte_raw_shifts') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

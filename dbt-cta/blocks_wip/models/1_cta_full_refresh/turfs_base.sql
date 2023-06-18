@@ -41,7 +41,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_turfs_hashid
 from {{ ref('turfs_ab3') }}
--- turfs from {{ source('sv_blocks', '_airbyte_raw_turfs') }}
+-- turfs from {{ source('cta', '_airbyte_raw_turfs') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

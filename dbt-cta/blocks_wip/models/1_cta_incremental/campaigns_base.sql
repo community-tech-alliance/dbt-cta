@@ -4,6 +4,7 @@
     unique_key = "_airbyte_ab_id",
     tags = [ "top-level" ]
 ) }}
+
 -- Final base SQL model
 -- depends_on: {{ ref('campaigns_ab3') }}
 select
@@ -20,4 +21,5 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_campaigns_hashid
 from {{ ref('campaigns_ab3') }}
--- campaigns from {{ source('sv_blocks', '_airbyte_raw_campaigns') }}
+-- campaigns from {{ source('cta', '_airbyte_raw_campaigns') }}
+

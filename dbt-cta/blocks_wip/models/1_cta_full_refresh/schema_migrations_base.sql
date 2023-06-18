@@ -21,7 +21,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_schema_migrations_hashid
 from {{ ref('schema_migrations_ab3') }}
--- schema_migrations from {{ source('sv_blocks', '_airbyte_raw_schema_migrations') }}
+-- schema_migrations from {{ source('cta', '_airbyte_raw_schema_migrations') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

@@ -54,7 +54,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_deliveries_hashid
 from {{ ref('deliveries_ab3') }}
--- deliveries from {{ source('sv_blocks', '_airbyte_raw_deliveries') }}
+-- deliveries from {{ source('cta', '_airbyte_raw_deliveries') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

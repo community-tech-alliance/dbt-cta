@@ -5,7 +5,7 @@
     tags = [ "top-level-intermediate" ]
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('sv_blocks', '_airbyte_raw_venues') }}
+-- depends_on: {{ source('cta', '_airbyte_raw_venues') }}
 select
     {{ json_extract_scalar('_airbyte_data', ['maximum_size'], ['maximum_size']) }} as maximum_size,
     {{ json_extract_scalar('_airbyte_data', ['rooms_available'], ['rooms_available']) }} as rooms_available,
@@ -22,7 +22,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('sv_blocks', '_airbyte_raw_venues') }} as table_alias
+from {{ source('cta', '_airbyte_raw_venues') }} as table_alias
 -- venues
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

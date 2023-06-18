@@ -21,7 +21,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_delivery_forms_exclusions_hashid
 from {{ ref('delivery_forms_exclusions_ab3') }}
--- delivery_forms_exclusions from {{ source('sv_blocks', '_airbyte_raw_delivery_forms_exclusions') }}
+-- delivery_forms_exclusions from {{ source('cta', '_airbyte_raw_delivery_forms_exclusions') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

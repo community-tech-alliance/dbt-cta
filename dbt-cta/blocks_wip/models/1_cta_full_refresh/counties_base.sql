@@ -25,7 +25,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_counties_hashid
 from {{ ref('counties_ab3') }}
--- counties from {{ source('sv_blocks', '_airbyte_raw_counties') }}
+-- counties from {{ source('cta', '_airbyte_raw_counties') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

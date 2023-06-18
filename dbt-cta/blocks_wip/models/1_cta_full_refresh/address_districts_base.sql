@@ -22,7 +22,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_address_districts_hashid
 from {{ ref('address_districts_ab3') }}
--- address_districts from {{ source('sv_blocks', '_airbyte_raw_address_districts') }}
+-- address_districts from {{ source('cta', '_airbyte_raw_address_districts') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

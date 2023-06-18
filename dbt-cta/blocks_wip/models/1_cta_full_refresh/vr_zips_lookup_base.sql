@@ -27,7 +27,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_vr_zips_lookup_hashid
 from {{ ref('vr_zips_lookup_ab3') }}
--- vr_zips_lookup from {{ source('sv_blocks', '_airbyte_raw_vr_zips_lookup') }}
+-- vr_zips_lookup from {{ source('cta', '_airbyte_raw_vr_zips_lookup') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

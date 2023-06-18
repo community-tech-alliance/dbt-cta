@@ -25,7 +25,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_friendly_id_slugs_hashid
 from {{ ref('friendly_id_slugs_ab3') }}
--- friendly_id_slugs from {{ source('sv_blocks', '_airbyte_raw_friendly_id_slugs') }}
+-- friendly_id_slugs from {{ source('cta', '_airbyte_raw_friendly_id_slugs') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

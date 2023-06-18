@@ -25,7 +25,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_state_party_codes_hashid
 from {{ ref('state_party_codes_ab3') }}
--- state_party_codes from {{ source('sv_blocks', '_airbyte_raw_state_party_codes') }}
+-- state_party_codes from {{ source('cta', '_airbyte_raw_state_party_codes') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

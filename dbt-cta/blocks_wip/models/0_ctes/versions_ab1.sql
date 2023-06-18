@@ -5,7 +5,7 @@
     tags = [ "top-level-intermediate" ]
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('sv_blocks', '_airbyte_raw_versions') }}
+-- depends_on: {{ source('cta', '_airbyte_raw_versions') }}
 select
     {{ json_extract_scalar('_airbyte_data', ['item_id'], ['item_id']) }} as item_id,
     {{ json_extract_scalar('_airbyte_data', ['item_type'], ['item_type']) }} as item_type,
@@ -18,7 +18,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('sv_blocks', '_airbyte_raw_versions') }} as table_alias
+from {{ source('cta', '_airbyte_raw_versions') }} as table_alias
 -- versions
 where 1 = 1
 

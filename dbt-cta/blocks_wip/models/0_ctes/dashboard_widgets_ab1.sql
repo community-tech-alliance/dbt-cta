@@ -5,7 +5,7 @@
     tags = [ "top-level-intermediate" ]
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('sv_blocks', '_airbyte_raw_dashboard_widgets') }}
+-- depends_on: {{ source('cta', '_airbyte_raw_dashboard_widgets') }}
 select
     {{ json_extract_scalar('_airbyte_data', ['widget_id'], ['widget_id']) }} as widget_id,
     {{ json_extract_scalar('_airbyte_data', ['updated_at'], ['updated_at']) }} as updated_at,
@@ -19,7 +19,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('sv_blocks', '_airbyte_raw_dashboard_widgets') }} as table_alias
+from {{ source('cta', '_airbyte_raw_dashboard_widgets') }} as table_alias
 -- dashboard_widgets
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

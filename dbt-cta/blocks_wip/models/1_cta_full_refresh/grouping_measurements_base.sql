@@ -24,7 +24,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_grouping_measurements_hashid
 from {{ ref('grouping_measurements_ab3') }}
--- grouping_measurements from {{ source('sv_blocks', '_airbyte_raw_grouping_measurements') }}
+-- grouping_measurements from {{ source('cta', '_airbyte_raw_grouping_measurements') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

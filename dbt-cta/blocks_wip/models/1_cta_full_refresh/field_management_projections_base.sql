@@ -27,7 +27,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_field_management_projections_hashid
 from {{ ref('field_management_projections_ab3') }}
--- field_management_projections from {{ source('sv_blocks', '_airbyte_raw_field_management_projections') }}
+-- field_management_projections from {{ source('cta', '_airbyte_raw_field_management_projections') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

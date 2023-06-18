@@ -5,7 +5,7 @@
     tags = [ "top-level-intermediate" ]
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('sv_blocks', '_airbyte_raw_phone_banking_phone_banks') }}
+-- depends_on: {{ source('cta', '_airbyte_raw_phone_banking_phone_banks') }}
 select
     {{ json_extract_scalar('_airbyte_data', ['end_date'], ['end_date']) }} as end_date,
     {{ json_extract_scalar('_airbyte_data', ['daily_end_time'], ['daily_end_time']) }} as daily_end_time,
@@ -30,7 +30,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('sv_blocks', '_airbyte_raw_phone_banking_phone_banks') }} as table_alias
+from {{ source('cta', '_airbyte_raw_phone_banking_phone_banks') }} as table_alias
 -- phone_banking_phone_banks
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

@@ -21,7 +21,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_quality_control_flags_views_hashid
 from {{ ref('quality_control_flags_views_ab3') }}
--- quality_control_flags_views from {{ source('sv_blocks', '_airbyte_raw_quality_control_flags_views') }}
+-- quality_control_flags_views from {{ source('cta', '_airbyte_raw_quality_control_flags_views') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

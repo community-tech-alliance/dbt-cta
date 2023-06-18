@@ -21,7 +21,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_lists_people_hashid
 from {{ ref('lists_people_ab3') }}
--- lists_people from {{ source('sv_blocks', '_airbyte_raw_lists_people') }}
+-- lists_people from {{ source('cta', '_airbyte_raw_lists_people') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

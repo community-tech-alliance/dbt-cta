@@ -21,7 +21,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_quality_control_comments_users_hashid
 from {{ ref('quality_control_comments_users_ab3') }}
--- quality_control_comments_users from {{ source('sv_blocks', '_airbyte_raw_quality_control_comments_users') }}
+-- quality_control_comments_users from {{ source('cta', '_airbyte_raw_quality_control_comments_users') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

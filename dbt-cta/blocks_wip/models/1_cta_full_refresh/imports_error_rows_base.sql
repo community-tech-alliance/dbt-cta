@@ -24,7 +24,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_imports_error_rows_hashid
 from {{ ref('imports_error_rows_ab3') }}
--- imports_error_rows from {{ source('sv_blocks', '_airbyte_raw_imports_error_rows') }}
+-- imports_error_rows from {{ source('cta', '_airbyte_raw_imports_error_rows') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
