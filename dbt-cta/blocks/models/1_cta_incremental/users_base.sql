@@ -1,12 +1,12 @@
 {{ config(
     cluster_by = ["_airbyte_emitted_at"],
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_ab_id",
+    unique_key = "id",
     tags = [ "top-level" ]
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('users_ab3') }}
+-- depends_on: {{ ref('users_ab4') }}
 select
     current_longitude,
     datatable_settings,
@@ -57,6 +57,4 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_users_hashid
-from {{ ref('users_ab3') }}
--- users from {{ source('cta', '_airbyte_raw_users') }}
-
+from {{ ref('users_ab4') }}

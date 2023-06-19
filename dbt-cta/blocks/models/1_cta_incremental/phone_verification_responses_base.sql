@@ -1,7 +1,7 @@
 {{ config(
     cluster_by = ["_airbyte_emitted_at"],
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_ab_id",
+    unique_key = "id",
     tags = [ "top-level" ]
 ) }}
 
@@ -22,6 +22,4 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_phone_verification_responses_hashid
-from {{ ref('phone_verification_responses_ab3') }}
--- phone_verification_responses from {{ source('cta', '_airbyte_raw_phone_verification_responses') }}
-
+from {{ ref('phone_verification_responses_ab4') }}
