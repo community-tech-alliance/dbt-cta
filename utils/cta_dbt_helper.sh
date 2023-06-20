@@ -131,7 +131,7 @@ generate_dbt_tests() {
         INPUT_DIR_NAME=$(gum input --prompt "Enter the name of the vendor to generate tests for: " --placeholder "(ex. actblue)")
         OPTION_UNIVERSAL_TESTS=$(gum input --prompt "Would you like to initialize these files using the default tests (see universal_tests.yml)? " --placeholder " (Y is recommended! Or leave blank to skip)")
         if [ "$OPTION_UNIVERSAL_TESTS" == "Y" ]; then
-            CLI_OPTIONS="--universal-tests"
+            CLI_OPTIONS="--universal-tests ../utils/universal_tests.yml"
         fi
 
         OPTION_MERGE=$(gum input --prompt "Are you merging into an existing schema yaml? " --placeholder " (Y or leave blank to skip)")
