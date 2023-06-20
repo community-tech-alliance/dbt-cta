@@ -363,7 +363,7 @@ def create_matview_dbt_files_from_base(base_tables_path, output_path):
                         outfile.write(f"from {{{{ source('cta','{table_name}') }}}}")
                     if write_to_file:
                         if not any(substring in line for substring in
-                                   ['_airbyte_emitted_at', '_airbyte_ab_id', '_airbyte_normalized_at']):
+                                   ['_airbyte_ab_id', '_airbyte_normalized_at']):
                             outfile.write(line)
 
 
