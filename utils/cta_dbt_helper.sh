@@ -125,18 +125,36 @@ generate_matviews() {
 }
 
 generate_dbt_tests() {
+    # This prompts the user for the vendor name and options needed to run generate_schema_yml.py
     # Get target path for vendor directory
     while [ -z "$INPUT_DIR_NAME" ]; do
         INPUT_DIR_NAME=$(gum input --prompt "Enter the name of the vendor to generate tests for: " --placeholder "(ex. actblue)")
+        OPTION_MERGE=$(gum input --prompt "Are you merging into an existing schema yaml? " --placeholder " (Y or leave blank to skip)")
+        # Only ask about overwriting if user does not say they are merging. Just nicer that way
+        if [ "$OPTION_MERGE" != "Y" ]; then
+            OPTION_OVERWRITE=$(gum input --prompt "Are you overwriting an existing schema yaml? " --placeholder " (Y or leave blank to skip)")
+        fi
+        # Construct the python command based on options indicated by user
+        if [ "$OPTION_MERGE" = "Y" ]; then
+            CLI_OPTION="--merge"
+            COMMAND="python $ROOT_PATH/utils/generate_schema_yml.py --sync-name $INPUT_DIR_NAME --merge"
+        elif [ "$OPTION_OVERWRITE" = "Y" ]; then
+            CLI_OPTION="--overwrite"
+            COMMAND="python $ROOT_PATH/utils/generate_schema_yml.py --sync-name $INPUT_DIR_NAME --overwrite"
+        else
+            CLI_OPTION="(none)"
+            COMMAND="python $ROOT_PATH/utils/generate_schema_yml.py --sync-name $INPUT_DIR_NAME"
+        fi
         if [[ $? != 0 ]]; then
             echo "Ctrl-C caught, exiting..."
             exit 1
         fi
     done
     gum confirm "Confirm the vendor name is correct: $INPUT_DIR_NAME" || exit 1
+    gum confirm "Confirm the selected runtime option is correct: $CLI_OPTION" || exit 1
 
     cd $ROOT_PATH/dbt-cta/
-    pipenv run python $ROOT_PATH/utils/generate_schema_yml.py --sync-name "$INPUT_DIR_NAME" --merge
+    pipenv run $COMMAND
 }
 
 init() {
