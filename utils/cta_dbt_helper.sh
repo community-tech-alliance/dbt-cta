@@ -137,10 +137,10 @@ generate_dbt_tests() {
         # Construct the python command based on options indicated by user
         if [ "$OPTION_MERGE" = "Y" ]; then
             CLI_OPTION="--merge"
-            COMMAND="python $ROOT_PATH/utils/generate_schema_yml.py --sync-name $INPUT_DIR_NAME --merge"
+            COMMAND="python $ROOT_PATH/utils/generate_schema_yml.py --sync-name $INPUT_DIR_NAME $CLI_OPTION"
         elif [ "$OPTION_OVERWRITE" = "Y" ]; then
             CLI_OPTION="--overwrite"
-            COMMAND="python $ROOT_PATH/utils/generate_schema_yml.py --sync-name $INPUT_DIR_NAME --overwrite"
+            COMMAND="python $ROOT_PATH/utils/generate_schema_yml.py --sync-name $INPUT_DIR_NAME $CLI_OPTION"
         else
             CLI_OPTION="(none)"
             COMMAND="python $ROOT_PATH/utils/generate_schema_yml.py --sync-name $INPUT_DIR_NAME"
