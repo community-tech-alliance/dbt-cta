@@ -7,6 +7,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: agent_id
         description: ''
       - name: ticket_id
@@ -45,6 +48,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: name
         description: ''
       - name: description
@@ -71,6 +77,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: name
         description: ''
       - name: description
@@ -105,6 +114,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: name
         description: ''
       - name: personal
@@ -135,6 +147,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: email_config_id
         description: ''
       - name: group_id
@@ -355,6 +370,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: body_text
         description: ''
       - name: body
@@ -403,6 +421,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: hits
         description: ''
       - name: title
@@ -451,6 +472,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: hits
         description: ''
       - name: tags
@@ -523,6 +547,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: name
         description: ''
       - name: created_at
@@ -559,6 +586,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: survey_id
         description: ''
       - name: agent_id
@@ -593,6 +623,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: name
         description: ''
       - name: description
@@ -623,6 +656,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: available
         description: ''
       - name: occasional
@@ -679,6 +715,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: name
         description: ''
       - name: type
@@ -739,6 +778,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: name
         description: ''
       - name: note
@@ -779,6 +821,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: name
         description: ''
       - name: created_at
@@ -809,6 +854,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: escalate_to
         description: ''
       - name: business_hour_id
@@ -843,6 +891,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: title
         description: ''
       - name: content
@@ -877,6 +928,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: name
         description: ''
       - name: port
@@ -929,6 +983,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: company_id
         description: ''
       - name: active
@@ -983,6 +1040,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: title
         description: ''
       - name: active
@@ -1009,6 +1069,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: name
         description: ''
       - name: description
@@ -1033,6 +1096,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: name
         description: ''
       - name: actions
@@ -1065,6 +1131,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: name
         description: ''
       - name: active
@@ -1101,6 +1170,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: product_id
         description: ''
       - name: group_id
@@ -1135,6 +1207,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: body
         description: ''
       - name: spam
@@ -1173,6 +1248,7 @@ models:
   - name: survey_question_base
     description: ''
     columns:
+      # survey_id actually seems to be the unique field here
       - name: survey_id
         description: ''
       - name: id
@@ -1197,6 +1273,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: name
         description: ''
       - name: created_at
