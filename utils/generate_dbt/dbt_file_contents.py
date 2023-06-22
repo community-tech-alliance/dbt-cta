@@ -8,7 +8,8 @@ def get_base_sql(
     sql = f"""
 SELECT
     {table_schema_fields},
-    FORMAT("%x", FARM_FINGERPRINT(CONCAT({concat_fields}))) AS _cta_hashid
+    FORMAT("%x", FARM_FINGERPRINT(CONCAT({concat_fields}))) AS _cta_hashid,
+    CURRENT_TIMESTAMP() as _cta_sync_datetime_utc
 FROM {{{{ source('cta', '{table_id}') }}}}
     
     """
