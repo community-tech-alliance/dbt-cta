@@ -90,7 +90,7 @@ def main():
     tables = [table for table in tables if 'raw' in table.table_id]
 
     # Include only tables that are present in the table spec
-    tables = [table for table in tables if table.table_id.replace('_raw','') in spec_json_dict.keys()]
+    tables = [table for table in tables if table.table_id in spec_json_dict.keys()]
 
     with tempfile.TemporaryDirectory() as temp_dir_TODO:
 
@@ -124,8 +124,8 @@ def main():
             "sources": [
                 {
                     "name": "cta",
-                    "database": "{{ env_var('CTA_PROJECT_ID') }}",
-                    "schema": "{{ env_var('CTA_DATASET_ID') }}",
+                    "database": '{{ env_var("CTA_PROJECT_ID") }}',
+                    "schema": '{{ env_var("CTA_DATASET_ID") }}',
                     "tables": source_tables_list
                 }
             ]
@@ -147,12 +147,11 @@ def main():
 
             table_id_raw = table.table_id
             table_id_base = table_id_raw.replace('raw', 'base')
-            table_id = table_id_raw.replace('_raw', '')
 
             # Load configs from the spec dict
-            unique_key = spec_json_dict[table_id].get('unique_key', '_cta_row_id')
-            partition_datetime_field = spec_json_dict[table_id].get('partition_datetime_field', '_cta_sync_datetime_utc')
-            sync_mode = spec_json_dict[table_id].get('sync_mode', 'full_refresh')
+            unique_key = spec_json_dict[table_id_raw].get('unique_key', '_cta_hashid')
+            partition_datetime_field = spec_json_dict[table_id_raw].get('partition_datetime_field', '_cta_sync_datetime_utc')
+            sync_mode = spec_json_dict[table_id_raw].get('sync_mode', 'full_refresh')
 
             # Get the schema for the _raw table
             raw_table_ref = f"{dataset_id}.{table_id_raw}"
@@ -232,7 +231,7 @@ def main():
 
             # Name the matview model file
             # `table_id` = name of the table without _raw or _base
-            matview_file_path = os.path.join(matviews_subdir_path, f"{table_id}.sql")
+            matview_file_path = os.path.join(matviews_subdir_path, f"{table_id_raw}.sql")
 
             # Write the matview SQL to the file
             with open(matview_file_path, "w") as matview_file:
