@@ -131,7 +131,7 @@ generate_dbt_tests() {
         INPUT_DIR_NAME=$(gum input --prompt "Enter the name of the vendor to generate tests for: " --placeholder "(ex. actblue)")
         OPTION_UNIVERSAL_TESTS=$(gum input --prompt "Would you like to initialize these files using the default tests (see universal_tests.yml)? " --placeholder " (Y is recommended! Or leave blank to skip)")
         if [ "$OPTION_UNIVERSAL_TESTS" == "Y" ]; then
-            CLI_OPTIONS="--universal-tests ../utils/universal_tests.yml"
+            CLI_OPTIONS="--universal-tests-path ../utils/universal_tests.yml"
         fi
 
         OPTION_MERGE=$(gum input --prompt "Are you merging into an existing schema yaml? " --placeholder " (Y or leave blank to skip)")
@@ -148,7 +148,7 @@ generate_dbt_tests() {
             CLI_OPTIONS="${CLI_OPTIONS} --overwrite"
         fi
         COMMAND="python $ROOT_PATH/utils/generate_schema_yml.py --sync-name $INPUT_DIR_NAME $CLI_OPTIONS"
-        
+        echo $COMMAND
         if [[ $? != 0 ]]; then
             echo "Ctrl-C caught, exiting..."
             exit 1
@@ -156,7 +156,12 @@ generate_dbt_tests() {
     done
     gum confirm "Confirm the vendor name is correct: $INPUT_DIR_NAME" || exit 1
     gum confirm "Confirm the selected runtime option is correct: $CLI_OPTIONS" || exit 1
+    
+    # Create venv from Pipfile and activate
+    cd $ROOT_PATH
+    pipenv install
 
+    # Switch to dbt-cta dir and run script
     cd $ROOT_PATH/dbt-cta/
     pipenv run $COMMAND
 }
