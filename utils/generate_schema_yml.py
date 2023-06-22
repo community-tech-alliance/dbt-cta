@@ -26,16 +26,21 @@ class LineBreakDumper(yaml.SafeDumper):
     def increase_indent(self, flow=False, indentless=False):
         return super(LineBreakDumper, self).increase_indent(flow, False)
 
+    # This is so the output YAML doesnt have YAML Anchors
+    def ignore_aliases(self, data):
+        return True
+
 
 def list_model_directories(sync_name: str):
     """Given a sync name, list all the possible model directories"""
-    base = f"{sync_name}/models"
+    base_model_path = f"{sync_name}/models"
 
+    # Grabs all the directories directly under the "{sync_name}/models" path
     # Will need to tweak this if we nest models any further
-    model_directories = [
-        d for d in [base + "/" + b for b in os.listdir(base)] if os.path.isdir(d)
-    ]
-
+    model_directories = []
+    for file_path in os.listdir(base_model_path):
+        if os.path.isdir(f"{base_model_path}/{file_path}"):
+            model_directories.append(f"{base_model_path}/{file_path}")
     return model_directories
 
 
@@ -100,19 +105,18 @@ def add_universal_tests(
     """Given a list of model configs, add universal tests to each model"""
     with open(universal_tests_file, "r") as file:
         universal_tests = yaml.load(file, Loader=yaml.Loader)["columns"]
-
-    for model_config in model_configs[0]:
-        for column in model_config["columns"]:
-            matching_column = [
-                c for c in universal_tests if c["name"] == column["name"]
-            ]
-            if matching_column:
-                column["tests"] = matching_column[0]["tests"]
-
+    for model_config in model_configs:
+        for model_column in model_config[0]["columns"]:
+            for universal_test in universal_tests:
+                if model_column["name"] == universal_test["name"]:
+                    if model_column.get("tests"):
+                        model_column["tests"].append(universal_test["tests"])
+                    else:
+                        model_column["tests"] = universal_test["tests"]
     return model_configs
 
 
-def generate_schema_dict(directory_path):
+def generate_schema_dict(directory_path, universal_tests_path):
     """Given a path to some dbt models, generate a dictionary for a schema.yml file
     for all models in the directory."""
     model_directory = directory_path.split("/")[-1]
@@ -132,12 +136,12 @@ def generate_schema_dict(directory_path):
 
     models = list_models(directory_path)
 
-    model_configs = [get_model_config(m, target) for m in models]
+    model_configs = [get_model_config(model, target) for model in models]
 
     # Add universal tests
-    model_configs = add_universal_tests(model_configs)
+    model_configs = add_universal_tests(model_configs, universal_tests_path)
 
-    return {"version": 2, "models": [m[0] for m in model_configs]}
+    return {"version": 2, "models": [model_config[0] for model_config in model_configs]}
 
 
 def merge_schema_dicts(existing_schema: dict, new_schema: dict):
@@ -215,14 +219,14 @@ def merge_schema_dicts(existing_schema: dict, new_schema: dict):
 
 
 def main(args):
-    dirs = list_model_directories(args.sync_name)
-
-    for d in dirs:
-        print(f"Generating schema.yml for {d}...")
-        schema_dict = generate_schema_dict(d)
+    model_directories = list_model_directories(args.sync_name)
+    print(f"Starting Schema Generation for {args.sync_name}")
+    for directory in model_directories:
+        print(f"Generating schema.yml for {directory}...")
+        schema_dict = generate_schema_dict(directory, args.universal_tests_path)
 
         if schema_dict:
-            out_file = generate_filename(d)
+            out_file = generate_filename(directory)
 
             if args.merge:
                 existing_schema = yaml.load(open(out_file), Loader=yaml.Loader)
@@ -254,7 +258,7 @@ if __name__ == "__main__":
         default=False,
     )
     parser.add_argument(
-        "--universal-tests",
+        "--universal-tests-path",
         help="Path to universal tests file",
         default="../utils/universal_tests.yml",
     )
