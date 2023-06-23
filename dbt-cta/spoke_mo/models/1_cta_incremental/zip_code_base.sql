@@ -23,7 +23,5 @@ select
     _airbyte_zip_code_hashid
 from {{ ref('zip_code_ab3') }}
 -- zip_code from {{ source('cta', '_airbyte_raw_zip_code') }}
-{% if is_incremental() %}
-where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
-{% endif %}
+
 
