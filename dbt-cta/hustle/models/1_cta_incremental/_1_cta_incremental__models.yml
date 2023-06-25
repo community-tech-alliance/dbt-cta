@@ -1,0 +1,825 @@
+version: 2
+
+models:
+
+  - name: threads_base
+    description: ''
+    columns:
+      - name: deleted_at
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: group_id
+        description: ''
+      - name: organization_id
+        description: ''
+      - name: lead_id
+        description: ''
+      - name: type
+        description: ''
+      - name: created_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: updated_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: _cta_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string 
+      - name: _cta_sync_datetime_utc
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+
+  - name: goal_externals_base
+    description: ''
+    columns:
+      - name: identifiers
+        description: ''
+      - name: version
+        description: ''
+      - name: updated_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: created_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: type
+        description: ''
+      - name: integration_id
+        description: ''
+      - name: goal_id
+        description: ''
+      - name: _cta_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string 
+      - name: _cta_sync_datetime_utc
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+
+  - name: lead_tags_base
+    description: ''
+    columns:
+      - name: tag_id
+        description: ''
+      - name: lead_id
+        description: ''
+      - name: _cta_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string 
+      - name: _cta_sync_datetime_utc
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+
+  - name: organizations_base
+    description: ''
+    columns:
+      - name: created_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: deactivated_at
+        description: ''
+      - name: updated_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: name
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: _cta_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string 
+      - name: _cta_sync_datetime_utc
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+
+  - name: agents_base
+    description: ''
+    columns:
+      - name: deleted_at
+        description: ''
+      - name: user_id
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: group_id
+        description: ''
+      - name: organization_id
+        description: ''
+      - name: created_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: updated_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: _cta_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string 
+      - name: _cta_sync_datetime_utc
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+
+  - name: integrations_base
+    description: ''
+    columns:
+      - name: created_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: type
+        description: ''
+      - name: updated_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: name
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: _cta_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string 
+      - name: _cta_sync_datetime_utc
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+
+  - name: group_memberships_base
+    description: ''
+    columns:
+      - name: updated_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: deleted_at
+        description: ''
+      - name: deactivated_at
+        description: ''
+      - name: created_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: lead_id
+        description: ''
+      - name: group_id
+        description: ''
+      - name: organization_id
+        description: ''
+      - name: _cta_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string 
+      - name: _cta_sync_datetime_utc
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+
+  - name: groups_base
+    description: ''
+    columns:
+      - name: description
+        description: ''
+      - name: name
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: group_id
+        description: ''
+      - name: organization_id
+        description: ''
+      - name: type
+        description: ''
+      - name: created_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: updated_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: _cta_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string 
+      - name: _cta_sync_datetime_utc
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+
+  - name: goals_base
+    description: ''
+    columns:
+      - name: description
+        description: ''
+      - name: name
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: group_id
+        description: ''
+      - name: organization_id
+        description: ''
+      - name: type
+        description: ''
+      - name: created_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: updated_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: _cta_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string 
+      - name: _cta_sync_datetime_utc
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+
+  - name: messages_base
+    description: ''
+    columns:
+      - name: direction
+        description: ''
+      - name: lead_id
+        description: ''
+      - name: attributed_goal_id
+        description: ''
+      - name: thread_id
+        description: ''
+      - name: organization_id
+        description: ''
+      - name: agent_id
+        description: ''
+      - name: type
+        description: ''
+      - name: created_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: group_id
+        description: ''
+      - name: message
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: pii_redacted_at
+        description: ''
+      - name: workflow_id
+        description: ''
+      - name: updated_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: _cta_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string 
+      - name: _cta_sync_datetime_utc
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+
+  - name: survey_responses_base
+    description: ''
+    columns:
+      - name: integration_id
+        description: ''
+      - name: formatted_value
+        description: ''
+      - name: updated_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: survey_question_id
+        description: ''
+      - name: organization_id
+        description: ''
+      - name: van_survey_response_id
+        description: ''
+      - name: created_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: _cta_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string 
+      - name: _cta_sync_datetime_utc
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+
+  - name: agent_actions_base
+    description: ''
+    columns:
+      - name: message_id
+        description: ''
+      - name: goal_step_id
+        description: ''
+      - name: value_str
+        description: ''
+      - name: agent_id
+        description: ''
+      - name: created_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: lead_id
+        description: ''
+      - name: goal_id
+        description: ''
+      - name: organization_id
+        description: ''
+      - name: updated_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: _cta_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string 
+      - name: _cta_sync_datetime_utc
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+
+  - name: leads_base
+    description: ''
+    columns:
+      - name: custom_fields
+        description: ''
+      - name: tags
+        description: ''
+      - name: notes
+        description: ''
+      - name: email
+        description: ''
+      - name: phone_number_type
+        description: ''
+      - name: occupation
+        description: ''
+      - name: global_opted_out
+        description: ''
+      - name: organization_id
+        description: ''
+      - name: employer
+        description: ''
+      - name: opt_out_type
+        description: ''
+      - name: phone_number
+        description: ''
+      - name: first_name
+        description: ''
+      - name: created_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: pii_redacted_at
+        description: ''
+      - name: last_name
+        description: ''
+      - name: externals
+        description: ''
+      - name: updated_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: _cta_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string 
+      - name: _cta_sync_datetime_utc
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+
+  - name: survey_questions_base
+    description: ''
+    columns:
+      - name: integration_id
+        description: ''
+      - name: question
+        description: ''
+      - name: van_survey_question_id
+        description: ''
+      - name: goal_step_id
+        description: ''
+      - name: goal_id
+        description: ''
+      - name: organization_id
+        description: ''
+      - name: created_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: updated_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: _cta_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string 
+      - name: _cta_sync_datetime_utc
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+
+  - name: users_base
+    description: ''
+    columns:
+      - name: updated_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: created_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: phone_number
+        description: ''
+      - name: preferred_name
+        description: ''
+      - name: email
+        description: ''
+      - name: username
+        description: ''
+      - name: full_name
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: _cta_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string 
+      - name: _cta_sync_datetime_utc
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+
+  - name: workflows_base
+    description: ''
+    columns:
+      - name: goal_step_id
+        description: ''
+      - name: agent_id
+        description: ''
+      - name: goal_id
+        description: ''
+      - name: organization_id
+        description: ''
+      - name: created_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: updated_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: _cta_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string 
+      - name: _cta_sync_datetime_utc
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+
+  - name: actions_base
+    description: ''
+    columns:
+      - name: goal_step_id
+        description: ''
+      - name: survey_response_id
+        description: ''
+      - name: value_str
+        description: ''
+      - name: goal_id
+        description: ''
+      - name: agent_id
+        description: ''
+      - name: type
+        description: ''
+      - name: created_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: lead_id
+        description: ''
+      - name: organization_id
+        description: ''
+      - name: survey_question_id
+        description: ''
+      - name: updated_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: _cta_hashid
+        description: ''
+      - name: _cta_sync_datetime_utc
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+
+  - name: goal_steps_base
+    description: ''
+    columns:
+      - name: matching_strategy
+        description: ''
+      - name: goal_id
+        description: ''
+      - name: organization_id
+        description: ''
+      - name: type
+        description: ''
+      - name: created_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: updated_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: _cta_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string 
+      - name: _cta_sync_datetime_utc
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+
+  - name: lead_externals_base
+    description: ''
+    columns:
+      - name: identifiers
+        description: ''
+      - name: version
+        description: ''
+      - name: updated_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: lead_id
+        description: ''
+      - name: created_at
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+      - name: type
+        description: ''
+      - name: integration_id
+        description: ''
+      - name: _cta_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: string 
+      - name: _cta_sync_datetime_utc
+        description: ''
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: timestamp
+

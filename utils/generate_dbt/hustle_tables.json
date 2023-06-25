@@ -1,0 +1,74 @@
+{
+  "_actions_raw": {
+    "unique_key": "id",
+    "sync_mode": "incremental"
+  },
+  "_agent_actions_raw": {
+    "unique_key": "id",
+    "sync_mode": "incremental"
+  },
+  "_agents_raw": {
+    "unique_key": "id",
+    "sync_mode": "incremental"
+  },
+  "_goal_externals_raw": {
+    "sync_mode": "full_refresh"
+  },
+  "_goal_steps_raw": {
+    "unique_key": "id",
+    "sync_mode": "incremental"
+  },
+  "_goals_raw": {
+    "unique_key": "id",
+    "sync_mode": "incremental"
+  },
+  "_group_memberships_raw": {
+    "sync_mode": "full_refresh"
+  },
+  "_groups_raw": {
+    "unique_key": "id",
+    "sync_mode": "incremental"
+  },
+  "_integrations_raw": {
+    "unique_key": "id",
+    "sync_mode": "incremental"
+  },
+  "_lead_externals_raw": {
+    "sync_mode": "full_refresh"
+  },
+  "_lead_tags_raw": {
+    "sync_mode": "full_refresh"
+  },
+  "_leads_raw": {
+    "unique_key": "id",
+    "sync_mode": "incremental"
+  },
+  "_messages_raw": {
+    "unique_key": "id",
+    "sync_mode": "incremental"
+  },
+  "_organizations_raw": {
+    "unique_key": "id",
+    "sync_mode": "incremental"
+  },
+  "_survey_questions_raw": {
+    "unique_key": "id",
+    "sync_mode": "incremental"
+  },
+  "_survey_responses_raw": {
+    "unique_key": "id",
+    "sync_mode": "incremental"
+  },
+  "_threads_raw": {
+    "unique_key": "id",
+    "sync_mode": "incremental"
+  },
+  "_users_raw": {
+    "unique_key": "id",
+    "sync_mode": "incremental"
+  },
+  "_workflows_raw": {
+    "unique_key": "id",
+    "sync_mode": "incremental"
+  }
+}

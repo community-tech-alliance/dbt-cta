@@ -9,6 +9,8 @@ dbt-core = "*"
 dbt-bigquery = "==1.3.0b2"
 gcloud = "*"
 pyyaml = "*"
+argparse = "*"
+google-cloud-bigquery = "*"
 
 [dev-packages]
 

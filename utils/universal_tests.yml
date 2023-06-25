@@ -6,6 +6,7 @@ columns:
   - name: _airbyte_ab_id
     tests:
       - not_null
+      - unique
   - name: _airbyte_normalized_at
     tests:
       - dbt_expectations.expect_column_values_to_be_of_type:

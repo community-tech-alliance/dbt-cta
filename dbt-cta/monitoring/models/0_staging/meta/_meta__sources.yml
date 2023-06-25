@@ -48,10 +48,13 @@ sources:
 
       - name: configured_syncs
         description: >
-          This is an external table that is built off some json config living in
-          Composer's dags/ folder in each environment, specifically:
+          This is an external table in BigQuery (at CTA_PROJECT_ID.monitoring.configured_syncs) that is
+          built off some json config living in Composer's dags/ folder in each environment.
+          Specifically:
             dags/cta-dags/airbyte_syncs/configs/configured_syncs.json
           
+          This file is automatically updated as part of the deployment workflow for CTA's Airflow DAGs.
+
           If we ever need to update the structure of the data (not the data itself),
           then we'll need to manually drop and recreate the external table from the UI,
           since dbt-labs/dbt_external_tables doesn't support nested fields.
