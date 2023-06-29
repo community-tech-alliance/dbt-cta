@@ -11,7 +11,7 @@ SELECT * FROM
 (
 SELECT 
     *,
-    ROW_NUMBER() OVER (PARTITION BY _airbyte_emitted_at ORDER BY zip_code desc) as rownum 
+    ROW_NUMBER() OVER (PARTITION BY zip_code ORDER BY _airbyte_emitted_at desc) as rownum 
 FROM {{ ref('zip_code_ab3') }}
 )
 where rownum=1

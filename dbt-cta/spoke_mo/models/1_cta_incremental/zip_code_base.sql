@@ -9,7 +9,7 @@
     unique_key = "zip"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('zip_code_ab3') }}
+-- depends_on: {{ ref('zip_code_ab4') }}
 select
     zip,
     city,
@@ -22,7 +22,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_zip_code_hashid
-from {{ ref('zip_code_ab3') }}
+from {{ ref('zip_code_ab4') }}
 -- zip_code from {{ source('cta', '_airbyte_raw_zip_code') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
