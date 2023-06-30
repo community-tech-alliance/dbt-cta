@@ -144,6 +144,18 @@ sources:
   - name: _airbyte_raw_voter_sources
   - name: _airbyte_raw_votes
   - name: _airbyte_raw_vr_zips_lookup
+  - name: _airbyte_raw_actions
+  - name: _airbyte_raw_admin_users
+  - name: _airbyte_raw_blocks
+  - name: _airbyte_raw_districts_inbound
+  - name: _airbyte_raw_documents_phone_banking_phone_banks
+  - name: _airbyte_raw_import_lcv
+  - name: _airbyte_raw_petition_packets
+  - name: _airbyte_raw_search_documents
+  - name: _airbyte_raw_sent_emails
+  - name: _airbyte_raw_tenant_blocks
+  - name: _airbyte_raw_tenants
+  - name: _airbyte_raw_widgets
   - name: absentee_ballot_request_forms_base
   - name: activism_options_configs_base
   - name: activist_code_counts_base
@@ -284,3 +296,15 @@ sources:
   - name: voter_sources_base
   - name: votes_base
   - name: vr_zips_lookup_base
+  - name: actions_base
+  - name: admin_users_base
+  - name: blocks_base
+  - name: districts_inbound_base
+  - name: documents_phone_banking_phone_banks_base
+  - name: import_lcv_base
+  - name: petition_packets_base
+  - name: search_documents_base
+  - name: sent_emails_base
+  - name: tenant_blocks_base
+  - name: tenants_base
+  - name: widgets_base
