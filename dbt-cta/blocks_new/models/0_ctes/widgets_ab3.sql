@@ -5,25 +5,21 @@
     tags = [ "top-level-intermediate" ]
 ) }}
 -- SQL model to build a hash column based on the values of this record
--- depends_on: {{ ref('tenants_ab2') }}
+-- depends_on: {{ ref('widgets_ab2') }}
 select
     {{ dbt_utils.surrogate_key([
-        'contact_phone',
-        'logo_data',
-        'created_at',
-        'logo_old',
-        'contact_email',
         'updated_at',
         'name',
-        'options',
-        'subdomain',
-        'contact_last_name',
+        'created_at',
         'id',
-        'contact_first_name',
-        'status'
-    ]) }} as _airbyte_tenants_hashid,
+        'number_of_measurables',
+        'column_span',
+        'block_id',
+        'widget_type',
+        'measurable_type'
+    ]) }} as _airbyte_widgets_hashid,
     tmp.*
-from {{ ref('tenants_ab2') }} tmp
--- tenants
+from {{ ref('widgets_ab2') }} tmp
+-- widgets
 where 1 = 1
 
