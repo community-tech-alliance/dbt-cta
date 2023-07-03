@@ -2175,3 +2175,178 @@ models:
           - unique
           - not_null
 
+
+
+  - name: admin_users_base
+    description: ''
+    columns:
+      - name: session
+        description: ''
+      - name: id
+        description: ''
+      - name: email
+        description: ''
+      - name: encrypted_password
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_admin_users_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: sent_emails_base
+    description: ''
+    columns:
+      - name: recipients_count
+        description: ''
+      - name: event_id
+        description: ''
+      - name: list_id
+        description: ''
+      - name: email_template_id
+        description: ''
+      - name: subject
+        description: ''
+      - name: created_at
+        description: ''
+      - name: from
+        description: ''
+      - name: id
+        description: ''
+      - name: team_id
+        description: ''
+      - name: body
+        description: ''
+      - name: sender_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_sent_emails_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: documents_phone_banking_phone_banks_base
+    description: ''
+    columns:
+      - name: phone_bank_id
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: created_at
+        description: ''
+      - name: document_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_documents_phone_banking_phone_banks_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: import_lcv_base
+    description: ''
+    columns:
+      - name: citizen
+        description: ''
+      - name: date_delivered
+        description: ''
+      - name: address
+        description: ''
+      - name: gender
+        description: ''
+      - name: city
+        description: ''
+      - name: signature
+        description: ''
+      - name: last_name
+        description: ''
+      - name: middle_name
+        description: ''
+      - name: ssn
+        description: ''
+      - name: zipcode
+        description: ''
+      - name: signature_date
+        description: ''
+      - name: dob
+        description: ''
+      - name: organizer
+        description: ''
+      - name: restored
+        description: ''
+      - name: location
+        description: ''
+      - name: phone_number
+        description: ''
+      - name: region
+        description: ''
+      - name: felony
+        description: ''
+      - name: first_name
+        description: ''
+      - name: email
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_import_lcv_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
