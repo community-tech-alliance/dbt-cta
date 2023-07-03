@@ -14,6 +14,6 @@ select
     id,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-    {{ current_timestamp() }} as _airbyte_normalized_at,
+    _airbyte_normalized_at,
     _airbyte_blocks_hashid
 from {{ ref('blocks_ab3') }}
