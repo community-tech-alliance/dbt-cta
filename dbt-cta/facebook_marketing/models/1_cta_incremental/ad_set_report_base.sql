@@ -5,7 +5,18 @@
 ) }}
 
 -- depends_on: {{ ref('ads_insights_overall_base') }}
-with aggregations as (
+with most_recent_only as (
+SELECT * FROM 
+    (
+    SELECT 
+        *,
+        ROW_NUMBER() OVER (PARTITION BY adset_id, date_start ORDER BY _airbyte_emitted_at desc) as rownum 
+    FROM {{ ref('ads_insights_overall_base') }}
+    )
+where rownum=1
+),
+
+aggregations as (
 
 select
     date_start,
@@ -19,7 +30,7 @@ select
     sum(clicks) as clicks,
     sum(impressions) as impressions,
     sum(spend) as spend
-from  {{ ref('ads_insights_overall_base') }}
+from  most_recent_only
 GROUP BY
     date_start,
     account_id,
