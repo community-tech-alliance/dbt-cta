@@ -6,7 +6,7 @@
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
+    unique_key = 'id',
     partitions = partitions_to_replace
 ) }}
 
@@ -115,7 +115,7 @@ select
     to_emails,
     _airbyte_ab_id,
     _airbyte_emitted_at
-from {{ ref("ticket_ab2") }}
+from {{ ref("ticket_ab3") }}
 -- ticket from {{ source('cta', '_airbyte_raw_tickets') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
