@@ -10,7 +10,7 @@
     unique_key = '_airbyte_ads_insights_platform_and_device_hashid'
 ) }}
 
--- depends_on: {{ ref('ads_insights_platform_and_device_ab4') }}
+-- depends_on: {{ ref('ads_insights_platform_and_device_ab5') }}
 SELECT
      _airbyte_ads_insights_platform_and_device_hashid
     ,_airbyte_emitted_at
@@ -102,7 +102,7 @@ SELECT
     ,landing_page_views
     ,shares
     ,conversion_values
-from {{ ref('ads_insights_platform_and_device_ab4') }}
+from {{ ref('ads_insights_platform_and_device_ab5') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
