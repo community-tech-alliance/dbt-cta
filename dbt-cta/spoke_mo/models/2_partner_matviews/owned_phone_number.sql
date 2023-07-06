@@ -9,5 +9,6 @@ select
     phone_number,
     id,
     allocated_at,
+    _airbyte_emitted_at,
     _airbyte_owned_phone_number_hashid
 from {{ source('cta','owned_phone_number_base') }}

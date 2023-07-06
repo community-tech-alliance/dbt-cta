@@ -23,5 +23,6 @@ select
     messageservice_sid,
     id,
     response_window,
+    _airbyte_emitted_at,
     _airbyte_campaign_hashid
 from {{ source('cta','campaign_base') }}

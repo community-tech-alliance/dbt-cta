@@ -18,5 +18,6 @@ select
     id,
     text,
     service_response_at,
+    _airbyte_emitted_at,
     _airbyte_message_hashid
 from {{ source('cta','message_base') }}
