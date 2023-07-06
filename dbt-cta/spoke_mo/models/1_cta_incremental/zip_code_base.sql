@@ -27,4 +27,3 @@ from {{ ref('zip_code_ab4') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
-
