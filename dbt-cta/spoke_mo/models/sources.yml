@@ -1,0 +1,58 @@
+version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables:
+  - name: _airbyte_raw_assignment
+  - name: _airbyte_raw_assignment_feedback
+  - name: _airbyte_raw_campaign
+  - name: _airbyte_raw_campaign_admin
+  - name: _airbyte_raw_campaign_contact
+  - name: _airbyte_raw_canned_response
+  - name: _airbyte_raw_interaction_step
+  - name: _airbyte_raw_invite
+  - name: _airbyte_raw_job_request
+  - name: _airbyte_raw_knex_migrations
+  - name: _airbyte_raw_knex_migrations_lock
+  - name: _airbyte_raw_log
+  - name: _airbyte_raw_message
+  - name: _airbyte_raw_opt_out
+  - name: _airbyte_raw_organization
+  - name: _airbyte_raw_organization_contact
+  - name: _airbyte_raw_owned_phone_number
+  - name: _airbyte_raw_pending_message_part
+  - name: _airbyte_raw_question_response
+  - name: _airbyte_raw_tag
+  - name: _airbyte_raw_tag_campaign_contact
+  - name: _airbyte_raw_tag_canned_response
+  - name: _airbyte_raw_user
+  - name: _airbyte_raw_user_cell
+  - name: _airbyte_raw_user_organization
+  - name: _airbyte_raw_zip_code
+  - name: assignment_base
+  - name: assignment_feedback_base
+  - name: campaign_base
+  - name: campaign_admin_base
+  - name: campaign_contact_base
+  - name: canned_response_base
+  - name: interaction_step_base
+  - name: invite_base
+  - name: job_request_base
+  - name: knex_migrations_base
+  - name: knex_migrations_lock_base
+  - name: log_base
+  - name: message_base
+  - name: opt_out_base
+  - name: organization_base
+  - name: organization_contact_base
+  - name: owned_phone_number_base
+  - name: pending_message_part_base
+  - name: question_response_base
+  - name: tag_base
+  - name: tag_campaign_contact_base
+  - name: tag_canned_response_base
+  - name: user_base
+  - name: user_cell_base
+  - name: user_organization_base
+  - name: zip_code_base
