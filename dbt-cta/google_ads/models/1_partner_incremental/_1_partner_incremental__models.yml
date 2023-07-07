@@ -1,0 +1,122 @@
+version: 2
+
+models:
+
+  - name: ad_stats_overview
+    description: ''
+    columns:
+      - name: Date
+        description: ''
+      - name: CampaignId
+        description: ''
+      - name: CampaignName
+        description: ''
+      - name: AdGroupId
+        description: ''
+      - name: AdGroupName
+        description: ''
+      - name: CreativeId
+        description: ''
+      - name: ImageCreativeName
+        description: ''
+      - name: utm_source
+        description: ''
+      - name: utm_medium
+        description: ''
+      - name: utm_campaign
+        description: ''
+      - name: utm_term
+        description: ''
+      - name: utm_content
+        description: ''
+      - name: Device
+        description: ''
+      - name: AdNetworkType1
+        description: ''
+      - name: AdNetworkType2
+        description: ''
+      - name: BudgetId
+        description: ''
+      - name: BudgetTotalAmount
+        description: ''
+      - name: Impressions
+        description: ''
+      - name: Cost
+        description: ''
+      - name: AverageCpm
+        description: ''
+      - name: Clicks
+        description: ''
+      - name: Ctr
+        description: ''
+      - name: Engagements
+        description: ''
+      - name: VideoQuartile100Rate
+        description: ''
+      - name: VideoQuartile75Rate
+        description: ''
+      - name: VideoQuartile50Rate
+        description: ''
+      - name: VideoQuartile25Rate
+        description: ''
+      - name: VideoViews
+        description: ''
+      - name: hash_id
+        description: ''
+        tests:
+          - unique
+          - not_null
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - Date
+            - CampaignId
+            - AdGroupId
+            - CreativeId
+            - Device
+            - AdNetworkType1
+            - AdNetworkType2
+
+  - name: campaign_stats_overview
+    description: ''
+    columns:
+      - name: Date				
+        description: ''
+      - name: CampaignId				
+        description: ''
+      - name: CampaignName				
+        description: ''
+      - name: AdNetworkType1				
+        description: ''
+      - name: AdNetworkType2				
+        description: ''
+      - name: BudgetId				
+        description: ''
+      - name: BudgetTotalAmount				
+        description: ''
+      - name: Impressions				
+        description: ''
+      - name: Cost				
+        description: ''
+      - name: AverageCpm				
+        description: ''
+      - name: Clicks				
+        description: ''
+      - name: Ctr				
+        description: ''
+      - name: ImpressionReach				
+        description: ''
+      - name: AverageFrequency				
+        description: ''
+      - name: hash_id				
+        description: ''
+        tests:
+          - unique
+          - not_null
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - Date
+            - CampaignId
+            - AdNetworkType1
+            - AdNetworkType2
