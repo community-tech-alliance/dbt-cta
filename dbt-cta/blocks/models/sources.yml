@@ -111,6 +111,7 @@ sources:
   - name: _airbyte_raw_reports
   - name: _airbyte_raw_responsibilities
   - name: _airbyte_raw_roles
+  - name: _airbyte_raw_scans_qc_overview
   - name: _airbyte_raw_scheduled_exports
   - name: _airbyte_raw_scheduled_exports_turfs
   - name: _airbyte_raw_schedules
@@ -263,6 +264,7 @@ sources:
   - name: reports_base
   - name: responsibilities_base
   - name: roles_base
+  - name: scans_qc_overview_base
   - name: scheduled_exports_base
   - name: scheduled_exports_turfs_base
   - name: schedules_base
