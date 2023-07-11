@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 requests = "*"
+chardet= "*"
 dbt-core = "*"
 dbt-bigquery = "==1.3.0b2"
 gcloud = "*"
