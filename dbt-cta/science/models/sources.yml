@@ -1,0 +1,10 @@
+version: 2
+sources:
+- name: cta
+  database: '{{ env_var("CTA_PROJECT_ID") }}'
+  schema: '{{ env_var("CTA_DATASET_ID") }}'
+  tables:
+  - name: _airbyte_raw_friendly_id_slugs
+  - name: _airbyte_raw_admin_users
+  - name: friendly_id_slugs_base
+  - name: admin_users_base

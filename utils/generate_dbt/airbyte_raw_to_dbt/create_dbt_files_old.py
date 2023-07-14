@@ -1,4 +1,10 @@
-def get_base_sql(
+import os
+import yaml
+import helper_functions as helper
+
+##### GENERATE CONTENTS OF DBT FILES
+
+def _get_base_sql(
         table_schema_fields,
         concat_fields,
         table_id,
@@ -30,7 +36,7 @@ where timestamp_trunc({partition_datetime_field}, day) in ({{{{ partitions_to_re
         raise ValueError("Invalid sync mode (supported values: 'full_refresh', 'incremental')")
 
 
-def get_base_config(
+def _get_base_config(
         partition_datetime_field,
         unique_key,
         sync_mode
@@ -70,22 +76,3 @@ def get_base_config(
     else:
 
         raise ValueError("Invalid sync mode (supported values: 'full_refresh', 'incremental')")
-
-
-def get_matview_sql(
-        matview_fields,
-        unique_key,
-        table_id_base
-):
-    matview_sql = f"""
-{{{{ config(
-	auto_refresh = false,
-	full_refresh = false
-)}}}}
-
-SELECT
-    {matview_fields},
-    _cta_hashid
-FROM {{{{ source('cta', '{table_id_base}') }}}}"""
-
-    return matview_sql
