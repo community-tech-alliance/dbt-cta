@@ -67,3 +67,9 @@ models:
       +materialized: view
     2_reporting:
       +materialized: view
+
+    # for doing science with CTEs
+    0_ctes_dev:
+      +tags: 
+        - cta
+      +materialized: table
