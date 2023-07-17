@@ -2,7 +2,7 @@ import os
 import yaml
 
 ##################################
-### GENERATE SELECT statement ###
+### GENERATE SELECT STATEMENTS ###
 ##################################
 
 
