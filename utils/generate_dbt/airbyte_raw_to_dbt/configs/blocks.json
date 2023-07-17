@@ -1,0 +1,614 @@
+{
+	"activism_options_configs": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_activism_options_configs_hashid"
+		},
+	"address_districts": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_address_districts_hashid"
+		},
+	"admin_users": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_admin_users_hashid"
+		},
+	"age_to_bin": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_age_to_bin_hashid"
+		},
+	"announcements_views": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_announcements_views_hashid"
+		},
+	"campaigns_people": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_campaigns_people_hashid"
+		},
+	"campaigns_teams": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_campaigns_teams_hashid"
+		},
+	"catalist_uploads_registration_forms": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_catalist_uploads_registration_forms_hashid"
+		},
+	"check_in_questions": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_check_in_questions_hashid"
+		},
+	"collections": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_collections_hashid"
+		},
+	"collections_roles": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_collections_roles_hashid"
+		},
+	"contact_methods": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_contact_methods_hashid"
+		},
+	"coorganizations": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_coorganizations_hashid"
+		},
+	"counties": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_counties_hashid"
+		},
+	"delayed_jobs": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_delayed_jobs_hashid"
+		},
+	"deliveries": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_deliveries_hashid"
+		},
+	"delivery_forms_exclusions": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_delivery_forms_exclusions_hashid"
+		},
+	"denominations_organizations": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_denominations_organizations_hashid"
+		},
+	"denominations_people": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_denominations_people_hashid"
+		},
+	"documents_phone_banking_phone_banks": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_documents_phone_banking_phone_banks_hashid"
+		},
+	"email_templates_events": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_email_templates_events_hashid"
+		},
+	"events_teams": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_events_teams_hashid"
+		},
+	"field_management_goals": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_field_management_goals_hashid"
+		},
+	"field_management_projections": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_field_management_projections_hashid"
+		},
+	"friendly_id_slugs": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_friendly_id_slugs_hashid"
+		},
+	"grouping_measurements": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_grouping_measurements_hashid"
+		},
+	"import_lcv": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_import_lcv_hashid"
+		},
+	"imports_error_rows": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_imports_error_rows_hashid"
+		},
+	"list_folders_users": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_list_folders_users_hashid"
+		},
+	"lists_people": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_lists_people_hashid"
+		},
+	"locations": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_locations_hashid"
+		},
+	"locations_organizations": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_locations_organizations_hashid"
+		},
+	"organizations_teams": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_organizations_teams_hashid"
+		},
+	"projections": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_projections_hashid"
+		},
+	"public_event_links": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_public_event_links_hashid"
+		},
+	"quality_control_comments_users": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_quality_control_comments_users_hashid"
+		},
+	"quality_control_flag_triggers": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_quality_control_flag_triggers_hashid"
+		},
+	"quality_control_flags_views": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_quality_control_flags_views_hashid"
+		},
+	"quality_control_flags_voter_registration_scans": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_quality_control_flags_voter_registration_scans_hashid"
+		},
+	"quality_control_phone_verification_question_translations": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_quality_control_phone_verification_question_translations_hashid"
+		},
+	"quality_control_phone_verification_scripts": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_quality_control_phone_verification_scripts_hashid"
+		},
+	"registrant_matches": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_registrant_matches_hashid"
+		},
+	"registration_forms": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_registration_forms_hashid"
+		},
+	"scans_qc_overview": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_scans_qc_overview_hashid"
+		},
+	"scheduled_exports_turfs": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_scheduled_exports_turfs_hashid"
+		},
+	"schema_migrations": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_schema_migrations_hashid"
+		},
+	"sent_emails": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_sent_emails_hashid"
+		},
+	"shifts": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_shifts_hashid"
+		},
+	"state_party_codes": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_state_party_codes_hashid"
+		},
+	"states": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_states_hashid"
+		},
+	"taggings": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_taggings_hashid"
+		},
+	"tags": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_tags_hashid"
+		},
+	"turfs": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_turfs_hashid"
+		},
+	"user_profiles": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_user_profiles_hashid"
+		},
+	"versions": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_versions_hashid"
+		},
+	"voted_labels": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_voted_labels_hashid"
+		},
+	"vr_zips_lookup": {
+		"sync_mode": "full_refresh",
+		"unique_key": "_airbyte_vr_zips_lookup_hashid"
+		},
+	"absentee_ballot_request_forms": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"actions": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"activist_code_counts": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"activist_codes": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"activities": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"addresses": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"announcements": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"ar_internal_metadata": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"blocks": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"campaigns": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"canvassers": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"captricity_batches": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"catalist_uploads": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"check_in_answers": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"check_ins": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"dashboard_layouts": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"dashboard_widgets": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"denominations": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"district_types": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"districts": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"districts_inbound": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"documents": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"elections": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"email_templates": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"event_attendees": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"event_documents": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"event_shifts": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"event_types": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"events": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"filter_rules": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"filter_views": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"folders": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"groupings": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"import_files": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"imports": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"landing_page_signups": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"list_folders": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"lists": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"meetings": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"metrics": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"notes": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"organization_memberships": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"organizations": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"parties": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"people": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"petition_packets": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"petitions_books": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"petitions_canvasser_pages": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"petitions_pages": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"petitions_signatures": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"phone_banking_answer_options": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"phone_banking_calls": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"phone_banking_phone_banks": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"phone_banking_questions": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"phone_banking_responses": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"phone_banking_script_objects": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"phone_banking_script_texts": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"phone_banking_scripts": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"phone_banking_sessions": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"phone_verification_questions": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"phone_verification_responses": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"quality_control_comments": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"quality_control_flags": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"quality_control_phone_verification_calls": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"quality_control_schedules": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"quick_links": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"relationship_types": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"relationships": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"reports": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"responsibilities": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"roles": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"scheduled_exports": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"schedules": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"search_documents": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"searches": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"tasks": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"teachers": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"team_memberships": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"teams": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"tenant_blocks": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"tenant_quick_links": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"tenants": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"turf_levels": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"twilio_calls": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"users": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"venues": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"visual_review_responses": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"volunteerships": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"voter_histories": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"voter_registration_scan_batch_cover_sheets": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"voter_registration_scan_batches": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"voter_registration_scan_visual_review_responses": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"voter_registration_scans": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"voter_sources": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"votes": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		},
+	"widgets": {
+		"sync_mode": "incremental",
+		"unique_key": "id"
+		}	
+}
