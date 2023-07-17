@@ -125,9 +125,11 @@ where 1 = 1
     return file_contents
 
 
-def generate_file_contents_base_full_refresh(
+def generate_file_contents_base(
         data_fields_and_types,
-        table_id
+        table_id,
+        sync_mode,
+        unique_key
 ):
     """
     Returns dbt model to create _base model using full refresh sync mode
@@ -135,13 +137,14 @@ def generate_file_contents_base_full_refresh(
     Params:
     - select_statement: the stuff that actually goes into the SQL model
     - table_id: no prefixes or suffixes
+    - sync_mode: either "full_refresh" or "incremental"
     """
-
 
     field_names_list = list(data_fields_and_types.keys())
     field_names_formatted = (",\n    ").join(field_names_list)
-    
-    file_contents = f"""
+
+    if sync_mode=='full_refresh':
+        file_contents = f"""
 {{% set partitions_to_replace = [
     'timestamp_trunc(current_timestamp, day)',
     'timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)'
@@ -151,7 +154,7 @@ def generate_file_contents_base_full_refresh(
     partitions = partitions_to_replace,
     cluster_by = "_airbyte_emitted_at",
     partition_by = {{"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"}},
-    unique_key = '_airbyte_{table_id}_hashid'
+    unique_key = '{unique_key}'
 ) }}}}
 
 -- Final base SQL model
@@ -166,6 +169,29 @@ from {{{{ ref('{table_id}_ab3') }}}}
 {{% if is_incremental() %}}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{{{ partitions_to_replace | join(',') }}}})
 {{% endif %}}"""
+
+    elif sync_mode=='incremental':
+        file_contents = f"""
+{{{{ config(
+    partitions = partitions_to_replace,
+    cluster_by = "_airbyte_emitted_at",
+    partition_by = {{"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"}},
+    unique_key = '{unique_key}'
+) }}}}
+
+-- Final base SQL model
+-- depends_on: {{{{ ref('{table_id}_ab3') }}}}
+select
+    {field_names_formatted},
+    _airbyte_{table_id}_hashid,
+    _airbyte_ab_id,
+    _airbyte_normalized_at,
+    _airbyte_emitted_at
+from {{{{ ref('{table_id}_ab3') }}}}
+"""
+
+    else:
+        raise ValueError("sync_mode must be either 'full_refresh' or 'incremental'")
 
     return file_contents
 
@@ -197,7 +223,7 @@ FROM {{{{ source('cta', '{table_id}_base') }}}}"""
 ##### CREATE THE FILES #####
 ############################
 
-def create_sources_yaml(tables_list,path_to_models_folder):
+def create_sources_yaml(tables_list,models_dir):
     """
     Create the sources.yml file
 
@@ -220,7 +246,7 @@ def create_sources_yaml(tables_list,path_to_models_folder):
         ]
     }   
     # Write the sources.yml file
-    sources_yml_file_name = os.path.join(path_to_models_folder, "sources.yml")
+    sources_yml_file_name = os.path.join(models_dir, "sources.yml")
     with open(sources_yml_file_name, "w") as sources_yml_file:
         yaml.dump(sources_dict,
                   sources_yml_file,
@@ -231,7 +257,7 @@ def create_sources_yaml(tables_list,path_to_models_folder):
 
 def write_dbt_file_cte1(table_id,
                         data_fields_and_types,
-                        path_to_models_folder
+                        models_dir
                         ):
     
     cte1_select_statement = generate_cte1_select_statement(
@@ -243,7 +269,7 @@ def write_dbt_file_cte1(table_id,
         table_id=table_id,
         cte_number=1)
 
-    file_path = os.path.join(path_to_models_folder,f"0_ctes/{table_id}_ab1.sql")
+    file_path = os.path.join(models_dir,f"0_ctes/{table_id}_ab1.sql")
 
     print(f"Writing CTE1 model to {file_path}")
     with open(file_path, "w") as f:
@@ -251,7 +277,7 @@ def write_dbt_file_cte1(table_id,
 
 def write_dbt_file_cte2(table_id,
                         data_fields_and_types,
-                        path_to_models_folder
+                        models_dir
                         ):
     
     cte2_select_statement = generate_cte2_select_statement(
@@ -263,7 +289,7 @@ def write_dbt_file_cte2(table_id,
         table_id=table_id,
         cte_number=2)
 
-    file_path = os.path.join(path_to_models_folder,f"0_ctes/{table_id}_ab2.sql")
+    file_path = os.path.join(models_dir,f"0_ctes/{table_id}_ab2.sql")
 
     print(f"Writing CTE2 model to {file_path}")
     with open(file_path, "w") as f:
@@ -271,7 +297,7 @@ def write_dbt_file_cte2(table_id,
 
 def write_dbt_file_cte3(table_id,
                         data_fields_and_types,
-                        path_to_models_folder
+                        models_dir
                         ):
     
     cte3_select_statement = generate_cte3_select_statement(
@@ -284,7 +310,7 @@ def write_dbt_file_cte3(table_id,
         table_id=table_id,
         cte_number=3)
 
-    file_path = os.path.join(path_to_models_folder,f"0_ctes/{table_id}_ab3.sql")
+    file_path = os.path.join(models_dir,f"0_ctes/{table_id}_ab3.sql")
 
     print(f"Writing CTE3 model to {file_path}")
     with open(file_path, "w") as f:
@@ -294,15 +320,19 @@ def write_dbt_file_cte3(table_id,
 
 def write_dbt_file_base(table_id,
                         data_fields_and_types,
-                        path_to_models_folder
-                        # TODO add param to toggle incremental mode
+                        models_dir,
+                        sync_mode,
+                        unique_key
                         ):
 
-    base_file_contents = generate_file_contents_base_full_refresh(
+    base_file_contents = generate_file_contents_base(
         data_fields_and_types=data_fields_and_types,
-        table_id=table_id)
+        table_id=table_id,
+        sync_mode=sync_mode,
+        unique_key=unique_key
+        )
 
-    file_path = os.path.join(path_to_models_folder,f"1_cta_full_refresh/{table_id}_base.sql")
+    file_path = os.path.join(models_dir,f"1_cta_{sync_mode}/{table_id}_base.sql")
 
     print(f"Writing base model to {file_path}")
     with open(file_path, "w") as f:
@@ -312,14 +342,14 @@ def write_dbt_file_base(table_id,
 
 def write_dbt_file_matview(table_id,
                         data_fields_and_types,
-                        path_to_models_folder
+                        models_dir
                         ):
 
     matview_file_contents = generate_file_contents_matview(
         data_fields_and_types=data_fields_and_types,
         table_id=table_id)
 
-    file_path = os.path.join(path_to_models_folder,f"2_partner_matviews/{table_id}.sql")
+    file_path = os.path.join(models_dir,f"2_partner_matviews/{table_id}.sql")
 
     print(f"Writing partner matview model to {file_path}")
     with open(file_path, "w") as f:
@@ -327,34 +357,45 @@ def write_dbt_file_matview(table_id,
     
     return None
 
-def write_all_cte_models(table_id,
+def write_dbt_models_for_table(table_id,
                         data_fields_and_types,
-                        path_to_models_folder
+                        models_dir,
+                        sync_mode,
+                        unique_key
                         ):
+    """
+    Writes the 3 CTEs, CTA base, and partner matview models for a single table
+    """
 
-    write_dbt_file_cte1(table_id=table_id,
-                        data_fields_and_types=data_fields_and_types,
-                        path_to_models_folder=path_to_models_folder
-                        )
+    try:
+        write_dbt_file_cte1(table_id=table_id,
+                            data_fields_and_types=data_fields_and_types,
+                            models_dir=models_dir
+                            )
+    except Exception as e:
+        print(f"Skipping {table_id}.")
     
-    write_dbt_file_cte2(table_id=table_id,
-                        data_fields_and_types=data_fields_and_types,
-                        path_to_models_folder=path_to_models_folder
-                        )
+    else:
+        write_dbt_file_cte2(table_id=table_id,
+                            data_fields_and_types=data_fields_and_types,
+                            models_dir=models_dir
+                            )
 
-    write_dbt_file_cte3(table_id=table_id,
-                        data_fields_and_types=data_fields_and_types,
-                        path_to_models_folder=path_to_models_folder
-                        )
+        write_dbt_file_cte3(table_id=table_id,
+                            data_fields_and_types=data_fields_and_types,
+                            models_dir=models_dir
+                            )
 
-    write_dbt_file_base(table_id=table_id,
-                        data_fields_and_types=data_fields_and_types,
-                        path_to_models_folder=path_to_models_folder
-                        )
-    
-    write_dbt_file_matview(table_id=table_id,
-                        data_fields_and_types=data_fields_and_types,
-                        path_to_models_folder=path_to_models_folder
-                        )
+        write_dbt_file_base(table_id=table_id,
+                            data_fields_and_types=data_fields_and_types,
+                            models_dir=models_dir,
+                            sync_mode=sync_mode,
+                            unique_key=unique_key
+                            )
+
+        write_dbt_file_matview(table_id=table_id,
+                            data_fields_and_types=data_fields_and_types,
+                            models_dir=models_dir
+                            )
 
     return "Done writing dbt files, congratulations"
