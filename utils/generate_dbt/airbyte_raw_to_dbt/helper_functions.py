@@ -2,6 +2,16 @@ import json
 import pandas as pd
 from google.cloud import bigquery
 
+def list_tables_in_bq_dataset(project_id, dataset_id):
+    """
+    Set up the BigQuery client and list all tables in the dataset
+    """
+
+    client = bigquery.Client(project=project_id)
+    tables = list(client.list_tables(dataset_id))
+
+    return tables
+
 def is_valid_bigquery_type(value, data_type, project_id):
   """Checks if the timestamp string matches the BigQuery timestamp regex."""
 
@@ -81,24 +91,51 @@ def get_field_names_and_datatypes(dataset_id,
   and return a dict of {"field_name":"data_type"} mappings.
   """
 
-  # read the first row of data and save to a pandas dataframe
-  sample_df = bq_table_to_dataframe(dataset_id=dataset_id,
+  print(f"Inferring data types for table `{table_id}`...")
+
+  try:
+    # read the first row of data and save to a pandas dataframe
+    sample_df = bq_table_to_dataframe(dataset_id=dataset_id,
                                     table_id=f"_airbyte_raw_{table_id}",
                                     project_id=project_id)
+    sample_data = json.loads(sample_df['_airbyte_data'][0]
+                             )
+  except KeyError:
+     print(f"No data in {table_id}.")
+  else:
+    data_fields_and_types = {}
 
-  sample_data = json.loads(sample_df['_airbyte_data'][0])
+    for key, value in sample_data.items():
+        field_name = key
+        data_type = get_data_type(value=value,
+                                  project_id=project_id)
+        data_fields_and_types[field_name]=data_type
+        if data_type[0] in 'aeiou':
+          print(f"`{field_name}` will be cast as an {data_type}.") #yeah this is dumb but it was bothering me
+        else:
+          print(f"`{field_name}` will be cast as a {data_type}.")
 
-  data_fields_and_types = {}
+    print(f"All done with data types for {table_id}.")
 
-  for key, value in sample_data.items():
-      field_name = key
-      print(f"Determining data type for `{field_name}`...")
-      data_type = get_data_type(value=value,
-                                project_id=project_id)
-      data_fields_and_types[field_name]=data_type
-      if data_type[0] in 'aeiou':
-        print(f"`{field_name}` will be cast as an {data_type}.") #yeah this is dumb but it was bothering me
-      else:
-        print(f"`{field_name}` will be cast as a {data_type}.")
+    return data_fields_and_types
 
-  return data_fields_and_types
+def get_spec_dict_from_file(spec_json_path):
+    """
+    The main function uses this to turn the input json alchemy-like into a dict the script can use
+    (The dict contains configs for all the tables in the sync - sync mode and unique keys)
+
+    Params:
+    spec_json_path (str): path (relative to the script being run) where the config json is located (eg, configs/blocks_tables.json)
+    """
+
+    # open the JSON file in read mode
+    print(f"reading dict from {spec_json_path}")
+    with open(spec_json_path, "r") as f:
+        # load the contents of the file into a string
+        spec_json_str = f.read()
+        print(spec_json_str)
+        # parse the JSON string into a list of dictionaries
+        spec_json_dict = json.loads(spec_json_str)
+
+    return spec_json_dict
+
