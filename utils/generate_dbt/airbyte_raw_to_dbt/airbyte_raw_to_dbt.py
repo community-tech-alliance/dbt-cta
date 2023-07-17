@@ -56,10 +56,7 @@ def main():
         new_path = os.path.join(sync_name, models_dir, model_type)
         os.makedirs(new_path, exist_ok=True)
 
-    # Set up the BigQuery client and list all tables in the dataset
-    # tables_list = helper.list_tables_in_bq_dataset(project_id=project_id,
-    #                                         dataset_id=dataset_id)
-    # table_ids = [table.table_id.replace("_airbyte_raw_","") for table in tables_list if "_airbyte_raw_" in table.table_id]
+    # Get list of table_ids from the spec json
     table_ids = [
         key
         for key, value in spec_json_dict.items()
