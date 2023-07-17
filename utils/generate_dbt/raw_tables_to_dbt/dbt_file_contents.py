@@ -1,5 +1,3 @@
-##### GENERATE CONTENTS OF DBT FILES
-
 def get_base_sql(
         table_schema_fields,
         concat_fields,
@@ -76,6 +74,7 @@ def get_base_config(
 
 def get_matview_sql(
         matview_fields,
+        unique_key,
         table_id_base
 ):
     matview_sql = f"""
@@ -90,47 +89,3 @@ SELECT
 FROM {{{{ source('cta', '{table_id_base}') }}}}"""
 
     return matview_sql
-
-##########
-## CTES ##
-##########
-
-def generate_cte1_or_cte2(
-        select_statements,
-        table_id,
-        cte1_or_cte2
-):
-    """
-    Returns dbt model to create either CTE1 (unflattens the JSON in _airbyte_data)
-    or CTE2 (casts to data types)
-
-    Params:
-    - select_statements: the stuff that actually goes into the SQL model
-    - table_id: no prefixes or suffixes
-    - cte1_or_cte2: should be either 'cte1' or 'cte2'. 
-    """
-
-    if cte1_or_cte2=='cte1':
-        data_source = f"{{{{ source('cta', '_airbyte_raw_{table_id}') }}}}"
-    elif cte1_or_cte2=='cte2':
-        data_source = f"{{{{ ref('{table_id}_ab1') }}}}"
-    else:
-        raise ValueError("cte1_or_cte2 must be either 'cte1' or 'cte2' what are you doing")
-    
-    file_contents = f"""
-{{{{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {{"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"}},
-    unique_key = '_airbyte_ab_id',
-) }}}}
-
--- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {data_source}
-
-select
-    {select_statements}
-from {data_source} as table_alias
-where 1 = 1
-{{{{ incremental_clause('_airbyte_emitted_at') }}}}"""
-
-    return file_contents

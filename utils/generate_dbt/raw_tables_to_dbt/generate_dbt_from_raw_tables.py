@@ -55,13 +55,11 @@ def main():
     parser = argparse.ArgumentParser(description='Generate dbt files.')
     parser.add_argument('--project_id',
                         '-p',
-                        help='Google project id.',
-                        default='dev3869c056'
+                        help='Google project id.'
                         )
     parser.add_argument('--dataset_id',
                         '-d',
-                        help='Dataset id.',
-                        default='flambe'
+                        help='Dataset id.'
                         )
     parser.add_argument('--output_path',
                         '-o',
@@ -72,7 +70,7 @@ def main():
                         '-s',
                         help='Path to the JSON containing sync modes,'
                              ' unique keys, and cursor fields for each table',
-                        default='config/blocks_tables.json'
+                        default='sample_table_spec.json'
                         )
 
     args = parser.parse_args()
