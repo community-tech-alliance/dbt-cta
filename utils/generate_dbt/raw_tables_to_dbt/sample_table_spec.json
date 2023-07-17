@@ -1,0 +1,208 @@
+{
+  "assignable_campaign_contacts": {
+    "unique_key": "id",
+    "sync_mode": "full_refresh"
+  },
+  "assignable_campaign_contacts_with_escalation_tags": {
+    "unique_key": "id",
+    "sync_mode": "full_refresh"
+  },
+  "assignable_campaigns": {
+    "unique_key": "id",
+    "sync_mode": "full_refresh"
+  },
+  "assignable_campaigns_with_needs_message": {
+    "unique_key": "id",
+    "sync_mode": "full_refresh"
+  },
+  "assignable_campaigns_with_needs_reply": {
+    "unique_key": "id",
+    "sync_mode": "full_refresh"
+  },
+  "assignable_needs_message": {
+    "unique_key": "id",
+    "sync_mode": "full_refresh"
+  },
+  "assignable_needs_reply": {
+    "unique_key": "id",
+    "sync_mode": "full_refresh"
+  },
+  "assignable_needs_reply_with_escalation_tags": {
+    "unique_key": "id",
+    "sync_mode": "full_refresh"
+  },
+  "deliverability_report": {
+    "unique_key": "id",
+    "sync_mode": "full_refresh"
+  },
+  "knex_migrations": {
+    "unique_key": "id",
+    "sync_mode": "full_refresh"
+  },
+  "knex_migrations_lock": {
+    "unique_key": "id",
+    "sync_mode": "full_refresh"
+  },
+  "pending_message_part": {
+    "unique_key": "id",
+    "sync_mode": "full_refresh"
+  },
+  "question_response": {
+    "unique_key": "id",
+    "sync_mode": "full_refresh"
+  },
+  "tag": {
+    "unique_key": "id",
+    "sync_mode": "full_refresh"
+  },
+  "troll_alarm": {
+    "unique_key": "id",
+    "sync_mode": "full_refresh"
+  },
+  "troll_trigger": {
+    "unique_key": "id",
+    "sync_mode": "full_refresh"
+  },
+  "user": {
+    "unique_key": "id",
+    "sync_mode": "full_refresh"
+  },
+  "user_cell": {
+    "unique_key": "id",
+    "sync_mode": "full_refresh"
+  },
+  "zip_code": {
+    "unique_key": "zip",
+    "sync_mode": "full_refresh"
+  },
+  "all_campaign": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "all_question_response": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "all_tag": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "assignment": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "assignment_request": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "campaign_contact": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "campaign_contact_tag": {
+    "unique_key": "campaign_contact_id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "campaign_team": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "canned_response": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "external_list": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "external_system": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "interaction_step": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "invite": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "job_request": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "link_domain": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "log": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "message": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "messaging_service": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "messaging_service_stick": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "opt_out": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "organization": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "team": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "team_escalation_tags": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "unhealthy_link_domain": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "user_organization": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  },
+  "user_team": {
+    "unique_key": "id",
+    "partition_datetime_field": "updated_at",
+    "sync_mode": "incremental"
+  }
+}
