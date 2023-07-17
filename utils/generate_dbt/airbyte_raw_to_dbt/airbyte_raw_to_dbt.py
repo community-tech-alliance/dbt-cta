@@ -13,40 +13,29 @@ Sample usage (with command line arguments)
     -f configs/actblue.json
 """
 
-def main():
 
+def main():
     ###########
     ## Setup ##
     ###########
 
     # Parse them args
-    parser = argparse.ArgumentParser(description='Generate dbt files.')
-    parser.add_argument('--project_id',
-                        '-p',
-                        help='Google project id.',
-                        default='dev3869c056'
-                        )
-    parser.add_argument('--dataset_id',
-                        '-d',
-                        help='Dataset id.',
-                        default='flambe'
-                        )
-    parser.add_argument('--sync_name',
-                        '-s',
-                        help='Name of the sync (e.g., blocks)',
-                        default='science'
-                        )
-    parser.add_argument('--spec_json_path',
-                        '-f',
-                        help='Path to the JSON containing sync modes,'
-                             ' unique keys, and cursor fields for each table',
-                        default='configs/actblue.json'
-                        )
-    
+    parser = argparse.ArgumentParser(description="Generate dbt files.")
+    parser.add_argument(
+        "--project_id", "-p", help="Google project id.", default="dev3869c056"
+    )
+    parser.add_argument("--dataset_id", "-d", help="Dataset id.", default="flambe")
+    parser.add_argument(
+        "--sync_name", "-s", help="Name of the sync (e.g., blocks)", default="science"
+    )
+    parser.add_argument(
+        "--spec_json_path",
+        "-f",
+        help="Path to the JSON containing sync modes,"
+        " unique keys, and cursor fields for each table",
+        default="configs/actblue.json",
+    )
     args = parser.parse_args()
-    
-
-    # Parse the arguments
     project_id = args.project_id
     dataset_id = args.dataset_id
     sync_name = args.sync_name
@@ -55,21 +44,27 @@ def main():
 
     # Other constants
     models_dir = f"../../../dbt-cta/{sync_name}/models"
-    model_types = ["0_ctes","1_cta_full_refresh","1_cta_incremental","2_partner_matviews"]
+    model_types = [
+        "0_ctes",
+        "1_cta_full_refresh",
+        "1_cta_incremental",
+        "2_partner_matviews",
+    ]
 
     # Create some folders for the dbt files to be written to
     for model_type in model_types:
-        new_path = os.path.join(sync_name,
-                            models_dir,
-                            model_type
-                            )
+        new_path = os.path.join(sync_name, models_dir, model_type)
         os.makedirs(new_path, exist_ok=True)
 
     # Set up the BigQuery client and list all tables in the dataset
     # tables_list = helper.list_tables_in_bq_dataset(project_id=project_id,
     #                                         dataset_id=dataset_id)
     # table_ids = [table.table_id.replace("_airbyte_raw_","") for table in tables_list if "_airbyte_raw_" in table.table_id]
-    table_ids = [key for key,value in spec_json_dict.items() if value['sync_mode']=='incremental']
+    table_ids = [
+        key
+        for key, value in spec_json_dict.items()
+        if value["sync_mode"] == "incremental"
+    ]
     print(f"creating files for these tables:")
     print(table_ids)
 
@@ -78,15 +73,13 @@ def main():
     ########################
 
     print(f"writing sources.yaml to {models_dir}")
-    create_dbt.create_sources_yaml(tables_list=table_ids,
-                        models_dir=models_dir)
-    
+    create_dbt.create_sources_yaml(tables_list=table_ids, models_dir=models_dir)
+
     #######################
     ## Create dbt models ##
     #######################
 
     for table_id in table_ids:
-
         sync_mode = spec_json_dict[table_id]["sync_mode"]
         unique_key = spec_json_dict[table_id]["unique_key"]
         print("")
@@ -97,21 +90,21 @@ def main():
         print("----------------------------------------")
 
         # Get field names and data types for the table
-        data_fields_and_types = helper.get_field_names_and_datatypes(project_id=project_id,
-                                                                     dataset_id=dataset_id,
-                                                                     table_id=table_id
-                                                                     )
+        data_fields_and_types = helper.get_field_names_and_datatypes(
+            project_id=project_id, dataset_id=dataset_id, table_id=table_id
+        )
         # Or use this to test:
         # data_fields_and_types = {'sluggable_type': 'string', 'sluggable_id': 'bigint', 'scope': 'string', 'created_at': 'timestamp', 'id': 'bigint', 'slug': 'string'}
 
         # Write all the dbt models
-        create_dbt.write_dbt_models_for_table(table_id=table_id,
-                                data_fields_and_types=data_fields_and_types,
-                                models_dir=models_dir,
-                                sync_mode=sync_mode,
-                                unique_key=unique_key
-                                )
+        create_dbt.write_dbt_models_for_table(
+            table_id=table_id,
+            data_fields_and_types=data_fields_and_types,
+            models_dir=models_dir,
+            sync_mode=sync_mode,
+            unique_key=unique_key,
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
