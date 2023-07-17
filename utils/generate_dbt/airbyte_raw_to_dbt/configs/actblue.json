@@ -1,0 +1,18 @@
+{
+	"cancelled_recurring_contributions_stream": {
+	"sync_mode": "incremental",
+	"unique_key": "Receipt_ID"
+  },
+  "managed_form_contributions_stream": {
+	"sync_mode": "incremental",
+	"unique_key": "Lineitem_ID"
+  },
+  "paid_contributions_stream": {
+	"sync_mode": "incremental",
+	"unique_key": "Lineitem_ID"
+  },
+  "refunded_contributions_stream": {
+	"sync_mode": "incremental",
+	"unique_key": "Lineitem_ID"
+  }
+}
