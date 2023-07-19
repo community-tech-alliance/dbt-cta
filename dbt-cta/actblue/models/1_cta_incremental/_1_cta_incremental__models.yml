@@ -39,6 +39,9 @@ models:
         description: ''
       - name: receipt_id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: donor_addr1
         description: ''
       - name: donor_addr2
@@ -53,6 +56,9 @@ models:
         description: ''
       - name: lineitem_id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: merchant_id
         description: ''
       - name: recovery_id
@@ -243,6 +249,9 @@ models:
         description: ''
       - name: lineitem_id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: merchant_id
         description: ''
       - name: recovery_id
@@ -496,6 +505,9 @@ models:
         description: ''
       - name: lineitem_id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: merchant_id
         description: ''
       - name: recovery_id
