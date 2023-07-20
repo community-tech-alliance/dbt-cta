@@ -1,10 +1,8 @@
 version: 2
 sources:
-- name: partner_a_zoho_creator
-  quoting:
-    database: true
-    schema: false
-    identifier: false
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables:
   - name: _airbyte_raw_applications
   - name: _airbyte_raw_fields
