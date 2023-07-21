@@ -130,9 +130,6 @@ models:
         tests:
             - not_null
             - unique
-        tests:
-            - not_null
-            - unique
       - name: cell
         description: ''
       - name: _airbyte_ab_id
