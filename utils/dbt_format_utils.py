@@ -356,7 +356,7 @@ def create_matview_dbt_files_from_base(base_tables_path, output_path):
                 # Only write lines from base tables that include SQL Statement ( SELECT -> FROM )
                 # Excludes _airbyte columns
                 for line in infile:
-                    if "select" in line:
+                    if "select" in line.lower():
                         write_to_file = True
                     if "from {{" in line and "--" not in line:
                         write_to_file = False
