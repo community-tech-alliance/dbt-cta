@@ -25,9 +25,6 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - not_null
-          - unique
       - name: _airbyte_emitted_at
         description: ''
         tests:
@@ -40,6 +37,9 @@ models:
               column_type: timestamp
       - name: _airbyte_personal_landlines_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: government_ids_base
     description: ''
@@ -58,9 +58,6 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - not_null
-          - unique
       - name: _airbyte_emitted_at
         description: ''
         tests:
@@ -73,6 +70,9 @@ models:
               column_type: timestamp
       - name: _airbyte_government_ids_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: work_landlines_base
     description: ''
@@ -97,9 +97,6 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - not_null
-          - unique
       - name: _airbyte_emitted_at
         description: ''
         tests:
@@ -112,6 +109,9 @@ models:
               column_type: timestamp
       - name: _airbyte_work_landlines_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: work_assignments_home_organizational_units_base
     description: ''
@@ -130,9 +130,6 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - not_null
-          - unique
       - name: _airbyte_emitted_at
         description: ''
         tests:
@@ -145,6 +142,9 @@ models:
               column_type: timestamp
       - name: _airbyte_work_assignments_home_organizational_units_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: work_emails_base
     description: ''
@@ -159,9 +159,6 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - not_null
-          - unique
       - name: _airbyte_emitted_at
         description: ''
         tests:
@@ -174,6 +171,9 @@ models:
               column_type: timestamp
       - name: _airbyte_work_emails_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: personal_emails_base
     description: ''
@@ -188,9 +188,6 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - not_null
-          - unique
       - name: _airbyte_emitted_at
         description: ''
         tests:
@@ -203,6 +200,9 @@ models:
               column_type: timestamp
       - name: _airbyte_personal_emails_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: work_assignments_assigned_organizational_units_base
     description: ''
@@ -221,9 +221,6 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - not_null
-          - unique
       - name: _airbyte_emitted_at
         description: ''
         tests:
@@ -236,6 +233,9 @@ models:
               column_type: timestamp
       - name: _airbyte_work_assignments_assigned_organizational_units_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: workers_base
     description: ''
@@ -331,10 +331,10 @@ models:
       - name: workassignments
         description: ''
       - name: _airbyte_ab_id
-        description: ''
         tests:
           - not_null
           - unique
+        description: ''
       - name: _airbyte_emitted_at
         description: ''
         tests:
@@ -347,6 +347,9 @@ models:
               column_type: timestamp
       - name: _airbyte_workers_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: personal_faxes_base
     description: ''
@@ -371,9 +374,6 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - not_null
-          - unique
       - name: _airbyte_emitted_at
         description: ''
         tests:
@@ -386,6 +386,9 @@ models:
               column_type: timestamp
       - name: _airbyte_personal_faxes_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: work_faxes_base
     description: ''
@@ -410,9 +413,6 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - not_null
-          - unique
       - name: _airbyte_emitted_at
         description: ''
         tests:
@@ -425,6 +425,9 @@ models:
               column_type: timestamp
       - name: _airbyte_work_faxes_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: work_mobiles_base
     description: ''
@@ -449,9 +452,6 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - not_null
-          - unique
       - name: _airbyte_emitted_at
         description: ''
         tests:
@@ -464,6 +464,9 @@ models:
               column_type: timestamp
       - name: _airbyte_work_mobiles_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: work_assignments_base
     description: ''
@@ -526,9 +529,6 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - not_null
-          - unique
       - name: _airbyte_emitted_at
         description: ''
         tests:
@@ -541,6 +541,9 @@ models:
               column_type: timestamp
       - name: _airbyte_work_assignments_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: personal_mobiles_base
     description: ''
@@ -565,9 +568,6 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - not_null
-          - unique
       - name: _airbyte_emitted_at
         description: ''
         tests:
@@ -580,6 +580,9 @@ models:
               column_type: timestamp
       - name: _airbyte_personal_mobiles_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: work_pagers_base
     description: ''
@@ -604,9 +607,6 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - not_null
-          - unique
       - name: _airbyte_emitted_at
         description: ''
         tests:
@@ -619,6 +619,9 @@ models:
               column_type: timestamp
       - name: _airbyte_work_pagers_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: social_insurance_programs_base
     description: ''
@@ -633,9 +636,6 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - not_null
-          - unique
       - name: _airbyte_emitted_at
         description: ''
         tests:
@@ -648,4 +648,7 @@ models:
               column_type: timestamp
       - name: _airbyte_social_insurance_programs_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
