@@ -1,0 +1,651 @@
+version: 2
+
+models:
+
+  - name: personal_landlines_base
+    description: ''
+    columns:
+      - name: associateoid
+        description: ''
+      - name: itemid
+        description: ''
+      - name: namecode_codevalue
+        description: ''
+      - name: namecode_shortname
+        description: ''
+      - name: countrydialing
+        description: ''
+      - name: areadialing
+        description: ''
+      - name: dialnumber
+        description: ''
+      - name: access
+        description: ''
+      - name: formattednumber
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_personal_landlines_hashid
+        description: ''
+
+  - name: government_ids_base
+    description: ''
+    columns:
+      - name: associateoid
+        description: ''
+      - name: itemid
+        description: ''
+      - name: idvalue
+        description: ''
+      - name: namecode_codevalue
+        description: ''
+      - name: namecode_longname
+        description: ''
+      - name: countrycode
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_government_ids_hashid
+        description: ''
+
+  - name: work_landlines_base
+    description: ''
+    columns:
+      - name: associateoid
+        description: ''
+      - name: itemid
+        description: ''
+      - name: namecode_codevalue
+        description: ''
+      - name: namecode_shortname
+        description: ''
+      - name: countrydialing
+        description: ''
+      - name: areadialing
+        description: ''
+      - name: dialnumber
+        description: ''
+      - name: access
+        description: ''
+      - name: formattednumber
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_work_landlines_hashid
+        description: ''
+
+  - name: work_assignments_home_organizational_units_base
+    description: ''
+    columns:
+      - name: associateoid
+        description: ''
+      - name: itemid
+        description: ''
+      - name: namecode_codevalue
+        description: ''
+      - name: namecode_shortname
+        description: ''
+      - name: typecode_codevalue
+        description: ''
+      - name: typecode_shortname
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_work_assignments_home_organizational_units_hashid
+        description: ''
+
+  - name: work_emails_base
+    description: ''
+    columns:
+      - name: associateoid
+        description: ''
+      - name: namecode_codevalue
+        description: ''
+      - name: namecode_shortname
+        description: ''
+      - name: emailuri
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_work_emails_hashid
+        description: ''
+
+  - name: personal_emails_base
+    description: ''
+    columns:
+      - name: associateoid
+        description: ''
+      - name: namecode_codevalue
+        description: ''
+      - name: namecode_shortname
+        description: ''
+      - name: emailuri
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_personal_emails_hashid
+        description: ''
+
+  - name: work_assignments_assigned_organizational_units_base
+    description: ''
+    columns:
+      - name: associateoid
+        description: ''
+      - name: itemid
+        description: ''
+      - name: namecode_codevalue
+        description: ''
+      - name: namecode_shortname
+        description: ''
+      - name: typecode_codevalue
+        description: ''
+      - name: typecode_shortname
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_work_assignments_assigned_organizational_units_hashid
+        description: ''
+
+  - name: workers_base
+    description: ''
+    columns:
+      - name: associateoid
+        description: ''
+      - name: workerid_idvalue
+        description: ''
+      - name: birthdate
+        description: ''
+      - name: gendercode_codevalue
+        description: ''
+      - name: gendercode_shortname
+        description: ''
+      - name: gendercode_longname
+        description: ''
+      - name: maritalstatuscode_codevalue
+        description: ''
+      - name: maritalstatuscode_shortname
+        description: ''
+      - name: tobaccouserindicator
+        description: ''
+      - name: disabledindicator
+        description: ''
+      - name: ethnicitycode_codevalue
+        description: ''
+      - name: ethnicitycode_shortname
+        description: ''
+      - name: ethnicitycode_longname
+        description: ''
+      - name: racecode_codevalue
+        description: ''
+      - name: racecode_shortname
+        description: ''
+      - name: racecode_longname
+        description: ''
+      - name: givenname
+        description: ''
+      - name: middlename
+        description: ''
+      - name: familyname1
+        description: ''
+      - name: formattedname
+        description: ''
+      - name: legaladdress_namecade_codevalue
+        description: ''
+      - name: legaladdress_namecade_shortname
+        description: ''
+      - name: legaladdress_lineone
+        description: ''
+      - name: legaladdress_linetwo
+        description: ''
+      - name: legaladdress_linethree
+        description: ''
+      - name: legaladdress_cityname
+        description: ''
+      - name: legaladdress_countrysubdivisionlevel1_subdivisiontype
+        description: ''
+      - name: legaladdress_countrysubdivisionlevel1_codevalue
+        description: ''
+      - name: legaladdress_countrysubdivisionlevel1_shortname
+        description: ''
+      - name: legaladdress_countrycode
+        description: ''
+      - name: legaladdress_postalcode
+        description: ''
+      - name: originalhiredate
+        description: ''
+      - name: workerstatus_statuscode_codevalue
+        description: ''
+      - name: socialinsuranceprograms
+        description: ''
+      - name: governmentids
+        description: ''
+      - name: personal_landlines
+        description: ''
+      - name: personal_mobiles
+        description: ''
+      - name: personal_emails
+        description: ''
+      - name: personal_faxes
+        description: ''
+      - name: work_landlines
+        description: ''
+      - name: work_mobiles
+        description: ''
+      - name: work_emails
+        description: ''
+      - name: work_faxes
+        description: ''
+      - name: work_pagers
+        description: ''
+      - name: workassignments
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_workers_hashid
+        description: ''
+
+  - name: personal_faxes_base
+    description: ''
+    columns:
+      - name: associateoid
+        description: ''
+      - name: itemid
+        description: ''
+      - name: namecode_codevalue
+        description: ''
+      - name: namecode_shortname
+        description: ''
+      - name: countrydialing
+        description: ''
+      - name: areadialing
+        description: ''
+      - name: dialnumber
+        description: ''
+      - name: access
+        description: ''
+      - name: formattednumber
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_personal_faxes_hashid
+        description: ''
+
+  - name: work_faxes_base
+    description: ''
+    columns:
+      - name: associateoid
+        description: ''
+      - name: itemid
+        description: ''
+      - name: namecode_codevalue
+        description: ''
+      - name: namecode_shortname
+        description: ''
+      - name: countrydialing
+        description: ''
+      - name: areadialing
+        description: ''
+      - name: dialnumber
+        description: ''
+      - name: access
+        description: ''
+      - name: formattednumber
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_work_faxes_hashid
+        description: ''
+
+  - name: work_mobiles_base
+    description: ''
+    columns:
+      - name: associateoid
+        description: ''
+      - name: itemid
+        description: ''
+      - name: namecode_codevalue
+        description: ''
+      - name: namecode_shortname
+        description: ''
+      - name: countrydialing
+        description: ''
+      - name: areadialing
+        description: ''
+      - name: dialnumber
+        description: ''
+      - name: access
+        description: ''
+      - name: formattednumber
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_work_mobiles_hashid
+        description: ''
+
+  - name: work_assignments_base
+    description: ''
+    columns:
+      - name: itemid
+        description: ''
+      - name: primaryindicator
+        description: ''
+      - name: hiredate
+        description: ''
+      - name: actualstartdate
+        description: ''
+      - name: assignmentstatus_statuscode_codevalue
+        description: ''
+      - name: assignmentstatus_statuscode_shortname
+        description: ''
+      - name: workertypecode_codevalue
+        description: ''
+      - name: workertypecode_shortname
+        description: ''
+      - name: jobcode_codevalue
+        description: ''
+      - name: jobcode_shortname
+        description: ''
+      - name: jobtitle
+        description: ''
+      - name: wagelawcoverage_wagelawnamecode_codevalue
+        description: ''
+      - name: wagelawcoverage_wagelawnamecode_longname
+        description: ''
+      - name: wagelawcoverage_coveragecode_codevalue
+        description: ''
+      - name: wagelawcoverage_coveragecode_shortname
+        description: ''
+      - name: positionid
+        description: ''
+      - name: paycyclecode_codevalue
+        description: ''
+      - name: paycyclecode_shortname
+        description: ''
+      - name: standardpayperiodhours_hoursquantity
+        description: ''
+      - name: baseremuneration_payperiodrateamount_namecode_codevalue
+        description: ''
+      - name: baseremuneration_payperiodrateamount_namecode_shortname
+        description: ''
+      - name: baseremuneration_payperiodrateamount_amountvalue
+        description: ''
+      - name: baseremuneration_payperiodrateamount_currencycode
+        description: ''
+      - name: baseremuneration_effectivedate
+        description: ''
+      - name: payrollgroupcode
+        description: ''
+      - name: payrollscheduledgroupid
+        description: ''
+      - name: payrollfilenumber
+        description: ''
+      - name: managementpositionindicator
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_work_assignments_hashid
+        description: ''
+
+  - name: personal_mobiles_base
+    description: ''
+    columns:
+      - name: associateoid
+        description: ''
+      - name: itemid
+        description: ''
+      - name: namecode_codevalue
+        description: ''
+      - name: namecode_shortname
+        description: ''
+      - name: countrydialing
+        description: ''
+      - name: areadialing
+        description: ''
+      - name: dialnumber
+        description: ''
+      - name: access
+        description: ''
+      - name: formattednumber
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_personal_mobiles_hashid
+        description: ''
+
+  - name: work_pagers_base
+    description: ''
+    columns:
+      - name: associateoid
+        description: ''
+      - name: itemid
+        description: ''
+      - name: namecode_codevalue
+        description: ''
+      - name: namecode_shortname
+        description: ''
+      - name: countrydialing
+        description: ''
+      - name: areadialing
+        description: ''
+      - name: dialnumber
+        description: ''
+      - name: access
+        description: ''
+      - name: formattednumber
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_work_pagers_hashid
+        description: ''
+
+  - name: social_insurance_programs_base
+    description: ''
+    columns:
+      - name: associateoid
+        description: ''
+      - name: namecode_codevalue
+        description: ''
+      - name: namecode_shortname
+        description: ''
+      - name: coveredindicator
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_social_insurance_programs_hashid
+        description: ''
+
