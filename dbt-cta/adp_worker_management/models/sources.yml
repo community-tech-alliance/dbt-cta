@@ -190,3 +190,29 @@ sources:
         tests:
           - not_null
           - unique
+  - name: work_assignments_home_organizational_units_base
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_work_assignments_home_organizational_units_hashid
+        tests:
+          - not_null
+          - unique
+  - name: work_assignments_assigned_organizational_units_base
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_work_assignments_assigned_organizational_units_hashid
+        tests:
+          - not_null
+          - unique

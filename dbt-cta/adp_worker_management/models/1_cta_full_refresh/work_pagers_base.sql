@@ -7,11 +7,11 @@
     partitions = partitions_to_replace,
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_business_mobiles_hashid'
+    unique_key = '_airbyte_work_pagers_hashid'
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('business_mobiles_ab3') }}
+-- depends_on: {{ ref('work_pagers_ab3') }}
 
 SELECT
     associateOID,
@@ -26,8 +26,8 @@ SELECT
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
-    _airbyte_business_mobiles_hashid
-from {{ ref('business_mobiles_ab3') }}
+    _airbyte_work_pagers_hashid
+from {{ ref('work_pagers_ab3') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

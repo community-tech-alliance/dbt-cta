@@ -4,7 +4,7 @@
 ) }}
 
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ ref('business_landlines_ab1') }}
+-- depends_on: {{ ref('work_mobiles_ab1') }}
 
 SELECT
 	cast(associateOID as {{ dbt_utils.type_string() }}) as associateOID,
@@ -19,5 +19,5 @@ SELECT
 	t._airbyte_ab_id,
     t._airbyte_emitted_at
 
-from {{ ref('business_landlines_ab1') }} as t
+from {{ ref('work_mobiles_ab1') }} as t
 where 1 = 1

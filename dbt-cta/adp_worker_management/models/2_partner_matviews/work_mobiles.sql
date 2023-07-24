@@ -9,5 +9,5 @@ SELECT
     access,
     formattedNumber,
     _airbyte_emitted_at,
-    _airbyte_business_landlines_hashid
-from {{ source('cta','business_landlines_base') }}
+    _airbyte_work_mobiles_hashid
+from {{ source('cta','work_mobiles_base') }}
