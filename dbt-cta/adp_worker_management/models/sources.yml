@@ -34,7 +34,7 @@ sources:
           - not_null
 
 # Tables from unnested fields (_airbyte_ab_id is not unique, only the _hashid is)
-	- name: social_insurance_programs_base
+  - name: social_insurance_programs_base
     columns:
       - name: _airbyte_ab_id
         tests:
@@ -47,7 +47,7 @@ sources:
         tests:
           - not_null
           - unique
-	- name: government_ids_base
+  - name: government_ids_base
     columns:
       - name: _airbyte_ab_id
         tests:
@@ -60,7 +60,7 @@ sources:
         tests:
           - not_null
           - unique
-	- name: personal_landlines_base
+  - name: personal_landlines_base
     columns:
       - name: _airbyte_ab_id
         tests:
@@ -73,7 +73,7 @@ sources:
         tests:
           - not_null
           - unique
-	- name: personal_mobiles_base
+  - name: personal_mobiles_base
     columns:
       - name: _airbyte_ab_id
         tests:
@@ -86,7 +86,7 @@ sources:
         tests:
           - not_null
           - unique
-	- name: personal_emails_base
+  - name: personal_emails_base
     columns:
       - name: _airbyte_ab_id
         tests:
@@ -99,7 +99,7 @@ sources:
         tests:
           - not_null
           - unique
-	- name: personal_faxes_base
+  - name: personal_faxes_base
     columns:
       - name: _airbyte_ab_id
         tests:
@@ -112,7 +112,7 @@ sources:
         tests:
           - not_null
           - unique
-	- name: work_landlines_base
+  - name: work_landlines_base
     columns:
       - name: _airbyte_ab_id
         tests:
@@ -125,7 +125,7 @@ sources:
         tests:
           - not_null
           - unique
-	- name: work_mobiles_base
+  - name: work_mobiles_base
     columns:
       - name: _airbyte_ab_id
         tests:
@@ -138,7 +138,7 @@ sources:
         tests:
           - not_null
           - unique
-	- name: work_emails_base
+  - name: work_emails_base
     columns:
       - name: _airbyte_ab_id
         tests:
@@ -151,7 +151,7 @@ sources:
         tests:
           - not_null
           - unique
-	- name: work_faxes_base
+  - name: work_faxes_base
     columns:
       - name: _airbyte_ab_id
         tests:
@@ -164,7 +164,7 @@ sources:
         tests:
           - not_null
           - unique
-	- name: work_pagers_base
+  - name: work_pagers_base
     columns:
       - name: _airbyte_ab_id
         tests:
@@ -177,7 +177,7 @@ sources:
         tests:
           - not_null
           - unique
-	- name: work_assignments_base
+  - name: work_assignments_base
     columns:
       - name: _airbyte_ab_id
         tests:
