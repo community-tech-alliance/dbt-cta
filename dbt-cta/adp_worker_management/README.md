@@ -2,6 +2,8 @@
 
 CTA's custom Airbyte connector delivers all data for this sync into BigQuery in a single JSON payload, `workers`. This includes some fields that are arrays, for which any individual worker might potentially have multiple rows (eg, email addresses). These are unnested in all of the models besides `workers`.
 
+=======
+
 ## Raw data
 
 Airbyte delivers all of the data (using CTA's [custom Airbyte source connector](https://github.com/community-tech-alliance/airbyte-source-adp-worker-management)) in a single table, `_airbyte_raw_workers`, in whose field `_airbyte_data` are contained all of the fields in the sync. Most of these are captured in the table `workers`, and some, such as contact info fields (personal_emails, work_emails) are array fields that are unnested in separate models. This is necessary because a single worker (associateOID in `workers`) might have more than one row for those streams.
