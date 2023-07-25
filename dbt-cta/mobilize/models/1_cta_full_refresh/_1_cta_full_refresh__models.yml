@@ -1,0 +1,846 @@
+version: 2
+
+models:
+
+  - name: affiliations_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: source
+        description: ''
+      - name: user_id
+        description: ''
+      - name: blocked_date
+        description: ''
+      - name: created_date
+        description: ''
+      - name: deleted_date
+        description: ''
+      - name: user__region
+        description: ''
+      - name: modified_date
+        description: ''
+      - name: user__locality
+        description: ''
+      - name: organization_id
+        description: ''
+      - name: user__given_name
+        description: ''
+      - name: user__family_name
+        description: ''
+      - name: user__postal_code
+        description: ''
+      - name: user__phone_number
+        description: ''
+      - name: user__email_address
+        description: ''
+      - name: user__modified_date
+        description: ''
+      - name: committed_to_host_date
+        description: ''
+      - name: host_commitment_source
+        description: ''
+      - name: user__globally_blocked_date
+        description: ''
+      - name: declined_to_commit_to_host_date
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_affiliations_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: participations_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: status
+        description: ''
+      - name: user_id
+        description: ''
+      - name: attended
+        description: ''
+      - name: end_date
+        description: ''
+      - name: event_id
+        description: ''
+      - name: event_type
+        description: ''
+      - name: start_date
+        description: ''
+      - name: timeslot_id
+        description: ''
+      - name: created_date
+        description: ''
+      - name: modified_date
+        description: ''
+      - name: referrer__url
+        description: ''
+      - name: affiliation_id
+        description: ''
+      - name: email_at_signup
+        description: ''
+      - name: event_type_name
+        description: ''
+      - name: organization_id
+        description: ''
+      - name: user__given_name
+        description: ''
+      - name: affiliation__name
+        description: ''
+      - name: affiliation__slug
+        description: ''
+      - name: override_end_date
+        description: ''
+      - name: user__family_name
+        description: ''
+      - name: user__postal_code
+        description: ''
+      - name: organization__name
+        description: ''
+      - name: organization__slug
+        description: ''
+      - name: referrer__utm_term
+        description: ''
+      - name: user__blocked_date
+        description: ''
+      - name: user__phone_number
+        description: ''
+      - name: custom_field_values
+        description: ''
+      - name: override_start_date
+        description: ''
+      - name: user__email_address
+        description: ''
+      - name: user__modified_date
+        description: ''
+      - name: given_name_at_signup
+        description: ''
+      - name: referrer__utm_medium
+        description: ''
+      - name: referrer__utm_source
+        description: ''
+      - name: family_name_at_signup
+        description: ''
+      - name: postal_code_at_signup
+        description: ''
+      - name: referrer__utm_content
+        description: ''
+      - name: phone_number_at_signup
+        description: ''
+      - name: referrer__utm_campaign
+        description: ''
+      - name: experience_feedback_text
+        description: ''
+      - name: experience_feedback_type
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_participations_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: organizations_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: name
+        description: ''
+      - name: slug
+        description: ''
+      - name: committee_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_organizations_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: timeslots_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: end_date
+        description: ''
+      - name: event_id
+        description: ''
+      - name: start_date
+        description: ''
+      - name: created_date
+        description: ''
+      - name: deleted_date
+        description: ''
+      - name: max_attendees
+        description: ''
+      - name: modified_date
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_timeslots_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: event_tags_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: tag_id
+        description: ''
+      - name: event_id
+        description: ''
+      - name: tag__name
+        description: ''
+      - name: created_date
+        description: ''
+      - name: deleted_date
+        description: ''
+      - name: modified_date
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_event_tags_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: van_persons_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: van_id
+        description: ''
+      - name: user_id
+        description: ''
+      - name: committee_id
+        description: ''
+      - name: created_date
+        description: ''
+      - name: modified_date
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_van_persons_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: van_events_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: van_id
+        description: ''
+      - name: event_id
+        description: ''
+      - name: committee_id
+        description: ''
+      - name: created_date
+        description: ''
+      - name: modified_date
+        description: ''
+      - name: sync_aggregation
+        description: ''
+      - name: event_campaign_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_van_events_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: events_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: title
+        description: ''
+      - name: summary
+        description: ''
+      - name: owner_id
+        description: ''
+      - name: timezone
+        description: ''
+      - name: van_name
+        description: ''
+      - name: creator_id
+        description: ''
+      - name: event_type
+        description: ''
+      - name: is_virtual
+        description: ''
+      - name: visibility
+        description: ''
+      - name: browser_url
+        description: ''
+      - name: description
+        description: ''
+      - name: created_date
+        description: ''
+      - name: deleted_date
+        description: ''
+      - name: contact__name
+        description: ''
+      - name: high_priority
+        description: ''
+      - name: location__lat
+        description: ''
+      - name: location__lon
+        description: ''
+      - name: modified_date
+        description: ''
+      - name: referrer__url
+        description: ''
+      - name: reviewed_date
+        description: ''
+      - name: reviewed_by_id
+        description: ''
+      - name: approval_status
+        description: ''
+      - name: location__venue
+        description: ''
+      - name: organization_id
+        description: ''
+      - name: location__region
+        description: ''
+      - name: event_campaign_id
+        description: ''
+      - name: location__country
+        description: ''
+      - name: owner__given_name
+        description: ''
+      - name: registration_mode
+        description: ''
+      - name: rejection_message
+        description: ''
+      - name: featured_image_url
+        description: ''
+      - name: location__locality
+        description: ''
+      - name: organization__name
+        description: ''
+      - name: organization__slug
+        description: ''
+      - name: owner__family_name
+        description: ''
+      - name: owner__postal_code
+        description: ''
+      - name: referrer__utm_term
+        description: ''
+      - name: virtual_action_url
+        description: ''
+      - name: accessibility_notes
+        description: ''
+      - name: creator__given_name
+        description: ''
+      - name: organization__state
+        description: ''
+      - name: owner__phone_number
+        description: ''
+      - name: accessibility_status
+        description: ''
+      - name: creator__family_name
+        description: ''
+      - name: creator__postal_code
+        description: ''
+      - name: event_campaign__slug
+        description: ''
+      - name: location__is_private
+        description: ''
+      - name: owner__email_address
+        description: ''
+      - name: owner__modified_date
+        description: ''
+      - name: referrer__utm_medium
+        description: ''
+      - name: referrer__utm_source
+        description: ''
+      - name: contact__phone_number
+        description: ''
+      - name: creator__phone_number
+        description: ''
+      - name: location__postal_code
+        description: ''
+      - name: referrer__utm_content
+        description: ''
+      - name: contact__email_address
+        description: ''
+      - name: creator__email_address
+        description: ''
+      - name: creator__modified_date
+        description: ''
+      - name: organization__district
+        description: ''
+      - name: referrer__utm_campaign
+        description: ''
+      - name: location__modified_date
+        description: ''
+      - name: organization__race_type
+        description: ''
+      - name: reviewed_by__given_name
+        description: ''
+      - name: location__address_line_1
+        description: ''
+      - name: location__address_line_2
+        description: ''
+      - name: reviewed_by__family_name
+        description: ''
+      - name: reviewed_by__postal_code
+        description: ''
+      - name: created_by_volunteer_host
+        description: ''
+      - name: reviewed_by__phone_number
+        description: ''
+      - name: reviewed_by__email_address
+        description: ''
+      - name: reviewed_by__modified_date
+        description: ''
+      - name: organization__modified_date
+        description: ''
+      - name: location__state_leg_district
+        description: ''
+      - name: organization__candidate_name
+        description: ''
+      - name: organization__is_coordinated
+        description: ''
+      - name: organization__is_independent
+        description: ''
+      - name: location__state_senate_district
+        description: ''
+      - name: location__congressional_district
+        description: ''
+      - name: organization__is_primary_campaign
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_events_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: van_shifts_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: van_id
+        description: ''
+      - name: end_date
+        description: ''
+      - name: start_date
+        description: ''
+      - name: timeslot_id
+        description: ''
+      - name: committee_id
+        description: ''
+      - name: created_date
+        description: ''
+      - name: modified_date
+        description: ''
+      - name: sync_aggregation
+        description: ''
+      - name: van_event_van_id
+        description: ''
+      - name: event_campaign_id
+        description: ''
+      - name: van_event_campaign_timezone
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_van_shifts_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: van_signups_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: van_id
+        description: ''
+      - name: user_id
+        description: ''
+      - name: signup_type
+        description: ''
+      - name: timeslot_id
+        description: ''
+      - name: committee_id
+        description: ''
+      - name: created_date
+        description: ''
+      - name: modified_date
+        description: ''
+      - name: participation_id
+        description: ''
+      - name: van_event_van_id
+        description: ''
+      - name: van_shift_van_id
+        description: ''
+      - name: van_person_van_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_van_signups_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: event_co_hosts_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: email
+        description: ''
+      - name: user_id
+        description: ''
+      - name: event_id
+        description: ''
+      - name: created_date
+        description: ''
+      - name: modified_date
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_event_co_hosts_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: sms_opt_ins_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: user_id
+        description: ''
+      - name: created_date
+        description: ''
+      - name: modified_date
+        description: ''
+      - name: organization_id
+        description: ''
+      - name: sms_opt_in_status
+        description: ''
+      - name: user__phone_number
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_sms_opt_ins_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: van_locations_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: van_id
+        description: ''
+      - name: event_id
+        description: ''
+      - name: committee_id
+        description: ''
+      - name: created_date
+        description: ''
+      - name: modified_date
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_van_locations_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: users_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: given_name
+        description: ''
+      - name: family_name
+        description: ''
+      - name: postal_code
+        description: ''
+      - name: blocked_date
+        description: ''
+      - name: created_date
+        description: ''
+      - name: phone_number
+        description: ''
+      - name: email_address
+        description: ''
+      - name: membership_id
+        description: ''
+      - name: modified_date
+        description: ''
+      - name: globally_blocked_date
+        description: ''
+      - name: membership__created_date
+        description: ''
+      - name: membership__modified_date
+        description: ''
+      - name: membership__organization_id
+        description: ''
+      - name: membership__permission_tier
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_users_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
