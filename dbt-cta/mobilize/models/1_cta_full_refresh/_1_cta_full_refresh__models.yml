@@ -7,6 +7,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: source
         description: ''
       - name: user_id
@@ -71,6 +74,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: status
         description: ''
       - name: user_id
@@ -177,6 +183,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: name
         description: ''
       - name: slug
@@ -209,6 +218,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: end_date
         description: ''
       - name: event_id
@@ -249,6 +261,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: tag_id
         description: ''
       - name: event_id
@@ -287,6 +302,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: van_id
         description: ''
       - name: user_id
@@ -323,6 +341,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: van_id
         description: ''
       - name: event_id
@@ -363,6 +384,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: title
         description: ''
       - name: summary
@@ -547,6 +571,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: van_id
         description: ''
       - name: end_date
@@ -595,6 +622,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: van_id
         description: ''
       - name: user_id
@@ -643,6 +673,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: email
         description: ''
       - name: user_id
@@ -679,6 +712,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: user_id
         description: ''
       - name: created_date
@@ -717,6 +753,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: van_id
         description: ''
       - name: event_id
@@ -753,6 +792,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: given_name
         description: ''
       - name: family_name
