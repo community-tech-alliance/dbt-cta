@@ -1,0 +1,218 @@
+version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables:
+  - name: _airbyte_raw_workers
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_emitted_at
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_data
+        tests:
+          - not_null
+
+  - name: workers_base
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_emitted_at
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_workers_hashid
+        tests:
+          - unique
+          - not_null
+
+# Tables from unnested fields (_airbyte_ab_id is not unique, only the _hashid is)
+  - name: social_insurance_programs_base
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_social_insurance_programs_hashid
+        tests:
+          - not_null
+          - unique
+  - name: government_ids_base
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_government_ids_hashid
+        tests:
+          - not_null
+          - unique
+  - name: personal_landlines_base
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_personal_landlines_hashid
+        tests:
+          - not_null
+          - unique
+  - name: personal_mobiles_base
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_personal_mobiles_hashid
+        tests:
+          - not_null
+          - unique
+  - name: personal_emails_base
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_personal_emails_hashid
+        tests:
+          - not_null
+          - unique
+  - name: personal_faxes_base
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_personal_faxes_hashid
+        tests:
+          - not_null
+          - unique
+  - name: work_landlines_base
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_work_landlines_hashid
+        tests:
+          - not_null
+          - unique
+  - name: work_mobiles_base
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_work_mobiles_hashid
+        tests:
+          - not_null
+          - unique
+  - name: work_emails_base
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_work_emails_hashid
+        tests:
+          - not_null
+          - unique
+  - name: work_faxes_base
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_work_faxes_hashid
+        tests:
+          - not_null
+          - unique
+  - name: work_pagers_base
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_work_pagers_hashid
+        tests:
+          - not_null
+          - unique
+  - name: work_assignments_base
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_work_assignments_hashid
+        tests:
+          - not_null
+          - unique
+  - name: work_assignments_home_organizational_units_base
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_work_assignments_home_organizational_units_hashid
+        tests:
+          - not_null
+          - unique
+  - name: work_assignments_assigned_organizational_units_base
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_work_assignments_assigned_organizational_units_hashid
+        tests:
+          - not_null
+          - unique
