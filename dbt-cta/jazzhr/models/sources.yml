@@ -1,10 +1,8 @@
 version: 2
 sources:
 - name: partner_a_jazzhr
-  quoting:
-    database: true
-    schema: false
-    identifier: false
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables:
   - name: _airbyte_raw_activities
   - name: _airbyte_raw_applicants
