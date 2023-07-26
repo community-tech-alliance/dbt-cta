@@ -20,6 +20,10 @@ sources:
 
   - name: workers_base
     columns:
+      - name: associateoid
+        tests:
+          - unique
+          - not_null
       - name: _airbyte_ab_id
         tests:
           - unique

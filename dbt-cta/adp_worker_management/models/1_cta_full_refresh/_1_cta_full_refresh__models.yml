@@ -242,6 +242,9 @@ models:
     columns:
       - name: associateoid
         description: ''
+        tests:
+          - not_null
+          - unique
       - name: workerid_idvalue
         description: ''
       - name: birthdate
