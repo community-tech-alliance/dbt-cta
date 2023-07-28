@@ -1,0 +1,28 @@
+version: 2
+sources:
+- name: composer_logs
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: monitoring
+  tables:
+    - name: workflows_executions
+      identifier: workflows_googleapis_com_executions_system_*
+      description: >-
+        This table is created by a GCS "log sink" that is configured to export logs emitted by
+        Workflows executions to BigQuery.
+      columns:
+        - name: logName
+        - name: resource
+        - name: textPayload
+        - name: timestamp
+        - name: receiveTimestamp
+        - name: severity
+        - name: insertId
+        - name: httpRequest
+        - name: labels
+        - name: operation
+        - name: trace
+        - name: spanId
+        - name: traceSampled
+        - name: sourceLocation
+        - name: split
+  
