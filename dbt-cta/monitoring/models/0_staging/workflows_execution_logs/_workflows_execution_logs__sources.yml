@@ -1,10 +1,10 @@
 version: 2
 sources:
-- name: composer_logs
+- name: workflows_logs
   database: "{{ env_var('CTA_PROJECT_ID') }}"
   schema: monitoring
   tables:
-    - name: workflows_executions
+    - name: executions
       identifier: workflows_googleapis_com_executions_system_*
       description: >-
         This table is created by a GCS "log sink" that is configured to export logs emitted by
