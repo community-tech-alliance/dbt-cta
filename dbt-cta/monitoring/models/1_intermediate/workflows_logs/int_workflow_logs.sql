@@ -38,6 +38,7 @@ with
         select
             a.log_timestamp,
             a.project_id,
+            a.partner_name,
             a.workflow_id,
             a.execution_id,
             a.exec_order,
@@ -54,9 +55,21 @@ with
     )
 
 select
-    source.*,
+    source.log_timestamp,
+    source.project_id,
+    source.workflow_id,
+    source.execution_id,
+    source.exec_order,
+    source.state,
+    source.failure_flag,
+    source.arguments,
+    source.failure_source,
+    source.failure_exception,
+    source.execution_start_time,
+    source.execution_finish_time,
+    source.runtime_minutes,
     meta.sync,
-    meta.partner_name,
+    COALESCE(source.partner_name,meta.partner_name) as partner_name,
     meta.data_type
 from complete_source_data as source
 left join workflow_metadata as meta using(workflow_id)

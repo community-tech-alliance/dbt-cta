@@ -3,6 +3,7 @@ with
     unpack_nested_fields as (
         select
             * except (logName, resource, textPayload, jsonpayload_type_executionssystemlog),
+            JSON_EXTRACT_SCALAR(jsonpayload_type_executionssystemlog.start.argument,'$.partner_name') as partner_name,
             resource.type as resource_type,
             resource.labels.resource_container as resource_container,
             resource.labels.location as location,
