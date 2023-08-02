@@ -72,6 +72,7 @@ with
             cast(null as string) as workflow_execution_id,
             run_started_at,
             run_finished_at as run_completed_at,
+            cast(null as timestamp) as workflow_log_timestamp,
             status,
             most_recent_run_per_day,
             runtime,
