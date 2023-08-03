@@ -1,7 +1,7 @@
 with
     unioned_logs as (select * from {{ ref("int_merge_logs") }}),
     elementary_logs as (select * from {{ ref("int_group_by_run") }}),
-    workflow_reporting_view as (select * from {{ ref("int_workflow_logs_reporting") }}),    workflow_reporting_view as (select * from {{ ref("int_workflow_logs_reporting") }}),
+    workflow_reporting_view as (select * from {{ ref("int_workflow_logs_reporting") }}),
     join_elementary_model_info as (
         select ul.*
         , el.test_errors
@@ -62,7 +62,6 @@ with
         from add_most_recent_run
     ),
     composer_reporting_view as (
-    composer_reporting_view as (
         select
             dag_id,
             cast(null as string) as workflow_id,
@@ -97,11 +96,6 @@ select *
 from composer_reporting_view
 
 UNION ALL
-from composer_reporting_view
 
-UNION ALL
-
-select *
-from workflow_reporting_view
 select *
 from workflow_reporting_view
