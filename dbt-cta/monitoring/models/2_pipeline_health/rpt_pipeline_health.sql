@@ -1,7 +1,7 @@
 with
     unioned_logs as (select * from {{ ref("int_merge_logs") }}),
     elementary_logs as (select * from {{ ref("int_group_by_run") }}),
-
+    workflow_reporting_view as (select * from {{ ref("int_workflow_logs_reporting") }}),
     join_elementary_model_info as (
         select ul.*
         , el.test_errors
@@ -61,14 +61,19 @@ with
         select *, datetime_diff(run_finished_at, run_started_at, minute) as runtime
         from add_most_recent_run
     ),
-    final as (
+    composer_reporting_view as (
         select
+            "Composer" as sync_type,
+            cast(null as string) as project_id,
             dag_id,
+            cast(null as string) as workflow_id,
             coalesce(sync_name,'NA') as sync_name,
             coalesce(partner_name,'NA') as partner_name,
             run_id,
+            cast(null as string) as workflow_execution_id,
             run_started_at,
             run_finished_at as run_completed_at,
+            cast(null as timestamp) as workflow_log_timestamp,
             status,
             most_recent_run_per_day,
             runtime,
@@ -87,4 +92,9 @@ with
     )
 
 select *
-from final
+from composer_reporting_view
+
+UNION ALL
+
+select *
+from workflow_reporting_view
