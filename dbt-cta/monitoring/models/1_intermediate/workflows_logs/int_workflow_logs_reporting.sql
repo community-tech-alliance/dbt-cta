@@ -9,7 +9,7 @@ with
                     rank() over (
                         partition by
                             workflow_id, sync, partner_name, extract(date from execution_start_time)
-                        order by execution_start_time desc
+                        order by log_timestamp desc
                     )
                     = 1
                 then 1
@@ -31,9 +31,9 @@ select
     {{ dbt_date.convert_timezone("execution_finish_time", 'America/New_York', 'UTC') }} as run_completed_at,
     {{ dbt_date.convert_timezone("log_timestamp", 'America/New_York', 'UTC') }} as workflow_log_timestamp,
     state as status,
-    case when exec_order=1 then 1 else 0 end as most_recent_run_per_day,
+    most_recent_run_per_day,
     runtime_minutes as runtime,
-    failure_flag as total_errors,
+    case when most_recent_run_per_day=1 then failure_flag else 0 end as total_errors,
     null as num_steps,
     null as num_steps_run,
     null as test_errors,
