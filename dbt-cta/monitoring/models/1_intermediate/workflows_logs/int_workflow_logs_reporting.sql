@@ -1,22 +1,6 @@
 -- this model creates a view that can be unioned into the existing reporting view, which was originally designed to report on DAG syncs
 with
-    source as (select * from {{ ref("int_workflow_logs") }} ),
-    add_most_recent_run as (
-        select
-            *,
-            case
-                when
-                    rank() over (
-                        partition by
-                            workflow_id, sync, partner_name, extract(date from execution_start_time)
-                        order by execution_start_time desc
-                    )
-                    = 1
-                then 1
-                else 0
-            end as most_recent_run_per_day,
-        from source
-    )
+    source as (select * from {{ ref("int_workflow_logs") }} )
 
 select
     "Workflows" as sync_type,
@@ -31,7 +15,7 @@ select
     {{ dbt_date.convert_timezone("execution_finish_time", 'America/New_York', 'UTC') }} as run_completed_at,
     {{ dbt_date.convert_timezone("log_timestamp", 'America/New_York', 'UTC') }} as workflow_log_timestamp,
     state as status,
-    case when exec_order=1 then 1 else 0 end as most_recent_run_per_day,
+    most_recent_run_per_day,
     runtime_minutes as runtime,
     failure_flag as total_errors,
     null as num_steps,
@@ -43,4 +27,4 @@ select
     null as successful_models,
     null as total_models,
     failure_exception as error_message
-from add_most_recent_run
+from source

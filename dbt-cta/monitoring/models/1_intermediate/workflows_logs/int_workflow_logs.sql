@@ -34,6 +34,14 @@ with
         from add_exec_order
         where exec_order=1
     ),
+    add_exec_order_by_workflow_partner_date as (
+        select
+            *,
+            row_number() over (
+                partition by workflow_id, partner_name, date(log_timestamp) order by log_timestamp desc
+            ) as day_run_order
+        from source
+    ),
     complete_source_data as (
         select
             a.log_timestamp,
@@ -49,9 +57,12 @@ with
             a.failure_exception,
             a.execution_start_time,
             CASE WHEN latest.state in ('FAILED','SUCCEEDED') then a.execution_finish_time ELSE null END as execution_finish_time,
-            datetime_diff(a.execution_finish_time, a.execution_start_time, minute) as runtime_minutes
+            datetime_diff(a.execution_finish_time, a.execution_start_time, minute) as runtime_minutes,
+            CASE WHEN most_recent_per_day.execution_id IS NOT NULL then 1 else 0 end as most_recent_run_per_day
         from add_exec_order as a
         left join latest_only as latest using(execution_id)
+        left join (select * from add_exec_order_by_workflow_partner_date where day_run_order=1) as most_recent_per_day
+            on latest.execution_id = most_recent_per_day.execution_id
     )
 
 select
@@ -68,6 +79,7 @@ select
     source.execution_start_time,
     source.execution_finish_time,
     source.runtime_minutes,
+    source.most_recent_run_per_day,
     meta.sync,
     COALESCE(source.partner_name,meta.partner_name) as partner_name,
     meta.data_type
