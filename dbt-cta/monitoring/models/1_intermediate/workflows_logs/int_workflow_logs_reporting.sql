@@ -20,6 +20,7 @@ with
 
 select
     "Workflows" as sync_type,
+    project_id,
     cast(null as string) as dag_id,
     workflow_id as workflow_id,
     coalesce(sync,'NA') as sync_name,

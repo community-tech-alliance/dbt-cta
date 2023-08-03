@@ -64,6 +64,7 @@ with
     composer_reporting_view as (
         select
             "Composer" as sync_type,
+            cast(null as string) as project_id,
             dag_id,
             cast(null as string) as workflow_id,
             coalesce(sync_name,'NA') as sync_name,
