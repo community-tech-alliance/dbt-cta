@@ -17,7 +17,7 @@ select
     state as status,
     most_recent_run_per_day,
     runtime_minutes as runtime,
-    failure_flag as total_errors,
+    total_errors,
     null as num_steps,
     null as num_steps_run,
     null as test_errors,

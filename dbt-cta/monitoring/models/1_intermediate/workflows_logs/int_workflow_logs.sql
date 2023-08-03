@@ -72,7 +72,6 @@ select
     source.execution_id,
     source.exec_order,
     source.state,
-    source.failure_flag,
     source.arguments,
     source.failure_source,
     source.failure_exception,
@@ -82,6 +81,8 @@ select
     source.most_recent_run_per_day,
     meta.sync,
     COALESCE(source.partner_name,meta.partner_name) as partner_name,
-    meta.data_type
+    meta.data_type,
+    SUM(CASE WHEN source.most_recent_run_per_day=1 THEN source.failure_flag ELSE 0 END) as total_errors
 from complete_source_data as source
 left join workflow_metadata as meta using(workflow_id)
+group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
