@@ -3,6 +3,7 @@ with
     group_by_airflow_run as (
 
         select
+            project_id,
             sync_name,
             partner_name,
             airflow_run_id,
@@ -16,7 +17,7 @@ with
             coalesce(sum(case when most_recent_invocation_type = 1 then total_models else null end),0) as total_models,
             string_agg(error_message, '\n') as error_message
         from source
-        group by 1, 2, 3
+        group by 1, 2, 3, 4
     ),
 
     final as (select * from group_by_airflow_run)

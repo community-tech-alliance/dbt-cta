@@ -17,6 +17,7 @@ with
 
     union_sources as (
         select
+            project_id,
             sync_name,
             dag_id,
             partner_name,
@@ -37,6 +38,7 @@ with
         union all
 
         select
+            project_id,
             sync_name,
             sync_name as dag_id,
             partner_name as partner_name,

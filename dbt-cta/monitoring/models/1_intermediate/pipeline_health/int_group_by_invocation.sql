@@ -9,6 +9,7 @@ with
     ),
     join_run_results as (
         select
+            inv.project_id,
             inv.invocation_id,
             inv.invocation_type,
             inv.command,
@@ -33,6 +34,7 @@ with
     ),
     group_by_invocation as (
         select
+            project_id,
             invocation_id,
             invocation_type,
             run_started_at,
@@ -69,7 +71,7 @@ with
             ) as total_models
             , string_agg(error_message,'\n ') as error_message
         from join_run_results
-        group by 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+        group by 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11
 
     ),
     compute_most_recent_invocation_per_type as (
