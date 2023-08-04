@@ -229,7 +229,6 @@ models:
         description: ''
         tests:
           - not_null
-          - unique
       - name: workflow_step_id
         description: ''
       - name: _airbyte_ab_id
@@ -363,6 +362,8 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - not_null
       - name: _airbyte_ab_id
         description: ''
         tests:
@@ -391,6 +392,7 @@ models:
       - name: id
         description: ''
         tests:
+          - unique
           - not_null
       - name: type
         description: ''
