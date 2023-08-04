@@ -51,6 +51,9 @@ models:
               column_type: timestamp
       - name: _airbyte_tasks_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
 
   - name: hires_base
@@ -89,6 +92,9 @@ models:
               column_type: timestamp
       - name: _airbyte_hires_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: categories_base
     description: ''
@@ -123,6 +129,9 @@ models:
               column_type: timestamp
       - name: _airbyte_categories_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: questionnaire_answers_base
     description: ''
@@ -176,6 +185,9 @@ models:
               column_type: timestamp
       - name: _airbyte_questionnaire_answers_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: applicants_base
     description: ''
@@ -213,6 +225,9 @@ models:
               column_type: timestamp
       - name: _airbyte_applicants_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: applicants_to_jobs_base
     description: ''
@@ -248,6 +263,9 @@ models:
               column_type: timestamp
       - name: _airbyte_applicants_to_jobs_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: jobs_base
     description: ''
@@ -312,6 +330,9 @@ models:
               column_type: timestamp
       - name: _airbyte_jobs_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: activities_base
     description: ''
@@ -352,6 +373,9 @@ models:
               column_type: timestamp
       - name: _airbyte_activities_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: categories_to_applicants_base
     description: ''
@@ -381,6 +405,9 @@ models:
               column_type: timestamp
       - name: _airbyte_categories_to_applicants_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: users_base
     description: ''
@@ -417,6 +444,9 @@ models:
               column_type: timestamp
       - name: _airbyte_users_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: contacts_base
     description: ''
@@ -443,4 +473,7 @@ models:
               column_type: timestamp
       - name: _airbyte_contacts_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
