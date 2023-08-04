@@ -27,18 +27,22 @@ with
     ),
     latest_only as (
         select
-            workflow_id,
             execution_id,
-            log_timestamp,
             state
         from add_exec_order
         where exec_order=1
     ),
+    first_only as (
+        select
+            execution_id,
+            partner_name
+        from add_exec_order
+        where exec_order=2 --only 2 logs for each workflow execution
     complete_source_data as (
         select
             a.log_timestamp,
             a.project_id,
-            a.partner_name,
+            first_log.partner_name, --the payload JSON only comes through in the log emitted on workflow execution start, not finish
             a.workflow_id,
             a.execution_id,
             a.exec_order,
@@ -48,10 +52,11 @@ with
             a.failure_source,
             a.failure_exception,
             a.execution_start_time,
-            CASE WHEN latest.state in ('FAILED','SUCCEEDED') then a.execution_finish_time ELSE null END as execution_finish_time,
+            CASE WHEN final_log.state in ('FAILED','SUCCEEDED') then a.execution_finish_time ELSE null END as execution_finish_time,
             datetime_diff(a.execution_finish_time, a.execution_start_time, minute) as runtime_minutes
         from add_exec_order as a
-        left join latest_only as latest using(execution_id)
+        left join latest_only as final_log on a.execution_id = final_log.execution_id
+        left join first_only as first_log on a.execution_id = first_log.execution_id
     )
 
 select
