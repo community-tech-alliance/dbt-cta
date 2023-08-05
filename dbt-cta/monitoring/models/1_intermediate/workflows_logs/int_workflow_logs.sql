@@ -38,6 +38,7 @@ with
             partner_name
         from add_exec_order
         where exec_order=2 --only 2 logs for each workflow execution
+    ),
     complete_source_data as (
         select
             a.log_timestamp,
