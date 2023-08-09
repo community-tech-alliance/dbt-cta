@@ -12,7 +12,7 @@ SELECT * FROM
 (
 SELECT 
     *,
-    ROW_NUMBER() OVER (PARTITION BY _airbyte_regions_hashid ORDER BY _airbyte_ab_id desc) as rownum 
+    ROW_NUMBER() OVER (PARTITION BY _airbyte_regions_hashid ORDER BY _airbyte_emitted_at desc) as rownum 
 FROM {{ ref('regions_ab3') }}
 )
 where rownum=1
