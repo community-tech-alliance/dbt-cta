@@ -1,0 +1,343 @@
+version: 2
+
+models:
+
+  - name: offices_addresses_base
+    description: ''
+    columns:
+      - name: _airbyte_offices_hashid
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: zip
+        description: ''
+      - name: city
+        description: ''
+      - name: zip4
+        description: ''
+      - name: state
+        description: ''
+      - name: street1
+        description: ''
+      - name: street2
+        description: ''
+      - name: website
+        description: ''
+      - name: contacts
+        description: ''
+      - name: functions
+        description: ''
+      - name: address_to
+        description: ''
+      - name: main_email
+        description: ''
+      - name: is_physical
+        description: ''
+      - name: resource_uri
+        description: ''
+      - name: is_regular_mail
+        description: ''
+      - name: main_fax_number
+        description: ''
+      - name: main_phone_number
+        description: ''
+      - name: primary_contact_uri
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_addresses_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: offices_addresses_contacts_base
+    description: ''
+    columns:
+      - name: _airbyte_addresses_hashid
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: address_uri
+        description: ''
+      - name: official_uri
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_contacts_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: offices_officials_base
+    description: ''
+    columns:
+      - name: _airbyte_offices_hashid
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: fax
+        description: ''
+      - name: email
+        description: ''
+      - name: phone
+        description: ''
+      - name: title
+        description: ''
+      - name: suffix
+        description: ''
+      - name: initial
+        description: ''
+      - name: last_name
+        description: ''
+      - name: first_name
+        description: ''
+      - name: office_uri
+        description: ''
+      - name: office_type
+        description: ''
+      - name: resource_uri
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_officials_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: regions_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: state
+        description: ''
+      - name: county
+        description: ''
+      - name: state_abbr
+        description: ''
+      - name: state_name
+        description: ''
+      - name: county_name
+        description: ''
+      - name: region_name
+        description: ''
+      - name: municipality
+        description: ''
+      - name: resource_uri
+        description: ''
+      - name: municipality_name
+        description: ''
+      - name: municipality_type
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_regions_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: officials_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: fax
+        description: ''
+      - name: email
+        description: ''
+      - name: phone
+        description: ''
+      - name: title
+        description: ''
+      - name: office
+        description: ''
+      - name: suffix
+        description: ''
+      - name: initial
+        description: ''
+      - name: last_name
+        description: ''
+      - name: first_name
+        description: ''
+      - name: office_name
+        description: ''
+      - name: office_type
+        description: ''
+      - name: resource_uri
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_officials_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: states_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: abbr
+        description: ''
+      - name: name
+        description: ''
+      - name: resource_uri
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_states_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: offices_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: type
+        description: ''
+      - name: geoid
+        description: ''
+      - name: hours
+        description: ''
+      - name: notes
+        description: ''
+      - name: region
+        description: ''
+      - name: status
+        description: ''
+      - name: updated
+        description: ''
+      - name: addresses
+        description: ''
+      - name: officials
+        description: ''
+      - name: resource_uri
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_offices_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
