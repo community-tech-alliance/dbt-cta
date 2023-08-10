@@ -1,6 +1,6 @@
 version: 2
 sources:
-- name: tot_quickbooks_schema
+- name: cta
   database: "{{ env_var('CTA_PROJECT_ID') }}"
   schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables:
