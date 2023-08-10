@@ -18,7 +18,7 @@ select
     cast(SyncToken as {{ dbt_utils.type_string() }}) as SyncToken,
     cast(Type as {{ dbt_utils.type_string() }}) as Type,
     {{ cast_to_boolean('Active') }} as Active,
-    cast(UnitPrice as {{ dbt_utils.type_bigint() }}) as UnitPrice,
+    cast(UnitPrice as {{ dbt_utils.type_float() }}) as UnitPrice,
     cast(ExpenseAccountRef as {{ type_json() }}) as ExpenseAccountRef,
     {{ cast_to_boolean('sparse') }} as sparse,
     cast(MetaData as {{ type_json() }}) as MetaData,

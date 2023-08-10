@@ -7,7 +7,7 @@
 -- depends_on: {{ ref('credit_memos_Line_SalesItemLineDetail_ab1') }}
 select
     _airbyte_Line_hashid,
-    cast(UnitPrice as {{ dbt_utils.type_bigint() }}) as UnitPrice,
+    cast(UnitPrice as {{ dbt_utils.type_float() }}) as UnitPrice,
     cast(TaxCodeRef as {{ type_json() }}) as TaxCodeRef,
     cast(Qty as {{ dbt_utils.type_bigint() }}) as Qty,
     cast(ItemRef as {{ type_json() }}) as ItemRef,
