@@ -1,0 +1,19 @@
+select
+    CurrencyRef,
+    ExchangeRate,
+    TxnDate,
+    airbyte_cursor,
+    DepartmentRef,
+    Line,
+    SyncToken,
+    DepositToAccountRef,
+    sparse,
+    TotalAmt,
+    MetaData,
+    domain,
+    Id,
+    CashBack,
+    PrivateNote,
+    _airbyte_emitted_at,
+    _airbyte_deposits_hashid
+from {{ source('cta','deposits_base') }}
