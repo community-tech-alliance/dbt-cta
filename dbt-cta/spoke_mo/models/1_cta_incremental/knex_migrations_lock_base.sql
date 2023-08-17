@@ -1,7 +1,7 @@
 {{ config(
     cluster_by = "_airbyte_emitted_at",
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = 'id',
+    unique_key = '_airbyte_knex_migrations_lock_hashid',
     materialized = "incremental",
     incremental_strategy = "merge",
     on_schema_change = "sync_all_columns",
