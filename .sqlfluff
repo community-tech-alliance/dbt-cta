@@ -1,0 +1,11 @@
+[sqlfluff]
+templater = dbt
+dialect = bigquery
+
+[sqlfluff:templater:dbt]
+project_dir = dbt-cta/
+profiles_dir = dbt-cta/
+target = cta
+
+[sqlfluff:templater:jinja]
+apply_dbt_builtins = True
