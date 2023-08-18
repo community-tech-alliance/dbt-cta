@@ -7,7 +7,7 @@
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ source('cta', '_airbyte_raw_cancelled_recurring_contributions_stream') }}
 select
-    {{ json_extract_scalar('_airbyte_data', ['Donor ZIP'], ['Donor ZIP']) }} as Donor_ZIP,
+{{ json_extract_scalar('_airbyte_data', ['Donor ZIP'], ['Donor ZIP']) }} as Donor_ZIP,
     {{ json_extract_scalar('_airbyte_data', ['Donor City'], ['Donor City']) }} as Donor_City,
     {{ json_extract_scalar('_airbyte_data', ['Receipt ID'], ['Receipt ID']) }} as Receipt_ID,
     {{ json_extract_scalar('_airbyte_data', ['Donor Email'], ['Donor Email']) }} as Donor_Email,
