@@ -39,6 +39,11 @@ This option will let you use SQLFluff to lint your dbt models. To use it, make s
 - Input the name of the vendor(folder name) you want to lint
 - Choose if you want to run the linter with auto-fix or just get a summary of linter findings
 
+If you want to run the linter without this script, you totally can! Just make sure to set the `SYNC_NAME` environment variable. I still recommend at least running the init option of the helper script to download all the dependencies. Then you can use sqlfluff commands in your cli by doing something like this
+```
+pipenv run sqlfluff lint path/to/models/
+```
+
 ### Copy dbt from an Airbyte Workspace (getting normalization dbt from Airbyte)
 This option is really only for CTA internal use. It will pull down an internal script from our Cacher snippet repo. Save it to the following path `.cta/copy_airbyte_workspace.sh`. And finally run this script to pull down a copy of an Airbyte Workspace to the following directory `airbyte_dbt_export/<Workspace ID>/`. 
 
