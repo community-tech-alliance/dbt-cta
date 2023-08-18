@@ -39,4 +39,3 @@ select
 from {{ ref('cancelled_recurring_contributions_stream_ab3') }}
 -- cancelled_recurring_contributions_stream from {{ source('cta', '_airbyte_raw_cancelled_recurring_contributions_stream') }}
 where 1 = 1
-

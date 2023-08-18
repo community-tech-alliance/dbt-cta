@@ -93,7 +93,6 @@ select
         'Card_Replaced_by_Account_Updater',
     ]) }} as _airbyte_managed_form_contributions_stream_hashid,
     tmp.*
-from {{ ref('managed_form_contributions_stream_ab2') }} tmp
+from {{ ref('managed_form_contributions_stream_ab2') }} as tmp
 -- managed_form_contributions_stream
 where 1 = 1
-

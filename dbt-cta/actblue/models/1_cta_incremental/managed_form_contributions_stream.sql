@@ -100,4 +100,3 @@ select
 from {{ ref('managed_form_contributions_stream_ab3') }}
 -- managed_form_contributions_stream from {{ source('cta', '_airbyte_raw_managed_form_contributions_stream') }}
 where 1 = 1
-

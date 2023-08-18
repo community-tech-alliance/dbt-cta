@@ -1,6 +1,8 @@
 [sqlfluff]
 templater = dbt
 dialect = bigquery
+max_line_length = 0
+exclude_rules = CP02
 
 [sqlfluff:templater:dbt]
 project_dir = dbt-cta/
