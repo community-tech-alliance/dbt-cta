@@ -32,6 +32,13 @@ This will start an interactive session that will let you do various things. Here
 ### Initialize Python virtual env
 This script uses both of the `dbt_format_utils.py` and `generate_schema_yml.py` Python scripts. This option will create a virtual environment with all of the python dependencies needed by both of these Python scripts. If you run the other commands before this one, you'll run into some errors. Generally, its just a good idea to give it a run before using other options! There's no harm if dependencies haven't changed and if they have, now you have all of them!
 
+### Run SQL Fluff to lint dbt files
+This option will let you use SQLFluff to lint your dbt models. To use it, make sure to:
+- Run the `Initialize Python virtual env` option first
+- Choose `Run SQL Fluff to lint dbt files`
+- Input the name of the vendor(folder name) you want to lint
+- Choose if you want to run the linter with auto-fix or just get a summary of linter findings
+
 ### Copy dbt from an Airbyte Workspace (getting normalization dbt from Airbyte)
 This option is really only for CTA internal use. It will pull down an internal script from our Cacher snippet repo. Save it to the following path `.cta/copy_airbyte_workspace.sh`. And finally run this script to pull down a copy of an Airbyte Workspace to the following directory `airbyte_dbt_export/<Workspace ID>/`. 
 
