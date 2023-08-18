@@ -13,8 +13,8 @@ pyyaml = "*"
 argparse = "*"
 google-cloud-bigquery = "*"
 sqlfluff = "==2.3.0"
-shandy-sqlfmt = "*"
 sqlfluff-templater-dbt = "*"
+pre-commit = "*"
 
 [dev-packages]
 
