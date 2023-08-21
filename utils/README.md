@@ -44,6 +44,8 @@ If you want to run the linter without this script, you totally can! Just make su
 pipenv run sqlfluff lint path/to/models/
 ```
 
+If the pre-commit hook is not letting you commit something and you want to override it. You can ignore the sqlfluff lint hook by running your `git commit` with the `--no-verify` flag.
+
 ### Copy dbt from an Airbyte Workspace (getting normalization dbt from Airbyte)
 This option is really only for CTA internal use. It will pull down an internal script from our Cacher snippet repo. Save it to the following path `.cta/copy_airbyte_workspace.sh`. And finally run this script to pull down a copy of an Airbyte Workspace to the following directory `airbyte_dbt_export/<Workspace ID>/`. 
 

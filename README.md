@@ -44,6 +44,8 @@ We currently use SQLFluff to lint and format out dbt models. If you would like t
 
 If this is your first time running the helper script, make sure to run the `Initialize Python virtual env` option first to install all the needed dependencies. 
 
+If the pre-commit hook is not letting you commit something and you want to override it. You can ignore the sqlfluff lint hook by running your `git commit` with the `--no-verify` flag.
+
 ## Cleanup Scripts
 
 ### Implementing dbt functions
