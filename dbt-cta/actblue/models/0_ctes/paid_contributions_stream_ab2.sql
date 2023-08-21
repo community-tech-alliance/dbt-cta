@@ -96,4 +96,3 @@ select
 from {{ ref('paid_contributions_stream_ab1') }}
 -- paid_contributions_stream
 where 1 = 1
-

@@ -6,11 +6,10 @@
 ) }}
 -- SQL model to dedup incoming data on Receipt_ID field
 -- depends_on: {{ ref('cancelled_recurring_contributions_stream_ab2') }}
-select
-  * except (row_num)
+select * except (row_num)
 from (
-  select
-    *,
+    select
+        *,
     {{ dbt_utils.surrogate_key([
       'Donor_ZIP',
       'Donor_City',
@@ -35,7 +34,7 @@ from (
       'Bump_Recurring_Succeeded',
       'Initial_Contribution_Date'
     ]) }} as _airbyte_cancelled_recurring_contributions_stream_hashid,
-    row_number() over(partition by Receipt_ID order by Cancelled_On desc) as row_num
-  from {{ ref('cancelled_recurring_contributions_stream_ab2') }}
+        row_number() over (partition by Receipt_ID order by Cancelled_On desc) as row_num
+    from {{ ref('cancelled_recurring_contributions_stream_ab2') }}
 )
 where row_num = 1

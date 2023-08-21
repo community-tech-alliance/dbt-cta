@@ -22,8 +22,8 @@ select
     cast(Donor_Last_Name as {{ dbt_utils.type_string() }}) as Donor_Last_Name,
     cast(Donor_First_Name as {{ dbt_utils.type_string() }}) as Donor_First_Name,
     cast(Donor_Occupation as {{ dbt_utils.type_string() }}) as Donor_Occupation,
-    SAFE_CAST(REGEXP_REPLACE(Total_Amount, r'\$|,', '') as numeric) as Total_Amount,
-    SAFE_CAST(REGEXP_REPLACE(Recurrence_Amount, r'\$|,', '') as numeric) as Recurrence_Amount,
+    safe_cast(regexp_replace(Total_Amount, r'\$|,', '') as numeric) as Total_Amount,
+    safe_cast(regexp_replace(Recurrence_Amount, r'\$|,', '') as numeric) as Recurrence_Amount,
     cast(Bump_Recurring_Seen as {{ dbt_utils.type_string() }}) as Bump_Recurring_Seen,
     cast(Recurrence_Frequency as {{ dbt_utils.type_string() }}) as Recurrence_Frequency,
     cast(Initial_Pledge_Length as {{ dbt_utils.type_string() }}) as Initial_Pledge_Length,
@@ -35,4 +35,3 @@ select
 from {{ ref('cancelled_recurring_contributions_stream_ab1') }}
 -- cancelled_recurring_contributions_stream
 where 1 = 1
-

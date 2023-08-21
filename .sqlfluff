@@ -1,0 +1,13 @@
+[sqlfluff]
+templater = dbt
+dialect = bigquery
+max_line_length = 0
+exclude_rules = CP02
+
+[sqlfluff:templater:dbt]
+project_dir = dbt-cta/
+profiles_dir = dbt-cta/
+target = default
+
+[sqlfluff:templater:jinja]
+apply_dbt_builtins = True
