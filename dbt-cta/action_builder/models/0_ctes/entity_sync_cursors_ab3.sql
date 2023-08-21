@@ -14,7 +14,6 @@ select
         'campaign_id',
     ]) }} as _airbyte_entity_sync_cursors_hashid,
     tmp.*
-from {{ ref('entity_sync_cursors_ab2') }} tmp
+from {{ ref('entity_sync_cursors_ab2') }} as tmp
 -- entity_sync_cursors
 where 1 = 1
-

@@ -23,4 +23,3 @@ select
 from {{ ref('contact_attempts_ab1') }}
 -- contact_attempts
 where 1 = 1
-

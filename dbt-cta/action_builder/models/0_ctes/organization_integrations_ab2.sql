@@ -17,4 +17,3 @@ select
 from {{ ref('organization_integrations_ab1') }}
 -- organization_integrations
 where 1 = 1
-

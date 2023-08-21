@@ -33,7 +33,6 @@ select
         'street_address',
     ]) }} as _airbyte_addresses_hashid,
     tmp.*
-from {{ ref('addresses_ab2') }} tmp
+from {{ ref('addresses_ab2') }} as tmp
 -- addresses
 where 1 = 1
-

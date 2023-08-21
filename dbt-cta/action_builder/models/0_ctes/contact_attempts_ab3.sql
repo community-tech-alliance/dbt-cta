@@ -20,7 +20,6 @@ select
         'contact_info_type',
     ]) }} as _airbyte_contact_attempts_hashid,
     tmp.*
-from {{ ref('contact_attempts_ab2') }} tmp
+from {{ ref('contact_attempts_ab2') }} as tmp
 -- contact_attempts
 where 1 = 1
-

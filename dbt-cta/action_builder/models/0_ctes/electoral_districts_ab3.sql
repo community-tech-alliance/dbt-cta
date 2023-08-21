@@ -14,7 +14,6 @@ select
         'updated_at',
     ]) }} as _airbyte_electoral_districts_hashid,
     tmp.*
-from {{ ref('electoral_districts_ab2') }} tmp
+from {{ ref('electoral_districts_ab2') }} as tmp
 -- electoral_districts
 where 1 = 1
-

@@ -14,7 +14,6 @@ select
         'tag_group_id',
     ]) }} as _airbyte_campaigns_tag_groups_hashid,
     tmp.*
-from {{ ref('campaigns_tag_groups_ab2') }} tmp
+from {{ ref('campaigns_tag_groups_ab2') }} as tmp
 -- campaigns_tag_groups
 where 1 = 1
-

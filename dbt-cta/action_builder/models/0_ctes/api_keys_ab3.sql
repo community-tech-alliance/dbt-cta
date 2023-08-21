@@ -17,7 +17,6 @@ select
         'revoked_by_id',
     ]) }} as _airbyte_api_keys_hashid,
     tmp.*
-from {{ ref('api_keys_ab2') }} tmp
+from {{ ref('api_keys_ab2') }} as tmp
 -- api_keys
 where 1 = 1
-

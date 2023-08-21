@@ -21,7 +21,6 @@ select
         'organization_integration_id',
     ]) }} as _airbyte_entity_sync_states_hashid,
     tmp.*
-from {{ ref('entity_sync_states_ab2') }} tmp
+from {{ ref('entity_sync_states_ab2') }} as tmp
 -- entity_sync_states
 where 1 = 1
-

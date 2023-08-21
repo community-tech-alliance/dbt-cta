@@ -24,7 +24,6 @@ select
         'updated_by_id',
     ]) }} as _airbyte_taggable_logbook_hashid,
     tmp.*
-from {{ ref('taggable_logbook_ab2') }} tmp
+from {{ ref('taggable_logbook_ab2') }} as tmp
 -- taggable_logbook
 where 1 = 1
-

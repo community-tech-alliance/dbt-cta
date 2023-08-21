@@ -14,7 +14,6 @@ select
         'turf_assignment_id',
     ]) }} as _airbyte_turf_tags_hashid,
     tmp.*
-from {{ ref('turf_tags_ab2') }} tmp
+from {{ ref('turf_tags_ab2') }} as tmp
 -- turf_tags
 where 1 = 1
-

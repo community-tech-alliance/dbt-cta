@@ -20,4 +20,3 @@ select
 from {{ ref('campaign_context_notes_ab1') }}
 -- campaign_context_notes
 where 1 = 1
-

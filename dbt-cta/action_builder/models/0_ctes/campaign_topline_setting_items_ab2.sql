@@ -22,4 +22,3 @@ select
 from {{ ref('campaign_topline_setting_items_ab1') }}
 -- campaign_topline_setting_items
 where 1 = 1
-

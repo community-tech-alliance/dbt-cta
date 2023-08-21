@@ -19,7 +19,6 @@ select
         'administrator_user_id',
     ]) }} as _airbyte_organizations_hashid,
     tmp.*
-from {{ ref('organizations_ab2') }} tmp
+from {{ ref('organizations_ab2') }} as tmp
 -- organizations
 where 1 = 1
-

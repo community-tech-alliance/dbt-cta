@@ -14,7 +14,6 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_turf_tags') }} as table_alias
+from {{ source('cta', '_airbyte_raw_turf_tags') }}
 -- turf_tags
 where 1 = 1
-

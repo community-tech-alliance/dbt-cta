@@ -17,4 +17,3 @@ select
 from {{ ref('campaign_participations_ab1') }}
 -- campaign_participations
 where 1 = 1
-

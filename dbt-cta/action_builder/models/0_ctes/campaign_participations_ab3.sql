@@ -14,7 +14,6 @@ select
         'campaign_id',
     ]) }} as _airbyte_campaign_participations_hashid,
     tmp.*
-from {{ ref('campaign_participations_ab2') }} tmp
+from {{ ref('campaign_participations_ab2') }} as tmp
 -- campaign_participations
 where 1 = 1
-

@@ -24,4 +24,3 @@ select
 from {{ ref('entity_sync_states_ab1') }}
 -- entity_sync_states
 where 1 = 1
-

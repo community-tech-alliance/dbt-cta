@@ -17,4 +17,3 @@ select
 from {{ ref('contact_statuses_ab1') }}
 -- contact_statuses
 where 1 = 1
-

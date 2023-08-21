@@ -22,7 +22,6 @@ select
         'social_network_type',
     ]) }} as _airbyte_social_profiles_hashid,
     tmp.*
-from {{ ref('social_profiles_ab2') }} tmp
+from {{ ref('social_profiles_ab2') }} as tmp
 -- social_profiles
 where 1 = 1
-

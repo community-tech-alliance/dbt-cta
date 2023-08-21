@@ -20,4 +20,3 @@ select
 from {{ ref('entity_sync_stored_operations_ab1') }}
 -- entity_sync_stored_operations
 where 1 = 1
-

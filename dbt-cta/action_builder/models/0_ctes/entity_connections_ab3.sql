@@ -23,7 +23,6 @@ select
         'entity_connection_type_id',
     ]) }} as _airbyte_entity_connections_hashid,
     tmp.*
-from {{ ref('entity_connections_ab2') }} tmp
+from {{ ref('entity_connections_ab2') }} as tmp
 -- entity_connections
 where 1 = 1
-

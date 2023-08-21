@@ -17,7 +17,6 @@ select
         'action_assignment_group_id',
     ]) }} as _airbyte_action_assignment_group_users_hashid,
     tmp.*
-from {{ ref('action_assignment_group_users_ab2') }} tmp
+from {{ ref('action_assignment_group_users_ab2') }} as tmp
 -- action_assignment_group_users
 where 1 = 1
-

@@ -16,4 +16,3 @@ select
 from {{ ref('signatures_ab1') }}
 -- signatures
 where 1 = 1
-

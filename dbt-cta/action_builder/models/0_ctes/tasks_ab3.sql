@@ -18,7 +18,6 @@ select
         'action_entity_id',
     ]) }} as _airbyte_tasks_hashid,
     tmp.*
-from {{ ref('tasks_ab2') }} tmp
+from {{ ref('tasks_ab2') }} as tmp
 -- tasks
 where 1 = 1
-

@@ -33,7 +33,6 @@ select
         boolean_to_string('calculated_birth_date'),
     ]) }} as _airbyte_entities_hashid,
     tmp.*
-from {{ ref('entities_ab2') }} tmp
+from {{ ref('entities_ab2') }} as tmp
 -- entities
 where 1 = 1
-

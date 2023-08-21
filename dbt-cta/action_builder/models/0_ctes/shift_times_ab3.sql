@@ -16,7 +16,6 @@ select
         'day_of_week',
     ]) }} as _airbyte_shift_times_hashid,
     tmp.*
-from {{ ref('shift_times_ab2') }} tmp
+from {{ ref('shift_times_ab2') }} as tmp
 -- shift_times
 where 1 = 1
-

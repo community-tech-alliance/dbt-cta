@@ -19,7 +19,6 @@ select
         'token_updated_at',
     ]) }} as _airbyte_external_services_hashid,
     tmp.*
-from {{ ref('external_services_ab2') }} tmp
+from {{ ref('external_services_ab2') }} as tmp
 -- external_services
 where 1 = 1
-

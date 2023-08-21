@@ -19,4 +19,3 @@ select
 from {{ ref('campaigns_entities_ab1') }}
 -- campaigns_entities
 where 1 = 1
-

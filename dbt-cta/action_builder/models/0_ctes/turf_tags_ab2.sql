@@ -17,4 +17,3 @@ select
 from {{ ref('turf_tags_ab1') }}
 -- turf_tags
 where 1 = 1
-

@@ -23,7 +23,6 @@ select
         boolean_to_string('date_of_birth_enabled'),
     ]) }} as _airbyte_entity_types_hashid,
     tmp.*
-from {{ ref('entity_types_ab2') }} tmp
+from {{ ref('entity_types_ab2') }} as tmp
 -- entity_types
 where 1 = 1
-

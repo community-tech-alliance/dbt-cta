@@ -16,7 +16,6 @@ select
         'latest_assessment_level',
     ]) }} as _airbyte_campaigns_entities_hashid,
     tmp.*
-from {{ ref('campaigns_entities_ab2') }} tmp
+from {{ ref('campaigns_entities_ab2') }} as tmp
 -- campaigns_entities
 where 1 = 1
-

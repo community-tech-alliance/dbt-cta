@@ -17,7 +17,6 @@ select
         'object_changes',
     ]) }} as _airbyte_versions_hashid,
     tmp.*
-from {{ ref('versions_ab2') }} tmp
+from {{ ref('versions_ab2') }} as tmp
 -- versions
 where 1 = 1
-

@@ -29,4 +29,3 @@ select
 from {{ ref('uploads_ab1') }}
 -- uploads
 where 1 = 1
-

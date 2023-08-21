@@ -46,7 +46,6 @@ select
         'reset_password_sent_at',
     ]) }} as _airbyte_users_hashid,
     tmp.*
-from {{ ref('users_ab2') }} tmp
+from {{ ref('users_ab2') }} as tmp
 -- users
 where 1 = 1
-

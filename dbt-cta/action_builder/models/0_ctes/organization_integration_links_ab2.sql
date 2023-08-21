@@ -22,4 +22,3 @@ select
 from {{ ref('organization_integration_links_ab1') }}
 -- organization_integration_links
 where 1 = 1
-

@@ -17,4 +17,3 @@ select
 from {{ ref('integrations_ab1') }}
 -- integrations
 where 1 = 1
-
