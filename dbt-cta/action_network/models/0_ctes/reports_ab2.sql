@@ -32,4 +32,3 @@ select
 from {{ ref('reports_ab1') }}
 -- reports
 where 1 = 1
-

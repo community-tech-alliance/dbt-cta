@@ -93,4 +93,3 @@ select
 from {{ ref('events_ab1') }}
 -- events
 where 1 = 1
-

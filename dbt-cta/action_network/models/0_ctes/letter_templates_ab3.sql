@@ -21,7 +21,6 @@ select
         'image_attribution',
     ]) }} as _airbyte_letter_templates_hashid,
     tmp.*
-from {{ ref('letter_templates_ab2') }} tmp
+from {{ ref('letter_templates_ab2') }} as tmp
 -- letter_templates
 where 1 = 1
-

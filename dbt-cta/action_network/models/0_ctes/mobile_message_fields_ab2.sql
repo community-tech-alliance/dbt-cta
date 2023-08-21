@@ -19,4 +19,3 @@ select
 from {{ ref('mobile_message_fields_ab1') }}
 -- mobile_message_fields
 where 1 = 1
-

@@ -14,7 +14,6 @@ select
         'email_campaign_id',
     ]) }} as _airbyte_email_campaign_members_hashid,
     tmp.*
-from {{ ref('email_campaign_members_ab2') }} tmp
+from {{ ref('email_campaign_members_ab2') }} as tmp
 -- email_campaign_members
 where 1 = 1
-

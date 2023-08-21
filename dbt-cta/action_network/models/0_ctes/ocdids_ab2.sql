@@ -17,4 +17,3 @@ select
 from {{ ref('ocdids_ab1') }}
 -- ocdids
 where 1 = 1
-

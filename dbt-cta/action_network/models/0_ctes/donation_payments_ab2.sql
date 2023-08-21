@@ -31,4 +31,3 @@ select
 from {{ ref('donation_payments_ab1') }}
 -- donation_payments
 where 1 = 1
-

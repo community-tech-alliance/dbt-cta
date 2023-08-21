@@ -34,4 +34,3 @@ select
 from {{ ref('mobile_messages_ab1') }}
 -- mobile_messages
 where 1 = 1
-

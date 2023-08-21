@@ -17,7 +17,6 @@ select
         'source_group_id',
     ]) }} as _airbyte_tag_syndications_hashid,
     tmp.*
-from {{ ref('tag_syndications_ab2') }} tmp
+from {{ ref('tag_syndications_ab2') }} as tmp
 -- tag_syndications
 where 1 = 1
-

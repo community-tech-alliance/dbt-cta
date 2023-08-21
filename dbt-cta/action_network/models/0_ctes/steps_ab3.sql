@@ -18,7 +18,6 @@ select
         'alternate_next_step_id',
     ]) }} as _airbyte_steps_hashid,
     tmp.*
-from {{ ref('steps_ab2') }} tmp
+from {{ ref('steps_ab2') }} as tmp
 -- steps
 where 1 = 1
-

@@ -76,4 +76,3 @@ select
 from {{ ref('ticketed_events_ab1') }}
 -- ticketed_events
 where 1 = 1
-

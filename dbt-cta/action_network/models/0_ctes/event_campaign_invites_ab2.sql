@@ -18,4 +18,3 @@ select
 from {{ ref('event_campaign_invites_ab1') }}
 -- event_campaign_invites
 where 1 = 1
-

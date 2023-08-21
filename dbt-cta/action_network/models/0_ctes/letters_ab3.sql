@@ -60,7 +60,6 @@ select
         'form_builder_output_json',
     ]) }} as _airbyte_letters_hashid,
     tmp.*
-from {{ ref('letters_ab2') }} tmp
+from {{ ref('letters_ab2') }} as tmp
 -- letters
 where 1 = 1
-

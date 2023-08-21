@@ -16,7 +16,6 @@ select
         'field_name_id',
     ]) }} as _airbyte_field_values_hashid,
     tmp.*
-from {{ ref('field_values_ab2') }} tmp
+from {{ ref('field_values_ab2') }} as tmp
 -- field_values
 where 1 = 1
-

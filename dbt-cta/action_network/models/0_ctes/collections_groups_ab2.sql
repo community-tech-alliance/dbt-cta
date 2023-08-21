@@ -17,4 +17,3 @@ select
 from {{ ref('collections_groups_ab1') }}
 -- collections_groups
 where 1 = 1
-

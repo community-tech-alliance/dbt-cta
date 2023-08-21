@@ -68,4 +68,3 @@ select
 from {{ ref('call_campaigns_ab1') }}
 -- call_campaigns
 where 1 = 1
-

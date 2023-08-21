@@ -17,7 +17,6 @@ select
         'network_group_id',
     ]) }} as _airbyte_filter_actions_hashid,
     tmp.*
-from {{ ref('filter_actions_ab2') }} tmp
+from {{ ref('filter_actions_ab2') }} as tmp
 -- filter_actions
 where 1 = 1
-

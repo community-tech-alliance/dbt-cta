@@ -29,4 +29,3 @@ select
 from {{ ref('core_fields_ab1') }}
 -- core_fields
 where 1 = 1
-

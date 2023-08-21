@@ -22,4 +22,3 @@ select
 from {{ ref('group_growth_by_source_codes_ab1') }}
 -- group_growth_by_source_codes
 where 1 = 1
-

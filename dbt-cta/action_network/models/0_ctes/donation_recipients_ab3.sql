@@ -15,7 +15,6 @@ select
         'fundraising_id',
     ]) }} as _airbyte_donation_recipients_hashid,
     tmp.*
-from {{ ref('donation_recipients_ab2') }} tmp
+from {{ ref('donation_recipients_ab2') }} as tmp
 -- donation_recipients
 where 1 = 1
-

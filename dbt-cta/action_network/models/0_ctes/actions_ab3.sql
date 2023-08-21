@@ -15,7 +15,6 @@ select
         'source_type',
     ]) }} as _airbyte_actions_hashid,
     tmp.*
-from {{ ref('actions_ab2') }} tmp
+from {{ ref('actions_ab2') }} as tmp
 -- actions
 where 1 = 1
-

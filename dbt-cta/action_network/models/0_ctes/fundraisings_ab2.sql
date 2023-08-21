@@ -66,4 +66,3 @@ select
 from {{ ref('fundraisings_ab1') }}
 -- fundraisings
 where 1 = 1
-

@@ -25,7 +25,6 @@ select
         'user_file_content_type',
     ]) }} as _airbyte_user_files_hashid,
     tmp.*
-from {{ ref('user_files_ab2') }} tmp
+from {{ ref('user_files_ab2') }} as tmp
 -- user_files
 where 1 = 1
-

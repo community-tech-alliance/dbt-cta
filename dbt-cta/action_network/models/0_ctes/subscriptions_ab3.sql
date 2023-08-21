@@ -28,7 +28,6 @@ select
         'source_action_type',
     ]) }} as _airbyte_subscriptions_hashid,
     tmp.*
-from {{ ref('subscriptions_ab2') }} tmp
+from {{ ref('subscriptions_ab2') }} as tmp
 -- subscriptions
 where 1 = 1
-

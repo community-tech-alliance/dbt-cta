@@ -25,7 +25,6 @@ select
         'source_action_type',
     ]) }} as _airbyte_unsubscriptions_hashid,
     tmp.*
-from {{ ref('unsubscriptions_ab2') }} tmp
+from {{ ref('unsubscriptions_ab2') }} as tmp
 -- unsubscriptions
 where 1 = 1
-

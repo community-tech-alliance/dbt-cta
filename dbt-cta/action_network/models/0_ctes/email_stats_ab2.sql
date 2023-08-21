@@ -20,4 +20,3 @@ select
 from {{ ref('email_stats_ab1') }}
 -- email_stats
 where 1 = 1
-

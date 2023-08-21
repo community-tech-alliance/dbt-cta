@@ -23,4 +23,3 @@ select
 from {{ ref('webhook_messages_ab1') }}
 -- webhook_messages
 where 1 = 1
-

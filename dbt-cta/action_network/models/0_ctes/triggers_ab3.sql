@@ -23,7 +23,6 @@ select
         'only_text_to_join',
     ]) }} as _airbyte_triggers_hashid,
     tmp.*
-from {{ ref('triggers_ab2') }} tmp
+from {{ ref('triggers_ab2') }} as tmp
 -- triggers
 where 1 = 1
-

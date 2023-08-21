@@ -20,4 +20,3 @@ select
 from {{ ref('tag_syndications_ab1') }}
 -- tag_syndications
 where 1 = 1
-

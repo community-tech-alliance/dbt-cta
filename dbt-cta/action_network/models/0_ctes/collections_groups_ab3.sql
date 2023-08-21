@@ -14,7 +14,6 @@ select
         'collection_id',
     ]) }} as _airbyte_collections_groups_hashid,
     tmp.*
-from {{ ref('collections_groups_ab2') }} tmp
+from {{ ref('collections_groups_ab2') }} as tmp
 -- collections_groups
 where 1 = 1
-

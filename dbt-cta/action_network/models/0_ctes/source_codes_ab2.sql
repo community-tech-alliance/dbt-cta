@@ -18,4 +18,3 @@ select
 from {{ ref('source_codes_ab1') }}
 -- source_codes
 where 1 = 1
-

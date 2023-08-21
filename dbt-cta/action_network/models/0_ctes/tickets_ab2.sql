@@ -22,4 +22,3 @@ select
 from {{ ref('tickets_ab1') }}
 -- tickets
 where 1 = 1
-

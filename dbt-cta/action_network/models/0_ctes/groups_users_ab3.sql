@@ -20,7 +20,6 @@ select
         'user_permissions',
     ]) }} as _airbyte_groups_users_hashid,
     tmp.*
-from {{ ref('groups_users_ab2') }} tmp
+from {{ ref('groups_users_ab2') }} as tmp
 -- groups_users
 where 1 = 1
-

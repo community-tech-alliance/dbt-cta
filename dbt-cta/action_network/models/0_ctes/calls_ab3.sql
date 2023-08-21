@@ -30,7 +30,6 @@ select
         'originating_system',
     ]) }} as _airbyte_calls_hashid,
     tmp.*
-from {{ ref('calls_ab2') }} tmp
+from {{ ref('calls_ab2') }} as tmp
 -- calls
 where 1 = 1
-

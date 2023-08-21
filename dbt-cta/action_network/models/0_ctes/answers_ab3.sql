@@ -30,7 +30,6 @@ select
         'updates_from_sponsor',
     ]) }} as _airbyte_answers_hashid,
     tmp.*
-from {{ ref('answers_ab2') }} tmp
+from {{ ref('answers_ab2') }} as tmp
 -- answers
 where 1 = 1
-

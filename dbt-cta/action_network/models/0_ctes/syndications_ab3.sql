@@ -32,7 +32,6 @@ select
         'photo_content_type',
     ]) }} as _airbyte_syndications_hashid,
     tmp.*
-from {{ ref('syndications_ab2') }} tmp
+from {{ ref('syndications_ab2') }} as tmp
 -- syndications
 where 1 = 1
-

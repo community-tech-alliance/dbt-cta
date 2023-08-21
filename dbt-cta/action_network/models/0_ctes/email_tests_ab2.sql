@@ -23,4 +23,3 @@ select
 from {{ ref('email_tests_ab1') }}
 -- email_tests
 where 1 = 1
-

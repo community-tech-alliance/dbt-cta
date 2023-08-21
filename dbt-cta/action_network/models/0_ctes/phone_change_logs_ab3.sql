@@ -19,7 +19,6 @@ select
         'source_action_type',
     ]) }} as _airbyte_phone_change_logs_hashid,
     tmp.*
-from {{ ref('phone_change_logs_ab2') }} tmp
+from {{ ref('phone_change_logs_ab2') }} as tmp
 -- phone_change_logs
 where 1 = 1
-

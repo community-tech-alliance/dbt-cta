@@ -26,7 +26,6 @@ select
         'logo_content_type',
     ]) }} as _airbyte_email_templates_hashid,
     tmp.*
-from {{ ref('email_templates_ab2') }} tmp
+from {{ ref('email_templates_ab2') }} as tmp
 -- email_templates
 where 1 = 1
-

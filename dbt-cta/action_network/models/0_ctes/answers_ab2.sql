@@ -33,4 +33,3 @@ select
 from {{ ref('answers_ab1') }}
 -- answers
 where 1 = 1
-

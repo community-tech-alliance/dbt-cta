@@ -33,4 +33,3 @@ select
 from {{ ref('calls_ab1') }}
 -- calls
 where 1 = 1
-

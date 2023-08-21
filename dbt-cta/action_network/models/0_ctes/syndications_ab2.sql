@@ -35,4 +35,3 @@ select
 from {{ ref('syndications_ab1') }}
 -- syndications
 where 1 = 1
-

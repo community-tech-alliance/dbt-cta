@@ -45,7 +45,6 @@ select
         'overwrite_sms_subs',
     ]) }} as _airbyte_lists_hashid,
     tmp.*
-from {{ ref('lists_ab2') }} tmp
+from {{ ref('lists_ab2') }} as tmp
 -- lists
 where 1 = 1
-

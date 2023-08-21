@@ -20,4 +20,3 @@ select
 from {{ ref('user_tickets_ab1') }}
 -- user_tickets
 where 1 = 1
-

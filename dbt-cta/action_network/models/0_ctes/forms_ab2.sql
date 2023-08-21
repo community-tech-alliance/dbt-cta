@@ -66,4 +66,3 @@ select
 from {{ ref('forms_ab1') }}
 -- forms
 where 1 = 1
-

@@ -15,7 +15,6 @@ select
         'updated_at',
     ]) }} as _airbyte_email_campaigns_hashid,
     tmp.*
-from {{ ref('email_campaigns_ab2') }} tmp
+from {{ ref('email_campaigns_ab2') }} as tmp
 -- email_campaigns
 where 1 = 1
-

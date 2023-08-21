@@ -15,7 +15,6 @@ select
         'source_code',
     ]) }} as _airbyte_source_codes_hashid,
     tmp.*
-from {{ ref('source_codes_ab2') }} tmp
+from {{ ref('source_codes_ab2') }} as tmp
 -- source_codes
 where 1 = 1
-

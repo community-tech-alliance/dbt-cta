@@ -21,4 +21,3 @@ select
 from {{ ref('steps_ab1') }}
 -- steps
 where 1 = 1
-

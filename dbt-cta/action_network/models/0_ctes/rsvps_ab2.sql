@@ -34,4 +34,3 @@ select
 from {{ ref('rsvps_ab1') }}
 -- rsvps
 where 1 = 1
-

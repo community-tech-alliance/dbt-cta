@@ -20,7 +20,6 @@ select
         'subscription_id',
     ]) }} as _airbyte_sms_status_logs_hashid,
     tmp.*
-from {{ ref('sms_status_logs_ab2') }} tmp
+from {{ ref('sms_status_logs_ab2') }} as tmp
 -- sms_status_logs
 where 1 = 1
-

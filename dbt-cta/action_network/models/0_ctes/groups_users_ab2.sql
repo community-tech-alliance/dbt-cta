@@ -23,4 +23,3 @@ select
 from {{ ref('groups_users_ab1') }}
 -- groups_users
 where 1 = 1
-

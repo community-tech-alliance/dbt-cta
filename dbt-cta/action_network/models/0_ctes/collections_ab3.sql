@@ -15,7 +15,6 @@ select
         'updated_at',
     ]) }} as _airbyte_collections_hashid,
     tmp.*
-from {{ ref('collections_ab2') }} tmp
+from {{ ref('collections_ab2') }} as tmp
 -- collections
 where 1 = 1
-

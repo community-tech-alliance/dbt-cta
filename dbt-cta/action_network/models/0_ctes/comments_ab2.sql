@@ -23,4 +23,3 @@ select
 from {{ ref('comments_ab1') }}
 -- comments
 where 1 = 1
-

@@ -18,4 +18,3 @@ select
 from {{ ref('email_campaigns_ab1') }}
 -- email_campaigns
 where 1 = 1
-

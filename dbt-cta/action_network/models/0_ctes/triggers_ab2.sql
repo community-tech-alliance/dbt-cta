@@ -26,4 +26,3 @@ select
 from {{ ref('triggers_ab1') }}
 -- triggers
 where 1 = 1
-
