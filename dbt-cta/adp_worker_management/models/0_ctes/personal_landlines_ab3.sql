@@ -21,7 +21,5 @@ select
     ]) }} as _airbyte_personal_landlines_hashid,
     tmp.*
 from {{ ref('personal_landlines_ab2') }} as tmp
-
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
-
