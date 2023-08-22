@@ -20,8 +20,6 @@ select
         'formattedNumber',
     ]) }} as _airbyte_work_mobiles_hashid,
     tmp.*
-from {{ ref('work_mobiles_ab2') }} tmp
-
+from {{ ref('work_mobiles_ab2') }} as tmp
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
-

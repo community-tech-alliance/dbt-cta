@@ -13,7 +13,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('work_emails_ab3') }}
 
-SELECT
+select
     associateOID,
     nameCode_codeValue,
     nameCode_shortName,

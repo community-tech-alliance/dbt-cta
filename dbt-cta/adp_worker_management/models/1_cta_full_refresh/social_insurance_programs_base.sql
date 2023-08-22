@@ -13,7 +13,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('social_insurance_programs_ab3') }}
 
-SELECT
+select
     associateOID,
     nameCode_codeValue,
     nameCode_shortName,

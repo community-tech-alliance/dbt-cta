@@ -13,7 +13,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('government_ids_ab3') }}
 
-SELECT
+select
     associateOID,
     itemID,
     idValue,

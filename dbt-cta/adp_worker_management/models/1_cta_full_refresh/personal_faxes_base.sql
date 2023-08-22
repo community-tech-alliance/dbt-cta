@@ -13,7 +13,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('personal_faxes_ab3') }}
 
-SELECT
+select
     associateOID,
     itemID,
     nameCode_codeValue,

@@ -13,7 +13,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('work_assignments_home_organizational_units_ab3') }}
 
-SELECT
+select
     associateOID,
     itemID,
     nameCode_codeValue,

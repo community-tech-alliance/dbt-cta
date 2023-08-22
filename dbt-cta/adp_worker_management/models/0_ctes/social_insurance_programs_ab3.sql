@@ -15,8 +15,6 @@ select
         'coveredIndicator',
     ]) }} as _airbyte_social_insurance_programs_hashid,
     tmp.*
-from {{ ref('social_insurance_programs_ab2') }} tmp
-
+from {{ ref('social_insurance_programs_ab2') }} as tmp
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
-

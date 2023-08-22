@@ -1,4 +1,4 @@
-SELECT
+select
     associateOID,
     nameCode_codeValue,
     nameCode_shortName,

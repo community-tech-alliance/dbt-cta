@@ -15,8 +15,6 @@ select
         'emailUri',
     ]) }} as _airbyte_work_emails_hashid,
     tmp.*
-from {{ ref('work_emails_ab2') }} tmp
-
+from {{ ref('work_emails_ab2') }} as tmp
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
-
