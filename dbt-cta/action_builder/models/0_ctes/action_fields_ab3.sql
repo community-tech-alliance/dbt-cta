@@ -20,7 +20,6 @@ select
         'related_object_type',
     ]) }} as _airbyte_action_fields_hashid,
     tmp.*
-from {{ ref('action_fields_ab2') }} tmp
+from {{ ref('action_fields_ab2') }} as tmp
 -- action_fields
 where 1 = 1
-

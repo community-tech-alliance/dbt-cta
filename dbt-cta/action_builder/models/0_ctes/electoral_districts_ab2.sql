@@ -17,4 +17,3 @@ select
 from {{ ref('electoral_districts_ab1') }}
 -- electoral_districts
 where 1 = 1
-

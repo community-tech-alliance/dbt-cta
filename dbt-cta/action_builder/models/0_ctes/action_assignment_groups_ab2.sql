@@ -18,4 +18,3 @@ select
 from {{ ref('action_assignment_groups_ab1') }}
 -- action_assignment_groups
 where 1 = 1
-

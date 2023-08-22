@@ -14,7 +14,6 @@ select
         'entity_connection_type_id',
     ]) }} as _airbyte_campaigns_entity_connection_types_hashid,
     tmp.*
-from {{ ref('campaigns_entity_connection_types_ab2') }} tmp
+from {{ ref('campaigns_entity_connection_types_ab2') }} as tmp
 -- campaigns_entity_connection_types
 where 1 = 1
-

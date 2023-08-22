@@ -19,7 +19,6 @@ select
         'from_entity_id',
     ]) }} as _airbyte_relationships_hashid,
     tmp.*
-from {{ ref('relationships_ab2') }} tmp
+from {{ ref('relationships_ab2') }} as tmp
 -- relationships
 where 1 = 1
-

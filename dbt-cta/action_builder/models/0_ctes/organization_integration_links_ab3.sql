@@ -19,7 +19,6 @@ select
         'organization_integration_id',
     ]) }} as _airbyte_organization_integration_links_hashid,
     tmp.*
-from {{ ref('organization_integration_links_ab2') }} tmp
+from {{ ref('organization_integration_links_ab2') }} as tmp
 -- organization_integration_links
 where 1 = 1
-

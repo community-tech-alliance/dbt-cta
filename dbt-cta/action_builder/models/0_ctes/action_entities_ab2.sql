@@ -21,4 +21,3 @@ select
 from {{ ref('action_entities_ab1') }}
 -- action_entities
 where 1 = 1
-

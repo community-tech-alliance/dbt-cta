@@ -15,7 +15,6 @@ select
         'tag_category_id',
     ]) }} as _airbyte_campaigns_tag_categories_hashid,
     tmp.*
-from {{ ref('campaigns_tag_categories_ab2') }} tmp
+from {{ ref('campaigns_tag_categories_ab2') }} as tmp
 -- campaigns_tag_categories
 where 1 = 1
-

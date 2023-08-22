@@ -20,4 +20,3 @@ select
 from {{ ref('action_assignment_group_users_ab1') }}
 -- action_assignment_group_users
 where 1 = 1
-

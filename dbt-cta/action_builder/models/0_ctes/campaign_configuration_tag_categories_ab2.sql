@@ -20,4 +20,3 @@ select
 from {{ ref('campaign_configuration_tag_categories_ab1') }}
 -- campaign_configuration_tag_categories
 where 1 = 1
-

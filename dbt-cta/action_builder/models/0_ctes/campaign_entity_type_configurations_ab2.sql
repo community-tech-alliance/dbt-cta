@@ -19,4 +19,3 @@ select
 from {{ ref('campaign_entity_type_configurations_ab1') }}
 -- campaign_entity_type_configurations
 where 1 = 1
-

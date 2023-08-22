@@ -19,4 +19,3 @@ select
 from {{ ref('subscription_statuses_ab1') }}
 -- subscription_statuses
 where 1 = 1
-

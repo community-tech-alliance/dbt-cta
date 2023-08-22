@@ -14,7 +14,6 @@ select
         'external_service_id',
     ]) }} as _airbyte_integrations_hashid,
     tmp.*
-from {{ ref('integrations_ab2') }} tmp
+from {{ ref('integrations_ab2') }} as tmp
 -- integrations
 where 1 = 1
-

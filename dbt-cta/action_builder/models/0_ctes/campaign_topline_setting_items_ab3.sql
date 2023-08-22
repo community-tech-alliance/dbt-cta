@@ -19,7 +19,6 @@ select
         'targetable_type',
     ]) }} as _airbyte_campaign_topline_setting_items_hashid,
     tmp.*
-from {{ ref('campaign_topline_setting_items_ab2') }} tmp
+from {{ ref('campaign_topline_setting_items_ab2') }} as tmp
 -- campaign_topline_setting_items
 where 1 = 1
-

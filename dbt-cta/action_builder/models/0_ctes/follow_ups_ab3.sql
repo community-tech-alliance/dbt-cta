@@ -18,7 +18,6 @@ select
         'assigned_user_id',
     ]) }} as _airbyte_follow_ups_hashid,
     tmp.*
-from {{ ref('follow_ups_ab2') }} tmp
+from {{ ref('follow_ups_ab2') }} as tmp
 -- follow_ups
 where 1 = 1
-

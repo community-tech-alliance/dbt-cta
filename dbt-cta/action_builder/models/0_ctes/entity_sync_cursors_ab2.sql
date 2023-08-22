@@ -17,4 +17,3 @@ select
 from {{ ref('entity_sync_cursors_ab1') }}
 -- entity_sync_cursors
 where 1 = 1
-

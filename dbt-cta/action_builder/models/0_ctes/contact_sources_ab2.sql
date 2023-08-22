@@ -17,4 +17,3 @@ select
 from {{ ref('contact_sources_ab1') }}
 -- contact_sources
 where 1 = 1
-

@@ -14,7 +14,6 @@ select
         'updated_at',
     ]) }} as _airbyte_contact_statuses_hashid,
     tmp.*
-from {{ ref('contact_statuses_ab2') }} tmp
+from {{ ref('contact_statuses_ab2') }} as tmp
 -- contact_statuses
 where 1 = 1
-

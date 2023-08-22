@@ -21,4 +21,3 @@ select
 from {{ ref('follow_ups_ab1') }}
 -- follow_ups
 where 1 = 1
-

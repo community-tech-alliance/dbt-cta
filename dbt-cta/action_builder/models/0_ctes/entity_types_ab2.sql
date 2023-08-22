@@ -26,4 +26,3 @@ select
 from {{ ref('entity_types_ab1') }}
 -- entity_types
 where 1 = 1
-

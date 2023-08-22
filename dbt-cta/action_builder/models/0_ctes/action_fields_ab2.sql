@@ -23,4 +23,3 @@ select
 from {{ ref('action_fields_ab1') }}
 -- action_fields
 where 1 = 1
-

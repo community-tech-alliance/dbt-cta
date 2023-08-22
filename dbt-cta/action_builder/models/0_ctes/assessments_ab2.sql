@@ -21,4 +21,3 @@ select
 from {{ ref('assessments_ab1') }}
 -- assessments
 where 1 = 1
-

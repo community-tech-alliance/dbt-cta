@@ -27,4 +27,3 @@ select
 from {{ ref('tag_categories_ab1') }}
 -- tag_categories
 where 1 = 1
-

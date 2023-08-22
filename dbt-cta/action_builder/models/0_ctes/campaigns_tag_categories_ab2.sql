@@ -18,4 +18,3 @@ select
 from {{ ref('campaigns_tag_categories_ab1') }}
 -- campaigns_tag_categories
 where 1 = 1
-

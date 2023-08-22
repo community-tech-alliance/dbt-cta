@@ -13,7 +13,6 @@ select
         'updated_at',
     ]) }} as _airbyte_signatures_hashid,
     tmp.*
-from {{ ref('signatures_ab2') }} tmp
+from {{ ref('signatures_ab2') }} as tmp
 -- signatures
 where 1 = 1
-

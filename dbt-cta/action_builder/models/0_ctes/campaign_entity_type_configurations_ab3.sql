@@ -16,7 +16,6 @@ select
         'spotlight_tag_ids',
     ]) }} as _airbyte_campaign_entity_type_configurations_hashid,
     tmp.*
-from {{ ref('campaign_entity_type_configurations_ab2') }} tmp
+from {{ ref('campaign_entity_type_configurations_ab2') }} as tmp
 -- campaign_entity_type_configurations
 where 1 = 1
-

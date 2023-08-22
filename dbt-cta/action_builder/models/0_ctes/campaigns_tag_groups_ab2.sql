@@ -17,4 +17,3 @@ select
 from {{ ref('campaigns_tag_groups_ab1') }}
 -- campaigns_tag_groups
 where 1 = 1
-

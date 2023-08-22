@@ -22,4 +22,3 @@ select
 from {{ ref('external_services_ab1') }}
 -- external_services
 where 1 = 1
-

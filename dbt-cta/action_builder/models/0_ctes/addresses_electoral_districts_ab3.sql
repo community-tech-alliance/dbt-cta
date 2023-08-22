@@ -11,7 +11,6 @@ select
         'electoral_district_ocd_id',
     ]) }} as _airbyte_addresses_electoral_districts_hashid,
     tmp.*
-from {{ ref('addresses_electoral_districts_ab2') }} tmp
+from {{ ref('addresses_electoral_districts_ab2') }} as tmp
 -- addresses_electoral_districts
 where 1 = 1
-

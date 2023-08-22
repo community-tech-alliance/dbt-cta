@@ -19,4 +19,3 @@ select
 from {{ ref('tag_groups_ab1') }}
 -- tag_groups
 where 1 = 1
-

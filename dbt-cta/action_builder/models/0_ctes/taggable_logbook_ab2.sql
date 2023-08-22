@@ -27,4 +27,3 @@ select
 from {{ ref('taggable_logbook_ab1') }}
 -- taggable_logbook
 where 1 = 1
-

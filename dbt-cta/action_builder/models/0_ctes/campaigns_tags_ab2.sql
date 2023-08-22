@@ -17,4 +17,3 @@ select
 from {{ ref('campaigns_tags_ab1') }}
 -- campaigns_tags
 where 1 = 1
-
