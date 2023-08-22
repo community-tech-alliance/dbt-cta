@@ -13,7 +13,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('work_faxes_ab3') }}
 
-SELECT
+select
     associateOID,
     itemID,
     nameCode_codeValue,
@@ -28,8 +28,6 @@ SELECT
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_work_faxes_hashid
 from {{ ref('work_faxes_ab3') }}
-
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
-

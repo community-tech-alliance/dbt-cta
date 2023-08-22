@@ -17,8 +17,6 @@ select
         'countryCode',
     ]) }} as _airbyte_government_ids_hashid,
     tmp.*
-from {{ ref('government_ids_ab2') }} tmp
-
+from {{ ref('government_ids_ab2') }} as tmp
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
-

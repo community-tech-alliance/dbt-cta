@@ -6,18 +6,18 @@
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ source('cta', '_airbyte_raw_workers') }}
 
-SELECT
-	JSON_EXTRACT_SCALAR(t._airbyte_data,'$.associateOID') as associateOID,
-	JSON_EXTRACT_SCALAR(work_pagers, '$.itemID') AS itemID,
-	JSON_EXTRACT_SCALAR(work_pagers, '$.nameCode.codeValue') AS nameCode_codeValue,
-	JSON_EXTRACT_SCALAR(work_pagers, '$.nameCode.shortName') AS nameCode_shortName,
-	JSON_EXTRACT_SCALAR(work_pagers, '$.countryDialing') AS countryDialing,
-	JSON_EXTRACT_SCALAR(work_pagers, '$.areaDialing') AS areaDialing,
-	JSON_EXTRACT_SCALAR(work_pagers, '$.dialNumber') AS dialNumber,
-	JSON_EXTRACT_SCALAR(work_pagers, '$.access') AS `access`,
-	JSON_EXTRACT_SCALAR(work_pagers, '$.formattedNumber') AS formattedNumber,
-	t._airbyte_ab_id,
-    t._airbyte_emitted_at
-FROM {{ source('cta', '_airbyte_raw_workers') }} as t,
-  UNNEST(JSON_EXTRACT_ARRAY(_airbyte_data, '$.businessCommunication.pagers')) AS work_pagers
+select
+    t._airbyte_ab_id,
+    t._airbyte_emitted_at,
+    json_extract_scalar(t._airbyte_data, '$.associateOID') as associateOID,
+    json_extract_scalar(work_pagers, '$.itemID') as itemID,
+    json_extract_scalar(work_pagers, '$.nameCode.codeValue') as nameCode_codeValue,
+    json_extract_scalar(work_pagers, '$.nameCode.shortName') as nameCode_shortName,
+    json_extract_scalar(work_pagers, '$.countryDialing') as countryDialing,
+    json_extract_scalar(work_pagers, '$.areaDialing') as areaDialing,
+    json_extract_scalar(work_pagers, '$.dialNumber') as dialNumber,
+    json_extract_scalar(work_pagers, '$.access') as `access`,
+    json_extract_scalar(work_pagers, '$.formattedNumber') as formattedNumber
+from {{ source('cta', '_airbyte_raw_workers') }} as t,
+    unnest(json_extract_array(_airbyte_data, '$.businessCommunication.pagers')) as work_pagers
 where 1 = 1

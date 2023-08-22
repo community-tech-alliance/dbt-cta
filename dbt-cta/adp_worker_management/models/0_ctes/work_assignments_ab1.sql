@@ -6,41 +6,41 @@
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ source('cta', '_airbyte_raw_workers') }}
 
-SELECT
-	JSON_EXTRACT_SCALAR(t._airbyte_data,'$.associateOID') as associateOID,
-	JSON_EXTRACT_SCALAR(workAssignments, '$.itemID') AS itemID,
-	JSON_EXTRACT_SCALAR(workAssignments, '$.primaryIndicator') AS primaryIndicator, --BOOL
-	JSON_EXTRACT_SCALAR(workAssignments, '$.hireDate') AS hireDate, --DATE
-	JSON_EXTRACT_SCALAR(workAssignments, '$.actualStartDate') AS actualStartDate, --DATE
-	JSON_EXTRACT_SCALAR(workAssignments, '$.assignmentStatus.statusCode.codeValue') AS assignmentStatus_statusCode_codeValue,
-	JSON_EXTRACT_SCALAR(workAssignments, '$.assignmentStatus.statusCode.shortName') AS assignmentStatus_statusCode_shortName,
-	JSON_EXTRACT_SCALAR(workAssignments, '$.workerTypeCode.codeValue') AS workerTypeCode_codeValue,
-	JSON_EXTRACT_SCALAR(workAssignments, '$.workerTypeCode.shortName') AS workerTypeCode_shortName,
-	JSON_EXTRACT_SCALAR(workAssignments, '$.jobCode.codeValue') AS jobCode_codeValue,
-	JSON_EXTRACT_SCALAR(workAssignments, '$.jobCode.shortName') AS jobCode_shortName,
-	JSON_EXTRACT_SCALAR(workAssignments, '$.jobTitle') AS jobTitle,
-	JSON_EXTRACT_SCALAR(workAssignments, '$.wageLawCoverage.wageLawNameCode.codeValue') AS wageLawCoverage_wageLawNameCode_codeValue,
-	JSON_EXTRACT_SCALAR(workAssignments, '$.wageLawCoverage.wageLawNameCode.longName') AS wageLawCoverage_wageLawNameCode_longName,
-	JSON_EXTRACT_SCALAR(workAssignments, '$.wageLawCoverage.coverageCode.codeValue') AS wageLawCoverage_coverageCode_codeValue,
-	JSON_EXTRACT_SCALAR(workAssignments, '$.wageLawCoverage.coverageCode.shortName') AS wageLawCoverage_coverageCode_shortName,
-	JSON_EXTRACT_SCALAR(workAssignments, '$.positionID') AS positionID,
-	JSON_EXTRACT_SCALAR(workAssignments, '$.payCycleCode.codeValue') AS payCycleCode_codeValue,
-	JSON_EXTRACT_SCALAR(workAssignments, '$.payCycleCode.shortName') AS payCycleCode_shortName,
-	JSON_EXTRACT_SCALAR(workAssignments, '$.standardPayPeriodHours.hoursQuantity') AS standardPayPeriodHours_hoursQuantity, --INTEGER
-	JSON_EXTRACT_SCALAR(workAssignments, '$.baseRemuneration.payPeriodRateAmount.nameCode.codeValue') AS baseRemuneration_payPeriodRateAmount_nameCode_codeValue,
-	JSON_EXTRACT_SCALAR(workAssignments, '$.baseRemuneration.payPeriodRateAmount.nameCode.shortName') AS baseRemuneration_payPeriodRateAmount_nameCode_shortName,
-	JSON_EXTRACT_SCALAR(workAssignments, '$.baseRemuneration.payPeriodRateAmount.amountValue') AS baseRemuneration_payPeriodRateAmount_amountValue, --INTEGER
-	JSON_EXTRACT_SCALAR(workAssignments, '$.baseRemuneration.payPeriodRateAmount.currencyCode') AS baseRemuneration_payPeriodRateAmount_currencyCode,
-	JSON_EXTRACT_SCALAR(workAssignments, '$.baseRemuneration.effectiveDate') AS baseRemuneration_effectiveDate, --DATE
-	JSON_EXTRACT_SCALAR(workAssignments, '$.payrollGroupCode') AS payrollGroupCode,
-	JSON_EXTRACT_SCALAR(workAssignments, '$.payrollScheduledGroupID') AS payrollScheduledGroupID,
-	JSON_EXTRACT_SCALAR(workAssignments, '$.payrollFileNumber') AS payrollFileNumber,
-	JSON_EXTRACT_SCALAR(workAssignments, '$.managementPositionIndicator') AS managementPositionIndicator, --BOOL
-	--ARRAYS - these need further unnesting
-	JSON_EXTRACT_ARRAY(workAssignments, '$.homeOrganizationalUnits') AS homeOrganizationalUnits,
-	JSON_EXTRACT_ARRAY(workAssignments, '$.assignedOrganizationalUnits') AS assignedOrganizationalUnits,
-	t._airbyte_ab_id,
-	t._airbyte_emitted_at
-FROM {{ source('cta', '_airbyte_raw_workers') }} as t,
-  UNNEST(JSON_EXTRACT_ARRAY(_airbyte_data, '$.workAssignments')) AS workAssignments
+select
+    t._airbyte_ab_id,
+    t._airbyte_emitted_at,
+    json_extract_scalar(t._airbyte_data, '$.associateOID') as associateOID, --BOOL
+    json_extract_scalar(workAssignments, '$.itemID') as itemID, --DATE
+    json_extract_scalar(workAssignments, '$.primaryIndicator') as primaryIndicator, --DATE
+    json_extract_scalar(workAssignments, '$.hireDate') as hireDate,
+    json_extract_scalar(workAssignments, '$.actualStartDate') as actualStartDate,
+    json_extract_scalar(workAssignments, '$.assignmentStatus.statusCode.codeValue') as assignmentStatus_statusCode_codeValue,
+    json_extract_scalar(workAssignments, '$.assignmentStatus.statusCode.shortName') as assignmentStatus_statusCode_shortName,
+    json_extract_scalar(workAssignments, '$.workerTypeCode.codeValue') as workerTypeCode_codeValue,
+    json_extract_scalar(workAssignments, '$.workerTypeCode.shortName') as workerTypeCode_shortName,
+    json_extract_scalar(workAssignments, '$.jobCode.codeValue') as jobCode_codeValue,
+    json_extract_scalar(workAssignments, '$.jobCode.shortName') as jobCode_shortName,
+    json_extract_scalar(workAssignments, '$.jobTitle') as jobTitle,
+    json_extract_scalar(workAssignments, '$.wageLawCoverage.wageLawNameCode.codeValue') as wageLawCoverage_wageLawNameCode_codeValue,
+    json_extract_scalar(workAssignments, '$.wageLawCoverage.wageLawNameCode.longName') as wageLawCoverage_wageLawNameCode_longName,
+    json_extract_scalar(workAssignments, '$.wageLawCoverage.coverageCode.codeValue') as wageLawCoverage_coverageCode_codeValue,
+    json_extract_scalar(workAssignments, '$.wageLawCoverage.coverageCode.shortName') as wageLawCoverage_coverageCode_shortName,
+    json_extract_scalar(workAssignments, '$.positionID') as positionID,
+    json_extract_scalar(workAssignments, '$.payCycleCode.codeValue') as payCycleCode_codeValue, --INTEGER
+    json_extract_scalar(workAssignments, '$.payCycleCode.shortName') as payCycleCode_shortName,
+    json_extract_scalar(workAssignments, '$.standardPayPeriodHours.hoursQuantity') as standardPayPeriodHours_hoursQuantity,
+    json_extract_scalar(workAssignments, '$.baseRemuneration.payPeriodRateAmount.nameCode.codeValue') as baseRemuneration_payPeriodRateAmount_nameCode_codeValue, --INTEGER
+    json_extract_scalar(workAssignments, '$.baseRemuneration.payPeriodRateAmount.nameCode.shortName') as baseRemuneration_payPeriodRateAmount_nameCode_shortName,
+    json_extract_scalar(workAssignments, '$.baseRemuneration.payPeriodRateAmount.amountValue') as baseRemuneration_payPeriodRateAmount_amountValue, --DATE
+    json_extract_scalar(workAssignments, '$.baseRemuneration.payPeriodRateAmount.currencyCode') as baseRemuneration_payPeriodRateAmount_currencyCode,
+    json_extract_scalar(workAssignments, '$.baseRemuneration.effectiveDate') as baseRemuneration_effectiveDate,
+    json_extract_scalar(workAssignments, '$.payrollGroupCode') as payrollGroupCode,
+    json_extract_scalar(workAssignments, '$.payrollScheduledGroupID') as payrollScheduledGroupID, --BOOL
+    --ARRAYS - these need further unnesting
+    json_extract_scalar(workAssignments, '$.payrollFileNumber') as payrollFileNumber,
+    json_extract_scalar(workAssignments, '$.managementPositionIndicator') as managementPositionIndicator,
+    json_extract_array(workAssignments, '$.homeOrganizationalUnits') as homeOrganizationalUnits,
+    json_extract_array(workAssignments, '$.assignedOrganizationalUnits') as assignedOrganizationalUnits
+from {{ source('cta', '_airbyte_raw_workers') }} as t,
+    unnest(json_extract_array(_airbyte_data, '$.workAssignments')) as workAssignments
 where 1 = 1

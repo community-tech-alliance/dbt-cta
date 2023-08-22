@@ -13,7 +13,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('government_ids_ab3') }}
 
-SELECT
+select
     associateOID,
     itemID,
     idValue,
@@ -25,8 +25,6 @@ SELECT
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_government_ids_hashid
 from {{ ref('government_ids_ab3') }}
-
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
-

@@ -6,13 +6,13 @@
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ ref('social_insurance_programs_ab1') }}
 
-SELECT
+select
 
-	cast(associateOID as {{ dbt_utils.type_string() }}) as associateOID,
-	cast(nameCode_codeValue as {{ dbt_utils.type_string() }}) as nameCode_codeValue,
-	cast(nameCode_shortName as {{ dbt_utils.type_string() }}) as nameCode_shortName, 
-	cast(coveredIndicator as {{ dbt_utils.type_string() }}) as coveredIndicator,
-	t._airbyte_ab_id,
+    cast(associateOID as {{ dbt_utils.type_string() }}) as associateOID,
+    cast(nameCode_codeValue as {{ dbt_utils.type_string() }}) as nameCode_codeValue,
+    cast(nameCode_shortName as {{ dbt_utils.type_string() }}) as nameCode_shortName,
+    cast(coveredIndicator as {{ dbt_utils.type_string() }}) as coveredIndicator,
+    t._airbyte_ab_id,
     t._airbyte_emitted_at
 
 from {{ ref('social_insurance_programs_ab1') }} as t

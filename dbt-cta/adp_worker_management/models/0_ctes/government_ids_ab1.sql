@@ -6,15 +6,15 @@
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ source('cta', '_airbyte_raw_workers') }}
 
-SELECT
-	JSON_EXTRACT_SCALAR(t._airbyte_data,'$.associateOID') as associateOID,
-	JSON_EXTRACT_SCALAR(governmentIDs, '$.itemID') AS itemID,
-	JSON_EXTRACT_SCALAR(governmentIDs, '$.idValue') AS idValue,
-	JSON_EXTRACT_SCALAR(governmentIDs, '$.nameCode.codeValue') AS nameCode_codeValue,
-	JSON_EXTRACT_SCALAR(governmentIDs, '$.nameCode.longName') AS nameCode_longName,
-	JSON_EXTRACT_SCALAR(governmentIDs, '$.countryCode') AS countryCode,
-	t._airbyte_ab_id,
-    t._airbyte_emitted_at
-FROM {{ source('cta', '_airbyte_raw_workers') }} as t,
-  UNNEST(JSON_EXTRACT_ARRAY(_airbyte_data, '$.person.governmentIDs')) AS governmentIDs
+select
+    t._airbyte_ab_id,
+    t._airbyte_emitted_at,
+    json_extract_scalar(t._airbyte_data, '$.associateOID') as associateOID,
+    json_extract_scalar(governmentIDs, '$.itemID') as itemID,
+    json_extract_scalar(governmentIDs, '$.idValue') as idValue,
+    json_extract_scalar(governmentIDs, '$.nameCode.codeValue') as nameCode_codeValue,
+    json_extract_scalar(governmentIDs, '$.nameCode.longName') as nameCode_longName,
+    json_extract_scalar(governmentIDs, '$.countryCode') as countryCode
+from {{ source('cta', '_airbyte_raw_workers') }} as t,
+    unnest(json_extract_array(_airbyte_data, '$.person.governmentIDs')) as governmentIDs
 where 1 = 1

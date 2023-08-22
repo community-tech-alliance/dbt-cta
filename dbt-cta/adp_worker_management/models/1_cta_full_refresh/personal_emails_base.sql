@@ -13,7 +13,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('personal_emails_ab3') }}
 
-SELECT
+select
     associateOID,
     nameCode_codeValue,
     nameCode_shortName,
@@ -23,8 +23,6 @@ SELECT
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_personal_emails_hashid
 from {{ ref('personal_emails_ab3') }}
-
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
-

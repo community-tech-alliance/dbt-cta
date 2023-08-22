@@ -44,8 +44,6 @@ select
         'workerStatus_statusCode_codeValue',
     ]) }} as _airbyte_workers_hashid,
     tmp.*
-from {{ ref('workers_ab2') }} tmp
-
+from {{ ref('workers_ab2') }} as tmp
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
-
