@@ -19,4 +19,3 @@ select
 from {{ ref('action_keywords_ab1') }}
 -- action_keywords
 where 1 = 1
-

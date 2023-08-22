@@ -21,4 +21,3 @@ select
 from {{ ref('email_fields_ab1') }}
 -- email_fields
 where 1 = 1
-

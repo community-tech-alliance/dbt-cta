@@ -15,7 +15,6 @@ select
         'page_wrapper_id',
     ]) }} as _airbyte_page_actions_hashid,
     tmp.*
-from {{ ref('page_actions_ab2') }} tmp
+from {{ ref('page_actions_ab2') }} as tmp
 -- page_actions
 where 1 = 1
-

@@ -18,4 +18,3 @@ select
 from {{ ref('actions_ab1') }}
 -- actions
 where 1 = 1
-

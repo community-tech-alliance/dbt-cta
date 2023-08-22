@@ -22,4 +22,3 @@ select
 from {{ ref('phone_dedupe_logs_ab1') }}
 -- phone_dedupe_logs
 where 1 = 1
-

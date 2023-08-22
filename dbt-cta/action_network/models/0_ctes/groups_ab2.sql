@@ -100,4 +100,3 @@ select
 from {{ ref('groups_ab1') }}
 -- groups
 where 1 = 1
-

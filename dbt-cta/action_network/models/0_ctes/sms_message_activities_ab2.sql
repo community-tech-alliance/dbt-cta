@@ -26,4 +26,3 @@ select
 from {{ ref('sms_message_activities_ab1') }}
 -- sms_message_activities
 where 1 = 1
-

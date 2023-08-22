@@ -84,4 +84,3 @@ select
 from {{ ref('event_campaigns_ab1') }}
 -- event_campaigns
 where 1 = 1
-

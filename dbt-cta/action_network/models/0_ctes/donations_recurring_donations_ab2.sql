@@ -17,4 +17,3 @@ select
 from {{ ref('donations_recurring_donations_ab1') }}
 -- donations_recurring_donations
 where 1 = 1
-

@@ -31,7 +31,6 @@ select
         'administrative_title',
     ]) }} as _airbyte_mobile_messages_hashid,
     tmp.*
-from {{ ref('mobile_messages_ab2') }} tmp
+from {{ ref('mobile_messages_ab2') }} as tmp
 -- mobile_messages
 where 1 = 1
-

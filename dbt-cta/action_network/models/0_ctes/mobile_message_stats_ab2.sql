@@ -20,4 +20,3 @@ select
 from {{ ref('mobile_message_stats_ab1') }}
 -- mobile_message_stats
 where 1 = 1
-

@@ -17,7 +17,6 @@ select
         'question_id',
     ]) }} as _airbyte_action_questions_hashid,
     tmp.*
-from {{ ref('action_questions_ab2') }} tmp
+from {{ ref('action_questions_ab2') }} as tmp
 -- action_questions
 where 1 = 1
-

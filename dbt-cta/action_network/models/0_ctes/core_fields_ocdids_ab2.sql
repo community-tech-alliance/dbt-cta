@@ -15,4 +15,3 @@ select
 from {{ ref('core_fields_ocdids_ab1') }}
 -- core_fields_ocdids
 where 1 = 1
-

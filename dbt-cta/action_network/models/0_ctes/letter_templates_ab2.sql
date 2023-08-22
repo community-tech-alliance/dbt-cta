@@ -24,4 +24,3 @@ select
 from {{ ref('letter_templates_ab1') }}
 -- letter_templates
 where 1 = 1
-

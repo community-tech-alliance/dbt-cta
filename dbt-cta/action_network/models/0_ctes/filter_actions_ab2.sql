@@ -20,4 +20,3 @@ select
 from {{ ref('filter_actions_ab1') }}
 -- filter_actions
 where 1 = 1
-

@@ -36,7 +36,6 @@ select
         'originating_system',
     ]) }} as _airbyte_ticket_receipts_hashid,
     tmp.*
-from {{ ref('ticket_receipts_ab2') }} tmp
+from {{ ref('ticket_receipts_ab2') }} as tmp
 -- ticket_receipts
 where 1 = 1
-

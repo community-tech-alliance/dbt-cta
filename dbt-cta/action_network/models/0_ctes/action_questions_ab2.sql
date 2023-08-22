@@ -20,4 +20,3 @@ select
 from {{ ref('action_questions_ab1') }}
 -- action_questions
 where 1 = 1
-

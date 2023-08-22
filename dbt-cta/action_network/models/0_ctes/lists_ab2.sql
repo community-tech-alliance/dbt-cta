@@ -48,4 +48,3 @@ select
 from {{ ref('lists_ab1') }}
 -- lists
 where 1 = 1
-

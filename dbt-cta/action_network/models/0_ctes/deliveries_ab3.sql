@@ -33,7 +33,6 @@ select
         'updates_from_sponsor',
     ]) }} as _airbyte_deliveries_hashid,
     tmp.*
-from {{ ref('deliveries_ab2') }} tmp
+from {{ ref('deliveries_ab2') }} as tmp
 -- deliveries
 where 1 = 1
-

@@ -22,7 +22,6 @@ select
         'csv_content_type',
     ]) }} as _airbyte_targets_hashid,
     tmp.*
-from {{ ref('targets_ab2') }} tmp
+from {{ ref('targets_ab2') }} as tmp
 -- targets
 where 1 = 1
-

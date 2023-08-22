@@ -14,7 +14,6 @@ select
         'core_field_id',
     ]) }} as _airbyte_core_field_timezones_hashid,
     tmp.*
-from {{ ref('core_field_timezones_ab2') }} tmp
+from {{ ref('core_field_timezones_ab2') }} as tmp
 -- core_field_timezones
 where 1 = 1
-

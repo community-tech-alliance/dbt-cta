@@ -97,7 +97,6 @@ select
         'mobile_message_stats_csv_content_type',
     ]) }} as _airbyte_groups_hashid,
     tmp.*
-from {{ ref('groups_ab2') }} tmp
+from {{ ref('groups_ab2') }} as tmp
 -- groups
 where 1 = 1
-

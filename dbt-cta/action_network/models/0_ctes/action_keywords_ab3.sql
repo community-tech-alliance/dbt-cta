@@ -16,7 +16,6 @@ select
         'action_type',
     ]) }} as _airbyte_action_keywords_hashid,
     tmp.*
-from {{ ref('action_keywords_ab2') }} tmp
+from {{ ref('action_keywords_ab2') }} as tmp
 -- action_keywords
 where 1 = 1
-

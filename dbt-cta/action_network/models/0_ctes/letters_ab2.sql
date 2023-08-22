@@ -63,4 +63,3 @@ select
 from {{ ref('letters_ab1') }}
 -- letters
 where 1 = 1
-

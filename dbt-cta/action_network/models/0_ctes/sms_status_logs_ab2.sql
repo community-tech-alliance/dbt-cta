@@ -23,4 +23,3 @@ select
 from {{ ref('sms_status_logs_ab1') }}
 -- sms_status_logs
 where 1 = 1
-

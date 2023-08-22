@@ -25,7 +25,6 @@ select
         'target_position',
     ]) }} as _airbyte_call_targets_hashid,
     tmp.*
-from {{ ref('call_targets_ab2') }} tmp
+from {{ ref('call_targets_ab2') }} as tmp
 -- call_targets
 where 1 = 1
-

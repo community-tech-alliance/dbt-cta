@@ -17,4 +17,3 @@ select
 from {{ ref('email_campaign_members_ab1') }}
 -- email_campaign_members
 where 1 = 1
-

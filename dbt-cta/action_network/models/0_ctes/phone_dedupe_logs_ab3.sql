@@ -19,7 +19,6 @@ select
         'removed_core_field_id',
     ]) }} as _airbyte_phone_dedupe_logs_hashid,
     tmp.*
-from {{ ref('phone_dedupe_logs_ab2') }} tmp
+from {{ ref('phone_dedupe_logs_ab2') }} as tmp
 -- phone_dedupe_logs
 where 1 = 1
-

@@ -15,4 +15,3 @@ select
 from {{ ref('core_fields_counties_ab1') }}
 -- core_fields_counties
 where 1 = 1
-

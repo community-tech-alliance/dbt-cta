@@ -20,4 +20,3 @@ select
 from {{ ref('group_invites_ab1') }}
 -- group_invites
 where 1 = 1
-

@@ -37,7 +37,6 @@ select
         'updates_from_sponsor',
     ]) }} as _airbyte_donations_hashid,
     tmp.*
-from {{ ref('donations_ab2') }} tmp
+from {{ ref('donations_ab2') }} as tmp
 -- donations
 where 1 = 1
-

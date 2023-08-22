@@ -22,4 +22,3 @@ select
 from {{ ref('groups_syndications_ab1') }}
 -- groups_syndications
 where 1 = 1
-

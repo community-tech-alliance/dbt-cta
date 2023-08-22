@@ -19,4 +19,3 @@ select
 from {{ ref('child_permissions_ab1') }}
 -- child_permissions
 where 1 = 1
-

@@ -18,4 +18,3 @@ select
 from {{ ref('core_field_syndications_ab1') }}
 -- core_field_syndications
 where 1 = 1
-

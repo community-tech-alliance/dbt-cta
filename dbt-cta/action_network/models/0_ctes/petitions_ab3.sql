@@ -66,7 +66,6 @@ select
         'form_builder_output_json',
     ]) }} as _airbyte_petitions_hashid,
     tmp.*
-from {{ ref('petitions_ab2') }} tmp
+from {{ ref('petitions_ab2') }} as tmp
 -- petitions
 where 1 = 1
-

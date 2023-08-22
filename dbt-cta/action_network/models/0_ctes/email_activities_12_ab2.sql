@@ -23,4 +23,3 @@ select
 from {{ ref('email_activities_12_ab1') }}
 -- email_activities_12
 where 1 = 1
-

@@ -16,4 +16,3 @@ select
 from {{ ref('field_names_groups_ab1') }}
 -- field_names_groups
 where 1 = 1
-

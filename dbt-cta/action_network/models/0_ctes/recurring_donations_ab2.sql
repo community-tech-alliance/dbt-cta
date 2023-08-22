@@ -22,4 +22,3 @@ select
 from {{ ref('recurring_donations_ab1') }}
 -- recurring_donations
 where 1 = 1
-

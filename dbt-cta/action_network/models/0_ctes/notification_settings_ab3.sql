@@ -16,7 +16,6 @@ select
         'notificate_third_parties',
     ]) }} as _airbyte_notification_settings_hashid,
     tmp.*
-from {{ ref('notification_settings_ab2') }} tmp
+from {{ ref('notification_settings_ab2') }} as tmp
 -- notification_settings
 where 1 = 1
-

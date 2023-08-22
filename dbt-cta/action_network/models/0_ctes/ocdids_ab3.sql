@@ -14,7 +14,6 @@ select
         'ocdid_value',
     ]) }} as _airbyte_ocdids_hashid,
     tmp.*
-from {{ ref('ocdids_ab2') }} tmp
+from {{ ref('ocdids_ab2') }} as tmp
 -- ocdids
 where 1 = 1
-

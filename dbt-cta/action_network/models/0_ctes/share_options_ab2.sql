@@ -41,4 +41,3 @@ select
 from {{ ref('share_options_ab1') }}
 -- share_options
 where 1 = 1
-

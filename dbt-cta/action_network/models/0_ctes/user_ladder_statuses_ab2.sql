@@ -21,4 +21,3 @@ select
 from {{ ref('user_ladder_statuses_ab1') }}
 -- user_ladder_statuses
 where 1 = 1
-

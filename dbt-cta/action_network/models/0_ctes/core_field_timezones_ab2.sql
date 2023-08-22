@@ -17,4 +17,3 @@ select
 from {{ ref('core_field_timezones_ab1') }}
 -- core_field_timezones
 where 1 = 1
-

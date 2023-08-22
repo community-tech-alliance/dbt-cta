@@ -31,7 +31,6 @@ select
         'updates_from_sponsor',
     ]) }} as _airbyte_rsvps_hashid,
     tmp.*
-from {{ ref('rsvps_ab2') }} tmp
+from {{ ref('rsvps_ab2') }} as tmp
 -- rsvps
 where 1 = 1
-

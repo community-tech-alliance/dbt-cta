@@ -23,7 +23,6 @@ select
         'logo_content_type',
     ]) }} as _airbyte_page_wrappers_hashid,
     tmp.*
-from {{ ref('page_wrappers_ab2') }} tmp
+from {{ ref('page_wrappers_ab2') }} as tmp
 -- page_wrappers
 where 1 = 1
-

@@ -25,4 +25,3 @@ select
 from {{ ref('targets_ab1') }}
 -- targets
 where 1 = 1
-

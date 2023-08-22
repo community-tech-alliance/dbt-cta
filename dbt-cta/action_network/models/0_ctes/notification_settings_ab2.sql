@@ -19,4 +19,3 @@ select
 from {{ ref('notification_settings_ab1') }}
 -- notification_settings
 where 1 = 1
-

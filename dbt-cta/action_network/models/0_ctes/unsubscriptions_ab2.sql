@@ -28,4 +28,3 @@ select
 from {{ ref('unsubscriptions_ab1') }}
 -- unsubscriptions
 where 1 = 1
-

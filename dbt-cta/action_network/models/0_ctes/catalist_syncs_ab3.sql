@@ -22,7 +22,6 @@ select
         'token_updated_at',
     ]) }} as _airbyte_catalist_syncs_hashid,
     tmp.*
-from {{ ref('catalist_syncs_ab2') }} tmp
+from {{ ref('catalist_syncs_ab2') }} as tmp
 -- catalist_syncs
 where 1 = 1
-

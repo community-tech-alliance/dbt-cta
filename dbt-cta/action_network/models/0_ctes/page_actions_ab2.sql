@@ -18,4 +18,3 @@ select
 from {{ ref('page_actions_ab1') }}
 -- page_actions
 where 1 = 1
-

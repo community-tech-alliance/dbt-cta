@@ -20,7 +20,6 @@ select
         'filterable_type',
     ]) }} as _airbyte_filters_hashid,
     tmp.*
-from {{ ref('filters_ab2') }} tmp
+from {{ ref('filters_ab2') }} as tmp
 -- filters
 where 1 = 1
-

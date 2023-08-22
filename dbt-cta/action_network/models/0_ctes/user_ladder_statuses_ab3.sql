@@ -18,7 +18,6 @@ select
         'updated_at',
     ]) }} as _airbyte_user_ladder_statuses_hashid,
     tmp.*
-from {{ ref('user_ladder_statuses_ab2') }} tmp
+from {{ ref('user_ladder_statuses_ab2') }} as tmp
 -- user_ladder_statuses
 where 1 = 1
-

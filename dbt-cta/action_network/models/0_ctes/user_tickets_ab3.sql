@@ -17,7 +17,6 @@ select
         'ticket_receipt_id',
     ]) }} as _airbyte_user_tickets_hashid,
     tmp.*
-from {{ ref('user_tickets_ab2') }} tmp
+from {{ ref('user_tickets_ab2') }} as tmp
 -- user_tickets
 where 1 = 1
-

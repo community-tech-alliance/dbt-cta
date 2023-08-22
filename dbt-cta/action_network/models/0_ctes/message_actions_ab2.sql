@@ -20,4 +20,3 @@ select
 from {{ ref('message_actions_ab1') }}
 -- message_actions
 where 1 = 1
-

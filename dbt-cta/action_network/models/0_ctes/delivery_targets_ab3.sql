@@ -30,7 +30,6 @@ select
         'letter_template_id',
     ]) }} as _airbyte_delivery_targets_hashid,
     tmp.*
-from {{ ref('delivery_targets_ab2') }} tmp
+from {{ ref('delivery_targets_ab2') }} as tmp
 -- delivery_targets
 where 1 = 1
-

@@ -36,7 +36,6 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_ticket_receipts') }} as table_alias
+from {{ source('cta', '_airbyte_raw_ticket_receipts') }}
 -- ticket_receipts
 where 1 = 1
-
