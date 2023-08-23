@@ -62,11 +62,26 @@ models:
 
     # for the /monitoring project
     0_staging:
+      +tags:
+        - monitoring
       +materialized: view
+      +grant_access_to:
+        - project: "{{ env_var('CTA_PROJECT_ID') }}"
+          dataset: "{{ env_var('CTA_DATASET_ID') }}"
     1_intermediate:
+      +tags:
+        - monitoring
       +materialized: view
+      +grant_access_to:
+        - project: "{{ env_var('CTA_PROJECT_ID') }}"
+          dataset: "{{ env_var('CTA_DATASET_ID') }}"
     2_reporting:
+      +tags:
+        - monitoring
       +materialized: view
+      +grant_access_to:
+        - project: "{{ env_var('CTA_PROJECT_ID') }}"
+          dataset: "{{ env_var('CTA_DATASET_ID') }}"
 
     # for testing
     0_ctes_dev:
