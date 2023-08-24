@@ -1,7 +1,7 @@
 select distinct
     json_extract_scalar(
-      protopayload_auditlog.metadataJson,
-      "$.jobChange.job.jobName"
+        protopayload_auditlog.metadataJson,
+        "$.jobChange.job.jobName"
     ) as jobName
 from
-  {{ ref('filtered_logs') }}
+    {{ ref('filtered_logs') }}
