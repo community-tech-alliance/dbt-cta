@@ -60,7 +60,7 @@ models:
       +materialized: incremental
       +on_schema_change: sync_all_columns
 
-    # for the /monitoring project
+    # for the /bigquery_monitoring project (no other syncs use these models)
     0_staging:
       +tags:
         - partner # adding this tag so we can run /bigquery_monitoring from DMDF
