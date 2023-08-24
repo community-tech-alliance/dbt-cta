@@ -15,4 +15,3 @@ select
 from {{ ref('pages_ab1') }}
 -- pages
 where 1 = 1
-

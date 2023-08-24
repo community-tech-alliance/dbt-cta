@@ -12,7 +12,6 @@ select
         'display_name',
     ]) }} as _airbyte_pages_hashid,
     tmp.*
-from {{ ref('pages_ab2') }} tmp
+from {{ ref('pages_ab2') }} as tmp
 -- pages
 where 1 = 1
-
