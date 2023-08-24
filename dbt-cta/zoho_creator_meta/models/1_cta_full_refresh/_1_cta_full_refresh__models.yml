@@ -1,0 +1,184 @@
+version: 2
+
+models:
+
+  - name: forms_base
+    description: ''
+    columns:
+      - name: application_link_name
+        description: ''
+      - name: type
+        description: ''
+      - name: link_name
+        description: ''
+      - name: display_name
+        description: ''
+      - name: workspace_name
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_forms_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: reports_base
+    description: ''
+    columns:
+      - name: application_link_name
+        description: ''
+      - name: type
+        description: ''
+      - name: link_name
+        description: ''
+      - name: display_name
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_reports_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: fields_base
+    description: ''
+    columns:
+      - name: subfields
+        description: ''
+      - name: unique
+        description: ''
+      - name: max_char
+        description: ''
+      - name: type
+        description: ''
+      - name: choices
+        description: ''
+      - name: link_name
+        description: ''
+      - name: display_name
+        description: ''
+      - name: mandatory
+        description: ''
+      - name: form_link_name
+        description: ''
+      - name: application_link_name
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_fields_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: pages_base
+    description: ''
+    columns:
+      - name: application_link_name
+        description: ''
+      - name: link_name
+        description: ''
+      - name: display_name
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_pages_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: applications_base
+    description: ''
+    columns:
+      - name: application_name
+        description: ''
+      - name: date_format
+        description: ''
+      - name: creation_date
+        description: ''
+      - name: category
+        description: ''
+      - name: link_name
+        description: ''
+      - name: time_zone
+        description: ''
+      - name: created_by
+        description: ''
+      - name: workspace_name
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_applications_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
