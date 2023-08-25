@@ -34,7 +34,6 @@ select
         'tokenization_method',
     ]) }} as _airbyte_external_account_cards_hashid,
     tmp.*
-from {{ ref('external_account_cards_ab2') }} tmp
+from {{ ref('external_account_cards_ab2') }} as tmp
 -- external_account_cards
 where 1 = 1
-

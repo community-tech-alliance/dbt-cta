@@ -23,7 +23,6 @@ select
         'ending_balance',
     ]) }} as _airbyte_customer_balance_transactions_hashid,
     tmp.*
-from {{ ref('customer_balance_transactions_ab2') }} tmp
+from {{ ref('customer_balance_transactions_ab2') }} as tmp
 -- customer_balance_transactions
 where 1 = 1
-

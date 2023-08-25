@@ -16,7 +16,7 @@ select
         'subscription',
     ]) }} as _airbyte_discount_hashid,
     tmp.*
-from {{ ref('subscriptions_discount_ab2') }} tmp
+from {{ ref('subscriptions_discount_ab2') }} as tmp
 -- discount at subscriptions_base/discount
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

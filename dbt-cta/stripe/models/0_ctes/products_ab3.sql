@@ -29,7 +29,7 @@ select
         'statement_descriptor',
     ]) }} as _airbyte_products_hashid,
     tmp.*
-from {{ ref('products_ab2') }} tmp
+from {{ ref('products_ab2') }} as tmp
 -- products
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

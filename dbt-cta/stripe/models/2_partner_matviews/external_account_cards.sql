@@ -1,1 +1,1 @@
-SELECT * FROM {{ source('cta','external_account_cards_base') }}
+select * from {{ source('cta','external_account_cards_base') }}

@@ -1,1 +1,1 @@
-SELECT * FROM {{ source('cta','charges_payment_method_details_card_wallet_masterpass_base') }}
+select * from {{ source('cta','charges_payment_method_details_card_wallet_masterpass_base') }}

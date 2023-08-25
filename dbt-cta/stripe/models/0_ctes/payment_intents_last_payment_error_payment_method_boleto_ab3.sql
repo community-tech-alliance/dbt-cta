@@ -11,7 +11,7 @@ select
         'tax_id',
     ]) }} as _airbyte_boleto_hashid,
     tmp.*
-from {{ ref('payment_intents_last_payment_error_payment_method_boleto_ab2') }} tmp
+from {{ ref('payment_intents_last_payment_error_payment_method_boleto_ab2') }} as tmp
 -- boleto at payment_intents_base/last_payment_error/payment_method/boleto
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

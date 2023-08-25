@@ -33,7 +33,7 @@ select
         'failure_balance_transaction',
     ]) }} as _airbyte_transfers_hashid,
     tmp.*
-from {{ ref('transfers_ab2') }} tmp
+from {{ ref('transfers_ab2') }} as tmp
 -- transfers
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

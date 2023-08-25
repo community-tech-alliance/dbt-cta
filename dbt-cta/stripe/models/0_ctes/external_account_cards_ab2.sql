@@ -37,4 +37,3 @@ select
 from {{ ref('external_account_cards_ab1') }}
 -- external_account_cards
 where 1 = 1
-

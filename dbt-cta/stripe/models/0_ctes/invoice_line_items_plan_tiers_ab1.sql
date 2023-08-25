@@ -14,9 +14,9 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('invoice_line_items_plan_base') }} as table_alias
+from {{ ref('invoice_line_items_plan_base') }}
 -- tiers at invoice_line_items_base/plan/tiers
 {{ cross_join_unnest('plan', 'tiers') }}
-where 1 = 1
-and tiers is not null
-
+where
+    1 = 1
+    and tiers is not null

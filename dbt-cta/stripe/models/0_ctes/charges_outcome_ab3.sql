@@ -16,7 +16,7 @@ select
         'seller_message',
     ]) }} as _airbyte_outcome_hashid,
     tmp.*
-from {{ ref('charges_outcome_ab2') }} tmp
+from {{ ref('charges_outcome_ab2') }} as tmp
 -- outcome at charges_base/outcome
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

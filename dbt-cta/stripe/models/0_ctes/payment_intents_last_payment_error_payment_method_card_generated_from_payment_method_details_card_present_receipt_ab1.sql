@@ -19,9 +19,10 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('payment_intents_last_payment_error_payment_method_card_generated_from_payment_method_details_card_present_base') }} as table_alias
+from {{ ref('payment_intents_last_payment_error_payment_method_card_generated_from_payment_method_details_card_present_base') }}
 -- receipt at payment_intents_base/last_payment_error/payment_method/card/generated_from/payment_method_details/card_present/receipt
-where 1 = 1
-and receipt is not null
+where
+    1 = 1
+    and receipt is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

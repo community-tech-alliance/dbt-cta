@@ -16,7 +16,7 @@ select
         'refund_attributes_status',
     ]) }} as _airbyte_receiver_hashid,
     tmp.*
-from {{ ref('charges_source_receiver_ab2') }} tmp
+from {{ ref('charges_source_receiver_ab2') }} as tmp
 -- receiver at charges_base/source/receiver
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

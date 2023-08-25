@@ -26,7 +26,8 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('checkout_sessions_total_details_breakdown_taxes_base') }} as table_alias
 -- rate at checkout_sessions_base/total_details/breakdown/taxes/rate
-where 1 = 1
-and rate is not null
+where
+    1 = 1
+    and rate is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

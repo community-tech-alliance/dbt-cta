@@ -24,7 +24,7 @@ select
         'jurisdiction',
     ]) }} as _airbyte_rate_hashid,
     tmp.*
-from {{ ref('checkout_sessions_total_details_breakdown_taxes_rate_ab2') }} tmp
+from {{ ref('checkout_sessions_total_details_breakdown_taxes_rate_ab2') }} as tmp
 -- rate at checkout_sessions_base/total_details/breakdown/taxes/rate
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

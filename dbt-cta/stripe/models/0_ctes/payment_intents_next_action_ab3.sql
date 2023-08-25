@@ -20,7 +20,7 @@ select
         object_to_string('wechat_pay_redirect_to_android_app'),
     ]) }} as _airbyte_next_action_hashid,
     tmp.*
-from {{ ref('payment_intents_next_action_ab2') }} tmp
+from {{ ref('payment_intents_next_action_ab2') }} as tmp
 -- next_action at payment_intents_base/next_action
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

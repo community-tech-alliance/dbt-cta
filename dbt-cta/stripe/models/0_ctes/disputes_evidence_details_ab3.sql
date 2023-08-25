@@ -14,7 +14,7 @@ select
         'submission_count',
     ]) }} as _airbyte_evidence_details_hashid,
     tmp.*
-from {{ ref('disputes_evidence_details_ab2') }} tmp
+from {{ ref('disputes_evidence_details_ab2') }} as tmp
 -- evidence_details at disputes_base/evidence_details
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

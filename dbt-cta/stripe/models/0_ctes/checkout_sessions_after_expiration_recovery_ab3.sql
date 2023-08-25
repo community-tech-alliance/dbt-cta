@@ -14,7 +14,7 @@ select
         boolean_to_string('allow_promotion_codes'),
     ]) }} as _airbyte_recovery_hashid,
     tmp.*
-from {{ ref('checkout_sessions_after_expiration_recovery_ab2') }} tmp
+from {{ ref('checkout_sessions_after_expiration_recovery_ab2') }} as tmp
 -- recovery at checkout_sessions_base/after_expiration/recovery
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

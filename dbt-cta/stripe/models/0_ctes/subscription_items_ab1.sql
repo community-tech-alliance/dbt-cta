@@ -34,4 +34,3 @@ select
 from {{ source('cta', '_airbyte_raw_subscription_items') }} as table_alias
 -- subscription_items
 where 1 = 1
-

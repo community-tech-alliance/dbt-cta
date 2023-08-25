@@ -11,7 +11,7 @@ select
         'bank',
     ]) }} as _airbyte_fpx_hashid,
     tmp.*
-from {{ ref('payment_intents_last_payment_error_payment_method_fpx_ab2') }} tmp
+from {{ ref('payment_intents_last_payment_error_payment_method_fpx_ab2') }} as tmp
 -- fpx at payment_intents_base/last_payment_error/payment_method/fpx
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

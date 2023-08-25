@@ -11,7 +11,7 @@ select
         object_to_string('recovery'),
     ]) }} as _airbyte_after_expiration_hashid,
     tmp.*
-from {{ ref('checkout_sessions_after_expiration_ab2') }} tmp
+from {{ ref('checkout_sessions_after_expiration_ab2') }} as tmp
 -- after_expiration at checkout_sessions_base/after_expiration
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

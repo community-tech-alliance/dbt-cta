@@ -33,7 +33,6 @@ select
         'statement_description',
     ]) }} as _airbyte_plan_hashid,
     tmp.*
-from {{ ref('subscription_items_plan_ab2') }} tmp
+from {{ ref('subscription_items_plan_ab2') }} as tmp
 -- plan at subscription_items_base/plan
 where 1 = 1
-

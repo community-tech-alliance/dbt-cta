@@ -37,7 +37,7 @@ select
         'failure_balance_transaction',
     ]) }} as _airbyte_payouts_hashid,
     tmp.*
-from {{ ref('payouts_ab2') }} tmp
+from {{ ref('payouts_ab2') }} as tmp
 -- payouts
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
