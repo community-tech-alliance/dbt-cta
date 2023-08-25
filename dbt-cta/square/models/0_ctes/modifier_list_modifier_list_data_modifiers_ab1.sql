@@ -18,10 +18,11 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('modifier_list_modifier_list_data_base') }} as table_alias
+from {{ ref('modifier_list_modifier_list_data_base') }}
 -- modifiers at modifier_list/modifier_list_data/modifiers
 {{ cross_join_unnest('modifier_list_data', 'modifiers') }}
-where 1 = 1
-and modifiers is not null
+where
+    1 = 1
+    and modifiers is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -12,7 +12,6 @@ select
         'currency',
     ]) }} as _airbyte_amount_money_hashid,
     tmp.*
-from {{ ref('orders_tenders_amount_money_ab2') }} tmp
+from {{ ref('orders_tenders_amount_money_ab2') }} as tmp
 -- amount_money at orders/tenders/amount_money
 where 1 = 1
-

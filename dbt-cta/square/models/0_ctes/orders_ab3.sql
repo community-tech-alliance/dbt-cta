@@ -33,7 +33,6 @@ select
         object_to_string('total_service_charge_money'),
     ]) }} as _airbyte_orders_hashid,
     tmp.*
-from {{ ref('orders_ab2') }} tmp
+from {{ ref('orders_ab2') }} as tmp
 -- orders
 where 1 = 1
-

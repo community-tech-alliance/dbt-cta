@@ -14,7 +14,6 @@ select
         'administrative_district_level_1',
     ]) }} as _airbyte_address_hashid,
     tmp.*
-from {{ ref('orders_fulfillments_shipment_details_recipient_address_ab2') }} tmp
+from {{ ref('orders_fulfillments_shipment_details_recipient_address_ab2') }} as tmp
 -- address at orders/fulfillments/shipment_details/recipient/address
 where 1 = 1
-

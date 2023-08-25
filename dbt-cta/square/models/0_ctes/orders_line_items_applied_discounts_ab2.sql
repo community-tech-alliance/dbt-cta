@@ -16,4 +16,3 @@ select
 from {{ ref('orders_line_items_applied_discounts_ab1') }}
 -- applied_discounts at orders/line_items/applied_discounts
 where 1 = 1
-

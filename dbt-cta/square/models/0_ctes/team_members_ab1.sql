@@ -24,4 +24,3 @@ select
 from {{ source('cta', '_airbyte_raw_team_members') }} as table_alias
 -- team_members
 where 1 = 1
-

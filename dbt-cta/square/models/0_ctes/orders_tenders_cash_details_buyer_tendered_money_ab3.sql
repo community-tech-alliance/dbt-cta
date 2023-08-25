@@ -12,7 +12,6 @@ select
         'currency',
     ]) }} as _airbyte_buyer_tendered_money_hashid,
     tmp.*
-from {{ ref('orders_tenders_cash_details_buyer_tendered_money_ab2') }} tmp
+from {{ ref('orders_tenders_cash_details_buyer_tendered_money_ab2') }} as tmp
 -- buyer_tendered_money at orders/tenders/cash_details/buyer_tendered_money
 where 1 = 1
-

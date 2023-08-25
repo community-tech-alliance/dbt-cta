@@ -14,8 +14,8 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('orders_fulfillments_shipment_details_recipient_base') }} as table_alias
+from {{ ref('orders_fulfillments_shipment_details_recipient_base') }}
 -- address at orders/fulfillments/shipment_details/recipient/address
-where 1 = 1
-and address is not null
-
+where
+    1 = 1
+    and address is not null

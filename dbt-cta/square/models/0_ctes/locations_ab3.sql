@@ -32,7 +32,6 @@ select
         'instagram_username',
     ]) }} as _airbyte_locations_hashid,
     tmp.*
-from {{ ref('locations_ab2') }} tmp
+from {{ ref('locations_ab2') }} as tmp
 -- locations
 where 1 = 1
-

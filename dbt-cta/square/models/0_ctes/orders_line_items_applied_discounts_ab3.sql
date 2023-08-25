@@ -13,7 +13,6 @@ select
         object_to_string('applied_money'),
     ]) }} as _airbyte_applied_discounts_hashid,
     tmp.*
-from {{ ref('orders_line_items_applied_discounts_ab2') }} tmp
+from {{ ref('orders_line_items_applied_discounts_ab2') }} as tmp
 -- applied_discounts at orders/line_items/applied_discounts
 where 1 = 1
-

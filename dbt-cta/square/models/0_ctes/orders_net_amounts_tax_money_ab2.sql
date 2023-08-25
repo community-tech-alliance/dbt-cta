@@ -15,4 +15,3 @@ select
 from {{ ref('orders_net_amounts_tax_money_ab1') }}
 -- tax_money at orders/net_amounts/tax_money
 where 1 = 1
-

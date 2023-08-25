@@ -15,4 +15,3 @@ select
 from {{ ref('shifts_wage_hourly_rate_ab1') }}
 -- hourly_rate at shifts/wage/hourly_rate
 where 1 = 1
-

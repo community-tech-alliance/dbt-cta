@@ -21,4 +21,3 @@ select
 from {{ ref('orders_service_charges_ab1') }}
 -- service_charges at orders/service_charges
 where 1 = 1
-

@@ -20,7 +20,7 @@ select
         boolean_to_string('present_at_all_locations'),
     ]) }} as _airbyte_items_hashid,
     tmp.*
-from {{ ref('items_ab2') }} tmp
+from {{ ref('items_ab2') }} as tmp
 -- items
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

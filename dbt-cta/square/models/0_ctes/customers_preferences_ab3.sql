@@ -11,7 +11,6 @@ select
         boolean_to_string('email_unsubscribed'),
     ]) }} as _airbyte_preferences_hashid,
     tmp.*
-from {{ ref('customers_preferences_ab2') }} tmp
+from {{ ref('customers_preferences_ab2') }} as tmp
 -- preferences at customers/preferences
 where 1 = 1
-

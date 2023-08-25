@@ -15,4 +15,3 @@ select
 from {{ ref('shifts_wage_ab1') }}
 -- wage at shifts/wage
 where 1 = 1
-

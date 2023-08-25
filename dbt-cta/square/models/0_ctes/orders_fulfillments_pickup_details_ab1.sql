@@ -22,6 +22,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('orders_fulfillments_base') }} as table_alias
 -- pickup_details at orders/fulfillments/pickup_details
-where 1 = 1
-and pickup_details is not null
-
+where
+    1 = 1
+    and pickup_details is not null

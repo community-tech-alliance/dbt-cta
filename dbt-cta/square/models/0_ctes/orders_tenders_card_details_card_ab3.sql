@@ -13,7 +13,6 @@ select
         'fingerprint',
     ]) }} as _airbyte_card_hashid,
     tmp.*
-from {{ ref('orders_tenders_card_details_card_ab2') }} tmp
+from {{ ref('orders_tenders_card_details_card_ab2') }} as tmp
 -- card at orders/tenders/card_details/card
 where 1 = 1
-

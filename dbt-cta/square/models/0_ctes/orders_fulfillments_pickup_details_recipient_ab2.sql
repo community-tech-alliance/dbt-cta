@@ -15,4 +15,3 @@ select
 from {{ ref('orders_fulfillments_pickup_details_recipient_ab1') }}
 -- recipient at orders/fulfillments/pickup_details/recipient
 where 1 = 1
-

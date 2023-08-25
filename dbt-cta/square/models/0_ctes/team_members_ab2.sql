@@ -24,4 +24,3 @@ select
 from {{ ref('team_members_ab1') }}
 -- team_members
 where 1 = 1
-

@@ -15,4 +15,3 @@ select
 from {{ ref('team_member_wages_hourly_rate_ab1') }}
 -- hourly_rate at team_member_wages/hourly_rate
 where 1 = 1
-

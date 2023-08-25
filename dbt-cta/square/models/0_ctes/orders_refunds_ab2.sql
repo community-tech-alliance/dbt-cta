@@ -21,4 +21,3 @@ select
 from {{ ref('orders_refunds_ab1') }}
 -- refunds at orders/refunds
 where 1 = 1
-

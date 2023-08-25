@@ -12,8 +12,8 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('orders_line_items_base') }} as table_alias
+from {{ ref('orders_line_items_base') }}
 -- total_money at orders/line_items/total_money
-where 1 = 1
-and total_money is not null
-
+where
+    1 = 1
+    and total_money is not null

@@ -11,7 +11,6 @@ select
         'name',
     ]) }} as _airbyte_source_hashid,
     tmp.*
-from {{ ref('orders_source_ab2') }} tmp
+from {{ ref('orders_source_ab2') }} as tmp
 -- source at orders/source
 where 1 = 1
-

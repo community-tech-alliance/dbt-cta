@@ -15,4 +15,3 @@ select
 from {{ ref('orders_returns_return_line_items_total_discount_money_ab1') }}
 -- total_discount_money at orders/returns/return_line_items/total_discount_money
 where 1 = 1
-

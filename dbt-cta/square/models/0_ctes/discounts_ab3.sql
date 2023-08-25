@@ -18,7 +18,7 @@ select
         boolean_to_string('present_at_all_locations'),
     ]) }} as _airbyte_discounts_hashid,
     tmp.*
-from {{ ref('discounts_ab2') }} tmp
+from {{ ref('discounts_ab2') }} as tmp
 -- discounts
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

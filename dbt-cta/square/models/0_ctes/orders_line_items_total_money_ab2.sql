@@ -15,4 +15,3 @@ select
 from {{ ref('orders_line_items_total_money_ab1') }}
 -- total_money at orders/line_items/total_money
 where 1 = 1
-

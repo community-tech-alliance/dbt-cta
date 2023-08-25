@@ -15,7 +15,6 @@ select
         object_to_string('total_price_money'),
     ]) }} as _airbyte_modifiers_hashid,
     tmp.*
-from {{ ref('orders_line_items_modifiers_ab2') }} tmp
+from {{ ref('orders_line_items_modifiers_ab2') }} as tmp
 -- modifiers at orders/line_items/modifiers
 where 1 = 1
-

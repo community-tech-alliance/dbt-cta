@@ -15,4 +15,3 @@ select
 from {{ ref('orders_net_amounts_discount_money_ab1') }}
 -- discount_money at orders/net_amounts/discount_money
 where 1 = 1
-

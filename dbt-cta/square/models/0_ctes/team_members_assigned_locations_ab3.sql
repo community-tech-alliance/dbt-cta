@@ -11,7 +11,6 @@ select
         'assignment_type',
     ]) }} as _airbyte_assigned_locations_hashid,
     tmp.*
-from {{ ref('team_members_assigned_locations_ab2') }} tmp
+from {{ ref('team_members_assigned_locations_ab2') }} as tmp
 -- assigned_locations at team_members/assigned_locations
 where 1 = 1
-

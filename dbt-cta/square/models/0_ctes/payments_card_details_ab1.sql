@@ -19,7 +19,8 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('payments_base') }} as table_alias
 -- card_details at payments/card_details
-where 1 = 1
-and card_details is not null
+where
+    1 = 1
+    and card_details is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

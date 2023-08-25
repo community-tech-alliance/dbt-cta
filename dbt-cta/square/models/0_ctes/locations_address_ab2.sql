@@ -18,4 +18,3 @@ select
 from {{ ref('locations_address_ab1') }}
 -- address at locations/address
 where 1 = 1
-

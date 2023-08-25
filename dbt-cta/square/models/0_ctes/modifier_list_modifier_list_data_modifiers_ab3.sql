@@ -17,7 +17,7 @@ select
         boolean_to_string('present_at_all_locations'),
     ]) }} as _airbyte_modifiers_hashid,
     tmp.*
-from {{ ref('modifier_list_modifier_list_data_modifiers_ab2') }} tmp
+from {{ ref('modifier_list_modifier_list_data_modifiers_ab2') }} as tmp
 -- modifiers at modifier_list/modifier_list_data/modifiers
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
