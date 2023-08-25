@@ -14,7 +14,6 @@ select
         'team_member_id',
     ]) }} as _airbyte_team_member_wages_hashid,
     tmp.*
-from {{ ref('team_member_wages_ab2') }} tmp
+from {{ ref('team_member_wages_ab2') }} as tmp
 -- team_member_wages
 where 1 = 1
-

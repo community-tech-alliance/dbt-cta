@@ -12,7 +12,6 @@ select
         'currency',
     ]) }} as _airbyte_gross_sales_money_hashid,
     tmp.*
-from {{ ref('orders_line_items_gross_sales_money_ab2') }} tmp
+from {{ ref('orders_line_items_gross_sales_money_ab2') }} as tmp
 -- gross_sales_money at orders/line_items/gross_sales_money
 where 1 = 1
-

@@ -14,9 +14,9 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('orders_line_items_base') }} as table_alias
+from {{ ref('orders_line_items_base') }}
 -- applied_taxes at orders/line_items/applied_taxes
 {{ cross_join_unnest('line_items', 'applied_taxes') }}
-where 1 = 1
-and applied_taxes is not null
-
+where
+    1 = 1
+    and applied_taxes is not null

@@ -13,7 +13,7 @@ select
         'effective_at',
     ]) }} as _airbyte_processing_fee_hashid,
     tmp.*
-from {{ ref('refunds_processing_fee_ab2') }} tmp
+from {{ ref('refunds_processing_fee_ab2') }} as tmp
 -- processing_fee at refunds/processing_fee
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

@@ -17,7 +17,7 @@ select
         'statement_description',
     ]) }} as _airbyte_card_details_hashid,
     tmp.*
-from {{ ref('payments_card_details_ab2') }} tmp
+from {{ ref('payments_card_details_ab2') }} as tmp
 -- card_details at payments/card_details
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

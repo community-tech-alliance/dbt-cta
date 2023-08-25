@@ -14,4 +14,3 @@ select
 from {{ ref('team_members_assigned_locations_ab1') }}
 -- assigned_locations at team_members/assigned_locations
 where 1 = 1
-

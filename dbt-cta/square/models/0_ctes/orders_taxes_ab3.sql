@@ -17,7 +17,6 @@ select
         'catalog_object_id',
     ]) }} as _airbyte_taxes_hashid,
     tmp.*
-from {{ ref('orders_taxes_ab2') }} tmp
+from {{ ref('orders_taxes_ab2') }} as tmp
 -- taxes at orders/taxes
 where 1 = 1
-

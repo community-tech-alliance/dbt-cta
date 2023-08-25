@@ -17,4 +17,3 @@ select
 from {{ ref('orders_fulfillments_shipment_details_recipient_address_ab1') }}
 -- address at orders/fulfillments/shipment_details/recipient/address
 where 1 = 1
-

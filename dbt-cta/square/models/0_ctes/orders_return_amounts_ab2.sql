@@ -18,4 +18,3 @@ select
 from {{ ref('orders_return_amounts_ab1') }}
 -- return_amounts at orders/return_amounts
 where 1 = 1
-

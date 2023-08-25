@@ -18,7 +18,6 @@ select
         'transaction_id',
     ]) }} as _airbyte_refunds_hashid,
     tmp.*
-from {{ ref('orders_refunds_ab2') }} tmp
+from {{ ref('orders_refunds_ab2') }} as tmp
 -- refunds at orders/refunds
 where 1 = 1
-

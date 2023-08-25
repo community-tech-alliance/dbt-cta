@@ -16,4 +16,3 @@ select
 from {{ ref('orders_tenders_card_details_card_ab1') }}
 -- card at orders/tenders/card_details/card
 where 1 = 1
-

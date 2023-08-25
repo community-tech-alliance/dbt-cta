@@ -15,4 +15,3 @@ select
 from {{ ref('orders_tenders_cash_details_buyer_tendered_money_ab1') }}
 -- buyer_tendered_money at orders/tenders/cash_details/buyer_tendered_money
 where 1 = 1
-

@@ -13,7 +13,7 @@ select
         'authorized_at',
     ]) }} as _airbyte_card_payment_timeline_hashid,
     tmp.*
-from {{ ref('payments_card_details_card_payment_timeline_ab2') }} tmp
+from {{ ref('payments_card_details_card_payment_timeline_ab2') }} as tmp
 -- card_payment_timeline at payments/card_details/card_payment_timeline
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

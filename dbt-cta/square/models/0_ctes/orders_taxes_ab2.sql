@@ -20,4 +20,3 @@ select
 from {{ ref('orders_taxes_ab1') }}
 -- taxes at orders/taxes
 where 1 = 1
-

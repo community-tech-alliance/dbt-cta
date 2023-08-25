@@ -21,7 +21,7 @@ select
         boolean_to_string('skip_modifier_screen'),
     ]) }} as _airbyte_item_data_hashid,
     tmp.*
-from {{ ref('items_item_data_ab2') }} tmp
+from {{ ref('items_item_data_ab2') }} as tmp
 -- item_data at items/item_data
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

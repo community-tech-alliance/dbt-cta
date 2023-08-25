@@ -12,7 +12,6 @@ select
         object_to_string('buyer_tendered_money'),
     ]) }} as _airbyte_cash_details_hashid,
     tmp.*
-from {{ ref('orders_tenders_cash_details_ab2') }} tmp
+from {{ ref('orders_tenders_cash_details_ab2') }} as tmp
 -- cash_details at orders/tenders/cash_details
 where 1 = 1
-

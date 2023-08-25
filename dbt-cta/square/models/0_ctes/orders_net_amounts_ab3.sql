@@ -15,7 +15,6 @@ select
         object_to_string('service_charge_money'),
     ]) }} as _airbyte_net_amounts_hashid,
     tmp.*
-from {{ ref('orders_net_amounts_ab2') }} tmp
+from {{ ref('orders_net_amounts_ab2') }} as tmp
 -- net_amounts at orders/net_amounts
 where 1 = 1
-

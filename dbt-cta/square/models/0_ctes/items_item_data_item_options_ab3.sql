@@ -11,7 +11,7 @@ select
         'item_option_id',
     ]) }} as _airbyte_item_options_hashid,
     tmp.*
-from {{ ref('items_item_data_item_options_ab2') }} tmp
+from {{ ref('items_item_data_item_options_ab2') }} as tmp
 -- item_options at items/item_data/item_options
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

@@ -18,7 +18,7 @@ select
         boolean_to_string('applies_to_custom_amounts'),
     ]) }} as _airbyte_tax_data_hashid,
     tmp.*
-from {{ ref('taxes_tax_data_ab2') }} tmp
+from {{ ref('taxes_tax_data_ab2') }} as tmp
 -- tax_data at taxes/tax_data
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

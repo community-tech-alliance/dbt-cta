@@ -13,7 +13,6 @@ select
         'entry_method',
     ]) }} as _airbyte_card_details_hashid,
     tmp.*
-from {{ ref('orders_tenders_card_details_ab2') }} tmp
+from {{ ref('orders_tenders_card_details_ab2') }} as tmp
 -- card_details at orders/tenders/card_details
 where 1 = 1
-

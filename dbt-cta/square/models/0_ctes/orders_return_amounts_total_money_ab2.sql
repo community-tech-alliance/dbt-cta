@@ -15,4 +15,3 @@ select
 from {{ ref('orders_return_amounts_total_money_ab1') }}
 -- total_money at orders/return_amounts/total_money
 where 1 = 1
-

@@ -23,4 +23,3 @@ select
 from {{ ref('orders_tenders_ab1') }}
 -- tenders at orders/tenders
 where 1 = 1
-

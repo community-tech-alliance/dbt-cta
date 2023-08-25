@@ -29,4 +29,3 @@ select
 from {{ ref('orders_line_items_ab1') }}
 -- line_items at orders/line_items
 where 1 = 1
-

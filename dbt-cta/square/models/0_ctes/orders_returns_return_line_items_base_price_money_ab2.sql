@@ -15,4 +15,3 @@ select
 from {{ ref('orders_returns_return_line_items_base_price_money_ab1') }}
 -- base_price_money at orders/returns/return_line_items/base_price_money
 where 1 = 1
-
