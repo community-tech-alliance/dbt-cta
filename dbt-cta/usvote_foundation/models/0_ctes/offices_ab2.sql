@@ -24,4 +24,3 @@ select
 from {{ ref('offices_ab1') }}
 -- offices
 where 1 = 1
-

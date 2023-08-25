@@ -25,4 +25,3 @@ select
 from {{ ref('offices_officials_ab1') }}
 -- officials at offices/officials
 where 1 = 1
-

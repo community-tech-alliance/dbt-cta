@@ -29,9 +29,9 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('offices') }} as table_alias
+from {{ ref('offices') }}
 -- addresses at offices/addresses
 {{ cross_join_unnest('offices', 'addresses') }}
-where 1 = 1
-and addresses is not null
-
+where
+    1 = 1
+    and addresses is not null
