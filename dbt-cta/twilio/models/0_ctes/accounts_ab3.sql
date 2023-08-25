@@ -20,7 +20,6 @@ select
         'owner_account_sid',
     ]) }} as _airbyte_accounts_hashid,
     tmp.*
-from {{ ref('accounts_ab2') }} tmp
+from {{ ref('accounts_ab2') }} as tmp
 -- accounts
 where 1 = 1
-

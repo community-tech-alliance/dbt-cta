@@ -23,4 +23,3 @@ select
 from {{ ref('accounts_ab1') }}
 -- accounts
 where 1 = 1
-

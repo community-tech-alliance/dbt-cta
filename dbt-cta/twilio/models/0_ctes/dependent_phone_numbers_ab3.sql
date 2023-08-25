@@ -36,7 +36,6 @@ select
         boolean_to_string('voice_caller_id_lookup'),
     ]) }} as _airbyte_dependent_phone_numbers_hashid,
     tmp.*
-from {{ ref('dependent_phone_numbers_ab2') }} tmp
+from {{ ref('dependent_phone_numbers_ab2') }} as tmp
 -- dependent_phone_numbers
 where 1 = 1
-

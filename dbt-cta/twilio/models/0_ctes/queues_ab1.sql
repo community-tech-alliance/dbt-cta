@@ -23,4 +23,3 @@ select
 from {{ source('cta', '_airbyte_raw_queues') }} as table_alias
 -- queues
 where 1 = 1
-

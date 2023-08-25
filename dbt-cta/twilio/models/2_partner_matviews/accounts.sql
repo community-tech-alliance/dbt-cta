@@ -9,5 +9,5 @@ select
     date_updated,
     friendly_name,
     subresource_uris,
-    owner_account_sid,
+    owner_account_sid
 from {{ source('cta','accounts_base') }}

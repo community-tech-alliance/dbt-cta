@@ -25,7 +25,6 @@ select
     'subresource_uris'
     ]) }} as _airbyte_usage_records_hashid,
     tmp.*
-from {{ ref('usage_records_ab2') }} tmp
+from {{ ref('usage_records_ab2') }} as tmp
 -- usage_records
 where 1 = 1
-

@@ -26,4 +26,3 @@ select
 from {{ ref('transcriptions_ab1') }}
 -- transcriptions
 where 1 = 1
-

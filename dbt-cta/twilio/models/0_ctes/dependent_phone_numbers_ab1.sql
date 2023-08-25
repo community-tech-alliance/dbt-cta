@@ -42,4 +42,3 @@ select
 from {{ source('cta', '_airbyte_raw_dependent_phone_numbers') }} as table_alias
 -- dependent_phone_numbers
 where 1 = 1
-

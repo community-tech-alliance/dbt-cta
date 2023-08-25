@@ -6,5 +6,5 @@ select
     date_created,
     date_updated,
     phone_number,
-    friendly_name,
+    friendly_name
 from {{ source('cta','outgoing_caller_ids_base') }}

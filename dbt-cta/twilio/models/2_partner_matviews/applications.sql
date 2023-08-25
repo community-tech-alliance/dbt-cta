@@ -20,5 +20,5 @@ select
     status_callback_method,
     voice_caller_id_lookup,
     message_status_callback,
-    public_application_connect_enabled,
+    public_application_connect_enabled
 from {{ source('cta','applications_base') }}

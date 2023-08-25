@@ -42,4 +42,3 @@ select
 from {{ ref('dependent_phone_numbers_ab1') }}
 -- dependent_phone_numbers
 where 1 = 1
-

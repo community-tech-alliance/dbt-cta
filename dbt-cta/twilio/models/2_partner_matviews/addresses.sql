@@ -15,5 +15,5 @@ select
     customer_name,
     friendly_name,
     street_secondary,
-    emergency_enabled,
+    emergency_enabled
 from {{ source('cta','addresses_base') }}
