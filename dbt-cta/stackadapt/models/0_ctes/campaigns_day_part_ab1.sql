@@ -15,8 +15,8 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('campaigns_base') }} as table_alias
+from {{ ref('campaigns_base') }}
 -- day_part at campaigns_base/day_part
-where 1 = 1
-and day_part is not null
-
+where
+    1 = 1
+    and day_part is not null

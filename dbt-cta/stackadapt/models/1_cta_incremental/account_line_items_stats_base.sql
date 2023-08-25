@@ -13,7 +13,7 @@ select
     atos,
     conv,
     cost,
-    SAFE_CAST(date as date) as date,
+    safe_cast(date as date) as date,
     ecpa,
     ecpc,
     ecpe,

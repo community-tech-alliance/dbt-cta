@@ -19,4 +19,3 @@ select
 from {{ ref('native_ads_icon_ab1') }}
 -- icon at native_ads/icon
 where 1 = 1
-

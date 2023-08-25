@@ -25,7 +25,6 @@ select
         array_to_string('imp_tracker_urls'),
     ]) }} as _airbyte_native_ads_hashid,
     tmp.*
-from {{ ref('native_ads_ab2') }} tmp
+from {{ ref('native_ads_ab2') }} as tmp
 -- native_ads
 where 1 = 1
-

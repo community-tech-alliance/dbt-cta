@@ -20,4 +20,3 @@ select
 from {{ ref('native_ads_input_data_display_js_creative_ab1') }}
 -- display_js_creative at native_ads/input_data/display_js_creative
 where 1 = 1
-

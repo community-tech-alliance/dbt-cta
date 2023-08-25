@@ -2,4 +2,4 @@
     auto_refresh = false,
     full_refresh = false
 ) }}
-SELECT * FROM {{ source('cta','conversion_trackers_base') }}
+select * from {{ source('cta','conversion_trackers_base') }}

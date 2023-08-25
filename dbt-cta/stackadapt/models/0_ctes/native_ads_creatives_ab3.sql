@@ -16,7 +16,6 @@ select
         'file_name',
     ]) }} as _airbyte_creatives_hashid,
     tmp.*
-from {{ ref('native_ads_creatives_ab2') }} tmp
+from {{ ref('native_ads_creatives_ab2') }} as tmp
 -- creatives at native_ads/creatives
 where 1 = 1
-

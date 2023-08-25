@@ -17,7 +17,6 @@ select
         'file_type',
     ]) }} as _airbyte_audio_creatives_hashid,
     tmp.*
-from {{ ref('native_ads_input_data_audio_creatives_ab2') }} tmp
+from {{ ref('native_ads_input_data_audio_creatives_ab2') }} as tmp
 -- audio_creatives at native_ads/input_data/audio_creatives
 where 1 = 1
-

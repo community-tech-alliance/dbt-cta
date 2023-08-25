@@ -28,4 +28,3 @@ select
 from {{ ref('native_ads_ab1') }}
 -- native_ads
 where 1 = 1
-
