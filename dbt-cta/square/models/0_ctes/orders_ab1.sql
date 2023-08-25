@@ -36,4 +36,3 @@ select
 from {{ source('cta', '_airbyte_raw_orders') }} as table_alias
 -- orders
 where 1 = 1
-

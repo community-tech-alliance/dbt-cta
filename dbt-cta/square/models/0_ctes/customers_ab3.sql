@@ -27,7 +27,6 @@ select
         'creation_source',
     ]) }} as _airbyte_customers_hashid,
     tmp.*
-from {{ ref('customers_ab2') }} tmp
+from {{ ref('customers_ab2') }} as tmp
 -- customers
 where 1 = 1
-

@@ -19,7 +19,8 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('discounts_base') }} as table_alias
 -- discount_data at discounts/discount_data
-where 1 = 1
-and discount_data is not null
+where
+    1 = 1
+    and discount_data is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -17,6 +17,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('orders_base') }} as table_alias
 -- return_amounts at orders/return_amounts
-where 1 = 1
-and return_amounts is not null
-
+where
+    1 = 1
+    and return_amounts is not null

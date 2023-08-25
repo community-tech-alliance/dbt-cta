@@ -18,7 +18,7 @@ select
         boolean_to_string('present_at_all_locations'),
     ]) }} as _airbyte_taxes_hashid,
     tmp.*
-from {{ ref('taxes_ab2') }} tmp
+from {{ ref('taxes_ab2') }} as tmp
 -- taxes
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

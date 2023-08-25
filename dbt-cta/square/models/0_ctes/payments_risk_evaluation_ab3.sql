@@ -12,7 +12,7 @@ select
         'risk_level',
     ]) }} as _airbyte_risk_evaluation_hashid,
     tmp.*
-from {{ ref('payments_risk_evaluation_ab2') }} tmp
+from {{ ref('payments_risk_evaluation_ab2') }} as tmp
 -- risk_evaluation at payments/risk_evaluation
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

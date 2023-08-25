@@ -22,4 +22,3 @@ select
 from {{ ref('orders_returns_return_line_items_ab1') }}
 -- return_line_items at orders/returns/return_line_items
 where 1 = 1
-

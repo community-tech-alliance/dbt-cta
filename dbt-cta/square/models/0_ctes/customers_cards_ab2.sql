@@ -20,4 +20,3 @@ select
 from {{ ref('customers_cards_ab1') }}
 -- cards at customers/cards
 where 1 = 1
-

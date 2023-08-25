@@ -20,7 +20,7 @@ select
         array_to_string('processing_fee'),
     ]) }} as _airbyte_refunds_hashid,
     tmp.*
-from {{ ref('refunds_ab2') }} tmp
+from {{ ref('refunds_ab2') }} as tmp
 -- refunds
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

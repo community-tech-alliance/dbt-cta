@@ -20,7 +20,6 @@ select
         'auto_complete_duration',
     ]) }} as _airbyte_pickup_details_hashid,
     tmp.*
-from {{ ref('orders_fulfillments_pickup_details_ab2') }} tmp
+from {{ ref('orders_fulfillments_pickup_details_ab2') }} as tmp
 -- pickup_details at orders/fulfillments/pickup_details
 where 1 = 1
-

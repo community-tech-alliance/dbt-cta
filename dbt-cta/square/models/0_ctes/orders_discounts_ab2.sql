@@ -19,4 +19,3 @@ select
 from {{ ref('orders_discounts_ab1') }}
 -- discounts at orders/discounts
 where 1 = 1
-

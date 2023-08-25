@@ -21,4 +21,3 @@ select
 from {{ ref('orders_fulfillments_shipment_details_ab1') }}
 -- shipment_details at orders/fulfillments/shipment_details
 where 1 = 1
-

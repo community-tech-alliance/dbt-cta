@@ -36,4 +36,3 @@ select
 from {{ ref('orders_ab1') }}
 -- orders
 where 1 = 1
-

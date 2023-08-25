@@ -21,7 +21,6 @@ select
         object_to_string('assigned_locations'),
     ]) }} as _airbyte_team_members_hashid,
     tmp.*
-from {{ ref('team_members_ab2') }} tmp
+from {{ ref('team_members_ab2') }} as tmp
 -- team_members
 where 1 = 1
-

@@ -20,7 +20,8 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('items_item_data_variations_base') }} as table_alias
 -- item_variation_data at items/item_data/variations/item_variation_data
-where 1 = 1
-and item_variation_data is not null
+where
+    1 = 1
+    and item_variation_data is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

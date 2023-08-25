@@ -11,7 +11,7 @@ select
         'name',
     ]) }} as _airbyte_category_data_hashid,
     tmp.*
-from {{ ref('categories_category_data_ab2') }} tmp
+from {{ ref('categories_category_data_ab2') }} as tmp
 -- category_data at categories/category_data
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

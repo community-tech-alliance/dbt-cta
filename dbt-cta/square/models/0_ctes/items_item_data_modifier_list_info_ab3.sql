@@ -15,7 +15,7 @@ select
         'min_selected_modifiers',
     ]) }} as _airbyte_modifier_list_info_hashid,
     tmp.*
-from {{ ref('items_item_data_modifier_list_info_ab2') }} tmp
+from {{ ref('items_item_data_modifier_list_info_ab2') }} as tmp
 -- modifier_list_info at items/item_data/modifier_list_info
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

@@ -13,7 +13,6 @@ select
         'phone_number',
     ]) }} as _airbyte_recipient_hashid,
     tmp.*
-from {{ ref('orders_fulfillments_shipment_details_recipient_ab2') }} tmp
+from {{ ref('orders_fulfillments_shipment_details_recipient_ab2') }} as tmp
 -- recipient at orders/fulfillments/shipment_details/recipient
 where 1 = 1
-

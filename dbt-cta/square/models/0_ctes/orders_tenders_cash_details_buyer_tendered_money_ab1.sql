@@ -12,8 +12,8 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('orders_tenders_cash_details_base') }} as table_alias
+from {{ ref('orders_tenders_cash_details_base') }}
 -- buyer_tendered_money at orders/tenders/cash_details/buyer_tendered_money
-where 1 = 1
-and buyer_tendered_money is not null
-
+where
+    1 = 1
+    and buyer_tendered_money is not null

@@ -18,7 +18,7 @@ select
         'prepaid_type',
     ]) }} as _airbyte_card_hashid,
     tmp.*
-from {{ ref('payments_card_details_card_ab2') }} tmp
+from {{ ref('payments_card_details_card_ab2') }} as tmp
 -- card at payments/card_details/card
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

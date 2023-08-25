@@ -18,7 +18,6 @@ select
         'expected_shipped_at',
     ]) }} as _airbyte_shipment_details_hashid,
     tmp.*
-from {{ ref('orders_fulfillments_shipment_details_ab2') }} tmp
+from {{ ref('orders_fulfillments_shipment_details_ab2') }} as tmp
 -- shipment_details at orders/fulfillments/shipment_details
 where 1 = 1
-

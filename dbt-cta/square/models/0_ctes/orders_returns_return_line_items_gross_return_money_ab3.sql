@@ -12,7 +12,6 @@ select
         'currency',
     ]) }} as _airbyte_gross_return_money_hashid,
     tmp.*
-from {{ ref('orders_returns_return_line_items_gross_return_money_ab2') }} tmp
+from {{ ref('orders_returns_return_line_items_gross_return_money_ab2') }} as tmp
 -- gross_return_money at orders/returns/return_line_items/gross_return_money
 where 1 = 1
-

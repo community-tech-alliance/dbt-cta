@@ -15,4 +15,3 @@ select
 from {{ ref('orders_tenders_amount_money_ab1') }}
 -- amount_money at orders/tenders/amount_money
 where 1 = 1
-

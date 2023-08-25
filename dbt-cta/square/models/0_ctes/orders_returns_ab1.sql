@@ -14,9 +14,9 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('orders_base') }} as table_alias
+from {{ ref('orders_base') }}
 -- returns at orders/returns
 {{ cross_join_unnest('orders', 'returns') }}
-where 1 = 1
-and returns is not null
-
+where
+    1 = 1
+    and returns is not null

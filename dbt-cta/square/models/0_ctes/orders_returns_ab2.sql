@@ -16,4 +16,3 @@ select
 from {{ ref('orders_returns_ab1') }}
 -- returns at orders/returns
 where 1 = 1
-

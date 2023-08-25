@@ -15,4 +15,3 @@ select
 from {{ ref('orders_discounts_applied_money_ab1') }}
 -- applied_money at orders/discounts/applied_money
 where 1 = 1
-
