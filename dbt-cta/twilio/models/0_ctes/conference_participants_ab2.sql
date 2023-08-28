@@ -27,4 +27,3 @@ select
 from {{ ref('conference_participants_ab1') }}
 -- conference_participants
 where 1 = 1
-

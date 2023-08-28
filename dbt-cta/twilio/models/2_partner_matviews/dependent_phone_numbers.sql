@@ -27,5 +27,5 @@ select
     voice_application_sid,
     voice_fallback_method,
     status_callback_method,
-    voice_caller_id_lookup,
+    voice_caller_id_lookup
 from {{ source('cta','dependent_phone_numbers_base') }}

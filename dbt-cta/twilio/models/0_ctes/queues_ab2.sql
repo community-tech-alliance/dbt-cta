@@ -23,4 +23,3 @@ select
 from {{ ref('queues_ab1') }}
 -- queues
 where 1 = 1
-

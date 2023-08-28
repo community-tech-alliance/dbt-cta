@@ -29,4 +29,3 @@ select
 from {{ ref('usage_triggers_ab1') }}
 -- usage_triggers
 where 1 = 1
-

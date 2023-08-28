@@ -18,4 +18,3 @@ select
 from {{ source('cta', '_airbyte_raw_available_phone_number_countries') }} as table_alias
 -- available_phone_number_countries
 where 1 = 1
-

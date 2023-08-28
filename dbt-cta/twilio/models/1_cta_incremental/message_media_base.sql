@@ -13,4 +13,3 @@ select
     date_created,
     date_updated
 from {{ ref('message_media_ab3') }}
-

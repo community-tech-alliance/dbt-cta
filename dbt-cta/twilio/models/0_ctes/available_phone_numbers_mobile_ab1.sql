@@ -29,4 +29,3 @@ select
 from {{ source('cta', '_airbyte_raw_available_phone_numbers_mobile') }} as table_alias
 -- available_phone_numbers_mobile
 where 1 = 1
-

@@ -20,7 +20,6 @@ select
         'average_wait_time',
     ]) }} as _airbyte_queues_hashid,
     tmp.*
-from {{ ref('queues_ab2') }} tmp
+from {{ ref('queues_ab2') }} as tmp
 -- queues
 where 1 = 1
-

@@ -50,4 +50,3 @@ select
 from {{ source('cta', '_airbyte_raw_incoming_phone_numbers') }} as table_alias
 -- incoming_phone_numbers
 where 1 = 1
-

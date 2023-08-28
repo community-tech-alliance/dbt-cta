@@ -18,4 +18,3 @@ select
 from {{ ref('available_phone_number_countries_ab1') }}
 -- available_phone_number_countries
 where 1 = 1
-

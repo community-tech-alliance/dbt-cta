@@ -14,7 +14,6 @@ select
         'friendly_name',
     ]) }} as _airbyte_keys_hashid,
     tmp.*
-from {{ ref('keys_ab2') }} tmp
+from {{ ref('keys_ab2') }} as tmp
 -- keys
 where 1 = 1
-

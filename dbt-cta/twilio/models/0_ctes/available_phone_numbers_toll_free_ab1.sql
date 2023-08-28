@@ -29,4 +29,3 @@ select
 from {{ source('cta', '_airbyte_raw_available_phone_numbers_toll_free') }} as table_alias
 -- available_phone_numbers_toll_free
 where 1 = 1
-
