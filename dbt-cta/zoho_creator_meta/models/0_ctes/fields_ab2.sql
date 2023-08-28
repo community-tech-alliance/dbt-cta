@@ -22,4 +22,3 @@ select
 from {{ ref('fields_ab1') }}
 -- fields
 where 1 = 1
-

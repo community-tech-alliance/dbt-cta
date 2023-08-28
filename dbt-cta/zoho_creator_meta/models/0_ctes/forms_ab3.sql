@@ -14,7 +14,6 @@ select
         'workspace_name',
     ]) }} as _airbyte_forms_hashid,
     tmp.*
-from {{ ref('forms_ab2') }} tmp
+from {{ ref('forms_ab2') }} as tmp
 -- forms
 where 1 = 1
-

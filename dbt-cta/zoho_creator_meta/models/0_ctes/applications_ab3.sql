@@ -17,7 +17,6 @@ select
         'workspace_name',
     ]) }} as _airbyte_applications_hashid,
     tmp.*
-from {{ ref('applications_ab2') }} tmp
+from {{ ref('applications_ab2') }} as tmp
 -- applications
 where 1 = 1
-

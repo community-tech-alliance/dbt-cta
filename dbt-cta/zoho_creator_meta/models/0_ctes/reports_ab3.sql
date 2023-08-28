@@ -13,7 +13,6 @@ select
         'display_name',
     ]) }} as _airbyte_reports_hashid,
     tmp.*
-from {{ ref('reports_ab2') }} tmp
+from {{ ref('reports_ab2') }} as tmp
 -- reports
 where 1 = 1
-
