@@ -23,7 +23,6 @@ select
         'resource_uri',
     ]) }} as _airbyte_officials_hashid,
     tmp.*
-from {{ ref('officials_ab2') }} tmp
+from {{ ref('officials_ab2') }} as tmp
 -- officials
 where 1 = 1
-

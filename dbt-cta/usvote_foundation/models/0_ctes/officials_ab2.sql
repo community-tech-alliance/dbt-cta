@@ -26,4 +26,3 @@ select
 from {{ ref('officials_ab1') }}
 -- officials
 where 1 = 1
-

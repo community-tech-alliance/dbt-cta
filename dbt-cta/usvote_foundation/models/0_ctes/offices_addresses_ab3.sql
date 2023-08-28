@@ -28,7 +28,6 @@ select
         'primary_contact_uri',
     ]) }} as _airbyte_addresses_hashid,
     tmp.*
-from {{ ref('offices_addresses_ab2') }} tmp
+from {{ ref('offices_addresses_ab2') }} as tmp
 -- addresses at offices/addresses
 where 1 = 1
-

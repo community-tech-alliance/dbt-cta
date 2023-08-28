@@ -8,11 +8,11 @@
 -- (this step is included because the data source seems to include duplicate rows)
 -- depends_on: {{ ref('regions_ab3') }}
 
-SELECT * FROM 
-(
-SELECT 
-    *,
-    ROW_NUMBER() OVER (PARTITION BY _airbyte_regions_hashid ORDER BY _airbyte_emitted_at desc) as rownum 
-FROM {{ ref('regions_ab3') }}
-)
-where rownum=1
+select * from
+    (
+        select
+            *,
+            row_number() over (partition by _airbyte_regions_hashid order by _airbyte_emitted_at desc) as rownum
+        from {{ ref('regions_ab3') }}
+    )
+where rownum = 1

@@ -17,4 +17,3 @@ select
 from {{ ref('states_ab1') }}
 -- states
 where 1 = 1
-
