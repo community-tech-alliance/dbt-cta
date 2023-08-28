@@ -26,4 +26,3 @@ select
 from {{ ref('line_items_ab1') }}
 -- line_items
 where 1 = 1
-

@@ -78,7 +78,7 @@ select
         'unique_imp_inverse_rate',
     ]) }} as _airbyte_account_native_ads_stats_hashid,
     tmp.*
-from {{ ref('account_native_ads_stats_ab2') }} tmp
+from {{ ref('account_native_ads_stats_ab2') }} as tmp
 -- account_native_ads_stats
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

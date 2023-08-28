@@ -60,7 +60,7 @@ select
         'unique_imp_inverse_rate',
     ]) }} as _airbyte_account_line_items_stats_hashid,
     tmp.*
-from {{ ref('account_line_items_stats_ab2') }} tmp
+from {{ ref('account_line_items_stats_ab2') }} as tmp
 -- account_line_items_stats
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

@@ -16,7 +16,6 @@ select
         'description',
     ]) }} as _airbyte_conversion_trackers_hashid,
     tmp.*
-from {{ ref('conversion_trackers_ab2') }} tmp
+from {{ ref('conversion_trackers_ab2') }} as tmp
 -- conversion_trackers
 where 1 = 1
-

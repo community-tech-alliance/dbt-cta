@@ -16,7 +16,6 @@ select
         'file_name',
     ]) }} as _airbyte_icon_hashid,
     tmp.*
-from {{ ref('native_ads_icon_ab2') }} tmp
+from {{ ref('native_ads_icon_ab2') }} as tmp
 -- icon at native_ads/icon
 where 1 = 1
-

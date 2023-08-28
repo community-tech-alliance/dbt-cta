@@ -19,4 +19,3 @@ select
 from {{ ref('conversion_trackers_ab1') }}
 -- conversion_trackers
 where 1 = 1
-

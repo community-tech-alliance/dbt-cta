@@ -17,7 +17,6 @@ select
         'file_type',
     ]) }} as _airbyte_video_creatives_hashid,
     tmp.*
-from {{ ref('native_ads_input_data_video_creatives_ab2') }} tmp
+from {{ ref('native_ads_input_data_video_creatives_ab2') }} as tmp
 -- video_creatives at native_ads/input_data/video_creatives
 where 1 = 1
-
