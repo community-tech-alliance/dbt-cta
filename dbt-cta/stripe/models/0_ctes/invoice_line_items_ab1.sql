@@ -31,4 +31,3 @@ select
 from {{ source('cta', '_airbyte_raw_invoice_line_items') }} as table_alias
 -- invoice_line_items
 where 1 = 1
-

@@ -26,4 +26,3 @@ select
 from {{ source('cta', '_airbyte_raw_bank_accounts') }} as table_alias
 -- bank_accounts
 where 1 = 1
-

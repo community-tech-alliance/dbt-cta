@@ -16,7 +16,7 @@ select
         'fingerprint',
     ]) }} as _airbyte_sepa_debit_hashid,
     tmp.*
-from {{ ref('charges_payment_method_details_card_sepa_debit_ab2') }} tmp
+from {{ ref('charges_payment_method_details_card_sepa_debit_ab2') }} as tmp
 -- sepa_debit at charges_base/payment_method_details/card/sepa_debit
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

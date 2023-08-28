@@ -16,7 +16,7 @@ select
         'postal_code',
     ]) }} as _airbyte_address_hashid,
     tmp.*
-from {{ ref('payment_intents_shipping_address_ab2') }} tmp
+from {{ ref('payment_intents_shipping_address_ab2') }} as tmp
 -- address at payment_intents_base/shipping/address
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

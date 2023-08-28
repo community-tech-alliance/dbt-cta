@@ -25,7 +25,8 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('payouts_base') }} as table_alias
 -- bank_account at payouts_base/bank_account
-where 1 = 1
-and bank_account is not null
+where
+    1 = 1
+    and bank_account is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

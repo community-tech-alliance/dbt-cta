@@ -19,7 +19,7 @@ select
         'refund_account_holder_type',
     ]) }} as _airbyte_ach_credit_transfer_hashid,
     tmp.*
-from {{ ref('charges_source_ach_credit_transfer_ab2') }} tmp
+from {{ ref('charges_source_ach_credit_transfer_ab2') }} as tmp
 -- ach_credit_transfer at charges_base/source/ach_credit_transfer
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

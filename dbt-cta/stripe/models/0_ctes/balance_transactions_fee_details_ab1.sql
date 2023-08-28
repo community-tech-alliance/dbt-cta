@@ -16,10 +16,11 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('balance_transactions_base') }} as table_alias
+from {{ ref('balance_transactions_base') }}
 -- fee_details at balance_transactions_base/fee_details
 {{ cross_join_unnest('balance_transactions_base', 'fee_details') }}
-where 1 = 1
-and fee_details is not null
+where
+    1 = 1
+    and fee_details is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -12,7 +12,7 @@ select
         'value',
     ]) }} as _airbyte_tax_ids_hashid,
     tmp.*
-from {{ ref('checkout_sessions_customer_details_tax_ids_ab2') }} tmp
+from {{ ref('checkout_sessions_customer_details_tax_ids_ab2') }} as tmp
 -- tax_ids at checkout_sessions_base/customer_details/tax_ids
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

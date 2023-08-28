@@ -21,7 +21,7 @@ select
         'checkout_session',
     ]) }} as _airbyte_discount_hashid,
     tmp.*
-from {{ ref('checkout_sessions_line_items_discounts_discount_ab2') }} tmp
+from {{ ref('checkout_sessions_line_items_discounts_discount_ab2') }} as tmp
 -- discount at checkout_sessions_line_items/discounts/discount
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

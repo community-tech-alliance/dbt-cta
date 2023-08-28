@@ -12,7 +12,7 @@ select
         boolean_to_string('enabled'),
     ]) }} as _airbyte_automatic_tax_hashid,
     tmp.*
-from {{ ref('checkout_sessions_automatic_tax_ab2') }} tmp
+from {{ ref('checkout_sessions_automatic_tax_ab2') }} as tmp
 -- automatic_tax at checkout_sessions_base/automatic_tax
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

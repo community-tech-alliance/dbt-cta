@@ -15,4 +15,3 @@ select
 from {{ ref('invoice_line_items_period_ab1') }}
 -- period at invoice_line_items_base/period
 where 1 = 1
-

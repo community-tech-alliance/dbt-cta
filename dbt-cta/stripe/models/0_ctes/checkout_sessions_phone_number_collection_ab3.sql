@@ -11,7 +11,7 @@ select
         boolean_to_string('enabled'),
     ]) }} as _airbyte_phone_number_collection_hashid,
     tmp.*
-from {{ ref('checkout_sessions_phone_number_collection_ab2') }} tmp
+from {{ ref('checkout_sessions_phone_number_collection_ab2') }} as tmp
 -- phone_number_collection at checkout_sessions_base/phone_number_collection
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

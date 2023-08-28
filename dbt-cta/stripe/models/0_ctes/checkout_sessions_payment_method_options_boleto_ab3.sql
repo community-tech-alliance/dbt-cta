@@ -11,7 +11,7 @@ select
         'expires_after_days',
     ]) }} as _airbyte_boleto_hashid,
     tmp.*
-from {{ ref('checkout_sessions_payment_method_options_boleto_ab2') }} tmp
+from {{ ref('checkout_sessions_payment_method_options_boleto_ab2') }} as tmp
 -- boleto at checkout_sessions_base/payment_method_options/boleto
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

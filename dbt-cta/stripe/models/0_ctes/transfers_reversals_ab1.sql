@@ -15,9 +15,10 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('transfers_base') }} as table_alias
+from {{ ref('transfers_base') }}
 -- reversals at transfers/reversals
-where 1 = 1
-and reversals is not null
+where
+    1 = 1
+    and reversals is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

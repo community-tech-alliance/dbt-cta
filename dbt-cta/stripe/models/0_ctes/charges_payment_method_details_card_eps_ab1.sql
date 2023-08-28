@@ -11,9 +11,10 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('charges_payment_method_details_card_base') }} as table_alias
+from {{ ref('charges_payment_method_details_card_base') }}
 -- eps at charges_base/payment_method_details/card/eps
-where 1 = 1
-and eps is not null
+where
+    1 = 1
+    and eps is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

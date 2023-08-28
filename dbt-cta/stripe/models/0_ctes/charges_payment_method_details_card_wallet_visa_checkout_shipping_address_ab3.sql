@@ -16,7 +16,7 @@ select
         'postal_code',
     ]) }} as _airbyte_shipping_address_hashid,
     tmp.*
-from {{ ref('charges_payment_method_details_card_wallet_visa_checkout_shipping_address_ab2') }} tmp
+from {{ ref('charges_payment_method_details_card_wallet_visa_checkout_shipping_address_ab2') }} as tmp
 -- shipping_address at charges_base/payment_method_details/card/wallet/visa_checkout/shipping_address
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

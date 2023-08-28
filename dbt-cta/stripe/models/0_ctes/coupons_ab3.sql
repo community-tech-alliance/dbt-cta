@@ -26,7 +26,7 @@ select
         'percent_off_precise',
     ]) }} as _airbyte_coupons_hashid,
     tmp.*
-from {{ ref('coupons_ab2') }} tmp
+from {{ ref('coupons_ab2') }} as tmp
 -- coupons
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

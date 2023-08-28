@@ -14,7 +14,7 @@ select
         'hosted_voucher_url',
     ]) }} as _airbyte_boleto_display_details_hashid,
     tmp.*
-from {{ ref('payment_intents_next_action_boleto_display_details_ab2') }} tmp
+from {{ ref('payment_intents_next_action_boleto_display_details_ab2') }} as tmp
 -- boleto_display_details at payment_intents_base/next_action/boleto_display_details
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

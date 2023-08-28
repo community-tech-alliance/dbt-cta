@@ -34,7 +34,7 @@ select
         'tokenization_method',
     ]) }} as _airbyte_cards_hashid,
     tmp.*
-from {{ ref('customers_cards_ab2') }} tmp
+from {{ ref('customers_cards_ab2') }} as tmp
 -- cards at customers_base/cards
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

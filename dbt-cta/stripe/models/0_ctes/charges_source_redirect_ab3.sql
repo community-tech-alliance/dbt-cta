@@ -14,7 +14,7 @@ select
         'failure_reason',
     ]) }} as _airbyte_redirect_hashid,
     tmp.*
-from {{ ref('charges_source_redirect_ab2') }} tmp
+from {{ ref('charges_source_redirect_ab2') }} as tmp
 -- redirect at charges_base/source/redirect
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

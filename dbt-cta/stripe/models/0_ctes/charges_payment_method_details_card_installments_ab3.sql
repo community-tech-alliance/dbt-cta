@@ -11,7 +11,7 @@ select
         object_to_string('plan'),
     ]) }} as _airbyte_installments_hashid,
     tmp.*
-from {{ ref('charges_payment_method_details_card_installments_ab2') }} tmp
+from {{ ref('charges_payment_method_details_card_installments_ab2') }} as tmp
 -- installments at charges_base/payment_method_details/card/installments
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

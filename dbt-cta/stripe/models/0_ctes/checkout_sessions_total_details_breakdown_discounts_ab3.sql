@@ -12,7 +12,7 @@ select
         object_to_string('discount'),
     ]) }} as _airbyte_discounts_hashid,
     tmp.*
-from {{ ref('checkout_sessions_total_details_breakdown_discounts_ab2') }} tmp
+from {{ ref('checkout_sessions_total_details_breakdown_discounts_ab2') }} as tmp
 -- discounts at checkout_sessions_base/total_details/breakdown/discounts
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

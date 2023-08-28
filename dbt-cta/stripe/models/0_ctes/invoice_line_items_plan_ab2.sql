@@ -36,4 +36,3 @@ select
 from {{ ref('invoice_line_items_plan_ab1') }}
 -- plan at invoice_line_items_base/plan
 where 1 = 1
-

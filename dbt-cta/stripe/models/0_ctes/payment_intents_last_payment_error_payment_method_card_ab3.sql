@@ -22,7 +22,7 @@ select
         object_to_string('three_d_secure_usage'),
     ]) }} as _airbyte_card_hashid,
     tmp.*
-from {{ ref('payment_intents_last_payment_error_payment_method_card_ab2') }} tmp
+from {{ ref('payment_intents_last_payment_error_payment_method_card_ab2') }} as tmp
 -- card at payment_intents_base/last_payment_error/payment_method/card
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

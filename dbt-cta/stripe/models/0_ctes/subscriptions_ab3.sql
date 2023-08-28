@@ -34,7 +34,7 @@ select
         'application_fee_percent',
     ]) }} as _airbyte_subscriptions_hashid,
     tmp.*
-from {{ ref('subscriptions_ab2') }} tmp
+from {{ ref('subscriptions_ab2') }} as tmp
 -- subscriptions
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

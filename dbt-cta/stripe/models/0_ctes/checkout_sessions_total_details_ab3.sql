@@ -14,7 +14,7 @@ select
         'amount_shipping',
     ]) }} as _airbyte_total_details_hashid,
     tmp.*
-from {{ ref('checkout_sessions_total_details_ab2') }} tmp
+from {{ ref('checkout_sessions_total_details_ab2') }} as tmp
 -- total_details at checkout_sessions_base/total_details
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

@@ -11,7 +11,7 @@ select
         'promotions',
     ]) }} as _airbyte_consent_hashid,
     tmp.*
-from {{ ref('checkout_sessions_consent_ab2') }} tmp
+from {{ ref('checkout_sessions_consent_ab2') }} as tmp
 -- consent at checkout_sessions_base/consent
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

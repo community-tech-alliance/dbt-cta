@@ -12,7 +12,7 @@ select
         object_to_string('address'),
     ]) }} as _airbyte_shipping_hashid,
     tmp.*
-from {{ ref('checkout_sessions_shipping_ab2') }} tmp
+from {{ ref('checkout_sessions_shipping_ab2') }} as tmp
 -- shipping at checkout_sessions_base/shipping
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

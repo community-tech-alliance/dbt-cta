@@ -23,7 +23,6 @@ select
         'account_holder_type',
     ]) }} as _airbyte_bank_accounts_hashid,
     tmp.*
-from {{ ref('bank_accounts_ab2') }} tmp
+from {{ ref('bank_accounts_ab2') }} as tmp
 -- bank_accounts
 where 1 = 1
-

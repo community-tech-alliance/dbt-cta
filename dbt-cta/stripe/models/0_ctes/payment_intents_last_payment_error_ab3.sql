@@ -19,7 +19,7 @@ select
         'payment_method_type',
     ]) }} as _airbyte_last_payment_error_hashid,
     tmp.*
-from {{ ref('payment_intents_last_payment_error_ab2') }} tmp
+from {{ ref('payment_intents_last_payment_error_ab2') }} as tmp
 -- last_payment_error at payment_intents_base/last_payment_error
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

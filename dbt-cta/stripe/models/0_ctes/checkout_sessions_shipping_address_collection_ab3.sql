@@ -11,7 +11,7 @@ select
         array_to_string('allowed_countries'),
     ]) }} as _airbyte_shipping_address_collection_hashid,
     tmp.*
-from {{ ref('checkout_sessions_shipping_address_collection_ab2') }} tmp
+from {{ ref('checkout_sessions_shipping_address_collection_ab2') }} as tmp
 -- shipping_address_collection at checkout_sessions_base/shipping_address_collection
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

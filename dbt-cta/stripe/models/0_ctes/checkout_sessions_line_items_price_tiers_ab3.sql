@@ -15,7 +15,7 @@ select
         'unit_amount_decimal',
     ]) }} as _airbyte_tiers_hashid,
     tmp.*
-from {{ ref('checkout_sessions_line_items_price_tiers_ab2') }} tmp
+from {{ ref('checkout_sessions_line_items_price_tiers_ab2') }} as tmp
 -- tiers at checkout_sessions_line_items/price/tiers
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
