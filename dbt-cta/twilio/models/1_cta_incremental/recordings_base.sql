@@ -25,4 +25,3 @@ select
     subresource_uris,
     encryption_details
 from {{ ref('recordings_ab3') }}
-

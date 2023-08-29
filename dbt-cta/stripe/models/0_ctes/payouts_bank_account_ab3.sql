@@ -23,7 +23,7 @@ select
         'account_holder_type',
     ]) }} as _airbyte_bank_account_hashid,
     tmp.*
-from {{ ref('payouts_bank_account_ab2') }} tmp
+from {{ ref('payouts_bank_account_ab2') }} as tmp
 -- bank_account at payouts_base/bank_account
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

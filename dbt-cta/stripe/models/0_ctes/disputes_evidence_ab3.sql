@@ -37,7 +37,7 @@ select
         'duplicate_charge_documentation',
     ]) }} as _airbyte_evidence_hashid,
     tmp.*
-from {{ ref('disputes_evidence_ab2') }} tmp
+from {{ ref('disputes_evidence_ab2') }} as tmp
 -- evidence at disputes_base/evidence
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

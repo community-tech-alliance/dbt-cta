@@ -24,7 +24,7 @@ select
         boolean_to_string('is_charge_refundable'),
     ]) }} as _airbyte_disputes_hashid,
     tmp.*
-from {{ ref('disputes_ab2') }} tmp
+from {{ ref('disputes_ab2') }} as tmp
 -- disputes
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

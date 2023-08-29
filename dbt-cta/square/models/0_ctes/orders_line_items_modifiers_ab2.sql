@@ -18,4 +18,3 @@ select
 from {{ ref('orders_line_items_modifiers_ab1') }}
 -- modifiers at orders/line_items/modifiers
 where 1 = 1
-

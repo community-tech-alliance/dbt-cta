@@ -15,7 +15,7 @@ select
         'description',
     ]) }} as _airbyte_fee_details_hashid,
     tmp.*
-from {{ ref('balance_transactions_fee_details_ab2') }} tmp
+from {{ ref('balance_transactions_fee_details_ab2') }} as tmp
 -- fee_details at balance_transactions/fee_details
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

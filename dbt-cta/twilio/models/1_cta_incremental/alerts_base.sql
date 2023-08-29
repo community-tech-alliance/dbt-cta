@@ -22,4 +22,3 @@ select
     request_method,
     _airbyte_emitted_at
 from {{ ref('alerts_ab3') }}
-

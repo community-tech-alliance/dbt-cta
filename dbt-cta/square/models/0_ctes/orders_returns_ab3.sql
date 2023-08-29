@@ -13,7 +13,6 @@ select
         array_to_string('return_line_items'),
     ]) }} as _airbyte_returns_hashid,
     tmp.*
-from {{ ref('orders_returns_ab2') }} tmp
+from {{ ref('orders_returns_ab2') }} as tmp
 -- returns at orders/returns
 where 1 = 1
-

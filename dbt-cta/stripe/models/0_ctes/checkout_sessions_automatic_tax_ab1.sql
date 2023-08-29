@@ -12,9 +12,10 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('checkout_sessions_base') }} as table_alias
+from {{ ref('checkout_sessions_base') }}
 -- automatic_tax at checkout_sessions_base/automatic_tax
-where 1 = 1
-and automatic_tax is not null
+where
+    1 = 1
+    and automatic_tax is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

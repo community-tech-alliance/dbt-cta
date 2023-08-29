@@ -15,4 +15,3 @@ select
 from {{ ref('orders_total_service_charge_money_ab1') }}
 -- total_service_charge_money at orders/total_service_charge_money
 where 1 = 1
-

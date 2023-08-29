@@ -12,7 +12,7 @@
 select
     id,
     name,
-    SAFE_CAST(user_id as integer) as user_id,
+    safe_cast(user_id as integer) as user_id,
     conv_type,
     post_time,
     count_type,

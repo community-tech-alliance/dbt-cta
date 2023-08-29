@@ -35,6 +35,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('subscription_items_base') }} as table_alias
 -- plan at subscription_items_base/plan
-where 1 = 1
-and plan is not null
-
+where
+    1 = 1
+    and plan is not null

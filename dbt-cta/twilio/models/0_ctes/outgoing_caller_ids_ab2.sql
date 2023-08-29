@@ -20,4 +20,3 @@ select
 from {{ ref('outgoing_caller_ids_ab1') }}
 -- outgoing_caller_ids
 where 1 = 1
-

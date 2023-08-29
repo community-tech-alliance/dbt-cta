@@ -20,4 +20,3 @@ select
 from {{ ref('native_ads_input_data_audio_creatives_ab1') }}
 -- audio_creatives at native_ads/input_data/audio_creatives
 where 1 = 1
-

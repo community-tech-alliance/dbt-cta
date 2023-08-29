@@ -18,7 +18,7 @@ select
         boolean_to_string('present_at_all_locations'),
     ]) }} as _airbyte_variations_hashid,
     tmp.*
-from {{ ref('items_item_data_variations_ab2') }} tmp
+from {{ ref('items_item_data_variations_ab2') }} as tmp
 -- variations at items/item_data/variations
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

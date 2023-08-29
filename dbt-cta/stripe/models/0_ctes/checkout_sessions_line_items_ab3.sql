@@ -22,7 +22,7 @@ select
         'checkout_session_expires_at',
     ]) }} as _airbyte_checkout_sessions_line_items_hashid,
     tmp.*
-from {{ ref('checkout_sessions_line_items_ab2') }} tmp
+from {{ ref('checkout_sessions_line_items_ab2') }} as tmp
 -- checkout_sessions_line_items
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

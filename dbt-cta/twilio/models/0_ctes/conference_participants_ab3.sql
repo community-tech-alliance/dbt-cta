@@ -24,7 +24,6 @@ select
         boolean_to_string('start_conference_on_enter'),
     ]) }} as _airbyte_conference_participants_hashid,
     tmp.*
-from {{ ref('conference_participants_ab2') }} tmp
+from {{ ref('conference_participants_ab2') }} as tmp
 -- conference_participants
 where 1 = 1
-

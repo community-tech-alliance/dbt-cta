@@ -12,7 +12,6 @@ select
         'currency',
     ]) }} as _airbyte_applied_money_hashid,
     tmp.*
-from {{ ref('orders_line_items_applied_discounts_applied_money_ab2') }} tmp
+from {{ ref('orders_line_items_applied_discounts_applied_money_ab2') }} as tmp
 -- applied_money at orders/line_items/applied_discounts/applied_money
 where 1 = 1
-

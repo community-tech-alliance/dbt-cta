@@ -31,7 +31,6 @@ select
         boolean_to_string('public_application_connect_enabled'),
     ]) }} as _airbyte_applications_hashid,
     tmp.*
-from {{ ref('applications_ab2') }} tmp
+from {{ ref('applications_ab2') }} as tmp
 -- applications
 where 1 = 1
-

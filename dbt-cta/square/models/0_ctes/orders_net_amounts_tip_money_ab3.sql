@@ -12,7 +12,6 @@ select
         'currency',
     ]) }} as _airbyte_tip_money_hashid,
     tmp.*
-from {{ ref('orders_net_amounts_tip_money_ab2') }} tmp
+from {{ ref('orders_net_amounts_tip_money_ab2') }} as tmp
 -- tip_money at orders/net_amounts/tip_money
 where 1 = 1
-

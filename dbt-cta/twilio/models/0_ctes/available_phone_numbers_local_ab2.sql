@@ -29,4 +29,3 @@ select
 from {{ ref('available_phone_numbers_local_ab1') }}
 -- available_phone_numbers_local
 where 1 = 1
-

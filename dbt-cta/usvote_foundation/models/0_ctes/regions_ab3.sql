@@ -21,7 +21,6 @@ select
         'municipality_type',
     ]) }} as _airbyte_regions_hashid,
     tmp.*
-from {{ ref('regions_ab2') }} tmp
+from {{ ref('regions_ab2') }} as tmp
 -- regions
 where 1 = 1
-

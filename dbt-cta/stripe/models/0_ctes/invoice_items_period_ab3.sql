@@ -12,7 +12,7 @@ select
         'start',
     ]) }} as _airbyte_period_hashid,
     tmp.*
-from {{ ref('invoice_items_period_ab2') }} tmp
+from {{ ref('invoice_items_period_ab2') }} as tmp
 -- period at invoice_items_base/period
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

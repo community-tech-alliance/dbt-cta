@@ -14,7 +14,6 @@ select
         'resource_uri',
     ]) }} as _airbyte_states_hashid,
     tmp.*
-from {{ ref('states_ab2') }} tmp
+from {{ ref('states_ab2') }} as tmp
 -- states
 where 1 = 1
-

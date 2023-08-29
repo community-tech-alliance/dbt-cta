@@ -16,4 +16,3 @@ select
 from {{ ref('native_ads_vast_trackers_ab1') }}
 -- vast_trackers at native_ads/vast_trackers
 where 1 = 1
-

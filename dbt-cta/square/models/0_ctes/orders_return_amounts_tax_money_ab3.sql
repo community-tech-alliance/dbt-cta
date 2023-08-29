@@ -12,7 +12,6 @@ select
         'currency',
     ]) }} as _airbyte_tax_money_hashid,
     tmp.*
-from {{ ref('orders_return_amounts_tax_money_ab2') }} tmp
+from {{ ref('orders_return_amounts_tax_money_ab2') }} as tmp
 -- tax_money at orders/return_amounts/tax_money
 where 1 = 1
-

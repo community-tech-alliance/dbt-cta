@@ -19,4 +19,3 @@ select
 from {{ ref('native_ads_creatives_ab1') }}
 -- creatives at native_ads/creatives
 where 1 = 1
-

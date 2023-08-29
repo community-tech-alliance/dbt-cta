@@ -54,7 +54,7 @@ select
         'webhooks_delivered_at',
     ]) }} as _airbyte_invoices_hashid,
     tmp.*
-from {{ ref('invoices_ab2') }} tmp
+from {{ ref('invoices_ab2') }} as tmp
 -- invoices
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

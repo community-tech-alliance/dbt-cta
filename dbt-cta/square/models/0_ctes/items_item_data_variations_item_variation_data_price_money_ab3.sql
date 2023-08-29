@@ -12,7 +12,7 @@ select
         'currency',
     ]) }} as _airbyte_price_money_hashid,
     tmp.*
-from {{ ref('items_item_data_variations_item_variation_data_price_money_ab2') }} tmp
+from {{ ref('items_item_data_variations_item_variation_data_price_money_ab2') }} as tmp
 -- price_money at items/item_data/variations/item_variation_data/price_money
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

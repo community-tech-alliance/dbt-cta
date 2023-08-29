@@ -18,4 +18,3 @@ select
 from {{ ref('campaigns_day_part_ab1') }}
 -- day_part at campaigns_base/day_part
 where 1 = 1
-

@@ -26,4 +26,3 @@ select
 from {{ source('cta', '_airbyte_raw_shifts') }} as table_alias
 -- shifts
 where 1 = 1
-

@@ -36,4 +36,3 @@ select
 from {{ ref('subscription_items_plan_ab1') }}
 -- plan at subscription_items_base/plan
 where 1 = 1
-

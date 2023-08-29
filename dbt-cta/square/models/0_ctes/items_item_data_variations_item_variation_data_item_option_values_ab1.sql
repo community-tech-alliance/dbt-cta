@@ -13,10 +13,11 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('items_item_data_variations_item_variation_data_base') }} as table_alias
+from {{ ref('items_item_data_variations_item_variation_data_base') }}
 -- item_option_values at items/item_data/variations/item_variation_data/item_option_values
 {{ cross_join_unnest('item_variation_data', 'item_option_values') }}
-where 1 = 1
-and item_option_values is not null
+where
+    1 = 1
+    and item_option_values is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

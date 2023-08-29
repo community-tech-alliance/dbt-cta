@@ -13,7 +13,7 @@ select
         'address_postal_code_check',
     ]) }} as _airbyte_checks_hashid,
     tmp.*
-from {{ ref('charges_payment_method_details_card_checks_ab2') }} tmp
+from {{ ref('charges_payment_method_details_card_checks_ab2') }} as tmp
 -- checks at charges_base/payment_method_details/card/checks
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

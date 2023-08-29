@@ -35,4 +35,3 @@ select
 from {{ ref('locations_ab1') }}
 -- locations
 where 1 = 1
-

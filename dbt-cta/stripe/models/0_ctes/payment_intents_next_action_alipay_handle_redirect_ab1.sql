@@ -14,9 +14,10 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('payment_intents_next_action_base') }} as table_alias
+from {{ ref('payment_intents_next_action_base') }}
 -- alipay_handle_redirect at payment_intents_base/next_action/alipay_handle_redirect
-where 1 = 1
-and alipay_handle_redirect is not null
+where
+    1 = 1
+    and alipay_handle_redirect is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

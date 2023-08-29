@@ -16,4 +16,3 @@ select
 from {{ ref('advertisers_ab1') }}
 -- advertisers
 where 1 = 1
-

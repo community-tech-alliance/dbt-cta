@@ -14,5 +14,5 @@ select
     date_updated,
     resource_sid,
     date_generated,
-    request_method,
+    request_method
 from {{ source('cta','alerts_base') }}

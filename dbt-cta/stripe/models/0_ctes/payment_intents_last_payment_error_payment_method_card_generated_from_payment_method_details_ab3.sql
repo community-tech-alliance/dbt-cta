@@ -12,7 +12,7 @@ select
         object_to_string('card_present'),
     ]) }} as _airbyte_payment_method_details_hashid,
     tmp.*
-from {{ ref('payment_intents_last_payment_error_payment_method_card_generated_from_payment_method_details_ab2') }} tmp
+from {{ ref('payment_intents_last_payment_error_payment_method_card_generated_from_payment_method_details_ab2') }} as tmp
 -- payment_method_details at payment_intents_base/last_payment_error/payment_method/card/generated_from/payment_method_details
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

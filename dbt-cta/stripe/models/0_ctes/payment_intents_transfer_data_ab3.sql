@@ -12,7 +12,7 @@ select
         'destination',
     ]) }} as _airbyte_transfer_data_hashid,
     tmp.*
-from {{ ref('payment_intents_transfer_data_ab2') }} tmp
+from {{ ref('payment_intents_transfer_data_ab2') }} as tmp
 -- transfer_data at payment_intents_base/transfer_data
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

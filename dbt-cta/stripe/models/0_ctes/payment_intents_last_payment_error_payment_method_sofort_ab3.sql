@@ -11,7 +11,7 @@ select
         'country',
     ]) }} as _airbyte_sofort_hashid,
     tmp.*
-from {{ ref('payment_intents_last_payment_error_payment_method_sofort_ab2') }} tmp
+from {{ ref('payment_intents_last_payment_error_payment_method_sofort_ab2') }} as tmp
 -- sofort at payment_intents_base/last_payment_error/payment_method/sofort
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

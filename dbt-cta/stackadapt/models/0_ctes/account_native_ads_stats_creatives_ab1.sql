@@ -13,10 +13,11 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('account_native_ads_stats_base') }} as table_alias
+from {{ ref('account_native_ads_stats_base') }}
 -- creatives at account_native_ads_stats/creatives
 {{ cross_join_unnest('account_native_ads_stats', 'creatives') }}
-where 1 = 1
-and creatives is not null
+where
+    1 = 1
+    and creatives is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

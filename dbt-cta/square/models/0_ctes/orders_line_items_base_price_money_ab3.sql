@@ -12,7 +12,6 @@ select
         'currency',
     ]) }} as _airbyte_base_price_money_hashid,
     tmp.*
-from {{ ref('orders_line_items_base_price_money_ab2') }} tmp
+from {{ ref('orders_line_items_base_price_money_ab2') }} as tmp
 -- base_price_money at orders/line_items/base_price_money
 where 1 = 1
-

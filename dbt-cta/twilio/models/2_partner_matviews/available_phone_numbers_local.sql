@@ -15,5 +15,5 @@ select
     capabilities_voice,
     phone_number,
     friendly_name,
-    address_requirements,
+    address_requirements
 from {{ source('cta','available_phone_numbers_local_base') }}

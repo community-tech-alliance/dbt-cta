@@ -18,4 +18,3 @@ select
 from {{ ref('orders_fulfillments_ab1') }}
 -- fulfillments at orders/fulfillments
 where 1 = 1
-

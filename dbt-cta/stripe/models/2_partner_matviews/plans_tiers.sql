@@ -1,1 +1,1 @@
-SELECT * FROM {{ source('cta','plans_tiers_base') }}
+select * from {{ source('cta','plans_tiers_base') }}

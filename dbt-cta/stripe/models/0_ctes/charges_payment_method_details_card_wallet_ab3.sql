@@ -18,7 +18,7 @@ select
         object_to_string('amex_express_checkout'),
     ]) }} as _airbyte_wallet_hashid,
     tmp.*
-from {{ ref('charges_payment_method_details_card_wallet_ab2') }} tmp
+from {{ ref('charges_payment_method_details_card_wallet_ab2') }} as tmp
 -- wallet at charges_base/payment_method_details/card/wallet
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

@@ -14,6 +14,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('orders_tenders_base') }} as table_alias
 -- cash_details at orders/tenders/cash_details
-where 1 = 1
-and cash_details is not null
-
+where
+    1 = 1
+    and cash_details is not null

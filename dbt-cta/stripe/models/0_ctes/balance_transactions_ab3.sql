@@ -25,7 +25,7 @@ select
         array_to_string('sourced_transfers'),
     ]) }} as _airbyte_balance_transactions_hashid,
     tmp.*
-from {{ ref('balance_transactions_ab2') }} tmp
+from {{ ref('balance_transactions_ab2') }} as tmp
 -- balance_transactions
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

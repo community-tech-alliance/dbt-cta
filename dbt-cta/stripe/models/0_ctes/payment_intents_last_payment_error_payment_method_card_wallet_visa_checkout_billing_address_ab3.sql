@@ -16,7 +16,7 @@ select
         'postal_code',
     ]) }} as _airbyte_billing_address_hashid,
     tmp.*
-from {{ ref('payment_intents_last_payment_error_payment_method_card_wallet_visa_checkout_billing_address_ab2') }} tmp
+from {{ ref('payment_intents_last_payment_error_payment_method_card_wallet_visa_checkout_billing_address_ab2') }} as tmp
 -- billing_address at payment_intents_base/last_payment_error/payment_method/card/wallet/visa_checkout/billing_address
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

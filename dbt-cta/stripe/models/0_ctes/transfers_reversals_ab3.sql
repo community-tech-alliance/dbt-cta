@@ -15,7 +15,7 @@ select
         'total_count',
     ]) }} as _airbyte_reversals_hashid,
     tmp.*
-from {{ ref('transfers_reversals_ab2') }} tmp
+from {{ ref('transfers_reversals_ab2') }} as tmp
 -- reversals at transfers_base/reversals
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

@@ -31,4 +31,3 @@ select
 from {{ ref('invoice_line_items_ab1') }}
 -- invoice_line_items
 where 1 = 1
-

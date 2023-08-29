@@ -12,9 +12,10 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('payment_intents_next_action_base') }} as table_alias
+from {{ ref('payment_intents_next_action_base') }}
 -- redirect_to_url at payment_intents_base/next_action/redirect_to_url
-where 1 = 1
-and redirect_to_url is not null
+where
+    1 = 1
+    and redirect_to_url is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

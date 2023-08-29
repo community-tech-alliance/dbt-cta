@@ -28,7 +28,7 @@ select
         'subscription_item',
     ]) }} as _airbyte_invoice_items_hashid,
     tmp.*
-from {{ ref('invoice_items_ab2') }} tmp
+from {{ ref('invoice_items_ab2') }} as tmp
 -- invoice_items
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

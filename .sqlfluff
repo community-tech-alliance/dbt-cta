@@ -3,7 +3,7 @@ templater = dbt
 dialect = bigquery
 nocolor = True
 max_line_length = 0
-exclude_rules = CP02
+exclude_rules = CP02, RF04
 
 [sqlfluff:templater:dbt]
 project_dir = dbt-cta/

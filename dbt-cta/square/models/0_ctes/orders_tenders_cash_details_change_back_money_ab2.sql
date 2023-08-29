@@ -15,4 +15,3 @@ select
 from {{ ref('orders_tenders_cash_details_change_back_money_ab1') }}
 -- change_back_money at orders/tenders/cash_details/change_back_money
 where 1 = 1
-

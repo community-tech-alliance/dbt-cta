@@ -20,7 +20,6 @@ select
         'transaction_id',
     ]) }} as _airbyte_tenders_hashid,
     tmp.*
-from {{ ref('orders_tenders_ab2') }} tmp
+from {{ ref('orders_tenders_ab2') }} as tmp
 -- tenders at orders/tenders
 where 1 = 1
-

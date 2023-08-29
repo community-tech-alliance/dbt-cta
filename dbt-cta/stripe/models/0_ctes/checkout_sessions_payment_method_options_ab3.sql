@@ -13,7 +13,7 @@ select
         object_to_string('acss_debit'),
     ]) }} as _airbyte_payment_method_options_hashid,
     tmp.*
-from {{ ref('checkout_sessions_payment_method_options_ab2') }} tmp
+from {{ ref('checkout_sessions_payment_method_options_ab2') }} as tmp
 -- payment_method_options at checkout_sessions_base/payment_method_options
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

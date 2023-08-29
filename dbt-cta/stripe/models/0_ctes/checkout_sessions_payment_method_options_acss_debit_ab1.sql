@@ -15,7 +15,8 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('checkout_sessions_payment_method_options_base') }} as table_alias
 -- acss_debit at checkout_sessions_base/payment_method_options/acss_debit
-where 1 = 1
-and acss_debit is not null
+where
+    1 = 1
+    and acss_debit is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

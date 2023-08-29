@@ -18,4 +18,3 @@ select
 from {{ ref('orders_net_amounts_ab1') }}
 -- net_amounts at orders/net_amounts
 where 1 = 1
-

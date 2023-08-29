@@ -11,7 +11,7 @@ select
         'verified_name',
     ]) }} as _airbyte_eps_hashid,
     tmp.*
-from {{ ref('charges_payment_method_details_card_eps_ab2') }} tmp
+from {{ ref('charges_payment_method_details_card_eps_ab2') }} as tmp
 -- eps at charges_base/payment_method_details/card/eps
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

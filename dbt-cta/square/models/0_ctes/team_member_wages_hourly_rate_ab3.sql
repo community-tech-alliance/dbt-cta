@@ -12,7 +12,6 @@ select
         'currency',
     ]) }} as _airbyte_hourly_rate_hashid,
     tmp.*
-from {{ ref('team_member_wages_hourly_rate_ab2') }} tmp
+from {{ ref('team_member_wages_hourly_rate_ab2') }} as tmp
 -- hourly_rate at team_member_wages/hourly_rate
 where 1 = 1
-

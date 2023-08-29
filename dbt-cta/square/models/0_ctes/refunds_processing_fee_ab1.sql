@@ -14,10 +14,11 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('refunds_base') }} as table_alias
+from {{ ref('refunds_base') }}
 -- processing_fee at refunds/processing_fee
 {{ cross_join_unnest('refunds', 'processing_fee') }}
-where 1 = 1
-and processing_fee is not null
+where
+    1 = 1
+    and processing_fee is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

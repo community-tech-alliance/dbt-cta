@@ -22,7 +22,8 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('payment_intents_base') }} as table_alias
 -- next_action at payment_intents_base/next_action
-where 1 = 1
-and next_action is not null
+where
+    1 = 1
+    and next_action is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

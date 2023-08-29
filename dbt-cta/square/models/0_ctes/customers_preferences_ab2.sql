@@ -14,4 +14,3 @@ select
 from {{ ref('customers_preferences_ab1') }}
 -- preferences at customers/preferences
 where 1 = 1
-

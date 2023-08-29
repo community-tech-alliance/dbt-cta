@@ -23,4 +23,3 @@ select
 from {{ ref('orders_fulfillments_pickup_details_ab1') }}
 -- pickup_details at orders/fulfillments/pickup_details
 where 1 = 1
-

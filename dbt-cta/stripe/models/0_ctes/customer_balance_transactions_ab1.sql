@@ -26,4 +26,3 @@ select
 from {{ source('cta', '_airbyte_raw_customer_balance_transactions') }} as table_alias
 -- customer_balance_transactions
 where 1 = 1
-

@@ -15,7 +15,7 @@ select
         'total_count',
     ]) }} as _airbyte_charges_hashid,
     tmp.*
-from {{ ref('payment_intents_charges_ab2') }} tmp
+from {{ ref('payment_intents_charges_ab2') }} as tmp
 -- charges at payment_intents_base/charges
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

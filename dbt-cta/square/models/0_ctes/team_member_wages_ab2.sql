@@ -17,4 +17,3 @@ select
 from {{ ref('team_member_wages_ab1') }}
 -- team_member_wages
 where 1 = 1
-

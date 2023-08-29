@@ -24,4 +24,3 @@ select
 from {{ ref('regions_ab1') }}
 -- regions
 where 1 = 1
-

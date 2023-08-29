@@ -15,7 +15,6 @@ select
         object_to_string('shipment_details'),
     ]) }} as _airbyte_fulfillments_hashid,
     tmp.*
-from {{ ref('orders_fulfillments_ab2') }} tmp
+from {{ ref('orders_fulfillments_ab2') }} as tmp
 -- fulfillments at orders/fulfillments
 where 1 = 1
-

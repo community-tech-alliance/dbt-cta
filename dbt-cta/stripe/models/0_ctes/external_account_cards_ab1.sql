@@ -37,4 +37,3 @@ select
 from {{ source('cta', '_airbyte_raw_external_account_cards') }} as table_alias
 -- external_account_cards
 where 1 = 1
-

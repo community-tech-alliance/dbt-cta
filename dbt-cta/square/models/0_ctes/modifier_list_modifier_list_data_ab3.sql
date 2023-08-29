@@ -13,7 +13,7 @@ select
         'selection_type',
     ]) }} as _airbyte_modifier_list_data_hashid,
     tmp.*
-from {{ ref('modifier_list_modifier_list_data_ab2') }} tmp
+from {{ ref('modifier_list_modifier_list_data_ab2') }} as tmp
 -- modifier_list_data at modifier_list/modifier_list_data
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

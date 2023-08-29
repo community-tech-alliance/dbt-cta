@@ -11,9 +11,10 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('promotion_codes_coupon_base') }} as table_alias
+from {{ ref('promotion_codes_coupon_base') }}
 -- applies_to at promotion_codes_base/coupon/applies_to
-where 1 = 1
-and applies_to is not null
+where
+    1 = 1
+    and applies_to is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -35,4 +35,3 @@ select
 from {{ source('cta', '_airbyte_raw_locations') }} as table_alias
 -- locations
 where 1 = 1
-

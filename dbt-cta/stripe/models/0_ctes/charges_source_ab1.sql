@@ -55,7 +55,8 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('charges_base') }} as table_alias
 -- source at charges_base/source
-where 1 = 1
-and source is not null
+where
+    1 = 1
+    and source is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

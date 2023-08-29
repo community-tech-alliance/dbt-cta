@@ -1,1 +1,1 @@
-SELECT * FROM {{ source('cta','checkout_sessions_payment_method_options_base') }}
+select * from {{ source('cta','checkout_sessions_payment_method_options_base') }}

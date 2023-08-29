@@ -15,4 +15,3 @@ select
 from {{ ref('orders_line_items_applied_taxes_applied_money_ab1') }}
 -- applied_money at orders/line_items/applied_taxes/applied_money
 where 1 = 1
-

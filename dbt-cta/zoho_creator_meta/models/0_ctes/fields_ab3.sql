@@ -19,7 +19,6 @@ select
         'application_link_name'
     ]) }} as _airbyte_fields_hashid,
     tmp.*
-from {{ ref('fields_ab2') }} tmp
+from {{ ref('fields_ab2') }} as tmp
 -- fields
 where 1 = 1
-

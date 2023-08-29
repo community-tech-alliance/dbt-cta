@@ -15,4 +15,3 @@ select
 from {{ ref('orders_net_amounts_tip_money_ab1') }}
 -- tip_money at orders/net_amounts/tip_money
 where 1 = 1
-

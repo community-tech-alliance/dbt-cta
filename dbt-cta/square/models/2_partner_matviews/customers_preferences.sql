@@ -1,5 +1,3 @@
-
-  {{ config(full_refresh=false) }}
-  SELECT *
-  FROM {{ source('cta','customers_preferences_base') }}
-  
+{{ config(full_refresh=false) }}
+select *
+from {{ source('cta','customers_preferences_base') }}

@@ -50,4 +50,3 @@ select
 from {{ ref('incoming_phone_numbers_ab1') }}
 -- incoming_phone_numbers
 where 1 = 1
-

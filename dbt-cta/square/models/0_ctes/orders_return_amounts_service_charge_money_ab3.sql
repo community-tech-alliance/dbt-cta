@@ -12,7 +12,6 @@ select
         'currency',
     ]) }} as _airbyte_service_charge_money_hashid,
     tmp.*
-from {{ ref('orders_return_amounts_service_charge_money_ab2') }} tmp
+from {{ ref('orders_return_amounts_service_charge_money_ab2') }} as tmp
 -- service_charge_money at orders/return_amounts/service_charge_money
 where 1 = 1
-
