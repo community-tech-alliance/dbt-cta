@@ -8,6 +8,7 @@
     partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
     partitions=partitions_to_replace,
     unique_key = '_airbyte_ab_id',
+	labels = {'vendor': 'mailchimp', 'source': 'airbyte'}
 ) }}
 
 -- depends_on: {{ ref('campaigns_ab3') }}
