@@ -152,8 +152,6 @@ models:
         description: ''
         tests:
           - unique
-        tests:
-          - unique
       - name: row_data
         description: ''
       - name: duplicate_found
