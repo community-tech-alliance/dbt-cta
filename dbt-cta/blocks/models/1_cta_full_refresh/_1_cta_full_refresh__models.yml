@@ -133,8 +133,6 @@ models:
         tests:
           - unique
           - not_null
-        tests:
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
         tests:
@@ -161,9 +159,6 @@ models:
         description: ''
       - name: id
         description: ''
-        tests:
-          - unique
-          - not_null
         tests:
           - unique
           - not_null
