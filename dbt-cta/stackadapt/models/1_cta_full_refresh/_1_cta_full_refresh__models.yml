@@ -1,0 +1,625 @@
+version: 2
+
+models:
+
+  - name: conversion_trackers_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: name
+        description: ''
+      - name: user_id
+        description: ''
+      - name: conv_type
+        description: ''
+      - name: post_time
+        description: ''
+      - name: count_type
+        description: ''
+      - name: description
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_conversion_trackers_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: campaigns_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: name
+        description: ''
+      - name: state
+        description: ''
+      - name: budget
+        description: ''
+      - name: channel
+        description: ''
+      - name: use_dma
+        description: ''
+      - name: bid_type
+        description: ''
+      - name: day_part
+        description: ''
+      - name: end_date
+        description: ''
+      - name: timezone
+        description: ''
+      - name: daily_cap
+        description: ''
+      - name: start_date
+        description: ''
+      - name: created_at
+        description: ''
+      - name: ip_options
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: pace_evenly
+        description: ''
+      - name: city_options
+        description: ''
+      - name: line_item_id
+        description: ''
+      - name: advertiser_id
+        description: ''
+      - name: campaign_type
+        description: ''
+      - name: domain_action
+        description: ''
+      - name: freq_cap_time
+        description: ''
+      - name: optimize_type
+        description: ''
+      - name: all_native_ads_ids
+        description: ''
+      - name: domain_options
+        description: ''
+      - name: freq_cap_limit
+        description: ''
+      - name: optimize_value
+        description: ''
+      - name: country_options
+        description: ''
+      - name: smart_targeting
+        description: ''
+      - name: weekday_budgets
+        description: ''
+      - name: weekday_enabled
+        description: ''
+      - name: bid_amount_total
+        description: ''
+      - name: category_options
+        description: ''
+      - name: language_options
+        description: ''
+      - name: us_state_options
+        description: ''
+      - name: weekday_percents
+        description: ''
+      - name: device_os_options
+        description: ''
+      - name: uk_county_options
+        description: ''
+      - name: conversion_tracker_ids
+        description: ''
+      - name: device_type_options
+        description: ''
+      - name: other_state_options
+        description: ''
+      - name: supply_type_options
+        description: ''
+      - name: custom_segments_list
+        description: ''
+      - name: third_party_segments
+        description: ''
+      - name: supply_source_options
+        description: ''
+      - name: allow_iframe_engagement
+        description: ''
+      - name: canada_province_options
+        description: ''
+      - name: connection_type_options
+        description: ''
+      - name: device_os_family_options
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_campaigns_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: native_ads_input_data_video_creatives_base
+    description: ''
+    columns:
+      - name: _airbyte_input_data_hashid
+        description: ''
+        tests:
+          - not_null
+      - name: width
+        description: ''
+      - name: height
+        description: ''
+      - name: s3_url
+        description: ''
+      - name: bitrate
+        description: ''
+      - name: duration
+        description: ''
+      - name: file_type
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_video_creatives_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: advertisers_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: name
+        description: ''
+      - name: description
+        description: ''
+      - name: all_line_item_ids
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_advertisers_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: native_ads_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: icon
+        description: ''
+      - name: name
+        description: ''
+      - name: state
+        description: ''
+      - name: channel
+        description: ''
+      - name: cta_text
+        description: ''
+      - name: brandname
+        description: ''
+      - name: click_url
+        description: ''
+      - name: utm_source
+        description: ''
+      - name: utm_medium
+        description: ''
+      - name: utm_campaign
+        description: ''
+      - name: utm_term
+        description: ''
+      - name: utm_content
+        description: ''
+      - name: creatives
+        description: ''
+      - name: created_at
+        description: ''
+      - name: input_data
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: audit_status
+        description: ''
+      - name: vast_trackers
+        description: ''
+      - name: api_frameworks
+        description: ''
+      - name: imp_tracker_urls
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_native_ads_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: native_ads_input_data_audio_creatives_base
+    description: ''
+    columns:
+      - name: _airbyte_input_data_hashid
+        description: ''
+        tests:
+          - not_null
+      - name: width
+        description: ''
+      - name: height
+        description: ''
+      - name: s3_url
+        description: ''
+      - name: bitrate
+        description: ''
+      - name: duration
+        description: ''
+      - name: file_type
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_audio_creatives_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: native_ads_input_data_base
+    description: ''
+    columns:
+      - name: _airbyte_native_ads_hashid
+        description: ''
+        tests:
+          - not_null
+      - name: heading
+        description: ''
+      - name: tagline
+        description: ''
+      - name: vast_xml
+        description: ''
+      - name: landing_url
+        description: ''
+      - name: audio_creatives
+        description: ''
+      - name: video_creatives
+        description: ''
+      - name: display_js_creative
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_input_data_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: campaigns_day_part_base
+    description: ''
+    columns:
+      - name: _airbyte_campaigns_hashid
+        description: ''
+        tests:
+          - not_null
+      - name: enabled
+        description: ''
+      - name: end_hour
+        description: ''
+      - name: timezone
+        description: ''
+      - name: start_hour
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_day_part_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: native_ads_creatives_base
+    description: ''
+    columns:
+      - name: _airbyte_native_ads_hashid
+        description: ''
+        tests:
+          - not_null
+      - name: id
+        description: ''
+      - name: url
+        description: ''
+      - name: width
+        description: ''
+      - name: height
+        description: ''
+      - name: file_name
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_creatives_hashid
+        description: ''
+        tests:
+          - not_null
+
+  - name: native_ads_vast_trackers_base
+    description: ''
+    columns:
+      - name: _airbyte_native_ads_hashid
+        description: ''
+        tests:
+          - not_null
+      - name: url
+        description: ''
+      - name: event_type
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_vast_trackers_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: native_ads_icon_base
+    description: ''
+    columns:
+      - name: _airbyte_native_ads_hashid
+        description: ''
+        tests:
+          - not_null
+      - name: id
+        description: ''
+      - name: url
+        description: ''
+      - name: width
+        description: ''
+      - name: height
+        description: ''
+      - name: file_name
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_icon_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: native_ads_input_data_display_js_creative_base
+    description: ''
+    columns:
+      - name: _airbyte_input_data_hashid
+        description: ''
+        tests:
+          - not_null
+      - name: width
+        description: ''
+      - name: height
+        description: ''
+      - name: img_url
+        description: ''
+      - name: js_code
+        description: ''
+      - name: is_expandable
+        description: ''
+      - name: js_code_macro
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_display_js_creative_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: line_items_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: name
+        description: ''
+      - name: state
+        description: ''
+      - name: budget
+        description: ''
+      - name: end_date
+        description: ''
+      - name: daily_cap
+        description: ''
+      - name: start_date
+        description: ''
+      - name: pace_evenly
+        description: ''
+      - name: revenue_type
+        description: ''
+      - name: advertiser_id
+        description: ''
+      - name: revenue_value
+        description: ''
+      - name: all_campaign_ids
+        description: ''
+      - name: black_list_options
+        description: ''
+      - name: purchase_order_number
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_line_items_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+

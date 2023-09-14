@@ -1,0 +1,465 @@
+version: 2
+
+models:
+
+  - name: account_line_items_stats_base
+    description: ''
+    columns:
+      - name: ctr
+        description: ''
+      - name: cvr
+        description: ''
+      - name: imp
+        description: ''
+      - name: ltr
+        description: ''
+      - name: atos
+        description: ''
+      - name: conv
+        description: ''
+      - name: cost
+        description: ''
+      - name: date
+        description: ''
+      - name: ecpa
+        description: ''
+      - name: ecpc
+        description: ''
+      - name: ecpe
+        description: ''
+      - name: ecpm
+        description: ''
+      - name: ecpv
+        description: ''
+      - name: rcpc
+        description: ''
+      - name: rcpe
+        description: ''
+      - name: rcpm
+        description: ''
+      - name: roas
+        description: ''
+      - name: click
+        description: ''
+      - name: ecpcl
+        description: ''
+      - name: rcpcl
+        description: ''
+      - name: profit
+        description: ''
+      - name: s_conv
+        description: ''
+      - name: conv_ip
+        description: ''
+      - name: revenue
+        description: ''
+      - name: vcomp_0
+        description: ''
+      - name: conv_rev
+        description: ''
+      - name: vcomp_25
+        description: ''
+      - name: vcomp_50
+        description: ''
+      - name: vcomp_75
+        description: ''
+      - name: vcomp_95
+        description: ''
+      - name: line_item
+        description: ''
+      - name: page_time
+        description: ''
+      - name: uniq_conv
+        description: ''
+      - name: uniq_ecpa
+        description: ''
+      - name: atos_units
+        description: ''
+      - name: conv_click
+        description: ''
+      - name: page_start
+        description: ''
+      - name: reach
+        description: ''
+      - name: vcomp_rate
+        description: ''
+      - name: engage_rate
+        description: ''
+      - name: tp_cpc_cost
+        description: ''
+      - name: tp_cpm_cost
+        description: ''
+      - name: unique_conv
+        description: ''
+      - name: view_percent
+        description: ''
+      - name: page_time_15s
+        description: ''
+      - name: sub_advertiser
+        description: ''
+      - name: page_time_units
+        description: ''
+      - name: conv_imp_derived
+        description: ''
+      - name: conv_imp_time_avg
+        description: ''
+      - name: conv_click_time_avg
+        description: ''
+      - name: frequency
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_account_line_items_stats_hashid
+        description: ''
+
+  - name: account_native_ads_stats_creatives_base
+    description: ''
+    columns:
+      - name: _airbyte_account_native_ads_stats_hashid
+        description: ''
+      - name: url
+        description: ''
+      - name: size
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_creatives_hashid
+        description: ''
+        tests:
+          - not_null
+
+  - name: account_campaigns_stats_base
+    description: ''
+    columns:
+      - name: ctr
+        description: ''
+      - name: cvr
+        description: ''
+      - name: imp
+        description: ''
+      - name: ltr
+        description: ''
+      - name: atos
+        description: ''
+      - name: conv
+        description: ''
+      - name: cost
+        description: ''
+      - name: date
+        description: ''
+      - name: ecpa
+        description: ''
+      - name: ecpc
+        description: ''
+      - name: ecpe
+        description: ''
+      - name: ecpm
+        description: ''
+      - name: ecpv
+        description: ''
+      - name: rcpc
+        description: ''
+      - name: rcpe
+        description: ''
+      - name: rcpm
+        description: ''
+      - name: roas
+        description: ''
+      - name: click
+        description: ''
+      - name: ecpcl
+        description: ''
+      - name: rcpcl
+        description: ''
+      - name: profit
+        description: ''
+      - name: s_conv
+        description: ''
+      - name: channel
+        description: ''
+      - name: conv_ip
+        description: ''
+      - name: revenue
+        description: ''
+      - name: vcomp_0
+        description: ''
+      - name: campaign
+        description: ''
+      - name: end_date
+        description: ''
+      - name: vcomp_25
+        description: ''
+      - name: vcomp_50
+        description: ''
+      - name: vcomp_75
+        description: ''
+      - name: vcomp_95
+        description: ''
+      - name: line_item
+        description: ''
+      - name: page_time
+        description: ''
+      - name: atos_units
+        description: ''
+      - name: conv_click
+        description: ''
+      - name: page_start
+        description: ''
+      - name: start_date
+        description: ''
+      - name: reach
+        description: ''
+      - name: vcomp_rate
+        description: ''
+      - name: campaign_id
+        description: ''
+      - name: conv_cookie
+        description: ''
+      - name: tp_cpc_cost
+        description: ''
+      - name: tp_cpm_cost
+        description: ''
+      - name: unique_conv
+        description: ''
+      - name: line_item_id
+        description: ''
+      - name: view_percent
+        description: ''
+      - name: campaign_type
+        description: ''
+      - name: page_time_15s
+        description: ''
+      - name: sub_advertiser
+        description: ''
+      - name: page_time_units
+        description: ''
+      - name: conv_imp_derived
+        description: ''
+      - name: conv_imp_time_avg
+        description: ''
+      - name: sub_advertiser_id
+        description: ''
+      - name: conv_click_time_avg
+        description: ''
+      - name: campaign_custom_fields
+        description: ''
+      - name: frequency
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_account_campaigns_stats_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: account_native_ads_stats_base
+    description: ''
+    columns:
+      - name: ctr
+        description: ''
+      - name: cvr
+        description: ''
+      - name: imp
+        description: ''
+      - name: ltr
+        description: ''
+      - name: atos
+        description: ''
+      - name: conv
+        description: ''
+      - name: cost
+        description: ''
+      - name: date
+        description: ''
+      - name: ecpa
+        description: ''
+      - name: ecpc
+        description: ''
+      - name: ecpe
+        description: ''
+      - name: ecpm
+        description: ''
+      - name: ecpv
+        description: ''
+      - name: rcpc
+        description: ''
+      - name: rcpe
+        description: ''
+      - name: rcpm
+        description: ''
+      - name: roas
+        description: ''
+      - name: click
+        description: ''
+      - name: ecpcl
+        description: ''
+      - name: rcpcl
+        description: ''
+      - name: domain
+        description: ''
+      - name: ios_id
+        description: ''
+      - name: is_ios
+        description: ''
+      - name: profit
+        description: ''
+      - name: s_conv
+        description: ''
+      - name: channel
+        description: ''
+      - name: conv_ip
+        description: ''
+      - name: heading
+        description: ''
+      - name: revenue
+        description: ''
+      - name: tagline
+        description: ''
+      - name: vcomp_0
+        description: ''
+      - name: campaign
+        description: ''
+      - name: end_date
+        description: ''
+      - name: start_date
+        description: ''
+      - name: nativead
+        description: ''
+      - name: vcomp_25
+        description: ''
+      - name: vcomp_50
+        description: ''
+      - name: vcomp_75
+        description: ''
+      - name: vcomp_95
+        description: ''
+      - name: click_url
+        description: ''
+      - name: utm_source
+        description: ''
+      - name: utm_medium
+        description: ''
+      - name: utm_campaign
+        description: ''
+      - name: utm_term
+        description: ''
+      - name: utm_content
+        description: ''
+      - name: creatives
+        description: ''
+      - name: line_item
+        description: ''
+      - name: page_time
+        description: ''
+      - name: uniq_conv
+        description: ''
+      - name: atos_units
+        description: ''
+      - name: conv_click
+        description: ''
+      - name: is_android
+        description: ''
+      - name: page_start
+        description: ''
+      - name: reach
+        description: ''
+      - name: vcomp_rate
+        description: ''
+      - name: campaign_id
+        description: ''
+      - name: engage_rate
+        description: ''
+      - name: full_domain
+        description: ''
+      - name: tp_cpc_cost
+        description: ''
+      - name: tp_cpm_cost
+        description: ''
+      - name: unique_conv
+        description: ''
+      - name: line_item_id
+        description: ''
+      - name: native_ad_id
+        description: ''
+      - name: view_percent
+        description: ''
+      - name: campaign_type
+        description: ''
+      - name: page_time_15s
+        description: ''
+      - name: native_ad_type
+        description: ''
+      - name: sub_advertiser
+        description: ''
+      - name: page_time_units
+        description: ''
+      - name: conv_imp_derived
+        description: ''
+      - name: conv_imp_time_avg
+        description: ''
+      - name: sub_advertiser_id
+        description: ''
+      - name: conv_click_time_avg
+        description: ''
+      - name: frequency
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_account_native_ads_stats_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
