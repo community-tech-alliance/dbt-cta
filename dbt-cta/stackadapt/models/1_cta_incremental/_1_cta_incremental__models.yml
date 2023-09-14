@@ -124,6 +124,9 @@ models:
               column_type: timestamp
       - name: _airbyte_account_line_items_stats_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: account_native_ads_stats_creatives_base
     description: ''
