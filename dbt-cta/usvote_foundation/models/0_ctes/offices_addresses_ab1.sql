@@ -4,8 +4,8 @@
     tags = [ "nested-intermediate" ]
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ ref('offices') }}
-{{ unnest_cte(ref('offices'), 'offices', 'addresses') }}
+-- depends_on: {{ ref('offices_base') }}
+{{ unnest_cte(ref('offices_base'), 'offices', 'officials') }}
 select
     _airbyte_offices_hashid,
     {{ json_extract_scalar(unnested_column_value('addresses'), ['id'], ['id']) }} as id,
@@ -29,8 +29,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('offices') }}
--- addresses at offices/addresses
+from {{ ref('offices_base') }}
 {{ cross_join_unnest('offices', 'addresses') }}
 where
     1 = 1
