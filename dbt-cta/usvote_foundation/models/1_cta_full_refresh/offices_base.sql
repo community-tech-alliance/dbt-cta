@@ -28,7 +28,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_offices_hashid
 from {{ ref('offices_ab4') }}
--- offices from {{ source('cta', '_airbyte_raw_offices') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

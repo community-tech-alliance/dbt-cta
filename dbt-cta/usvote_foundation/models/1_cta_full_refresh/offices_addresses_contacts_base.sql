@@ -20,7 +20,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_contacts_hashid
 from {{ ref('offices_addresses_contacts_ab4') }}
--- contacts at offices/addresses/contacts from {{ ref('offices_addresses') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
