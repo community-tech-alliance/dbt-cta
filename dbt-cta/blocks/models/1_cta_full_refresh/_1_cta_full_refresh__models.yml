@@ -135,7 +135,6 @@ models:
         description: ''
       - name: _airbyte_normalized_at
         description: ''
-        tests:
       - name: _airbyte_registration_forms_hashid
         description: ''
         tests:
@@ -727,6 +726,32 @@ models:
         tests:
           - unique
 
+  - name: admin_users_base
+    description: ''
+    columns:
+      - name: session
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: email
+        description: ''
+      - name: encrypted_password
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_admin_users_hashid
+        description: ''
+        tests:
+          - unique
+
   - name: state_party_codes_base
     description: ''
     columns:
@@ -887,6 +912,240 @@ models:
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_catalist_uploads_registration_forms_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: scans_qc_overview_base
+    description: ''
+    columns:
+      - name: distance_from_location
+        description: ''
+      - name: eligible_voting_age
+        description: ''
+      - name: canvasser_id
+        description: ''
+      - name: visual_qc_completed_by_user_id
+        description: ''
+      - name: program_state
+        description: ''
+      - name: data_entry_time
+        description: ''
+      - name: bad_number
+        description: ''
+      - name: field_start
+        description: ''
+      - name: shift_type
+        description: ''
+      - name: collection_location_id
+        description: ''
+      - name: identification
+        description: ''
+      - name: voter_registration_scan_id
+        description: ''
+      - name: voting_state
+        description: ''
+      - name: collection_location_zip
+        description: ''
+      - name: collection_location_city
+        description: ''
+      - name: collective_name
+        description: ''
+      - name: visual_qc_county
+        description: ''
+      - name: address_validated
+        description: ''
+      - name: qc_deadline
+        description: ''
+      - name: mailing_street_address_two
+        description: ''
+      - name: organization_name
+        description: ''
+      - name: canvasser_last_name
+        description: ''
+      - name: shift_start
+        description: ''
+      - name: upload_time
+        description: ''
+      - name: name
+        description: ''
+      - name: voting_city
+        description: ''
+      - name: collection_location_name
+        description: ''
+      - name: phone_number
+        description: ''
+      - name: party
+        description: ''
+      - name: voting_address_latitude
+        description: ''
+      - name: qc_organization
+        description: ''
+      - name: mailing_street_address_one
+        description: ''
+      - name: gender
+        description: ''
+      - name: ethnicity
+        description: ''
+      - name: signature
+        description: ''
+      - name: turf_parent_id
+        description: ''
+      - name: date_of_birth
+        description: ''
+      - name: extras
+        description: ''
+      - name: voting_street_address_two
+        description: ''
+      - name: voting_address_longitude
+        description: ''
+      - name: phone_verification_completed_by_user_id
+        description: ''
+      - name: voting_zipcode
+        description: ''
+      - name: mailing_zipcode
+        description: ''
+      - name: registration_type
+        description: ''
+      - name: registration_form_id
+        description: ''
+      - name: packet_filename
+        description: ''
+      - name: name_prefix
+        description: ''
+      - name: collection_location_longitude
+        description: ''
+      - name: through_visual_qc
+        description: ''
+      - name: turf_id
+        description: ''
+      - name: van_committee_id
+        description: ''
+      - name: shift_id
+        description: ''
+      - name: collection_location_latitude
+        description: ''
+      - name: shift_end
+        description: ''
+      - name: collection_location_county
+        description: ''
+      - name: first_name
+        description: ''
+      - name: data_entry_county
+        description: ''
+      - name: voter_registration_scan_updated_at
+        description: ''
+      - name: digital
+        description: ''
+      - name: mailing_city
+        description: ''
+      - name: is_registration_form
+        description: ''
+      - name: voting_street_address_one
+        description: ''
+      - name: name_suffix
+        description: ''
+      - name: data_entry_updated_at
+        description: ''
+      - name: last_name
+        description: ''
+      - name: middle_name
+        description: ''
+      - name: voter_registration_scan_batches_id
+        description: ''
+      - name: phone_validated
+        description: ''
+      - name: email_address
+        description: ''
+      - name: phone_verified
+        description: ''
+      - name: collection_location_street_address
+        description: ''
+      - name: field_end
+        description: ''
+      - name: canvasser_first_name
+        description: ''
+      - name: complete
+        description: ''
+      - name: has_phone_number_visual_qc
+        description: ''
+      - name: collection_location_state
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_scans_qc_overview_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: sent_emails_base
+    description: ''
+    columns:
+      - name: recipients_count
+        description: ''
+      - name: event_id
+        description: ''
+      - name: list_id
+        description: ''
+      - name: email_template_id
+        description: ''
+      - name: subject
+        description: ''
+      - name: created_at
+        description: ''
+      - name: from
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: team_id
+        description: ''
+      - name: body
+        description: ''
+      - name: sender_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_sent_emails_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: turf_levels_base
+    description: ''
+    columns:
+      - name: updated_at
+        description: ''
+      - name: name
+        description: ''
+      - name: created_at
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_turf_levels_hashid
         description: ''
         tests:
           - unique
@@ -1073,6 +1332,30 @@ models:
         tests:
           - unique
 
+  - name: documents_phone_banking_phone_banks_base
+    description: ''
+    columns:
+      - name: phone_bank_id
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: created_at
+        description: ''
+      - name: document_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_documents_phone_banking_phone_banks_hashid
+        description: ''
+        tests:
+          - unique
+
   - name: shifts_base
     description: ''
     columns:
@@ -1201,6 +1484,62 @@ models:
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_vr_zips_lookup_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: import_lcv_base
+    description: ''
+    columns:
+      - name: citizen
+        description: ''
+      - name: date_delivered
+        description: ''
+      - name: address
+        description: ''
+      - name: gender
+        description: ''
+      - name: city
+        description: ''
+      - name: signature
+        description: ''
+      - name: last_name
+        description: ''
+      - name: middle_name
+        description: ''
+      - name: ssn
+        description: ''
+      - name: zipcode
+        description: ''
+      - name: signature_date
+        description: ''
+      - name: dob
+        description: ''
+      - name: organizer
+        description: ''
+      - name: restored
+        description: ''
+      - name: location
+        description: ''
+      - name: phone_number
+        description: ''
+      - name: region
+        description: ''
+      - name: felony
+        description: ''
+      - name: first_name
+        description: ''
+      - name: email
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_import_lcv_hashid
         description: ''
         tests:
           - unique
@@ -1659,6 +1998,56 @@ models:
         tests:
           - unique
 
+  - name: scheduled_exports_base
+    description: ''
+    columns:
+      - name: day_of_the_week
+        description: ''
+      - name: paused
+        description: ''
+      - name: columns
+        description: ''
+      - name: attachment_name
+        description: ''
+      - name: format
+        description: ''
+      - name: created_at
+        description: ''
+      - name: uuid
+        description: ''
+      - name: table_name
+        description: ''
+      - name: frequency
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: user_id
+        description: ''
+      - name: time_zone_identifier
+        description: ''
+      - name: recipients
+        description: ''
+      - name: last_processed_at
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: hour_of_the_day
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_scheduled_exports_hashid
+        description: ''
+        tests:
+          - unique
+
   - name: states_base
     description: ''
     columns:
@@ -1829,146 +2218,3 @@ models:
         tests:
           - unique
 
-
-
-  - name: admin_users_base
-    description: ''
-    columns:
-      - name: session
-        description: ''
-      - name: id
-        description: ''
-      - name: email
-        description: ''
-      - name: encrypted_password
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_admin_users_hashid
-        description: ''
-        tests:
-          - unique
-
-  - name: sent_emails_base
-    description: ''
-    columns:
-      - name: recipients_count
-        description: ''
-      - name: event_id
-        description: ''
-      - name: list_id
-        description: ''
-      - name: email_template_id
-        description: ''
-      - name: subject
-        description: ''
-      - name: created_at
-        description: ''
-      - name: from
-        description: ''
-      - name: id
-        description: ''
-      - name: team_id
-        description: ''
-      - name: body
-        description: ''
-      - name: sender_id
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_sent_emails_hashid
-        description: ''
-        tests:
-          - unique
-
-  - name: documents_phone_banking_phone_banks_base
-    description: ''
-    columns:
-      - name: phone_bank_id
-        description: ''
-      - name: updated_at
-        description: ''
-      - name: created_at
-        description: ''
-      - name: document_id
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_documents_phone_banking_phone_banks_hashid
-        description: ''
-        tests:
-          - unique
-
-  - name: import_lcv_base
-    description: ''
-    columns:
-      - name: citizen
-        description: ''
-      - name: date_delivered
-        description: ''
-      - name: address
-        description: ''
-      - name: gender
-        description: ''
-      - name: city
-        description: ''
-      - name: signature
-        description: ''
-      - name: last_name
-        description: ''
-      - name: middle_name
-        description: ''
-      - name: ssn
-        description: ''
-      - name: zipcode
-        description: ''
-      - name: signature_date
-        description: ''
-      - name: dob
-        description: ''
-      - name: organizer
-        description: ''
-      - name: restored
-        description: ''
-      - name: location
-        description: ''
-      - name: phone_number
-        description: ''
-      - name: region
-        description: ''
-      - name: felony
-        description: ''
-      - name: first_name
-        description: ''
-      - name: email
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_import_lcv_hashid
-        description: ''
-        tests:
-          - unique
