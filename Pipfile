@@ -6,8 +6,6 @@ name = "pypi"
 [packages]
 requests = "*"
 chardet= "*"
-dbt-core = "*"
-dbt-bigquery = "==1.6.0"
 gcloud = "*"
 pyyaml = "*"
 argparse = "*"
@@ -15,6 +13,8 @@ google-cloud-bigquery = "*"
 sqlfluff = "==2.3.0"
 sqlfluff-templater-dbt = "*"
 pre-commit = "*"
+dbt-core = "==1.5.4"
+dbt-bigquery = "==1.5.5"
 
 [dev-packages]
 
