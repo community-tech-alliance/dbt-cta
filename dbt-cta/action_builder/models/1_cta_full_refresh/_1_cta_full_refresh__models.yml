@@ -18,26 +18,6 @@ models:
         description: ''
       - name: updated_at
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_query_results_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: tasks_base
     description: ''
@@ -63,26 +43,6 @@ models:
         description: ''
       - name: action_entity_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_tasks_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: phone_numbers_base
     description: ''
@@ -118,26 +78,6 @@ models:
         description: ''
       - name: updated_by_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_phone_numbers_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: addresses_base
     description: ''
@@ -193,26 +133,6 @@ models:
         description: ''
       - name: street_address
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_addresses_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: tags_base
     description: ''
@@ -244,26 +164,6 @@ models:
         description: ''
       - name: tag_category_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_tags_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: tag_categories_base
     description: ''
@@ -301,26 +201,6 @@ models:
         description: ''
       - name: multiselect_same_tag_behavior
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_tag_categories_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: organization_integration_links_base
     description: ''
@@ -348,26 +228,6 @@ models:
         description: ''
       - name: organization_integration_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_organization_integration_links_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: turf_tags_base
     description: ''
@@ -385,26 +245,6 @@ models:
         description: ''
       - name: turf_assignment_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_turf_tags_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: assessments_base
     description: ''
@@ -430,26 +270,6 @@ models:
         description: ''
       - name: updated_by_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_assessments_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: action_fields_base
     description: ''
@@ -479,26 +299,6 @@ models:
         description: ''
       - name: related_object_type
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_action_fields_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: organizations_base
     description: ''
@@ -526,26 +326,6 @@ models:
         description: ''
       - name: administrator_user_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_organizations_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: addresses_electoral_districts_base
     description: ''
@@ -554,52 +334,12 @@ models:
         description: ''
       - name: electoral_district_ocd_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_addresses_electoral_districts_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: schema_migrations_base
     description: ''
     columns:
       - name: version
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_schema_migrations_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: global_notes_base
     description: ''
@@ -631,26 +371,6 @@ models:
         description: ''
       - name: updated_by_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_global_notes_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: uploads_base
     description: ''
@@ -692,26 +412,6 @@ models:
         description: ''
       - name: identification_field
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_uploads_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: campaigns_tag_groups_base
     description: ''
@@ -729,26 +429,6 @@ models:
         description: ''
       - name: tag_group_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_campaigns_tag_groups_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: campaign_context_notes_base
     description: ''
@@ -772,26 +452,6 @@ models:
         description: ''
       - name: created_by_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_campaign_context_notes_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: campaigns_base
     description: ''
@@ -833,26 +493,6 @@ models:
         description: ''
       - name: activity_stream_as_initial_entity_view
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_campaigns_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: campaign_configuration_tag_categories_base
     description: ''
@@ -876,26 +516,6 @@ models:
         description: ''
       - name: campaign_configuration_target_type
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_campaign_configuration_tag_categories_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: campaign_entity_types_base
     description: ''
@@ -913,26 +533,6 @@ models:
         description: ''
       - name: entity_type_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_campaign_entity_types_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: entities_base
     description: ''
@@ -988,26 +588,6 @@ models:
         description: ''
       - name: calculated_birth_date
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_entities_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: entity_types_base
     description: ''
@@ -1043,26 +623,6 @@ models:
         description: ''
       - name: date_of_birth_enabled
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_entity_types_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: action_assignment_group_users_base
     description: ''
@@ -1086,26 +646,6 @@ models:
         description: ''
       - name: action_assignment_group_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_action_assignment_group_users_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: subscription_statuses_base
     description: ''
@@ -1127,26 +667,6 @@ models:
         description: ''
       - name: created_by_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_subscription_statuses_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: entity_connection_types_base
     description: ''
@@ -1172,26 +692,6 @@ models:
         description: ''
       - name: entity_type_2_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_entity_connection_types_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: versions_base
     description: ''
@@ -1215,26 +715,6 @@ models:
         description: ''
       - name: object_changes
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_versions_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: campaigns_entity_connection_types_base
     description: ''
@@ -1252,26 +732,6 @@ models:
         description: ''
       - name: entity_connection_type_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_campaigns_entity_connection_types_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: follow_ups_base
     description: ''
@@ -1297,26 +757,6 @@ models:
         description: ''
       - name: assigned_user_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_follow_ups_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: integrations_base
     description: ''
@@ -1334,26 +774,6 @@ models:
         description: ''
       - name: external_service_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_integrations_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: tag_groups_base
     description: ''
@@ -1375,26 +795,6 @@ models:
         description: ''
       - name: target_type
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_tag_groups_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: social_profiles_base
     description: ''
@@ -1426,26 +826,6 @@ models:
         description: ''
       - name: social_network_type
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_social_profiles_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: signatures_base
     description: ''
@@ -1461,26 +841,6 @@ models:
         description: ''
       - name: updated_at
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_signatures_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: turf_assignments_base
     description: ''
@@ -1500,26 +860,6 @@ models:
         description: ''
       - name: restriction_enabled
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_turf_assignments_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: campaign_participations_base
     description: ''
@@ -1537,26 +877,6 @@ models:
         description: ''
       - name: campaign_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_campaign_participations_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: shifts_base
     description: ''
@@ -1580,26 +900,6 @@ models:
         description: ''
       - name: deleted_by_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_shifts_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: taggable_logbook_base
     description: ''
@@ -1637,26 +937,6 @@ models:
         description: ''
       - name: updated_by_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_taggable_logbook_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: entity_sync_cursors_base
     description: ''
@@ -1674,26 +954,6 @@ models:
         description: ''
       - name: campaign_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_entity_sync_cursors_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: entity_sync_states_base
     description: ''
@@ -1725,26 +985,6 @@ models:
         description: ''
       - name: organization_integration_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_entity_sync_states_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: organization_integrations_base
     description: ''
@@ -1762,26 +1002,6 @@ models:
         description: ''
       - name: service_name
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_organization_integrations_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: queries_base
     description: ''
@@ -1809,26 +1029,6 @@ models:
         description: ''
       - name: campaign_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_queries_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: external_services_base
     description: ''
@@ -1856,26 +1056,6 @@ models:
         description: ''
       - name: token_updated_at
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_external_services_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: contact_sources_base
     description: ''
@@ -1893,26 +1073,6 @@ models:
         description: ''
       - name: updated_at
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_contact_sources_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: entity_sync_stored_operations_base
     description: ''
@@ -1936,26 +1096,6 @@ models:
         description: ''
       - name: external_entity_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_entity_sync_stored_operations_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: activity_events_base
     description: ''
@@ -1989,26 +1129,6 @@ models:
         description: ''
       - name: target_type
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_activity_events_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: shift_times_base
     description: ''
@@ -2030,26 +1150,6 @@ models:
         description: ''
       - name: day_of_week
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_shift_times_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: emails_base
     description: ''
@@ -2081,26 +1181,6 @@ models:
         description: ''
       - name: updated_by_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_emails_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: action_entities_base
     description: ''
@@ -2126,26 +1206,6 @@ models:
         description: ''
       - name: completed_count
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_action_entities_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: campaigns_entities_base
     description: ''
@@ -2167,26 +1227,6 @@ models:
         description: ''
       - name: latest_assessment_level
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_campaigns_entities_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: campaign_entity_type_configurations_base
     description: ''
@@ -2208,26 +1248,6 @@ models:
         description: ''
       - name: spotlight_tag_ids
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_campaign_entity_type_configurations_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: action_assignment_groups_base
     description: ''
@@ -2247,26 +1267,6 @@ models:
         description: ''
       - name: assigned_to_user_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_action_assignment_groups_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: contact_statuses_base
     description: ''
@@ -2284,26 +1284,6 @@ models:
         description: ''
       - name: updated_at
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_contact_statuses_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: campaigns_tag_categories_base
     description: ''
@@ -2323,26 +1303,6 @@ models:
         description: ''
       - name: tag_category_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_campaigns_tag_categories_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: attachments_base
     description: ''
@@ -2370,26 +1330,6 @@ models:
         description: ''
       - name: attachable_type
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_attachments_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: users_base
     description: ''
@@ -2471,26 +1411,6 @@ models:
         description: ''
       - name: reset_password_sent_at
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_users_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: relationships_base
     description: ''
@@ -2518,26 +1438,6 @@ models:
         description: ''
       - name: from_entity_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_relationships_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: ar_internal_metadata_base
     description: ''
@@ -2550,26 +1450,6 @@ models:
         description: ''
       - name: updated_at
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_ar_internal_metadata_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: actions_base
     description: ''
@@ -2609,26 +1489,6 @@ models:
         description: ''
       - name: notification_enabled
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_actions_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: entity_connections_base
     description: ''
@@ -2664,26 +1524,6 @@ models:
         description: ''
       - name: entity_connection_type_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_entity_connections_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: campaigns_tags_base
     description: ''
@@ -2701,26 +1541,6 @@ models:
         description: ''
       - name: campaign_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_campaigns_tags_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: campaign_topline_setting_items_base
     description: ''
@@ -2748,26 +1568,6 @@ models:
         description: ''
       - name: targetable_type
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_campaign_topline_setting_items_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: api_keys_base
     description: ''
@@ -2791,26 +1591,6 @@ models:
         description: ''
       - name: revoked_by_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_api_keys_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: electoral_districts_base
     description: ''
@@ -2825,26 +1605,6 @@ models:
         description: ''
       - name: updated_at
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_electoral_districts_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: action_assignments_base
     description: ''
@@ -2864,26 +1624,6 @@ models:
         description: ''
       - name: action_assignment_group_id
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_action_assignments_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: contact_attempts_base
     description: ''
@@ -2913,24 +1653,4 @@ models:
         description: ''
       - name: contact_info_type
         description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_contact_attempts_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
