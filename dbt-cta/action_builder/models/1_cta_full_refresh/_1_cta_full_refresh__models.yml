@@ -1284,11 +1284,6 @@ models:
         description: ''
       - name: updated_at
         description: ''
-      - name: _airbyte_contact_statuses_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
 
   - name: campaigns_tag_categories_base
     description: ''
