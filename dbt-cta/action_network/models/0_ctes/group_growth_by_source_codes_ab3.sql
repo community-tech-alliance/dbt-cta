@@ -19,7 +19,6 @@ select
         'last_subscription_id',
     ]) }} as _airbyte_group_growth_by_source_codes_hashid,
     tmp.*
-from {{ ref('group_growth_by_source_codes_ab2') }} tmp
+from {{ ref('group_growth_by_source_codes_ab2') }} as tmp
 -- group_growth_by_source_codes
 where 1 = 1
-

@@ -18,7 +18,6 @@ select
         'removed_user_email',
     ]) }} as _airbyte_user_merge_logs_1_hashid,
     tmp.*
-from {{ ref('user_merge_logs_1_ab2') }} tmp
+from {{ ref('user_merge_logs_1_ab2') }} as tmp
 -- user_merge_logs_1
 where 1 = 1
-

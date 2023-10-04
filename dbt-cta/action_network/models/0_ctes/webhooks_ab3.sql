@@ -16,7 +16,6 @@ select
         'updated_at',
     ]) }} as _airbyte_webhooks_hashid,
     tmp.*
-from {{ ref('webhooks_ab2') }} tmp
+from {{ ref('webhooks_ab2') }} as tmp
 -- webhooks
 where 1 = 1
-

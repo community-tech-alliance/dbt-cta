@@ -23,4 +23,3 @@ select
 from {{ ref('group_growth_by_source_actions_ab1') }}
 -- group_growth_by_source_actions
 where 1 = 1
-

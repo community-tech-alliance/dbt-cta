@@ -33,7 +33,7 @@ select
         'statement_description',
     ]) }} as _airbyte_plan_hashid,
     tmp.*
-from {{ ref('invoice_items_plan_ab2') }} tmp
+from {{ ref('invoice_items_plan_ab2') }} as tmp
 -- plan at invoice_items_base/plan
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

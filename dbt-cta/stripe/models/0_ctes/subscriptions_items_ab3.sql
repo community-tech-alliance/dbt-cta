@@ -15,7 +15,7 @@ select
         'total_count',
     ]) }} as _airbyte_items_hashid,
     tmp.*
-from {{ ref('subscriptions_items_ab2') }} tmp
+from {{ ref('subscriptions_items_ab2') }} as tmp
 -- items at subscriptions_base/items
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

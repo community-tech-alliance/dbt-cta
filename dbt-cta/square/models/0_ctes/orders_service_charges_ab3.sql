@@ -18,7 +18,6 @@ select
         'calculation_phase',
     ]) }} as _airbyte_service_charges_hashid,
     tmp.*
-from {{ ref('orders_service_charges_ab2') }} tmp
+from {{ ref('orders_service_charges_ab2') }} as tmp
 -- service_charges at orders/service_charges
 where 1 = 1
-

@@ -14,4 +14,3 @@ select
 from {{ ref('customers_cards_billing_address_ab1') }}
 -- billing_address at customers/cards/billing_address
 where 1 = 1
-

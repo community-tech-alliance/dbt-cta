@@ -18,4 +18,3 @@ select
 from {{ ref('donation_recipients_ab1') }}
 -- donation_recipients
 where 1 = 1
-

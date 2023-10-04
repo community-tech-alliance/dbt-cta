@@ -14,7 +14,6 @@ select
         'service_name',
     ]) }} as _airbyte_organization_integrations_hashid,
     tmp.*
-from {{ ref('organization_integrations_ab2') }} tmp
+from {{ ref('organization_integrations_ab2') }} as tmp
 -- organization_integrations
 where 1 = 1
-

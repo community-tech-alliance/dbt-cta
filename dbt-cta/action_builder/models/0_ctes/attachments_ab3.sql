@@ -19,7 +19,6 @@ select
         'attachable_type',
     ]) }} as _airbyte_attachments_hashid,
     tmp.*
-from {{ ref('attachments_ab2') }} tmp
+from {{ ref('attachments_ab2') }} as tmp
 -- attachments
 where 1 = 1
-

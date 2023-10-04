@@ -20,7 +20,6 @@ select
         'winning_email_id',
     ]) }} as _airbyte_email_tests_hashid,
     tmp.*
-from {{ ref('email_tests_ab2') }} tmp
+from {{ ref('email_tests_ab2') }} as tmp
 -- email_tests
 where 1 = 1
-

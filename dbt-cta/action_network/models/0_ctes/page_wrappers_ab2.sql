@@ -26,4 +26,3 @@ select
 from {{ ref('page_wrappers_ab1') }}
 -- page_wrappers
 where 1 = 1
-

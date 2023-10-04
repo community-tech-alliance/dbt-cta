@@ -20,4 +20,3 @@ select
 from {{ ref('native_ads_input_data_video_creatives_ab1') }}
 -- video_creatives at native_ads/input_data/video_creatives
 where 1 = 1
-

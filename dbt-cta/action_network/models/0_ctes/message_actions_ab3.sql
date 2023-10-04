@@ -17,7 +17,6 @@ select
         'sending_type',
     ]) }} as _airbyte_message_actions_hashid,
     tmp.*
-from {{ ref('message_actions_ab2') }} tmp
+from {{ ref('message_actions_ab2') }} as tmp
 -- message_actions
 where 1 = 1
-

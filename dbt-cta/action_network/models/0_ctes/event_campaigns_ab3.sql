@@ -81,7 +81,6 @@ select
         'default_auto_response_email_template_id',
     ]) }} as _airbyte_event_campaigns_hashid,
     tmp.*
-from {{ ref('event_campaigns_ab2') }} tmp
+from {{ ref('event_campaigns_ab2') }} as tmp
 -- event_campaigns
 where 1 = 1
-

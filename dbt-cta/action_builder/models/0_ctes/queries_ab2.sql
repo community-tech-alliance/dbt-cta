@@ -22,4 +22,3 @@ select
 from {{ ref('queries_ab1') }}
 -- queries
 where 1 = 1
-

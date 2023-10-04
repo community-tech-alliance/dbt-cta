@@ -11,7 +11,7 @@ select
         boolean_to_string('supported'),
     ]) }} as _airbyte_three_d_secure_usage_hashid,
     tmp.*
-from {{ ref('payment_intents_last_payment_error_payment_method_card_three_d_secure_usage_ab2') }} tmp
+from {{ ref('payment_intents_last_payment_error_payment_method_card_three_d_secure_usage_ab2') }} as tmp
 -- three_d_secure_usage at payment_intents_base/last_payment_error/payment_method/card/three_d_secure_usage
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

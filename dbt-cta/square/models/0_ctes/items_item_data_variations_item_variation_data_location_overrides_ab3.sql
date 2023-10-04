@@ -12,7 +12,7 @@ select
         boolean_to_string('track_inventory'),
     ]) }} as _airbyte_location_overrides_hashid,
     tmp.*
-from {{ ref('items_item_data_variations_item_variation_data_location_overrides_ab2') }} tmp
+from {{ ref('items_item_data_variations_item_variation_data_location_overrides_ab2') }} as tmp
 -- location_overrides at items/item_data/variations/item_variation_data/location_overrides
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

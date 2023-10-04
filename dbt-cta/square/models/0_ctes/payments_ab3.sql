@@ -33,7 +33,7 @@ select
         object_to_string('risk_evaluation'),
     ]) }} as _airbyte_payments_hashid,
     tmp.*
-from {{ ref('payments_ab2') }} tmp
+from {{ ref('payments_ab2') }} as tmp
 -- payments
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

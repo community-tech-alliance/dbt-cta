@@ -1,0 +1,28 @@
+version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables:
+  - name: _airbyte_raw_activities
+  - name: _airbyte_raw_applicants
+  - name: _airbyte_raw_applicants_to_jobs
+  - name: _airbyte_raw_categories
+  - name: _airbyte_raw_categories_to_applicants
+  - name: _airbyte_raw_contacts
+  - name: _airbyte_raw_hires
+  - name: _airbyte_raw_jobs
+  - name: _airbyte_raw_questionnaire_answers
+  - name: _airbyte_raw_tasks
+  - name: _airbyte_raw_users
+  - name: activities_base
+  - name: applicants_base
+  - name: applicants_to_jobs_base
+  - name: categories_base
+  - name: categories_to_applicants_base
+  - name: contacts_base
+  - name: hires_base
+  - name: jobs_base
+  - name: questionnaire_answers_base
+  - name: tasks_base
+  - name: users_base

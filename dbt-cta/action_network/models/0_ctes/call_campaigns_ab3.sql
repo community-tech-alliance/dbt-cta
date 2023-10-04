@@ -65,7 +65,6 @@ select
         'targets_not_found_sms_enabled',
     ]) }} as _airbyte_call_campaigns_hashid,
     tmp.*
-from {{ ref('call_campaigns_ab2') }} tmp
+from {{ ref('call_campaigns_ab2') }} as tmp
 -- call_campaigns
 where 1 = 1
-

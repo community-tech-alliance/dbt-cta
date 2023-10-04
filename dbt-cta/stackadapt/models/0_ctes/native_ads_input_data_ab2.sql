@@ -21,4 +21,3 @@ select
 from {{ ref('native_ads_input_data_ab1') }}
 -- input_data at native_ads/input_data
 where 1 = 1
-

@@ -17,4 +17,3 @@ select
 from {{ ref('campaign_entity_types_ab1') }}
 -- campaign_entity_types
 where 1 = 1
-

@@ -26,4 +26,3 @@ select
 from {{ ref('customer_balance_transactions_ab1') }}
 -- customer_balance_transactions
 where 1 = 1
-

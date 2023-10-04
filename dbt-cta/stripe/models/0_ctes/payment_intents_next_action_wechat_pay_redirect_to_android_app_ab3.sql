@@ -17,7 +17,7 @@ select
         'partner_id',
     ]) }} as _airbyte_wechat_pay_redirect_to_android_app_hashid,
     tmp.*
-from {{ ref('payment_intents_next_action_wechat_pay_redirect_to_android_app_ab2') }} tmp
+from {{ ref('payment_intents_next_action_wechat_pay_redirect_to_android_app_ab2') }} as tmp
 -- wechat_pay_redirect_to_android_app at payment_intents_base/next_action/wechat_pay_redirect_to_android_app
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

@@ -26,7 +26,6 @@ select
         'updated_at',
     ]) }} as _airbyte_core_fields_hashid,
     tmp.*
-from {{ ref('core_fields_ab2') }} tmp
+from {{ ref('core_fields_ab2') }} as tmp
 -- core_fields
 where 1 = 1
-

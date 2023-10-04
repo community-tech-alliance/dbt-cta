@@ -19,7 +19,6 @@ select
         'source_action_type',
     ]) }} as _airbyte_sms_statuses_hashid,
     tmp.*
-from {{ ref('sms_statuses_ab2') }} tmp
+from {{ ref('sms_statuses_ab2') }} as tmp
 -- sms_statuses
 where 1 = 1
-

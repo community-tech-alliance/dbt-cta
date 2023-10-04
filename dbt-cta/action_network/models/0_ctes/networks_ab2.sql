@@ -26,4 +26,3 @@ select
 from {{ ref('networks_ab1') }}
 -- networks
 where 1 = 1
-

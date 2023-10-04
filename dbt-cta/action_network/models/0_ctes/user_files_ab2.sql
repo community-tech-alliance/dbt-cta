@@ -28,4 +28,3 @@ select
 from {{ ref('user_files_ab1') }}
 -- user_files
 where 1 = 1
-

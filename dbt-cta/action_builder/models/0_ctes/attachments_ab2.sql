@@ -22,4 +22,3 @@ select
 from {{ ref('attachments_ab1') }}
 -- attachments
 where 1 = 1
-

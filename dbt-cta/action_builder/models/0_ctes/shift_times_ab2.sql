@@ -19,4 +19,3 @@ select
 from {{ ref('shift_times_ab1') }}
 -- shift_times
 where 1 = 1
-

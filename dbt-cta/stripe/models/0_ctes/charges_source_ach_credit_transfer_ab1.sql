@@ -19,9 +19,10 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('charges_source_base') }} as table_alias
+from {{ ref('charges_source_base') }}
 -- ach_credit_transfer at charges_base/source/ach_credit_transfer
-where 1 = 1
-and ach_credit_transfer is not null
+where
+    1 = 1
+    and ach_credit_transfer is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

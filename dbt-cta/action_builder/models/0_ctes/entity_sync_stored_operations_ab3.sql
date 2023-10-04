@@ -17,7 +17,6 @@ select
         'external_entity_id',
     ]) }} as _airbyte_entity_sync_stored_operations_hashid,
     tmp.*
-from {{ ref('entity_sync_stored_operations_ab2') }} tmp
+from {{ ref('entity_sync_stored_operations_ab2') }} as tmp
 -- entity_sync_stored_operations
 where 1 = 1
-

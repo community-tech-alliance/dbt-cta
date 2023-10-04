@@ -19,7 +19,6 @@ select
         'syndication_id',
     ]) }} as _airbyte_groups_syndications_hashid,
     tmp.*
-from {{ ref('groups_syndications_ab2') }} tmp
+from {{ ref('groups_syndications_ab2') }} as tmp
 -- groups_syndications
 where 1 = 1
-

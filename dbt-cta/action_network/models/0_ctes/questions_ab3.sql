@@ -25,7 +25,6 @@ select
         'originating_system',
     ]) }} as _airbyte_questions_hashid,
     tmp.*
-from {{ ref('questions_ab2') }} tmp
+from {{ ref('questions_ab2') }} as tmp
 -- questions
 where 1 = 1
-

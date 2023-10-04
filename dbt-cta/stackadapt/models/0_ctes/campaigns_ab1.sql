@@ -61,4 +61,3 @@ select
 from {{ source('cta', '_airbyte_raw_campaigns') }} as table_alias
 -- campaigns
 where 1 = 1
-

@@ -28,4 +28,3 @@ select
 from {{ ref('call_targets_ab1') }}
 -- call_targets
 where 1 = 1
-

@@ -36,4 +36,3 @@ select
 from {{ ref('addresses_ab1') }}
 -- addresses
 where 1 = 1
-

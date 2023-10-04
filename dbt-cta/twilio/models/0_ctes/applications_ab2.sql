@@ -34,4 +34,3 @@ select
 from {{ ref('applications_ab1') }}
 -- applications
 where 1 = 1
-

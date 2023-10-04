@@ -11,7 +11,6 @@ select
         'postal_code',
     ]) }} as _airbyte_billing_address_hashid,
     tmp.*
-from {{ ref('customers_cards_billing_address_ab2') }} tmp
+from {{ ref('customers_cards_billing_address_ab2') }} as tmp
 -- billing_address at customers/cards/billing_address
 where 1 = 1
-

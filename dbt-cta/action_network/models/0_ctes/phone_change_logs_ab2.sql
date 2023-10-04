@@ -22,4 +22,3 @@ select
 from {{ ref('phone_change_logs_ab1') }}
 -- phone_change_logs
 where 1 = 1
-

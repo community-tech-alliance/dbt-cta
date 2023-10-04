@@ -18,4 +18,3 @@ select
 from {{ ref('networks_users_ab1') }}
 -- networks_users
 where 1 = 1
-

@@ -19,4 +19,3 @@ select
 from {{ ref('webhooks_ab1') }}
 -- webhooks
 where 1 = 1
-

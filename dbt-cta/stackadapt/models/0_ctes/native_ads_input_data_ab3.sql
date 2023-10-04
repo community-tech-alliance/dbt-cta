@@ -18,7 +18,6 @@ select
         array_to_string('display_js_creative'),
     ]) }} as _airbyte_input_data_hashid,
     tmp.*
-from {{ ref('native_ads_input_data_ab2') }} tmp
+from {{ ref('native_ads_input_data_ab2') }} as tmp
 -- input_data at native_ads/input_data
 where 1 = 1
-

@@ -16,9 +16,10 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('charges_source_base') }} as table_alias
+from {{ ref('charges_source_base') }}
 -- receiver at charges_base/source/receiver
-where 1 = 1
-and receiver is not null
+where
+    1 = 1
+    and receiver is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

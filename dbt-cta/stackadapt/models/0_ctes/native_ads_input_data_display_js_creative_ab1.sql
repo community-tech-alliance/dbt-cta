@@ -18,9 +18,9 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('native_ads_input_data_base') }} as table_alias
+from {{ ref('native_ads_input_data_base') }}
 -- display_js_creative at native_ads/input_data/display_js_creative
 {{ cross_join_unnest('input_data', 'display_js_creative') }}
-where 1 = 1
-and display_js_creative is not null
-
+where
+    1 = 1
+    and display_js_creative is not null

@@ -17,4 +17,3 @@ select
 from {{ ref('campaigns_entity_connection_types_ab1') }}
 -- campaigns_entity_connection_types
 where 1 = 1
-

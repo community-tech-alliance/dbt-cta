@@ -13,7 +13,6 @@ select
         'unit_amount',
     ]) }} as _airbyte_tiers_hashid,
     tmp.*
-from {{ ref('subscription_items_plan_tiers_ab2') }} tmp
+from {{ ref('subscription_items_plan_tiers_ab2') }} as tmp
 -- tiers at subscription_items_base/plan/tiers
 where 1 = 1
-

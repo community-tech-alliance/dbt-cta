@@ -1,5 +1,3 @@
-
-  {{ config(full_refresh=false) }}
-  SELECT *
-  FROM {{ source('cta','payments_processing_fee_base') }}
-  
+{{ config(full_refresh=false) }}
+select *
+from {{ source('cta','payments_processing_fee_base') }}

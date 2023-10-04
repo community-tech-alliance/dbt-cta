@@ -15,5 +15,5 @@ select
     trigger_value,
     usage_category,
     callback_method,
-    usage_record_uri,
+    usage_record_uri
 from {{ source('cta','usage_triggers_base') }}

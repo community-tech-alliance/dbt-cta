@@ -38,7 +38,6 @@ select
         'facebook_image_content_type',
     ]) }} as _airbyte_share_options_hashid,
     tmp.*
-from {{ ref('share_options_ab2') }} tmp
+from {{ ref('share_options_ab2') }} as tmp
 -- share_options
 where 1 = 1
-

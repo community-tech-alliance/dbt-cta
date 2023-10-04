@@ -14,7 +14,7 @@ select
         'aggregate_usage',
     ]) }} as _airbyte_recurring_hashid,
     tmp.*
-from {{ ref('checkout_sessions_line_items_price_recurring_ab2') }} tmp
+from {{ ref('checkout_sessions_line_items_price_recurring_ab2') }} as tmp
 -- recurring at checkout_sessions_line_items/price/recurring
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

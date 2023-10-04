@@ -18,7 +18,6 @@ select
         'completed_count',
     ]) }} as _airbyte_action_entities_hashid,
     tmp.*
-from {{ ref('action_entities_ab2') }} tmp
+from {{ ref('action_entities_ab2') }} as tmp
 -- action_entities
 where 1 = 1
-

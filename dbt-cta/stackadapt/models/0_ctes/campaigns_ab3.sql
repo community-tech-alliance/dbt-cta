@@ -58,7 +58,6 @@ select
         array_to_string('device_os_family_options'),
     ]) }} as _airbyte_campaigns_hashid,
     tmp.*
-from {{ ref('campaigns_ab2') }} tmp
+from {{ ref('campaigns_ab2') }} as tmp
 -- campaigns
 where 1 = 1
-

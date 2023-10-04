@@ -38,7 +38,7 @@ select
         'afterpay_clearpay',
     ]) }} as _airbyte_payment_method_hashid,
     tmp.*
-from {{ ref('payment_intents_last_payment_error_payment_method_ab2') }} tmp
+from {{ ref('payment_intents_last_payment_error_payment_method_ab2') }} as tmp
 -- payment_method at payment_intents_base/last_payment_error/payment_method
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

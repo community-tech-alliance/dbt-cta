@@ -20,7 +20,6 @@ select
         'email_stat_id',
     ]) }} as _airbyte_email_activities_8_hashid,
     tmp.*
-from {{ ref('email_activities_8_ab2') }} tmp
+from {{ ref('email_activities_8_ab2') }} as tmp
 -- email_activities_8
 where 1 = 1
-

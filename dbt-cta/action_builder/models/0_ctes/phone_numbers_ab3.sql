@@ -23,7 +23,6 @@ select
         'updated_by_id',
     ]) }} as _airbyte_phone_numbers_hashid,
     tmp.*
-from {{ ref('phone_numbers_ab2') }} tmp
+from {{ ref('phone_numbers_ab2') }} as tmp
 -- phone_numbers
 where 1 = 1
-

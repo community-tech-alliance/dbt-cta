@@ -23,4 +23,3 @@ select
 from {{ ref('sms_unsubscriptions_ab1') }}
 -- sms_unsubscriptions
 where 1 = 1
-

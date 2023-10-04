@@ -13,5 +13,5 @@ select
     conference_sid,
     call_sid_to_coach,
     end_conference_on_exit,
-    start_conference_on_enter,
+    start_conference_on_enter
 from {{ source('cta','conference_participants_base') }}

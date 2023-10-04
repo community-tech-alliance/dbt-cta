@@ -23,7 +23,6 @@ select
         'transcription_text',
     ]) }} as _airbyte_transcriptions_hashid,
     tmp.*
-from {{ ref('transcriptions_ab2') }} tmp
+from {{ ref('transcriptions_ab2') }} as tmp
 -- transcriptions
 where 1 = 1
-

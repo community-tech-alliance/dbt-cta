@@ -15,7 +15,6 @@ select
         boolean_to_string('restriction_enabled'),
     ]) }} as _airbyte_turf_assignments_hashid,
     tmp.*
-from {{ ref('turf_assignments_ab2') }} tmp
+from {{ ref('turf_assignments_ab2') }} as tmp
 -- turf_assignments
 where 1 = 1
-

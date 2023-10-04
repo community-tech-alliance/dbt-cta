@@ -1,5 +1,3 @@
-
-  {{ config(full_refresh=false) }}
-  SELECT *
-  FROM {{ source('cta','taxes_tax_data_base') }}
-  
+{{ config(full_refresh=false) }}
+select *
+from {{ source('cta','taxes_tax_data_base') }}

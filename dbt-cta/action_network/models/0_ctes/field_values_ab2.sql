@@ -19,4 +19,3 @@ select
 from {{ ref('field_values_ab1') }}
 -- field_values
 where 1 = 1
-

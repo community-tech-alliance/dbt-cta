@@ -10,7 +10,6 @@ select
         'version',
     ]) }} as _airbyte_schema_migrations_hashid,
     tmp.*
-from {{ ref('schema_migrations_ab2') }} tmp
+from {{ ref('schema_migrations_ab2') }} as tmp
 -- schema_migrations
 where 1 = 1
-

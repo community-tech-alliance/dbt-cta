@@ -12,7 +12,6 @@ select
         'core_field_id',
     ]) }} as _airbyte_core_fields_ocdids_hashid,
     tmp.*
-from {{ ref('core_fields_ocdids_ab2') }} tmp
+from {{ ref('core_fields_ocdids_ab2') }} as tmp
 -- core_fields_ocdids
 where 1 = 1
-

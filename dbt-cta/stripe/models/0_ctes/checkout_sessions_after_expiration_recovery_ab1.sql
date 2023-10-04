@@ -14,9 +14,10 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('checkout_sessions_after_expiration_base') }} as table_alias
+from {{ ref('checkout_sessions_after_expiration_base') }}
 -- recovery at checkout_sessions_base/after_expiration/recovery
-where 1 = 1
-and recovery is not null
+where
+    1 = 1
+    and recovery is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

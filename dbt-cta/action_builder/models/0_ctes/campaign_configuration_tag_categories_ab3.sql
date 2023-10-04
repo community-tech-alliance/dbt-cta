@@ -17,7 +17,6 @@ select
         'campaign_configuration_target_type',
     ]) }} as _airbyte_campaign_configuration_tag_categories_hashid,
     tmp.*
-from {{ ref('campaign_configuration_tag_categories_ab2') }} tmp
+from {{ ref('campaign_configuration_tag_categories_ab2') }} as tmp
 -- campaign_configuration_tag_categories
 where 1 = 1
-

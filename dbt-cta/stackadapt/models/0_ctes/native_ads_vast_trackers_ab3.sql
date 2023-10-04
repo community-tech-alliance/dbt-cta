@@ -13,7 +13,6 @@ select
         'event_type',
     ]) }} as _airbyte_vast_trackers_hashid,
     tmp.*
-from {{ ref('native_ads_vast_trackers_ab2') }} tmp
+from {{ ref('native_ads_vast_trackers_ab2') }} as tmp
 -- vast_trackers at native_ads/vast_trackers
 where 1 = 1
-

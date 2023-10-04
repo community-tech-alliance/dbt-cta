@@ -24,4 +24,3 @@ select
 from {{ ref('field_names_ab1') }}
 -- field_names
 where 1 = 1
-

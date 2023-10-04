@@ -14,4 +14,3 @@ select
 from {{ ref('orders_source_ab1') }}
 -- source at orders/source
 where 1 = 1
-

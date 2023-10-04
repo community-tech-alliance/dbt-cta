@@ -11,7 +11,7 @@ select
         'id',
     ]) }} as _airbyte_balance_transactions_hashid,
     tmp.*
-from {{ ref('disputes_balance_transactions_ab2') }} tmp
+from {{ ref('disputes_balance_transactions_ab2') }} as tmp
 -- balance_transactions at disputes_base/balance_transactions
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

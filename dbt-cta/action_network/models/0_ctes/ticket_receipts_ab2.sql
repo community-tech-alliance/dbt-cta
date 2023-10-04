@@ -39,4 +39,3 @@ select
 from {{ ref('ticket_receipts_ab1') }}
 -- ticket_receipts
 where 1 = 1
-

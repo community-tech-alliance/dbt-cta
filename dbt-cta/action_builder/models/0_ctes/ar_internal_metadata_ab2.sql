@@ -16,4 +16,3 @@ select
 from {{ ref('ar_internal_metadata_ab1') }}
 -- ar_internal_metadata
 where 1 = 1
-

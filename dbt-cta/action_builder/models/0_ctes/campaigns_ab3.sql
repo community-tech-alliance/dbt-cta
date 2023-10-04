@@ -26,7 +26,6 @@ select
         boolean_to_string('activity_stream_as_initial_entity_view'),
     ]) }} as _airbyte_campaigns_hashid,
     tmp.*
-from {{ ref('campaigns_ab2') }} tmp
+from {{ ref('campaigns_ab2') }} as tmp
 -- campaigns
 where 1 = 1
-

@@ -1,1 +1,1 @@
-SELECT * FROM {{ source('cta','invoice_items_period_base') }}
+select * from {{ source('cta','invoice_items_period_base') }}

@@ -35,5 +35,5 @@ select
     voice_fallback_method,
     status_callback_method,
     voice_caller_id_lookup,
-    emergency_address_status,
+    emergency_address_status
 from {{ source('cta','incoming_phone_numbers_base') }}

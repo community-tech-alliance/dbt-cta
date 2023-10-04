@@ -17,4 +17,3 @@ select
 from {{ source('cta', '_airbyte_raw_team_member_wages') }} as table_alias
 -- team_member_wages
 where 1 = 1
-

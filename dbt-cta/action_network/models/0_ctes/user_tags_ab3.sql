@@ -16,7 +16,6 @@ select
         'updated_at',
     ]) }} as _airbyte_user_tags_hashid,
     tmp.*
-from {{ ref('user_tags_ab2') }} tmp
+from {{ ref('user_tags_ab2') }} as tmp
 -- user_tags
 where 1 = 1
-

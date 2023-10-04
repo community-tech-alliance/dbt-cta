@@ -17,4 +17,3 @@ select
 from {{ ref('query_results_ab1') }}
 -- query_results
 where 1 = 1
-

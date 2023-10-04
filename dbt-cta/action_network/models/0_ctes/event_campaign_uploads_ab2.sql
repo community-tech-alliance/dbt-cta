@@ -24,4 +24,3 @@ select
 from {{ ref('event_campaign_uploads_ab1') }}
 -- event_campaign_uploads
 where 1 = 1
-

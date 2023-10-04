@@ -23,7 +23,6 @@ select
         'opted_in_mobile_number',
     ]) }} as _airbyte_networks_hashid,
     tmp.*
-from {{ ref('networks_ab2') }} tmp
+from {{ ref('networks_ab2') }} as tmp
 -- networks
 where 1 = 1
-

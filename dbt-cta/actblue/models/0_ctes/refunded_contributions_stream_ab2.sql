@@ -96,4 +96,3 @@ select
 from {{ ref('refunded_contributions_stream_ab1') }}
 -- refunded_contributions_stream
 where 1 = 1
-

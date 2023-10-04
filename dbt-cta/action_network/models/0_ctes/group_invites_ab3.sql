@@ -17,7 +17,6 @@ select
         'updated_at',
     ]) }} as _airbyte_group_invites_hashid,
     tmp.*
-from {{ ref('group_invites_ab2') }} tmp
+from {{ ref('group_invites_ab2') }} as tmp
 -- group_invites
 where 1 = 1
-

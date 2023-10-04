@@ -18,7 +18,7 @@ select
         array_to_string('location_overrides'),
     ]) }} as _airbyte_item_variation_data_hashid,
     tmp.*
-from {{ ref('items_item_data_variations_item_variation_data_ab2') }} tmp
+from {{ ref('items_item_data_variations_item_variation_data_ab2') }} as tmp
 -- item_variation_data at items/item_data/variations/item_variation_data
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

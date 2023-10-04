@@ -17,7 +17,6 @@ select
         'expected_duration',
     ]) }} as _airbyte_breaks_hashid,
     tmp.*
-from {{ ref('shifts_breaks_ab2') }} tmp
+from {{ ref('shifts_breaks_ab2') }} as tmp
 -- breaks at shifts/breaks
 where 1 = 1
-

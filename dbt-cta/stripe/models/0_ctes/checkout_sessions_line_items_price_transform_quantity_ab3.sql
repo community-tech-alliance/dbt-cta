@@ -12,7 +12,7 @@ select
         'divide_by',
     ]) }} as _airbyte_transform_quantity_hashid,
     tmp.*
-from {{ ref('checkout_sessions_line_items_price_transform_quantity_ab2') }} tmp
+from {{ ref('checkout_sessions_line_items_price_transform_quantity_ab2') }} as tmp
 -- transform_quantity at checkout_sessions_line_items/price/transform_quantity
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

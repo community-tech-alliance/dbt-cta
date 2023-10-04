@@ -25,4 +25,3 @@ select
 from {{ ref('catalist_syncs_ab1') }}
 -- catalist_syncs
 where 1 = 1
-

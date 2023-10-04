@@ -21,7 +21,6 @@ select
         'validation_description',
     ]) }} as _airbyte_field_names_hashid,
     tmp.*
-from {{ ref('field_names_ab2') }} tmp
+from {{ ref('field_names_ab2') }} as tmp
 -- field_names
 where 1 = 1
-

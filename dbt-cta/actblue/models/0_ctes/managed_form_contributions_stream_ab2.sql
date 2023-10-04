@@ -96,4 +96,3 @@ select
 from {{ ref('managed_form_contributions_stream_ab1') }}
 -- managed_form_contributions_stream
 where 1 = 1
-

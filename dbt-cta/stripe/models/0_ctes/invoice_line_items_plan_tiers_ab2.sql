@@ -16,4 +16,3 @@ select
 from {{ ref('invoice_line_items_plan_tiers_ab1') }}
 -- tiers at invoice_line_items_base/plan/tiers
 where 1 = 1
-

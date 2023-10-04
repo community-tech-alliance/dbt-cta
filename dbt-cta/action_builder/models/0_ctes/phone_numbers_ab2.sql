@@ -26,4 +26,3 @@ select
 from {{ ref('phone_numbers_ab1') }}
 -- phone_numbers
 where 1 = 1
-

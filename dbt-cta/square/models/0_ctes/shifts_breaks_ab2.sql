@@ -20,4 +20,3 @@ select
 from {{ ref('shifts_breaks_ab1') }}
 -- breaks at shifts/breaks
 where 1 = 1
-

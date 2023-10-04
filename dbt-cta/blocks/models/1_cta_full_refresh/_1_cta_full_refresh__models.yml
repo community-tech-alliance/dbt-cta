@@ -29,7 +29,6 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: state_id
         description: ''
       - name: longitude
@@ -132,25 +131,14 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
-        tests:
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
       - name: _airbyte_registration_forms_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: imports_error_rows_base
     description: ''
@@ -163,10 +151,6 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
-        tests:
-          - unique
-          - not_null
       - name: row_data
         description: ''
       - name: duplicate_found
@@ -175,20 +159,14 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_imports_error_rows_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: registrant_matches_base
     description: ''
@@ -209,7 +187,6 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: state
         description: ''
       - name: household_id_1
@@ -352,20 +329,14 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_registrant_matches_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: locations_base
     description: ''
@@ -412,7 +383,6 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: state
         description: ''
       - name: email
@@ -457,20 +427,14 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_locations_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: tags_base
     description: ''
@@ -481,27 +445,20 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: taggings_count
         description: ''
       - name: _airbyte_ab_id
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_tags_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: organizations_teams_base
     description: ''
@@ -514,20 +471,14 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_organizations_teams_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: delayed_jobs_base
     description: ''
@@ -546,7 +497,6 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: run_at
         description: ''
       - name: failed_at
@@ -563,20 +513,14 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_delayed_jobs_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: quality_control_flag_triggers_base
     description: ''
@@ -613,7 +557,6 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: visual_review_response_id
         description: ''
       - name: implies_canvasser_issue
@@ -622,20 +565,14 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_quality_control_flag_triggers_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: coorganizations_base
     description: ''
@@ -648,20 +585,14 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_coorganizations_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: age_to_bin_base
     description: ''
@@ -674,20 +605,14 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_age_to_bin_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: schema_migrations_base
     description: ''
@@ -700,20 +625,14 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_schema_migrations_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: quality_control_flags_views_base
     description: ''
@@ -726,20 +645,14 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_quality_control_flags_views_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: scheduled_exports_turfs_base
     description: ''
@@ -752,20 +665,14 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_scheduled_exports_turfs_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: quality_control_phone_verification_question_translations_base
     description: ''
@@ -778,27 +685,20 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: question_id
         description: ''
       - name: _airbyte_ab_id
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_quality_control_phone_verification_question_translations_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: quality_control_phone_verification_scripts_base
     description: ''
@@ -811,27 +711,46 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: structure
         description: ''
       - name: _airbyte_ab_id
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_quality_control_phone_verification_scripts_hashid
         description: ''
         tests:
           - unique
-          - not_null
+
+  - name: admin_users_base
+    description: ''
+    columns:
+      - name: session
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: email
+        description: ''
+      - name: encrypted_password
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_admin_users_hashid
+        description: ''
+        tests:
+          - unique
 
   - name: state_party_codes_base
     description: ''
@@ -848,27 +767,20 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: state
         description: ''
       - name: _airbyte_ab_id
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_state_party_codes_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: locations_organizations_base
     description: ''
@@ -881,20 +793,14 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_locations_organizations_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: delivery_forms_exclusions_base
     description: ''
@@ -907,20 +813,14 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_delivery_forms_exclusions_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: versions_base
     description: ''
@@ -937,7 +837,6 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: event
         description: ''
       - name: whodunnit
@@ -948,20 +847,14 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_versions_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: events_teams_base
     description: ''
@@ -974,20 +867,14 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_events_teams_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: denominations_organizations_base
     description: ''
@@ -1000,20 +887,14 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_denominations_organizations_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: catalist_uploads_registration_forms_base
     description: ''
@@ -1026,20 +907,248 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_catalist_uploads_registration_forms_hashid
         description: ''
         tests:
           - unique
-          - not_null
+
+  - name: scans_qc_overview_base
+    description: ''
+    columns:
+      - name: distance_from_location
+        description: ''
+      - name: eligible_voting_age
+        description: ''
+      - name: canvasser_id
+        description: ''
+      - name: visual_qc_completed_by_user_id
+        description: ''
+      - name: program_state
+        description: ''
+      - name: data_entry_time
+        description: ''
+      - name: bad_number
+        description: ''
+      - name: field_start
+        description: ''
+      - name: shift_type
+        description: ''
+      - name: collection_location_id
+        description: ''
+      - name: identification
+        description: ''
+      - name: voter_registration_scan_id
+        description: ''
+      - name: voting_state
+        description: ''
+      - name: collection_location_zip
+        description: ''
+      - name: collection_location_city
+        description: ''
+      - name: collective_name
+        description: ''
+      - name: visual_qc_county
+        description: ''
+      - name: address_validated
+        description: ''
+      - name: qc_deadline
+        description: ''
+      - name: mailing_street_address_two
+        description: ''
+      - name: organization_name
+        description: ''
+      - name: canvasser_last_name
+        description: ''
+      - name: shift_start
+        description: ''
+      - name: upload_time
+        description: ''
+      - name: name
+        description: ''
+      - name: voting_city
+        description: ''
+      - name: collection_location_name
+        description: ''
+      - name: phone_number
+        description: ''
+      - name: party
+        description: ''
+      - name: voting_address_latitude
+        description: ''
+      - name: qc_organization
+        description: ''
+      - name: mailing_street_address_one
+        description: ''
+      - name: gender
+        description: ''
+      - name: ethnicity
+        description: ''
+      - name: signature
+        description: ''
+      - name: turf_parent_id
+        description: ''
+      - name: date_of_birth
+        description: ''
+      - name: extras
+        description: ''
+      - name: voting_street_address_two
+        description: ''
+      - name: voting_address_longitude
+        description: ''
+      - name: phone_verification_completed_by_user_id
+        description: ''
+      - name: voting_zipcode
+        description: ''
+      - name: mailing_zipcode
+        description: ''
+      - name: registration_type
+        description: ''
+      - name: registration_form_id
+        description: ''
+      - name: packet_filename
+        description: ''
+      - name: name_prefix
+        description: ''
+      - name: collection_location_longitude
+        description: ''
+      - name: through_visual_qc
+        description: ''
+      - name: turf_id
+        description: ''
+      - name: van_committee_id
+        description: ''
+      - name: shift_id
+        description: ''
+      - name: collection_location_latitude
+        description: ''
+      - name: shift_end
+        description: ''
+      - name: collection_location_county
+        description: ''
+      - name: first_name
+        description: ''
+      - name: data_entry_county
+        description: ''
+      - name: voter_registration_scan_updated_at
+        description: ''
+      - name: digital
+        description: ''
+      - name: mailing_city
+        description: ''
+      - name: is_registration_form
+        description: ''
+      - name: voting_street_address_one
+        description: ''
+      - name: name_suffix
+        description: ''
+      - name: data_entry_updated_at
+        description: ''
+      - name: last_name
+        description: ''
+      - name: middle_name
+        description: ''
+      - name: voter_registration_scan_batches_id
+        description: ''
+      - name: phone_validated
+        description: ''
+      - name: email_address
+        description: ''
+      - name: phone_verified
+        description: ''
+      - name: collection_location_street_address
+        description: ''
+      - name: field_end
+        description: ''
+      - name: canvasser_first_name
+        description: ''
+      - name: complete
+        description: ''
+      - name: has_phone_number_visual_qc
+        description: ''
+      - name: collection_location_state
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_scans_qc_overview_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: sent_emails_base
+    description: ''
+    columns:
+      - name: recipients_count
+        description: ''
+      - name: event_id
+        description: ''
+      - name: list_id
+        description: ''
+      - name: email_template_id
+        description: ''
+      - name: subject
+        description: ''
+      - name: created_at
+        description: ''
+      - name: from
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: team_id
+        description: ''
+      - name: body
+        description: ''
+      - name: sender_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_sent_emails_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: turf_levels_base
+    description: ''
+    columns:
+      - name: updated_at
+        description: ''
+      - name: name
+        description: ''
+      - name: created_at
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_turf_levels_hashid
+        description: ''
+        tests:
+          - unique
 
   - name: voted_labels_base
     description: ''
@@ -1058,20 +1167,14 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_voted_labels_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: turfs_base
     description: ''
@@ -1116,7 +1219,6 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: lft
         description: ''
       - name: rgt
@@ -1127,20 +1229,14 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_turfs_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: field_management_projections_base
     description: ''
@@ -1157,7 +1253,6 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: total_collected
         description: ''
       - name: targets
@@ -1168,20 +1263,14 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_field_management_projections_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: email_templates_events_base
     description: ''
@@ -1198,20 +1287,14 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_email_templates_events_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: taggings_base
     description: ''
@@ -1228,7 +1311,6 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: phone_banking_question_id
         description: ''
       - name: taggable_id
@@ -1241,20 +1323,38 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_taggings_hashid
         description: ''
         tests:
           - unique
-          - not_null
+
+  - name: documents_phone_banking_phone_banks_base
+    description: ''
+    columns:
+      - name: phone_bank_id
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: created_at
+        description: ''
+      - name: document_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_documents_phone_banking_phone_banks_hashid
+        description: ''
+        tests:
+          - unique
 
   - name: shifts_base
     description: ''
@@ -1307,7 +1407,6 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: campaign_id
         description: ''
       - name: digital
@@ -1348,20 +1447,14 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_shifts_hashid
         description: ''
         tests:
           - unique
-          - not_null
 
   - name: vr_zips_lookup_base
     description: ''
@@ -1386,905 +1479,13 @@ models:
         description: ''
         tests:
           - unique
-          - not_null
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_vr_zips_lookup_hashid
         description: ''
         tests:
-          - unique
-          - not_null
-
-  - name: contact_methods_base
-    description: ''
-    columns:
-      - name: extension
-        description: ''
-      - name: contact_type
-        description: ''
-      - name: updated_at
-        description: ''
-      - name: invalid
-        description: ''
-      - name: created_at
-        description: ''
-      - name: description
-        description: ''
-      - name: id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: content
-        description: ''
-      - name: person_id
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_contact_methods_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-
-  - name: user_profiles_base
-    description: ''
-    columns:
-      - name: facebook_url
-        description: ''
-      - name: gender
-        description: ''
-      - name: date_of_birth
-        description: ''
-      - name: bio
-        description: ''
-      - name: extras
-        description: ''
-      - name: created_at
-        description: ''
-      - name: google_url
-        description: ''
-      - name: updated_at
-        description: ''
-      - name: website_url
-        description: ''
-      - name: user_id
-        description: ''
-      - name: phone_number
-        description: ''
-      - name: id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: linkedin_url
-        description: ''
-      - name: twitter_url
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_user_profiles_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-
-  - name: denominations_people_base
-    description: ''
-    columns:
-      - name: denomination_id
-        description: ''
-      - name: person_id
-        description: ''
-      - name: denominmemberable_type
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_denominations_people_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-
-  - name: grouping_measurements_base
-    description: ''
-    columns:
-      - name: measurable_id
-        description: ''
-      - name: grouping_id
-        description: ''
-      - name: id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: position
-        description: ''
-      - name: measurable_type
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_grouping_measurements_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-
-  - name: address_districts_base
-    description: ''
-    columns:
-      - name: address_id
-        description: ''
-      - name: district_id
-        description: ''
-      - name: district_type
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_address_districts_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-
-  - name: deliveries_base
-    description: ''
-    columns:
-      - name: notes
-        description: ''
-      - name: batch_number
-        description: ''
-      - name: form_filter_registration_date_start
-        description: ''
-      - name: canvasser_id
-        description: ''
-      - name: created_at
-        description: ''
-      - name: form_filter_turf_id
-        description: ''
-      - name: form_filter_counties
-        description: ''
-      - name: clerk_receipt_data
-        description: ''
-      - name: created_by_user_id
-        description: ''
-      - name: office_id
-        description: ''
-      - name: updated_at
-        description: ''
-      - name: turn_in_location_id
-        description: ''
-      - name: delivery_method
-        description: ''
-      - name: runner_receipt_data
-        description: ''
-      - name: form_filter_registration_date_end
-        description: ''
-      - name: id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: turn_in_date
-        description: ''
-      - name: form_filters_no_county
-        description: ''
-      - name: form_filter_qc_statuses
-        description: ''
-      - name: status
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_deliveries_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-
-  - name: campaigns_people_base
-    description: ''
-    columns:
-      - name: campaign_id
-        description: ''
-      - name: person_id
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_campaigns_people_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-
-  - name: campaigns_teams_base
-    description: ''
-    columns:
-      - name: team_id
-        description: ''
-      - name: campaign_id
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_campaigns_teams_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-
-  - name: quality_control_comments_users_base
-    description: ''
-    columns:
-      - name: user_id
-        description: ''
-      - name: comment_id
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_quality_control_comments_users_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-
-  - name: activism_options_configs_base
-    description: ''
-    columns:
-      - name: skills
-        description: ''
-      - name: campaigns
-        description: ''
-      - name: languages
-        description: ''
-      - name: turf_id
-        description: ''
-      - name: id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: issues
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_activism_options_configs_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-
-  - name: collections_base
-    description: ''
-    columns:
-      - name: updated_at
-        description: ''
-      - name: name
-        description: ''
-      - name: active
-        description: ''
-      - name: created_at
-        description: ''
-      - name: id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: collection_type
-        description: ''
-      - name: created_by_user_id
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_collections_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-
-  - name: friendly_id_slugs_base
-    description: ''
-    columns:
-      - name: sluggable_type
-        description: ''
-      - name: scope
-        description: ''
-      - name: sluggable_id
-        description: ''
-      - name: created_at
-        description: ''
-      - name: id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: slug
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_friendly_id_slugs_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-
-  - name: collections_roles_base
-    description: ''
-    columns:
-      - name: collection_id
-        description: ''
-      - name: role_id
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_collections_roles_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-
-  - name: quality_control_flags_voter_registration_scans_base
-    description: ''
-    columns:
-      - name: voter_registration_scan_id
-        description: ''
-      - name: quality_control_flag_id
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_quality_control_flags_voter_registration_scans_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-
-  - name: counties_base
-    description: ''
-    columns:
-      - name: updated_at
-        description: ''
-      - name: name
-        description: ''
-      - name: created_at
-        description: ''
-      - name: description
-        description: ''
-      - name: id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: state
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_counties_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-
-  - name: list_folders_users_base
-    description: ''
-    columns:
-      - name: user_id
-        description: ''
-      - name: list_folder_id
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_list_folders_users_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-
-  - name: states_base
-    description: ''
-    columns:
-      - name: full_name
-        description: ''
-      - name: updated_at
-        description: ''
-      - name: created_at
-        description: ''
-      - name: state_code
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_states_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-
-  - name: lists_people_base
-    description: ''
-    columns:
-      - name: list_id
-        description: ''
-      - name: person_id
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_lists_people_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-
-  - name: public_event_links_base
-    description: ''
-    columns:
-      - name: event_id
-        description: ''
-      - name: user_id
-        description: ''
-      - name: id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: url
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_public_event_links_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-
-  - name: field_management_goals_base
-    description: ''
-    columns:
-      - name: end_date
-        description: ''
-      - name: turf_id
-        description: ''
-      - name: id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: targets
-        description: ''
-      - name: labels
-        description: ''
-      - name: start_date
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_field_management_goals_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-
-  - name: announcements_views_base
-    description: ''
-    columns:
-      - name: user_id
-        description: ''
-      - name: announcement_id
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_announcements_views_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-
-  - name: projections_base
-    description: ''
-    columns:
-      - name: id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_projections_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-
-  - name: check_in_questions_base
-    description: ''
-    columns:
-      - name: archived
-        description: ''
-      - name: check_in_id
-        description: ''
-      - name: turf_id
-        description: ''
-      - name: id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: text
-        description: ''
-      - name: position
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-          - not_null
-      - name: _airbyte_normalized_at
-        description: ''
-      - name: _airbyte_check_in_questions_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-
-
-
-  - name: admin_users_base
-    description: ''
-    columns:
-      - name: session
-        description: ''
-      - name: id
-        description: ''
-      - name: email
-        description: ''
-      - name: encrypted_password
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_admin_users_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
-
-  - name: sent_emails_base
-    description: ''
-    columns:
-      - name: recipients_count
-        description: ''
-      - name: event_id
-        description: ''
-      - name: list_id
-        description: ''
-      - name: email_template_id
-        description: ''
-      - name: subject
-        description: ''
-      - name: created_at
-        description: ''
-      - name: from
-        description: ''
-      - name: id
-        description: ''
-      - name: team_id
-        description: ''
-      - name: body
-        description: ''
-      - name: sender_id
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_sent_emails_hashid
-        description: ''
-        tests:
-          - not_null
-          - unique
-
-  - name: documents_phone_banking_phone_banks_base
-    description: ''
-    columns:
-      - name: phone_bank_id
-        description: ''
-      - name: updated_at
-        description: ''
-      - name: created_at
-        description: ''
-      - name: document_id
-        description: ''
-      - name: _airbyte_ab_id
-        description: ''
-        tests:
-          - not_null
-          - unique
-      - name: _airbyte_emitted_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_normalized_at
-        description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
-      - name: _airbyte_documents_phone_banking_phone_banks_hashid
-        description: ''
-        tests:
-          - not_null
           - unique
 
   - name: import_lcv_base
@@ -2333,20 +1534,687 @@ models:
       - name: _airbyte_ab_id
         description: ''
         tests:
-          - not_null
           - unique
       - name: _airbyte_emitted_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
       - name: _airbyte_normalized_at
         description: ''
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp
       - name: _airbyte_import_lcv_hashid
         description: ''
         tests:
-          - not_null
           - unique
+
+  - name: contact_methods_base
+    description: ''
+    columns:
+      - name: extension
+        description: ''
+      - name: contact_type
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: invalid
+        description: ''
+      - name: created_at
+        description: ''
+      - name: description
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: content
+        description: ''
+      - name: person_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_contact_methods_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: user_profiles_base
+    description: ''
+    columns:
+      - name: facebook_url
+        description: ''
+      - name: gender
+        description: ''
+      - name: date_of_birth
+        description: ''
+      - name: bio
+        description: ''
+      - name: extras
+        description: ''
+      - name: created_at
+        description: ''
+      - name: google_url
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: website_url
+        description: ''
+      - name: user_id
+        description: ''
+      - name: phone_number
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: linkedin_url
+        description: ''
+      - name: twitter_url
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_user_profiles_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: denominations_people_base
+    description: ''
+    columns:
+      - name: denomination_id
+        description: ''
+      - name: person_id
+        description: ''
+      - name: denominmemberable_type
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_denominations_people_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: grouping_measurements_base
+    description: ''
+    columns:
+      - name: measurable_id
+        description: ''
+      - name: grouping_id
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: position
+        description: ''
+      - name: measurable_type
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_grouping_measurements_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: address_districts_base
+    description: ''
+    columns:
+      - name: address_id
+        description: ''
+      - name: district_id
+        description: ''
+      - name: district_type
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_address_districts_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: deliveries_base
+    description: ''
+    columns:
+      - name: notes
+        description: ''
+      - name: batch_number
+        description: ''
+      - name: form_filter_registration_date_start
+        description: ''
+      - name: canvasser_id
+        description: ''
+      - name: created_at
+        description: ''
+      - name: form_filter_turf_id
+        description: ''
+      - name: form_filter_counties
+        description: ''
+      - name: clerk_receipt_data
+        description: ''
+      - name: created_by_user_id
+        description: ''
+      - name: office_id
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: turn_in_location_id
+        description: ''
+      - name: delivery_method
+        description: ''
+      - name: runner_receipt_data
+        description: ''
+      - name: form_filter_registration_date_end
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: turn_in_date
+        description: ''
+      - name: form_filters_no_county
+        description: ''
+      - name: form_filter_qc_statuses
+        description: ''
+      - name: status
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_deliveries_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: campaigns_people_base
+    description: ''
+    columns:
+      - name: campaign_id
+        description: ''
+      - name: person_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_campaigns_people_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: campaigns_teams_base
+    description: ''
+    columns:
+      - name: team_id
+        description: ''
+      - name: campaign_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_campaigns_teams_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: quality_control_comments_users_base
+    description: ''
+    columns:
+      - name: user_id
+        description: ''
+      - name: comment_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_quality_control_comments_users_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: activism_options_configs_base
+    description: ''
+    columns:
+      - name: skills
+        description: ''
+      - name: campaigns
+        description: ''
+      - name: languages
+        description: ''
+      - name: turf_id
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: issues
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_activism_options_configs_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: collections_base
+    description: ''
+    columns:
+      - name: updated_at
+        description: ''
+      - name: name
+        description: ''
+      - name: active
+        description: ''
+      - name: created_at
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: collection_type
+        description: ''
+      - name: created_by_user_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_collections_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: friendly_id_slugs_base
+    description: ''
+    columns:
+      - name: sluggable_type
+        description: ''
+      - name: scope
+        description: ''
+      - name: sluggable_id
+        description: ''
+      - name: created_at
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: slug
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_friendly_id_slugs_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: collections_roles_base
+    description: ''
+    columns:
+      - name: collection_id
+        description: ''
+      - name: role_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_collections_roles_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: quality_control_flags_voter_registration_scans_base
+    description: ''
+    columns:
+      - name: voter_registration_scan_id
+        description: ''
+      - name: quality_control_flag_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_quality_control_flags_voter_registration_scans_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: counties_base
+    description: ''
+    columns:
+      - name: updated_at
+        description: ''
+      - name: name
+        description: ''
+      - name: created_at
+        description: ''
+      - name: description
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: state
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_counties_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: list_folders_users_base
+    description: ''
+    columns:
+      - name: user_id
+        description: ''
+      - name: list_folder_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_list_folders_users_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: scheduled_exports_base
+    description: ''
+    columns:
+      - name: day_of_the_week
+        description: ''
+      - name: paused
+        description: ''
+      - name: columns
+        description: ''
+      - name: attachment_name
+        description: ''
+      - name: format
+        description: ''
+      - name: created_at
+        description: ''
+      - name: uuid
+        description: ''
+      - name: table_name
+        description: ''
+      - name: frequency
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: user_id
+        description: ''
+      - name: time_zone_identifier
+        description: ''
+      - name: recipients
+        description: ''
+      - name: last_processed_at
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: hour_of_the_day
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_scheduled_exports_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: states_base
+    description: ''
+    columns:
+      - name: full_name
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: created_at
+        description: ''
+      - name: state_code
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_states_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: lists_people_base
+    description: ''
+    columns:
+      - name: list_id
+        description: ''
+      - name: person_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_lists_people_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: public_event_links_base
+    description: ''
+    columns:
+      - name: event_id
+        description: ''
+      - name: user_id
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: url
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_public_event_links_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: field_management_goals_base
+    description: ''
+    columns:
+      - name: end_date
+        description: ''
+      - name: turf_id
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: targets
+        description: ''
+      - name: labels
+        description: ''
+      - name: start_date
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_field_management_goals_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: announcements_views_base
+    description: ''
+    columns:
+      - name: user_id
+        description: ''
+      - name: announcement_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_announcements_views_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: projections_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_projections_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: check_in_questions_base
+    description: ''
+    columns:
+      - name: archived
+        description: ''
+      - name: check_in_id
+        description: ''
+      - name: turf_id
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: text
+        description: ''
+      - name: position
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_check_in_questions_hashid
+        description: ''
+        tests:
+          - unique
+

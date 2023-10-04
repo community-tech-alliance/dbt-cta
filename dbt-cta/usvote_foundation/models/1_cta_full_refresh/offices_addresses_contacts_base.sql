@@ -9,7 +9,7 @@
     tags = [ "nested" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('offices_addresses_contacts_ab3') }}
+-- depends_on: {{ ref('offices_addresses_contacts_ab4') }}
 select
     _airbyte_addresses_hashid,
     id,
@@ -19,8 +19,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_contacts_hashid
-from {{ ref('offices_addresses_contacts_ab3') }}
--- contacts at offices/addresses/contacts from {{ ref('offices_addresses') }}
+from {{ ref('offices_addresses_contacts_ab4') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

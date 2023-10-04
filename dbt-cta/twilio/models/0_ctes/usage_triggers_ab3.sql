@@ -26,7 +26,6 @@ select
         'usage_record_uri',
     ]) }} as _airbyte_usage_triggers_hashid,
     tmp.*
-from {{ ref('usage_triggers_ab2') }} tmp
+from {{ ref('usage_triggers_ab2') }} as tmp
 -- usage_triggers
 where 1 = 1
-

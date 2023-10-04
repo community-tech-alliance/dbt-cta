@@ -13,10 +13,11 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('checkout_sessions_customer_details_base') }} as table_alias
+from {{ ref('checkout_sessions_customer_details_base') }}
 -- tax_ids at checkout_sessions_base/customer_details/tax_ids
 {{ cross_join_unnest('customer_details', 'tax_ids') }}
-where 1 = 1
-and tax_ids is not null
+where
+    1 = 1
+    and tax_ids is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

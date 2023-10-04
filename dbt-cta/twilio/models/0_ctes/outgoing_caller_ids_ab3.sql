@@ -17,7 +17,6 @@ select
         'friendly_name',
     ]) }} as _airbyte_outgoing_caller_ids_hashid,
     tmp.*
-from {{ ref('outgoing_caller_ids_ab2') }} tmp
+from {{ ref('outgoing_caller_ids_ab2') }} as tmp
 -- outgoing_caller_ids
 where 1 = 1
-

@@ -28,4 +28,3 @@ select
 from {{ source('cta', '_airbyte_raw_native_ads') }} as table_alias
 -- native_ads
 where 1 = 1
-

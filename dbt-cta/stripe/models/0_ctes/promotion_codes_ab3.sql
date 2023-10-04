@@ -22,7 +22,7 @@ select
         'max_redemptions',
     ]) }} as _airbyte_promotion_codes_hashid,
     tmp.*
-from {{ ref('promotion_codes_ab2') }} tmp
+from {{ ref('promotion_codes_ab2') }} as tmp
 -- promotion_codes
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

@@ -20,7 +20,6 @@ select
         'commentable_type',
     ]) }} as _airbyte_comments_hashid,
     tmp.*
-from {{ ref('comments_ab2') }} tmp
+from {{ ref('comments_ab2') }} as tmp
 -- comments
 where 1 = 1
-

@@ -69,4 +69,3 @@ select
 from {{ ref('petitions_ab1') }}
 -- petitions
 where 1 = 1
-

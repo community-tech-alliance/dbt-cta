@@ -23,7 +23,6 @@ select
         'purchase_order_number',
     ]) }} as _airbyte_line_items_hashid,
     tmp.*
-from {{ ref('line_items_ab2') }} tmp
+from {{ ref('line_items_ab2') }} as tmp
 -- line_items
 where 1 = 1
-

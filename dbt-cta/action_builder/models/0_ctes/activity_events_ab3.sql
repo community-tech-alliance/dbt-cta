@@ -22,7 +22,6 @@ select
         'target_type',
     ]) }} as _airbyte_activity_events_hashid,
     tmp.*
-from {{ ref('activity_events_ab2') }} tmp
+from {{ ref('activity_events_ab2') }} as tmp
 -- activity_events
 where 1 = 1
-

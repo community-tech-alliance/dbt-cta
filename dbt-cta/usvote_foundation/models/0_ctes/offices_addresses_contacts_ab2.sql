@@ -16,4 +16,3 @@ select
 from {{ ref('offices_addresses_contacts_ab1') }}
 -- contacts at offices/addresses/contacts
 where 1 = 1
-

@@ -49,7 +49,7 @@ select
         object_to_string('payment_method_details'),
     ]) }} as _airbyte_charges_hashid,
     tmp.*
-from {{ ref('charges_ab2') }} tmp
+from {{ ref('charges_ab2') }} as tmp
 -- charges
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

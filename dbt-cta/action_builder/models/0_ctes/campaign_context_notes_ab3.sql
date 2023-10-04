@@ -17,7 +17,6 @@ select
         'created_by_id',
     ]) }} as _airbyte_campaign_context_notes_hashid,
     tmp.*
-from {{ ref('campaign_context_notes_ab2') }} tmp
+from {{ ref('campaign_context_notes_ab2') }} as tmp
 -- campaign_context_notes
 where 1 = 1
-

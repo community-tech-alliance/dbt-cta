@@ -16,7 +16,6 @@ select
         'mobile_message_id',
     ]) }} as _airbyte_mobile_message_fields_hashid,
     tmp.*
-from {{ ref('mobile_message_fields_ab2') }} tmp
+from {{ ref('mobile_message_fields_ab2') }} as tmp
 -- mobile_message_fields
 where 1 = 1
-

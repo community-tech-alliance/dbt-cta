@@ -17,4 +17,3 @@ select
 from {{ ref('keys_ab1') }}
 -- keys
 where 1 = 1
-

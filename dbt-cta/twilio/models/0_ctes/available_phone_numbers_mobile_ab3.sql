@@ -23,7 +23,6 @@ select
         'address_requirements',
     ]) }} as _airbyte_available_phone_numbers_mobile_hashid,
     tmp.*
-from {{ ref('available_phone_numbers_mobile_ab2') }} tmp
+from {{ ref('available_phone_numbers_mobile_ab2') }} as tmp
 -- available_phone_numbers_mobile
 where 1 = 1
-

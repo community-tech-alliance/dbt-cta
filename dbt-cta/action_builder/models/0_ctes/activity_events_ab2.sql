@@ -25,4 +25,3 @@ select
 from {{ ref('activity_events_ab1') }}
 -- activity_events
 where 1 = 1
-

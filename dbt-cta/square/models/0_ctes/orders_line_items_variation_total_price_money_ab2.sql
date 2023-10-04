@@ -15,4 +15,3 @@ select
 from {{ ref('orders_line_items_variation_total_price_money_ab1') }}
 -- variation_total_price_money at orders/line_items/variation_total_price_money
 where 1 = 1
-

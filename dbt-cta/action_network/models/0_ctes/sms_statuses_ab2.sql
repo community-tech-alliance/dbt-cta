@@ -22,4 +22,3 @@ select
 from {{ ref('sms_statuses_ab1') }}
 -- sms_statuses
 where 1 = 1
-

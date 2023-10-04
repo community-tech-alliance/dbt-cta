@@ -26,7 +26,7 @@ select
         'duration_in_months',
     ]) }} as _airbyte_coupon_hashid,
     tmp.*
-from {{ ref('promotion_codes_coupon_ab2') }} tmp
+from {{ ref('promotion_codes_coupon_ab2') }} as tmp
 -- coupon at promotion_codes_base/coupon
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

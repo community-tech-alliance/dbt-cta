@@ -19,4 +19,3 @@ select
 from {{ ref('user_tags_ab1') }}
 -- user_tags
 where 1 = 1
-

@@ -20,7 +20,6 @@ select
         'mobile_message_stat_id',
     ]) }} as _airbyte_sms_unsubscriptions_hashid,
     tmp.*
-from {{ ref('sms_unsubscriptions_ab2') }} tmp
+from {{ ref('sms_unsubscriptions_ab2') }} as tmp
 -- sms_unsubscriptions
 where 1 = 1
-

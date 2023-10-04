@@ -21,4 +21,3 @@ select
 from {{ ref('entity_connection_types_ab1') }}
 -- entity_connection_types
 where 1 = 1
-

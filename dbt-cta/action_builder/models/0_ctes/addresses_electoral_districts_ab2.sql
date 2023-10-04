@@ -14,4 +14,3 @@ select
 from {{ ref('addresses_electoral_districts_ab1') }}
 -- addresses_electoral_districts
 where 1 = 1
-

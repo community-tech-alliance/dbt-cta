@@ -16,7 +16,7 @@ select
         'preferred_language',
     ]) }} as _airbyte_bancontact_hashid,
     tmp.*
-from {{ ref('charges_payment_method_details_bancontact_ab2') }} tmp
+from {{ ref('charges_payment_method_details_bancontact_ab2') }} as tmp
 -- bancontact at charges_base/payment_method_details/bancontact
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

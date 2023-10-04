@@ -20,4 +20,3 @@ select
 from {{ ref('api_keys_ab1') }}
 -- api_keys
 where 1 = 1
-

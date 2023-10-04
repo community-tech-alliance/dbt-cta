@@ -23,4 +23,3 @@ select
 from {{ ref('filters_ab1') }}
 -- filters
 where 1 = 1
-

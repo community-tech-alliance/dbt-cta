@@ -13,7 +13,7 @@ select
         'minimum_amount_currency',
     ]) }} as _airbyte_restrictions_hashid,
     tmp.*
-from {{ ref('promotion_codes_restrictions_ab2') }} tmp
+from {{ ref('promotion_codes_restrictions_ab2') }} as tmp
 -- restrictions at promotion_codes_base/restrictions
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

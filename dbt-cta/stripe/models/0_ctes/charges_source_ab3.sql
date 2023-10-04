@@ -53,7 +53,7 @@ select
         'statement_descriptor',
     ]) }} as _airbyte_source_hashid,
     tmp.*
-from {{ ref('charges_source_ab2') }} tmp
+from {{ ref('charges_source_ab2') }} as tmp
 -- source at charges_base/source
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

@@ -18,4 +18,3 @@ select
 from {{ ref('turf_assignments_ab1') }}
 -- turf_assignments
 where 1 = 1
-

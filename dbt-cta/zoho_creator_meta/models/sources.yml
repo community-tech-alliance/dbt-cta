@@ -1,0 +1,16 @@
+version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables:
+  - name: _airbyte_raw_applications
+  - name: _airbyte_raw_fields
+  - name: _airbyte_raw_forms
+  - name: _airbyte_raw_pages
+  - name: _airbyte_raw_reports
+  - name: applications_base
+  - name: fields_base
+  - name: forms_base
+  - name: pages_base
+  - name: reports_base

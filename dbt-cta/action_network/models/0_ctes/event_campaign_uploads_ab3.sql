@@ -21,7 +21,6 @@ select
         'event_campaign_id',
     ]) }} as _airbyte_event_campaign_uploads_hashid,
     tmp.*
-from {{ ref('event_campaign_uploads_ab2') }} tmp
+from {{ ref('event_campaign_uploads_ab2') }} as tmp
 -- event_campaign_uploads
 where 1 = 1
-

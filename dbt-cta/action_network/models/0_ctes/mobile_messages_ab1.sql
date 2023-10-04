@@ -31,7 +31,6 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_mobile_messages') }} as table_alias
+from {{ source('cta', '_airbyte_raw_mobile_messages') }}
 -- mobile_messages
 where 1 = 1
-

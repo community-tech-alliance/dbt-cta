@@ -11,7 +11,7 @@ select
         array_to_string('products'),
     ]) }} as _airbyte_applies_to_hashid,
     tmp.*
-from {{ ref('promotion_codes_coupon_applies_to_ab2') }} tmp
+from {{ ref('promotion_codes_coupon_applies_to_ab2') }} as tmp
 -- applies_to at promotion_codes_base/coupon/applies_to
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

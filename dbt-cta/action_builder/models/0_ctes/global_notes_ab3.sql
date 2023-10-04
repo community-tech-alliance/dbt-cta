@@ -21,7 +21,6 @@ select
         'updated_by_id',
     ]) }} as _airbyte_global_notes_hashid,
     tmp.*
-from {{ ref('global_notes_ab2') }} tmp
+from {{ ref('global_notes_ab2') }} as tmp
 -- global_notes
 where 1 = 1
-

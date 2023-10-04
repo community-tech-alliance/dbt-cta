@@ -29,4 +29,3 @@ select
 from {{ ref('email_templates_ab1') }}
 -- email_templates
 where 1 = 1
-

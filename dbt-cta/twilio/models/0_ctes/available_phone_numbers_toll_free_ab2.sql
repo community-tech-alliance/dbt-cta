@@ -29,4 +29,3 @@ select
 from {{ ref('available_phone_numbers_toll_free_ab1') }}
 -- available_phone_numbers_toll_free
 where 1 = 1
-

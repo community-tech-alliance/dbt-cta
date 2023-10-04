@@ -15,7 +15,6 @@ select
         'accepted_terms',
     ]) }} as _airbyte_networks_users_hashid,
     tmp.*
-from {{ ref('networks_users_ab2') }} tmp
+from {{ ref('networks_users_ab2') }} as tmp
 -- networks_users
 where 1 = 1
-

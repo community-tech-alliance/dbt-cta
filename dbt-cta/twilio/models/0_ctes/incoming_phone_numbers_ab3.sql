@@ -44,7 +44,6 @@ select
         'emergency_address_status',
     ]) }} as _airbyte_incoming_phone_numbers_hashid,
     tmp.*
-from {{ ref('incoming_phone_numbers_ab2') }} tmp
+from {{ ref('incoming_phone_numbers_ab2') }} as tmp
 -- incoming_phone_numbers
 where 1 = 1
-

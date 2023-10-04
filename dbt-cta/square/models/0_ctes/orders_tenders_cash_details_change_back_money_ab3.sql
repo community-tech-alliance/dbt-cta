@@ -12,7 +12,6 @@ select
         'currency',
     ]) }} as _airbyte_change_back_money_hashid,
     tmp.*
-from {{ ref('orders_tenders_cash_details_change_back_money_ab2') }} tmp
+from {{ ref('orders_tenders_cash_details_change_back_money_ab2') }} as tmp
 -- change_back_money at orders/tenders/cash_details/change_back_money
 where 1 = 1
-

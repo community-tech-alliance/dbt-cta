@@ -12,7 +12,6 @@ select
         object_to_string('hourly_rate'),
     ]) }} as _airbyte_wage_hashid,
     tmp.*
-from {{ ref('shifts_wage_ab2') }} tmp
+from {{ ref('shifts_wage_ab2') }} as tmp
 -- wage at shifts/wage
 where 1 = 1
-

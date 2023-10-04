@@ -1,1 +1,1 @@
-SELECT * FROM {{ source('cta','charges_outcome_base') }}
+select * from {{ source('cta','charges_outcome_base') }}

@@ -38,7 +38,7 @@ select
         'tax_info_verification',
     ]) }} as _airbyte_customers_hashid,
     tmp.*
-from {{ ref('customers_ab2') }} tmp
+from {{ ref('customers_ab2') }} as tmp
 -- customers
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

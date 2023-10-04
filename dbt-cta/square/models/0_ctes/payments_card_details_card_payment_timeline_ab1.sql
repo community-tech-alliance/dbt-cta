@@ -13,9 +13,10 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('payments_card_details_base') }} as table_alias
+from {{ ref('payments_card_details_base') }}
 -- card_payment_timeline at payments/card_details/card_payment_timeline
-where 1 = 1
-and card_payment_timeline is not null
+where
+    1 = 1
+    and card_payment_timeline is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

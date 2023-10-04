@@ -26,7 +26,6 @@ select
         'identification_field',
     ]) }} as _airbyte_uploads_hashid,
     tmp.*
-from {{ ref('uploads_ab2') }} tmp
+from {{ ref('uploads_ab2') }} as tmp
 -- uploads
 where 1 = 1
-

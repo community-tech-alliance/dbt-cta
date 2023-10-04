@@ -28,7 +28,6 @@ select
         'administrative_title',
     ]) }} as _airbyte_campaigns_hashid,
     tmp.*
-from {{ ref('campaigns_ab2') }} tmp
+from {{ ref('campaigns_ab2') }} as tmp
 -- campaigns
 where 1 = 1
-

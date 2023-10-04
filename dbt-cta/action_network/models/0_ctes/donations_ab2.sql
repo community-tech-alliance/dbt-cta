@@ -40,4 +40,3 @@ select
 from {{ ref('donations_ab1') }}
 -- donations
 where 1 = 1
-

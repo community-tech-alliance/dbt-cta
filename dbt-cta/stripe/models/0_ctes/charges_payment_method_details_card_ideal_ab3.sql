@@ -14,7 +14,7 @@ select
         'verified_name',
     ]) }} as _airbyte_ideal_hashid,
     tmp.*
-from {{ ref('charges_payment_method_details_card_ideal_ab2') }} tmp
+from {{ ref('charges_payment_method_details_card_ideal_ab2') }} as tmp
 -- ideal at charges_base/payment_method_details/card/ideal
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

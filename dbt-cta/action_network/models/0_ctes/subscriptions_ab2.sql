@@ -31,4 +31,3 @@ select
 from {{ ref('subscriptions_ab1') }}
 -- subscriptions
 where 1 = 1
-

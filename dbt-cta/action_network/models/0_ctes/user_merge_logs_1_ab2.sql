@@ -21,4 +21,3 @@ select
 from {{ ref('user_merge_logs_1_ab1') }}
 -- user_merge_logs_1
 where 1 = 1
-

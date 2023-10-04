@@ -24,4 +24,3 @@ select
 from {{ ref('global_notes_ab1') }}
 -- global_notes
 where 1 = 1
-

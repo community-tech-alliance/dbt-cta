@@ -12,5 +12,5 @@ select
     date_created,
     date_updated,
     recording_sid,
-    transcription_text,
+    transcription_text
 from {{ source('cta','transcriptions_base') }}

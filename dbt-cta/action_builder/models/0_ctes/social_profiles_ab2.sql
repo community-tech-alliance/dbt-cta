@@ -25,4 +25,3 @@ select
 from {{ ref('social_profiles_ab1') }}
 -- social_profiles
 where 1 = 1
-

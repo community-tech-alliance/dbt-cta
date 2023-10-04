@@ -18,7 +18,6 @@ select
         'updated_at',
     ]) }} as _airbyte_queries_hashid,
     tmp.*
-from {{ ref('queries_ab2') }} tmp
+from {{ ref('queries_ab2') }} as tmp
 -- queries
 where 1 = 1
-

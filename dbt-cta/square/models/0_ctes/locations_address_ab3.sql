@@ -15,7 +15,6 @@ select
         'administrative_district_level_1',
     ]) }} as _airbyte_address_hashid,
     tmp.*
-from {{ ref('locations_address_ab2') }} tmp
+from {{ ref('locations_address_ab2') }} as tmp
 -- address at locations/address
 where 1 = 1
-

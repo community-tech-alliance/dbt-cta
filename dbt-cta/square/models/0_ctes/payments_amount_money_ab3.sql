@@ -12,7 +12,7 @@ select
         'currency',
     ]) }} as _airbyte_amount_money_hashid,
     tmp.*
-from {{ ref('payments_amount_money_ab2') }} tmp
+from {{ ref('payments_amount_money_ab2') }} as tmp
 -- amount_money at payments/amount_money
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

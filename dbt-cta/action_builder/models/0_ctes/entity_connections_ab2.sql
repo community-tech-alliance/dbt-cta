@@ -26,4 +26,3 @@ select
 from {{ ref('entity_connections_ab1') }}
 -- entity_connections
 where 1 = 1
-

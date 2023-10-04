@@ -16,7 +16,6 @@ select
         'source_group_id',
     ]) }} as _airbyte_child_permissions_hashid,
     tmp.*
-from {{ ref('child_permissions_ab2') }} tmp
+from {{ ref('child_permissions_ab2') }} as tmp
 -- child_permissions
 where 1 = 1
-

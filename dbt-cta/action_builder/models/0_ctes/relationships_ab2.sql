@@ -22,4 +22,3 @@ select
 from {{ ref('relationships_ab1') }}
 -- relationships
 where 1 = 1
-

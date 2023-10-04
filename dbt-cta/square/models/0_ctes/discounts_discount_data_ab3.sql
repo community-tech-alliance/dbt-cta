@@ -17,7 +17,7 @@ select
         'application_method',
     ]) }} as _airbyte_discount_data_hashid,
     tmp.*
-from {{ ref('discounts_discount_data_ab2') }} tmp
+from {{ ref('discounts_discount_data_ab2') }} as tmp
 -- discount_data at discounts/discount_data
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

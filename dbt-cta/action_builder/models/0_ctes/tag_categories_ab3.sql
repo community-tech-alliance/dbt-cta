@@ -24,7 +24,6 @@ select
         'multiselect_same_tag_behavior',
     ]) }} as _airbyte_tag_categories_hashid,
     tmp.*
-from {{ ref('tag_categories_ab2') }} tmp
+from {{ ref('tag_categories_ab2') }} as tmp
 -- tag_categories
 where 1 = 1
-

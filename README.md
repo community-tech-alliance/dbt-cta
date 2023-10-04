@@ -39,14 +39,12 @@ Most of our dbt originates from the default normalization that Airbyte runs for 
 We also have some tools and techniques (outlined below) that we use internally to make our lives easier (but you can, too!).
 
 ## Formatting
+We currently use SQLFluff to lint and format out dbt models. If you would like to run the linter, you can use the 
+`utils/cta_dbt_helper.sh` script! Just run `./utils/cta_dbt_helper.sh` and choose the `Run SQL Fluff to lint dbt files` option. It will ask you for the vendor (folder name) you would like to lint and if you want to run the SQLFluff fix option. 
 
-Until this is implemented in CI/CD, please run `sqlfmt`:
-```shell
-pipenv install
-...
-cd YOUR_DIRECTORY
-pipenv run sqlfmt  .
-```
+If this is your first time running the helper script, make sure to run the `Initialize Python virtual env` option first to install all the needed dependencies. 
+
+If the pre-commit hook is not letting you commit something and you want to override it. You can ignore the sqlfluff lint hook by running your `git commit` with the `--no-verify` flag.
 
 ## Cleanup Scripts
 

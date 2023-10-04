@@ -21,7 +21,6 @@ select
         'twilio_message_id',
     ]) }} as _airbyte_sms_messages_hashid,
     tmp.*
-from {{ ref('sms_messages_ab2') }} tmp
+from {{ ref('sms_messages_ab2') }} as tmp
 -- sms_messages
 where 1 = 1
-

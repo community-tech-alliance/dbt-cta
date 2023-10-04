@@ -20,7 +20,6 @@ select
         'error_message',
     ]) }} as _airbyte_webhook_messages_hashid,
     tmp.*
-from {{ ref('webhook_messages_ab2') }} tmp
+from {{ ref('webhook_messages_ab2') }} as tmp
 -- webhook_messages
 where 1 = 1
-

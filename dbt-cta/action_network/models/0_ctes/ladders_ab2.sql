@@ -25,4 +25,3 @@ select
 from {{ ref('ladders_ab1') }}
 -- ladders
 where 1 = 1
-

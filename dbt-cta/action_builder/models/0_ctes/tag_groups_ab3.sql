@@ -16,7 +16,6 @@ select
         'target_type',
     ]) }} as _airbyte_tag_groups_hashid,
     tmp.*
-from {{ ref('tag_groups_ab2') }} tmp
+from {{ ref('tag_groups_ab2') }} as tmp
 -- tag_groups
 where 1 = 1
-

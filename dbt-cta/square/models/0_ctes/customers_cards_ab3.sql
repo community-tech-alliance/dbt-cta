@@ -17,7 +17,6 @@ select
         'cardholder_name',
     ]) }} as _airbyte_cards_hashid,
     tmp.*
-from {{ ref('customers_cards_ab2') }} tmp
+from {{ ref('customers_cards_ab2') }} as tmp
 -- cards at customers/cards
 where 1 = 1
-

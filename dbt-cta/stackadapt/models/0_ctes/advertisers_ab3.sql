@@ -13,7 +13,6 @@ select
         array_to_string('all_line_item_ids'),
     ]) }} as _airbyte_advertisers_hashid,
     tmp.*
-from {{ ref('advertisers_ab2') }} tmp
+from {{ ref('advertisers_ab2') }} as tmp
 -- advertisers
 where 1 = 1
-

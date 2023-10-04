@@ -63,7 +63,6 @@ select
         'recurring_upsell_description',
     ]) }} as _airbyte_fundraisings_hashid,
     tmp.*
-from {{ ref('fundraisings_ab2') }} tmp
+from {{ ref('fundraisings_ab2') }} as tmp
 -- fundraisings
 where 1 = 1
-

@@ -15,7 +15,6 @@ select
         'start_hour',
     ]) }} as _airbyte_day_part_hashid,
     tmp.*
-from {{ ref('campaigns_day_part_ab2') }} tmp
+from {{ ref('campaigns_day_part_ab2') }} as tmp
 -- day_part at campaigns_base/day_part
 where 1 = 1
-

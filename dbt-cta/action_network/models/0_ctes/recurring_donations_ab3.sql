@@ -19,7 +19,6 @@ select
         'recurring_period',
     ]) }} as _airbyte_recurring_donations_hashid,
     tmp.*
-from {{ ref('recurring_donations_ab2') }} tmp
+from {{ ref('recurring_donations_ab2') }} as tmp
 -- recurring_donations
 where 1 = 1
-

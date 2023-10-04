@@ -15,7 +15,6 @@ select
         'source_group_id',
     ]) }} as _airbyte_core_field_syndications_hashid,
     tmp.*
-from {{ ref('core_field_syndications_ab2') }} tmp
+from {{ ref('core_field_syndications_ab2') }} as tmp
 -- core_field_syndications
 where 1 = 1
-

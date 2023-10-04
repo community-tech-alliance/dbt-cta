@@ -19,7 +19,7 @@ select
         'transaction_status_information',
     ]) }} as _airbyte_receipt_hashid,
     tmp.*
-from {{ ref('payment_intents_last_payment_error_payment_method_card_generated_from_payment_method_details_card_present_receipt_ab2') }} tmp
+from {{ ref('payment_intents_last_payment_error_payment_method_card_generated_from_payment_method_details_card_present_receipt_ab2') }} as tmp
 -- receipt at payment_intents_base/last_payment_error/payment_method/card/generated_from/payment_method_details/card_present/receipt
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

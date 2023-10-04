@@ -131,7 +131,7 @@ generate_dbt_tests() {
         INPUT_DIR_NAME=$(gum input --prompt "Enter the name of the vendor to generate tests for: " --placeholder "(ex. actblue)")
         OPTION_UNIVERSAL_TESTS=$(gum input --prompt "Would you like to initialize these files using the default tests (see universal_tests.yml)? " --placeholder " (Y is recommended! Or leave blank to skip)")
         if [ "$OPTION_UNIVERSAL_TESTS" == "Y" ]; then
-            CLI_OPTIONS="--universal-tests-path ../utils/universal_tests.yml"
+            CLI_OPTIONS="--universal-tests-path $ROOT_PATH/utils/universal_tests.yml"
         fi
 
         OPTION_MERGE=$(gum input --prompt "Are you merging into an existing schema yaml? " --placeholder " (Y or leave blank to skip)")
@@ -166,10 +166,40 @@ generate_dbt_tests() {
     pipenv run $COMMAND
 }
 
+lint_dbt() {
+    # Switch to root level directory
+    cd $ROOT_PATH
+    # Get target path for directory holding Base models
+    while [ -z "$VENDOR_NAME" ]; do
+        VENDOR_NAME=$(gum input --prompt "Enter the vendor name of the models to lint: " --placeholder "(ex. actblue)")
+        if [[ $? != 0 ]]; then
+            echo "Ctrl-C caught, exiting..."
+            exit 1
+        fi
+    done
+    gum confirm "Confirm the vendor name is correct: $VENDOR_NAME" || exit 1
+    export SYNC_NAME=$VENDOR_NAME
+
+    RUN_FIX="Run linter and auto-fix findings (note: not all findings can be auto-fixed)"
+    RUN_LINT="Just run linter without any auto-fix"
+    LINT_FUNCTION=$(gum choose "$RUN_LINT" "$RUN_FIX")
+    if [[ -n $LINT_FUNCTION ]]; then
+        case "$LINT_FUNCTION" in
+            "$RUN_FIX")
+                pipenv run sqlfluff fix dbt-cta/$VENDOR_NAME/models/
+            ;;
+            "$RUN_LINT")
+                pipenv run sqlfluff lint dbt-cta/$VENDOR_NAME/models/
+            ;;
+        esac
+    fi
+}
+
 init() {
     cd $ROOT_PATH
     pip install pipenv
     pipenv install
+    pipenv run pre-commit install
 }
 
 #### ENTRY POINT ####
@@ -195,9 +225,10 @@ FORMAT_AIRBYTE_DBT="Format exported Airbyte dbt to CTA structure"
 APPEND_BASE_TO_FILES="Add '_base' suffix to all models in a folder"
 GENERATE_MATVIEWS="Generate Matviews for all the models in a folder"
 GENERATE_DBT_TESTS="Generate dbt Tests for a vendor dbt folder"
+LINT_DBT="Run SQL Fluff to lint dbt files"
 
 
-FUNCTION=$(gum choose "$INIT" "$COPY_FROM_AIRBYTE" "$FORMAT_AIRBYTE_DBT"  "$APPEND_BASE_TO_FILES" "$GENERATE_MATVIEWS" "$GENERATE_DBT_TESTS")
+FUNCTION=$(gum choose "$INIT" "$GENERATE_DBT_TESTS" "$LINT_DBT" "$COPY_FROM_AIRBYTE" "$FORMAT_AIRBYTE_DBT"  "$APPEND_BASE_TO_FILES" "$GENERATE_MATVIEWS")
 
 if [[ -n $FUNCTION ]]; then
     case "$FUNCTION" in
@@ -218,6 +249,9 @@ if [[ -n $FUNCTION ]]; then
             ;;
         "$GENERATE_DBT_TESTS")
             command="generate_dbt_tests"
+            ;;
+        "$LINT_DBT")
+            command="lint_dbt"
             ;;
     esac
     # Confirm choice 

@@ -14,7 +14,7 @@ select
         'weight',
     ]) }} as _airbyte_package_dimensions_hashid,
     tmp.*
-from {{ ref('products_package_dimensions_ab2') }} tmp
+from {{ ref('products_package_dimensions_ab2') }} as tmp
 -- package_dimensions at products_base/package_dimensions
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

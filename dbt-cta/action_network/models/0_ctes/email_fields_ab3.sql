@@ -18,7 +18,6 @@ select
         'builder_json',
     ]) }} as _airbyte_email_fields_hashid,
     tmp.*
-from {{ ref('email_fields_ab2') }} tmp
+from {{ ref('email_fields_ab2') }} as tmp
 -- email_fields
 where 1 = 1
-

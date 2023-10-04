@@ -1,0 +1,479 @@
+version: 2
+
+models:
+
+  - name: tasks_base
+    description: ''
+    columns:
+      - name: notes
+        description: ''
+      - name: date_due
+        description: ''
+      - name: owner_id
+        description: ''
+      - name: date_created
+        description: ''
+      - name: description
+        description: ''
+      - name: opener_name
+        description: ''
+      - name: object_id
+        description: ''
+      - name: assignee_name
+        description: ''
+      - name: due_whenever
+        description: ''
+      - name: time_created
+        description: ''
+      - name: id
+        description: ''
+        tests:
+        - not_null
+        - unique
+      - name: status
+        description: ''
+      - name: assignee_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_tasks_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+
+  - name: hires_base
+    description: ''
+    columns:
+      - name: hired_time
+        description: ''
+      - name: applicant_id
+        description: ''
+      - name: job_id
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+      - name: workflow_step_id
+        description: ''
+      - name: workflow_step_name
+        description: ''
+      - name: hired_date
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_hires_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: categories_base
+    description: ''
+    columns:
+      - name: date_created
+        description: ''
+      - name: name
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: created_by
+        description: ''
+      - name: status
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_categories_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: questionnaire_answers_base
+    description: ''
+    columns:
+      - name: questionnaire_id
+        description: ''
+      - name: questionnaire_code
+        description: ''
+      - name: answer_value_00
+        description: ''
+      - name: time_taken
+        description: ''
+      - name: applicant_id
+        description: ''
+      - name: answer_value_03
+        description: ''
+      - name: answer_value_04
+        description: ''
+      - name: job_id
+        description: ''
+      - name: answer_value_01
+        description: ''
+      - name: answer_correct_01
+        description: ''
+      - name: answer_value_02
+        description: ''
+      - name: answer_correct_00
+        description: ''
+      - name: answer_correct_03
+        description: ''
+      - name: answer_correct_02
+        description: ''
+      - name: answer_correct_04
+        description: ''
+      - name: date_taken
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_questionnaire_answers_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: applicants_base
+    description: ''
+    columns:
+      - name: apply_date
+        description: ''
+      - name: job_id
+        description: ''
+      - name: last_name
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+      - name: job_title
+        description: ''
+      - name: first_name
+        description: ''
+      - name: prospect_phone
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_applicants_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: applicants_to_jobs_base
+    description: ''
+    columns:
+      - name: date
+        description: ''
+      - name: applicant_id
+        description: ''
+      - name: job_id
+        description: ''
+      - name: rating
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+      - name: workflow_step_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_applicants_to_jobs_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: jobs_base
+    description: ''
+    columns:
+      - name: zip
+        description: ''
+      - name: maximum_salary
+        description: ''
+      - name: questionnaire
+        description: ''
+      - name: send_to_job_boards
+        description: ''
+      - name: notes
+        description: ''
+      - name: original_open_date
+        description: ''
+      - name: city
+        description: ''
+      - name: board_code
+        description: ''
+      - name: description
+        description: ''
+      - name: minimum_salary
+        description: ''
+      - name: team_id
+        description: ''
+      - name: type
+        description: ''
+      - name: title
+        description: ''
+      - name: hiring_lead
+        description: ''
+      - name: internal_code
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: state
+        description: ''
+      - name: department
+        description: ''
+      - name: country_id
+        description: ''
+      - name: status
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_jobs_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: activities_base
+    description: ''
+    columns:
+      - name: date
+        description: ''
+      - name: user_id
+        description: ''
+      - name: action
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: time
+        description: ''
+      - name: team_id
+        description: ''
+      - name: category
+        description: ''
+      - name: object_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_activities_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: categories_to_applicants_base
+    description: ''
+    columns:
+      - name: category_id
+        description: ''
+      - name: applicant_id
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_categories_to_applicants_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: users_base
+    description: ''
+    columns:
+      - name: date_created
+        description: ''
+      - name: last_name
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: type
+        description: ''
+      - name: first_name
+        description: ''
+      - name: email
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_users_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: contacts_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_contacts_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+

@@ -22,7 +22,6 @@ select
         'schedule_action',
     ]) }} as _airbyte_ladders_hashid,
     tmp.*
-from {{ ref('ladders_ab2') }} tmp
+from {{ ref('ladders_ab2') }} as tmp
 -- ladders
 where 1 = 1
-

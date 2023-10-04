@@ -34,4 +34,3 @@ select
     subresource_uris
 from {{ ref('calls_ab3') }}
 where 1 = 1
-

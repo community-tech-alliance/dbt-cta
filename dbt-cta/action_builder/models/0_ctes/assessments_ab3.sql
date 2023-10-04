@@ -18,7 +18,6 @@ select
         'updated_by_id',
     ]) }} as _airbyte_assessments_hashid,
     tmp.*
-from {{ ref('assessments_ab2') }} tmp
+from {{ ref('assessments_ab2') }} as tmp
 -- assessments
 where 1 = 1
-

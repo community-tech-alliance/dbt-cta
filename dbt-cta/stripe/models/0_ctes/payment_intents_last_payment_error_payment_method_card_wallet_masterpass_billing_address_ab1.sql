@@ -16,9 +16,10 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('payment_intents_last_payment_error_payment_method_card_wallet_masterpass_base') }} as table_alias
+from {{ ref('payment_intents_last_payment_error_payment_method_card_wallet_masterpass_base') }}
 -- billing_address at payment_intents_base/last_payment_error/payment_method/card/wallet/masterpass/billing_address
-where 1 = 1
-and billing_address is not null
+where
+    1 = 1
+    and billing_address is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

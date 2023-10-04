@@ -19,7 +19,6 @@ select
         object_to_string('variation_total_price_money'),
     ]) }} as _airbyte_return_line_items_hashid,
     tmp.*
-from {{ ref('orders_returns_return_line_items_ab2') }} tmp
+from {{ ref('orders_returns_return_line_items_ab2') }} as tmp
 -- return_line_items at orders/returns/return_line_items
 where 1 = 1
-
