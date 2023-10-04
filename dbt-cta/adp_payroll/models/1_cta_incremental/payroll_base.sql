@@ -1,12 +1,4 @@
-{% set partitions_to_replace = [
-    'timestamp_trunc(current_timestamp, day)',
-    'timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)'
-] %}
-
 {{ config(
-    partitions = partitions_to_replace,
-    cluster_by = "_cta_loaded_at",
-    partition_by = {"field": "_cta_loaded_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_payroll_hashid'
 ) }}
 
@@ -96,6 +88,3 @@ select
     `_payroll_hashid`,
     `_cta_loaded_at`
 from {{ ref('payroll_cta1') }}
-{% if is_incremental() %}
-where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
-{% endif %}
