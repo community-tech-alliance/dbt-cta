@@ -4,7 +4,6 @@
     unique_key = '_airbyte_available_phone_number_countries_hashid',
     tags = [ "top-level-intermediate" ]
 ) }}
--- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('available_phone_number_countries_ab3') }}
 -- ensures the base model contains only one row per id
 
