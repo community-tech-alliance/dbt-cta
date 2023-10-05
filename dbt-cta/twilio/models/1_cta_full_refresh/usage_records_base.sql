@@ -11,7 +11,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('usage_records_ab3') }}
+-- depends_on: {{ ref('usage_records_ab4') }}
 select
     uri,
     as_of,
@@ -31,7 +31,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('usage_records_ab3') }}
+from {{ ref('usage_records_ab4') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
