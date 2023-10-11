@@ -37,7 +37,7 @@ select
     skip_people_search,
     partition_schema_name,
     partition_name,
-     _knock_conversation_code_hashid,
+    _knock_conversation_code_hashid,
     _cta_loaded_at
 
 from {{ ref('knock_conversation_code_cte1') }}

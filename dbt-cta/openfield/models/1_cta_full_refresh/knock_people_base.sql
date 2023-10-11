@@ -127,7 +127,7 @@ select
     reg_zip_4,
     partition_schema_name,
     partition_name,
-     _knock_people_hashid,
+    _knock_people_hashid,
     _cta_loaded_at
 
 from {{ ref('knock_people_cte1') }}

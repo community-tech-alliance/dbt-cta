@@ -245,5 +245,5 @@ select
         'partition_name',
     ]) }} as _knock_people_hashid,
     {{ current_timestamp() }} as _cta_loaded_at
-from {{ source('cta', '_raw_knock_people') }} as table_alias
+from {{ source('cta', '_raw_knock_people') }}
 where 1 = 1

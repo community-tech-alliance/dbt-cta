@@ -1,0 +1,890 @@
+version: 2
+
+models:
+
+  - name: knock_people_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+      - name: created_date
+        description: ''
+      - name: state_file_id
+        description: ''
+      - name: county_file_id
+        description: ''
+      - name: action_network_id
+        description: ''
+      - name: of_voter_file_id
+        description: ''
+      - name: other_voter_file_id
+        description: ''
+      - name: alloy_uuid
+        description: ''
+      - name: vr_status
+        description: ''
+      - name: full_name
+        description: ''
+      - name: honorarium
+        description: ''
+      - name: first_name
+        description: ''
+      - name: middle_name
+        description: ''
+      - name: last_name
+        description: ''
+      - name: suffix
+        description: ''
+      - name: preferred_name
+        description: ''
+      - name: sex
+        description: ''
+      - name: age
+        description: ''
+      - name: dob
+        description: ''
+      - name: gender_identity
+        description: ''
+      - name: phone1
+        description: ''
+      - name: phone_opt_in1
+        description: ''
+      - name: phone2
+        description: ''
+      - name: phone_opt_in2
+        description: ''
+      - name: email1
+        description: ''
+      - name: email_opt_in1
+        description: ''
+      - name: email2
+        description: ''
+      - name: email_opt_in2
+        description: ''
+      - name: prov_full_address
+        description: ''
+      - name: prov_address1
+        description: ''
+      - name: prov_address2
+        description: ''
+      - name: prov_city
+        description: ''
+      - name: prov_state
+        description: ''
+      - name: prov_zip_5
+        description: ''
+      - name: p_raw_lat_long
+        description: ''
+      - name: p_raw_lat
+        description: ''
+      - name: p_raw_long
+        description: ''
+      - name: p_geom
+        description: ''
+      - name: contacted_full_address
+        description: ''
+      - name: lives_at_contacted
+        description: ''
+      - name: reg_full_address
+        description: ''
+      - name: reg_address1
+        description: ''
+      - name: reg_address2
+        description: ''
+      - name: reg_city
+        description: ''
+      - name: reg_county
+        description: ''
+      - name: reg_state
+        description: ''
+      - name: reg_zip_5
+        description: ''
+      - name: r_raw_lat_long
+        description: ''
+      - name: r_raw_lat
+        description: ''
+      - name: r_raw_long
+        description: ''
+      - name: r_geom
+        description: ''
+      - name: mail_full_address
+        description: ''
+      - name: mail_address1
+        description: ''
+      - name: mail_address2
+        description: ''
+      - name: mail_city
+        description: ''
+      - name: mail_state
+        description: ''
+      - name: mail_zip_5
+        description: ''
+      - name: m_raw_lat_long
+        description: ''
+      - name: m_raw_lat
+        description: ''
+      - name: m_raw_long
+        description: ''
+      - name: m_geom
+        description: ''
+      - name: early_voted
+        description: ''
+      - name: contacted_national_address_id_id
+        description: ''
+      - name: mailing_national_address_id_id
+        description: ''
+      - name: provided_national_address_id_id
+        description: ''
+      - name: registered_national_address_id_id
+        description: ''
+      - name: actionkit_id
+        description: ''
+      - name: mobilize_id
+        description: ''
+      - name: polling_location
+        description: ''
+      - name: precinct_id
+        description: ''
+      - name: precinct_name
+        description: ''
+      - name: van_id
+        description: ''
+      - name: mail_street_name
+        description: ''
+      - name: mail_street_number
+        description: ''
+      - name: mail_unit_number
+        description: ''
+      - name: prov_street_name
+        description: ''
+      - name: prov_street_number
+        description: ''
+      - name: prov_unit_number
+        description: ''
+      - name: reg_street_name
+        description: ''
+      - name: reg_street_number
+        description: ''
+      - name: reg_unit_number
+        description: ''
+      - name: political_party
+        description: ''
+      - name: my_campaign_id
+        description: ''
+      - name: member
+        description: ''
+      - name: mail_apt_type
+        description: ''
+      - name: mail_street_number_half
+        description: ''
+      - name: mail_street_part
+        description: ''
+      - name: mail_street_prefix
+        description: ''
+      - name: mail_street_suffix
+        description: ''
+      - name: mail_street_type
+        description: ''
+      - name: prov_apt_type
+        description: ''
+      - name: prov_street_number_half
+        description: ''
+      - name: prov_street_part
+        description: ''
+      - name: prov_street_prefix
+        description: ''
+      - name: prov_street_suffix
+        description: ''
+      - name: prov_street_type
+        description: ''
+      - name: reg_apt_type
+        description: ''
+      - name: reg_street_number_half
+        description: ''
+      - name: reg_street_part
+        description: ''
+      - name: reg_street_prefix
+        description: ''
+      - name: reg_street_suffix
+        description: ''
+      - name: reg_street_type
+        description: ''
+      - name: mail_county
+        description: ''
+      - name: prov_county
+        description: ''
+      - name: dwid
+        description: ''
+      - name: other_crm_id
+        description: ''
+      - name: phone3
+        description: ''
+      - name: phone4
+        description: ''
+      - name: phone_opt_in3
+        description: ''
+      - name: phone_opt_in4
+        description: ''
+      - name: voterbase_id
+        description: ''
+      - name: mail_zip_4
+        description: ''
+      - name: prov_zip_4
+        description: ''
+      - name: reg_zip_4
+        description: ''
+      - name: partition_schema_name
+        description: ''
+      - name: partition_name
+        description: ''
+      - name: _knock_people_hashid
+        description: ''
+      - name: _cta_loaded_at
+        description: ''
+
+  - name: redshift_people_email_conversations_base
+    description: ''
+    columns:
+      - name: of_people_id
+        description: ''
+      - name: conversation_id
+        description: ''
+      - name: conversation_time
+        description: ''
+      - name: conversation_type
+        description: ''
+      - name: contact_type
+        description: ''
+      - name: canvasser
+        description: ''
+      - name: state_file_id
+        description: ''
+      - name: other_voter_file_id
+        description: ''
+      - name: van_id
+        description: ''
+      - name: my_campaign_id
+        description: ''
+      - name: first_name
+        description: ''
+      - name: middle_name
+        description: ''
+      - name: last_name
+        description: ''
+      - name: suffix
+        description: ''
+      - name: preferred_name
+        description: ''
+      - name: sex
+        description: ''
+      - name: age
+        description: ''
+      - name: phone1
+        description: ''
+      - name: email1
+        description: ''
+      - name: email_opt_in1
+        description: ''
+      - name: address1
+        description: ''
+      - name: address2
+        description: ''
+      - name: city
+        description: ''
+      - name: state
+        description: ''
+      - name: county
+        description: ''
+      - name: zip_5
+        description: ''
+      - name: contact_script_id
+        description: ''
+      - name: conversation_code_id
+        description: ''
+      - name: question_id
+        description: ''
+      - name: question_text
+        description: ''
+      - name: response
+        description: ''
+      - name: partition_schema_name
+        description: ''
+      - name: partition_name
+        description: ''
+      - name: _redshift_people_email_conversations_hashid
+        description: ''
+      - name: _cta_loaded_at
+        description: ''
+
+  - name: redshift_people_shorttext_conversations_base
+    description: ''
+    columns:
+      - name: of_people_id
+        description: ''
+      - name: conversation_id
+        description: ''
+      - name: conversation_time
+        description: ''
+      - name: conversation_type
+        description: ''
+      - name: contact_type
+        description: ''
+      - name: canvasser
+        description: ''
+      - name: state_file_id
+        description: ''
+      - name: other_voter_file_id
+        description: ''
+      - name: van_id
+        description: ''
+      - name: my_campaign_id
+        description: ''
+      - name: first_name
+        description: ''
+      - name: middle_name
+        description: ''
+      - name: last_name
+        description: ''
+      - name: suffix
+        description: ''
+      - name: preferred_name
+        description: ''
+      - name: sex
+        description: ''
+      - name: age
+        description: ''
+      - name: phone1
+        description: ''
+      - name: email1
+        description: ''
+      - name: email_opt_in1
+        description: ''
+      - name: address1
+        description: ''
+      - name: address2
+        description: ''
+      - name: city
+        description: ''
+      - name: state
+        description: ''
+      - name: county
+        description: ''
+      - name: zip_5
+        description: ''
+      - name: contact_script_id
+        description: ''
+      - name: conversation_code_id
+        description: ''
+      - name: question_id
+        description: ''
+      - name: question_text
+        description: ''
+      - name: response
+        description: ''
+      - name: partition_schema_name
+        description: ''
+      - name: partition_name
+        description: ''
+      - name: _redshift_people_shorttext_conversations_hashid
+        description: ''
+      - name: _cta_loaded_at
+        description: ''
+
+  - name: redshift_people_list_conversations_base
+    description: ''
+    columns:
+      - name: of_people_id
+        description: ''
+      - name: conversation_id
+        description: ''
+      - name: conversation_time
+        description: ''
+      - name: conversation_type
+        description: ''
+      - name: contact_type
+        description: ''
+      - name: canvasser
+        description: ''
+      - name: state_file_id
+        description: ''
+      - name: other_voter_file_id
+        description: ''
+      - name: van_id
+        description: ''
+      - name: my_campaign_id
+        description: ''
+      - name: first_name
+        description: ''
+      - name: middle_name
+        description: ''
+      - name: last_name
+        description: ''
+      - name: suffix
+        description: ''
+      - name: preferred_name
+        description: ''
+      - name: sex
+        description: ''
+      - name: age
+        description: ''
+      - name: phone1
+        description: ''
+      - name: email1
+        description: ''
+      - name: email_opt_in1
+        description: ''
+      - name: address1
+        description: ''
+      - name: address2
+        description: ''
+      - name: city
+        description: ''
+      - name: state
+        description: ''
+      - name: county
+        description: ''
+      - name: zip_5
+        description: ''
+      - name: contact_script_id
+        description: ''
+      - name: conversation_code_id
+        description: ''
+      - name: question_id
+        description: ''
+      - name: question_text
+        description: ''
+      - name: response
+        description: ''
+      - name: partition_schema_name
+        description: ''
+      - name: partition_name
+        description: ''
+      - name: _redshift_people_list_conversations_hashid
+        description: ''
+      - name: _cta_loaded_at
+        description: ''
+
+  - name: redshift_people_celloptins_conversations_base
+    description: ''
+    columns:
+      - name: of_people_id
+        description: ''
+      - name: conversation_id
+        description: ''
+      - name: conversation_time
+        description: ''
+      - name: conversation_type
+        description: ''
+      - name: contact_type
+        description: ''
+      - name: canvasser
+        description: ''
+      - name: state_file_id
+        description: ''
+      - name: other_voter_file_id
+        description: ''
+      - name: van_id
+        description: ''
+      - name: my_campaign_id
+        description: ''
+      - name: first_name
+        description: ''
+      - name: middle_name
+        description: ''
+      - name: last_name
+        description: ''
+      - name: suffix
+        description: ''
+      - name: preferred_name
+        description: ''
+      - name: sex
+        description: ''
+      - name: age
+        description: ''
+      - name: phone1
+        description: ''
+      - name: email1
+        description: ''
+      - name: email_opt_in1
+        description: ''
+      - name: address1
+        description: ''
+      - name: address2
+        description: ''
+      - name: city
+        description: ''
+      - name: state
+        description: ''
+      - name: county
+        description: ''
+      - name: zip_5
+        description: ''
+      - name: contact_script_id
+        description: ''
+      - name: conversation_code_id
+        description: ''
+      - name: question_id
+        description: ''
+      - name: question_text
+        description: ''
+      - name: response
+        description: ''
+      - name: partition_schema_name
+        description: ''
+      - name: partition_name
+        description: ''
+      - name: _redshift_people_celloptins_conversations_hashid
+        description: ''
+      - name: _cta_loaded_at
+        description: ''
+
+  - name: knock_conversation_code_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+      - name: code
+        description: ''
+      - name: created_at
+        description: ''
+      - name: description
+        description: ''
+      - name: org
+        description: ''
+      - name: expires
+        description: ''
+      - name: conversation_type
+        description: ''
+      - name: start_time
+        description: ''
+      - name: end_time
+        description: ''
+      - name: status
+        description: ''
+      - name: attempt_goal
+        description: ''
+      - name: reg_goal
+        description: ''
+      - name: vbm_goal
+        description: ''
+      - name: code_exhausted_email_sent
+        description: ''
+      - name: created_by_id
+        description: ''
+      - name: script_id
+        description: ''
+      - name: targets_id
+        description: ''
+      - name: max_turf_size
+        description: ''
+      - name: min_turf_size
+        description: ''
+      - name: action_text
+        description: ''
+      - name: action_url
+        description: ''
+      - name: universal_source_code
+        description: ''
+      - name: starting_location_id
+        description: ''
+      - name: skip_people_search
+        description: ''
+      - name: partition_schema_name
+        description: ''
+      - name: partition_name
+        description: ''
+      - name: _knock_conversation_code_hashid
+        description: ''
+      - name: _cta_loaded_at
+        description: ''
+
+  - name: redshift_people_name_conversations_base
+    description: ''
+    columns:
+      - name: of_people_id
+        description: ''
+      - name: conversation_id
+        description: ''
+      - name: conversation_time
+        description: ''
+      - name: conversation_type
+        description: ''
+      - name: contact_type
+        description: ''
+      - name: canvasser
+        description: ''
+      - name: state_file_id
+        description: ''
+      - name: other_voter_file_id
+        description: ''
+      - name: van_id
+        description: ''
+      - name: my_campaign_id
+        description: ''
+      - name: first_name
+        description: ''
+      - name: middle_name
+        description: ''
+      - name: last_name
+        description: ''
+      - name: suffix
+        description: ''
+      - name: preferred_name
+        description: ''
+      - name: sex
+        description: ''
+      - name: age
+        description: ''
+      - name: phone1
+        description: ''
+      - name: email1
+        description: ''
+      - name: email_opt_in1
+        description: ''
+      - name: address1
+        description: ''
+      - name: address2
+        description: ''
+      - name: city
+        description: ''
+      - name: state
+        description: ''
+      - name: county
+        description: ''
+      - name: zip_5
+        description: ''
+      - name: contact_script_id
+        description: ''
+      - name: conversation_code_id
+        description: ''
+      - name: question_id
+        description: ''
+      - name: question_text
+        description: ''
+      - name: response
+        description: ''
+      - name: partition_schema_name
+        description: ''
+      - name: partition_name
+        description: ''
+      - name: _redshift_people_name_conversations_hashid
+        description: ''
+      - name: _cta_loaded_at
+        description: ''
+
+  - name: redshift_people_truefalse_conversations_base
+    description: ''
+    columns:
+      - name: of_people_id
+        description: ''
+      - name: conversation_id
+        description: ''
+      - name: conversation_time
+        description: ''
+      - name: conversation_type
+        description: ''
+      - name: contact_type
+        description: ''
+      - name: canvasser
+        description: ''
+      - name: state_file_id
+        description: ''
+      - name: other_voter_file_id
+        description: ''
+      - name: van_id
+        description: ''
+      - name: my_campaign_id
+        description: ''
+      - name: first_name
+        description: ''
+      - name: middle_name
+        description: ''
+      - name: last_name
+        description: ''
+      - name: suffix
+        description: ''
+      - name: preferred_name
+        description: ''
+      - name: sex
+        description: ''
+      - name: age
+        description: ''
+      - name: phone1
+        description: ''
+      - name: email1
+        description: ''
+      - name: email_opt_in1
+        description: ''
+      - name: address1
+        description: ''
+      - name: address2
+        description: ''
+      - name: city
+        description: ''
+      - name: state
+        description: ''
+      - name: county
+        description: ''
+      - name: zip_5
+        description: ''
+      - name: contact_script_id
+        description: ''
+      - name: conversation_code_id
+        description: ''
+      - name: question_id
+        description: ''
+      - name: question_text
+        description: ''
+      - name: response
+        description: ''
+      - name: partition_schema_name
+        description: ''
+      - name: partition_name
+        description: ''
+      - name: _redshift_people_truefalse_conversations_hashid
+        description: ''
+      - name: _cta_loaded_at
+        description: ''
+
+  - name: redshift_people_attempts_base
+    description: ''
+    columns:
+      - name: of_people_id
+        description: ''
+      - name: conversation_id
+        description: ''
+      - name: conversation_time
+        description: ''
+      - name: conversation_type
+        description: ''
+      - name: contact_type
+        description: ''
+      - name: canvasser
+        description: ''
+      - name: state_file_id
+        description: ''
+      - name: other_voter_file_id
+        description: ''
+      - name: van_id
+        description: ''
+      - name: my_campaign_id
+        description: ''
+      - name: first_name
+        description: ''
+      - name: middle_name
+        description: ''
+      - name: last_name
+        description: ''
+      - name: suffix
+        description: ''
+      - name: preferred_name
+        description: ''
+      - name: sex
+        description: ''
+      - name: age
+        description: ''
+      - name: phone1
+        description: ''
+      - name: email1
+        description: ''
+      - name: email_opt_in1
+        description: ''
+      - name: address1
+        description: ''
+      - name: address2
+        description: ''
+      - name: city
+        description: ''
+      - name: state
+        description: ''
+      - name: county
+        description: ''
+      - name: zip_5
+        description: ''
+      - name: contact_script_id
+        description: ''
+      - name: conversation_code_id
+        description: ''
+      - name: partition_schema_name
+        description: ''
+      - name: partition_name
+        description: ''
+      - name: _redshift_people_attempts_hashid
+        description: ''
+      - name: _cta_loaded_at
+        description: ''
+
+  - name: redshift_people_longtext_conversations_base
+    description: ''
+    columns:
+      - name: of_people_id
+        description: ''
+      - name: conversation_id
+        description: ''
+      - name: conversation_time
+        description: ''
+      - name: conversation_type
+        description: ''
+      - name: contact_type
+        description: ''
+      - name: canvasser
+        description: ''
+      - name: state_file_id
+        description: ''
+      - name: other_voter_file_id
+        description: ''
+      - name: van_id
+        description: ''
+      - name: my_campaign_id
+        description: ''
+      - name: first_name
+        description: ''
+      - name: middle_name
+        description: ''
+      - name: last_name
+        description: ''
+      - name: suffix
+        description: ''
+      - name: preferred_name
+        description: ''
+      - name: sex
+        description: ''
+      - name: age
+        description: ''
+      - name: phone1
+        description: ''
+      - name: email1
+        description: ''
+      - name: email_opt_in1
+        description: ''
+      - name: address1
+        description: ''
+      - name: address2
+        description: ''
+      - name: city
+        description: ''
+      - name: state
+        description: ''
+      - name: county
+        description: ''
+      - name: zip_5
+        description: ''
+      - name: contact_script_id
+        description: ''
+      - name: conversation_code_id
+        description: ''
+      - name: question_id
+        description: ''
+      - name: question_text
+        description: ''
+      - name: response
+        description: ''
+      - name: partition_schema_name
+        description: ''
+      - name: partition_name
+        description: ''
+      - name: _redshift_people_longtext_conversations_hashid
+        description: ''
+      - name: _cta_loaded_at
+        description: ''
+

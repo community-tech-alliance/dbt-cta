@@ -6,10 +6,10 @@
     cluster_by = "_cta_loaded_at",
     partition_by = {"field": "_cta_loaded_at", "data_type": "timestamp", "granularity": "day"},
     partitions = partitions_to_replace,
-    unique_key = "_redshift_people_attempts_hashid"
+    unique_key = "_redshift_people_shorttext_conversations_hashid"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('redshift_people_attempts_cte1') }}
+-- depends_on: {{ ref('redshift_people_shorttext_conversations_cte1') }}
 select
     of_people_id,
     conversation_id,
@@ -39,12 +39,14 @@ select
     zip_5,
     contact_script_id,
     conversation_code_id,
+    question_id,
+    question_text,
+    response,
     partition_schema_name,
     partition_name,
-     _redshift_people_attempts_hashid,
+    _redshift_people_shorttext_conversations_hashid,
     _cta_loaded_at
-
-from {{ ref('redshift_people_attempts_cte1') }}
+from {{ ref('redshift_people_shorttext_conversations_cte1') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_cta_loaded_at, day) in ({{ partitions_to_replace | join(",") }})

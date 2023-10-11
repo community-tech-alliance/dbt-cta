@@ -65,6 +65,5 @@ select
         'partition_name'
     ]) }} as _knock_conversation_code_hashid,
     {{ current_timestamp() }} as _cta_loaded_at
-from {{ source('cta', '_raw_knock_conversation_code') }} as table_alias
+from {{ source('cta', '_raw_knock_conversation_code') }}
 where 1 = 1
-

@@ -79,6 +79,5 @@ select
         'partition_name',
     ]) }} as _redshift_people_name_conversations_hashid,
     {{ current_timestamp() }} as _cta_loaded_at
-from {{ source('cta', '_raw_redshift_people_name_conversations') }} as table_alias
+from {{ source('cta', '_raw_redshift_people_name_conversations') }}
 where 1 = 1
-
