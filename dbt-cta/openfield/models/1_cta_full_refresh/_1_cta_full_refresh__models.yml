@@ -7,6 +7,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: created_date
         description: ''
       - name: state_file_id
@@ -239,6 +242,9 @@ models:
         description: ''
       - name: _knock_people_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: _cta_loaded_at
         description: ''
 
@@ -313,6 +319,9 @@ models:
         description: ''
       - name: _redshift_people_email_conversations_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: _cta_loaded_at
         description: ''
 
@@ -387,6 +396,9 @@ models:
         description: ''
       - name: _redshift_people_shorttext_conversations_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: _cta_loaded_at
         description: ''
 
@@ -461,6 +473,9 @@ models:
         description: ''
       - name: _redshift_people_list_conversations_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: _cta_loaded_at
         description: ''
 
@@ -535,6 +550,9 @@ models:
         description: ''
       - name: _redshift_people_celloptins_conversations_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: _cta_loaded_at
         description: ''
 
@@ -543,6 +561,9 @@ models:
     columns:
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: code
         description: ''
       - name: created_at
@@ -595,6 +616,9 @@ models:
         description: ''
       - name: _knock_conversation_code_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: _cta_loaded_at
         description: ''
 
@@ -669,6 +693,9 @@ models:
         description: ''
       - name: _redshift_people_name_conversations_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: _cta_loaded_at
         description: ''
 
@@ -743,6 +770,9 @@ models:
         description: ''
       - name: _redshift_people_truefalse_conversations_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: _cta_loaded_at
         description: ''
 
@@ -811,6 +841,9 @@ models:
         description: ''
       - name: _redshift_people_attempts_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: _cta_loaded_at
         description: ''
 
@@ -885,6 +918,9 @@ models:
         description: ''
       - name: _redshift_people_longtext_conversations_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: _cta_loaded_at
         description: ''
 
