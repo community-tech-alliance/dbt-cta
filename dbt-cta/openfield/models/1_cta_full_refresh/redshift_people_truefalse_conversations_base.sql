@@ -9,7 +9,7 @@
     unique_key = "_redshift_people_truefalse_conversations_hashid"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('redshift_people_truefalse_conversations_cte1') }}
+-- depends_on: {{ ref('redshift_people_truefalse_conversations_cte2') }}
 select
     of_people_id,
     conversation_id,
@@ -46,7 +46,7 @@ select
     partition_name,
     _redshift_people_truefalse_conversations_hashid,
     _cta_loaded_at
-from {{ ref('redshift_people_truefalse_conversations_cte1') }}
+from {{ ref('redshift_people_truefalse_conversations_cte2') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_cta_loaded_at, day) in ({{ partitions_to_replace | join(",") }})

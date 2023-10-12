@@ -9,7 +9,7 @@
     unique_key = "_knock_conversation_code_hashid"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('knock_conversation_code_cte1') }}
+-- depends_on: {{ ref('knock_conversation_code_cte2') }}
 select
     id,
     code,
@@ -40,7 +40,7 @@ select
     _knock_conversation_code_hashid,
     _cta_loaded_at
 
-from {{ ref('knock_conversation_code_cte1') }}
+from {{ ref('knock_conversation_code_cte2') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_cta_loaded_at, day) in ({{ partitions_to_replace | join(",") }})
