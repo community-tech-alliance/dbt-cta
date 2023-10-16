@@ -1,0 +1,26 @@
+version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables:
+  - name: _raw_knock_conversation_code
+  - name: _raw_knock_people
+  - name: _raw_redshift_people_attempts
+  - name: _raw_redshift_people_celloptins_conversations
+  - name: _raw_redshift_people_email_conversations
+  - name: _raw_redshift_people_list_conversations
+  - name: _raw_redshift_people_longtext_conversations
+  - name: _raw_redshift_people_name_conversations
+  - name: _raw_redshift_people_shorttext_conversations
+  - name: _raw_redshift_people_truefalse_conversations
+  - name: knock_conversation_code_base
+  - name: knock_people_base
+  - name: redshift_people_attempts_base
+  - name: redshift_people_celloptins_conversations_base
+  - name: redshift_people_email_conversations_base
+  - name: redshift_people_list_conversations_base
+  - name: redshift_people_longtext_conversations_base
+  - name: redshift_people_name_conversations_base
+  - name: redshift_people_shorttext_conversations_base
+  - name: redshift_people_truefalse_conversations_base
