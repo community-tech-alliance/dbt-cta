@@ -1,0 +1,173 @@
+version: 2
+
+models:
+
+  - name: payroll_base
+    description: ''
+    columns:
+      - name: company_code
+        description: ''
+      - name: payroll_name
+        description: ''
+      - name: file_number
+        description: ''
+      - name: associate_id
+        description: ''
+      - name: pay_date
+        description: ''
+      - name: job_title_description
+        description: ''
+      - name: home_department_code
+        description: ''
+      - name: home_department_description
+        description: ''
+      - name: worked_in_department
+        description: ''
+      - name: worked_in_department_description
+        description: ''
+      - name: distribution_number
+        description: ''
+      - name: gross_pay_usd
+        description: ''
+      - name: net_pay_usd
+        description: ''
+      - name: take_home_usd
+        description: ''
+      - name: regular_hours_total
+        description: ''
+      - name: overtime_hours_total
+        description: ''
+      - name: additional_hours___hol
+        description: ''
+      - name: additional_hours___sik
+        description: ''
+      - name: additional_hours___pto
+        description: ''
+      - name: additional_hours___cov
+        description: ''
+      - name: total_hours
+        description: ''
+      - name: regular_earnings_total_usd
+        description: ''
+      - name: overtime_earnings_total_usd
+        description: ''
+      - name: additional_earnings___hol_usd
+        description: ''
+      - name: sik___sick_leave_earnings_usd
+        description: ''
+      - name: pto_earnings_usd
+        description: ''
+      - name: additional_earnings___cov_usd
+        description: ''
+      - name: 1fa___ff_fmla_earnings_usd
+        description: ''
+      - name: 1fe___ff_psl_ee_earnings_usd
+        description: ''
+      - name: 1ff___ff_psl_fam_earnings_usd
+        description: ''
+      - name: bn___bonus_earnings_usd
+        description: ''
+      - name: dev___phone_bonus_earnings_usd
+        description: ''
+      - name: dib___driver_earnings_usd
+        description: ''
+      - name: per___personal_earnings_usd
+        description: ''
+      - name: ppe___prpd_earnings_earnings_usd
+        description: ''
+      - name: rf1___referral_earnings_usd
+        description: ''
+      - name: upt___unpaid_time_earnings_usd
+        description: ''
+      - name: vac___vacation_earnings_usd
+        description: ''
+      - name: total_deductions_usd
+        description: ''
+      - name: family_leave_insurance___employee_tax_usd
+        description: ''
+      - name: federal_income___employee_tax_usd
+        description: ''
+      - name: lived_in_local___employee_tax_usd
+        description: ''
+      - name: lived_in_state___employee_tax_usd
+        description: ''
+      - name: local_4___employee_tax_usd
+        description: ''
+      - name: local_5___employee_tax_usd
+        description: ''
+      - name: medical_leave_insurance___employee_tax_usd
+        description: ''
+      - name: medicare___employee_tax_usd
+        description: ''
+      - name: medicare_adjust___employee_tax_usd
+        description: ''
+      - name: medicare_surtax_adjust___employee_tax_usd
+        description: ''
+      - name: school_district___employee_tax_usd
+        description: ''
+      - name: sdi___employee_tax_usd
+        description: ''
+      - name: social_security___employee_tax_usd
+        description: ''
+      - name: sui___employee_tax_usd
+        description: ''
+      - name: sui_sdi___employee_tax_usd
+        description: ''
+      - name: transit___employee_tax_usd
+        description: ''
+      - name: worked_in_local___employee_tax_usd
+        description: ''
+      - name: worked_in_state___employee_tax_usd
+        description: ''
+      - name: workers_comp_assessment___employee_tax_usd
+        description: ''
+      - name: family_leave_insurance___employer_tax_usd
+        description: ''
+      - name: futa___employer_tax_usd
+        description: ''
+      - name: lived_in_local___employer_tax_usd
+        description: ''
+      - name: lived_in_state___employer_tax_usd
+        description: ''
+      - name: local_4___employer_tax_usd
+        description: ''
+      - name: local_5___employer_tax_usd
+        description: ''
+      - name: medical_leave_insurance___employer_tax_usd
+        description: ''
+      - name: medicare___employer_tax_usd
+        description: ''
+      - name: mta___employer_tax_usd
+        description: ''
+      - name: school_district___employer_tax_usd
+        description: ''
+      - name: sdi___employer_tax_usd
+        description: ''
+      - name: social_security___employer_tax_usd
+        description: ''
+      - name: sui___employer_tax_usd
+        description: ''
+      - name: sui_sdi___employer_tax_usd
+        description: ''
+      - name: transit___employer_tax_usd
+        description: ''
+      - name: worked_in_local___employer_tax_usd
+        description: ''
+      - name: worked_in_state___employer_tax_usd
+        description: ''
+      - name: workers_comp_assessment___employer_tax_usd
+        description: ''
+      - name: void_check_indicator
+        description: ''
+      - name: check_voucher_code
+        description: ''
+      - name: check_voucher_number
+        description: ''
+      - name: _payroll_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _cta_loaded_at
+        description: ''
+
