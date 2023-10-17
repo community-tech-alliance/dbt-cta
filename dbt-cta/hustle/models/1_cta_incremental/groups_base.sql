@@ -8,6 +8,6 @@
 -- Final base SQL model
             
 SELECT * EXCEPT (rownum)
-FROM {{ ref('goals_cte2') }}
+FROM {{ ref('groups_cte2') }}
     
     
