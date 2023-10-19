@@ -8,7 +8,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('owned_phone_number_ab3') }}
+-- depends_on: {{ ref('owned_phone_number_ab4') }}
 select
     service,
     allocated_to_id,
@@ -24,7 +24,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_owned_phone_number_hashid
-from {{ ref('owned_phone_number_ab3') }}
+from {{ ref('owned_phone_number_ab4') }}
 -- owned_phone_number from {{ source('cta', '_airbyte_raw_owned_phone_number') }}
 where 1=1
 

@@ -8,7 +8,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('campaign_admin_ab3') }}
+-- depends_on: {{ ref('campaign_admin_ab4') }}
 select
     ingest_method,
     ingest_data_reference,
@@ -25,7 +25,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_campaign_admin_hashid
-from {{ ref('campaign_admin_ab3') }}
+from {{ ref('campaign_admin_ab4') }}
 -- campaign_admin from {{ source('cta', '_airbyte_raw_campaign_admin') }}
 where 1=1
 

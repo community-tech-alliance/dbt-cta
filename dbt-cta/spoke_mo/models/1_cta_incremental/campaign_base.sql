@@ -8,7 +8,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('campaign_ab3') }}
+-- depends_on: {{ ref('campaign_ab4') }}
 select
     override_organization_texting_hours,
     batch_size,
@@ -38,7 +38,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_campaign_hashid
-from {{ ref('campaign_ab3') }}
+from {{ ref('campaign_ab4') }}
 -- campaign from {{ source('cta', '_airbyte_raw_campaign') }}
 where 1=1
 

@@ -8,7 +8,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('assignment_ab3') }}
+-- depends_on: {{ ref('assignment_ab4') }}
 select
     max_contacts,
     user_id,
@@ -19,6 +19,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_assignment_hashid
-from {{ ref('assignment_ab3') }}
+from {{ ref('assignment_ab4') }}
 -- assignment from {{ source('cta', '_airbyte_raw_assignment') }}
 where 1=1

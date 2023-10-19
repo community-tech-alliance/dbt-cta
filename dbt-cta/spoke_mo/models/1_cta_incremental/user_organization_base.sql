@@ -8,7 +8,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('user_organization_ab3') }}
+-- depends_on: {{ ref('user_organization_ab4') }}
 select
     role,
     user_id,
@@ -18,7 +18,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_user_organization_hashid
-from {{ ref('user_organization_ab3') }}
+from {{ ref('user_organization_ab4') }}
 -- user_organization from {{ source('cta', '_airbyte_raw_user_organization') }}
 where 1=1
 

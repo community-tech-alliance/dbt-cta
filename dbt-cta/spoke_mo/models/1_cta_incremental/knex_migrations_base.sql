@@ -8,7 +8,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('knex_migrations_ab3') }}
+-- depends_on: {{ ref('knex_migrations_ab4') }}
 select
     migration_time,
     name,
@@ -18,7 +18,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_knex_migrations_hashid
-from {{ ref('knex_migrations_ab3') }}
+from {{ ref('knex_migrations_ab4') }}
 -- knex_migrations from {{ source('cta', '_airbyte_raw_knex_migrations') }}
 where 1=1
 

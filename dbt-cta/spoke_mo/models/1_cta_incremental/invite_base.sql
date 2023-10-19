@@ -8,7 +8,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('invite_ab3') }}
+-- depends_on: {{ ref('invite_ab4') }}
 select
     is_valid,
     created_at,
@@ -18,7 +18,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_invite_hashid
-from {{ ref('invite_ab3') }}
+from {{ ref('invite_ab4') }}
 -- invite from {{ source('cta', '_airbyte_raw_invite') }}
 where 1=1
 
