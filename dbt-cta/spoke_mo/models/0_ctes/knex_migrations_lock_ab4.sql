@@ -4,7 +4,7 @@ SELECT * FROM
 (
 SELECT 
     *,
-    ROW_NUMBER() OVER (PARTITION BY id ORDER BY _airbyte_emitted_at desc) as rownum 
+    ROW_NUMBER() OVER (PARTITION BY _airbyte_knex_migrations_lock_hashid ORDER BY _airbyte_emitted_at desc) as rownum 
 FROM {{ ref('knex_migrations_lock_ab3') }}
 )
 where rownum=1
