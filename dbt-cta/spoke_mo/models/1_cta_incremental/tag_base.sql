@@ -8,7 +8,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('tag_ab3') }}
+-- depends_on: {{ ref('tag_ab4') }}
 select
     is_deleted,
     updated_at,
@@ -22,7 +22,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_tag_hashid
-from {{ ref('tag_ab3') }}
+from {{ ref('tag_ab4') }}
 -- tag from {{ source('cta', '_airbyte_raw_tag') }}
 where 1=1
 

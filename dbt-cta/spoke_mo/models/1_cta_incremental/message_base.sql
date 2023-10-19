@@ -8,7 +8,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('message_ab3') }}
+-- depends_on: {{ ref('message_ab4') }}
 select
     is_from_contact,
     campaign_contact_id,
@@ -33,7 +33,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_message_hashid
-from {{ ref('message_ab3') }}
+from {{ ref('message_ab4') }}
 -- message from {{ source('cta', '_airbyte_raw_message') }}
 where 1=1
 

@@ -8,7 +8,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('tag_canned_response_ab3') }}
+-- depends_on: {{ ref('tag_canned_response_ab4') }}
 select
     canned_response_id,
     tag_id,
@@ -18,7 +18,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_tag_canned_response_hashid
-from {{ ref('tag_canned_response_ab3') }}
+from {{ ref('tag_canned_response_ab4') }}
 -- tag_canned_response from {{ source('cta', '_airbyte_raw_tag_canned_response') }}
 
 

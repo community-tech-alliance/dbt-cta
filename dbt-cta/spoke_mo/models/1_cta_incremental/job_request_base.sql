@@ -8,7 +8,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('job_request_ab3') }}
+-- depends_on: {{ ref('job_request_ab4') }}
 select
     job_type,
     queue_name,
@@ -26,7 +26,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_job_request_hashid
-from {{ ref('job_request_ab3') }}
+from {{ ref('job_request_ab4') }}
 -- job_request from {{ source('cta', '_airbyte_raw_job_request') }}
 where 1=1
 

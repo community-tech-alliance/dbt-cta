@@ -8,7 +8,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('pending_message_part_ab3') }}
+-- depends_on: {{ ref('pending_message_part_ab4') }}
 select
     service,
     parent_id,
@@ -22,7 +22,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_pending_message_part_hashid
-from {{ ref('pending_message_part_ab3') }}
+from {{ ref('pending_message_part_ab4') }}
 -- pending_message_part from {{ source('cta', '_airbyte_raw_pending_message_part') }}
 where 1=1
 
