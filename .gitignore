@@ -106,6 +106,7 @@ poetry.lock
 **/**/*.tar.gz
 .cta/
 airbyte_dbt_export
+utils/config/*
 
 # dbt build
 

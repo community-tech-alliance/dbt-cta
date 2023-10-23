@@ -136,7 +136,7 @@ def restructure_airbyte_dbt(airbyte_workspace_path, dbt_cta_path):
 
     # Now lets move over the sources.yml file
     sources_file = glob(
-        f"{airbyte_workspace_path}/**/models/**/sources.yml", recursive=True
+        f"{airbyte_workspace_path}/models/generated/sources.yml", recursive=True
     )
     if sources_file:
         move_source_file = move(
@@ -144,7 +144,7 @@ def restructure_airbyte_dbt(airbyte_workspace_path, dbt_cta_path):
         )
         print(f"Moved {sources_file[0]} -> {dbt_cta_path}/models/sources.yml")
     else:
-        print(f"Couldnt find the sources file in {airbyte_workspace_path}")
+        print(f"Couldn\'t find the sources file in {airbyte_workspace_path}")
 
     # Cool, files are moved so now lets modify the file content
     modify_dbt_models(f"{dbt_cta_path}/models/0_ctes", "cte")

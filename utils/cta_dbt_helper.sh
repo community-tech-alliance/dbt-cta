@@ -9,41 +9,19 @@ copy_dbt_from_airbyte() {
     ALLOWED_ENVIRONMENTS="dev\nprod"
 
     ENVIRONMENT=$(echo -e $ALLOWED_ENVIRONMENTS | gum filter --placeholder "Which Airbyte Environment should be used?")
-    WORKSPACE_ID=$(gum input --placeholder "Airbyte Workspace ID ex. 814")
     
-    # Prompt if Cacher Snippet should be downloaded
-    if gum confirm "Download Cacher script to copy an Airbyte workspace?"; then
-        # Get Cacher creds from user
-        CACHER_API_KEY=$(gum input --placeholder "Enter your Cacher API Key -> https://app.cacher.io/enter?action=view_api_creds")
-        CACHER_API_TOKEN=$(gum input --placeholder "Enter your Cacher API Token -> https://app.cacher.io/enter?action=view_api_creds")
-        # This is just the ID to the Cacher snippet that holds a script to extract an Airbyte Workspace from the Airbyte server.
-        # https://docs.airbyte.com/operator-guides/transformation-and-normalization/transformations-with-dbt/#exporting-dbt-normalization-project-outside-airbyte
-        CACHER_SNIPPET_GUID="2b77280d537736f980f9" 
-
-        mkdir -p $ROOT_PATH/.cta
-        cd $ROOT_PATH/.cta
-        pipenv run python $ROOT_PATH/utils/dbt_format_utils.py getCacherScript \
-        --cacherSnippetGUID $CACHER_SNIPPET_GUID \
-        --cacherApiKey $CACHER_API_KEY \
-        --cacherApiToken $CACHER_API_TOKEN \
-        --outputPath copy_airbyte_workspace.sh
-        RET=$?
-        if [[ $RET -ne 0 ]]; then
-            echo "Failed to download Cacher Script. Exiting"
-            exit 1
-        fi  
-        chmod +x copy_airbyte_workspace.sh
-        cd $ROOT_PATH
-    fi
-
     # Run script to copy Airbyte Workspace to local
     echo "Starting job to copy Airbyte workspace.."
-    ./.cta/copy_airbyte_workspace.sh -e $ENVIRONMENT -w $WORKSPACE_ID
+    # ./copy_dbt_from_k8s_pod.sh <POD_NAME_REGEX_PATTERN> <NAMESPACE> <CONTAINER_NAME>"
+    ./copy_dbt_from_k8s_pod.sh "normalization" "airbyte" "main" 
+    mkdir -p .cta/airbyte_dbt_export/
+    mv config/* .cta/airbyte_dbt_export/
+    rm -r config/
     RET=$?
     if [[ $RET -ne 0 ]]; then
-        echo "Failed to grab normalization dbt for workspace: $WORKSPACE_ID from $ENVIRONMENT Airbyte"
+        echo "Failed to grab normalization dbt from $ENVIRONMENT Airbyte"
     else
-        echo "Airbyte Workspace $WORKSPACE_ID exported to local directory -> airbyte_dbt_export/$WORKSPACE_ID"
+        echo "Airbyte normalization exported to local directory -> airbyte_dbt_export/"
     fi
 }
 
@@ -57,7 +35,7 @@ format_airbyte_dbt() {
             exit 1
         fi
     done
-    TARGET_PATH="$ROOT_PATH/dbt-cta/$DIR_NAME/"
+    TARGET_PATH="$ROOT_PATH/dbt-cta/$DIR_NAME"
     gum confirm "Confirm the Target Path is correct: $TARGET_PATH" || exit 1
     # Check to see if Directory exists, if not create it
     if [[ ! -d $TARGET_PATH ]]; then
@@ -65,15 +43,14 @@ format_airbyte_dbt() {
     fi
 
     # Get path to exported Airbyte Workspace
-    while [ -z "$WORKSPACE" ]; do
-        WORKSPACE=$(gum input --prompt "Enter the path of the exported Airbyte Workspace: " --placeholder "airbyte_dbt_export/814/")
+    while [ -z "$DIR" ]; do
+        DIR=$(gum input --prompt "Enter the path of the exported Airbyte files: " --placeholder "airbyte_dbt_export/")
         if [[ $? != 0 ]]; then
             echo "Ctrl-C caught, exiting..."
             exit 1
         fi
-        WORKSPACE_PATH="$ROOT_PATH/$WORKSPACE"
+        WORKSPACE_PATH="$ROOT_PATH/$DIR"
     done
-    WORKSPACE_PATH="$ROOT_PATH/$WORKSPACE"
     gum confirm "Confirm the Airbyte Worspace Path is correct: $WORKSPACE_PATH" || exit 1
     # Check to see if Workspace Path actually exists
     if [[ ! -d $WORKSPACE_PATH ]]; then
