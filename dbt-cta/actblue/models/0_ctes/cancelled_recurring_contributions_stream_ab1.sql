@@ -1,11 +1,12 @@
+{% set raw_table = env_var("CTA_DATASET_ID") ~ "_raw__stream_cancelled_recurring_contributions_stream" %}
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_raw_id',
     tags = [ "top-level-intermediate" ]
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('cta', '_airbyte_raw_cancelled_recurring_contributions_stream') }}
+-- depends_on: {{ source('cta_raw', raw_table) }}
 select
     {{ json_extract_scalar('_airbyte_data', ['Donor ZIP'], ['Donor ZIP']) }} as Donor_ZIP,
     {{ json_extract_scalar('_airbyte_data', ['Donor City'], ['Donor City']) }} as Donor_City,
@@ -29,9 +30,9 @@ select
     {{ json_extract_scalar('_airbyte_data', ['Initial Pledge Length'], ['Initial Pledge Length']) }} as Initial_Pledge_Length,
     {{ json_extract_scalar('_airbyte_data', ['Bump Recurring Succeeded'], ['Bump Recurring Succeeded']) }} as Bump_Recurring_Succeeded,
     {{ json_extract_scalar('_airbyte_data', ['Initial Contribution Date'], ['Initial Contribution Date']) }} as Initial_Contribution_Date,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_cancelled_recurring_contributions_stream') }}
+from {{ source('cta_raw', raw_table) }}
 -- cancelled_recurring_contributions_stream
 where 1 = 1
