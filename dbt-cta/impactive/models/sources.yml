@@ -1,0 +1,26 @@
+version: 2
+sources:
+- name: partner_a_lol_impactive
+  quoting:
+    database: true
+    schema: false
+    identifier: false
+  tables:
+  - name: _airbyte_raw_activities_export
+  - name: _airbyte_raw_activity_scripts_export
+  - name: _airbyte_raw_campaigns_export
+  - name: _airbyte_raw_contacts_export
+  - name: _airbyte_raw_customizations_export
+  - name: _airbyte_raw_forms_export
+  - name: _airbyte_raw_messages_export
+  - name: _airbyte_raw_person_api_lookups_export
+  - name: _airbyte_raw_registrations_export
+  - name: _airbyte_raw_reports_export
+  - name: _airbyte_raw_taggings_export
+  - name: _airbyte_raw_teams_export
+  - name: _airbyte_raw_user_activities_export
+  - name: _airbyte_raw_user_activity_performances_export
+  - name: _airbyte_raw_user_campaigns_export
+  - name: _airbyte_raw_users_export
+  - name: _airbyte_raw_v2_voice_calls_export
+  - name: _airbyte_raw_voice_calls_export
