@@ -9,13 +9,11 @@ copy_dbt_from_airbyte() {
     ALLOWED_ENVIRONMENTS="dev\nprod"
 
     ENVIRONMENT=$(echo -e $ALLOWED_ENVIRONMENTS | gum filter --placeholder "Which Airbyte Environment should be used?")
-    
+
     # Run script to copy Airbyte Workspace to local
     echo "Starting job to copy Airbyte workspace.."
     # ./copy_dbt_from_k8s_pod.sh <POD_NAME_REGEX_PATTERN> <NAMESPACE> <CONTAINER_NAME>"
-    ./copy_dbt_from_k8s_pod.sh "normalization" "airbyte" "main" 
-    mkdir -p .cta/airbyte_dbt_export/
-    mv config/* .cta/airbyte_dbt_export/
+    ./copy_dbt_from_k8s_pod.sh "normalization" "airbyte" "main"
     rm -r config/
     RET=$?
     if [[ $RET -ne 0 ]]; then
@@ -26,7 +24,7 @@ copy_dbt_from_airbyte() {
 }
 
 format_airbyte_dbt() {
-    
+
     # Get target path for dbt from user
     while [ -z "$DIR_NAME" ]; do
         DIR_NAME=$(gum input --prompt "Enter the target directory name (name of directory to create in dbt-cta): " --placeholder "vendor_name (ex. actblue)")
@@ -112,7 +110,7 @@ generate_dbt_tests() {
         fi
 
         OPTION_MERGE=$(gum input --prompt "Are you merging into an existing schema yaml? " --placeholder " (Y or leave blank to skip)")
-        
+
         # Only ask about overwriting if user does not say they are merging. Just nicer that way
         if [ "$OPTION_MERGE" != "Y" ]; then
             OPTION_OVERWRITE=$(gum input --prompt "Are you overwriting an existing schema yaml? " --placeholder " (Y or leave blank to skip)")
@@ -133,7 +131,7 @@ generate_dbt_tests() {
     done
     gum confirm "Confirm the vendor name is correct: $INPUT_DIR_NAME" || exit 1
     gum confirm "Confirm the selected runtime option is correct: $CLI_OPTIONS" || exit 1
-    
+
     # Create venv from Pipfile and activate
     cd $ROOT_PATH
     pipenv install
@@ -231,7 +229,7 @@ if [[ -n $FUNCTION ]]; then
             command="lint_dbt"
             ;;
     esac
-    # Confirm choice 
+    # Confirm choice
     gum confirm "Confirm selection: ${FUNCTION}?" && $command "$@"
 fi
 
