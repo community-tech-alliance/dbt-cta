@@ -87,7 +87,7 @@ format_airbyte_dbt() {
 
     # Get path to exported Airbyte Workspace
     while [ -z "$DIR" ]; do
-        DIR=$(gum input --prompt "Enter the path of the exported Airbyte files: " --placeholder "airbyte_dbt_export/")
+        DIR=$(gum input --prompt "Enter the path of the exported Airbyte files: " --placeholder "utils/config")
         if [[ $? != 0 ]]; then
             echo "Ctrl-C caught, exiting..."
             exit 1
