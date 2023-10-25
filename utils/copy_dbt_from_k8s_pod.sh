@@ -26,7 +26,9 @@ while true; do
 
                 # Copy /config directory from running container to local
                 echo "Copying /config directory from $CONTAINER_NAME in pod $POD to local machine..."
-                kubectl cp $NAMESPACE/$POD:/config -c $CONTAINER_NAME ./config
+                echo "Copying these files to local..."
+                kubectl -n "$NAMESPACE" exec -ti "$POD" -- /bin/ls /config
+                kubectl -n "$NAMESPACE" cp -c "$CONTAINER_NAME" $NAMESPACE/$POD:/config config
                 if [ $? -eq 0 ]; then
                     echo "Successfully copied /config directory."
                     exit 0
