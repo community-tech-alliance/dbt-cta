@@ -1,0 +1,60 @@
+{{ config(
+    cluster_by = "_airbyte_emitted_at",
+    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_ab_id"
+) }}
+-- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
+-- depends_on: {{ source('cta', '_airbyte_raw_contacts_export') }}
+select
+    {{ json_extract_scalar('_airbyte_data', ['reported_requested_vbm'], ['reported_requested_vbm']) }} as reported_requested_vbm,
+    {{ json_extract_scalar('_airbyte_data', ['selected_voterbase_id'], ['selected_voterbase_id']) }} as selected_voterbase_id,
+    {{ json_extract_scalar('_airbyte_data', ['city'], ['city']) }} as city,
+    {{ json_extract_scalar('_airbyte_data', ['can_vbm_online'], ['can_vbm_online']) }} as can_vbm_online,
+    {{ json_extract_scalar('_airbyte_data', ['voter_last_name'], ['voter_last_name']) }} as voter_last_name,
+    {{ json_extract_scalar('_airbyte_data', ['created_at'], ['created_at']) }} as created_at,
+    {{ json_extract_scalar('_airbyte_data', ['automatic_vbm'], ['automatic_vbm']) }} as automatic_vbm,
+    {{ json_extract_scalar('_airbyte_data', ['zip_code'], ['zip_code']) }} as zip_code,
+    {{ json_extract_scalar('_airbyte_data', ['van_id'], ['van_id']) }} as van_id,
+    {{ json_extract_scalar('_airbyte_data', ['contact_type'], ['contact_type']) }} as contact_type,
+    {{ json_extract_scalar('_airbyte_data', ['unit_number'], ['unit_number']) }} as unit_number,
+    {{ json_extract_scalar('_airbyte_data', ['updated_at'], ['updated_at']) }} as updated_at,
+    {{ json_extract_scalar('_airbyte_data', ['can_vbm'], ['can_vbm']) }} as can_vbm,
+    {{ json_extract_scalar('_airbyte_data', ['id'], ['id']) }} as id,
+    {{ json_extract_scalar('_airbyte_data', ['mail_address'], ['mail_address']) }} as mail_address,
+    {{ json_extract_scalar('_airbyte_data', ['reported_registered'], ['reported_registered']) }} as reported_registered,
+    {{ json_extract_scalar('_airbyte_data', ['first_name'], ['first_name']) }} as first_name,
+    {{ json_extract_scalar('_airbyte_data', ['requested_absentee_form'], ['requested_absentee_form']) }} as requested_absentee_form,
+    {{ json_extract_scalar('_airbyte_data', ['email'], ['email']) }} as email,
+    {{ json_extract_scalar('_airbyte_data', ['campaign_id'], ['campaign_id']) }} as campaign_id,
+    {{ json_extract_scalar('_airbyte_data', ['mail_zip_code'], ['mail_zip_code']) }} as mail_zip_code,
+    {{ json_extract_scalar('_airbyte_data', ['requested_registration_form'], ['requested_registration_form']) }} as requested_registration_form,
+    {{ json_extract_scalar('_airbyte_data', ['voter_first_name'], ['voter_first_name']) }} as voter_first_name,
+    {{ json_extract_scalar('_airbyte_data', ['address'], ['address']) }} as address,
+    {{ json_extract_scalar('_airbyte_data', ['invited'], ['invited']) }} as invited,
+    {{ json_extract_scalar('_airbyte_data', ['last_name'], ['last_name']) }} as last_name,
+    {{ json_extract_scalar('_airbyte_data', ['mail_city'], ['mail_city']) }} as mail_city,
+    {{ json_extract_scalar('_airbyte_data', ['assigned_user_id'], ['assigned_user_id']) }} as assigned_user_id,
+    {{ json_extract_scalar('_airbyte_data', ['exported_at'], ['exported_at']) }} as exported_at,
+    {{ json_extract_scalar('_airbyte_data', ['reg_confirmed'], ['reg_confirmed']) }} as reg_confirmed,
+    {{ json_extract_scalar('_airbyte_data', ['full_name'], ['full_name']) }} as full_name,
+    {{ json_extract_scalar('_airbyte_data', ['pdi_id'], ['pdi_id']) }} as pdi_id,
+    {{ json_extract_scalar('_airbyte_data', ['state_abbrev'], ['state_abbrev']) }} as state_abbrev,
+    {{ json_extract_scalar('_airbyte_data', ['outvote_user_id'], ['outvote_user_id']) }} as outvote_user_id,
+    {{ json_extract_scalar('_airbyte_data', ['mail_state_abbrev'], ['mail_state_abbrev']) }} as mail_state_abbrev,
+    {{ json_extract_scalar('_airbyte_data', ['phone'], ['phone']) }} as phone,
+    {{ json_extract_scalar('_airbyte_data', ['can_register_online'], ['can_register_online']) }} as can_register_online,
+    {{ json_extract_scalar('_airbyte_data', ['vbm_confirmed'], ['vbm_confirmed']) }} as vbm_confirmed,
+    {{ json_extract_scalar('_airbyte_data', ['dwid_id'], ['dwid_id']) }} as dwid_id,
+    {{ json_extract_scalar('_airbyte_data', ['taggings'], ['taggings']) }} as taggings,
+    {{ json_extract_scalar('_airbyte_data', ['mail_unit_number'], ['mail_unit_number']) }} as mail_unit_number,
+    {{ json_extract_scalar('_airbyte_data', ['customizations'], ['customizations']) }} as customizations,
+    {{ json_extract_scalar('_airbyte_data', ['needs_attention'], ['needs_attention']) }} as needs_attention,
+    {{ json_extract_scalar('_airbyte_data', ['reg_state'], ['reg_state']) }} as reg_state,
+    {{ json_extract_scalar('_airbyte_data', ['vbm_state'], ['vbm_state']) }} as vbm_state,
+    _airbyte_ab_id,
+    _airbyte_emitted_at,
+    {{ current_timestamp() }} as _airbyte_normalized_at
+from {{ source('cta', '_airbyte_raw_contacts_export') }} as table_alias
+-- contacts_export
+where 1 = 1
+

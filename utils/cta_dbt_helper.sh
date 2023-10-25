@@ -2,53 +2,74 @@
 
 # Confused? Check the README :D
 
-####  FUNCTIONS  ####
-copy_dbt_from_airbyte() {
-
-    # Set environment vars for copy script
-    ALLOWED_ENVIRONMENTS="dev\nprod"
-
-    ENVIRONMENT=$(echo -e $ALLOWED_ENVIRONMENTS | gum filter --placeholder "Which Airbyte Environment should be used?")
-    WORKSPACE_ID=$(gum input --placeholder "Airbyte Workspace ID ex. 814")
-    
-    # Prompt if Cacher Snippet should be downloaded
-    if gum confirm "Download Cacher script to copy an Airbyte workspace?"; then
-        # Get Cacher creds from user
-        CACHER_API_KEY=$(gum input --placeholder "Enter your Cacher API Key -> https://app.cacher.io/enter?action=view_api_creds")
-        CACHER_API_TOKEN=$(gum input --placeholder "Enter your Cacher API Token -> https://app.cacher.io/enter?action=view_api_creds")
-        # This is just the ID to the Cacher snippet that holds a script to extract an Airbyte Workspace from the Airbyte server.
-        # https://docs.airbyte.com/operator-guides/transformation-and-normalization/transformations-with-dbt/#exporting-dbt-normalization-project-outside-airbyte
-        CACHER_SNIPPET_GUID="2b77280d537736f980f9" 
-
-        mkdir -p $ROOT_PATH/.cta
-        cd $ROOT_PATH/.cta
-        pipenv run python $ROOT_PATH/utils/dbt_format_utils.py getCacherScript \
-        --cacherSnippetGUID $CACHER_SNIPPET_GUID \
-        --cacherApiKey $CACHER_API_KEY \
-        --cacherApiToken $CACHER_API_TOKEN \
-        --outputPath copy_airbyte_workspace.sh
-        RET=$?
-        if [[ $RET -ne 0 ]]; then
-            echo "Failed to download Cacher Script. Exiting"
-            exit 1
-        fi  
-        chmod +x copy_airbyte_workspace.sh
-        cd $ROOT_PATH
-    fi
-
-    # Run script to copy Airbyte Workspace to local
-    echo "Starting job to copy Airbyte workspace.."
-    ./.cta/copy_airbyte_workspace.sh -e $ENVIRONMENT -w $WORKSPACE_ID
+check_for_kubectl() {
+    kubectl &> /dev/null
     RET=$?
-    if [[ $RET -ne 0 ]]; then
-        echo "Failed to grab normalization dbt for workspace: $WORKSPACE_ID from $ENVIRONMENT Airbyte"
-    else
-        echo "Airbyte Workspace $WORKSPACE_ID exported to local directory -> airbyte_dbt_export/$WORKSPACE_ID"
+    if [[ "$RET" -ne 0 ]]; then
+        echo "kubectl isn't installed, please install and try again."
+        exit 1;
     fi
 }
 
+handle_control_c() {
+    if [[ $? != 0 ]]; then
+        echo "Ctrl-C caught, exiting..."
+        check_for_kubectl 
+        kubectl config unset current-context
+        exit 1
+    fi
+}
+
+####  FUNCTIONS  ####
+copy_dbt_from_airbyte() {
+
+    check_for_kubectl
+    # Set environment vars for copy script
+    ALLOWED_ENVIRONMENTS="dev\nprod"
+    ENVIRONMENT=$(echo -e $ALLOWED_ENVIRONMENTS | gum filter --placeholder "Which Airbyte Environment should be used?")
+
+    if [[ "$ENVIRONMENT" == "prod" ]]; then
+        while [ -z "$PROD_CONFIRM_PROJECT_ID" ]; do
+            PROD_CONFIRM_PROJECT_ID=$(\
+            gum input --cursor.foreground "#FF0" --prompt.foreground "#0FF" --prompt "* " \
+            --placeholder "Are you sure you want to use the production context? Enter CTA's prod Google Project ID: " --width 160)
+            handle_control_c
+        done 
+        if [[ "$PROD_CONFIRM_PROJECT_ID" != "" ]]; then
+            gcloud config set project "$PROD_CONFIRM_PROJECT_ID"
+            RET=$?
+            if [[ "$RET" -eq 0 ]]; then
+                gcloud container clusters get-credentials airbyte-prod-cluster --region us-central1
+            fi
+        fi
+    elif [[ "$ENVIRONMENT" == "dev" ]]; then
+        while [ -z "$DEV_PROJECT_ID" ]; do
+            DEV_PROJECT_ID=$(gum input --cursor.foreground "#FF0" --prompt.foreground "#0FF" --prompt "* " \
+            --placeholder "Enter CTA's dev Google Project ID: " --width 160)
+            handle_control_c
+        done 
+        if [[ "$DEV_PROJECT_ID" != "" ]]; then
+            gcloud config set project "$DEV_PROJECT_ID"
+            RET=$?
+            if [[ "$RET" -eq 0 ]]; then
+                gcloud container clusters get-credentials airbyte-dev-cluster --region us-central1
+            fi
+        fi
+    fi
+
+    # Run script to copy Airbyte Workspace to local
+    echo "Starting job to copy Airbyte workspace..."
+    # ./copy_dbt_from_k8s_pod.sh <POD_NAME_REGEX_PATTERN> <NAMESPACE> <CONTAINER_NAME>"
+    "$ROOT_PATH"/utils/copy_dbt_from_k8s_pod.sh "normalization" "airbyte" "main"
+    RET="$?"
+    test "$RET" == 0 && echo "Airbyte extraction complete!" || echo "Airbyte extraction failed!" 
+    RET=$(check_for_kubectl)
+    test "$RET" == 0 && kubectl config unset current-context 
+    # Clear current context, just in case you don't really want to be there
+}
+
 format_airbyte_dbt() {
-    
+
     # Get target path for dbt from user
     while [ -z "$DIR_NAME" ]; do
         DIR_NAME=$(gum input --prompt "Enter the target directory name (name of directory to create in dbt-cta): " --placeholder "vendor_name (ex. actblue)")
@@ -57,7 +78,7 @@ format_airbyte_dbt() {
             exit 1
         fi
     done
-    TARGET_PATH="$ROOT_PATH/dbt-cta/$DIR_NAME/"
+    TARGET_PATH="$ROOT_PATH/dbt-cta/$DIR_NAME"
     gum confirm "Confirm the Target Path is correct: $TARGET_PATH" || exit 1
     # Check to see if Directory exists, if not create it
     if [[ ! -d $TARGET_PATH ]]; then
@@ -65,15 +86,14 @@ format_airbyte_dbt() {
     fi
 
     # Get path to exported Airbyte Workspace
-    while [ -z "$WORKSPACE" ]; do
-        WORKSPACE=$(gum input --prompt "Enter the path of the exported Airbyte Workspace: " --placeholder "airbyte_dbt_export/814/")
+    while [ -z "$DIR" ]; do
+        DIR=$(gum input --prompt "Enter the path of the exported Airbyte files: " --placeholder "utils/config")
         if [[ $? != 0 ]]; then
             echo "Ctrl-C caught, exiting..."
             exit 1
         fi
-        WORKSPACE_PATH="$ROOT_PATH/$WORKSPACE"
+        WORKSPACE_PATH="$ROOT_PATH/$DIR"
     done
-    WORKSPACE_PATH="$ROOT_PATH/$WORKSPACE"
     gum confirm "Confirm the Airbyte Worspace Path is correct: $WORKSPACE_PATH" || exit 1
     # Check to see if Workspace Path actually exists
     if [[ ! -d $WORKSPACE_PATH ]]; then
@@ -135,7 +155,7 @@ generate_dbt_tests() {
         fi
 
         OPTION_MERGE=$(gum input --prompt "Are you merging into an existing schema yaml? " --placeholder " (Y or leave blank to skip)")
-        
+
         # Only ask about overwriting if user does not say they are merging. Just nicer that way
         if [ "$OPTION_MERGE" != "Y" ]; then
             OPTION_OVERWRITE=$(gum input --prompt "Are you overwriting an existing schema yaml? " --placeholder " (Y or leave blank to skip)")
@@ -156,7 +176,7 @@ generate_dbt_tests() {
     done
     gum confirm "Confirm the vendor name is correct: $INPUT_DIR_NAME" || exit 1
     gum confirm "Confirm the selected runtime option is correct: $CLI_OPTIONS" || exit 1
-    
+
     # Create venv from Pipfile and activate
     cd $ROOT_PATH
     pipenv install
@@ -254,7 +274,7 @@ if [[ -n $FUNCTION ]]; then
             command="lint_dbt"
             ;;
     esac
-    # Confirm choice 
+    # Confirm choice
     gum confirm "Confirm selection: ${FUNCTION}?" && $command "$@"
 fi
 

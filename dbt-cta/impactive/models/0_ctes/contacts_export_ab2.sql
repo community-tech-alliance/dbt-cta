@@ -1,0 +1,60 @@
+{{ config(
+    cluster_by = "_airbyte_emitted_at",
+    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_ab_id"
+) }}
+-- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
+-- depends_on: {{ ref('contacts_export_ab1') }}
+select
+    {{ cast_to_boolean('reported_requested_vbm') }} as reported_requested_vbm,
+    cast(selected_voterbase_id as {{ dbt_utils.type_string() }}) as selected_voterbase_id,
+    cast(city as {{ dbt_utils.type_string() }}) as city,
+    {{ cast_to_boolean('can_vbm_online') }} as can_vbm_online,
+    cast(voter_last_name as {{ dbt_utils.type_string() }}) as voter_last_name,
+    cast({{ empty_string_to_null('created_at') }} as {{ type_timestamp_without_timezone() }}) as created_at,
+    {{ cast_to_boolean('automatic_vbm') }} as automatic_vbm,
+    cast(zip_code as {{ dbt_utils.type_string() }}) as zip_code,
+    cast(van_id as {{ dbt_utils.type_string() }}) as van_id,
+    cast(contact_type as {{ dbt_utils.type_string() }}) as contact_type,
+    cast(unit_number as {{ dbt_utils.type_string() }}) as unit_number,
+    cast({{ empty_string_to_null('updated_at') }} as {{ type_timestamp_without_timezone() }}) as updated_at,
+    {{ cast_to_boolean('can_vbm') }} as can_vbm,
+    cast(id as {{ dbt_utils.type_bigint() }}) as id,
+    cast(mail_address as {{ dbt_utils.type_string() }}) as mail_address,
+    {{ cast_to_boolean('reported_registered') }} as reported_registered,
+    cast(first_name as {{ dbt_utils.type_string() }}) as first_name,
+    cast(requested_absentee_form as {{ dbt_utils.type_string() }}) as requested_absentee_form,
+    cast(email as {{ dbt_utils.type_string() }}) as email,
+    cast(campaign_id as {{ dbt_utils.type_bigint() }}) as campaign_id,
+    cast(mail_zip_code as {{ dbt_utils.type_string() }}) as mail_zip_code,
+    cast(requested_registration_form as {{ dbt_utils.type_string() }}) as requested_registration_form,
+    cast(voter_first_name as {{ dbt_utils.type_string() }}) as voter_first_name,
+    cast(address as {{ dbt_utils.type_string() }}) as address,
+    {{ cast_to_boolean('invited') }} as invited,
+    cast(last_name as {{ dbt_utils.type_string() }}) as last_name,
+    cast(mail_city as {{ dbt_utils.type_string() }}) as mail_city,
+    cast(assigned_user_id as {{ dbt_utils.type_bigint() }}) as assigned_user_id,
+    cast({{ empty_string_to_null('exported_at') }} as {{ type_date() }}) as exported_at,
+    {{ cast_to_boolean('reg_confirmed') }} as reg_confirmed,
+    cast(full_name as {{ dbt_utils.type_string() }}) as full_name,
+    cast(pdi_id as {{ dbt_utils.type_string() }}) as pdi_id,
+    cast(state_abbrev as {{ dbt_utils.type_string() }}) as state_abbrev,
+    cast(outvote_user_id as {{ dbt_utils.type_bigint() }}) as outvote_user_id,
+    cast(mail_state_abbrev as {{ dbt_utils.type_string() }}) as mail_state_abbrev,
+    cast(phone as {{ dbt_utils.type_string() }}) as phone,
+    {{ cast_to_boolean('can_register_online') }} as can_register_online,
+    {{ cast_to_boolean('vbm_confirmed') }} as vbm_confirmed,
+    cast(dwid_id as {{ dbt_utils.type_string() }}) as dwid_id,
+    cast(taggings as {{ dbt_utils.type_string() }}) as taggings,
+    cast(mail_unit_number as {{ dbt_utils.type_string() }}) as mail_unit_number,
+    cast(customizations as {{ dbt_utils.type_string() }}) as customizations,
+    {{ cast_to_boolean('needs_attention') }} as needs_attention,
+    cast(reg_state as {{ dbt_utils.type_string() }}) as reg_state,
+    cast(vbm_state as {{ dbt_utils.type_string() }}) as vbm_state,
+    _airbyte_ab_id,
+    _airbyte_emitted_at,
+    {{ current_timestamp() }} as _airbyte_normalized_at
+from {{ ref('contacts_export_ab1') }}
+-- contacts_export
+where 1 = 1
+
