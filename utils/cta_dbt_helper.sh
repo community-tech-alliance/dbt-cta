@@ -2,28 +2,38 @@
 
 # Confused? Check the README :D
 
-####  FUNCTIONS  ####
-copy_dbt_from_airbyte() {
-
-    # Set environment vars for copy script
-    ALLOWED_ENVIRONMENTS="dev\nprod"
-
-    ENVIRONMENT=$(echo -e $ALLOWED_ENVIRONMENTS | gum filter --placeholder "Which Airbyte Environment should be used?")
+check_for_kubectl() {
     kubectl &> /dev/null
     RET=$?
     if [[ "$RET" -ne 0 ]]; then
         echo "kubectl isn't installed, please install and try again."
         exit 1;
     fi
+}
+
+handle_control_c() {
+    if [[ $? != 0 ]]; then
+        echo "Ctrl-C caught, exiting..."
+        check_for_kubectl 
+        kubectl config unset current-context
+        exit 1
+    fi
+}
+
+####  FUNCTIONS  ####
+copy_dbt_from_airbyte() {
+
+    check_for_kubectl
+    # Set environment vars for copy script
+    ALLOWED_ENVIRONMENTS="dev\nprod"
+    ENVIRONMENT=$(echo -e $ALLOWED_ENVIRONMENTS | gum filter --placeholder "Which Airbyte Environment should be used?")
+
     if [[ "$ENVIRONMENT" == "prod" ]]; then
         while [ -z "$PROD_CONFIRM_PROJECT_ID" ]; do
             PROD_CONFIRM_PROJECT_ID=$(\
             gum input --cursor.foreground "#FF0" --prompt.foreground "#0FF" --prompt "* " \
             --placeholder "Are you sure you want to use the production context? Enter CTA's prod Google Project ID: " --width 160)
-            if [[ $? != 0 ]]; then
-                echo "Ctrl-C caught, exiting..."
-                exit 1
-            fi
+            handle_control_c
         done 
         if [[ "$PROD_CONFIRM_PROJECT_ID" != "" ]]; then
             gcloud config set project "$PROD_CONFIRM_PROJECT_ID"
@@ -34,12 +44,9 @@ copy_dbt_from_airbyte() {
         fi
     elif [[ "$ENVIRONMENT" == "dev" ]]; then
         while [ -z "$DEV_PROJECT_ID" ]; do
-            gum input --cursor.foreground "#FF0" --prompt.foreground "#0FF" --prompt "* " \
+            DEV_PROJECT_ID=$(gum input --cursor.foreground "#FF0" --prompt.foreground "#0FF" --prompt "* " \
             --placeholder "Enter CTA's dev Google Project ID: " --width 160)
-            if [[ $? != 0 ]]; then
-                echo "Ctrl-C caught, exiting..."
-                exit 1
-            fi
+            handle_control_c
         done 
         if [[ "$DEV_PROJECT_ID" != "" ]]; then
             gcloud config set project "$DEV_PROJECT_ID"
@@ -51,18 +58,14 @@ copy_dbt_from_airbyte() {
     fi
 
     # Run script to copy Airbyte Workspace to local
-    echo "Starting job to copy Airbyte workspace.."
+    echo "Starting job to copy Airbyte workspace..."
     # ./copy_dbt_from_k8s_pod.sh <POD_NAME_REGEX_PATTERN> <NAMESPACE> <CONTAINER_NAME>"
-    ./copy_dbt_from_k8s_pod.sh "normalization" "airbyte" "main"
-    rm -r config/
-    RET=$?
-    if [[ "$RET" -ne 0 ]]; then
-        echo "Failed to grab normalization dbt from $ENVIRONMENT Airbyte"
-    else
-        echo "Airbyte normalization exported to local directory -> airbyte_dbt_export/"
-    fi
+    "$ROOT_PATH"/utils/copy_dbt_from_k8s_pod.sh "normalization" "airbyte" "main"
+    RET="$?"
+    test "$RET" == 0 && echo "Airbyte extraction complete!" || echo "Airbyte extraction failed!" 
+    RET=$(check_for_kubectl)
+    test "$RET" == 0 && kubectl config unset current-context 
     # Clear current context, just in case you don't really want to be there
-    kubectl config unset current-context
 }
 
 format_airbyte_dbt() {
