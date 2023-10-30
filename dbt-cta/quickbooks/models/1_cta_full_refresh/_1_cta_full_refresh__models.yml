@@ -1,0 +1,6920 @@
+version: 2
+
+models:
+
+  - name: tax_agencies_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_tax_agencies_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: items_IncomeAccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_items_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_IncomeAccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: estimates_TxnTaxDetail_TaxLine_TaxLineDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_TaxLine_hashid
+        description: ''
+      - name: percentbased
+        description: ''
+      - name: taxrateref
+        description: ''
+      - name: netamounttaxable
+        description: ''
+      - name: taxpercent
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TaxLineDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: journal_entries_CurrencyRef_base
+    description: ''
+    columns:
+      - name: _airbyte_journal_entries_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CurrencyRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchase_orders_CurrencyRef_base
+    description: ''
+    columns:
+      - name: _airbyte_purchase_orders_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CurrencyRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: terms_base
+    description: ''
+    columns:
+      - name: duenextmonthdays
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: name
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: type
+        description: ''
+      - name: active
+        description: ''
+      - name: sparse
+        description: ''
+      - name: duedays
+        description: ''
+      - name: metadata
+        description: ''
+      - name: domain
+        description: ''
+      - name: discountdayofmonth
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: discountdays
+        description: ''
+      - name: dayofmonthdue
+        description: ''
+      - name: discountpercent
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_terms_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: vendor_credits_Line_AccountBasedExpenseLineDetail_CustomerRef_base
+    description: ''
+    columns:
+      - name: _airbyte_AccountBasedExpenseLineDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CustomerRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bills_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_bills_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bill_payments_DepartmentRef_base
+    description: ''
+    columns:
+      - name: _airbyte_bill_payments_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_DepartmentRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bills_CurrencyRef_base
+    description: ''
+    columns:
+      - name: _airbyte_bills_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CurrencyRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: budgets_BudgetDetail_ClassRef_base
+    description: ''
+    columns:
+      - name: _airbyte_BudgetDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ClassRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: tax_rates_AgencyRef_base
+    description: ''
+    columns:
+      - name: _airbyte_tax_rates_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_AgencyRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: sales_receipts_TxnTaxDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_sales_receipts_hashid
+        description: ''
+      - name: totaltax
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TxnTaxDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: refund_receipts_CustomerMemo_base
+    description: ''
+    columns:
+      - name: _airbyte_refund_receipts_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CustomerMemo_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: payments_ARAccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_payments_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ARAccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: refund_receipts_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_refund_receipts_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: estimates_CustomerRef_base
+    description: ''
+    columns:
+      - name: _airbyte_estimates_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CustomerRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: vendors_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_vendors_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bill_payments_VendorRef_base
+    description: ''
+    columns:
+      - name: _airbyte_bill_payments_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_VendorRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: classes_base
+    description: ''
+    columns:
+      - name: subclass
+        description: ''
+      - name: parentref
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: active
+        description: ''
+      - name: metadata
+        description: ''
+      - name: domain
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: fullyqualifiedname
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: name
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_classes_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: vendor_credits_CurrencyRef_base
+    description: ''
+    columns:
+      - name: _airbyte_vendor_credits_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CurrencyRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: journal_entries_Line_base
+    description: ''
+    columns:
+      - name: _airbyte_journal_entries_hashid
+        description: ''
+      - name: description
+        description: ''
+      - name: detailtype
+        description: ''
+      - name: amount
+        description: ''
+      - name: id
+        description: ''
+      - name: JournalEntryLineDetail
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_Line_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_billemail_base
+    description: ''
+    columns:
+      - name: _airbyte_invoices_hashid
+        description: ''
+      - name: address
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_billemail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: transfers_CurrencyRef_base
+    description: ''
+    columns:
+      - name: _airbyte_transfers_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CurrencyRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: deposits_CurrencyRef_base
+    description: ''
+    columns:
+      - name: _airbyte_deposits_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CurrencyRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bills_Line_AccountBasedExpenseLineDetail_CustomerRef_base
+    description: ''
+    columns:
+      - name: _airbyte_AccountBasedExpenseLineDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CustomerRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: accounts_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_accounts_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: payments_CurrencyRef_base
+    description: ''
+    columns:
+      - name: _airbyte_payments_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CurrencyRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_SalesTermRef_base
+    description: ''
+    columns:
+      - name: _airbyte_invoices_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_SalesTermRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchase_orders_APAccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_purchase_orders_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_APAccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: customers_base
+    description: ''
+    columns:
+      - name: CurrencyRef
+        description: ''
+      - name: familyname
+        description: ''
+      - name: fullyqualifiedname
+        description: ''
+      - name: givenname
+        description: ''
+      - name: companyname
+        description: ''
+      - name: shipaddr
+        description: ''
+      - name: metadata
+        description: ''
+      - name: paymentmethodref
+        description: ''
+      - name: billwithparent
+        description: ''
+      - name: displayname
+        description: ''
+      - name: preferreddeliverymethod
+        description: ''
+      - name: resalenum
+        description: ''
+      - name: job
+        description: ''
+      - name: primaryemailaddr
+        description: ''
+      - name: webaddr
+        description: ''
+      - name: billaddr
+        description: ''
+      - name: primaryphone
+        description: ''
+      - name: printoncheckname
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: middlename
+        description: ''
+      - name: mobile
+        description: ''
+      - name: parentref
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: active
+        description: ''
+      - name: sparse
+        description: ''
+      - name: domain
+        description: ''
+      - name: balancewithjobs
+        description: ''
+      - name: defaulttaxcoderef
+        description: ''
+      - name: level
+        description: ''
+      - name: SalesTermRef
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: fax
+        description: ''
+      - name: balance
+        description: ''
+      - name: taxable
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_customers_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: vendors_primaryphone_base
+    description: ''
+    columns:
+      - name: _airbyte_vendors_hashid
+        description: ''
+      - name: freeformnumber
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_primaryphone_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bill_payments_CreditCardPayment_CCAccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_CreditCardPayment_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CCAccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: deposits_base
+    description: ''
+    columns:
+      - name: CurrencyRef
+        description: ''
+      - name: exchangerate
+        description: ''
+      - name: txndate
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: DepartmentRef
+        description: ''
+      - name: line
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: depositToAccountRef
+        description: ''
+      - name: sparse
+        description: ''
+      - name: totalamt
+        description: ''
+      - name: metadata
+        description: ''
+      - name: domain
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: cashback
+        description: ''
+      - name: privatenote
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_deposits_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchases_Line_AccountBasedExpenseLineDetail_AccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_AccountBasedExpenseLineDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_AccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bills_APAccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_bills_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_APAccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: refund_receipts_customfield_base
+    description: ''
+    columns:
+      - name: _airbyte_refund_receipts_hashid
+        description: ''
+      - name: type
+        description: ''
+      - name: definitionid
+        description: ''
+      - name: name
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_customfield_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: vendors_TermRef_base
+    description: ''
+    columns:
+      - name: _airbyte_vendors_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TermRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: budgets_base
+    description: ''
+    columns:
+      - name: startdate
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: active
+        description: ''
+      - name: BudgetDetail
+        description: ''
+      - name: metadata
+        description: ''
+      - name: domain
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: enddate
+        description: ''
+      - name: budgettype
+        description: ''
+      - name: name
+        description: ''
+      - name: budgetentrytype
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_budgets_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: time_activities_CustomerRef_base
+    description: ''
+    columns:
+      - name: _airbyte_time_activities_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CustomerRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: vendors_CurrencyRef_base
+    description: ''
+    columns:
+      - name: _airbyte_vendors_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CurrencyRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchase_orders_base
+    description: ''
+    columns:
+      - name: CurrencyRef
+        description: ''
+      - name: exchangerate
+        description: ''
+      - name: classref
+        description: ''
+      - name: emailstatus
+        description: ''
+      - name: postatus
+        description: ''
+      - name: shipaddr
+        description: ''
+      - name: vendoraddr
+        description: ''
+      - name: metadata
+        description: ''
+      - name: docnumber
+        description: ''
+      - name: duedate
+        description: ''
+      - name: privatenote
+        description: ''
+      - name: linkedtxn
+        description: ''
+      - name: txndate
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: DepartmentRef
+        description: ''
+      - name: line
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: sparse
+        description: ''
+      - name: totalamt
+        description: ''
+      - name: domain
+        description: ''
+      - name: APAccountRef
+        description: ''
+      - name: customfield
+        description: ''
+      - name: shipto
+        description: ''
+      - name: SalesTermRef
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: VendorRef
+        description: ''
+      - name: memo
+        description: ''
+      - name: TxnTaxDetail
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_purchase_orders_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchase_orders_shipaddr_base
+    description: ''
+    columns:
+      - name: _airbyte_purchase_orders_hashid
+        description: ''
+      - name: long
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: line1
+        description: ''
+      - name: lat
+        description: ''
+      - name: line2
+        description: ''
+      - name: line3
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_shipaddr_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: credit_memos_CurrencyRef_base
+    description: ''
+    columns:
+      - name: _airbyte_credit_memos_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CurrencyRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_deliveryinfo_base
+    description: ''
+    columns:
+      - name: _airbyte_invoices_hashid
+        description: ''
+      - name: deliverytype
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_deliveryinfo_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchases_PurchaseEx_base
+    description: ''
+    columns:
+      - name: _airbyte_purchases_hashid
+        description: ''
+      - name: any
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_PurchaseEx_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchase_orders_shipto_base
+    description: ''
+    columns:
+      - name: _airbyte_purchase_orders_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_shipto_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: deposits_Line_DepositLineDetail_PaymentMethodRef_base
+    description: ''
+    columns:
+      - name: _airbyte_DepositLineDetail_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_PaymentMethodRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: employees_base
+    description: ''
+    columns:
+      - name: hireddate
+        description: ''
+      - name: organization
+        description: ''
+      - name: familyname
+        description: ''
+      - name: billabletime
+        description: ''
+      - name: givenname
+        description: ''
+      - name: gender
+        description: ''
+      - name: metadata
+        description: ''
+      - name: displayname
+        description: ''
+      - name: primaryaddr
+        description: ''
+      - name: primaryemailaddr
+        description: ''
+      - name: primaryphone
+        description: ''
+      - name: printoncheckname
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: employeenumber
+        description: ''
+      - name: title
+        description: ''
+      - name: middlename
+        description: ''
+      - name: mobile
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: active
+        description: ''
+      - name: suffix
+        description: ''
+      - name: sparse
+        description: ''
+      - name: domain
+        description: ''
+      - name: billrate
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: releaseddate
+        description: ''
+      - name: birthdate
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_employees_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_TxnTaxDetail_TaxLine_TaxLineDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_TaxLine_hashid
+        description: ''
+      - name: percentbased
+        description: ''
+      - name: taxrateref
+        description: ''
+      - name: netamounttaxable
+        description: ''
+      - name: taxpercent
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TaxLineDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_customfield_base
+    description: ''
+    columns:
+      - name: _airbyte_invoices_hashid
+        description: ''
+      - name: type
+        description: ''
+      - name: definitionid
+        description: ''
+      - name: stringvalue
+        description: ''
+      - name: name
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_customfield_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: estimates_deliveryinfo_base
+    description: ''
+    columns:
+      - name: _airbyte_estimates_hashid
+        description: ''
+      - name: deliverytype
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_deliveryinfo_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchases_EntityRef_base
+    description: ''
+    columns:
+      - name: _airbyte_purchases_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: type
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_EntityRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_Line_SalesItemLineDetail_TaxCodeRef_base
+    description: ''
+    columns:
+      - name: _airbyte_SalesItemLineDetail_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TaxCodeRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bills_LinkedTxn_base
+    description: ''
+    columns:
+      - name: _airbyte_bills_hashid
+        description: ''
+      - name: txnid
+        description: ''
+      - name: txntype
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_LinkedTxn_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchases_Line_AccountBasedExpenseLineDetail_TaxCodeRef_base
+    description: ''
+    columns:
+      - name: _airbyte_AccountBasedExpenseLineDetail_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TaxCodeRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: customers_defaultTaxCodeRef_base
+    description: ''
+    columns:
+      - name: _airbyte_customers_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_defaultTaxCodeRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: payment_methods_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_payment_methods_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: sales_receipts_PaymentMethodRef_base
+    description: ''
+    columns:
+      - name: _airbyte_sales_receipts_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_PaymentMethodRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: estimates_TxnTaxDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_estimates_hashid
+        description: ''
+      - name: totaltax
+        description: ''
+      - name: txntaxcoderef
+        description: ''
+      - name: taxline
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TxnTaxDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: customers_SalesTermRef_base
+    description: ''
+    columns:
+      - name: _airbyte_customers_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_SalesTermRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: journal_entries_TxnTaxDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_journal_entries_hashid
+        description: ''
+      - name: totaltax
+        description: ''
+      - name: txntaxcoderef
+        description: ''
+      - name: taxline
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TxnTaxDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: credit_memos_CustomerMemo_base
+    description: ''
+    columns:
+      - name: _airbyte_credit_memos_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CustomerMemo_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchase_orders_ClassRef_base
+    description: ''
+    columns:
+      - name: _airbyte_purchase_orders_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ClassRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: accounts_ParentRef_base
+    description: ''
+    columns:
+      - name: _airbyte_accounts_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ParentRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: accounts_base
+    description: ''
+    columns:
+      - name: CurrencyRef
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: currentbalance
+        description: ''
+      - name: fullyqualifiedname
+        description: ''
+      - name: accounttype
+        description: ''
+      - name: name
+        description: ''
+      - name: parentref
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: active
+        description: ''
+      - name: sparse
+        description: ''
+      - name: metadata
+        description: ''
+      - name: domain
+        description: ''
+      - name: classification
+        description: ''
+      - name: currentbalancewithsubaccounts
+        description: ''
+      - name: subaccount
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: acctnum
+        description: ''
+      - name: accountsubtype
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_accounts_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: sales_receipts_billaddr_base
+    description: ''
+    columns:
+      - name: _airbyte_sales_receipts_hashid
+        description: ''
+      - name: line4
+        description: ''
+      - name: long
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: line1
+        description: ''
+      - name: lat
+        description: ''
+      - name: line2
+        description: ''
+      - name: line3
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_billaddr_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: sales_receipts_Line_SalesItemLineDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_Line_hashid
+        description: ''
+      - name: unitprice
+        description: ''
+      - name: taxcoderef
+        description: ''
+      - name: qty
+        description: ''
+      - name: ItemRef
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_SalesItemLineDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: estimates_TxnTaxDetail_TaxLine_base
+    description: ''
+    columns:
+      - name: _airbyte_TxnTaxDetail_hashid
+        description: ''
+      - name: detailtype
+        description: ''
+      - name: taxlinedetail
+        description: ''
+      - name: amount
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TaxLine_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: estimates_billemail_base
+    description: ''
+    columns:
+      - name: _airbyte_estimates_hashid
+        description: ''
+      - name: address
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_billemail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: items_expenseAccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_items_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_expenseAccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_Line_LinkedTxn_base
+    description: ''
+    columns:
+      - name: _airbyte_Line_hashid
+        description: ''
+      - name: txnid
+        description: ''
+      - name: txntype
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_LinkedTxn_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bill_payments_APAccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_bill_payments_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_APAccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: estimates_Line_SalesItemLineDetail_TaxCodeRef_base
+    description: ''
+    columns:
+      - name: _airbyte_SalesItemLineDetail_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TaxCodeRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_TxnTaxDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_invoices_hashid
+        description: ''
+      - name: totaltax
+        description: ''
+      - name: txntaxcoderef
+        description: ''
+      - name: taxline
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TxnTaxDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: tax_codes_base
+    description: ''
+    columns:
+      - name: description
+        description: ''
+      - name: purchasetaxratelist
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: SalesTaxRateList
+        description: ''
+      - name: name
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: active
+        description: ''
+      - name: sparse
+        description: ''
+      - name: metadata
+        description: ''
+      - name: taxgroup
+        description: ''
+      - name: domain
+        description: ''
+      - name: hidden
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: taxable
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_tax_codes_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchase_orders_DepartmentRef_base
+    description: ''
+    columns:
+      - name: _airbyte_purchase_orders_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_DepartmentRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: refund_receipts_CurrencyRef_base
+    description: ''
+    columns:
+      - name: _airbyte_refund_receipts_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CurrencyRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: classes_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_classes_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: journal_entries_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_journal_entries_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchases_Line_AccountBasedExpenseLineDetail_CustomerRef_base
+    description: ''
+    columns:
+      - name: _airbyte_AccountBasedExpenseLineDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CustomerRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_Line_DiscountLineDetail_DiscountAccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_DiscountLineDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_DiscountAccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: credit_memos_customfield_base
+    description: ''
+    columns:
+      - name: _airbyte_credit_memos_hashid
+        description: ''
+      - name: type
+        description: ''
+      - name: definitionid
+        description: ''
+      - name: name
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_customfield_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: departments_ParentRef_base
+    description: ''
+    columns:
+      - name: _airbyte_departments_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ParentRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: sales_receipts_CustomerMemo_base
+    description: ''
+    columns:
+      - name: _airbyte_sales_receipts_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CustomerMemo_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: refund_receipts_TxnTaxDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_refund_receipts_hashid
+        description: ''
+      - name: totaltax
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TxnTaxDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: payments_PaymentMethodRef_base
+    description: ''
+    columns:
+      - name: _airbyte_payments_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_PaymentMethodRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: sales_receipts_Line_base
+    description: ''
+    columns:
+      - name: _airbyte_sales_receipts_hashid
+        description: ''
+      - name: linenum
+        description: ''
+      - name: discountlinedetail
+        description: ''
+      - name: description
+        description: ''
+      - name: detailtype
+        description: ''
+      - name: amount
+        description: ''
+      - name: SalesItemLineDetail
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_Line_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_TxnTaxDetail_TaxLine_TaxLineDetail_TaxRateRef_base
+    description: ''
+    columns:
+      - name: _airbyte_TaxLineDetail_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TaxRateRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: sales_receipts_Line_SalesItemLineDetail_ItemRef_base
+    description: ''
+    columns:
+      - name: _airbyte_SalesItemLineDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ItemRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: credit_memos_billaddr_base
+    description: ''
+    columns:
+      - name: _airbyte_credit_memos_hashid
+        description: ''
+      - name: line4
+        description: ''
+      - name: long
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: line1
+        description: ''
+      - name: lat
+        description: ''
+      - name: line2
+        description: ''
+      - name: line3
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_billaddr_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: refund_receipts_Line_SalesItemLineDetail_ItemRef_base
+    description: ''
+    columns:
+      - name: _airbyte_SalesItemLineDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ItemRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_CurrencyRef_base
+    description: ''
+    columns:
+      - name: _airbyte_invoices_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CurrencyRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bills_Line_ItemBasedExpenseLineDetail_ItemRef_base
+    description: ''
+    columns:
+      - name: _airbyte_ItemBasedExpenseLineDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ItemRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bills_SalesTermRef_base
+    description: ''
+    columns:
+      - name: _airbyte_bills_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_SalesTermRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: payments_Line_lineex_any_base
+    description: ''
+    columns:
+      - name: _airbyte_lineex_hashid
+        description: ''
+      - name: nil
+        description: ''
+      - name: typesubstituted
+        description: ''
+      - name: globalscope
+        description: ''
+      - name: scope
+        description: ''
+      - name: name
+        description: ''
+      - name: declaredtype
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_any_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: estimates_billaddr_base
+    description: ''
+    columns:
+      - name: _airbyte_estimates_hashid
+        description: ''
+      - name: line4
+        description: ''
+      - name: long
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: line1
+        description: ''
+      - name: lat
+        description: ''
+      - name: line2
+        description: ''
+      - name: line3
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_billaddr_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: customers_billaddr_base
+    description: ''
+    columns:
+      - name: _airbyte_customers_hashid
+        description: ''
+      - name: countrysubdivisioncode
+        description: ''
+      - name: long
+        description: ''
+      - name: country
+        description: ''
+      - name: postalcode
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: city
+        description: ''
+      - name: line1
+        description: ''
+      - name: lat
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_billaddr_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_TxnTaxDetail_TxnTaxCodeRef_base
+    description: ''
+    columns:
+      - name: _airbyte_TxnTaxDetail_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TxnTaxCodeRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: credit_memos_billemail_base
+    description: ''
+    columns:
+      - name: _airbyte_credit_memos_hashid
+        description: ''
+      - name: address
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_billemail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: refund_receipts_Line_base
+    description: ''
+    columns:
+      - name: _airbyte_refund_receipts_hashid
+        description: ''
+      - name: linenum
+        description: ''
+      - name: description
+        description: ''
+      - name: detailtype
+        description: ''
+      - name: amount
+        description: ''
+      - name: SalesItemLineDetail
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_Line_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: payments_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_payments_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: departments_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_departments_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_billaddr_base
+    description: ''
+    columns:
+      - name: _airbyte_invoices_hashid
+        description: ''
+      - name: line4
+        description: ''
+      - name: countrysubdivisioncode
+        description: ''
+      - name: long
+        description: ''
+      - name: postalcode
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: city
+        description: ''
+      - name: line1
+        description: ''
+      - name: lat
+        description: ''
+      - name: line2
+        description: ''
+      - name: line3
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_billaddr_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: estimates_base
+    description: ''
+    columns:
+      - name: CurrencyRef
+        description: ''
+      - name: exchangerate
+        description: ''
+      - name: emailstatus
+        description: ''
+      - name: deliveryinfo
+        description: ''
+      - name: shipaddr
+        description: ''
+      - name: hometotalamt
+        description: ''
+      - name: metadata
+        description: ''
+      - name: docnumber
+        description: ''
+      - name: printstatus
+        description: ''
+      - name: billemail
+        description: ''
+      - name: linkedtxn
+        description: ''
+      - name: billaddr
+        description: ''
+      - name: txndate
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: CustomerMemo
+        description: ''
+      - name: line
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: sparse
+        description: ''
+      - name: totalamt
+        description: ''
+      - name: domain
+        description: ''
+      - name: customfield
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: customerref
+        description: ''
+      - name: txnstatus
+        description: ''
+      - name: applytaxafterdiscount
+        description: ''
+      - name: TxnTaxDetail
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_estimates_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: items_assetAccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_items_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_assetAccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchase_orders_Line_ItemBasedExpenseLineDetail_TaxCodeRef_base
+    description: ''
+    columns:
+      - name: _airbyte_ItemBasedExpenseLineDetail_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TaxCodeRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: credit_memos_SalesTermRef_base
+    description: ''
+    columns:
+      - name: _airbyte_credit_memos_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_SalesTermRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: vendor_credits_Line_base
+    description: ''
+    columns:
+      - name: _airbyte_vendor_credits_hashid
+        description: ''
+      - name: linenum
+        description: ''
+      - name: description
+        description: ''
+      - name: AccountBasedExpenseLineDetail
+        description: ''
+      - name: detailtype
+        description: ''
+      - name: amount
+        description: ''
+      - name: id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_Line_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchase_orders_Line_ItemBasedExpenseLineDetail_ClassRef_base
+    description: ''
+    columns:
+      - name: _airbyte_ItemBasedExpenseLineDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ClassRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchase_orders_Line_base
+    description: ''
+    columns:
+      - name: _airbyte_purchase_orders_hashid
+        description: ''
+      - name: linenum
+        description: ''
+      - name: ItemBasedExpenseLineDetail
+        description: ''
+      - name: description
+        description: ''
+      - name: detailtype
+        description: ''
+      - name: amount
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_Line_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bills_Line_AccountBasedExpenseLineDetail_AccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_AccountBasedExpenseLineDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_AccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: customers_ParentRef_base
+    description: ''
+    columns:
+      - name: _airbyte_customers_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ParentRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: vendor_credits_DepartmentRef_base
+    description: ''
+    columns:
+      - name: _airbyte_vendor_credits_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_DepartmentRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchase_orders_customfield_base
+    description: ''
+    columns:
+      - name: _airbyte_purchase_orders_hashid
+        description: ''
+      - name: type
+        description: ''
+      - name: definitionid
+        description: ''
+      - name: name
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_customfield_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: deposits_CashBack_AccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_CashBack_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_AccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: vendors_base
+    description: ''
+    columns:
+      - name: CurrencyRef
+        description: ''
+      - name: vendor1099
+        description: ''
+      - name: familyname
+        description: ''
+      - name: taxidentifier
+        description: ''
+      - name: givenname
+        description: ''
+      - name: companyname
+        description: ''
+      - name: metadata
+        description: ''
+      - name: displayname
+        description: ''
+      - name: primaryemailaddr
+        description: ''
+      - name: acctnum
+        description: ''
+      - name: webaddr
+        description: ''
+      - name: billaddr
+        description: ''
+      - name: primaryphone
+        description: ''
+      - name: printoncheckname
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: title
+        description: ''
+      - name: middlename
+        description: ''
+      - name: mobile
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: active
+        description: ''
+      - name: suffix
+        description: ''
+      - name: domain
+        description: ''
+      - name: TermRef
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: fax
+        description: ''
+      - name: balance
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_vendors_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchase_orders_LinkedTxn_base
+    description: ''
+    columns:
+      - name: _airbyte_purchase_orders_hashid
+        description: ''
+      - name: txnid
+        description: ''
+      - name: txntype
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_LinkedTxn_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: tax_agencies_base
+    description: ''
+    columns:
+      - name: synctoken
+        description: ''
+      - name: taxtrackedonpurchases
+        description: ''
+      - name: sparse
+        description: ''
+      - name: taxregistrationnumber
+        description: ''
+      - name: metadata
+        description: ''
+      - name: domain
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: displayname
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: taxtrackedonsales
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_tax_agencies_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: sales_receipts_Line_DiscountLineDetail_DiscountAccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_DiscountLineDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_DiscountAccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_Line_SalesItemLineDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_Line_hashid
+        description: ''
+      - name: unitprice
+        description: ''
+      - name: servicedate
+        description: ''
+      - name: classref
+        description: ''
+      - name: taxcoderef
+        description: ''
+      - name: qty
+        description: ''
+      - name: ItemRef
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_SalesItemLineDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: vendor_credits_base
+    description: ''
+    columns:
+      - name: CurrencyRef
+        description: ''
+      - name: exchangerate
+        description: ''
+      - name: txndate
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: DepartmentRef
+        description: ''
+      - name: line
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: totalamt
+        description: ''
+      - name: metadata
+        description: ''
+      - name: domain
+        description: ''
+      - name: docnumber
+        description: ''
+      - name: APAccountRef
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: VendorRef
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_vendor_credits_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchase_orders_SalesTermRef_base
+    description: ''
+    columns:
+      - name: _airbyte_purchase_orders_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_SalesTermRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: sales_receipts_CustomerRef_base
+    description: ''
+    columns:
+      - name: _airbyte_sales_receipts_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CustomerRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: deposits_DepositToAccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_deposits_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_DepositToAccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: budgets_BudgetDetail_AccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_BudgetDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_AccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: customers_fax_base
+    description: ''
+    columns:
+      - name: _airbyte_customers_hashid
+        description: ''
+      - name: freeformnumber
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_fax_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_Line_base
+    description: ''
+    columns:
+      - name: _airbyte_invoices_hashid
+        description: ''
+      - name: linenum
+        description: ''
+      - name: discountlinedetail
+        description: ''
+      - name: description
+        description: ''
+      - name: detailtype
+        description: ''
+      - name: amount
+        description: ''
+      - name: SalesItemLineDetail
+        description: ''
+      - name: id
+        description: ''
+      - name: linkedtxn
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_Line_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: vendor_credits_Line_AccountBasedExpenseLineDetail_ClassRef_base
+    description: ''
+    columns:
+      - name: _airbyte_AccountBasedExpenseLineDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ClassRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bills_Line_AccountBasedExpenseLineDetail_TaxCodeRef_base
+    description: ''
+    columns:
+      - name: _airbyte_AccountBasedExpenseLineDetail_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TaxCodeRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: time_activities_EmployeeRef_base
+    description: ''
+    columns:
+      - name: _airbyte_time_activities_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_EmployeeRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: deposits_Line_DepositLineDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_Line_hashid
+        description: ''
+      - name: paymentmethodref
+        description: ''
+      - name: accountref
+        description: ''
+      - name: checknum
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_DepositLineDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: customers_primaryemailaddr_base
+    description: ''
+    columns:
+      - name: _airbyte_customers_hashid
+        description: ''
+      - name: address
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_primaryemailaddr_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchase_orders_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_purchase_orders_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: refund_receipts_Line_SalesItemLineDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_Line_hashid
+        description: ''
+      - name: unitprice
+        description: ''
+      - name: taxcoderef
+        description: ''
+      - name: qty
+        description: ''
+      - name: ItemRef
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_SalesItemLineDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_CustomerMemo_base
+    description: ''
+    columns:
+      - name: _airbyte_invoices_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CustomerMemo_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: time_activities_base
+    description: ''
+    columns:
+      - name: employeeref
+        description: ''
+      - name: nameof
+        description: ''
+      - name: description
+        description: ''
+      - name: hours
+        description: ''
+      - name: txndate
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: minutes
+        description: ''
+      - name: hourlyrate
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: sparse
+        description: ''
+      - name: billablestatus
+        description: ''
+      - name: metadata
+        description: ''
+      - name: domain
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: ItemRef
+        description: ''
+      - name: customerref
+        description: ''
+      - name: taxable
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_time_activities_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: sales_receipts_billemail_base
+    description: ''
+    columns:
+      - name: _airbyte_sales_receipts_hashid
+        description: ''
+      - name: address
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_billemail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: sales_receipts_base
+    description: ''
+    columns:
+      - name: CurrencyRef
+        description: ''
+      - name: exchangerate
+        description: ''
+      - name: emailstatus
+        description: ''
+      - name: shipaddr
+        description: ''
+      - name: hometotalamt
+        description: ''
+      - name: metadata
+        description: ''
+      - name: paymentmethodref
+        description: ''
+      - name: docnumber
+        description: ''
+      - name: printstatus
+        description: ''
+      - name: billemail
+        description: ''
+      - name: linkedtxn
+        description: ''
+      - name: billaddr
+        description: ''
+      - name: paymentrefnum
+        description: ''
+      - name: txndate
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: CustomerMemo
+        description: ''
+      - name: line
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: depositToAccountRef
+        description: ''
+      - name: sparse
+        description: ''
+      - name: totalamt
+        description: ''
+      - name: domain
+        description: ''
+      - name: customfield
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: customerref
+        description: ''
+      - name: balance
+        description: ''
+      - name: applytaxafterdiscount
+        description: ''
+      - name: TxnTaxDetail
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_sales_receipts_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bill_payments_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_bill_payments_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: estimates_CustomerMemo_base
+    description: ''
+    columns:
+      - name: _airbyte_estimates_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CustomerMemo_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: credit_memos_TxnTaxDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_credit_memos_hashid
+        description: ''
+      - name: totaltax
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TxnTaxDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: journal_entries_TxnTaxDetail_TaxLine_TaxLineDetail_TaxRateRef_base
+    description: ''
+    columns:
+      - name: _airbyte_TaxLineDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TaxRateRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: journal_entries_TxnTaxDetail_TaxLine_base
+    description: ''
+    columns:
+      - name: _airbyte_TxnTaxDetail_hashid
+        description: ''
+      - name: detailtype
+        description: ''
+      - name: taxlinedetail
+        description: ''
+      - name: amount
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TaxLine_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: time_activities_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_time_activities_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: employees_primaryphone_base
+    description: ''
+    columns:
+      - name: _airbyte_employees_hashid
+        description: ''
+      - name: freeformnumber
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_primaryphone_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: credit_memos_CustomerRef_base
+    description: ''
+    columns:
+      - name: _airbyte_credit_memos_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CustomerRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchases_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_purchases_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: deposits_CashBack_base
+    description: ''
+    columns:
+      - name: _airbyte_deposits_hashid
+        description: ''
+      - name: amount
+        description: ''
+      - name: accountref
+        description: ''
+      - name: memo
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CashBack_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: vendors_webaddr_base
+    description: ''
+    columns:
+      - name: _airbyte_vendors_hashid
+        description: ''
+      - name: uri
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_webaddr_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchases_base
+    description: ''
+    columns:
+      - name: CurrencyRef
+        description: ''
+      - name: exchangerate
+        description: ''
+      - name: txndate
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: accountref
+        description: ''
+      - name: RemitToAddr
+        description: ''
+      - name: line
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: credit
+        description: ''
+      - name: sparse
+        description: ''
+      - name: totalamt
+        description: ''
+      - name: metadata
+        description: ''
+      - name: domain
+        description: ''
+      - name: docnumber
+        description: ''
+      - name: PurchaseEx
+        description: ''
+      - name: paymenttype
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: printstatus
+        description: ''
+      - name: EntityRef
+        description: ''
+      - name: privatenote
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_purchases_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: credit_memos_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_credit_memos_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: transfers_FromAccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_transfers_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_FromAccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: tax_rates_base
+    description: ''
+    columns:
+      - name: agencyref
+        description: ''
+      - name: ratevalue
+        description: ''
+      - name: description
+        description: ''
+      - name: displaytype
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: name
+        description: ''
+      - name: specialtaxtype
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: effectivetaxrate
+        description: ''
+      - name: active
+        description: ''
+      - name: sparse
+        description: ''
+      - name: metadata
+        description: ''
+      - name: domain
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_tax_rates_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bill_payments_CurrencyRef_base
+    description: ''
+    columns:
+      - name: _airbyte_bill_payments_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CurrencyRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: terms_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_terms_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: payments_Line_LinkedTxn_base
+    description: ''
+    columns:
+      - name: _airbyte_Line_hashid
+        description: ''
+      - name: txnid
+        description: ''
+      - name: txntype
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_LinkedTxn_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchase_orders_vendoraddr_base
+    description: ''
+    columns:
+      - name: _airbyte_purchase_orders_hashid
+        description: ''
+      - name: line4
+        description: ''
+      - name: long
+        description: ''
+      - name: country
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: city
+        description: ''
+      - name: line1
+        description: ''
+      - name: lat
+        description: ''
+      - name: line2
+        description: ''
+      - name: line3
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_vendoraddr_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: credit_memos_Line_base
+    description: ''
+    columns:
+      - name: _airbyte_credit_memos_hashid
+        description: ''
+      - name: linenum
+        description: ''
+      - name: description
+        description: ''
+      - name: detailtype
+        description: ''
+      - name: amount
+        description: ''
+      - name: SalesItemLineDetail
+        description: ''
+      - name: id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_Line_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: estimates_TxnTaxDetail_TaxLine_TaxLineDetail_TaxRateRef_base
+    description: ''
+    columns:
+      - name: _airbyte_TaxLineDetail_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TaxRateRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: sales_receipts_DepositToAccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_sales_receipts_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_DepositToAccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bill_payments_CheckPayment_BankAccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_CheckPayment_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_BankAccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: journal_entries_TaxRateRef_base
+    description: ''
+    columns:
+      - name: _airbyte_journal_entries_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TaxRateRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: journal_entries_TxnTaxDetail_TxnTaxCodeRef_base
+    description: ''
+    columns:
+      - name: _airbyte_TxnTaxDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TxnTaxCodeRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_invoices_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchases_AccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_purchases_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_AccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: items_base
+    description: ''
+    columns:
+      - name: description
+        description: ''
+      - name: qtyonhand
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: fullyqualifiedname
+        description: ''
+      - name: purchasedesc
+        description: ''
+      - name: trackqtyonhand
+        description: ''
+      - name: assetaccountref
+        description: ''
+      - name: IncomeAccountRef
+        description: ''
+      - name: name
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: type
+        description: ''
+      - name: active
+        description: ''
+      - name: unitprice
+        description: ''
+      - name: expenseaccountref
+        description: ''
+      - name: sparse
+        description: ''
+      - name: metadata
+        description: ''
+      - name: purchasecost
+        description: ''
+      - name: domain
+        description: ''
+      - name: invstartdate
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: taxable
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_items_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: vendor_credits_Line_AccountBasedExpenseLineDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_Line_hashid
+        description: ''
+      - name: classref
+        description: ''
+      - name: taxcoderef
+        description: ''
+      - name: billablestatus
+        description: ''
+      - name: accountref
+        description: ''
+      - name: customerref
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_AccountBasedExpenseLineDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: classes_ParentRef_base
+    description: ''
+    columns:
+      - name: _airbyte_classes_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ParentRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: refund_receipts_PaymentMethodRef_base
+    description: ''
+    columns:
+      - name: _airbyte_refund_receipts_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_PaymentMethodRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bill_payments_CheckPayment_base
+    description: ''
+    columns:
+      - name: _airbyte_bill_payments_hashid
+        description: ''
+      - name: printstatus
+        description: ''
+      - name: BankAccountRef
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CheckPayment_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: sales_receipts_LinkedTxn_base
+    description: ''
+    columns:
+      - name: _airbyte_sales_receipts_hashid
+        description: ''
+      - name: txnid
+        description: ''
+      - name: txntype
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_LinkedTxn_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_Line_SalesItemLineDetail_ClassRef_base
+    description: ''
+    columns:
+      - name: _airbyte_SalesItemLineDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ClassRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchase_orders_Line_ItemBasedExpenseLineDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_Line_hashid
+        description: ''
+      - name: unitprice
+        description: ''
+      - name: classref
+        description: ''
+      - name: taxcoderef
+        description: ''
+      - name: billablestatus
+        description: ''
+      - name: qty
+        description: ''
+      - name: ItemRef
+        description: ''
+      - name: customerref
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ItemBasedExpenseLineDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: customers_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_customers_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: estimates_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_estimates_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bills_VendorRef_base
+    description: ''
+    columns:
+      - name: _airbyte_bills_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_VendorRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: vendors_fax_base
+    description: ''
+    columns:
+      - name: _airbyte_vendors_hashid
+        description: ''
+      - name: freeformnumber
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_fax_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: deposits_DepartmentRef_base
+    description: ''
+    columns:
+      - name: _airbyte_deposits_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_DepartmentRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: transfers_ToAccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_transfers_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ToAccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchases_Line_ItemBasedExpenseLineDetail_ItemRef_base
+    description: ''
+    columns:
+      - name: _airbyte_ItemBasedExpenseLineDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ItemRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: sales_receipts_shipaddr_base
+    description: ''
+    columns:
+      - name: _airbyte_sales_receipts_hashid
+        description: ''
+      - name: countrysubdivisioncode
+        description: ''
+      - name: long
+        description: ''
+      - name: country
+        description: ''
+      - name: postalcode
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: city
+        description: ''
+      - name: line1
+        description: ''
+      - name: lat
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_shipaddr_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_base
+    description: ''
+    columns:
+      - name: CurrencyRef
+        description: ''
+      - name: exchangerate
+        description: ''
+      - name: emailstatus
+        description: ''
+      - name: allowonlineachpayment
+        description: ''
+      - name: deliveryinfo
+        description: ''
+      - name: allowipnpayment
+        description: ''
+      - name: shipaddr
+        description: ''
+      - name: hometotalamt
+        description: ''
+      - name: metadata
+        description: ''
+      - name: docnumber
+        description: ''
+      - name: printstatus
+        description: ''
+      - name: duedate
+        description: ''
+      - name: billemail
+        description: ''
+      - name: privatenote
+        description: ''
+      - name: linkedtxn
+        description: ''
+      - name: billaddr
+        description: ''
+      - name: allowonlinepayment
+        description: ''
+      - name: txndate
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: CustomerMemo
+        description: ''
+      - name: line
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: sparse
+        description: ''
+      - name: totalamt
+        description: ''
+      - name: domain
+        description: ''
+      - name: customfield
+        description: ''
+      - name: SalesTermRef
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: customerref
+        description: ''
+      - name: allowonlineCreditCardPayment
+        description: ''
+      - name: balance
+        description: ''
+      - name: applytaxafterdiscount
+        description: ''
+      - name: TxnTaxDetail
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_invoices_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bill_payments_CreditCardPayment_base
+    description: ''
+    columns:
+      - name: _airbyte_bill_payments_hashid
+        description: ''
+      - name: CCAccountRef
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CreditCardPayment_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: tax_codes_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_tax_codes_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: credit_memos_base
+    description: ''
+    columns:
+      - name: CurrencyRef
+        description: ''
+      - name: exchangerate
+        description: ''
+      - name: classref
+        description: ''
+      - name: emailstatus
+        description: ''
+      - name: shipaddr
+        description: ''
+      - name: remainingcredit
+        description: ''
+      - name: hometotalamt
+        description: ''
+      - name: metadata
+        description: ''
+      - name: docnumber
+        description: ''
+      - name: printstatus
+        description: ''
+      - name: billemail
+        description: ''
+      - name: billaddr
+        description: ''
+      - name: txndate
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: CustomerMemo
+        description: ''
+      - name: line
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: sparse
+        description: ''
+      - name: totalamt
+        description: ''
+      - name: domain
+        description: ''
+      - name: customfield
+        description: ''
+      - name: SalesTermRef
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: customerref
+        description: ''
+      - name: balance
+        description: ''
+      - name: applytaxafterdiscount
+        description: ''
+      - name: TxnTaxDetail
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_credit_memos_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: customers_PaymentMethodRef_base
+    description: ''
+    columns:
+      - name: _airbyte_customers_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_PaymentMethodRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: vendor_credits_VendorRef_base
+    description: ''
+    columns:
+      - name: _airbyte_vendor_credits_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_VendorRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchases_Line_ItemBasedExpenseLineDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_Line_hashid
+        description: ''
+      - name: unitprice
+        description: ''
+      - name: taxcoderef
+        description: ''
+      - name: billablestatus
+        description: ''
+      - name: qty
+        description: ''
+      - name: ItemRef
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ItemBasedExpenseLineDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: transfers_base
+    description: ''
+    columns:
+      - name: synctoken
+        description: ''
+      - name: CurrencyRef
+        description: ''
+      - name: exchangerate
+        description: ''
+      - name: ToAccountRef
+        description: ''
+      - name: FromAccountref
+        description: ''
+      - name: metadata
+        description: ''
+      - name: amount
+        description: ''
+      - name: domain
+        description: ''
+      - name: txndate
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: privatenote
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_transfers_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: deposits_Line_LinkedTxn_base
+    description: ''
+    columns:
+      - name: _airbyte_Line_hashid
+        description: ''
+      - name: txnid
+        description: ''
+      - name: txntype
+        description: ''
+      - name: txnlineid
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_LinkedTxn_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: refund_receipts_base
+    description: ''
+    columns:
+      - name: billaddr
+        description: ''
+      - name: CurrencyRef
+        description: ''
+      - name: exchangerate
+        description: ''
+      - name: txndate
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: CustomerMemo
+        description: ''
+      - name: line
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: depositToAccountRef
+        description: ''
+      - name: sparse
+        description: ''
+      - name: totalamt
+        description: ''
+      - name: hometotalamt
+        description: ''
+      - name: metadata
+        description: ''
+      - name: paymentmethodref
+        description: ''
+      - name: domain
+        description: ''
+      - name: docnumber
+        description: ''
+      - name: customfield
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: printstatus
+        description: ''
+      - name: customerref
+        description: ''
+      - name: balance
+        description: ''
+      - name: billemail
+        description: ''
+      - name: applytaxafterdiscount
+        description: ''
+      - name: TxnTaxDetail
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_refund_receipts_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: payments_Line_lineex_any_value_base
+    description: ''
+    columns:
+      - name: _airbyte_any_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: name
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_value_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: sales_receipts_Line_DiscountLineDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_Line_hashid
+        description: ''
+      - name: percentbased
+        description: ''
+      - name: discountaccountref
+        description: ''
+      - name: discountpercent
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_DiscountLineDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: sales_receipts_customfield_base
+    description: ''
+    columns:
+      - name: _airbyte_sales_receipts_hashid
+        description: ''
+      - name: type
+        description: ''
+      - name: definitionid
+        description: ''
+      - name: name
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_customfield_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_Line_DiscountLineDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_Line_hashid
+        description: ''
+      - name: percentbased
+        description: ''
+      - name: discountaccountref
+        description: ''
+      - name: discountpercent
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_DiscountLineDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: vendor_credits_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_vendor_credits_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: payment_methods_base
+    description: ''
+    columns:
+      - name: synctoken
+        description: ''
+      - name: type
+        description: ''
+      - name: active
+        description: ''
+      - name: sparse
+        description: ''
+      - name: metadata
+        description: ''
+      - name: domain
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: name
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_payment_methods_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: customers_primaryphone_base
+    description: ''
+    columns:
+      - name: _airbyte_customers_hashid
+        description: ''
+      - name: freeformnumber
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_primaryphone_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: payments_LinkedTxn_base
+    description: ''
+    columns:
+      - name: _airbyte_payments_hashid
+        description: ''
+      - name: txnid
+        description: ''
+      - name: txntype
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_LinkedTxn_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: vendors_primaryemailaddr_base
+    description: ''
+    columns:
+      - name: _airbyte_vendors_hashid
+        description: ''
+      - name: address
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_primaryemailaddr_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: payments_Line_base
+    description: ''
+    columns:
+      - name: _airbyte_payments_hashid
+        description: ''
+      - name: amount
+        description: ''
+      - name: lineex
+        description: ''
+      - name: linkedtxn
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_Line_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: accounts_CurrencyRef_base
+    description: ''
+    columns:
+      - name: _airbyte_accounts_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CurrencyRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: estimates_CurrencyRef_base
+    description: ''
+    columns:
+      - name: _airbyte_estimates_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CurrencyRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchases_CurrencyRef_base
+    description: ''
+    columns:
+      - name: _airbyte_purchases_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CurrencyRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bills_Line_ItemBasedExpenseLineDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_Line_hashid
+        description: ''
+      - name: unitprice
+        description: ''
+      - name: taxcoderef
+        description: ''
+      - name: billablestatus
+        description: ''
+      - name: qty
+        description: ''
+      - name: ItemRef
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ItemBasedExpenseLineDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bills_DepartmentRef_base
+    description: ''
+    columns:
+      - name: _airbyte_bills_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_DepartmentRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: payments_CustomerRef_base
+    description: ''
+    columns:
+      - name: _airbyte_payments_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CustomerRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: payments_Line_lineex_base
+    description: ''
+    columns:
+      - name: _airbyte_Line_hashid
+        description: ''
+      - name: any
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_lineex_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchases_PurchaseEx_any_value_base
+    description: ''
+    columns:
+      - name: _airbyte_any_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: name
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_value_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: time_activities_ItemRef_base
+    description: ''
+    columns:
+      - name: _airbyte_time_activities_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ItemRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: sales_receipts_Line_SalesItemLineDetail_TaxCodeRef_base
+    description: ''
+    columns:
+      - name: _airbyte_SalesItemLineDetail_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TaxCodeRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: journal_entries_Line_JournalEntryLineDetail_AccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_JournalEntryLineDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_AccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bills_Line_ItemBasedExpenseLineDetail_TaxCodeRef_base
+    description: ''
+    columns:
+      - name: _airbyte_ItemBasedExpenseLineDetail_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TaxCodeRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_shipaddr_base
+    description: ''
+    columns:
+      - name: _airbyte_invoices_hashid
+        description: ''
+      - name: countrysubdivisioncode
+        description: ''
+      - name: long
+        description: ''
+      - name: postalcode
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: city
+        description: ''
+      - name: line1
+        description: ''
+      - name: lat
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_shipaddr_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: tax_codes_SalesTaxRateList_TaxRateDetail_TaxRateRef_base
+    description: ''
+    columns:
+      - name: _airbyte_TaxRateDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TaxRateRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: deposits_Line_DepositLineDetail_AccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_DepositLineDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_AccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: budgets_BudgetDetail_DepartmentRef_base
+    description: ''
+    columns:
+      - name: _airbyte_BudgetDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_DepartmentRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchase_orders_VendorRef_base
+    description: ''
+    columns:
+      - name: _airbyte_purchase_orders_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_VendorRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchase_orders_Line_ItemBasedExpenseLineDetail_CustomerRef_base
+    description: ''
+    columns:
+      - name: _airbyte_ItemBasedExpenseLineDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CustomerRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bills_base
+    description: ''
+    columns:
+      - name: CurrencyRef
+        description: ''
+      - name: exchangerate
+        description: ''
+      - name: txndate
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: DepartmentRef
+        description: ''
+      - name: line
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: sparse
+        description: ''
+      - name: totalamt
+        description: ''
+      - name: metadata
+        description: ''
+      - name: domain
+        description: ''
+      - name: docnumber
+        description: ''
+      - name: APAccountRef
+        description: ''
+      - name: SalesTermRef
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: duedate
+        description: ''
+      - name: VendorRef
+        description: ''
+      - name: balance
+        description: ''
+      - name: privatenote
+        description: ''
+      - name: linkedtxn
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_bills_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: credit_memos_ClassRef_base
+    description: ''
+    columns:
+      - name: _airbyte_credit_memos_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ClassRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: tax_codes_SalesTaxRateList_TaxRateDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_SalesTaxRateList_hashid
+        description: ''
+      - name: taxorder
+        description: ''
+      - name: taxrateref
+        description: ''
+      - name: taxtypeapplicable
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TaxRateDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchases_PurchaseEx_any_base
+    description: ''
+    columns:
+      - name: _airbyte_PurchaseEx_hashid
+        description: ''
+      - name: nil
+        description: ''
+      - name: typesubstituted
+        description: ''
+      - name: globalscope
+        description: ''
+      - name: scope
+        description: ''
+      - name: name
+        description: ''
+      - name: declaredtype
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_any_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: vendor_credits_APAccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_vendor_credits_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_APAccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: estimates_shipaddr_base
+    description: ''
+    columns:
+      - name: _airbyte_estimates_hashid
+        description: ''
+      - name: countrysubdivisioncode
+        description: ''
+      - name: long
+        description: ''
+      - name: postalcode
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: city
+        description: ''
+      - name: line1
+        description: ''
+      - name: lat
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_shipaddr_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: customers_shipaddr_base
+    description: ''
+    columns:
+      - name: _airbyte_customers_hashid
+        description: ''
+      - name: countrysubdivisioncode
+        description: ''
+      - name: long
+        description: ''
+      - name: country
+        description: ''
+      - name: postalcode
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: city
+        description: ''
+      - name: line1
+        description: ''
+      - name: lat
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_shipaddr_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: customers_mobile_base
+    description: ''
+    columns:
+      - name: _airbyte_customers_hashid
+        description: ''
+      - name: freeformnumber
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_mobile_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: sales_receipts_CurrencyRef_base
+    description: ''
+    columns:
+      - name: _airbyte_sales_receipts_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CurrencyRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: estimates_customfield_base
+    description: ''
+    columns:
+      - name: _airbyte_estimates_hashid
+        description: ''
+      - name: type
+        description: ''
+      - name: definitionid
+        description: ''
+      - name: name
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_customfield_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: journal_entries_Line_JournalEntryLineDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_Line_hashid
+        description: ''
+      - name: postingtype
+        description: ''
+      - name: accountref
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_JournalEntryLineDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: credit_memos_shipaddr_base
+    description: ''
+    columns:
+      - name: _airbyte_credit_memos_hashid
+        description: ''
+      - name: countrysubdivisioncode
+        description: ''
+      - name: long
+        description: ''
+      - name: postalcode
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: city
+        description: ''
+      - name: line1
+        description: ''
+      - name: lat
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_shipaddr_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchases_Line_AccountBasedExpenseLineDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_Line_hashid
+        description: ''
+      - name: taxcoderef
+        description: ''
+      - name: billablestatus
+        description: ''
+      - name: accountref
+        description: ''
+      - name: customerref
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_AccountBasedExpenseLineDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: estimates_Line_base
+    description: ''
+    columns:
+      - name: _airbyte_estimates_hashid
+        description: ''
+      - name: linenum
+        description: ''
+      - name: description
+        description: ''
+      - name: detailtype
+        description: ''
+      - name: amount
+        description: ''
+      - name: SalesItemLineDetail
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_Line_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: refund_receipts_DepositToAccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_refund_receipts_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_DepositToAccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: items_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_items_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: transfers_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_transfers_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: vendors_billaddr_base
+    description: ''
+    columns:
+      - name: _airbyte_vendors_hashid
+        description: ''
+      - name: countrysubdivisioncode
+        description: ''
+      - name: long
+        description: ''
+      - name: country
+        description: ''
+      - name: postalcode
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: city
+        description: ''
+      - name: line1
+        description: ''
+      - name: lat
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_billaddr_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: credit_memos_Line_SalesItemLineDetail_ItemRef_base
+    description: ''
+    columns:
+      - name: _airbyte_SalesItemLineDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ItemRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: tax_codes_SalesTaxRateList_base
+    description: ''
+    columns:
+      - name: _airbyte_tax_codes_hashid
+        description: ''
+      - name: TaxRateDetail
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_SalesTaxRateList_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: credit_memos_Line_SalesItemLineDetail_TaxCodeRef_base
+    description: ''
+    columns:
+      - name: _airbyte_SalesItemLineDetail_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TaxCodeRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: estimates_LinkedTxn_base
+    description: ''
+    columns:
+      - name: _airbyte_estimates_hashid
+        description: ''
+      - name: txnid
+        description: ''
+      - name: txntype
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_LinkedTxn_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: journal_entries_TxnTaxDetail_TaxLine_TaxLineDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_TaxLine_hashid
+        description: ''
+      - name: percentbased
+        description: ''
+      - name: taxrateref
+        description: ''
+      - name: taxinclusiveamount
+        description: ''
+      - name: overridedeltaamount
+        description: ''
+      - name: netamounttaxable
+        description: ''
+      - name: taxpercent
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TaxLineDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: refund_receipts_billaddr_base
+    description: ''
+    columns:
+      - name: _airbyte_refund_receipts_hashid
+        description: ''
+      - name: line4
+        description: ''
+      - name: long
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: line1
+        description: ''
+      - name: lat
+        description: ''
+      - name: line2
+        description: ''
+      - name: line3
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_billaddr_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: estimates_Line_SalesItemLineDetail_ItemRef_base
+    description: ''
+    columns:
+      - name: _airbyte_SalesItemLineDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ItemRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bill_payments_Line_LinkedTxn_base
+    description: ''
+    columns:
+      - name: _airbyte_Line_hashid
+        description: ''
+      - name: txnid
+        description: ''
+      - name: txntype
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_LinkedTxn_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchases_Line_ItemBasedExpenseLineDetail_TaxCodeRef_base
+    description: ''
+    columns:
+      - name: _airbyte_ItemBasedExpenseLineDetail_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TaxCodeRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: vendor_credits_Line_AccountBasedExpenseLineDetail_AccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_AccountBasedExpenseLineDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_AccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: employees_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_employees_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: customers_CurrencyRef_base
+    description: ''
+    columns:
+      - name: _airbyte_customers_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CurrencyRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: payments_base
+    description: ''
+    columns:
+      - name: CurrencyRef
+        description: ''
+      - name: exchangerate
+        description: ''
+      - name: processpayment
+        description: ''
+      - name: paymentrefnum
+        description: ''
+      - name: txndate
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: line
+        description: ''
+      - name: unappliedamt
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: depositToAccountRef
+        description: ''
+      - name: sparse
+        description: ''
+      - name: totalamt
+        description: ''
+      - name: metadata
+        description: ''
+      - name: paymentmethodref
+        description: ''
+      - name: domain
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: ARAccountRef
+        description: ''
+      - name: customerref
+        description: ''
+      - name: privatenote
+        description: ''
+      - name: linkedtxn
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_payments_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: estimates_TxnTaxDetail_TxnTaxCodeRef_base
+    description: ''
+    columns:
+      - name: _airbyte_TxnTaxDetail_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TxnTaxCodeRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: refund_receipts_CustomerRef_base
+    description: ''
+    columns:
+      - name: _airbyte_refund_receipts_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CustomerRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: tax_rates_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_tax_rates_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: budgets_BudgetDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_budgets_hashid
+        description: ''
+      - name: classref
+        description: ''
+      - name: amount
+        description: ''
+      - name: accountref
+        description: ''
+      - name: budgetdate
+        description: ''
+      - name: customerref
+        description: ''
+      - name: DepartmentRef
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_BudgetDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bill_payments_Line_base
+    description: ''
+    columns:
+      - name: _airbyte_bill_payments_hashid
+        description: ''
+      - name: amount
+        description: ''
+      - name: linkedtxn
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_Line_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: payments_DepositToAccountRef_base
+    description: ''
+    columns:
+      - name: _airbyte_payments_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_DepositToAccountRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: journal_entries_base
+    description: ''
+    columns:
+      - name: CurrencyRef
+        description: ''
+      - name: exchangerate
+        description: ''
+      - name: taxrateref
+        description: ''
+      - name: adjustment
+        description: ''
+      - name: txndate
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: line
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: sparse
+        description: ''
+      - name: metadata
+        description: ''
+      - name: domain
+        description: ''
+      - name: docnumber
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: privatenote
+        description: ''
+      - name: TxnTaxDetail
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_journal_entries_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: refund_receipts_billemail_base
+    description: ''
+    columns:
+      - name: _airbyte_refund_receipts_hashid
+        description: ''
+      - name: address
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_billemail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: vendors_mobile_base
+    description: ''
+    columns:
+      - name: _airbyte_vendors_hashid
+        description: ''
+      - name: freeformnumber
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_mobile_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bills_Line_AccountBasedExpenseLineDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_Line_hashid
+        description: ''
+      - name: taxcoderef
+        description: ''
+      - name: billablestatus
+        description: ''
+      - name: accountref
+        description: ''
+      - name: customerref
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_AccountBasedExpenseLineDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: customers_webaddr_base
+    description: ''
+    columns:
+      - name: _airbyte_customers_hashid
+        description: ''
+      - name: uri
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_webaddr_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_CustomerRef_base
+    description: ''
+    columns:
+      - name: _airbyte_invoices_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CustomerRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_TxnTaxDetail_TaxLine_base
+    description: ''
+    columns:
+      - name: _airbyte_TxnTaxDetail_hashid
+        description: ''
+      - name: detailtype
+        description: ''
+      - name: taxlinedetail
+        description: ''
+      - name: amount
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TaxLine_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: departments_base
+    description: ''
+    columns:
+      - name: parentref
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: active
+        description: ''
+      - name: metadata
+        description: ''
+      - name: domain
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: fullyqualifiedname
+        description: ''
+      - name: subdepartment
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: name
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_departments_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: budgets_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_budgets_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: sales_receipts_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_sales_receipts_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: refund_receipts_Line_SalesItemLineDetail_TaxCodeRef_base
+    description: ''
+    columns:
+      - name: _airbyte_SalesItemLineDetail_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TaxCodeRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: vendor_credits_Line_AccountBasedExpenseLineDetail_TaxCodeRef_base
+    description: ''
+    columns:
+      - name: _airbyte_AccountBasedExpenseLineDetail_hashid
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_TaxCodeRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchase_orders_Line_ItemBasedExpenseLineDetail_ItemRef_base
+    description: ''
+    columns:
+      - name: _airbyte_ItemBasedExpenseLineDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ItemRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: deposits_Line_base
+    description: ''
+    columns:
+      - name: _airbyte_deposits_hashid
+        description: ''
+      - name: linenum
+        description: ''
+      - name: DepositLineDetail
+        description: ''
+      - name: detailtype
+        description: ''
+      - name: amount
+        description: ''
+      - name: id
+        description: ''
+      - name: linkedtxn
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_Line_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bill_payments_base
+    description: ''
+    columns:
+      - name: CurrencyRef
+        description: ''
+      - name: exchangerate
+        description: ''
+      - name: txndate
+        description: ''
+      - name: airbyte_cursor
+        description: ''
+      - name: paytype
+        description: ''
+      - name: DepartmentRef
+        description: ''
+      - name: line
+        description: ''
+      - name: synctoken
+        description: ''
+      - name: CreditCardPayment
+        description: ''
+      - name: sparse
+        description: ''
+      - name: totalamt
+        description: ''
+      - name: metadata
+        description: ''
+      - name: domain
+        description: ''
+      - name: docnumber
+        description: ''
+      - name: APAccountRef
+        description: ''
+      - name: CheckPayment
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: VendorRef
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_bill_payments_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_LinkedTxn_base
+    description: ''
+    columns:
+      - name: _airbyte_invoices_hashid
+        description: ''
+      - name: txnid
+        description: ''
+      - name: txntype
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_LinkedTxn_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: invoices_Line_SalesItemLineDetail_ItemRef_base
+    description: ''
+    columns:
+      - name: _airbyte_SalesItemLineDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_ItemRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: credit_memos_Line_SalesItemLineDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_Line_hashid
+        description: ''
+      - name: unitprice
+        description: ''
+      - name: taxcoderef
+        description: ''
+      - name: qty
+        description: ''
+      - name: ItemRef
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_SalesItemLineDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: estimates_Line_SalesItemLineDetail_base
+    description: ''
+    columns:
+      - name: _airbyte_Line_hashid
+        description: ''
+      - name: unitprice
+        description: ''
+      - name: taxcoderef
+        description: ''
+      - name: qty
+        description: ''
+      - name: ItemRef
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_SalesItemLineDetail_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchases_Line_base
+    description: ''
+    columns:
+      - name: _airbyte_purchases_hashid
+        description: ''
+      - name: ItemBasedExpenseLineDetail
+        description: ''
+      - name: description
+        description: ''
+      - name: AccountBasedExpenseLineDetail
+        description: ''
+      - name: detailtype
+        description: ''
+      - name: amount
+        description: ''
+      - name: id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_Line_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: budgets_BudgetDetail_CustomerRef_base
+    description: ''
+    columns:
+      - name: _airbyte_BudgetDetail_hashid
+        description: ''
+      - name: name
+        description: ''
+      - name: value
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_CustomerRef_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: deposits_MetaData_base
+    description: ''
+    columns:
+      - name: _airbyte_deposits_hashid
+        description: ''
+      - name: createtime
+        description: ''
+      - name: lastupdatedtime
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_MetaData_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: purchases_RemitToAddr_base
+    description: ''
+    columns:
+      - name: _airbyte_purchases_hashid
+        description: ''
+      - name: countrysubdivisioncode
+        description: ''
+      - name: long
+        description: ''
+      - name: postalcode
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: city
+        description: ''
+      - name: line1
+        description: ''
+      - name: lat
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_RemitToAddr_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: bills_Line_base
+    description: ''
+    columns:
+      - name: _airbyte_bills_hashid
+        description: ''
+      - name: linenum
+        description: ''
+      - name: ItemBasedExpenseLineDetail
+        description: ''
+      - name: description
+        description: ''
+      - name: AccountBasedExpenseLineDetail
+        description: ''
+      - name: detailtype
+        description: ''
+      - name: amount
+        description: ''
+      - name: id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+      - name: _airbyte_emitted_at
+        description: ''
+      - name: _airbyte_normalized_at
+        description: ''
+      - name: _airbyte_Line_hashid
+        description: ''
+
