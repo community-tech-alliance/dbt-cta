@@ -1,10 +1,8 @@
 version: 2
 sources:
-- name: partner_a_lol_impactive
-  quoting:
-    database: true
-    schema: false
-    identifier: false
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables:
   - name: _airbyte_raw_activities_export
   - name: _airbyte_raw_activity_scripts_export
@@ -24,3 +22,21 @@ sources:
   - name: _airbyte_raw_users_export
   - name: _airbyte_raw_v2_voice_calls_export
   - name: _airbyte_raw_voice_calls_export
+  - name: activities_export_base
+  - name: activity_scripts_export_base
+  - name: campaigns_export_base
+  - name: contacts_export_base
+  - name: customizations_export_base
+  - name: forms_export_base
+  - name: messages_export_base
+  - name: person_api_lookups_export_base
+  - name: registrations_export_base
+  - name: reports_export_base
+  - name: taggings_export_base
+  - name: teams_export_base
+  - name: user_activities_export_base
+  - name: user_activity_performances_export_base
+  - name: user_campaigns_export_base
+  - name: users_export_base
+  - name: v2_voice_calls_export_base
+  - name: voice_calls_export_base
