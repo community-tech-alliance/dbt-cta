@@ -723,6 +723,9 @@ models:
               column_type: timestamp
       - name: _airbyte_teams_export_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: user_activity_performances_export_base
     description: ''
