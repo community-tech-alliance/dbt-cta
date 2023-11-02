@@ -321,6 +321,9 @@ models:
               column_type: timestamp
       - name: _airbyte_users_export_hashid
         description: ''
+        tests:
+          - not_null
+          - unique
 
   - name: customizations_export_base
     description: ''
