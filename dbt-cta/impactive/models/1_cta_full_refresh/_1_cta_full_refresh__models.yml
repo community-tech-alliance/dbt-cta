@@ -275,7 +275,6 @@ models:
         description: ''
       - name: id
         description: ''
-        tests:
       - name: state
         description: ''
       - name: first_name
