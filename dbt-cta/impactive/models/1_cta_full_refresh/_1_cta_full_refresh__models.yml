@@ -1,0 +1,1242 @@
+version: 2
+
+models:
+
+  - name: person_api_lookups_export_base
+    description: ''
+    columns:
+      - name: person_lookup_id
+        description: ''
+      - name: created_at
+        description: ''
+      - name: exported_at
+        description: ''
+      - name: api_match_id
+        description: ''
+      - name: api_username
+        description: ''
+      - name: person_lookup_type
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: api_key
+        description: ''
+      - name: api_type
+        description: ''
+      - name: success
+        description: ''
+      - name: van_database_mode
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: campaign_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_person_api_lookups_export_hashid
+        description: ''
+
+  - name: campaigns_export_base
+    description: ''
+    columns:
+      - name: updated_at
+        description: ''
+      - name: name
+        description: ''
+      - name: created_at
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: slug
+        description: ''
+      - name: exported_at
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_campaigns_export_hashid
+        description: ''
+
+  - name: user_activities_export_base
+    description: ''
+    columns:
+      - name: performs
+        description: ''
+      - name: user_email
+        description: ''
+      - name: utm_campaign
+        description: ''
+      - name: user_last_name
+        description: ''
+      - name: created_at
+        description: ''
+      - name: testimonial_note
+        description: ''
+      - name: completed
+        description: ''
+      - name: impressions
+        description: ''
+      - name: user_fullname
+        description: ''
+      - name: user_last_seen_at
+        description: ''
+      - name: exported_at
+        description: ''
+      - name: user_first_name
+        description: ''
+      - name: testimonial_media_url
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: user_id
+        description: ''
+      - name: activity_id
+        description: ''
+      - name: clicks
+        description: ''
+      - name: user_phone
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: published_at
+        description: ''
+      - name: campaign_id
+        description: ''
+      - name: utm_source
+        description: ''
+      - name: activity_title
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_user_activities_export_hashid
+        description: ''
+
+  - name: registrations_export_base
+    description: ''
+    columns:
+      - name: encode_id
+        description: ''
+      - name: has_state_identification
+        description: ''
+      - name: voterbase_id
+        description: ''
+      - name: city
+        description: ''
+      - name: date_of_birth
+        description: ''
+      - name: registration_status
+        description: ''
+      - name: contact_referral_full_name
+        description: ''
+      - name: created_at
+        description: ''
+      - name: team_id
+        description: ''
+      - name: contact_id
+        description: ''
+      - name: zip_code
+        description: ''
+      - name: unit_number
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: sms_opt_in
+        description: ''
+      - name: different_address
+        description: ''
+      - name: voter_registration_status
+        description: ''
+      - name: activity_id
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: first_name
+        description: ''
+      - name: email
+        description: ''
+      - name: campaign_id
+        description: ''
+      - name: activity_title
+        description: ''
+      - name: referral_link
+        description: ''
+      - name: email_opt_in
+        description: ''
+      - name: address
+        description: ''
+      - name: completed_voter_registration_at
+        description: ''
+      - name: last_name
+        description: ''
+      - name: county_name
+        description: ''
+      - name: contact_referral_id
+        description: ''
+      - name: team_name
+        description: ''
+      - name: exported_at
+        description: ''
+      - name: state_abbrev
+        description: ''
+      - name: phone
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_registrations_export_hashid
+        description: ''
+
+  - name: users_export_base
+    description: ''
+    columns:
+      - name: num_contacts_synced
+        description: ''
+      - name: selected_voterbase_id
+        description: ''
+      - name: city
+        description: ''
+      - name: recruited_by_id
+        description: ''
+      - name: recruited_by
+        description: ''
+      - name: actions_performed
+        description: ''
+      - name: created_at
+        description: ''
+      - name: reports_filled
+        description: ''
+      - name: van_id
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: supplied_zip_code
+        description: ''
+      - name: id
+        description: ''
+      - name: state
+        description: ''
+      - name: first_name
+        description: ''
+      - name: email
+        description: ''
+      - name: campaign_id
+        description: ''
+      - name: num_contacts_matched_in_district
+        description: ''
+      - name: actions_completed
+        description: ''
+      - name: last_name
+        description: ''
+      - name: num_contacts_matched
+        description: ''
+      - name: exported_at
+        description: ''
+      - name: supplied_state_abbrev
+        description: ''
+      - name: phone
+        description: ''
+      - name: invites_sent
+        description: ''
+      - name: last_active_at
+        description: ''
+      - name: last_seen_at
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_users_export_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: customizations_export_base
+    description: ''
+    columns:
+      - name: custom_field_slug
+        description: ''
+      - name: custom_field_name
+        description: ''
+      - name: reportable_id
+        description: ''
+      - name: voterbase_id
+        description: ''
+      - name: customizable_id
+        description: ''
+      - name: customizable_type
+        description: ''
+      - name: reported_by_email
+        description: ''
+      - name: custom_field_id
+        description: ''
+      - name: created_at
+        description: ''
+      - name: exported_at
+        description: ''
+      - name: reportable_type
+        description: ''
+      - name: van_id
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: phone
+        description: ''
+      - name: user_id
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: fullname
+        description: ''
+      - name: reported_by_fullname
+        description: ''
+      - name: value
+        description: ''
+      - name: email
+        description: ''
+      - name: campaign_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_customizations_export_hashid
+        description: ''
+
+  - name: messages_export_base
+    description: ''
+    columns:
+      - name: sender_van_id
+        description: ''
+      - name: receiver_selected_voterbase_id
+        description: ''
+      - name: receiver_id
+        description: ''
+      - name: created_at
+        description: ''
+      - name: sender_name
+        description: ''
+      - name: body
+        description: ''
+      - name: sender_selected_voterbase_id
+        description: ''
+      - name: sender_id
+        description: ''
+      - name: receiver_type
+        description: ''
+      - name: aasm_message
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: activity_type
+        description: ''
+      - name: activity_id
+        description: ''
+      - name: receiver_name
+        description: ''
+      - name: activity_published_at
+        description: ''
+      - name: activity_script_id
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: aasm_state
+        description: ''
+      - name: receiver_raw
+        description: ''
+      - name: twilio_segments
+        description: ''
+      - name: campaign_id
+        description: ''
+      - name: activity_title
+        description: ''
+      - name: sender_raw
+        description: ''
+      - name: sender_type
+        description: ''
+      - name: twilio_status
+        description: ''
+      - name: message_type
+        description: ''
+      - name: script_name
+        description: ''
+      - name: exported_at
+        description: ''
+      - name: sent_at
+        description: ''
+      - name: received_at
+        description: ''
+      - name: error_code
+        description: ''
+      - name: script_type
+        description: ''
+      - name: receiver_van_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_messages_export_hashid
+        description: ''
+
+  - name: activity_scripts_export_base
+    description: ''
+    columns:
+      - name: updated_at
+        description: ''
+      - name: name
+        description: ''
+      - name: activity_id
+        description: ''
+      - name: created_at
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: script_type
+        description: ''
+      - name: media_url
+        description: ''
+      - name: script
+        description: ''
+      - name: campaign_id
+        description: ''
+      - name: exported_at
+        description: ''
+      - name: next_scripts
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_activity_scripts_export_hashid
+        description: ''
+
+  - name: voice_calls_export_base
+    description: ''
+    columns:
+      - name: last_any_error_at
+        description: ''
+      - name: selected_voterbase_id
+        description: ''
+      - name: user_last_name
+        description: ''
+      - name: created_at
+        description: ''
+      - name: type
+        description: ''
+      - name: contact_id
+        description: ''
+      - name: duration
+        description: ''
+      - name: van_id
+        description: ''
+      - name: user_first_name
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: call_count
+        description: ''
+      - name: activity_id
+        description: ''
+      - name: no_answer_count
+        description: ''
+      - name: activity_published_at
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: aasm_state
+        description: ''
+      - name: first_name
+        description: ''
+      - name: campaign_id
+        description: ''
+      - name: activity_title
+        description: ''
+      - name: user_email
+        description: ''
+      - name: twilio_answered_by
+        description: ''
+      - name: last_busy_status_at
+        description: ''
+      - name: last_name
+        description: ''
+      - name: busy_count
+        description: ''
+      - name: answered_at
+        description: ''
+      - name: exported_at
+        description: ''
+      - name: queue_time
+        description: ''
+      - name: last_no_answer_status_at
+        description: ''
+      - name: user_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_voice_calls_export_hashid
+        description: ''
+
+  - name: taggings_export_base
+    description: ''
+    columns:
+      - name: reportable_id
+        description: ''
+      - name: voterbase_id
+        description: ''
+      - name: reported_by_email
+        description: ''
+      - name: tag_name
+        description: ''
+      - name: tag_slug
+        description: ''
+      - name: created_at
+        description: ''
+      - name: exported_at
+        description: ''
+      - name: reportable_type
+        description: ''
+      - name: van_id
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: phone
+        description: ''
+      - name: user_id
+        description: ''
+      - name: tag_id
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: fullname
+        description: ''
+      - name: taggable_id
+        description: ''
+      - name: reported_by_fullname
+        description: ''
+      - name: value
+        description: ''
+      - name: email
+        description: ''
+      - name: campaign_id
+        description: ''
+      - name: taggable_type
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_taggings_export_hashid
+        description: ''
+
+  - name: teams_export_base
+    description: ''
+    columns:
+      - name: member_phone
+        description: ''
+      - name: member_email
+        description: ''
+      - name: member_user_id
+        description: ''
+      - name: member_performs
+        description: ''
+      - name: team_id
+        description: ''
+      - name: team_rank
+        description: ''
+      - name: team_leaderboard_score
+        description: ''
+      - name: team_name
+        description: ''
+      - name: exported_at
+        description: ''
+      - name: team_leaderboard_performs
+        description: ''
+      - name: member_fullname
+        description: ''
+      - name: team_leader_ids
+        description: ''
+      - name: campaign_id
+        description: ''
+      - name: member_score
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_teams_export_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: user_activity_performances_export_base
+    description: ''
+    columns:
+      - name: performed_at
+        description: ''
+      - name: user_email
+        description: ''
+      - name: user_last_name
+        description: ''
+      - name: user_fullname
+        description: ''
+      - name: type
+        description: ''
+      - name: exported_at
+        description: ''
+      - name: user_first_name
+        description: ''
+      - name: user_id
+        description: ''
+      - name: activity_id
+        description: ''
+      - name: user_phone
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: campaign_id
+        description: ''
+      - name: activity_title
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_user_activity_performances_export_hashid
+        description: ''
+
+  - name: user_campaigns_export_base
+    description: ''
+    columns:
+      - name: leaderboard_messages
+        description: ''
+      - name: user_last_name
+        description: ''
+      - name: campaign_role
+        description: ''
+      - name: created_at
+        description: ''
+      - name: welcome_permission
+        description: ''
+      - name: team_leaderboard_reports
+        description: ''
+      - name: team_rank
+        description: ''
+      - name: team_leaderboard_score
+        description: ''
+      - name: user_last_seen_at
+        description: ''
+      - name: leaderboard_reports
+        description: ''
+      - name: team_leaderboard_performs
+        description: ''
+      - name: user_first_name
+        description: ''
+      - name: export_permission
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: settings_permission
+        description: ''
+      - name: user_phone
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: sync_permission
+        description: ''
+      - name: campaign_id
+        description: ''
+      - name: num_contacts
+        description: ''
+      - name: leaderboard_score
+        description: ''
+      - name: manage_users_permission
+        description: ''
+      - name: user_email
+        description: ''
+      - name: broadcast_permission
+        description: ''
+      - name: joined
+        description: ''
+      - name: num_contacts_matched
+        description: ''
+      - name: user_fullname
+        description: ''
+      - name: exported_at
+        description: ''
+      - name: billing_permission
+        description: ''
+      - name: user_id
+        description: ''
+      - name: team_leaderboard_messages
+        description: ''
+      - name: leaderboard_performs
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_user_campaigns_export_hashid
+        description: ''
+
+  - name: activities_export_base
+    description: ''
+    columns:
+      - name: performs
+        description: ''
+      - name: created_at
+        description: ''
+      - name: completions
+        description: ''
+      - name: description
+        description: ''
+      - name: started
+        description: ''
+      - name: folder_name
+        description: ''
+      - name: impressions
+        description: ''
+      - name: type
+        description: ''
+      - name: title
+        description: ''
+      - name: seen
+        description: ''
+      - name: exported_at
+        description: ''
+      - name: privacy_setting
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: contact_list_id
+        description: ''
+      - name: contact_list_name
+        description: ''
+      - name: activity_id
+        description: ''
+      - name: clicks
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: aasm_state
+        description: ''
+      - name: folder_id
+        description: ''
+      - name: published_at
+        description: ''
+      - name: campaign_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_activities_export_hashid
+        description: ''
+
+  - name: forms_export_base
+    description: ''
+    columns:
+      - name: last_name
+        description: ''
+      - name: created_at
+        description: ''
+      - name: contact_id
+        description: ''
+      - name: contact_referral_id
+        description: ''
+      - name: zip_code
+        description: ''
+      - name: exported_at
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: phone
+        description: ''
+      - name: team_referral_id
+        description: ''
+      - name: activity_id
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: opt_in
+        description: ''
+      - name: first_name
+        description: ''
+      - name: email
+        description: ''
+      - name: campaign_id
+        description: ''
+      - name: activity_title
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_forms_export_hashid
+        description: ''
+
+  - name: reports_export_base
+    description: ''
+    columns:
+      - name: user_email
+        description: ''
+      - name: reportable_id
+        description: ''
+      - name: reportable_voterbase_id
+        description: ''
+      - name: created_at
+        description: ''
+      - name: reportable_van_id
+        description: ''
+      - name: user_fullname
+        description: ''
+      - name: exported_at
+        description: ''
+      - name: reportable_type
+        description: ''
+      - name: reportable_phone
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: user_id
+        description: ''
+      - name: activity_id
+        description: ''
+      - name: reportable_email
+        description: ''
+      - name: taggings
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: campaign_id
+        description: ''
+      - name: customizations
+        description: ''
+      - name: reportable_fullname
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_reports_export_hashid
+        description: ''
+
+  - name: v2_voice_calls_export_base
+    description: ''
+    columns:
+      - name: selected_voterbase_id
+        description: ''
+      - name: user_last_name
+        description: ''
+      - name: created_at
+        description: ''
+      - name: source
+        description: ''
+      - name: contact_id
+        description: ''
+      - name: duration
+        description: ''
+      - name: reference
+        description: ''
+      - name: van_id
+        description: ''
+      - name: user_first_name
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: stopped_reason
+        description: ''
+      - name: reported
+        description: ''
+      - name: activity_id
+        description: ''
+      - name: activity_published_at
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: stopped_at
+        description: ''
+      - name: first_name
+        description: ''
+      - name: campaign_id
+        description: ''
+      - name: activity_title
+        description: ''
+      - name: user_email
+        description: ''
+      - name: twilio_answered_by
+        description: ''
+      - name: last_name
+        description: ''
+      - name: answered_at
+        description: ''
+      - name: exported_at
+        description: ''
+      - name: pdi_id
+        description: ''
+      - name: phone
+        description: ''
+      - name: user_id
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_v2_voice_calls_export_hashid
+        description: ''
+
+  - name: contacts_export_base
+    description: ''
+    columns:
+      - name: reported_requested_vbm
+        description: ''
+      - name: selected_voterbase_id
+        description: ''
+      - name: city
+        description: ''
+      - name: can_vbm_online
+        description: ''
+      - name: voter_last_name
+        description: ''
+      - name: created_at
+        description: ''
+      - name: automatic_vbm
+        description: ''
+      - name: zip_code
+        description: ''
+      - name: van_id
+        description: ''
+      - name: contact_type
+        description: ''
+      - name: unit_number
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: can_vbm
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: mail_address
+        description: ''
+      - name: reported_registered
+        description: ''
+      - name: first_name
+        description: ''
+      - name: requested_absentee_form
+        description: ''
+      - name: email
+        description: ''
+      - name: campaign_id
+        description: ''
+      - name: mail_zip_code
+        description: ''
+      - name: requested_registration_form
+        description: ''
+      - name: voter_first_name
+        description: ''
+      - name: address
+        description: ''
+      - name: invited
+        description: ''
+      - name: last_name
+        description: ''
+      - name: mail_city
+        description: ''
+      - name: assigned_user_id
+        description: ''
+      - name: exported_at
+        description: ''
+      - name: reg_confirmed
+        description: ''
+      - name: full_name
+        description: ''
+      - name: pdi_id
+        description: ''
+      - name: state_abbrev
+        description: ''
+      - name: outvote_user_id
+        description: ''
+      - name: mail_state_abbrev
+        description: ''
+      - name: phone
+        description: ''
+      - name: can_register_online
+        description: ''
+      - name: vbm_confirmed
+        description: ''
+      - name: dwid_id
+        description: ''
+      - name: taggings
+        description: ''
+      - name: mail_unit_number
+        description: ''
+      - name: customizations
+        description: ''
+      - name: needs_attention
+        description: ''
+      - name: reg_state
+        description: ''
+      - name: vbm_state
+        description: ''
+      - name: _airbyte_ab_id
+        description: ''
+        tests:
+          - not_null
+          - unique
+      - name: _airbyte_emitted_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_normalized_at
+        description: ''
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+      - name: _airbyte_contacts_export_hashid
+        description: ''
+
