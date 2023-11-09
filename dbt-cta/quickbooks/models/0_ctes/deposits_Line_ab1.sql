@@ -5,7 +5,7 @@
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ ref('deposits_base') }}
-{{ unnest_cte(ref('deposits_base'), 'deposits', 'Line_base') }}
+{{ unnest_cte(ref('deposits_base'), 'deposits', 'Line') }}
 select
     _airbyte_deposits_hashid,
     {{ json_extract_scalar(unnested_column_value('Line'), ['LineNum'], ['LineNum']) }} as LineNum,
@@ -19,7 +19,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('deposits_base') }} as table_alias
 -- Line at deposits/Line
-{{ cross_join_unnest('deposits', 'Line_base') }}
+{{ cross_join_unnest('deposits', 'Line') }}
 where 1 = 1
 and Line is not null
 
