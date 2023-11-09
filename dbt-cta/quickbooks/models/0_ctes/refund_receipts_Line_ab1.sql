@@ -4,8 +4,8 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ ref('refund_receipts') }}
-{{ unnest_cte(ref('refund_receipts'), 'refund_receipts', 'Line') }}
+-- depends_on: {{ ref('refund_receipts_base') }}
+{{ unnest_cte(ref('refund_receipts'), 'refund_receipts', 'Line_base') }}
 select
     _airbyte_refund_receipts_hashid,
     {{ json_extract_scalar(unnested_column_value('Line'), ['LineNum'], ['LineNum']) }} as LineNum,
@@ -17,9 +17,9 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('refund_receipts') }} as table_alias
+from {{ ref('refund_receipts_base') }} as table_alias
 -- Line at refund_receipts/Line
-{{ cross_join_unnest('refund_receipts', 'Line') }}
+{{ cross_join_unnest('refund_receipts', 'Line_base') }}
 where 1 = 1
 and Line is not null
 

@@ -4,7 +4,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ ref('journal_entries') }}
+-- depends_on: {{ ref('journal_entries_base') }}
 select
     _airbyte_journal_entries_hashid,
     {{ json_extract_scalar('MetaData', ['CreateTime'], ['CreateTime']) }} as CreateTime,
@@ -12,7 +12,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('journal_entries') }} as table_alias
+from {{ ref('journal_entries_base') }} as table_alias
 -- MetaData at journal_entries/MetaData
 where 1 = 1
 and MetaData is not null

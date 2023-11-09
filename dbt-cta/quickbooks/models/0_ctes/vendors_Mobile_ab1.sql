@@ -4,14 +4,14 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ ref('vendors') }}
+-- depends_on: {{ ref('vendors_base') }}
 select
     _airbyte_vendors_hashid,
     {{ json_extract_scalar('Mobile', ['FreeFormNumber'], ['FreeFormNumber']) }} as FreeFormNumber,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('vendors') }} as table_alias
+from {{ ref('vendors_base') }} as table_alias
 -- Mobile at vendors/Mobile
 where 1 = 1
 and Mobile is not null

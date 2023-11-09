@@ -4,8 +4,8 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ ref('invoices') }}
-{{ unnest_cte(ref('invoices'), 'invoices', 'CustomField') }}
+-- depends_on: {{ ref('invoices_base') }}
+{{ unnest_cte(ref('invoices_base'), 'invoices', 'CustomField') }}
 select
     _airbyte_invoices_hashid,
     {{ json_extract_scalar(unnested_column_value('CustomField'), ['Type'], ['Type']) }} as Type,
@@ -15,7 +15,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('invoices') }} as table_alias
+from {{ ref('invoices_base') }} as table_alias
 -- CustomField at invoices/CustomField
 {{ cross_join_unnest('invoices', 'CustomField') }}
 where 1 = 1

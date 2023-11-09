@@ -4,7 +4,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ ref('purchase_orders') }}
+-- depends_on: {{ ref('purchase_orders_base') }}
 select
     _airbyte_purchase_orders_hashid,
     {{ json_extract_scalar('ShipAddr', ['Long'], ['Long']) }} as Long,
@@ -16,7 +16,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('purchase_orders') }} as table_alias
+from {{ ref('purchase_orders_base') }} as table_alias
 -- ShipAddr at purchase_orders/ShipAddr
 where 1 = 1
 and ShipAddr is not null
