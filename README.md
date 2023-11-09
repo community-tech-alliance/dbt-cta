@@ -96,6 +96,13 @@ for file in $(ls mobilize/models/1_cta_base_tables/); do
     mv mobilize/models/1_cta_base_tables/"$file" mobilize/models/1_cta_base_tables/"$newFile"
 done
 ```
+
+## IMPORTANT note about tables generated from nested fields
+
+In some cases, Airbyte's default normalization creates new tables to flatten out nested fields. See models in Quickbooks for an example of this on steroids.
+
+If your sync has models that flatten out nested fields into new tables, make sure to update references in the models in `0_ctes` by adding the `_base` suffix to references (e.g., use `{{ ref('payments_base') }}` instead of `{{ ref('payments_base') }}`).
+
 ### Generating Sources
 
 The sources.yml provides context to the dynamic lookups in the models. The file looks like this:

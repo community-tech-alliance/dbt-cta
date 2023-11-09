@@ -4,7 +4,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ ref('bill_payments_Line') }}
+-- depends_on: {{ ref('bill_payments_Line_base') }}
 {{ unnest_cte(ref('bill_payments_Line'), 'Line', 'LinkedTxn') }}
 select
     _airbyte_Line_hashid,
@@ -13,7 +13,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('bill_payments_Line') }} as table_alias
+from {{ ref('bill_payments_Line_base') }} as table_alias
 -- LinkedTxn at bill_payments/Line/LinkedTxn
 {{ cross_join_unnest('Line', 'LinkedTxn') }}
 where 1 = 1

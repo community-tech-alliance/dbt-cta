@@ -4,7 +4,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ ref('invoices') }}
+-- depends_on: {{ ref('invoices_base') }}
 select
     _airbyte_invoices_hashid,
     {{ json_extract_scalar('TxnTaxDetail', ['TotalTax'], ['TotalTax']) }} as TotalTax,
@@ -13,7 +13,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('invoices') }} as table_alias
+from {{ ref('invoices_base') }} as table_alias
 -- TxnTaxDetail at invoices/TxnTaxDetail
 where 1 = 1
 and TxnTaxDetail is not null

@@ -4,7 +4,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ ref('refund_receipts') }}
+-- depends_on: {{ ref('refund_receipts_base') }}
 select
     _airbyte_refund_receipts_hashid,
     {{ json_extract_scalar('BillAddr', ['Line4'], ['Line4']) }} as Line4,
@@ -17,7 +17,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('refund_receipts') }} as table_alias
+from {{ ref('refund_receipts_base') }} as table_alias
 -- BillAddr at refund_receipts/BillAddr
 where 1 = 1
 and BillAddr is not null

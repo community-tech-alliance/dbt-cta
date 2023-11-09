@@ -4,7 +4,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ ref('journal_entries_TxnTaxDetail') }}
+-- depends_on: {{ ref('journal_entries_TxnTaxDetail_base') }}
 {{ unnest_cte(ref('journal_entries_TxnTaxDetail'), 'TxnTaxDetail', 'TaxLine') }}
 select
     _airbyte_TxnTaxDetail_hashid,
@@ -14,7 +14,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('journal_entries_TxnTaxDetail') }} as table_alias
+from {{ ref('journal_entries_TxnTaxDetail_base') }} as table_alias
 -- TaxLine at journal_entries/TxnTaxDetail/TaxLine
 {{ cross_join_unnest('TxnTaxDetail', 'TaxLine') }}
 where 1 = 1
