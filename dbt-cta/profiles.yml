@@ -37,6 +37,34 @@ default:
       job_execution_timeout_seconds: 600
       job_retries: 5
       job_retry_deadline_seconds: 1200
+
+    # Profiles for p2p syncs
+    # Extract/Load delivers raw source data to CTA_P2P_SOURCE_RAW_DATASET_ID, which gets passed to sources.yml
+    # dbt delivers normalized base tables to CTA_P2P_SOURCE_BASE_DATASET_ID, which have dbt tests run for them
+    cta_p2p_source_base:
+      project: "{{ env_var('CTA_PROJECT_ID') }}"
+      dataset: "{{ env_var('CTA_P2P_SOURCE_BASE_DATASET_ID') }}"
+      location: US
+      method: oauth
+      priority: batch
+      threads: 4
+      type: bigquery
+      job_creation_timeout_seconds: 30
+      job_execution_timeout_seconds: 600
+      job_retries: 5
+      job_retry_deadline_seconds: 1200
+    cta_p2p_destination:
+      project: "{{ env_var('CTA_PROJECT_ID') }}"
+      dataset: "{{ env_var('CTA_P2P_DESTINATION_DATASET_ID') }}"
+      location: US
+      method: oauth
+      priority: batch
+      threads: 4
+      type: bigquery
+      job_creation_timeout_seconds: 30
+      job_execution_timeout_seconds: 600
+      job_retries: 5
+      job_retry_deadline_seconds: 1200
 elementary:
   outputs:
     default:
