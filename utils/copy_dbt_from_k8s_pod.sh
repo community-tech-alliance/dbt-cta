@@ -1,5 +1,7 @@
 #!/bin/bash
 
+shopt -s nocasematch
+
 # Ensure the user provides a pod name regex pattern, namespace, and container name as arguments
 if [ "$#" -ne 3 ]; then
     echo "Usage: $0 <POD_NAME_REGEX_PATTERN> <NAMESPACE> <CONTAINER_NAME>"
@@ -18,7 +20,7 @@ while true; do
         # Use grep to filter pods based on the regex pattern
         if [[ $POD =~ $POD_NAME_PATTERN ]]; then
             # Fetch the container status using kubectl for each matching pod
-            CONTAINER_STATUS=$(kubectl get pod $POD -n $NAMESPACE -o=jsonpath="{.status.containerStatuses[?(@.name=='$CONTAINER_NAME')].state}")
+            CONTAINER_STATUS=$(kubectl get pod $POD -n $NAMESPACE -o=jsonpath="{.status.phase}")
 
             # Check if the container is Running
             if [[ "$CONTAINER_STATUS" == *'running'* ]]; then
