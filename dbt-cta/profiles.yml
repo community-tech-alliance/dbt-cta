@@ -53,9 +53,9 @@ default:
       job_execution_timeout_seconds: 600
       job_retries: 5
       job_retry_deadline_seconds: 1200
-    cta_p2p_destination:
+    cta_p2p_mapped:
       project: "{{ env_var('CTA_PROJECT_ID') }}"
-      dataset: "{{ env_var('CTA_P2P_DESTINATION_DATASET_ID') }}"
+      dataset: "{{ env_var('CTA_P2P_MAPPED_DATASET_ID') }}"
       location: US
       method: oauth
       priority: batch
