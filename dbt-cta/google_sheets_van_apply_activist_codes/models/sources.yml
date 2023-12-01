@@ -1,0 +1,14 @@
+version: 2
+sources:
+
+- name: cta_p2p_source_raw
+  database: '{{ env_var("CTA_PROJECT_ID") }}'
+  schema: '{{ env_var("CTA_P2P_SOURCE_RAW_DATASET_ID") }}'
+  tables:
+  - name: _raw_apply_activist_codes
+
+- name: cta_p2p_source_base
+  database: '{{ env_var("CTA_PROJECT_ID") }}'
+  schema: '{{ env_var("CTA_P2P_SOURCE_BASE_DATASET_ID") }}'
+  tables:
+  - name: apply_activist_codes_base
