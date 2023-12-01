@@ -1,0 +1,75 @@
+config:
+  partial_parse: true
+  printer_width: 120
+  send_anonymous_usage_stats: false
+  use_colors: true
+
+default:
+  outputs:
+    default:
+      type: bigquery
+      method: oauth
+      priority: batch
+      threads: 4
+      project: default
+      dataset: default
+    cta:
+      project: "{{ env_var('CTA_PROJECT_ID') }}"
+      dataset: "{{ env_var('CTA_DATASET_ID') }}"
+      location: US
+      method: oauth
+      priority: batch
+      threads: 4
+      type: bigquery
+      job_creation_timeout_seconds: 30
+      job_execution_timeout_seconds: 600
+      job_retries: 5
+      job_retry_deadline_seconds: 1200
+    partner:
+      project: "{{ env_var('PARTNER_PROJECT_ID') }}"
+      dataset: "{{ env_var('PARTNER_DATASET_ID') }}"
+      location: US
+      method: oauth
+      priority: batch
+      threads: 1
+      type: bigquery
+      job_creation_timeout_seconds: 30
+      job_execution_timeout_seconds: 600
+      job_retries: 5
+      job_retry_deadline_seconds: 1200
+
+    # Profiles for p2p syncs
+    # Extract/Load delivers raw source data to CTA_P2P_SOURCE_RAW_DATASET_ID, which gets passed to sources.yml
+    # dbt delivers normalized base tables to CTA_P2P_SOURCE_BASE_DATASET_ID, which have dbt tests run for them
+    cta_p2p_source_base:
+      project: "{{ env_var('CTA_PROJECT_ID') }}"
+      dataset: "{{ env_var('CTA_P2P_SOURCE_BASE_DATASET_ID') }}"
+      location: US
+      method: oauth
+      priority: batch
+      threads: 4
+      type: bigquery
+      job_creation_timeout_seconds: 30
+      job_execution_timeout_seconds: 600
+      job_retries: 5
+      job_retry_deadline_seconds: 1200
+    cta_p2p_mapped:
+      project: "{{ env_var('CTA_PROJECT_ID') }}"
+      dataset: "{{ env_var('CTA_P2P_MAPPED_DATASET_ID') }}"
+      location: US
+      method: oauth
+      priority: batch
+      threads: 4
+      type: bigquery
+      job_creation_timeout_seconds: 30
+      job_execution_timeout_seconds: 600
+      job_retries: 5
+      job_retry_deadline_seconds: 1200
+elementary:
+  outputs:
+    default:
+      type: bigquery
+      method: oauth
+      project: "{{ env_var('CTA_PROJECT_ID') }}"
+      dataset: elementary
+      threads: 4

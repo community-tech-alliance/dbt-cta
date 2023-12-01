@@ -3,7 +3,7 @@
     "timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)"
 ] %}
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
+    cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     partitions = partitions_to_replace,
     unique_key = "_airbyte_raw_id"
@@ -17,5 +17,5 @@ select
 from {{ ref('apply_activist_codes_ab1') }}
 
 {% if is_incremental() %}
-where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(",") }})
+where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})
 {% endif %}
