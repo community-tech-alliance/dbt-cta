@@ -85,11 +85,3 @@ models:
       +tags: 
         - cta
       +materialized: table
-
-
-    # point-to-point (p2p) syncs
-    # for p2p syncs, dbt transforms data to prepare it to update records in the destination. 
-    2_p2p_mapping:
-      +tags: 
-        - p2p
-      +materialized: table
