@@ -123,3 +123,6 @@ test-*.html
 
 # Virtual Environment
 .venv/
+
+# dbt files exported from kubernetes pod
+config/
