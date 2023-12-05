@@ -55,5 +55,5 @@ elementary:
       type: bigquery
       method: oauth
       project: "{{ env_var('CTA_PROJECT_ID') }}"
-      dataset: "elementary_{{ env_var('CTA_DATASET_ID') }}"
+      dataset: "elementary"
       threads: 4
