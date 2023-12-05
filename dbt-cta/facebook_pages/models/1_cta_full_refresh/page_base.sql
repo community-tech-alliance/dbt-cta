@@ -14,6 +14,7 @@
 select
     `_airbyte_page_hashid`,
     `_airbyte_extracted_at`,
+    `_airbyte_meta`,
     `name_with_location_descriptor`,
     `attire`,
     `messaging_feature_status`,

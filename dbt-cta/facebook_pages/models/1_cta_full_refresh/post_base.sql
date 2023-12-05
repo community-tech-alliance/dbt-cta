@@ -14,6 +14,7 @@
 select
     `_airbyte_post_hashid`,
     `_airbyte_extracted_at`,
+    `_airbyte_meta`,
     `sharedposts`,
     `created_time`,
     `sponsor_tags`,

@@ -14,6 +14,7 @@
 select
     `_airbyte_extracted_at`,
     `_airbyte_post_insights_hashid`,
+    `_airbyte_meta`,
     `period`,
     `values`,
     `name`,
