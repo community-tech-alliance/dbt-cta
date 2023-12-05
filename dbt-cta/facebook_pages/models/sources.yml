@@ -8,3 +8,7 @@ sources:
   - name: page_insights
   - name: post
   - name: post_insights
+  - name: page_base
+  - name: page_insights_base
+  - name: post_base
+  - name: post_insights_base
