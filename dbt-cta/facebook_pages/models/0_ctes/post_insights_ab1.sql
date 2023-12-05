@@ -5,7 +5,7 @@
     tags = [ "top-level-intermediate" ]
 ) }}
 -- SQL model to build a hash column based on the values of this record
--- depends_on: {{ source('cta','page_insights') }}
+-- depends_on: {{ source('cta','post_insights') }}
 select
     {{ dbt_utils.surrogate_key([
         'period',
@@ -13,9 +13,9 @@ select
         'description',
         'id',
         'title',
-    ]) }} as _airbyte_page_insights_hashid,
+    ]) }} as _airbyte_post_insights_hashid,
     tmp.*
-from {{ source('cta','page_insights') }}  tmp
--- page_insights
+from  {{ source('cta','post_insights') }} tmp
+-- post_insights
 where 1 = 1
 
