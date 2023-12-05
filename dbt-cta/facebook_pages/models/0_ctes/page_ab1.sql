@@ -84,7 +84,6 @@ select
         'unread_notif_count',
     ]) }} as _airbyte_page_hashid,
     tmp.*
-from {{ source('cta','page') }} tmp
+from {{ source('cta','page') }} as tmp
 -- page
 where 1 = 1
-

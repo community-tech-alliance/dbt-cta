@@ -15,7 +15,6 @@ select
         'title',
     ]) }} as _airbyte_page_insights_hashid,
     tmp.*
-from {{ source('cta','page_insights') }}  tmp
+from {{ source('cta','page_insights') }} as tmp
 -- page_insights
 where 1 = 1
-

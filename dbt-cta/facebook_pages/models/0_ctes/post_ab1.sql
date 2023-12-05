@@ -15,7 +15,6 @@ select
         'permalink_url',
     ]) }} as _airbyte_post_hashid,
     tmp.*
-from {{ source('cta','post') }}  tmp
+from {{ source('cta','post') }} as tmp
 -- post
 where 1 = 1
-

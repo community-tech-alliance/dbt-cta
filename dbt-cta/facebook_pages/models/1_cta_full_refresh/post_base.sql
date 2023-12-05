@@ -25,7 +25,7 @@ select
     `to`,
     `message`,
     `permalink_url`,
-    `actions`,
+    `actions`
 from {{ ref('post_ab1') }}
 
 {% if is_incremental() %}

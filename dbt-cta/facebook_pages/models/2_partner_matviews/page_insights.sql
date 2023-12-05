@@ -1,2 +1,2 @@
-SELECT *    
-FROM {{ source('cta','page_insights_base') }}
+select *
+from {{ source('cta','page_insights_base') }}

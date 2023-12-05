@@ -19,7 +19,7 @@ select
     `name`,
     `description`,
     `id`,
-    `title`,
+    `title`
 from {{ ref('page_insights_ab1') }}
 
 {% if is_incremental() %}
