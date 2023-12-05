@@ -1,0 +1,10 @@
+version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: airbyte_internal
+  tables:
+  - name: "{{ env_var('CTA_DATASET_ID') }}_raw__stream_page"
+  - name: "{{ env_var('CTA_DATASET_ID') }}_raw__stream_page_insights"
+  - name: "{{ env_var('CTA_DATASET_ID') }}_raw__stream_post"
+  - name: "{{ env_var('CTA_DATASET_ID') }}_raw__stream_post_insights"

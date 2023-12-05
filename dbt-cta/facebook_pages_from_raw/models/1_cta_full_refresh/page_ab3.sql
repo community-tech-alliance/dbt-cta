@@ -4,19 +4,19 @@
     unique_key = '_airbyte_raw_id',
     tags = [ "top-level-intermediate" ]
 ) }}
-
-{% set raw_source_name = var('cta_dataset_id') + "_raw__stream_page" %}
-
 -- SQL model to build a hash column based on the values of this record
--- depends_on: {{ source('cta', raw_source_name) }} 
+-- depends_on: {{ ref('page_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([        
+    {{ dbt_utils.surrogate_key([
         'name_with_location_descriptor',
         'attire',
         'about',
+        'culinary_team',
+        'app_id',
         'global_brand_page_name',
         'mission',
         'release_date',
+        'global_brand_root_id',
         'store_number',
         'description_html',
         'leadgen_tos_acceptance_time',
@@ -30,6 +30,9 @@ select
         'founded',
         'privacy_info_url',
         'company_overview',
+        'unread_message_count',
+        'single_line_address',
+        'promotion_ineligible_reason',
         'checkins',
         'written_by',
         'keywords',
@@ -45,6 +48,18 @@ select
         'name',
         'produced_by',
         'booking_agent',
+        'description',
+        'merchant_id',
+        'display_subtext',
+        'hours',
+        'hometown',
+        'screenplay_by',
+        'schedule',
+        'followers_count',
+        'recipient',
+        'username',
+        'were_here_count',
+        'studio',
         'bio',
         'displayed_message_response_time',
         'public_transit',
@@ -55,39 +70,11 @@ select
         'mpg',
         'access_token',
         'phone',
+        'instant_articles_review_status',
         'country_page_likes',
-        'plot_outline',
-        'products',
-        'place_type',
-        'general_manager',
-        'artists_we_like',
-        'page_token',
-        'impressum',
-        'press_contact',
-        'band_interests',
-        'members',
-        'personal_interests',
-        'merchant_review_status',
-        'rating_count',
-        'birthday',
-        'link',
-        'verification_status',
-        'network',
-        'directed_by',
-        'personal_info',
-        'influences',
-        'general_info',
-        'temporary_status',
-        'built',
-        'messenger_ads_quick_replies_type',
-        'awards',
-        'starring',
-        'unseen_message_count',
-        'category',
-        'unread_notif_count',
     ]) }} as _airbyte_page_hashid,
     tmp.*
-
-from {{ source('cta', raw_source_name) }} tmp
+from {{ ref('page_ab2') }} tmp
 -- page
 where 1 = 1
+
