@@ -12,7 +12,7 @@ models:
     relation: true
     columns: true
   elementary:
-    +schema: "elementary"
+    schema: "elementary"
     database:  "{{ env_var('CTA_PROJECT_ID') }}"
   default:
     0_ctes:
