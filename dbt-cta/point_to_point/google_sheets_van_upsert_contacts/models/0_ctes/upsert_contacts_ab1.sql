@@ -1,0 +1,20 @@
+select
+    _airbyte_raw_id,				
+    _airbyte_extracted_at,				
+    _airbyte_meta,
+    VanID,
+    External_3ID,
+    FirstName,
+    LastName,
+    MiddleName,
+    DOB,
+    Sex,
+    Address1,
+    Address2,
+    City,
+    State,
+    CountryCode,
+    CellPhone,
+    CellPhoneCountryCode,
+    Email
+from {{ source('cta_p2p_source_raw', '_raw_upsert_contacts') }}
