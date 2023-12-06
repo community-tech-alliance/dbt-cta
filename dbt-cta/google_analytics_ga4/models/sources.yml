@@ -1,0 +1,22 @@
+version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables:
+  - name: daily_active_users
+  - name: devices
+  - name: four_weekly_active_users
+  - name: locations
+  - name: pages
+  - name: traffic_sources
+  - name: website_overview
+  - name: weekly_active_users
+  - name: daily_active_users_base
+  - name: devices_base
+  - name: four_weekly_active_users_base
+  - name: locations_base
+  - name: pages_base
+  - name: traffic_sources_base
+  - name: website_overview_base
+  - name: weekly_active_users_base
