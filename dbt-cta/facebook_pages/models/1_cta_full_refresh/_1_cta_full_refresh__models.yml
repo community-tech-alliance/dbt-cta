@@ -1,0 +1,510 @@
+version: 2
+
+models:
+
+  - name: page_base
+    description: ''
+    columns:
+      - name: _airbyte_page_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: name_with_location_descriptor
+        description: ''
+      - name: attire
+        description: ''
+      - name: messaging_feature_status
+        description: ''
+      - name: subscribed_apps
+        description: ''
+      - name: about
+        description: ''
+      - name: videos
+        description: ''
+      - name: published_posts
+        description: ''
+      - name: cover
+        description: ''
+      - name: culinary_team
+        description: ''
+      - name: tagged
+        description: ''
+      - name: app_id
+        description: ''
+      - name: is_community_page
+        description: ''
+      - name: events
+        description: ''
+      - name: custom_labels
+        description: ''
+      - name: offer_eligible
+        description: ''
+      - name: messaging_feature_review
+        description: ''
+      - name: global_brand_page_name
+        description: ''
+      - name: personas
+        description: ''
+      - name: page_backed_instagram_accounts
+        description: ''
+      - name: image_copyrights
+        description: ''
+      - name: mission
+        description: ''
+      - name: release_date
+        description: ''
+      - name: global_brand_root_id
+        description: ''
+      - name: connected_instagram_account
+        description: ''
+      - name: store_number
+        description: ''
+      - name: description_html
+        description: ''
+      - name: instagram_accounts
+        description: ''
+      - name: albums
+        description: ''
+      - name: nativeoffers
+        description: ''
+      - name: leadgen_tos_acceptance_time
+        description: ''
+      - name: mini_shop_storefront
+        description: ''
+      - name: ads_posts
+        description: ''
+      - name: new_like_count
+        description: ''
+      - name: genre
+        description: ''
+      - name: record_label
+        description: ''
+      - name: start_info
+        description: ''
+      - name: store_code
+        description: ''
+      - name: website
+        description: ''
+      - name: global_brand_children
+        description: ''
+      - name: canvas_elements
+        description: ''
+      - name: differently_open_offerings
+        description: ''
+      - name: business
+        description: ''
+      - name: founded
+        description: ''
+      - name: is_owned
+        description: ''
+      - name: privacy_info_url
+        description: ''
+      - name: company_overview
+        description: ''
+      - name: unread_message_count
+        description: ''
+      - name: indexed_videos
+        description: ''
+      - name: restaurant_specialties
+        description: ''
+      - name: single_line_address
+        description: ''
+      - name: promotion_ineligible_reason
+        description: ''
+      - name: checkins
+        description: ''
+      - name: pickup_options
+        description: ''
+      - name: written_by
+        description: ''
+      - name: crosspost_whitelisted_pages
+        description: ''
+      - name: engagement
+        description: ''
+      - name: keywords
+        description: ''
+      - name: overall_star_rating
+        description: ''
+      - name: price_range
+        description: ''
+      - name: pharma_safety_info
+        description: ''
+      - name: features
+        description: ''
+      - name: affiliation
+        description: ''
+      - name: whatsapp_number
+        description: ''
+      - name: current_location
+        description: ''
+      - name: instagram_business_account
+        description: ''
+      - name: fan_count
+        description: ''
+      - name: talking_about_count
+        description: ''
+      - name: live_videos
+        description: ''
+      - name: name
+        description: ''
+      - name: produced_by
+        description: ''
+      - name: is_webhooks_subscribed
+        description: ''
+      - name: booking_agent
+        description: ''
+      - name: custom_user_settings
+        description: ''
+      - name: can_checkin
+        description: ''
+      - name: roles
+        description: ''
+      - name: description
+        description: ''
+      - name: voip_info
+        description: ''
+      - name: merchant_id
+        description: ''
+      - name: emails
+        description: ''
+      - name: messenger_profile
+        description: ''
+      - name: supports_instant_articles
+        description: ''
+      - name: ratings
+        description: ''
+      - name: display_subtext
+        description: ''
+      - name: copyright_whitelisted_partners
+        description: ''
+      - name: best_page
+        description: ''
+      - name: contact_address
+        description: ''
+      - name: hours
+        description: ''
+      - name: hometown
+        description: ''
+      - name: screenplay_by
+        description: ''
+      - name: is_always_open
+        description: ''
+      - name: delivery_and_pickup_option_info
+        description: ''
+      - name: secondary_receivers
+        description: ''
+      - name: agencies
+        description: ''
+      - name: commerce_payouts
+        description: ''
+      - name: media_fingerprints
+        description: ''
+      - name: is_eligible_for_branded_content
+        description: ''
+      - name: schedule
+        description: ''
+      - name: admin_notes
+        description: ''
+      - name: is_unclaimed
+        description: ''
+      - name: followers_count
+        description: ''
+      - name: recipient
+        description: ''
+      - name: location
+        description: ''
+      - name: video_lists
+        description: ''
+      - name: username
+        description: ''
+      - name: were_here_count
+        description: ''
+      - name: studio
+        description: ''
+      - name: parking
+        description: ''
+      - name: visitor_posts
+        description: ''
+      - name: food_styles
+        description: ''
+      - name: restaurant_services
+        description: ''
+      - name: is_published
+        description: ''
+      - name: bio
+        description: ''
+      - name: has_whatsapp_number
+        description: ''
+      - name: displayed_message_response_time
+        description: ''
+      - name: is_permanently_closed
+        description: ''
+      - name: chat_plugin
+        description: ''
+      - name: public_transit
+        description: ''
+      - name: category_list
+        description: ''
+      - name: is_messenger_bot_get_started_enabled
+        description: ''
+      - name: claimed_urls
+        description: ''
+      - name: copyright_whitelisted_ig_partners
+        description: ''
+      - name: season
+        description: ''
+      - name: store_location_descriptor
+        description: ''
+      - name: leadgen_tos_accepting_user
+        description: ''
+      - name: id
+        description: ''
+      - name: band_members
+        description: ''
+      - name: payment_options
+        description: ''
+      - name: instant_articles_insights
+        description: ''
+      - name: mpg
+        description: ''
+      - name: shop_setup_status
+        description: ''
+      - name: access_token
+        description: ''
+      - name: product_catalogs
+        description: ''
+      - name: commerce_orders
+        description: ''
+      - name: phone
+        description: ''
+      - name: instant_articles_review_status
+        description: ''
+      - name: commerce_eligibility
+        description: ''
+      - name: country_page_likes
+        description: ''
+      - name: video_copyright_rules
+        description: ''
+      - name: tabs
+        description: ''
+      - name: plot_outline
+        description: ''
+      - name: leadgen_forms
+        description: ''
+      - name: products
+        description: ''
+      - name: commerce_transactions
+        description: ''
+      - name: blocked
+        description: ''
+      - name: promotion_eligible
+        description: ''
+      - name: messenger_ads_default_quick_replies
+        description: ''
+      - name: place_type
+        description: ''
+      - name: general_manager
+        description: ''
+      - name: supports_donate_button_in_live_video
+        description: ''
+      - name: is_verified
+        description: ''
+      - name: scheduled_posts
+        description: ''
+      - name: picture
+        description: ''
+      - name: artists_we_like
+        description: ''
+      - name: page_token
+        description: ''
+      - name: rtb_dynamic_posts
+        description: ''
+      - name: parent_page
+        description: ''
+      - name: call_to_actions
+        description: ''
+      - name: posts
+        description: ''
+      - name: photos
+        description: ''
+      - name: impressum
+        description: ''
+      - name: press_contact
+        description: ''
+      - name: band_interests
+        description: ''
+      - name: has_whatsapp_business_number
+        description: ''
+      - name: members
+        description: ''
+      - name: has_added_app
+        description: ''
+      - name: likes
+        description: ''
+      - name: personal_interests
+        description: ''
+      - name: settings
+        description: ''
+      - name: insights
+        description: ''
+      - name: assigned_users
+        description: ''
+      - name: merchant_review_status
+        description: ''
+      - name: connected_page_backed_instagram_account
+        description: ''
+      - name: rating_count
+        description: ''
+      - name: feed
+        description: ''
+      - name: canvases
+        description: ''
+      - name: featured_video
+        description: ''
+      - name: is_messenger_platform_bot
+        description: ''
+      - name: commerce_merchant_settings
+        description: ''
+      - name: birthday
+        description: ''
+      - name: has_transitioned_to_new_page_experience
+        description: ''
+      - name: instant_articles
+        description: ''
+      - name: link
+        description: ''
+      - name: ad_campaign
+        description: ''
+      - name: verification_status
+        description: ''
+      - name: conversations
+        description: ''
+      - name: network
+        description: ''
+      - name: directed_by
+        description: ''
+      - name: personal_info
+        description: ''
+      - name: influences
+        description: ''
+      - name: general_info
+        description: ''
+      - name: can_post
+        description: ''
+      - name: preferred_audience
+        description: ''
+      - name: temporary_status
+        description: ''
+      - name: is_chain
+        description: ''
+      - name: built
+        description: ''
+      - name: groups
+        description: ''
+      - name: threads
+        description: ''
+      - name: messenger_ads_quick_replies_type
+        description: ''
+      - name: thread_owner
+        description: ''
+      - name: awards
+        description: ''
+      - name: starring
+        description: ''
+      - name: messenger_ads_default_icebreakers
+        description: ''
+      - name: locations
+        description: ''
+      - name: unseen_message_count
+        description: ''
+      - name: category
+        description: ''
+      - name: unread_notif_count
+        description: ''
+      - name: leadgen_tos_accepted
+        description: ''
+
+  - name: post_insights_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_post_insights_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: period
+        description: ''
+      - name: values
+        description: ''
+      - name: name
+        description: ''
+      - name: description
+        description: ''
+      - name: id
+        description: ''
+      - name: title
+        description: ''
+
+  - name: post_base
+    description: ''
+    columns:
+      - name: _airbyte_post_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: sharedposts
+        description: ''
+      - name: created_time
+        description: ''
+      - name: sponsor_tags
+        description: ''
+      - name: comments
+        description: ''
+      - name: message_tags
+        description: ''
+      - name: name
+        description: ''
+      - name: reactions
+        description: ''
+      - name: id
+        description: ''
+      - name: to
+        description: ''
+      - name: message
+        description: ''
+      - name: permalink_url
+        description: ''
+      - name: actions
+        description: ''
+
+  - name: page_insights_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_page_insights_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: period
+        description: ''
+      - name: values
+        description: ''
+      - name: name
+        description: ''
+      - name: description
+        description: ''
+      - name: id
+        description: ''
+      - name: title
+        description: ''
+
