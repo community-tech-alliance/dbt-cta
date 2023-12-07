@@ -16,7 +16,7 @@ def extract_column_names(client, project_id, dataset_id, table_id):
     columns = [(row["column_name"], row["data_type"]) for row in query_job]
     return columns
 
-def generate_cte_sql_files(client, base_dir, sync_name, project_id, dataset_id, template_file, jinja_variables):
+def generate_cte_sql_files(client, base_dir, sync_name, project_id, dataset_id, template_file):
     dataset_ref = client.dataset(dataset_id, project=project_id)
     tables = client.list_tables(dataset_ref)
     
@@ -51,8 +51,7 @@ def generate_cte_sql_files(client, base_dir, sync_name, project_id, dataset_id, 
             "columns_for_hashid": columns_for_hashid_str,
             "project": project_id,
             "dataset": dataset_id,
-            "table": table_id,
-            **jinja_variables
+            "table": table_id
         }
         
         # Render the Jinja template with the context
@@ -73,17 +72,10 @@ def main():
     base_dir = "../../dbt-cta"
     template_file = "template.sql"  # Specify the template file name
     
-    # Define the Jinja variables you want to pass to the template
-    jinja_variables = {
-        "cluster_by": "{{ config(\ncluster_by = \"_airbyte_extracted_at\",\npartition_by = {\"field\": \"_airbyte_extracted_at\", \"data_type\": \"timestamp\", \"granularity\": \"day\"},\nunique_key = '_airbyte_raw_id'\n) }}",
-        "partition_by": "...",  # Define your partition_by variable
-        "unique_key": "..."     # Define your unique_key variable
-    }
-    
     client = bigquery.Client()
     
     create_directory_structure(base_dir, sync_name)
-    generate_cte_sql_files(client, base_dir, sync_name, project_id, dataset_id, template_file, jinja_variables)
+    generate_cte_sql_files(client, base_dir, sync_name, project_id, dataset_id, template_file)
     
     print("Script completed successfully.")
 
