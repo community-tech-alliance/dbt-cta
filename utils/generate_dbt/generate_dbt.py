@@ -66,7 +66,7 @@ def generate_cte_sql_files(client, base_dir, sync_name, project_id, dataset_id, 
 
 def main():
     sync_name = input("Enter sync name (default: test)") or "test"
-    project_id = input("Enter project ID (default: dev3869c056): ") or "dev3869c056"
+    project_id = input("Enter project ID: ")
     dataset_id = input("Enter dataset ID (default: dbt_gen_science): ") or "dbt_gen_science"
     
     base_dir = "../../dbt-cta"
