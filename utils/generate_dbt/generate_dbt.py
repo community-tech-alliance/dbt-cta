@@ -7,6 +7,8 @@ def create_directory_structure(base_dir, sync_name):
     os.makedirs(os.path.join(base_dir, sync_name, "models/0_ctes"), exist_ok=True)
     os.makedirs(os.path.join(base_dir, sync_name, "models/1_cta_full_refresh"), exist_ok=True)
     os.makedirs(os.path.join(base_dir, sync_name, "models/2_partner_matviews"), exist_ok=True)
+    
+    print(f"Created directory structure for sync: {sync_name}")
 
 def extract_column_names(client, project_id, dataset_id, table_id):
     query = f"SELECT column_name, data_type FROM {project_id}.{dataset_id}.INFORMATION_SCHEMA.COLUMNS WHERE table_name = '{table_id}'"
@@ -23,6 +25,14 @@ def generate_cte_sql_files(client, base_dir, sync_name, project_id, dataset_id, 
     
     for table in tables:
         table_id = table.table_id
+        
+        # Ignore tables ending in "_base"
+        if table_id.endswith("_base"):
+            continue
+        
+        # Add "_ab1" suffix to the table file name
+        table_file_name = f"{table_id}_ab1.sql"
+        
         columns = extract_column_names(client, project_id, dataset_id, table_id)
         
         # Create a list of all columns (no quotes, single indent after the first)
@@ -49,9 +59,11 @@ def generate_cte_sql_files(client, base_dir, sync_name, project_id, dataset_id, 
         rendered_sql = template.render(**context)
         
         # Write the rendered SQL content to a file in the appropriate directory
-        file_path = os.path.join(base_dir, sync_name, f"models/0_ctes/{table_id}.sql")
+        file_path = os.path.join(base_dir, sync_name, f"models/0_ctes/{table_file_name}")
         with open(file_path, "w") as sql_file:
             sql_file.write(rendered_sql)
+        
+        print(f"Generated SQL file for table: {table_id}")
 
 def main():
     sync_name = input("Enter sync name (default: test)") or "test"
