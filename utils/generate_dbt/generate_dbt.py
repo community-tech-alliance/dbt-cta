@@ -62,7 +62,55 @@ def generate_cte_sql_files(client, base_dir, sync_name, project_id, dataset_id, 
         with open(file_path, "w") as sql_file:
             sql_file.write(rendered_sql)
         
-        print(f"Generated SQL file for table: {table_id}")
+        print(f"Generated CTE model for table: {table_id}")
+
+def generate_base_sql_files(client, base_dir, sync_name, project_id, dataset_id, template_file):
+    dataset_ref = client.dataset(dataset_id, project=project_id)
+    tables = client.list_tables(dataset_ref)
+    
+    env = Environment(loader=FileSystemLoader(os.path.dirname(template_file)))
+    template = env.get_template(os.path.basename(template_file))
+    
+    for table in tables:
+        table_id = table.table_id
+        
+        # Ignore tables ending in "_base"
+        if table_id.endswith("_base"):
+            continue
+        
+        # Add "_base" suffix to the table file name
+        table_file_name = f"{table_id}_base.sql"
+        
+        columns = extract_column_names(client, project_id, dataset_id, table_id)
+        
+        # Create a list of all columns (no quotes, single indent after the first)
+        all_columns = [field[0] for field in columns]
+        all_columns_str = ",\n  ".join(all_columns)
+        
+        # Create a list of columns with data types string, int, float, bool, date, or timestamp
+        columns_for_hashid = [f"'{field[0]}'" for field in columns if field[1] in ['STRING', 'INT64', 'FLOAT64', 'BOOL', 'DATE', 'TIMESTAMP']]
+        
+        # Indent twice for every element after the first without leading line break
+        columns_for_hashid_str = ",\n  ".join(columns_for_hashid)
+        
+        # Create a context dictionary with the variables you want to pass to the template
+        context = {
+            "all_columns": all_columns_str,
+            "columns_for_hashid": columns_for_hashid_str,
+            "project": project_id,
+            "dataset": dataset_id,
+            "table": table_id
+        }
+        
+        # Render the Jinja template with the context
+        rendered_sql = template.render(**context)
+        
+        # Write the rendered SQL content to a file in the "1_cta_full_refresh" directory with "_base" suffix
+        file_path = os.path.join(base_dir, sync_name, f"models/1_cta_full_refresh/{table_file_name}")
+        with open(file_path, "w") as sql_file:
+            sql_file.write(rendered_sql)
+        
+        print(f"Generated base model for table: {table_id}")
 
 def main():
     sync_name = input("Enter sync name (default: test)") or "test"
@@ -70,12 +118,15 @@ def main():
     dataset_id = input("Enter dataset ID (default: dbt_gen_science): ") or "dbt_gen_science"
     
     base_dir = "../../dbt-cta"
-    template_file = "template.sql"  # Specify the template file name
+    template_ctes = "templates/0_ctes.sql"
+    template_base_models_full_refresh = "templates/1_cta_full_refresh.sql"
     
     client = bigquery.Client()
     
     create_directory_structure(base_dir, sync_name)
-    generate_cte_sql_files(client, base_dir, sync_name, project_id, dataset_id, template_file)
+    generate_cte_sql_files(client, base_dir, sync_name, project_id, dataset_id, template_ctes)
+    generate_base_sql_files(client, base_dir, sync_name, project_id, dataset_id, template_base_models_full_refresh)
+
     
     print("Script completed successfully.")
 
