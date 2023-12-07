@@ -7,6 +7,7 @@ name = "pypi"
 argparse = "*"
 google-cloud-bigquery = "*"
 pyyaml = "*"
+jinja2 = "*"
 
 [dev-packages]
 

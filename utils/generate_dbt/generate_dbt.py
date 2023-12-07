@@ -1,8 +1,6 @@
 import os
 from google.cloud import bigquery
-
-# Define your template with a comment and a placeholder for column names
-template = "-- This is a template file.\nSELECT\n{columns}\nFROM `{project}.{dataset}.{table}`"
+from jinja2 import Environment, FileSystemLoader
 
 def create_directory_structure(base_dir, sync_name):
     os.makedirs(os.path.join(base_dir, sync_name), exist_ok=True)
@@ -16,48 +14,64 @@ def extract_column_names(client, project_id, dataset_id, table_id):
     columns = [(row["column_name"], row["data_type"]) for row in query_job]
     return columns
 
-def generate_sql_files(client, base_dir, sync_name, project_id, dataset_id, template_file):
+def generate_cte_sql_files(client, base_dir, sync_name, project_id, dataset_id, template_file, jinja_variables):
     dataset_ref = client.dataset(dataset_id, project=project_id)
     tables = client.list_tables(dataset_ref)
     
-    with open(template_file, "r") as template_file:
-        template_content = template_file.read()
+    env = Environment(loader=FileSystemLoader(os.path.dirname(template_file)))
+    template = env.get_template(os.path.basename(template_file))
     
     for table in tables:
         table_id = table.table_id
         columns = extract_column_names(client, project_id, dataset_id, table_id)
         
-        print("All columns:")
-        print(columns)
+        # Create a list of all columns (no quotes, single indent after the first)
+        all_columns = [field[0] for field in columns]
+        all_columns_str = ",\n  ".join(all_columns)
         
-        # Create a list of fields with data types string, int, float, or bool
-        valid_fields = [f"{field[0]}" for field in columns if field[1] in ['STRING', 'INT64', 'FLOAT64', 'BOOL'] and not field[0].startswith('_airbyte_')]
+        # Create a list of columns with data types string, int, float, bool, date, or timestamp
+        columns_for_hashid = [f"'{field[0]}'" for field in columns if field[1] in ['STRING', 'INT64', 'FLOAT64', 'BOOL', 'DATE', 'TIMESTAMP']]
         
-        print("Valid columns: ")
-        print(valid_fields)
-
-        # Create SQL content by replacing the {columns} placeholder in the template
-        sql_content = template_content.format(columns=',\n'.join(valid_fields), project=project_id, dataset=dataset_id, table=table_id)
+        # Indent twice for every element after the first without leading line break
+        columns_for_hashid_str = ",\n  ".join(columns_for_hashid)
         
-        # Write the SQL content to a file in the appropriate directory
+        # Create a context dictionary with the variables you want to pass to the template
+        context = {
+            "all_columns": all_columns_str,
+            "columns_for_hashid": columns_for_hashid_str,
+            "project": project_id,
+            "dataset": dataset_id,
+            "table": table_id,
+            **jinja_variables
+        }
+        
+        # Render the Jinja template with the context
+        rendered_sql = template.render(**context)
+        
+        # Write the rendered SQL content to a file in the appropriate directory
         file_path = os.path.join(base_dir, sync_name, f"models/0_ctes/{table_id}.sql")
         with open(file_path, "w") as sql_file:
-            sql_file.write(sql_content)
+            sql_file.write(rendered_sql)
 
 def main():
-    sync_name = input("Enter sync name (default: sync_default): ") or "test"
-    project_id = input("Enter project ID (default: your_project_id): ") or "dev3869c056"
-    dataset_id = input("Enter dataset ID (default: your_dataset_id): ") or "dbt_gen_science"
+    sync_name = input("Enter sync name (default: test)") or "test"
+    project_id = input("Enter project ID (default: dev3869c056): ") or "dev3869c056"
+    dataset_id = input("Enter dataset ID (default: dbt_gen_science): ") or "dbt_gen_science"
     
     base_dir = "../../dbt-cta"
     template_file = "template.sql"  # Specify the template file name
-
+    
+    # Define the Jinja variables you want to pass to the template
+    jinja_variables = {
+        "cluster_by": "{{ config(\ncluster_by = \"_airbyte_extracted_at\",\npartition_by = {\"field\": \"_airbyte_extracted_at\", \"data_type\": \"timestamp\", \"granularity\": \"day\"},\nunique_key = '_airbyte_raw_id'\n) }}",
+        "partition_by": "...",  # Define your partition_by variable
+        "unique_key": "..."     # Define your unique_key variable
+    }
+    
     client = bigquery.Client()
     
-    print("Creating folders to contain new dbt models.")
     create_directory_structure(base_dir, sync_name)
-    print(f"Generating dbt models for tables in {project_id}.{dataset_id}.")
-    generate_sql_files(client, base_dir, sync_name, project_id, dataset_id, template_file)
+    generate_cte_sql_files(client, base_dir, sync_name, project_id, dataset_id, template_file, jinja_variables)
     
     print("Script completed successfully.")
 
