@@ -33,6 +33,9 @@ models:
         description: ''
       - name: _airbyte_user_acquisition_first_user_source_platform_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: user_acquisition_first_user_source_medium_report_base
     description: ''
@@ -67,6 +70,9 @@ models:
         description: ''
       - name: _airbyte_user_acquisition_first_user_source_medium_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: pages_title_and_screen_class_report_base
     description: ''
@@ -97,6 +103,9 @@ models:
         description: ''
       - name: _airbyte_pages_title_and_screen_class_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ecommerce_purchases_item_brand_report_base
     description: ''
@@ -125,6 +134,9 @@ models:
         description: ''
       - name: _airbyte_ecommerce_purchases_item_brand_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: devices_base
     description: ''
@@ -161,6 +173,9 @@ models:
         description: ''
       - name: _airbyte_devices_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: demographic_country_report_base
     description: ''
@@ -189,6 +204,9 @@ models:
         description: ''
       - name: _airbyte_demographic_country_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: publisher_ads_ad_source_report_base
     description: ''
@@ -213,6 +231,9 @@ models:
         description: ''
       - name: _airbyte_publisher_ads_ad_source_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: content_group_report_base
     description: ''
@@ -243,6 +264,9 @@ models:
         description: ''
       - name: _airbyte_content_group_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: tech_device_model_report_base
     description: ''
@@ -273,6 +297,9 @@ models:
         description: ''
       - name: _airbyte_tech_device_model_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: locations_base
     description: ''
@@ -309,6 +336,9 @@ models:
         description: ''
       - name: _airbyte_locations_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: pages_path_report_base
     description: ''
@@ -339,6 +369,9 @@ models:
         description: ''
       - name: _airbyte_pages_path_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: conversions_report_base
     description: ''
@@ -361,6 +394,9 @@ models:
         description: ''
       - name: _airbyte_conversions_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: user_acquisition_first_user_google_ads_ad_group_name_report_base
     description: ''
@@ -393,6 +429,9 @@ models:
         description: ''
       - name: _airbyte_user_acquisition_first_user_google_ads_ad_group_name_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: tech_os_with_version_report_base
     description: ''
@@ -423,6 +462,9 @@ models:
         description: ''
       - name: _airbyte_tech_os_with_version_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: user_acquisition_first_user_google_ads_ad_network_type_report_base
     description: ''
@@ -455,6 +497,9 @@ models:
         description: ''
       - name: _airbyte_user_acquisition_first_user_google_ads_ad_network_type_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: weekly_active_users_base
     description: ''
@@ -471,6 +516,9 @@ models:
         description: ''
       - name: _airbyte_weekly_active_users_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ecommerce_purchases_item_category_report_base
     description: ''
@@ -499,6 +547,9 @@ models:
         description: ''
       - name: _airbyte_ecommerce_purchases_item_category_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: demographic_language_report_base
     description: ''
@@ -527,6 +578,9 @@ models:
         description: ''
       - name: _airbyte_demographic_language_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: demographic_gender_report_base
     description: ''
@@ -555,6 +609,9 @@ models:
         description: ''
       - name: _airbyte_demographic_gender_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: demographic_region_report_base
     description: ''
@@ -583,6 +640,9 @@ models:
         description: ''
       - name: _airbyte_demographic_region_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ecommerce_purchases_item_name_report_base
     description: ''
@@ -611,6 +671,9 @@ models:
         description: ''
       - name: _airbyte_ecommerce_purchases_item_name_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: user_acquisition_first_user_campaign_report_base
     description: ''
@@ -643,6 +706,9 @@ models:
         description: ''
       - name: _airbyte_user_acquisition_first_user_campaign_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: weekly_events_report_base
     description: ''
@@ -671,6 +737,9 @@ models:
         description: ''
       - name: _airbyte_weekly_events_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: demographic_city_report_base
     description: ''
@@ -699,6 +768,9 @@ models:
         description: ''
       - name: _airbyte_demographic_city_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: publisher_ads_page_path_report_base
     description: ''
@@ -723,6 +795,9 @@ models:
         description: ''
       - name: _airbyte_publisher_ads_page_path_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: website_overview_base
     description: ''
@@ -753,6 +828,9 @@ models:
         description: ''
       - name: _airbyte_website_overview_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: traffic_acquisition_session_campaign_report_base
     description: ''
@@ -787,6 +865,9 @@ models:
         description: ''
       - name: _airbyte_traffic_acquisition_session_campaign_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: traffic_acquisition_session_source_medium_report_base
     description: ''
@@ -823,6 +904,9 @@ models:
         description: ''
       - name: _airbyte_traffic_acquisition_session_source_medium_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: tech_app_version_report_base
     description: ''
@@ -853,6 +937,9 @@ models:
         description: ''
       - name: _airbyte_tech_app_version_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: traffic_acquisition_session_source_report_base
     description: ''
@@ -887,6 +974,9 @@ models:
         description: ''
       - name: _airbyte_traffic_acquisition_session_source_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: tech_browser_report_base
     description: ''
@@ -917,6 +1007,9 @@ models:
         description: ''
       - name: _airbyte_tech_browser_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: pages_base
     description: ''
@@ -939,6 +1032,9 @@ models:
         description: ''
       - name: _airbyte_pages_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: pages_title_and_screen_name_report_base
     description: ''
@@ -969,6 +1065,9 @@ models:
         description: ''
       - name: _airbyte_pages_title_and_screen_name_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: four_weekly_active_users_base
     description: ''
@@ -985,6 +1084,9 @@ models:
         description: ''
       - name: _airbyte_four_weekly_active_users_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: traffic_acquisition_session_source_platform_report_base
     description: ''
@@ -1019,6 +1121,9 @@ models:
         description: ''
       - name: _airbyte_traffic_acquisition_session_source_platform_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: user_acquisition_first_user_medium_report_base
     description: ''
@@ -1051,6 +1156,9 @@ models:
         description: ''
       - name: _airbyte_user_acquisition_first_user_medium_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: traffic_sources_base
     description: ''
@@ -1085,6 +1193,9 @@ models:
         description: ''
       - name: _airbyte_traffic_sources_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ecommerce_purchases_item_category_5_report_base
     description: ''
@@ -1113,6 +1224,9 @@ models:
         description: ''
       - name: _airbyte_ecommerce_purchases_item_category_5_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ecommerce_purchases_item_id_report_base
     description: ''
@@ -1141,6 +1255,9 @@ models:
         description: ''
       - name: _airbyte_ecommerce_purchases_item_id_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: publisher_ads_ad_unit_report_base
     description: ''
@@ -1165,6 +1282,9 @@ models:
         description: ''
       - name: _airbyte_publisher_ads_ad_unit_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: tech_device_category_report_base
     description: ''
@@ -1195,6 +1315,9 @@ models:
         description: ''
       - name: _airbyte_tech_device_category_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ecommerce_purchases_item_category_2_report_base
     description: ''
@@ -1223,6 +1346,9 @@ models:
         description: ''
       - name: _airbyte_ecommerce_purchases_item_category_2_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: publisher_ads_ad_format_report_base
     description: ''
@@ -1247,6 +1373,9 @@ models:
         description: ''
       - name: _airbyte_publisher_ads_ad_format_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: demographic_age_report_base
     description: ''
@@ -1275,6 +1404,9 @@ models:
         description: ''
       - name: _airbyte_demographic_age_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: traffic_acquisition_session_medium_report_base
     description: ''
@@ -1309,6 +1441,9 @@ models:
         description: ''
       - name: _airbyte_traffic_acquisition_session_medium_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ecommerce_purchases_item_category_3_report_base
     description: ''
@@ -1337,6 +1472,9 @@ models:
         description: ''
       - name: _airbyte_ecommerce_purchases_item_category_3_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: demographic_interest_report_base
     description: ''
@@ -1365,6 +1503,9 @@ models:
         description: ''
       - name: _airbyte_demographic_interest_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: tech_platform_report_base
     description: ''
@@ -1395,6 +1536,9 @@ models:
         description: ''
       - name: _airbyte_tech_platform_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: tech_platform_device_category_report_base
     description: ''
@@ -1427,6 +1571,9 @@ models:
         description: ''
       - name: _airbyte_tech_platform_device_category_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: user_acquisition_first_user_source_report_base
     description: ''
@@ -1459,6 +1606,9 @@ models:
         description: ''
       - name: _airbyte_user_acquisition_first_user_source_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ecommerce_purchases_item_category_report_combined_base
     description: ''
@@ -1495,6 +1645,9 @@ models:
         description: ''
       - name: _airbyte_ecommerce_purchases_item_category_report_combined_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: daily_active_users_base
     description: ''
@@ -1511,6 +1664,9 @@ models:
         description: ''
       - name: _airbyte_daily_active_users_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: tech_screen_resolution_report_base
     description: ''
@@ -1541,6 +1697,9 @@ models:
         description: ''
       - name: _airbyte_tech_screen_resolution_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: traffic_acquisition_session_default_channel_grouping_report_base
     description: ''
@@ -1575,6 +1734,9 @@ models:
         description: ''
       - name: _airbyte_traffic_acquisition_session_default_channel_grouping_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ecommerce_purchases_item_category_4_report_base
     description: ''
@@ -1603,6 +1765,9 @@ models:
         description: ''
       - name: _airbyte_ecommerce_purchases_item_category_4_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: tech_operating_system_report_base
     description: ''
@@ -1633,6 +1798,9 @@ models:
         description: ''
       - name: _airbyte_tech_operating_system_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: events_report_base
     description: ''
@@ -1657,4 +1825,7 @@ models:
         description: ''
       - name: _airbyte_events_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
