@@ -1,4 +1,3 @@
-
 # generate_dbt.py
 
 This script generates dbt models for tables in a given dataset.
