@@ -1,0 +1,1660 @@
+version: 2
+
+models:
+
+  - name: user_acquisition_first_user_source_platform_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: userengagementduration
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: firstusersourceplatform
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_user_acquisition_first_user_source_platform_report_hashid
+        description: ''
+
+  - name: user_acquisition_first_user_source_medium_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: userengagementduration
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: firstusersource
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: firstusermedium
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_user_acquisition_first_user_source_medium_report_hashid
+        description: ''
+
+  - name: pages_title_and_screen_class_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: userengagementduration
+        description: ''
+      - name: screenpageviews
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: unifiedscreenclass
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_pages_title_and_screen_class_report_hashid
+        description: ''
+
+  - name: ecommerce_purchases_item_brand_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: purchasetoviewrate
+        description: ''
+      - name: itembrand
+        description: ''
+      - name: itemrevenue
+        description: ''
+      - name: itemsaddedtocart
+        description: ''
+      - name: itemspurchased
+        description: ''
+      - name: carttoviewrate
+        description: ''
+      - name: itemsviewed
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_ecommerce_purchases_item_brand_report_hashid
+        description: ''
+
+  - name: devices_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: newusers
+        description: ''
+      - name: sessions
+        description: ''
+      - name: sessionsperuser
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: averagesessionduration
+        description: ''
+      - name: screenpageviewspersession
+        description: ''
+      - name: operatingsystem
+        description: ''
+      - name: bouncerate
+        description: ''
+      - name: property_id
+        description: ''
+      - name: devicecategory
+        description: ''
+      - name: browser
+        description: ''
+      - name: screenpageviews
+        description: ''
+      - name: _airbyte_devices_hashid
+        description: ''
+
+  - name: demographic_country_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: country
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_demographic_country_report_hashid
+        description: ''
+
+  - name: publisher_ads_ad_source_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: publisheradimpressions
+        description: ''
+      - name: adunitexposure
+        description: ''
+      - name: totaladrevenue
+        description: ''
+      - name: adsourcename
+        description: ''
+      - name: property_id
+        description: ''
+      - name: publisheradclicks
+        description: ''
+      - name: _airbyte_publisher_ads_ad_source_report_hashid
+        description: ''
+
+  - name: content_group_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: userengagementduration
+        description: ''
+      - name: contentgroup
+        description: ''
+      - name: screenpageviews
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_content_group_report_hashid
+        description: ''
+
+  - name: tech_device_model_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: devicemodel
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_tech_device_model_report_hashid
+        description: ''
+
+  - name: locations_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: country
+        description: ''
+      - name: newusers
+        description: ''
+      - name: sessions
+        description: ''
+      - name: sessionsperuser
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: city
+        description: ''
+      - name: averagesessionduration
+        description: ''
+      - name: screenpageviewspersession
+        description: ''
+      - name: bouncerate
+        description: ''
+      - name: property_id
+        description: ''
+      - name: screenpageviews
+        description: ''
+      - name: region
+        description: ''
+      - name: _airbyte_locations_hashid
+        description: ''
+
+  - name: pages_path_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: userengagementduration
+        description: ''
+      - name: screenpageviews
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: pagepath
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_pages_path_report_hashid
+        description: ''
+
+  - name: conversions_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: eventname
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_conversions_report_hashid
+        description: ''
+
+  - name: user_acquisition_first_user_google_ads_ad_group_name_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: firstusergoogleadsadgroupname
+        description: ''
+      - name: userengagementduration
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_user_acquisition_first_user_google_ads_ad_group_name_report_hashid
+        description: ''
+
+  - name: tech_os_with_version_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: operatingsystemwithversion
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_tech_os_with_version_report_hashid
+        description: ''
+
+  - name: user_acquisition_first_user_google_ads_ad_network_type_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: userengagementduration
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: firstusergoogleadsadnetworktype
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_user_acquisition_first_user_google_ads_ad_network_type_report_hashid
+        description: ''
+
+  - name: weekly_active_users_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: active7dayusers
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_weekly_active_users_hashid
+        description: ''
+
+  - name: ecommerce_purchases_item_category_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: purchasetoviewrate
+        description: ''
+      - name: itemrevenue
+        description: ''
+      - name: itemcategory
+        description: ''
+      - name: itemsaddedtocart
+        description: ''
+      - name: itemspurchased
+        description: ''
+      - name: carttoviewrate
+        description: ''
+      - name: itemsviewed
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_ecommerce_purchases_item_category_report_hashid
+        description: ''
+
+  - name: demographic_language_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: language
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_demographic_language_report_hashid
+        description: ''
+
+  - name: demographic_gender_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: usergender
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_demographic_gender_report_hashid
+        description: ''
+
+  - name: demographic_region_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: region
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_demographic_region_report_hashid
+        description: ''
+
+  - name: ecommerce_purchases_item_name_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: purchasetoviewrate
+        description: ''
+      - name: itemname
+        description: ''
+      - name: itemrevenue
+        description: ''
+      - name: itemsaddedtocart
+        description: ''
+      - name: itemspurchased
+        description: ''
+      - name: carttoviewrate
+        description: ''
+      - name: itemsviewed
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_ecommerce_purchases_item_name_report_hashid
+        description: ''
+
+  - name: user_acquisition_first_user_campaign_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: userengagementduration
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: firstusercampaignname
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_user_acquisition_first_user_campaign_report_hashid
+        description: ''
+
+  - name: weekly_events_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: eventcountperuser
+        description: ''
+      - name: enddate
+        description: ''
+      - name: yearweek
+        description: ''
+      - name: eventname
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: startdate
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_weekly_events_report_hashid
+        description: ''
+
+  - name: demographic_city_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: city
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_demographic_city_report_hashid
+        description: ''
+
+  - name: publisher_ads_page_path_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: publisheradimpressions
+        description: ''
+      - name: adunitexposure
+        description: ''
+      - name: totaladrevenue
+        description: ''
+      - name: pagepath
+        description: ''
+      - name: property_id
+        description: ''
+      - name: publisheradclicks
+        description: ''
+      - name: _airbyte_publisher_ads_page_path_report_hashid
+        description: ''
+
+  - name: website_overview_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: newusers
+        description: ''
+      - name: sessions
+        description: ''
+      - name: sessionsperuser
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: averagesessionduration
+        description: ''
+      - name: screenpageviews
+        description: ''
+      - name: screenpageviewspersession
+        description: ''
+      - name: bouncerate
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_website_overview_hashid
+        description: ''
+
+  - name: traffic_acquisition_session_campaign_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: sessions
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: sessioncampaignname
+        description: ''
+      - name: userengagementduration
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: eventspersession
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_traffic_acquisition_session_campaign_report_hashid
+        description: ''
+
+  - name: traffic_acquisition_session_source_medium_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: sessions
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: eventspersession
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: property_id
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: sessionsource
+        description: ''
+      - name: userengagementduration
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: sessionmedium
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: _airbyte_traffic_acquisition_session_source_medium_report_hashid
+        description: ''
+
+  - name: tech_app_version_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: newusers
+        description: ''
+      - name: appversion
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_tech_app_version_report_hashid
+        description: ''
+
+  - name: traffic_acquisition_session_source_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: sessions
+        description: ''
+      - name: conversions
+        description: ''
+      - name: sessionsource
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: userengagementduration
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: eventspersession
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_traffic_acquisition_session_source_report_hashid
+        description: ''
+
+  - name: tech_browser_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: browser
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_tech_browser_report_hashid
+        description: ''
+
+  - name: pages_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: hostname
+        description: ''
+      - name: screenpageviews
+        description: ''
+      - name: pagepathplusquerystring
+        description: ''
+      - name: bouncerate
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_pages_hashid
+        description: ''
+
+  - name: pages_title_and_screen_name_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: userengagementduration
+        description: ''
+      - name: screenpageviews
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: unifiedscreenname
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_pages_title_and_screen_name_report_hashid
+        description: ''
+
+  - name: four_weekly_active_users_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: active28dayusers
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_four_weekly_active_users_hashid
+        description: ''
+
+  - name: traffic_acquisition_session_source_platform_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: sessions
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: userengagementduration
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: sessionsourceplatform
+        description: ''
+      - name: eventspersession
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_traffic_acquisition_session_source_platform_report_hashid
+        description: ''
+
+  - name: user_acquisition_first_user_medium_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: userengagementduration
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: firstusermedium
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_user_acquisition_first_user_medium_report_hashid
+        description: ''
+
+  - name: traffic_sources_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: newusers
+        description: ''
+      - name: sessions
+        description: ''
+      - name: sessionsource
+        description: ''
+      - name: sessionsperuser
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: averagesessionduration
+        description: ''
+      - name: screenpageviews
+        description: ''
+      - name: screenpageviewspersession
+        description: ''
+      - name: sessionmedium
+        description: ''
+      - name: bouncerate
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_traffic_sources_hashid
+        description: ''
+
+  - name: ecommerce_purchases_item_category_5_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: purchasetoviewrate
+        description: ''
+      - name: itemrevenue
+        description: ''
+      - name: itemsaddedtocart
+        description: ''
+      - name: itemcategory5
+        description: ''
+      - name: itemspurchased
+        description: ''
+      - name: carttoviewrate
+        description: ''
+      - name: itemsviewed
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_ecommerce_purchases_item_category_5_report_hashid
+        description: ''
+
+  - name: ecommerce_purchases_item_id_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: purchasetoviewrate
+        description: ''
+      - name: itemid
+        description: ''
+      - name: itemrevenue
+        description: ''
+      - name: itemsaddedtocart
+        description: ''
+      - name: itemspurchased
+        description: ''
+      - name: carttoviewrate
+        description: ''
+      - name: itemsviewed
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_ecommerce_purchases_item_id_report_hashid
+        description: ''
+
+  - name: publisher_ads_ad_unit_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: publisheradimpressions
+        description: ''
+      - name: adunitexposure
+        description: ''
+      - name: adunitname
+        description: ''
+      - name: totaladrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: publisheradclicks
+        description: ''
+      - name: _airbyte_publisher_ads_ad_unit_report_hashid
+        description: ''
+
+  - name: tech_device_category_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: devicecategory
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_tech_device_category_report_hashid
+        description: ''
+
+  - name: ecommerce_purchases_item_category_2_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: purchasetoviewrate
+        description: ''
+      - name: itemrevenue
+        description: ''
+      - name: itemcategory2
+        description: ''
+      - name: itemsaddedtocart
+        description: ''
+      - name: itemspurchased
+        description: ''
+      - name: carttoviewrate
+        description: ''
+      - name: itemsviewed
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_ecommerce_purchases_item_category_2_report_hashid
+        description: ''
+
+  - name: publisher_ads_ad_format_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: publisheradimpressions
+        description: ''
+      - name: adunitexposure
+        description: ''
+      - name: totaladrevenue
+        description: ''
+      - name: adformat
+        description: ''
+      - name: property_id
+        description: ''
+      - name: publisheradclicks
+        description: ''
+      - name: _airbyte_publisher_ads_ad_format_report_hashid
+        description: ''
+
+  - name: demographic_age_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: useragebracket
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_demographic_age_report_hashid
+        description: ''
+
+  - name: traffic_acquisition_session_medium_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: sessions
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: userengagementduration
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: eventspersession
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: sessionmedium
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_traffic_acquisition_session_medium_report_hashid
+        description: ''
+
+  - name: ecommerce_purchases_item_category_3_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: purchasetoviewrate
+        description: ''
+      - name: itemcategory3
+        description: ''
+      - name: itemrevenue
+        description: ''
+      - name: itemsaddedtocart
+        description: ''
+      - name: itemspurchased
+        description: ''
+      - name: carttoviewrate
+        description: ''
+      - name: itemsviewed
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_ecommerce_purchases_item_category_3_report_hashid
+        description: ''
+
+  - name: demographic_interest_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: brandinginterest
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_demographic_interest_report_hashid
+        description: ''
+
+  - name: tech_platform_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: platform
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_tech_platform_report_hashid
+        description: ''
+
+  - name: tech_platform_device_category_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: devicecategory
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: platform
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_tech_platform_device_category_report_hashid
+        description: ''
+
+  - name: user_acquisition_first_user_source_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: userengagementduration
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: firstusersource
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_user_acquisition_first_user_source_report_hashid
+        description: ''
+
+  - name: ecommerce_purchases_item_category_report_combined_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: itemcategory4
+        description: ''
+      - name: itemcategory3
+        description: ''
+      - name: itemcategory2
+        description: ''
+      - name: itemcategory
+        description: ''
+      - name: itemcategory5
+        description: ''
+      - name: carttoviewrate
+        description: ''
+      - name: property_id
+        description: ''
+      - name: purchasetoviewrate
+        description: ''
+      - name: itemrevenue
+        description: ''
+      - name: itemsaddedtocart
+        description: ''
+      - name: itemspurchased
+        description: ''
+      - name: itemsviewed
+        description: ''
+      - name: _airbyte_ecommerce_purchases_item_category_report_combined_hashid
+        description: ''
+
+  - name: daily_active_users_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: active1dayusers
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_daily_active_users_hashid
+        description: ''
+
+  - name: tech_screen_resolution_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: screenresolution
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_tech_screen_resolution_report_hashid
+        description: ''
+
+  - name: traffic_acquisition_session_default_channel_grouping_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: sessions
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: userengagementduration
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: eventspersession
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: sessiondefaultchannelgrouping
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_traffic_acquisition_session_default_channel_grouping_report_hashid
+        description: ''
+
+  - name: ecommerce_purchases_item_category_4_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: itemcategory4
+        description: ''
+      - name: purchasetoviewrate
+        description: ''
+      - name: itemrevenue
+        description: ''
+      - name: itemsaddedtocart
+        description: ''
+      - name: itemspurchased
+        description: ''
+      - name: carttoviewrate
+        description: ''
+      - name: itemsviewed
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_ecommerce_purchases_item_category_4_report_hashid
+        description: ''
+
+  - name: tech_operating_system_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: engagementrate
+        description: ''
+      - name: newusers
+        description: ''
+      - name: conversions
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: engagedsessions
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: operatingsystem
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_tech_operating_system_report_hashid
+        description: ''
+
+  - name: events_report_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: eventcountperuser
+        description: ''
+      - name: eventname
+        description: ''
+      - name: eventcount
+        description: ''
+      - name: totalrevenue
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_events_report_hashid
+        description: ''
+
