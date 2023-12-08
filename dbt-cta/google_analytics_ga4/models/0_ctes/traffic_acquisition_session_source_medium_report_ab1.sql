@@ -25,9 +25,7 @@ select
    sessionMedium,
    totalRevenue,
    {{ dbt_utils.surrogate_key([
-     '_airbyte_raw_id',
-    '_airbyte_extracted_at',
-    'date',
+     'date',
     'sessions',
     'totalUsers',
     'eventCount',

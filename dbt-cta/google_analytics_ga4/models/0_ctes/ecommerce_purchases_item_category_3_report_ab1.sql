@@ -21,9 +21,7 @@ select
    itemsViewed,
    property_id,
    {{ dbt_utils.surrogate_key([
-     '_airbyte_raw_id',
-    '_airbyte_extracted_at',
-    'date',
+     'date',
     'itemCategory3',
     'itemsAddedToCart',
     'itemsPurchased',

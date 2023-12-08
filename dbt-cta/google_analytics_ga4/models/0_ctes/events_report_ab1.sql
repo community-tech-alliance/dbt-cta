@@ -19,9 +19,7 @@ select
    totalRevenue,
    property_id,
    {{ dbt_utils.surrogate_key([
-     '_airbyte_raw_id',
-    '_airbyte_extracted_at',
-    'date',
+     'date',
     'totalUsers',
     'eventName',
     'eventCount',

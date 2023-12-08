@@ -15,9 +15,7 @@ select
    active1DayUsers,
    property_id,
    {{ dbt_utils.surrogate_key([
-     '_airbyte_raw_id',
-    '_airbyte_extracted_at',
-    'date',
+     'date',
     'active1DayUsers',
     'property_id'
     ]) }} as _airbyte_daily_active_users_hashid

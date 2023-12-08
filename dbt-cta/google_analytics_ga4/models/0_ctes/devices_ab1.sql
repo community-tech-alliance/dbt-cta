@@ -25,9 +25,7 @@ select
    browser,
    screenPageViews,
    {{ dbt_utils.surrogate_key([
-     '_airbyte_raw_id',
-    '_airbyte_extracted_at',
-    'date',
+     'date',
     'newUsers',
     'sessions',
     'totalUsers',
