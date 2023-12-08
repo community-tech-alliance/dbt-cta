@@ -96,7 +96,7 @@ def generate_sql_files(
         columns_for_hashid = [
             f"'{field[0]}'"
             for field in columns
-            if field[1] in ["STRING", "INT64", "FLOAT64", "BOOL", "DATE", "TIMESTAMP"]
+            if field[1] in ["STRING", "INT64", "FLOAT64", "BOOL", "DATE", "TIMESTAMP"] and not field[0].startswith("_airbyte")
         ]
 
         # Indent twice for every element after the first without leading line break
