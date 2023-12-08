@@ -12,7 +12,7 @@
 
 -- Final base SQL model
 -- depends_on: {{ ref('{% endraw %}{{ table }}{% raw %}_ab1') }}{% endraw %}
-select * except _airbyte_raw_id
+select * except (_airbyte_raw_id)
 from {% raw %}{{ ref('{% endraw %}{{ table }}{% raw %}_ab1') }}
 
 {% if is_incremental() %}

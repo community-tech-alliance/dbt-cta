@@ -5,10 +5,10 @@ from jinja2 import Environment, FileSystemLoader
 def create_directory_structure(base_dir, sync_name, base_models_template_list):
     os.makedirs(os.path.join(base_dir, sync_name), exist_ok=True)
 
-    if "templates/1_cta_full_refresh.sql" in base_models_template_list:
+    if "1_cta_full_refresh" in base_models_template_list:
         os.makedirs(os.path.join(base_dir, sync_name, "models/1_cta_full_refresh"), exist_ok=True)
-    if "templates/1_cta_incremental.sql" in base_models_template_list:
-            os.makedirs(os.path.join(base_dir, sync_name, "models/1_cta_incremental"), exist_ok=True)
+    if "1_cta_incremental" in base_models_template_list:
+        os.makedirs(os.path.join(base_dir, sync_name, "models/1_cta_incremental"), exist_ok=True)
 
     os.makedirs(os.path.join(base_dir, sync_name, "models/0_ctes"), exist_ok=True)
     os.makedirs(os.path.join(base_dir, sync_name, "models/2_partner_matviews"), exist_ok=True)
@@ -21,7 +21,8 @@ def extract_column_names(client, project_id, dataset_id, table_id):
     columns = [(row["column_name"], row["data_type"]) for row in query_job]
     return columns
 
-def generate_sql_files(client, base_dir, sync_name, project_id, dataset_id, template_file, template_name, file_suffix):
+def generate_sql_files(client, base_dir, sync_name, project_id, dataset_id, template_name, file_suffix):
+    template_file = f"templates/{template_name}.sql"
     dataset_ref = client.dataset(dataset_id, project=project_id)
     tables = client.list_tables(dataset_ref)
 
@@ -101,14 +102,13 @@ def main():
     base_models_option = input("Which base models do you need generated? (1=full_refresh, 2=incremental, 3 or skip to generate both): ") or '3'
 
     base_dir = "../../dbt-cta"
-    template_ctes = "templates/0_ctes.sql"
     
     client = bigquery.Client()
 
     base_models_option_mapping = {
-        '1': ["templates/1_cta_full_refresh.sql"],
-        '2': ["templates/1_cta_incremental.sql"],
-        '3': ["templates/1_cta_full_refresh.sql","templates/1_cta_incremental.sql"]
+        '1': ["1_cta_full_refresh"],
+        '2': ["1_cta_incremental"],
+        '3': ["1_cta_full_refresh","1_cta_incremental"]
     }
 
     base_models_template_list = base_models_option_mapping[base_models_option]
@@ -117,13 +117,14 @@ def main():
     create_directory_structure(base_dir, sync_name, base_models_template_list)
 
     # generate base models
-    for template_file in base_models_template_list:
-        template_name=os.path.splitext(os.path.basename(template_file))[0]
-        print(template_name)
-        #generate_sql_files(client, base_dir, sync_name, project_id, dataset_id, template_file, template_name, file_suffix = '_base')
+    for template_name in base_models_template_list:
+        generate_sql_files(client, base_dir, sync_name, project_id, dataset_id, template_name, file_suffix = '_base')
     
     # generate CTE models
-    #generate_sql_files(client, base_dir, sync_name, project_id, dataset_id, template_file=template_ctes, template_name='0_ctes',file_suffix='_ab1')
+    generate_sql_files(client, base_dir, sync_name, project_id, dataset_id, template_name='0_ctes',file_suffix='_ab1')
+
+    # generate partner matviews
+    generate_sql_files(client, base_dir, sync_name, project_id, dataset_id, template_name='2_partner_matviews',file_suffix='')
 
     # generate sources.yml
     generate_sources_yaml(client, base_dir, sync_name, project_id, dataset_id)
