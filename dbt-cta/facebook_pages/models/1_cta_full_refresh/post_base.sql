@@ -14,6 +14,7 @@
 select
     `_airbyte_post_hashid`,
     `_airbyte_extracted_at`,
+    `_airbyte_meta`,
     `sharedposts`,
     `created_time`,
     `sponsor_tags`,
@@ -25,7 +26,7 @@ select
     `to`,
     `message`,
     `permalink_url`,
-    `actions`,
+    `actions`
 from {{ ref('post_ab1') }}
 
 {% if is_incremental() %}

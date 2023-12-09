@@ -4,7 +4,11 @@ sources:
   database: "{{ env_var('CTA_PROJECT_ID') }}"
   schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables:
-  - name: "{{ env_var('CTA_DATASET_ID') }}_raw__stream_page"
+  - name: page
   - name: page_insights
   - name: post
   - name: post_insights
+  - name: page_base
+  - name: page_insights_base
+  - name: post_base
+  - name: post_insights_base

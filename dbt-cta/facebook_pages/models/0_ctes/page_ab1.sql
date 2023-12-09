@@ -4,11 +4,8 @@
     unique_key = '_airbyte_raw_id',
     tags = [ "top-level-intermediate" ]
 ) }}
-
-{% set raw_source_name = var('cta_dataset_id') + "_raw__stream_page" %}
-
 -- SQL model to build a hash column based on the values of this record
--- depends_on: {{ source('cta', raw_source_name) }} 
+-- depends_on: {{ source('cta','page') }} 
 select
     {{ dbt_utils.surrogate_key([        
         'name_with_location_descriptor',
@@ -87,7 +84,6 @@ select
         'unread_notif_count',
     ]) }} as _airbyte_page_hashid,
     tmp.*
-
-from {{ source('cta', raw_source_name) }} tmp
+from {{ source('cta','page') }} as tmp
 -- page
 where 1 = 1

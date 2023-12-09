@@ -14,12 +14,13 @@
 select
     `_airbyte_extracted_at`,
     `_airbyte_post_insights_hashid`,
+    `_airbyte_meta`,
     `period`,
     `values`,
     `name`,
     `description`,
     `id`,
-    `title`,
+    `title`
 from {{ ref('post_insights_ab1') }}
 
 {% if is_incremental() %}

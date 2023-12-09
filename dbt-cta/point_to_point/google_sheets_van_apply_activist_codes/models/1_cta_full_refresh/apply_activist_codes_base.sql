@@ -6,22 +6,15 @@
     cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     partitions = partitions_to_replace,
-    unique_key = "_airbyte_page_hashid"
+    unique_key = "_airbyte_raw_id"
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('page_insights_ab1') }}
+-- depends_on: {{ ref('apply_activist_codes_ab1') }}
+
 select
-    `_airbyte_extracted_at`,
-    `_airbyte_page_insights_hashid`,
-    `_airbyte_meta`,
-    `period`,
-    `values`,
-    `name`,
-    `description`,
-    `id`,
-    `title`
-from {{ ref('page_insights_ab1') }}
+    *
+from {{ ref('apply_activist_codes_ab1') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})
