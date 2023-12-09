@@ -1,9 +1,11 @@
-# Facebook Pages
+# Facebook Pages (BQ V2 using raw data in `airbyte_internal`)
 
-This dbt assumes the Airbyte connection is using BigQuery Destination V2, which automatically delivers normalized tables to the CTA project used for creating base tables that are ultimately synced to partner projects.
+When running dbt on the raw tables created from the BQ V2 destination connector, `cta_dataset_id` must be passed in as a dbt var (in addition to exporting to the env_var CTA_DATASET_ID). This is because profiles.yml can only read env_vars and the SQL model templates can only read vars. :|
 
-Thus, all the dbt is doing for syncs like this is to start with the normalized tables (listed in sources.yml) and perform light transformations to:
+## Usage
 
-- remove unwanted columns (namely `_airbyte_raw_id` and `_airbyte_meta`)
-- cast fields to data types, if something is desired other than Airbyte's default behavior (usually not needed)
-- rename any columns (usually not needed)
+```shell
+
+dbt run --target cta --select tag:cta --vars '{"cta_dataset_id": "raza_facebook_pages"}'
+```
+
