@@ -1,0 +1,9 @@
+{% raw %}version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables: {% endraw %}{% for table in table_list %}
+    - name: {{ table }}{% endfor %}
+  {% for table in table_list %}
+    - name: {{ table }}_base{% endfor %}
