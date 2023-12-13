@@ -819,8 +819,6 @@ models:
         description: ''
       - name: _airbyte_delivery_forms_exclusions_hashid
         description: ''
-        tests:
-          - unique
 
   - name: versions_base
     description: ''
