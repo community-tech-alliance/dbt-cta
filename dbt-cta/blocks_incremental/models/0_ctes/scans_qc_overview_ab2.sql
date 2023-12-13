@@ -43,7 +43,7 @@ select
     cast(ethnicity as {{ dbt_utils.type_string() }}) as ethnicity,
     {{ cast_to_boolean('signature') }} as signature,
     cast(turf_parent_id as {{ dbt_utils.type_bigint() }}) as turf_parent_id,
-    cast({{ empty_string_to_null('date_of_birth') }} as {{ type_date() }}) as date_of_birth,
+    safe_cast({{ empty_string_to_null('date_of_birth') }} as {{ type_date() }}) as date_of_birth,
     cast(extras as {{ dbt_utils.type_string() }}) as extras,
     cast(voting_street_address_two as {{ dbt_utils.type_string() }}) as voting_street_address_two,
     cast(voting_address_longitude as {{ dbt_utils.type_float() }}) as voting_address_longitude,
