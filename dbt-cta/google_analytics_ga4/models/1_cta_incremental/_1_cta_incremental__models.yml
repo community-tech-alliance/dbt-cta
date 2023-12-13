@@ -1,0 +1,234 @@
+version: 2
+
+models:
+
+  - name: devices_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: newusers
+        description: ''
+      - name: sessions
+        description: ''
+      - name: sessionsperuser
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: averagesessionduration
+        description: ''
+      - name: screenpageviewspersession
+        description: ''
+      - name: operatingsystem
+        description: ''
+      - name: bouncerate
+        description: ''
+      - name: property_id
+        description: ''
+      - name: devicecategory
+        description: ''
+      - name: browser
+        description: ''
+      - name: screenpageviews
+        description: ''
+      - name: _airbyte_devices_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: locations_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: country
+        description: ''
+      - name: newusers
+        description: ''
+      - name: sessions
+        description: ''
+      - name: sessionsperuser
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: city
+        description: ''
+      - name: averagesessionduration
+        description: ''
+      - name: screenpageviewspersession
+        description: ''
+      - name: bouncerate
+        description: ''
+      - name: property_id
+        description: ''
+      - name: screenpageviews
+        description: ''
+      - name: region
+        description: ''
+      - name: _airbyte_locations_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: weekly_active_users_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: active7dayusers
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_weekly_active_users_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: website_overview_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: newusers
+        description: ''
+      - name: sessions
+        description: ''
+      - name: sessionsperuser
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: averagesessionduration
+        description: ''
+      - name: screenpageviews
+        description: ''
+      - name: screenpageviewspersession
+        description: ''
+      - name: bouncerate
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_website_overview_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: pages_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: hostname
+        description: ''
+      - name: screenpageviews
+        description: ''
+      - name: pagepathplusquerystring
+        description: ''
+      - name: bouncerate
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_pages_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: four_weekly_active_users_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: active28dayusers
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_four_weekly_active_users_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: traffic_sources_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: newusers
+        description: ''
+      - name: sessions
+        description: ''
+      - name: sessionsource
+        description: ''
+      - name: sessionsperuser
+        description: ''
+      - name: totalusers
+        description: ''
+      - name: averagesessionduration
+        description: ''
+      - name: screenpageviews
+        description: ''
+      - name: screenpageviewspersession
+        description: ''
+      - name: sessionmedium
+        description: ''
+      - name: bouncerate
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_traffic_sources_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: daily_active_users_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: date
+        description: ''
+      - name: active1dayusers
+        description: ''
+      - name: property_id
+        description: ''
+      - name: _airbyte_daily_active_users_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
