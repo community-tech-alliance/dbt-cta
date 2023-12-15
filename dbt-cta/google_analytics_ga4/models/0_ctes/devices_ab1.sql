@@ -1,4 +1,3 @@
-
 {{ config(
     cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
@@ -8,22 +7,22 @@
 -- depends_on: {{ source('cta', 'devices') }}
 
 select
-   _airbyte_raw_id,
-   _airbyte_extracted_at,
-   _airbyte_meta,
-   date,
-   newUsers,
-   sessions,
-   sessionsPerUser,
-   totalUsers,
-   averageSessionDuration,
-   screenPageViewsPerSession,
-   operatingSystem,
-   bounceRate,
-   property_id,
-   deviceCategory,
-   browser,
-   screenPageViews,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
+    _airbyte_meta,
+    date,
+    newUsers,
+    sessions,
+    sessionsPerUser,
+    totalUsers,
+    averageSessionDuration,
+    screenPageViewsPerSession,
+    operatingSystem,
+    bounceRate,
+    property_id,
+    deviceCategory,
+    browser,
+    screenPageViews,
    {{ dbt_utils.surrogate_key([
      'date',
     'newUsers',
