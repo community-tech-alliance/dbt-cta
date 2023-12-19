@@ -5,13 +5,13 @@
     tags = [ "top-level-intermediate" ]
 ) }}
 -- SQL model to build a hash column based on the values of this record
--- depends_on: {{ ref('captricity_batches_ab2') }}
+-- depends_on: {{ ref('captricity_batches_ab3') }}
 select * from
     (
         select
             *,
             row_number() over (partition by id order by updated_at desc) as rownum
-        from {{ ref('captricity_batches_ab2') }}
+        from {{ ref('captricity_batches_ab3') }}
     )
 where rownum = 1
 
