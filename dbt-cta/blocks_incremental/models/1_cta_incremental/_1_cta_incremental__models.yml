@@ -21,16 +21,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_check_in_answers_hashid
         description: ''
-        tests:
-          - unique
 
   - name: tasks_base
     description: ''
@@ -55,16 +51,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_tasks_hashid
         description: ''
-        tests:
-          - unique
 
   - name: documents_base
     description: ''
@@ -91,16 +83,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_documents_hashid
         description: ''
-        tests:
-          - unique
 
   - name: quality_control_flags_base
     description: ''
@@ -135,16 +123,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_quality_control_flags_hashid
         description: ''
-        tests:
-          - unique
 
   - name: voter_registration_scan_batches_base
     description: ''
@@ -189,16 +173,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_voter_registration_scan_batches_hashid
         description: ''
-        tests:
-          - unique
 
   - name: addresses_base
     description: ''
@@ -233,16 +213,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_addresses_hashid
         description: ''
-        tests:
-          - unique
 
   - name: phone_banking_sessions_base
     description: ''
@@ -265,16 +241,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_phone_banking_sessions_hashid
         description: ''
-        tests:
-          - unique
 
   - name: reports_base
     description: ''
@@ -299,16 +271,12 @@ models:
           - unique
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_reports_hashid
         description: ''
-        tests:
-          - unique
 
   - name: voter_sources_base
     description: ''
@@ -327,16 +295,12 @@ models:
           - unique
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_voter_sources_hashid
         description: ''
-        tests:
-          - unique
 
   - name: metrics_base
     description: ''
@@ -361,16 +325,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_metrics_hashid
         description: ''
-        tests:
-          - unique
 
   - name: teams_base
     description: ''
@@ -403,16 +363,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_teams_hashid
         description: ''
-        tests:
-          - unique
 
   - name: districts_inbound_base
     description: ''
@@ -435,16 +391,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_districts_inbound_hashid
         description: ''
-        tests:
-          - unique
 
   - name: district_types_base
     description: ''
@@ -463,16 +415,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_district_types_hashid
         description: ''
-        tests:
-          - unique
 
   - name: event_types_base
     description: ''
@@ -489,16 +437,12 @@ models:
           - unique
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_event_types_hashid
         description: ''
-        tests:
-          - unique
 
   - name: phone_banking_answer_options_base
     description: ''
@@ -519,16 +463,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_phone_banking_answer_options_hashid
         description: ''
-        tests:
-          - unique
 
   - name: people_base
     description: ''
@@ -621,16 +561,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_people_hashid
         description: ''
-        tests:
-          - unique
 
   - name: organizations_base
     description: ''
@@ -701,16 +637,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_organizations_hashid
         description: ''
-        tests:
-          - unique
 
   - name: folders_base
     description: ''
@@ -737,16 +669,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_folders_hashid
         description: ''
-        tests:
-          - unique
 
   - name: absentee_ballot_request_forms_base
     description: ''
@@ -797,16 +725,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_absentee_ballot_request_forms_hashid
         description: ''
-        tests:
-          - unique
 
   - name: email_templates_base
     description: ''
@@ -829,16 +753,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_email_templates_hashid
         description: ''
-        tests:
-          - unique
 
   - name: petitions_signatures_base
     description: ''
@@ -895,16 +815,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_petitions_signatures_hashid
         description: ''
-        tests:
-          - unique
 
   - name: districts_base
     description: ''
@@ -929,16 +845,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_districts_hashid
         description: ''
-        tests:
-          - unique
 
   - name: campaigns_base
     description: ''
@@ -963,16 +875,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_campaigns_hashid
         description: ''
-        tests:
-          - unique
 
   - name: event_documents_base
     description: ''
@@ -993,16 +901,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_event_documents_hashid
         description: ''
-        tests:
-          - unique
 
   - name: twilio_calls_base
     description: ''
@@ -1029,16 +933,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_twilio_calls_hashid
         description: ''
-        tests:
-          - unique
 
   - name: quality_control_comments_base
     description: ''
@@ -1059,16 +959,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_quality_control_comments_hashid
         description: ''
-        tests:
-          - unique
 
   - name: voter_registration_scan_visual_review_responses_base
     description: ''
@@ -1091,16 +987,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_voter_registration_scan_visual_review_responses_hashid
         description: ''
-        tests:
-          - unique
 
   - name: canvassers_base
     description: ''
@@ -1145,16 +1037,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_canvassers_hashid
         description: ''
-        tests:
-          - unique
 
   - name: blocks_base
     description: ''
@@ -1171,16 +1059,12 @@ models:
           - unique
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_blocks_hashid
         description: ''
-        tests:
-          - unique
 
   - name: groupings_base
     description: ''
@@ -1203,16 +1087,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_groupings_hashid
         description: ''
-        tests:
-          - unique
 
   - name: phone_verification_questions_base
     description: ''
@@ -1231,16 +1111,12 @@ models:
           - unique
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_phone_verification_questions_hashid
         description: ''
-        tests:
-          - unique
 
   - name: catalist_uploads_base
     description: ''
@@ -1263,16 +1139,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_catalist_uploads_hashid
         description: ''
-        tests:
-          - unique
 
   - name: organization_memberships_base
     description: ''
@@ -1295,16 +1167,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_organization_memberships_hashid
         description: ''
-        tests:
-          - unique
 
   - name: phone_banking_questions_base
     description: ''
@@ -1329,16 +1197,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_phone_banking_questions_hashid
         description: ''
-        tests:
-          - unique
 
   - name: venues_base
     description: ''
@@ -1371,16 +1235,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_venues_hashid
         description: ''
-        tests:
-          - unique
 
   - name: dashboard_widgets_base
     description: ''
@@ -1407,16 +1267,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_dashboard_widgets_hashid
         description: ''
-        tests:
-          - unique
 
   - name: imports_base
     description: ''
@@ -1453,16 +1309,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_imports_hashid
         description: ''
-        tests:
-          - unique
 
   - name: responsibilities_base
     description: ''
@@ -1479,16 +1331,12 @@ models:
           - unique
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_responsibilities_hashid
         description: ''
-        tests:
-          - unique
 
   - name: searches_base
     description: ''
@@ -1515,16 +1363,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_searches_hashid
         description: ''
-        tests:
-          - unique
 
   - name: activist_codes_base
     description: ''
@@ -1543,16 +1387,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_activist_codes_hashid
         description: ''
-        tests:
-          - unique
 
   - name: event_attendees_base
     description: ''
@@ -1585,16 +1425,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_event_attendees_hashid
         description: ''
-        tests:
-          - unique
 
   - name: phone_banking_calls_base
     description: ''
@@ -1635,16 +1471,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_phone_banking_calls_hashid
         description: ''
-        tests:
-          - unique
 
   - name: phone_banking_scripts_base
     description: ''
@@ -1667,16 +1499,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_phone_banking_scripts_hashid
         description: ''
-        tests:
-          - unique
 
   - name: petition_packets_base
     description: ''
@@ -1701,16 +1529,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_petition_packets_hashid
         description: ''
-        tests:
-          - unique
 
   - name: denominations_base
     description: ''
@@ -1727,16 +1551,12 @@ models:
           - unique
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_denominations_hashid
         description: ''
-        tests:
-          - unique
 
   - name: quick_links_base
     description: ''
@@ -1767,16 +1587,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_quick_links_hashid
         description: ''
-        tests:
-          - unique
 
   - name: phone_banking_script_objects_base
     description: ''
@@ -1805,16 +1621,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_phone_banking_script_objects_hashid
         description: ''
-        tests:
-          - unique
 
   - name: phone_banking_phone_banks_base
     description: ''
@@ -1863,16 +1675,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_phone_banking_phone_banks_hashid
         description: ''
-        tests:
-          - unique
 
   - name: check_ins_base
     description: ''
@@ -1893,16 +1701,12 @@ models:
           - unique
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_check_ins_hashid
         description: ''
-        tests:
-          - unique
 
   - name: petitions_books_base
     description: ''
@@ -1935,16 +1739,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_petitions_books_hashid
         description: ''
-        tests:
-          - unique
 
   - name: phone_banking_responses_base
     description: ''
@@ -1967,16 +1767,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_phone_banking_responses_hashid
         description: ''
-        tests:
-          - unique
 
   - name: events_base
     description: ''
@@ -2037,16 +1833,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_events_hashid
         description: ''
-        tests:
-          - unique
 
   - name: quality_control_schedules_base
     description: ''
@@ -2069,16 +1861,12 @@ models:
           - unique
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_quality_control_schedules_hashid
         description: ''
-        tests:
-          - unique
 
   - name: parties_base
     description: ''
@@ -2097,16 +1885,12 @@ models:
           - unique
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_parties_hashid
         description: ''
-        tests:
-          - unique
 
   - name: search_documents_base
     description: ''
@@ -2125,16 +1909,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_search_documents_hashid
         description: ''
-        tests:
-          - unique
 
   - name: phone_verification_responses_base
     description: ''
@@ -2163,16 +1943,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_phone_verification_responses_hashid
         description: ''
-        tests:
-          - unique
 
   - name: votes_base
     description: ''
@@ -2199,16 +1975,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_votes_hashid
         description: ''
-        tests:
-          - unique
 
   - name: phone_banking_script_texts_base
     description: ''
@@ -2229,16 +2001,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_phone_banking_script_texts_hashid
         description: ''
-        tests:
-          - unique
 
   - name: tenant_blocks_base
     description: ''
@@ -2257,16 +2025,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_tenant_blocks_hashid
         description: ''
-        tests:
-          - unique
 
   - name: tenants_base
     description: ''
@@ -2305,16 +2069,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_tenants_hashid
         description: ''
-        tests:
-          - unique
 
   - name: filter_rules_base
     description: ''
@@ -2337,16 +2097,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_filter_rules_hashid
         description: ''
-        tests:
-          - unique
 
   - name: list_folders_base
     description: ''
@@ -2365,16 +2121,12 @@ models:
           - unique
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_list_folders_hashid
         description: ''
-        tests:
-          - unique
 
   - name: notes_base
     description: ''
@@ -2395,16 +2147,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_notes_hashid
         description: ''
-        tests:
-          - unique
 
   - name: roles_base
     description: ''
@@ -2441,16 +2189,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_roles_hashid
         description: ''
-        tests:
-          - unique
 
   - name: widgets_base
     description: ''
@@ -2477,16 +2221,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_widgets_hashid
         description: ''
-        tests:
-          - unique
 
   - name: teachers_base
     description: ''
@@ -2537,16 +2277,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_teachers_hashid
         description: ''
-        tests:
-          - unique
 
   - name: captricity_batches_base
     description: ''
@@ -2581,16 +2317,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_captricity_batches_hashid
         description: ''
-        tests:
-          - unique
 
   - name: dashboard_layouts_base
     description: ''
@@ -2611,16 +2343,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_dashboard_layouts_hashid
         description: ''
-        tests:
-          - unique
 
   - name: announcements_base
     description: ''
@@ -2643,16 +2371,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_announcements_hashid
         description: ''
-        tests:
-          - unique
 
   - name: activities_base
     description: ''
@@ -2683,16 +2407,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_activities_hashid
         description: ''
-        tests:
-          - unique
 
   - name: elections_base
     description: ''
@@ -2713,16 +2433,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_elections_hashid
         description: ''
-        tests:
-          - unique
 
   - name: team_memberships_base
     description: ''
@@ -2745,16 +2461,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_team_memberships_hashid
         description: ''
-        tests:
-          - unique
 
   - name: volunteerships_base
     description: ''
@@ -2779,16 +2491,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_volunteerships_hashid
         description: ''
-        tests:
-          - unique
 
   - name: petitions_canvasser_pages_base
     description: ''
@@ -2825,16 +2533,12 @@ models:
           - unique
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_petitions_canvasser_pages_hashid
         description: ''
-        tests:
-          - unique
 
   - name: activist_code_counts_base
     description: ''
@@ -2857,16 +2561,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_activist_code_counts_hashid
         description: ''
-        tests:
-          - unique
 
   - name: users_base
     description: ''
@@ -2965,16 +2665,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_users_hashid
         description: ''
-        tests:
-          - unique
 
   - name: relationships_base
     description: ''
@@ -2997,16 +2693,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_relationships_hashid
         description: ''
-        tests:
-          - unique
 
   - name: lists_base
     description: ''
@@ -3045,16 +2737,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_lists_hashid
         description: ''
-        tests:
-          - unique
 
   - name: import_files_base
     description: ''
@@ -3081,16 +2769,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_import_files_hashid
         description: ''
-        tests:
-          - unique
 
   - name: schedules_base
     description: ''
@@ -3125,16 +2809,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_schedules_hashid
         description: ''
-        tests:
-          - unique
 
   - name: quality_control_phone_verification_calls_base
     description: ''
@@ -3163,16 +2843,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_quality_control_phone_verification_calls_hashid
         description: ''
-        tests:
-          - unique
 
   - name: ar_internal_metadata_base
     description: ''
@@ -3187,8 +2863,6 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
@@ -3221,16 +2895,12 @@ models:
           - unique
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_actions_hashid
         description: ''
-        tests:
-          - unique
 
   - name: voter_registration_scans_base
     description: ''
@@ -3269,16 +2939,12 @@ models:
           - unique
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_voter_registration_scans_hashid
         description: ''
-        tests:
-          - unique
 
   - name: tenant_quick_links_base
     description: ''
@@ -3297,16 +2963,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_tenant_quick_links_hashid
         description: ''
-        tests:
-          - unique
 
   - name: event_shifts_base
     description: ''
@@ -3327,16 +2989,12 @@ models:
           - unique
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_event_shifts_hashid
         description: ''
-        tests:
-          - unique
 
   - name: voter_registration_scan_batch_cover_sheets_base
     description: ''
@@ -3355,16 +3013,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_voter_registration_scan_batch_cover_sheets_hashid
         description: ''
-        tests:
-          - unique
 
   - name: landing_page_signups_base
     description: ''
@@ -3483,16 +3137,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_landing_page_signups_hashid
         description: ''
-        tests:
-          - unique
 
   - name: relationship_types_base
     description: ''
@@ -3509,16 +3159,12 @@ models:
           - unique
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_relationship_types_hashid
         description: ''
-        tests:
-          - unique
 
   - name: voter_histories_base
     description: ''
@@ -3553,16 +3199,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_voter_histories_hashid
         description: ''
-        tests:
-          - unique
 
   - name: petitions_pages_base
     description: ''
@@ -3617,16 +3259,12 @@ models:
           - unique
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_petitions_pages_hashid
         description: ''
-        tests:
-          - unique
 
   - name: meetings_base
     description: ''
@@ -3659,16 +3297,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_meetings_hashid
         description: ''
-        tests:
-          - unique
 
   - name: visual_review_responses_base
     description: ''
@@ -3697,16 +3331,12 @@ models:
         description: ''
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_visual_review_responses_hashid
         description: ''
-        tests:
-          - unique
 
   - name: filter_views_base
     description: ''
@@ -3731,14 +3361,10 @@ models:
           - unique
       - name: _airbyte_ab_id
         description: ''
-        tests:
-          - unique
       - name: _airbyte_emitted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
       - name: _airbyte_filter_views_hashid
         description: ''
-        tests:
-          - unique
 
