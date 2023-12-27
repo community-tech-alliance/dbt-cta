@@ -12,7 +12,7 @@ select
     cast(email_source as {{ dbt_utils.type_string() }}) as email_source,
     cast(interest_level as {{ dbt_utils.type_string() }}) as interest_level,
     cast(prefix as {{ dbt_utils.type_string() }}) as prefix,
-    cast({{ empty_string_to_null('birth_date') }} as {{ type_date() }}) as birth_date,
+    cast({{ empty_string_to_null('birth_date') }} as {{ dbt_utils.type_string() }}) as birth_date,
     cast(call_stoppage as {{ dbt_utils.type_string() }}) as call_stoppage,
     cast(extras as {{ dbt_utils.type_string() }}) as extras,
     cast({{ empty_string_to_null('created_at') }} as {{ type_timestamp_without_timezone() }}) as created_at,

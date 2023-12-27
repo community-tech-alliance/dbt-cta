@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('versions_ab3') }}
+-- depends_on: {{ ref('versions_ab4') }}
 select
     item_id,
     item_type,
@@ -20,6 +20,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_versions_hashid
-from {{ ref('versions_ab3') }}
+from {{ ref('versions_ab4') }}
 -- versions from {{ source('cta', '_airbyte_raw_versions') }}
 
