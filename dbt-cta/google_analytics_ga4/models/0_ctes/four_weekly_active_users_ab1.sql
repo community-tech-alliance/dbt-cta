@@ -10,9 +10,9 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    PARSE_DATE("%Y%m%d", date) as date,
     active28DayUsers,
     property_id,
+    parse_date("%Y%m%d", date) as date,
    {{ dbt_utils.surrogate_key([
      'date',
     'active28DayUsers',
