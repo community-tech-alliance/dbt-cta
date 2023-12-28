@@ -22,4 +22,3 @@ select
     _airbyte_districts_hashid
 from {{ ref('districts_ab3') }}
 -- districts from {{ source('cta', '_airbyte_raw_districts') }}
-

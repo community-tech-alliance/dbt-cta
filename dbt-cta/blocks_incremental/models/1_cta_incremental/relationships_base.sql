@@ -21,4 +21,3 @@ select
     _airbyte_relationships_hashid
 from {{ ref('relationships_ab3') }}
 -- relationships from {{ source('cta', '_airbyte_raw_relationships') }}
-

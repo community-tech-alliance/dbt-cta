@@ -21,4 +21,3 @@ select
     _airbyte_catalist_uploads_hashid
 from {{ ref('catalist_uploads_ab3') }}
 -- catalist_uploads from {{ source('cta', '_airbyte_raw_catalist_uploads') }}
-

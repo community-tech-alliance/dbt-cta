@@ -15,4 +15,3 @@ select
 from {{ ref('quality_control_comments_users_ab1') }}
 -- quality_control_comments_users
 where 1 = 1
-

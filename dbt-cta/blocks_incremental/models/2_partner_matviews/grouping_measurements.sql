@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM {{ source('cta', 'grouping_measurements_base') }}
+select *
+from {{ source('cta', 'grouping_measurements_base') }}

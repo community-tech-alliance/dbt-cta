@@ -19,7 +19,7 @@ select
         'row_count',
     ]) }} as _airbyte_import_files_hashid,
     tmp.*
-from {{ ref('import_files_ab2') }} tmp
+from {{ ref('import_files_ab2') }} as tmp
 -- import_files
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

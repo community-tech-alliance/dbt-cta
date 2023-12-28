@@ -21,4 +21,3 @@ select
 from {{ ref('field_management_projections_ab1') }}
 -- field_management_projections
 where 1 = 1
-

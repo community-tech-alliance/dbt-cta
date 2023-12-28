@@ -15,7 +15,6 @@ select
         'state',
     ]) }} as _airbyte_voted_labels_hashid,
     tmp.*
-from {{ ref('voted_labels_ab2') }} tmp
+from {{ ref('voted_labels_ab2') }} as tmp
 -- voted_labels
 where 1 = 1
-

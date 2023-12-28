@@ -18,7 +18,7 @@ select
         'district_type_id',
     ]) }} as _airbyte_districts_hashid,
     tmp.*
-from {{ ref('districts_ab2') }} tmp
+from {{ ref('districts_ab2') }} as tmp
 -- districts
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

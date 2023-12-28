@@ -14,7 +14,7 @@ select
         'id',
     ]) }} as _airbyte_relationship_types_hashid,
     tmp.*
-from {{ ref('relationship_types_ab2') }} tmp
+from {{ ref('relationship_types_ab2') }} as tmp
 -- relationship_types
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

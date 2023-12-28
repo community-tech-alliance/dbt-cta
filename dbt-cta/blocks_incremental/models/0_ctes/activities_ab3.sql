@@ -21,7 +21,7 @@ select
         'recipient_id',
     ]) }} as _airbyte_activities_hashid,
     tmp.*
-from {{ ref('activities_ab2') }} tmp
+from {{ ref('activities_ab2') }} as tmp
 -- activities
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

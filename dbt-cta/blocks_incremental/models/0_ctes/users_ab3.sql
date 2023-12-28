@@ -55,7 +55,7 @@ select
         array_to_string('notifications'),
     ]) }} as _airbyte_users_hashid,
     tmp.*
-from {{ ref('users_ab2') }} tmp
+from {{ ref('users_ab2') }} as tmp
 -- users
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

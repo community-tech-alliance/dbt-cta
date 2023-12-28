@@ -15,7 +15,6 @@ select
         'measurable_type',
     ]) }} as _airbyte_grouping_measurements_hashid,
     tmp.*
-from {{ ref('grouping_measurements_ab2') }} tmp
+from {{ ref('grouping_measurements_ab2') }} as tmp
 -- grouping_measurements
 where 1 = 1
-

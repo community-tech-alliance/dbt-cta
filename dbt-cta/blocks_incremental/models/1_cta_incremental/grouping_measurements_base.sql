@@ -19,4 +19,3 @@ select
     _airbyte_grouping_measurements_hashid
 from {{ ref('grouping_measurements_ab3') }}
 -- grouping_measurements from {{ source('cta', '_airbyte_raw_grouping_measurements') }}
-

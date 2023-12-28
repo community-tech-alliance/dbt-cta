@@ -16,4 +16,3 @@ select
 from {{ ref('tags_ab1') }}
 -- tags
 where 1 = 1
-

@@ -23,4 +23,3 @@ select
     _airbyte_documents_hashid
 from {{ ref('documents_ab3') }}
 -- documents from {{ source('cta', '_airbyte_raw_documents') }}
-

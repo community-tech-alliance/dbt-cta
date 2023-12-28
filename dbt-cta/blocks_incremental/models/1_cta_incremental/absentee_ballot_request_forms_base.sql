@@ -35,4 +35,3 @@ select
     _airbyte_absentee_ballot_request_forms_hashid
 from {{ ref('absentee_ballot_request_forms_ab3') }}
 -- absentee_ballot_request_forms from {{ source('cta', '_airbyte_raw_absentee_ballot_request_forms') }}
-

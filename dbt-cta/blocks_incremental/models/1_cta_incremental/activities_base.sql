@@ -25,4 +25,3 @@ select
     _airbyte_activities_hashid
 from {{ ref('activities_ab3') }}
 -- activities from {{ source('cta', '_airbyte_raw_activities') }}
-

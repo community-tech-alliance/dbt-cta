@@ -11,7 +11,6 @@ select
         'id',
     ]) }} as _airbyte_projections_hashid,
     tmp.*
-from {{ ref('projections_ab2') }} tmp
+from {{ ref('projections_ab2') }} as tmp
 -- projections
 where 1 = 1
-

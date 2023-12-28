@@ -16,7 +16,7 @@ select
         'question_id',
     ]) }} as _airbyte_check_in_answers_hashid,
     tmp.*
-from {{ ref('check_in_answers_ab2') }} tmp
+from {{ ref('check_in_answers_ab2') }} as tmp
 -- check_in_answers
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

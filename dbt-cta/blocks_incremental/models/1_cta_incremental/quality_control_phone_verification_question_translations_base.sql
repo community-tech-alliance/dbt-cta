@@ -18,4 +18,3 @@ select
     _airbyte_quality_control_phone_verification_question_translations_hashid
 from {{ ref('quality_control_phone_verification_question_translations_ab3') }}
 -- quality_control_phone_verification_question_translations from {{ source('cta', '_airbyte_raw_quality_control_phone_verification_question_translations') }}
-

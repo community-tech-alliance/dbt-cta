@@ -23,4 +23,3 @@ select
     _airbyte_contact_methods_hashid
 from {{ ref('contact_methods_ab3') }}
 -- contact_methods from {{ source('cta', '_airbyte_raw_contact_methods') }}
-

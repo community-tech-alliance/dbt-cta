@@ -15,7 +15,7 @@ select
         'quick_link_id',
     ]) }} as _airbyte_tenant_quick_links_hashid,
     tmp.*
-from {{ ref('tenant_quick_links_ab2') }} tmp
+from {{ ref('tenant_quick_links_ab2') }} as tmp
 -- tenant_quick_links
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

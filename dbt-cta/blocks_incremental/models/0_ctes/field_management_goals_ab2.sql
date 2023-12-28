@@ -19,4 +19,3 @@ select
 from {{ ref('field_management_goals_ab1') }}
 -- field_management_goals
 where 1 = 1
-

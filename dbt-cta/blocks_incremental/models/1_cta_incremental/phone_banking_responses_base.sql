@@ -21,4 +21,3 @@ select
     _airbyte_phone_banking_responses_hashid
 from {{ ref('phone_banking_responses_ab3') }}
 -- phone_banking_responses from {{ source('cta', '_airbyte_raw_phone_banking_responses') }}
-

@@ -22,4 +22,3 @@ select
     _airbyte_versions_hashid
 from {{ ref('versions_ab4') }}
 -- versions from {{ source('cta', '_airbyte_raw_versions') }}
-

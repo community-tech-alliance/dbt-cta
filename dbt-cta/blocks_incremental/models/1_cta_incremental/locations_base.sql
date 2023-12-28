@@ -54,4 +54,3 @@ select
     _airbyte_locations_hashid
 from {{ ref('locations_ab3') }}
 -- locations from {{ source('cta', '_airbyte_raw_locations') }}
-

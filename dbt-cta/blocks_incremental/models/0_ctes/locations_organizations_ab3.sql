@@ -12,7 +12,6 @@ select
         'location_id',
     ]) }} as _airbyte_locations_organizations_hashid,
     tmp.*
-from {{ ref('locations_organizations_ab2') }} tmp
+from {{ ref('locations_organizations_ab2') }} as tmp
 -- locations_organizations
 where 1 = 1
-

@@ -17,7 +17,7 @@ select
         'operator',
     ]) }} as _airbyte_filter_rules_hashid,
     tmp.*
-from {{ ref('filter_rules_ab2') }} tmp
+from {{ ref('filter_rules_ab2') }} as tmp
 -- filter_rules
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

@@ -19,4 +19,3 @@ select
 from {{ ref('activism_options_configs_ab1') }}
 -- activism_options_configs
 where 1 = 1
-

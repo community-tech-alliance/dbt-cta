@@ -70,7 +70,6 @@ select
         boolean_to_string('attempted'),
     ]) }} as _airbyte_registration_forms_hashid,
     tmp.*
-from {{ ref('registration_forms_ab2') }} tmp
+from {{ ref('registration_forms_ab2') }} as tmp
 -- registration_forms
 where 1 = 1
-

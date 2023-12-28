@@ -19,4 +19,3 @@ select
 from {{ ref('counties_ab1') }}
 -- counties
 where 1 = 1
-

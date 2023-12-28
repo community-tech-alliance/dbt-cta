@@ -16,7 +16,6 @@ select
         'state',
     ]) }} as _airbyte_state_party_codes_hashid,
     tmp.*
-from {{ ref('state_party_codes_ab2') }} tmp
+from {{ ref('state_party_codes_ab2') }} as tmp
 -- state_party_codes
 where 1 = 1
-

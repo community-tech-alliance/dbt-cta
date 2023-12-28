@@ -12,7 +12,6 @@ select
         'quality_control_flag_id',
     ]) }} as _airbyte_quality_control_flags_voter_registration_scans_hashid,
     tmp.*
-from {{ ref('quality_control_flags_voter_registration_scans_ab2') }} tmp
+from {{ ref('quality_control_flags_voter_registration_scans_ab2') }} as tmp
 -- quality_control_flags_voter_registration_scans
 where 1 = 1
-

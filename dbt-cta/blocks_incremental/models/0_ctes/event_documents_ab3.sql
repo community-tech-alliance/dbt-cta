@@ -16,7 +16,7 @@ select
         'document_id',
     ]) }} as _airbyte_event_documents_hashid,
     tmp.*
-from {{ ref('event_documents_ab2') }} tmp
+from {{ ref('event_documents_ab2') }} as tmp
 -- event_documents
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

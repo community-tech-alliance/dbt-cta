@@ -12,7 +12,6 @@ select
         'delivery_id',
     ]) }} as _airbyte_delivery_forms_exclusions_hashid,
     tmp.*
-from {{ ref('delivery_forms_exclusions_ab2') }} tmp
+from {{ ref('delivery_forms_exclusions_ab2') }} as tmp
 -- delivery_forms_exclusions
 where 1 = 1
-

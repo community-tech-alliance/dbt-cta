@@ -22,4 +22,3 @@ select
     _airbyte_field_management_projections_hashid
 from {{ ref('field_management_projections_ab3') }}
 -- field_management_projections from {{ source('cta', '_airbyte_raw_field_management_projections') }}
-

@@ -19,4 +19,3 @@ select
 from {{ ref('friendly_id_slugs_ab1') }}
 -- friendly_id_slugs
 where 1 = 1
-

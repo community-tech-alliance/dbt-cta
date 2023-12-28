@@ -15,4 +15,3 @@ select
 from {{ ref('delivery_forms_exclusions_ab1') }}
 -- delivery_forms_exclusions
 where 1 = 1
-

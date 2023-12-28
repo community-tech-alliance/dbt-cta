@@ -18,4 +18,3 @@ select
     _airbyte_public_event_links_hashid
 from {{ ref('public_event_links_ab3') }}
 -- public_event_links from {{ source('cta', '_airbyte_raw_public_event_links') }}
-

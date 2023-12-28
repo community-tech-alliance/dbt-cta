@@ -89,4 +89,3 @@ select
 from {{ ref('scans_qc_overview_ab1') }}
 -- scans_qc_overview
 where 1 = 1
-

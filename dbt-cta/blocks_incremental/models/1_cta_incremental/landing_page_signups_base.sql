@@ -69,4 +69,3 @@ select
     _airbyte_landing_page_signups_hashid
 from {{ ref('landing_page_signups_ab3') }}
 -- landing_page_signups from {{ source('cta', '_airbyte_raw_landing_page_signups') }}
-

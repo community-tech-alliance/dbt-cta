@@ -22,4 +22,3 @@ select
 from {{ ref('contact_methods_ab1') }}
 -- contact_methods
 where 1 = 1
-

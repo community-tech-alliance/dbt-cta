@@ -20,4 +20,3 @@ select
     _airbyte_state_party_codes_hashid
 from {{ ref('state_party_codes_ab3') }}
 -- state_party_codes from {{ source('cta', '_airbyte_raw_state_party_codes') }}
-

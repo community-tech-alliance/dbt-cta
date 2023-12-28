@@ -21,4 +21,3 @@ select
     _airbyte_email_templates_hashid
 from {{ ref('email_templates_ab3') }}
 -- email_templates from {{ source('cta', '_airbyte_raw_email_templates') }}
-

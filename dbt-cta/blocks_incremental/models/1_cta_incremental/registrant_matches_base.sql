@@ -90,4 +90,3 @@ select
     _airbyte_registrant_matches_hashid
 from {{ ref('registrant_matches_ab3') }}
 -- registrant_matches from {{ source('cta', '_airbyte_raw_registrant_matches') }}
-

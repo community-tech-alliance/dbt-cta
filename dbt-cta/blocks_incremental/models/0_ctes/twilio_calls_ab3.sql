@@ -19,7 +19,7 @@ select
         'duration_in_seconds',
     ]) }} as _airbyte_twilio_calls_hashid,
     tmp.*
-from {{ ref('twilio_calls_ab2') }} tmp
+from {{ ref('twilio_calls_ab2') }} as tmp
 -- twilio_calls
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

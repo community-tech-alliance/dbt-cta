@@ -17,4 +17,3 @@ select
     _airbyte_tags_hashid
 from {{ ref('tags_ab3') }}
 -- tags from {{ source('cta', '_airbyte_raw_tags') }}
-

@@ -14,4 +14,3 @@ select * from
         from {{ ref('captricity_batches_ab3') }}
     )
 where rownum = 1
-

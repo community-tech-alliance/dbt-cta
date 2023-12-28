@@ -31,4 +31,3 @@ select
     _airbyte_quality_control_flag_triggers_hashid
 from {{ ref('quality_control_flag_triggers_ab3') }}
 -- quality_control_flag_triggers from {{ source('cta', '_airbyte_raw_quality_control_flag_triggers') }}
-

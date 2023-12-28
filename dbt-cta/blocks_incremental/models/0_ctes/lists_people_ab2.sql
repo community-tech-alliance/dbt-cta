@@ -15,4 +15,3 @@ select
 from {{ ref('lists_people_ab1') }}
 -- lists_people
 where 1 = 1
-

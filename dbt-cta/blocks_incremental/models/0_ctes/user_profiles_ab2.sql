@@ -27,4 +27,3 @@ select
 from {{ ref('user_profiles_ab1') }}
 -- user_profiles
 where 1 = 1
-

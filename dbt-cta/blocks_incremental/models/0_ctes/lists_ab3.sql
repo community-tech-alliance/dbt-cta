@@ -25,7 +25,7 @@ select
         'households_count',
     ]) }} as _airbyte_lists_hashid,
     tmp.*
-from {{ ref('lists_ab2') }} tmp
+from {{ ref('lists_ab2') }} as tmp
 -- lists
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
