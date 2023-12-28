@@ -10,12 +10,12 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    PARSE_DATE("%Y%m%d", date) as date,
     hostName,
     screenPageViews,
     pagePathPlusQueryString,
     bounceRate,
     property_id,
+    parse_date("%Y%m%d", date) as date,
    {{ dbt_utils.surrogate_key([
      'date',
     'hostName',
