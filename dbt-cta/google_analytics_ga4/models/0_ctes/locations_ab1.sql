@@ -10,7 +10,7 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    date,
+    PARSE_DATE("%Y%m%d", date) as date,
     country,
     newUsers,
     sessions,
