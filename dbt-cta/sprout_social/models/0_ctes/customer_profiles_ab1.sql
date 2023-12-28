@@ -14,7 +14,7 @@ select
    native_id,
    link,
    name,
-   groups,
+   `groups`,
    customer_profile_id,
    network_type,
    native_name,

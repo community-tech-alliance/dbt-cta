@@ -13,7 +13,7 @@ select
    _airbyte_meta,
    any_group,
    active,
-   groups,
+   `groups`,
    tag_id,
    text,
    type,
