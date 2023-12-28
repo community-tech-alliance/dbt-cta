@@ -1,0 +1,29 @@
+version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables: 
+    - name: client_metadata
+    - name: customer_groups
+    - name: customer_profiles
+    - name: customer_tags
+    - name: customer_users
+    - name: facebook_post_analytics
+    - name: facebook_profile_analytics
+    - name: instagram_post_analytics
+    - name: instagram_profile_analytics
+    - name: tiktok_post_analytics
+    - name: tiktok_profile_analytics
+  
+    - name: client_metadata_base
+    - name: customer_groups_base
+    - name: customer_profiles_base
+    - name: customer_tags_base
+    - name: customer_users_base
+    - name: facebook_post_analytics_base
+    - name: facebook_profile_analytics_base
+    - name: instagram_post_analytics_base
+    - name: instagram_profile_analytics_base
+    - name: tiktok_post_analytics_base
+    - name: tiktok_profile_analytics_base
