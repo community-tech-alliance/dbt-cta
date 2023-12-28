@@ -28,4 +28,3 @@ select
     _airbyte_user_profiles_hashid
 from {{ ref('user_profiles_ab3') }}
 -- user_profiles from {{ source('cta', '_airbyte_raw_user_profiles') }}
-

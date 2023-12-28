@@ -26,4 +26,3 @@ select
     _airbyte_teams_hashid
 from {{ ref('teams_ab3') }}
 -- teams from {{ source('cta', '_airbyte_raw_teams') }}
-

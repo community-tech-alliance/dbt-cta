@@ -19,7 +19,7 @@ select
         'vote_scope',
     ]) }} as _airbyte_votes_hashid,
     tmp.*
-from {{ ref('votes_ab2') }} tmp
+from {{ ref('votes_ab2') }} as tmp
 -- votes
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

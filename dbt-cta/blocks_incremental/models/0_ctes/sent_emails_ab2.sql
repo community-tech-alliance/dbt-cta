@@ -24,4 +24,3 @@ select
 from {{ ref('sent_emails_ab1') }}
 -- sent_emails
 where 1 = 1
-

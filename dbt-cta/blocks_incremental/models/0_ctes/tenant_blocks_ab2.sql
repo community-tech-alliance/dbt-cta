@@ -17,4 +17,3 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('tenant_blocks_ab1') }}
 -- tenant_blocks
-

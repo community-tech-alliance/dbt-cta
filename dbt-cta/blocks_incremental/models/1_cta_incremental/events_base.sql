@@ -40,4 +40,3 @@ select
     _airbyte_events_hashid
 from {{ ref('events_ab3') }}
 -- events from {{ source('cta', '_airbyte_raw_events') }}
-

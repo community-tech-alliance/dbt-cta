@@ -30,7 +30,6 @@ select
         'email',
     ]) }} as _airbyte_import_lcv_hashid,
     tmp.*
-from {{ ref('import_lcv_ab2') }} tmp
+from {{ ref('import_lcv_ab2') }} as tmp
 -- import_lcv
 where 1 = 1
-

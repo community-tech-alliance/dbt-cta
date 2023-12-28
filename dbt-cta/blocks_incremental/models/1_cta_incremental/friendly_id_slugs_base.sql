@@ -20,4 +20,3 @@ select
     _airbyte_friendly_id_slugs_hashid
 from {{ ref('friendly_id_slugs_ab3') }}
 -- friendly_id_slugs from {{ source('cta', '_airbyte_raw_friendly_id_slugs') }}
-

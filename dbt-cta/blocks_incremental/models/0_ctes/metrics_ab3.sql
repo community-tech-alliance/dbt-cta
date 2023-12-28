@@ -18,7 +18,7 @@ select
         boolean_to_string('required'),
     ]) }} as _airbyte_metrics_hashid,
     tmp.*
-from {{ ref('metrics_ab2') }} tmp
+from {{ ref('metrics_ab2') }} as tmp
 -- metrics
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

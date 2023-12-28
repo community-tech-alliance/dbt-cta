@@ -19,4 +19,3 @@ select
 from {{ ref('state_party_codes_ab1') }}
 -- state_party_codes
 where 1 = 1
-

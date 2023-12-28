@@ -19,4 +19,3 @@ select
     _airbyte_imports_error_rows_hashid
 from {{ ref('imports_error_rows_ab3') }}
 -- imports_error_rows from {{ source('cta', '_airbyte_raw_imports_error_rows') }}
-

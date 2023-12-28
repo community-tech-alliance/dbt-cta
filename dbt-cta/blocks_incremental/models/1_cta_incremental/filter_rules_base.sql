@@ -21,4 +21,3 @@ select
     _airbyte_filter_rules_hashid
 from {{ ref('filter_rules_ab3') }}
 -- filter_rules from {{ source('cta', '_airbyte_raw_filter_rules') }}
-

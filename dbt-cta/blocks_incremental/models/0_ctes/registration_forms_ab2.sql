@@ -73,4 +73,3 @@ select
 from {{ ref('registration_forms_ab1') }}
 -- registration_forms
 where 1 = 1
-

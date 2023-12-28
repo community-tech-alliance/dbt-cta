@@ -17,7 +17,7 @@ select
         'open_ended_answer_text',
     ]) }} as _airbyte_phone_banking_responses_hashid,
     tmp.*
-from {{ ref('phone_banking_responses_ab2') }} tmp
+from {{ ref('phone_banking_responses_ab2') }} as tmp
 -- phone_banking_responses
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

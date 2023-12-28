@@ -15,7 +15,6 @@ select
         boolean_to_string('duplicate_found'),
     ]) }} as _airbyte_imports_error_rows_hashid,
     tmp.*
-from {{ ref('imports_error_rows_ab2') }} tmp
+from {{ ref('imports_error_rows_ab2') }} as tmp
 -- imports_error_rows
 where 1 = 1
-

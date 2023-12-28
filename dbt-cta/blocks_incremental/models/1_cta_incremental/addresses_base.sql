@@ -27,4 +27,3 @@ select
     _airbyte_addresses_hashid
 from {{ ref('addresses_ab3') }}
 -- addresses from {{ source('cta', '_airbyte_raw_addresses') }}
-

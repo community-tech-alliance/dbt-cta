@@ -18,4 +18,3 @@ select
 from {{ ref('voted_labels_ab1') }}
 -- voted_labels
 where 1 = 1
-

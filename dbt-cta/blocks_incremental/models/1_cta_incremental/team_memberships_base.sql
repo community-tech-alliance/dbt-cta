@@ -21,4 +21,3 @@ select
     _airbyte_team_memberships_hashid
 from {{ ref('team_memberships_ab3') }}
 -- team_memberships from {{ source('cta', '_airbyte_raw_team_memberships') }}
-

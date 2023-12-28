@@ -16,4 +16,3 @@ select
 from {{ ref('denominations_people_ab1') }}
 -- denominations_people
 where 1 = 1
-

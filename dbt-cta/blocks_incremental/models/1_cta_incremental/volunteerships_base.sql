@@ -22,4 +22,3 @@ select
     _airbyte_volunteerships_hashid
 from {{ ref('volunteerships_ab3') }}
 -- volunteerships from {{ source('cta', '_airbyte_raw_volunteerships') }}
-

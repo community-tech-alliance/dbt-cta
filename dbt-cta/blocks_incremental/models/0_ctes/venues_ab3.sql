@@ -22,7 +22,7 @@ select
         boolean_to_string('hosted_event'),
     ]) }} as _airbyte_venues_hashid,
     tmp.*
-from {{ ref('venues_ab2') }} tmp
+from {{ ref('venues_ab2') }} as tmp
 -- venues
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

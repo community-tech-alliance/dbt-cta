@@ -22,7 +22,7 @@ select
         'person_id',
     ]) }} as _airbyte_meetings_hashid,
     tmp.*
-from {{ ref('meetings_ab2') }} tmp
+from {{ ref('meetings_ab2') }} as tmp
 -- meetings
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

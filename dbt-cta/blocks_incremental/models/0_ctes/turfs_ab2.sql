@@ -35,4 +35,3 @@ select
 from {{ ref('turfs_ab1') }}
 -- turfs
 where 1 = 1
-

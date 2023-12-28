@@ -20,4 +20,3 @@ select
     _airbyte_activism_options_configs_hashid
 from {{ ref('activism_options_configs_ab3') }}
 -- activism_options_configs from {{ source('cta', '_airbyte_raw_activism_options_configs') }}
-

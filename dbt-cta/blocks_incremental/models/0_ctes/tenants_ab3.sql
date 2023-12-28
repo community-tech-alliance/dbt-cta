@@ -23,7 +23,6 @@ select
         'status'
     ]) }} as _airbyte_tenants_hashid,
     tmp.*
-from {{ ref('tenants_ab2') }} tmp
+from {{ ref('tenants_ab2') }} as tmp
 -- tenants
 where 1 = 1
-

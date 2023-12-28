@@ -18,4 +18,3 @@ select
     _airbyte_quality_control_phone_verification_scripts_hashid
 from {{ ref('quality_control_phone_verification_scripts_ab3') }}
 -- quality_control_phone_verification_scripts from {{ source('cta', '_airbyte_raw_quality_control_phone_verification_scripts') }}
-

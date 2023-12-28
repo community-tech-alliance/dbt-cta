@@ -18,4 +18,3 @@ select
     _airbyte_denominations_hashid
 from {{ ref('denominations_ab3') }}
 -- denominations from {{ source('cta', '_airbyte_raw_denominations') }}
-

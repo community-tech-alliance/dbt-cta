@@ -34,4 +34,3 @@ select
     _airbyte_phone_banking_phone_banks_hashid
 from {{ ref('phone_banking_phone_banks_ab3') }}
 -- phone_banking_phone_banks from {{ source('cta', '_airbyte_raw_phone_banking_phone_banks') }}
-

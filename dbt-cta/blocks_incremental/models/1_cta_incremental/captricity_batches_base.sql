@@ -27,4 +27,3 @@ select
     _airbyte_captricity_batches_hashid
 from {{ ref('captricity_batches_ab4') }}
 -- captricity_batches from {{ source('cta', '_airbyte_raw_captricity_batches') }}
-

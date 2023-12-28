@@ -27,4 +27,3 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_voter_registration_scans_hashid
 from {{ ref('voter_registration_scans_ab4') }}
-

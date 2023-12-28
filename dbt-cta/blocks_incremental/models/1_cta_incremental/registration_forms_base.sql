@@ -74,4 +74,3 @@ select
     _airbyte_registration_forms_hashid
 from {{ ref('registration_forms_ab3') }}
 -- registration_forms from {{ source('cta', '_airbyte_raw_registration_forms') }}
-

@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM {{ source('cta', 'folders_base') }}
+select *
+from {{ source('cta', 'folders_base') }}

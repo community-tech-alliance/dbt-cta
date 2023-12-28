@@ -16,7 +16,6 @@ select
         'state',
     ]) }} as _airbyte_counties_hashid,
     tmp.*
-from {{ ref('counties_ab2') }} tmp
+from {{ ref('counties_ab2') }} as tmp
 -- counties
 where 1 = 1
-

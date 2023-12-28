@@ -33,4 +33,3 @@ select
 from {{ ref('deliveries_ab1') }}
 -- deliveries
 where 1 = 1
-

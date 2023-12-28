@@ -36,4 +36,3 @@ select
     _airbyte_turfs_hashid
 from {{ ref('turfs_ab3') }}
 -- turfs from {{ source('cta', '_airbyte_raw_turfs') }}
-

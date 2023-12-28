@@ -25,4 +25,3 @@ select
     _airbyte_sent_emails_hashid
 from {{ ref('sent_emails_ab3') }}
 -- sent_emails from {{ source('cta', '_airbyte_raw_sent_emails') }}
-

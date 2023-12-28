@@ -12,7 +12,6 @@ select
         'team_id',
     ]) }} as _airbyte_organizations_teams_hashid,
     tmp.*
-from {{ ref('organizations_teams_ab2') }} tmp
+from {{ ref('organizations_teams_ab2') }} as tmp
 -- organizations_teams
 where 1 = 1
-

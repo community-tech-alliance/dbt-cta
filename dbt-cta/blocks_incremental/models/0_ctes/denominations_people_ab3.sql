@@ -13,7 +13,6 @@ select
         'denominmemberable_type',
     ]) }} as _airbyte_denominations_people_hashid,
     tmp.*
-from {{ ref('denominations_people_ab2') }} tmp
+from {{ ref('denominations_people_ab2') }} as tmp
 -- denominations_people
 where 1 = 1
-

@@ -18,4 +18,3 @@ select
     _airbyte_admin_users_hashid
 from {{ ref('admin_users_ab3') }}
 -- admin_users from {{ source('cta', '_airbyte_raw_admin_users') }}
-

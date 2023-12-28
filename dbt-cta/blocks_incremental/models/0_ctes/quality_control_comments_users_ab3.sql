@@ -12,7 +12,6 @@ select
         'comment_id',
     ]) }} as _airbyte_quality_control_comments_users_hashid,
     tmp.*
-from {{ ref('quality_control_comments_users_ab2') }} tmp
+from {{ ref('quality_control_comments_users_ab2') }} as tmp
 -- quality_control_comments_users
 where 1 = 1
-

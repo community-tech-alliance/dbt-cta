@@ -29,4 +29,3 @@ select
     _airbyte_lists_hashid
 from {{ ref('lists_ab3') }}
 -- lists from {{ source('cta', '_airbyte_raw_lists') }}
-

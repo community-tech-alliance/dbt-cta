@@ -20,4 +20,3 @@ select
     _airbyte_phone_banking_script_texts_hashid
 from {{ ref('phone_banking_script_texts_ab3') }}
 -- phone_banking_script_texts from {{ source('cta', '_airbyte_raw_phone_banking_script_texts') }}
-

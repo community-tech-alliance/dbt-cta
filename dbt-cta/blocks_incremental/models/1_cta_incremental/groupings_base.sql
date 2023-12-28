@@ -21,4 +21,3 @@ select
     _airbyte_groupings_hashid
 from {{ ref('groupings_ab3') }}
 -- groupings from {{ source('cta', '_airbyte_raw_groupings') }}
-

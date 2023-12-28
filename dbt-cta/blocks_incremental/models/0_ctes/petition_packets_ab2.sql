@@ -20,4 +20,3 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('petition_packets_ab1') }}
 -- petition_packets
-

@@ -21,4 +21,3 @@ select
     _airbyte_collections_hashid
 from {{ ref('collections_ab3') }}
 -- collections from {{ source('cta', '_airbyte_raw_collections') }}
-

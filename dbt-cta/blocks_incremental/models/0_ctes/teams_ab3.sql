@@ -22,7 +22,7 @@ select
         'slug',
     ]) }} as _airbyte_teams_hashid,
     tmp.*
-from {{ ref('teams_ab2') }} tmp
+from {{ ref('teams_ab2') }} as tmp
 -- teams
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

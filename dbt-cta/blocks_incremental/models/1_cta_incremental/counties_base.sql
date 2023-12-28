@@ -20,4 +20,3 @@ select
     _airbyte_counties_hashid
 from {{ ref('counties_ab3') }}
 -- counties from {{ source('cta', '_airbyte_raw_counties') }}
-

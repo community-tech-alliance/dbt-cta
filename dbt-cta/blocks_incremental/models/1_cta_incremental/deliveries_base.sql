@@ -33,4 +33,3 @@ select
     _airbyte_deliveries_hashid
 from {{ ref('deliveries_ab3') }}
 -- deliveries from {{ source('cta', '_airbyte_raw_deliveries') }}
-

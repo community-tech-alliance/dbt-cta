@@ -19,7 +19,7 @@ select
         'file_locator',
     ]) }} as _airbyte_documents_hashid,
     tmp.*
-from {{ ref('documents_ab2') }} tmp
+from {{ ref('documents_ab2') }} as tmp
 -- documents
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

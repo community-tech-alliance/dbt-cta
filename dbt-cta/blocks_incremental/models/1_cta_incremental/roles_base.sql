@@ -28,4 +28,3 @@ select
     _airbyte_roles_hashid
 from {{ ref('roles_ab3') }}
 -- roles from {{ source('cta', '_airbyte_raw_roles') }}
-

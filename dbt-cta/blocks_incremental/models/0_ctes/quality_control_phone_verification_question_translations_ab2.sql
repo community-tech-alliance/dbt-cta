@@ -17,4 +17,3 @@ select
 from {{ ref('quality_control_phone_verification_question_translations_ab1') }}
 -- quality_control_phone_verification_question_translations
 where 1 = 1
-

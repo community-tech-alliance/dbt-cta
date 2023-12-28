@@ -19,4 +19,3 @@ select
     _airbyte_parties_hashid
 from {{ ref('parties_ab3') }}
 -- parties from {{ source('cta', '_airbyte_raw_parties') }}
-

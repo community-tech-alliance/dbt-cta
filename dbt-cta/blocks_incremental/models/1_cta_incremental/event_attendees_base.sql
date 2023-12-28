@@ -26,4 +26,3 @@ select
     _airbyte_event_attendees_hashid
 from {{ ref('event_attendees_ab3') }}
 -- event_attendees from {{ source('cta', '_airbyte_raw_event_attendees') }}
-
