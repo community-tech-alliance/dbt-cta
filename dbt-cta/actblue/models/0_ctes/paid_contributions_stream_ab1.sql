@@ -1,11 +1,12 @@
+{% set raw_table = env_var("CTA_DATASET_ID") ~ "_raw__stream_paid_contributions_stream" %}
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_raw_id',
     tags = [ "top-level-intermediate" ]
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('cta', '_airbyte_raw_paid_contributions_stream') }}
+-- depends_on: {{ source('cta_raw', raw_table) }}
 select
     {{ json_extract_scalar('_airbyte_data', ['Fee'], ['Fee']) }} as Fee,
     {{ json_extract_scalar('_airbyte_data', ['Date'], ['Date']) }} as Date,
@@ -90,9 +91,9 @@ select
     {{ json_extract_scalar('_airbyte_data', ['Fundraiser Contact Last Name'], ['Fundraiser Contact Last Name']) }} as Fundraiser_Contact_Last_Name,
     {{ json_extract_scalar('_airbyte_data', ['Fundraiser Contact First Name'], ['Fundraiser Contact First Name']) }} as Fundraiser_Contact_First_Name,
     {{ json_extract_scalar('_airbyte_data', ['Card Replaced by Account Updater'], ['Card Replaced by Account Updater']) }} as Card_Replaced_by_Account_Updater,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_paid_contributions_stream') }}
+from {{ source('cta_raw', raw_table) }}
 -- paid_contributions_stream
 where 1 = 1

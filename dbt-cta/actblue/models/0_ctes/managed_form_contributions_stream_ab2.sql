@@ -1,7 +1,7 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_raw_id',
     tags = [ "top-level-intermediate" ]
 ) }}
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
@@ -90,8 +90,8 @@ select
     cast(Fundraiser_Contact_Last_Name as {{ dbt_utils.type_string() }}) as Fundraiser_Contact_Last_Name,
     cast(Fundraiser_Contact_First_Name as {{ dbt_utils.type_string() }}) as Fundraiser_Contact_First_Name,
     cast(Card_Replaced_by_Account_Updater as {{ dbt_utils.type_string() }}) as Card_Replaced_by_Account_Updater,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('managed_form_contributions_stream_ab1') }}
 -- managed_form_contributions_stream

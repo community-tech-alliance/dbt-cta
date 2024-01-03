@@ -1,6 +1,6 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = 'Receipt_ID',
     materialized = "incremental",
     incremental_strategy = "merge",
@@ -32,10 +32,9 @@ select
     Initial_Pledge_Length,
     Bump_Recurring_Succeeded,
     Initial_Contribution_Date,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_cancelled_recurring_contributions_stream_hashid
 from {{ ref('cancelled_recurring_contributions_stream_ab3') }}
--- cancelled_recurring_contributions_stream from {{ source('cta', '_airbyte_raw_cancelled_recurring_contributions_stream') }}
 where 1 = 1
