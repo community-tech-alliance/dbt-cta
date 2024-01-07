@@ -19,7 +19,7 @@ select
    schedulable_id,
    updated_at,
    until,
-   interval,
+   `interval`,
    id,
    time,
    day,
@@ -30,7 +30,6 @@ select
     'rule',
     'schedulable_type',
     'schedulable_id',
-    'interval',
     'id',
     'day',
     'day_of_week'
