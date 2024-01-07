@@ -2204,6 +2204,30 @@ models:
         tests:
           - unique
 
+  - name: turf_vrrs_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_turf_vrrs_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: turf_pvqs_base
+    description: ''
+    columns:
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_turf_pvqs_hashid
+        description: ''
+        tests:
+          - unique
+
   - name: phone_banking_calls_base
     description: ''
     columns:
