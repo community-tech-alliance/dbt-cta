@@ -132,6 +132,8 @@ sources:
     - name: tenant_quick_links
     - name: tenants
     - name: turf_levels
+    - name: turf_vrrs
+    - name: turf_pvqs
     - name: turfs
     - name: twilio_calls
     - name: user_profiles
@@ -281,6 +283,8 @@ sources:
     - name: tenant_quick_links_base
     - name: tenants_base
     - name: turf_levels_base
+    - name: turf_vrrs_base
+    - name: turf_pvqs_base
     - name: turfs_base
     - name: twilio_calls_base
     - name: user_profiles_base
