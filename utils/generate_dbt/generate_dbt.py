@@ -66,7 +66,7 @@ def generate_sql_files(
     project_id (str): The project ID in Google Cloud.
     dataset_id (str): The dataset ID within the BigQuery project.
     template_name (str): The name of the Jinja2 template to be used.
-    file_suffix (str): The suffix to be added to generated SQL files. This is '_ab1' for CTEs, '_base' for base models, and blank for partner materialized views.
+    file_suffix (str): The suffix to be added to generated SQL files. This is '_ab1' and '_ab2' for the CTE models, '_base' for base models, and blank for partner materialized views.
     """
 
     template_file = f"templates/{template_name}.sql"
@@ -196,7 +196,8 @@ def main():
     # create the folders needed
     create_directory_structure(base_dir, sync_name, base_models_template_list)
 
-    # generate base models
+    # generate base models (full refresh and/or incremental depending on user input)
+    # Note that if your sync uses a combination of full refresh and incremental models, you will need to manually remove the models from each folder that are not needed
     for template_name in base_models_template_list:
         generate_sql_files(
             client,
@@ -217,6 +218,17 @@ def main():
         dataset_id,
         template_name="0_ctes",
         file_suffix="_ab1",
+    )
+
+    # generate CTE models that deduplicate on hashid
+    generate_sql_files(
+        client,
+        base_dir,
+        sync_name,
+        project_id,
+        dataset_id,
+        template_name="0_ctes_ab2",
+        file_suffix="_ab2",
     )
 
     # generate partner matviews
