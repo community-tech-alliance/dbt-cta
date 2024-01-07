@@ -1,4 +1,3 @@
-
 {{ config(
     cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
@@ -8,20 +7,20 @@
 -- depends_on: {{ source('cta', 'quick_links') }}
 
 select
-   _airbyte_raw_id,
-   _airbyte_extracted_at,
-   _airbyte_meta,
-   bg_color,
-   size,
-   updated_at,
-   icon,
-   link,
-   created_at,
-   id,
-   label,
-   text_color,
-   block_id,
-   target,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
+    _airbyte_meta,
+    bg_color,
+    size,
+    updated_at,
+    icon,
+    link,
+    created_at,
+    id,
+    label,
+    text_color,
+    block_id,
+    target,
    {{ dbt_utils.surrogate_key([
      'bg_color',
     'size',

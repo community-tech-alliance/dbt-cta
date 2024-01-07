@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM  {{ source('cta', 'counties_base') }}
+select *
+from {{ source('cta', 'counties_base') }}

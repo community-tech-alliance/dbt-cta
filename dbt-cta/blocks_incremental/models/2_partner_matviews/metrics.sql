@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM  {{ source('cta', 'metrics_base') }}
+select *
+from {{ source('cta', 'metrics_base') }}

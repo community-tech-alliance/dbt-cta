@@ -1,4 +1,3 @@
-
 {{ config(
     cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
@@ -8,18 +7,18 @@
 -- depends_on: {{ source('cta', 'import_files') }}
 
 select
-   _airbyte_raw_id,
-   _airbyte_extracted_at,
-   _airbyte_meta,
-   tenant_id,
-   updated_at,
-   user_id,
-   file_name_data,
-   created_at,
-   id,
-   encoding,
-   file_size,
-   row_count,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
+    _airbyte_meta,
+    tenant_id,
+    updated_at,
+    user_id,
+    file_name_data,
+    created_at,
+    id,
+    encoding,
+    file_size,
+    row_count,
    {{ dbt_utils.surrogate_key([
      'tenant_id',
     'user_id',

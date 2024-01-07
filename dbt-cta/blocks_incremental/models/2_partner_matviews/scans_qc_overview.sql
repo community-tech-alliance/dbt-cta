@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM  {{ source('cta', 'scans_qc_overview_base') }}
+select *
+from {{ source('cta', 'scans_qc_overview_base') }}

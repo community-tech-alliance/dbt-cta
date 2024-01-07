@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM  {{ source('cta', 'missing_fks_base') }}
+select *
+from {{ source('cta', 'missing_fks_base') }}
