@@ -12,7 +12,7 @@ select
     _airbyte_meta,
     id,
     turf_id,
-    visual_review_response_id
+    visual_review_response_id,
    {{ dbt_utils.surrogate_key([
         'id',
         'turf_id',

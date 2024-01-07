@@ -16,6 +16,6 @@ select
    {{ dbt_utils.surrogate_key([
         'id',
         'phone_verification_question_id',
-        'turf_id'
+        'turf_id',
     ]) }} as _airbyte_turf_pvqs_hashid
 from {{ source('cta', 'turf_pvqs') }}
