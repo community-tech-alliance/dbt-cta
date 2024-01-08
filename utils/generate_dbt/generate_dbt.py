@@ -101,6 +101,7 @@ def generate_sql_files(
         all_columns_str = ",\n  ".join(all_columns)
 
         # Create a list of columns with data types string, int, float, bool, date, or timestamp
+        # TODO: figure out how to represent JSON/STRUCT/ARRAY types in here. We could get edge cases where multiple rows might appear duplicative but have different data in a nested field, which currently would be ignored by this script.
         columns_for_hashid = [
             f"'{field[0]}'"
             for field in columns
