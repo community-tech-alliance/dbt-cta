@@ -1,0 +1,636 @@
+version: 2
+
+models:
+
+  - name: organizations_teams_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: organization_id
+        description: ''
+      - name: team_id
+        description: ''
+      - name: _airbyte_organizations_teams_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: coorganizations_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: event_id
+        description: ''
+      - name: organization_id
+        description: ''
+      - name: _airbyte_coorganizations_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: age_to_bin_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: label
+        description: ''
+      - name: age
+        description: ''
+      - name: _airbyte_age_to_bin_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: schema_migrations_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: version
+        description: ''
+      - name: inserted_at
+        description: ''
+      - name: _airbyte_schema_migrations_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: quality_control_flags_views_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: flag_id
+        description: ''
+      - name: user_id
+        description: ''
+      - name: _airbyte_quality_control_flags_views_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: scheduled_exports_turfs_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: scheduled_export_id
+        description: ''
+      - name: turf_id
+        description: ''
+      - name: _airbyte_scheduled_exports_turfs_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: locations_organizations_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: organization_id
+        description: ''
+      - name: location_id
+        description: ''
+      - name: _airbyte_locations_organizations_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: delivery_forms_exclusions_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: voter_registration_scan_id
+        description: ''
+      - name: delivery_id
+        description: ''
+      - name: _airbyte_delivery_forms_exclusions_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: events_teams_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: event_id
+        description: ''
+      - name: team_id
+        description: ''
+      - name: _airbyte_events_teams_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: denominations_organizations_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: denomination_id
+        description: ''
+      - name: organization_id
+        description: ''
+      - name: _airbyte_denominations_organizations_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: catalist_uploads_registration_forms_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: registration_form_id
+        description: ''
+      - name: catalist_upload_id
+        description: ''
+      - name: _airbyte_catalist_uploads_registration_forms_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: scans_qc_overview_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: distance_from_location
+        description: ''
+      - name: eligible_voting_age
+        description: ''
+      - name: canvasser_id
+        description: ''
+      - name: visual_qc_completed_by_user_id
+        description: ''
+      - name: program_state
+        description: ''
+      - name: data_entry_time
+        description: ''
+      - name: bad_number
+        description: ''
+      - name: field_start
+        description: ''
+      - name: shift_type
+        description: ''
+      - name: collection_location_id
+        description: ''
+      - name: identification
+        description: ''
+      - name: voter_registration_scan_id
+        description: ''
+      - name: voting_state
+        description: ''
+      - name: collection_location_zip
+        description: ''
+      - name: collection_location_city
+        description: ''
+      - name: collective_name
+        description: ''
+      - name: visual_qc_county
+        description: ''
+      - name: address_validated
+        description: ''
+      - name: qc_deadline
+        description: ''
+      - name: mailing_street_address_two
+        description: ''
+      - name: organization_name
+        description: ''
+      - name: canvasser_last_name
+        description: ''
+      - name: shift_start
+        description: ''
+      - name: upload_time
+        description: ''
+      - name: name
+        description: ''
+      - name: voting_city
+        description: ''
+      - name: collection_location_name
+        description: ''
+      - name: phone_number
+        description: ''
+      - name: party
+        description: ''
+      - name: voting_address_latitude
+        description: ''
+      - name: qc_organization
+        description: ''
+      - name: mailing_street_address_one
+        description: ''
+      - name: gender
+        description: ''
+      - name: ethnicity
+        description: ''
+      - name: pledge_card_metadata
+        description: ''
+      - name: signature
+        description: ''
+      - name: turf_parent_id
+        description: ''
+      - name: date_of_birth
+        description: ''
+      - name: extras
+        description: ''
+      - name: voting_street_address_two
+        description: ''
+      - name: voting_address_longitude
+        description: ''
+      - name: phone_verification_completed_by_user_id
+        description: ''
+      - name: voting_zipcode
+        description: ''
+      - name: mailing_zipcode
+        description: ''
+      - name: registration_type
+        description: ''
+      - name: registration_form_id
+        description: ''
+      - name: packet_filename
+        description: ''
+      - name: name_prefix
+        description: ''
+      - name: collection_location_longitude
+        description: ''
+      - name: through_visual_qc
+        description: ''
+      - name: turf_id
+        description: ''
+      - name: van_committee_id
+        description: ''
+      - name: shift_id
+        description: ''
+      - name: collection_location_latitude
+        description: ''
+      - name: shift_end
+        description: ''
+      - name: collection_location_county
+        description: ''
+      - name: first_name
+        description: ''
+      - name: data_entry_county
+        description: ''
+      - name: voter_registration_scan_updated_at
+        description: ''
+      - name: mailing_city
+        description: ''
+      - name: is_registration_form
+        description: ''
+      - name: voting_street_address_one
+        description: ''
+      - name: name_suffix
+        description: ''
+      - name: data_entry_updated_at
+        description: ''
+      - name: last_name
+        description: ''
+      - name: middle_name
+        description: ''
+      - name: voter_registration_scan_batches_id
+        description: ''
+      - name: phone_validated
+        description: ''
+      - name: email_address
+        description: ''
+      - name: phone_verified
+        description: ''
+      - name: collection_location_street_address
+        description: ''
+      - name: field_end
+        description: ''
+      - name: canvasser_first_name
+        description: ''
+      - name: complete
+        description: ''
+      - name: has_phone_number_visual_qc
+        description: ''
+      - name: collection_location_state
+        description: ''
+      - name: _airbyte_scans_qc_overview_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: voted_labels_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: code
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: created_at
+        description: ''
+      - name: description
+        description: ''
+      - name: state
+        description: ''
+      - name: _airbyte_voted_labels_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: email_templates_events_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: event_id
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: email_template_id
+        description: ''
+      - name: created_at
+        description: ''
+      - name: _airbyte_email_templates_events_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: missing_fks_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: relname
+        description: ''
+      - name: attname
+        description: ''
+      - name: nspname
+        description: ''
+      - name: _airbyte_missing_fks_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: vr_zips_lookup_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: voter_age
+        description: ''
+      - name: voter_gender
+        description: ''
+      - name: turnout_score_avg
+        description: ''
+      - name: count
+        description: ''
+      - name: state
+        description: ''
+      - name: zip5
+        description: ''
+      - name: support_avg
+        description: ''
+      - name: party_score_avg
+        description: ''
+      - name: _airbyte_vr_zips_lookup_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: denominations_people_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: denomination_id
+        description: ''
+      - name: person_id
+        description: ''
+      - name: denominmemberable_type
+        description: ''
+      - name: _airbyte_denominations_people_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: address_districts_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: address_id
+        description: ''
+      - name: district_id
+        description: ''
+      - name: district_type
+        description: ''
+      - name: _airbyte_address_districts_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: campaigns_people_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: campaign_id
+        description: ''
+      - name: person_id
+        description: ''
+      - name: _airbyte_campaigns_people_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: campaigns_teams_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: team_id
+        description: ''
+      - name: campaign_id
+        description: ''
+      - name: _airbyte_campaigns_teams_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: quality_control_comments_users_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: user_id
+        description: ''
+      - name: comment_id
+        description: ''
+      - name: _airbyte_quality_control_comments_users_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: collections_roles_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: collection_id
+        description: ''
+      - name: role_id
+        description: ''
+      - name: _airbyte_collections_roles_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: quality_control_flags_voter_registration_scans_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: voter_registration_scan_id
+        description: ''
+      - name: quality_control_flag_id
+        description: ''
+      - name: _airbyte_quality_control_flags_voter_registration_scans_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: ar_internal_metadata_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: created_at
+        description: ''
+      - name: value
+        description: ''
+      - name: key
+        description: ''
+      - name: _airbyte_ar_internal_metadata_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: states_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: full_name
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: created_at
+        description: ''
+      - name: state_code
+        description: ''
+      - name: _airbyte_states_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: lists_people_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: list_id
+        description: ''
+      - name: person_id
+        description: ''
+      - name: _airbyte_lists_people_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: announcements_views_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: user_id
+        description: ''
+      - name: announcement_id
+        description: ''
+      - name: _airbyte_announcements_views_hashid
+        description: ''
+        tests:
+          - unique
+
+  - name: projections_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: id
+        description: ''
+        tests:
+          - unique
+      - name: _airbyte_projections_hashid
+        description: ''
+        tests:
+          - unique
+
