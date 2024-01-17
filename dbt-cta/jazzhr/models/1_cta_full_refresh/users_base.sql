@@ -9,7 +9,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('users_ab3') }}
+-- depends_on: {{ ref('users_ab4') }}
 select
     date_created,
     last_name,
@@ -21,7 +21,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_users_hashid
-from {{ ref('users_ab3') }}
+from {{ ref('users_ab4') }}
 -- users from {{ source('cta', '_airbyte_raw_users') }}
 
 {% if is_incremental() %}

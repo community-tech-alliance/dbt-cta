@@ -9,7 +9,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('categories_ab3') }}
+-- depends_on: {{ ref('categories_ab4') }}
 select
     date_created,
     name,
@@ -20,7 +20,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_categories_hashid
-from {{ ref('categories_ab3') }}
+from {{ ref('categories_ab4') }}
 -- categories from {{ source('cta', '_airbyte_raw_categories') }}
 
 {% if is_incremental() %}

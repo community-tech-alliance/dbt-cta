@@ -9,7 +9,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('categories_to_applicants_ab3') }}
+-- depends_on: {{ ref('categories_to_applicants_ab4') }}
 select
     category_id,
     applicant_id,
@@ -18,7 +18,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_categories_to_applicants_hashid
-from {{ ref('categories_to_applicants_ab3') }}
+from {{ ref('categories_to_applicants_ab4') }}
 -- categories_to_applicants from {{ source('cta', '_airbyte_raw_categories_to_applicants') }}
 
 {% if is_incremental() %}

@@ -9,7 +9,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('applicants_ab3') }}
+-- depends_on: {{ ref('applicants_ab4') }}
 select
     apply_date,
     job_id,
@@ -22,7 +22,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_applicants_hashid
-from {{ ref('applicants_ab3') }}
+from {{ ref('applicants_ab4') }}
 -- applicants from {{ source('cta', '_airbyte_raw_applicants') }}
 
 {% if is_incremental() %}

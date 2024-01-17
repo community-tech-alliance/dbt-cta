@@ -9,7 +9,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('jobs_ab3') }}
+-- depends_on: {{ ref('jobs_ab4') }}
 select
     zip,
     maximum_salary,
@@ -35,7 +35,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_jobs_hashid
-from {{ ref('jobs_ab3') }}
+from {{ ref('jobs_ab4') }}
 -- jobs from {{ source('cta', '_airbyte_raw_jobs') }}
 
 {% if is_incremental() %}
