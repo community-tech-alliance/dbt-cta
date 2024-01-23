@@ -31,6 +31,17 @@ select
      'created_time',
     'perma_link',
     'text',
-    'sent'
+    'sent',
+    'lifetime_impressions',
+    'lifetime_impressions_unique',
+    'lifetime_likes',
+    'lifetime_reactions',
+    'lifetime_shares_count',
+    'lifetime_comments_count',
+    'lifetime_saves',
+    'lifetime_story_taps_back',
+    'lifetime_story_taps_forward',
+    'lifetime_story_exits',
+    'lifetime_video_views'
     ]) }} as _airbyte_instagram_post_analytics_hashid
 from {{ source('cta', 'instagram_post_analytics') }}
