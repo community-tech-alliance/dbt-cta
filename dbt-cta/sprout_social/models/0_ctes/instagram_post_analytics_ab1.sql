@@ -26,22 +26,5 @@ select
     {{ json_extract_scalar('metrics', ['lifetime.story_taps_forward'], ['lifetime.story_taps_forward']) }} as lifetime_story_taps_forward,
     {{ json_extract_scalar('metrics', ['lifetime.story_exits'], ['lifetime.story_exits']) }} as lifetime_story_exits,
     {{ json_extract_scalar('metrics', ['lifetime.video_views'], ['lifetime.video_views']) }} as lifetime_video_views,
-    sent,
-   {{ dbt_utils.surrogate_key([
-     'created_time',
-    'perma_link',
-    'text',
-    'sent',
-    'lifetime_impressions',
-    'lifetime_impressions_unique',
-    'lifetime_likes',
-    'lifetime_reactions',
-    'lifetime_shares_count',
-    'lifetime_comments_count',
-    'lifetime_saves',
-    'lifetime_story_taps_back',
-    'lifetime_story_taps_forward',
-    'lifetime_story_exits',
-    'lifetime_video_views'
-    ]) }} as _airbyte_instagram_post_analytics_hashid
+    sent
 from {{ source('cta', 'instagram_post_analytics') }}
