@@ -13,6 +13,7 @@ select
     'perma_link',
     'text',
     'sent',
+    'internal_tags',
     'lifetime_impressions',
     'lifetime_impressions_viral',
     'lifetime_impressions_nonviral',

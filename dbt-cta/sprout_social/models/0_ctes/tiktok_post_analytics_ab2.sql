@@ -13,6 +13,7 @@ select
     'perma_link',
     'text',
     'sent',
+    'internal_tags',
     'lifetime_likes',
     'lifetime_reactions',
     'lifetime_shares_count',
