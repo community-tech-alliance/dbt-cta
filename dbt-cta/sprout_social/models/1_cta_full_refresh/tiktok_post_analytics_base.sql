@@ -15,9 +15,9 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('tiktok_post_analytics_ab1') }}
+-- depends_on: {{ ref('tiktok_post_analytics_ab3') }}
 select * except (_airbyte_raw_id)
-from {{ ref('tiktok_post_analytics_ab1') }}
+from {{ ref('tiktok_post_analytics_ab3') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})
