@@ -11,5 +11,19 @@ select
    {{ dbt_utils.surrogate_key([
     'customer_profile_id',
     'reporting_period_day',
+    'lifetime_likes',
+    'lifetime_snapshot_followers_count',
+    'lifetime_snapshot_followers_by_country',
+    'lifetime_snapshot_followers_by_gender',
+    'lifetime_snapshot_followers_online',
+    'net_follower_growth',
+    'impressions',
+    'profile_views_total',
+    'video_views_total',
+    'comments_count_total',
+    'shares_count_total',
+    'likes_total',
+    'posts_sent_count',
+    'posts_sent_by_post_type',
     ]) }} as _airbyte_tiktok_profile_analytics_hashid
 from {{ ref('tiktok_profile_analytics_ab1') }}

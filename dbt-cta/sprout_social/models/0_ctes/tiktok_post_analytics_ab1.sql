@@ -13,6 +13,8 @@ select
     created_time,
     perma_link,
     text,
+    sent,
+    json_extract_array(internal, '$.tags') as internal_tags,
     metrics,
     -- metrics fields unnested:
     {{ json_extract_scalar('metrics', ['lifetime.likes'], ['lifetime.likes']) }} as lifetime_likes,
@@ -31,12 +33,5 @@ select
     {{ json_extract_scalar('metrics', ['lifetime.video_views'], ['lifetime.video_views']) }} as lifetime_video_views,
     {{ json_extract_scalar('metrics', ['lifetime.impressions_unique'], ['lifetime.impressions_unique']) }} as lifetime_impressions_unique,
     {{ json_extract_scalar('metrics', ['lifetime.impressions'], ['lifetime.impressions']) }} as lifetime_impressions,
-    {{ json_extract_scalar('metrics', ['video_length'], ['video_length']) }} as video_length,
-    sent,
-   {{ dbt_utils.surrogate_key([
-     'created_time',
-    'perma_link',
-    'text',
-    'sent'
-    ]) }} as _airbyte_tiktok_post_analytics_hashid
+    {{ json_extract_scalar('metrics', ['video_length'], ['video_length']) }} as video_length
 from {{ source('cta', 'tiktok_post_analytics') }}
