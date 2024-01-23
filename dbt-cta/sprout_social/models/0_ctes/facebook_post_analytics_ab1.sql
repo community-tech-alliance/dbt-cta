@@ -14,7 +14,7 @@ select
     perma_link,
     text,
     sent,
-    {{ json_extract_scalar('internal', ['tags'], ['tags']) }} as internal_tags,
+    json_extract_array(internal, '$.tags') as internal_tags,
     metrics,
     -- metrics fields unnested:
     {{ json_extract_scalar('metrics', ['lifetime.impressions'], ['lifetime.impressions']) }} as lifetime_impressions,
