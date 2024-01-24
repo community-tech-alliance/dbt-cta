@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('sms_status_logs_ab3') }}
+-- depends_on: {{ ref('sms_status_logs_ab4') }}
 select
     id,
     status,
@@ -31,7 +31,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_sms_status_logs_hashid
-from {{ ref('sms_status_logs_ab3') }}
+from {{ ref('sms_status_logs_ab4') }}
 -- sms_status_logs from {{ source('cta', '_airbyte_raw_sms_status_logs') }}
 
 {% if is_incremental() %}

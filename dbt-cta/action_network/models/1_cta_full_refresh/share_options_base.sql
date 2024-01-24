@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('share_options_ab3') }}
+-- depends_on: {{ ref('share_options_ab4') }}
 select
     id,
     {{ adapter.quote('from') }},
@@ -49,7 +49,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_share_options_hashid
-from {{ ref('share_options_ab3') }}
+from {{ ref('share_options_ab4') }}
 -- share_options from {{ source('cta', '_airbyte_raw_share_options') }}
 
 {% if is_incremental() %}

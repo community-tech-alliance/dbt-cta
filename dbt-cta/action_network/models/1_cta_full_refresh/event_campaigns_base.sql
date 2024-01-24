@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('event_campaigns_ab3') }}
+-- depends_on: {{ ref('event_campaigns_ab4') }}
 select
     id,
     uuid,
@@ -92,7 +92,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_event_campaigns_hashid
-from {{ ref('event_campaigns_ab3') }}
+from {{ ref('event_campaigns_ab4') }}
 -- event_campaigns from {{ source('cta', '_airbyte_raw_event_campaigns') }}
 
 {% if is_incremental() %}

@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('calls_ab3') }}
+-- depends_on: {{ ref('calls_ab4') }}
 select
     id,
     city,
@@ -41,7 +41,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_calls_hashid
-from {{ ref('calls_ab3') }}
+from {{ ref('calls_ab4') }}
 -- calls from {{ source('cta', '_airbyte_raw_calls') }}
 
 {% if is_incremental() %}

@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('petitions_ab3') }}
+-- depends_on: {{ ref('petitions_ab4') }}
 select
     id,
     uuid,
@@ -77,7 +77,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_petitions_hashid
-from {{ ref('petitions_ab3') }}
+from {{ ref('petitions_ab4') }}
 -- petitions from {{ source('cta', '_airbyte_raw_petitions') }}
 
 {% if is_incremental() %}

@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('message_actions_ab3') }}
+-- depends_on: {{ ref('message_actions_ab4') }}
 select
     id,
     referrer,
@@ -28,7 +28,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_message_actions_hashid
-from {{ ref('message_actions_ab3') }}
+from {{ ref('message_actions_ab4') }}
 -- message_actions from {{ source('cta', '_airbyte_raw_message_actions') }}
 
 {% if is_incremental() %}

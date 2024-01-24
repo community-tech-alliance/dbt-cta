@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('comments_ab3') }}
+-- depends_on: {{ ref('comments_ab4') }}
 select
     id,
     title,
@@ -31,7 +31,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_comments_hashid
-from {{ ref('comments_ab3') }}
+from {{ ref('comments_ab4') }}
 -- comments from {{ source('cta', '_airbyte_raw_comments') }}
 
 {% if is_incremental() %}

@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('group_invites_ab3') }}
+-- depends_on: {{ ref('group_invites_ab4') }}
 select
     id,
     name,
@@ -28,7 +28,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_group_invites_hashid
-from {{ ref('group_invites_ab3') }}
+from {{ ref('group_invites_ab4') }}
 -- group_invites from {{ source('cta', '_airbyte_raw_group_invites') }}
 
 {% if is_incremental() %}

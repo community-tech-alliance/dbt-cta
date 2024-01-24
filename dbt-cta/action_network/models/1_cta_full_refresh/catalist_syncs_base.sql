@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('catalist_syncs_ab3') }}
+-- depends_on: {{ ref('catalist_syncs_ab4') }}
 select
     id,
     token,
@@ -33,7 +33,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_catalist_syncs_hashid
-from {{ ref('catalist_syncs_ab3') }}
+from {{ ref('catalist_syncs_ab4') }}
 -- catalist_syncs from {{ source('cta', '_airbyte_raw_catalist_syncs') }}
 
 {% if is_incremental() %}

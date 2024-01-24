@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('rsvps_ab3') }}
+-- depends_on: {{ ref('rsvps_ab4') }}
 select
     id,
     city,
@@ -42,7 +42,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_rsvps_hashid
-from {{ ref('rsvps_ab3') }}
+from {{ ref('rsvps_ab4') }}
 -- rsvps from {{ source('cta', '_airbyte_raw_rsvps') }}
 
 {% if is_incremental() %}
