@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('field_values_ab3') }}
+-- depends_on: {{ ref('field_values_ab4') }}
 select
     id,
     uuid,
@@ -27,7 +27,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_field_values_hashid
-from {{ ref('field_values_ab3') }}
+from {{ ref('field_values_ab4') }}
 -- field_values from {{ source('cta', '_airbyte_raw_field_values') }}
 
 {% if is_incremental() %}

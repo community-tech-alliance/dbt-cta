@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('phone_dedupe_logs_ab3') }}
+-- depends_on: {{ ref('phone_dedupe_logs_ab4') }}
 select
     id,
     phone,
@@ -30,7 +30,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_phone_dedupe_logs_hashid
-from {{ ref('phone_dedupe_logs_ab3') }}
+from {{ ref('phone_dedupe_logs_ab4') }}
 -- phone_dedupe_logs from {{ source('cta', '_airbyte_raw_phone_dedupe_logs') }}
 
 {% if is_incremental() %}

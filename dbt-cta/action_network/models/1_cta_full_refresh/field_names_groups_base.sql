@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('field_names_groups_ab3') }}
+-- depends_on: {{ ref('field_names_groups_ab4') }}
 select
     id,
     hidden,
@@ -24,7 +24,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_field_names_groups_hashid
-from {{ ref('field_names_groups_ab3') }}
+from {{ ref('field_names_groups_ab4') }}
 -- field_names_groups from {{ source('cta', '_airbyte_raw_field_names_groups') }}
 
 {% if is_incremental() %}

@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('core_fields_ocdids_ab3') }}
+-- depends_on: {{ ref('core_fields_ocdids_ab4') }}
 select
     id,
     ocdid_id,
@@ -23,7 +23,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_core_fields_ocdids_hashid
-from {{ ref('core_fields_ocdids_ab3') }}
+from {{ ref('core_fields_ocdids_ab4') }}
 -- core_fields_ocdids from {{ source('cta', '_airbyte_raw_core_fields_ocdids') }}
 
 {% if is_incremental() %}

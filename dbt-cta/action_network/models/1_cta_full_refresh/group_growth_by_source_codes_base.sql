@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('group_growth_by_source_codes_ab3') }}
+-- depends_on: {{ ref('group_growth_by_source_codes_ab4') }}
 select
     id,
     end_at,
@@ -30,7 +30,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_group_growth_by_source_codes_hashid
-from {{ ref('group_growth_by_source_codes_ab3') }}
+from {{ ref('group_growth_by_source_codes_ab4') }}
 -- group_growth_by_source_codes from {{ source('cta', '_airbyte_raw_group_growth_by_source_codes') }}
 
 {% if is_incremental() %}

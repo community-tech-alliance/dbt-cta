@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('mobile_message_fields_ab3') }}
+-- depends_on: {{ ref('mobile_message_fields_ab4') }}
 select
     id,
     text,
@@ -27,7 +27,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_mobile_message_fields_hashid
-from {{ ref('mobile_message_fields_ab3') }}
+from {{ ref('mobile_message_fields_ab4') }}
 -- mobile_message_fields from {{ source('cta', '_airbyte_raw_mobile_message_fields') }}
 
 {% if is_incremental() %}

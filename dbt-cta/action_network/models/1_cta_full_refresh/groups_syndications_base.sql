@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('groups_syndications_ab3') }}
+-- depends_on: {{ ref('groups_syndications_ab4') }}
 select
     id,
     read,
@@ -30,7 +30,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_groups_syndications_hashid
-from {{ ref('groups_syndications_ab3') }}
+from {{ ref('groups_syndications_ab4') }}
 -- groups_syndications from {{ source('cta', '_airbyte_raw_groups_syndications') }}
 
 {% if is_incremental() %}

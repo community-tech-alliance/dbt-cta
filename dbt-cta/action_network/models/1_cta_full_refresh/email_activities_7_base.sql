@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('email_activities_7_ab3') }}
+-- depends_on: {{ ref('email_activities_7_ab4') }}
 select
     id,
     link_id,
@@ -31,7 +31,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_email_activities_7_hashid
-from {{ ref('email_activities_7_ab3') }}
+from {{ ref('email_activities_7_ab4') }}
 -- email_activities_7 from {{ source('cta', '_airbyte_raw_email_activities_7') }}
 
 {% if is_incremental() %}
