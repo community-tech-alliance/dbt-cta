@@ -42,6 +42,21 @@ def main():
                 # Write the SQL content to the new file
                 with open(os.path.join(folder_path, new_filename), "w") as new_file:
                     new_file.write(sql_content)
+
+    # Update references in _base models (find and replace '_ab3' with '_ab4' in folders starting with '1_')
+    models_path = f"../../dbt-cta/{sync_name}/models"
+    for root, dirs, files in os.walk(models_path):
+        for dir_name in dirs:
+            if dir_name.startswith("1_"):
+                dir_path = os.path.join(root, dir_name)
+                for file_name in os.listdir(dir_path):
+                    if file_name.endswith(".sql"):
+                        file_path = os.path.join(dir_path, file_name)
+                        with open(file_path, "r") as file:
+                            content = file.read()
+                        content = content.replace("_ab3", "_ab4")
+                        with open(file_path, "w") as file:
+                            file.write(content)
             
 if __name__ == "__main__":
     main()
