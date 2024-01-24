@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('recurring_donations_ab3') }}
+-- depends_on: {{ ref('recurring_donations_ab4') }}
 select
     id,
     status,
@@ -30,7 +30,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_recurring_donations_hashid
-from {{ ref('recurring_donations_ab3') }}
+from {{ ref('recurring_donations_ab4') }}
 -- recurring_donations from {{ source('cta', '_airbyte_raw_recurring_donations') }}
 
 {% if is_incremental() %}

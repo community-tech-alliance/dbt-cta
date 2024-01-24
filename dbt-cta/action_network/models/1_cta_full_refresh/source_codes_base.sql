@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('source_codes_ab3') }}
+-- depends_on: {{ ref('source_codes_ab4') }}
 select
     id,
     owner_id,
@@ -26,7 +26,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_source_codes_hashid
-from {{ ref('source_codes_ab3') }}
+from {{ ref('source_codes_ab4') }}
 -- source_codes from {{ source('cta', '_airbyte_raw_source_codes') }}
 
 {% if is_incremental() %}

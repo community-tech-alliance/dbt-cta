@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('user_tickets_ab3') }}
+-- depends_on: {{ ref('user_tickets_ab4') }}
 select
     id,
     amount,
@@ -28,7 +28,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_user_tickets_hashid
-from {{ ref('user_tickets_ab3') }}
+from {{ ref('user_tickets_ab4') }}
 -- user_tickets from {{ source('cta', '_airbyte_raw_user_tickets') }}
 
 {% if is_incremental() %}

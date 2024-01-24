@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('lists_ab3') }}
+-- depends_on: {{ ref('lists_ab4') }}
 select
     id,
     title,
@@ -56,7 +56,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_lists_hashid
-from {{ ref('lists_ab3') }}
+from {{ ref('lists_ab4') }}
 -- lists from {{ source('cta', '_airbyte_raw_lists') }}
 
 {% if is_incremental() %}

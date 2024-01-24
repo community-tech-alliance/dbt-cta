@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('action_keywords_ab3') }}
+-- depends_on: {{ ref('action_keywords_ab4') }}
 select
     id,
     text,
@@ -27,7 +27,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_action_keywords_hashid
-from {{ ref('action_keywords_ab3') }}
+from {{ ref('action_keywords_ab4') }}
 -- action_keywords from {{ source('cta', '_airbyte_raw_action_keywords') }}
 
 {% if is_incremental() %}
