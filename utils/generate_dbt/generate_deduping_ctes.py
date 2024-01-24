@@ -21,7 +21,7 @@ def main():
     folder_path = f"../../dbt-cta/{sync_name}/models/0_ctes"
 
     # Read the template from the separate .sql file
-    with open("templates/0_ctes_ab2.sql", "r") as template_file:
+    with open("templates/0_ctes_ab4.sql", "r") as template_file:
         template_content = template_file.read()
 
     # Create a Jinja2 template from the template content
