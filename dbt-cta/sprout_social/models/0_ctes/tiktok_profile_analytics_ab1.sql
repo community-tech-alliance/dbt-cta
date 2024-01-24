@@ -24,7 +24,7 @@ select
     {{ json_extract_scalar('metrics', ['net_follower_growth'], ['net_follower_growth']) }} as net_follower_growth,
     {{ json_extract_scalar('metrics', ['impressions'], ['impressions']) }} as impressions,
     {{ json_extract_scalar('metrics', ['profile_views_total'], ['profile_views_total']) }} as profile_views_total,
-    {{ json_extract_scalar('metrics', ['video_views_tota'], ['video_views_tota']) }} as video_views_tota,
+    {{ json_extract_scalar('metrics', ['video_views_tota'], ['video_views_tota']) }} as video_views_total,
     {{ json_extract_scalar('metrics', ['comments_count_total'], ['comments_count_total']) }} as comments_count_total,
     {{ json_extract_scalar('metrics', ['shares_count_total'], ['shares_count_total']) }} as shares_count_total,
     {{ json_extract_scalar('metrics', ['likes_total'], ['likes_total']) }} as likes_total,
