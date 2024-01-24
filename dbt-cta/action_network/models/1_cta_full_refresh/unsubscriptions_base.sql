@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('unsubscriptions_ab3') }}
+-- depends_on: {{ ref('unsubscriptions_ab4') }}
 select
     id,
     reason,
@@ -36,7 +36,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_unsubscriptions_hashid
-from {{ ref('unsubscriptions_ab3') }}
+from {{ ref('unsubscriptions_ab4') }}
 -- unsubscriptions from {{ source('cta', '_airbyte_raw_unsubscriptions') }}
 
 {% if is_incremental() %}
