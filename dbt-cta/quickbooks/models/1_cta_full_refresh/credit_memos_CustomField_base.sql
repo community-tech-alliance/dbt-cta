@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('credit_memos_CustomField_ab4') }}
+-- depends_on: {{ ref('credit_memos_CustomField_ab3') }}
 select
     _airbyte_credit_memos_hashid,
     Type,
@@ -24,7 +24,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_CustomField_hashid
-from {{ ref('credit_memos_CustomField_ab4') }}
+from {{ ref('credit_memos_CustomField_ab3') }}
 -- CustomField at credit_memos/CustomField from {{ ref('credit_memos') }}
 
 {% if is_incremental() %}

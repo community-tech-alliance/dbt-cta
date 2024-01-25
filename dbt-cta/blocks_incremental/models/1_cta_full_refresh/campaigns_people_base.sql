@@ -12,7 +12,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('campaigns_people_ab4') }}
+-- depends_on: {{ ref('campaigns_people_ab3') }}
 select
     campaign_id,
     person_id,
@@ -20,7 +20,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_campaigns_people_hashid
-from {{ ref('campaigns_people_ab4') }}
+from {{ ref('campaigns_people_ab3') }}
 -- campaigns_people from {{ source('cta', '_airbyte_raw_campaigns_people') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('refund_receipts_CustomField_ab4') }}
+-- depends_on: {{ ref('refund_receipts_CustomField_ab3') }}
 select
     _airbyte_refund_receipts_hashid,
     Type,
@@ -24,7 +24,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_CustomField_hashid
-from {{ ref('refund_receipts_CustomField_ab4') }}
+from {{ ref('refund_receipts_CustomField_ab3') }}
 -- CustomField at refund_receipts/CustomField from {{ ref('refund_receipts') }}
 
 {% if is_incremental() %}

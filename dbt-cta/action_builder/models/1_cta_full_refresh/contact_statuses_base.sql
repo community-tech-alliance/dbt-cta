@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('contact_statuses_ab4') }}
+-- depends_on: {{ ref('contact_statuses_ab3') }}
 select
     id,
     name,
@@ -25,7 +25,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_contact_statuses_hashid
-from {{ ref('contact_statuses_ab4') }}
+from {{ ref('contact_statuses_ab3') }}
 -- contact_statuses from {{ source('cta', '_airbyte_raw_contact_statuses') }}
 
 {% if is_incremental() %}

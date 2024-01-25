@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('tax_codes_ab4') }}
+-- depends_on: {{ ref('tax_codes_ab3') }}
 select
     Description,
     PurchaseTaxRateList,
@@ -34,7 +34,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_tax_codes_hashid
-from {{ ref('tax_codes_ab4') }}
+from {{ ref('tax_codes_ab3') }}
 -- tax_codes from {{ source('cta', '_airbyte_raw_tax_codes') }}
 
 {% if is_incremental() %}

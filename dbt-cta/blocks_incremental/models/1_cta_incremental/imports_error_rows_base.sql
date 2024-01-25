@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('imports_error_rows_ab4') }}
+-- depends_on: {{ ref('imports_error_rows_ab3') }}
 select
     errors_triggered,
     import_id,
@@ -17,5 +17,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_imports_error_rows_hashid
-from {{ ref('imports_error_rows_ab4') }}
+from {{ ref('imports_error_rows_ab3') }}
 -- imports_error_rows from {{ source('cta', '_airbyte_raw_imports_error_rows') }}

@@ -12,7 +12,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('documents_phone_banking_phone_banks_ab4') }}
+-- depends_on: {{ ref('documents_phone_banking_phone_banks_ab3') }}
 select
     phone_bank_id,
     updated_at,
@@ -22,7 +22,7 @@ select
     _airbyte_emitted_at,
     _airbyte_normalized_at,
     _airbyte_documents_phone_banking_phone_banks_hashid
-from {{ ref('documents_phone_banking_phone_banks_ab4') }}
+from {{ ref('documents_phone_banking_phone_banks_ab3') }}
 -- documents_phone_banking_phone_banks from {{ source('cta', '_airbyte_raw_documents_phone_banking_phone_banks') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

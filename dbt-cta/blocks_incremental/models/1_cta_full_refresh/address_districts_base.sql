@@ -12,7 +12,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('address_districts_ab4') }}
+-- depends_on: {{ ref('address_districts_ab3') }}
 select
     address_id,
     district_id,
@@ -21,7 +21,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_address_districts_hashid
-from {{ ref('address_districts_ab4') }}
+from {{ ref('address_districts_ab3') }}
 -- address_districts from {{ source('cta', '_airbyte_raw_address_districts') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

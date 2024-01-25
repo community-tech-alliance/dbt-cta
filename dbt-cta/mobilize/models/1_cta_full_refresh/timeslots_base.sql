@@ -10,7 +10,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('timeslots_ab4') }}
+-- depends_on: {{ ref('timeslots_ab3') }}
 select
     id,
     end_date,
@@ -24,7 +24,7 @@ select
     _airbyte_emitted_at,
     current_timestamp() as _airbyte_normalized_at,
     _airbyte_timeslots_hashid
-from {{ ref('timeslots_ab4') }}
+from {{ ref('timeslots_ab3') }}
 -- timeslots from {{ source("cta", "_airbyte_raw_timeslots" ) }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

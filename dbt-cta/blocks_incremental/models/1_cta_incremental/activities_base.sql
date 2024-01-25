@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('activities_ab4') }}
+-- depends_on: {{ ref('activities_ab3') }}
 select
     recipient_type,
     trackable_id,
@@ -23,5 +23,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_activities_hashid
-from {{ ref('activities_ab4') }}
+from {{ ref('activities_ab3') }}
 -- activities from {{ source('cta', '_airbyte_raw_activities') }}

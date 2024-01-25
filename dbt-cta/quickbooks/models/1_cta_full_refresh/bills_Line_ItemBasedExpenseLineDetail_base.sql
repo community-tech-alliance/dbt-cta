@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('bills_Line_ItemBasedExpenseLineDetail_ab4') }}
+-- depends_on: {{ ref('bills_Line_ItemBasedExpenseLineDetail_ab3') }}
 select
     _airbyte_Line_hashid,
     UnitPrice,
@@ -26,7 +26,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_ItemBasedExpenseLineDetail_hashid
-from {{ ref('bills_Line_ItemBasedExpenseLineDetail_ab4') }}
+from {{ ref('bills_Line_ItemBasedExpenseLineDetail_ab3') }}
 -- ItemBasedExpenseLineDetail at bills/Line/ItemBasedExpenseLineDetail from {{ ref('bills_Line') }}
 
 {% if is_incremental() %}

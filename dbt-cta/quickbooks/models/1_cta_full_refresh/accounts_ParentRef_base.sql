@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('accounts_ParentRef_ab4') }}
+-- depends_on: {{ ref('accounts_ParentRef_ab3') }}
 select
     _airbyte_accounts_hashid,
     value,
@@ -22,7 +22,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_ParentRef_hashid
-from {{ ref('accounts_ParentRef_ab4') }}
+from {{ ref('accounts_ParentRef_ab3') }}
 -- ParentRef at accounts/ParentRef from {{ ref('accounts') }}
 
 {% if is_incremental() %}

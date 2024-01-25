@@ -5,7 +5,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('deliveries_ab4') }}
+-- depends_on: {{ ref('deliveries_ab3') }}
 select
     notes,
     batch_number,
@@ -31,5 +31,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_deliveries_hashid
-from {{ ref('deliveries_ab4') }}
+from {{ ref('deliveries_ab3') }}
 -- deliveries from {{ source('cta', '_airbyte_raw_deliveries') }}

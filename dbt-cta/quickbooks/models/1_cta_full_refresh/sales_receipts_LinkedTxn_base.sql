@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('sales_receipts_LinkedTxn_ab4') }}
+-- depends_on: {{ ref('sales_receipts_LinkedTxn_ab3') }}
 select
     _airbyte_sales_receipts_hashid,
     TxnId,
@@ -23,7 +23,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_LinkedTxn_hashid
-from {{ ref('sales_receipts_LinkedTxn_ab4') }}
+from {{ ref('sales_receipts_LinkedTxn_ab3') }}
 -- LinkedTxn at sales_receipts/LinkedTxn from {{ ref('sales_receipts') }}
 
 {% if is_incremental() %}

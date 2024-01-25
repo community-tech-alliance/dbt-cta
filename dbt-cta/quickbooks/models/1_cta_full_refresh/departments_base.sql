@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('departments_ab4') }}
+-- depends_on: {{ ref('departments_ab3') }}
 select
     ParentRef,
     SyncToken,
@@ -30,7 +30,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_departments_hashid
-from {{ ref('departments_ab4') }}
+from {{ ref('departments_ab3') }}
 -- departments from {{ source('cta', '_airbyte_raw_departments') }}
 
 {% if is_incremental() %}

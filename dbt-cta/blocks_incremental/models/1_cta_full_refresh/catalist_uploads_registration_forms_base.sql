@@ -12,7 +12,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('catalist_uploads_registration_forms_ab4') }}
+-- depends_on: {{ ref('catalist_uploads_registration_forms_ab3') }}
 select
     registration_form_id,
     catalist_upload_id,
@@ -20,7 +20,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_catalist_uploads_registration_forms_hashid
-from {{ ref('catalist_uploads_registration_forms_ab4') }}
+from {{ ref('catalist_uploads_registration_forms_ab3') }}
 -- catalist_uploads_registration_forms from {{ source('cta', '_airbyte_raw_catalist_uploads_registration_forms') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

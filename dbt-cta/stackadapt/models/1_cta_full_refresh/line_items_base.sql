@@ -8,7 +8,7 @@
     partitions=partitions_to_replace
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('line_items_ab4') }}
+-- depends_on: {{ ref('line_items_ab3') }}
 select
     id,
     name,
@@ -28,7 +28,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_line_items_hashid
-from {{ ref('line_items_ab4') }}
+from {{ ref('line_items_ab3') }}
 -- line_items from {{ source('cta', '_airbyte_raw_line_items') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

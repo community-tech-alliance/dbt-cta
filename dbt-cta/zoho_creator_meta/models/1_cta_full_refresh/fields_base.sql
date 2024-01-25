@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('fields_ab4') }}
+-- depends_on: {{ ref('fields_ab3') }}
 select
     subfields,
     unique,
@@ -30,7 +30,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_fields_hashid
-from {{ ref('fields_ab4') }}
+from {{ ref('fields_ab3') }}
 -- fields from {{ source('cta', '_airbyte_raw_fields') }}
 
 {% if is_incremental() %}

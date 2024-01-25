@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('grouping_measurements_ab4') }}
+-- depends_on: {{ ref('grouping_measurements_ab3') }}
 select
     measurable_id,
     grouping_id,
@@ -17,5 +17,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_grouping_measurements_hashid
-from {{ ref('grouping_measurements_ab4') }}
+from {{ ref('grouping_measurements_ab3') }}
 -- grouping_measurements from {{ source('cta', '_airbyte_raw_grouping_measurements') }}

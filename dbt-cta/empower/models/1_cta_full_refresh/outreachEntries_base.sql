@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('outreachEntries_ab4') }}
+-- depends_on: {{ ref('outreachEntries_ab3') }}
 select
     outreachCurrentCtaId,
     outreachEngagementLevel,
@@ -32,7 +32,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_outreachEntries_hashid
-from {{ ref('outreachEntries_ab4') }}
+from {{ ref('outreachEntries_ab3') }}
 -- outreachEntries from {{ source('cta', '_airbyte_raw_outreachEntries') }}
 
 {% if is_incremental() %}

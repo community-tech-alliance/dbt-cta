@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('tags_ab4') }}
+-- depends_on: {{ ref('tags_ab3') }}
 select
     id,
     name,
@@ -32,7 +32,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_tags_hashid
-from {{ ref('tags_ab4') }}
+from {{ ref('tags_ab3') }}
 -- tags from {{ source('cta', '_airbyte_raw_tags') }}
 
 {% if is_incremental() %}

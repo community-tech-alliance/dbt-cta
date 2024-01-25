@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('metrics_ab4') }}
+-- depends_on: {{ ref('metrics_ab3') }}
 select
     updated_at,
     name,
@@ -20,5 +20,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_metrics_hashid
-from {{ ref('metrics_ab4') }}
+from {{ ref('metrics_ab3') }}
 -- metrics from {{ source('cta', '_airbyte_raw_metrics') }}

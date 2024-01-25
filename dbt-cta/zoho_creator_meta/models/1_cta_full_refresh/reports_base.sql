@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('reports_ab4') }}
+-- depends_on: {{ ref('reports_ab3') }}
 select
     application_link_name,
     type,
@@ -24,7 +24,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_reports_hashid
-from {{ ref('reports_ab4') }}
+from {{ ref('reports_ab3') }}
 -- reports from {{ source('cta', '_airbyte_raw_reports') }}
 
 {% if is_incremental() %}

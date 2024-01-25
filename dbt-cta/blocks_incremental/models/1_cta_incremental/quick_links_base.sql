@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('quick_links_ab4') }}
+-- depends_on: {{ ref('quick_links_ab3') }}
 select
     bg_color,
     size,
@@ -23,5 +23,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_quick_links_hashid
-from {{ ref('quick_links_ab4') }}
+from {{ ref('quick_links_ab3') }}
 -- quick_links from {{ source('cta', '_airbyte_raw_quick_links') }}

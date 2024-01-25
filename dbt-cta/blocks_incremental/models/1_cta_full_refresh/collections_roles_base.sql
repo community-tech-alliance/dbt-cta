@@ -12,7 +12,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('collections_roles_ab4') }}
+-- depends_on: {{ ref('collections_roles_ab3') }}
 select
     collection_id,
     role_id,
@@ -20,7 +20,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_collections_roles_hashid
-from {{ ref('collections_roles_ab4') }}
+from {{ ref('collections_roles_ab3') }}
 -- collections_roles from {{ source('cta', '_airbyte_raw_collections_roles') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

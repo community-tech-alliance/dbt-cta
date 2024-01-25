@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('event_types_ab4') }}
+-- depends_on: {{ ref('event_types_ab3') }}
 select
     updated_at,
     name,
@@ -16,5 +16,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_event_types_hashid
-from {{ ref('event_types_ab4') }}
+from {{ ref('event_types_ab3') }}
 -- event_types from {{ source('cta', '_airbyte_raw_event_types') }}

@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('widgets_ab4') }}
+-- depends_on: {{ ref('widgets_ab3') }}
 select
     updated_at,
     name,
@@ -21,4 +21,4 @@ select
     _airbyte_emitted_at,
     _airbyte_normalized_at,
     _airbyte_widgets_hashid
-from {{ ref('widgets_ab4') }}
+from {{ ref('widgets_ab3') }}

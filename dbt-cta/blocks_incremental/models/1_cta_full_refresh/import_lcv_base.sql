@@ -12,7 +12,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('import_lcv_ab4') }}
+-- depends_on: {{ ref('import_lcv_ab3') }}
 select
     citizen,
     date_delivered,
@@ -38,7 +38,7 @@ select
     _airbyte_emitted_at,
     _airbyte_normalized_at,
     _airbyte_import_lcv_hashid
-from {{ ref('import_lcv_ab4') }}
+from {{ ref('import_lcv_ab3') }}
 -- import_lcv from {{ source('cta', '_airbyte_raw_import_lcv') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

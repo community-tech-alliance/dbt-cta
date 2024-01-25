@@ -12,7 +12,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('email_templates_events_ab4') }}
+-- depends_on: {{ ref('email_templates_events_ab3') }}
 select
     event_id,
     updated_at,
@@ -22,7 +22,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_email_templates_events_hashid
-from {{ ref('email_templates_events_ab4') }}
+from {{ ref('email_templates_events_ab3') }}
 -- email_templates_events from {{ source('cta', '_airbyte_raw_email_templates_events') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

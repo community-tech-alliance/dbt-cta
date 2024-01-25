@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('votes_ab4') }}
+-- depends_on: {{ ref('votes_ab3') }}
 select
     metric_id,
     vote_weight,
@@ -21,5 +21,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_votes_hashid
-from {{ ref('votes_ab4') }}
+from {{ ref('votes_ab3') }}
 -- votes from {{ source('cta', '_airbyte_raw_votes') }}

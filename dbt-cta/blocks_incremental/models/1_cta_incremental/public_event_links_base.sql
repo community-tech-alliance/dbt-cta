@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('public_event_links_ab4') }}
+-- depends_on: {{ ref('public_event_links_ab3') }}
 select
     event_id,
     user_id,
@@ -16,5 +16,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_public_event_links_hashid
-from {{ ref('public_event_links_ab4') }}
+from {{ ref('public_event_links_ab3') }}
 -- public_event_links from {{ source('cta', '_airbyte_raw_public_event_links') }}

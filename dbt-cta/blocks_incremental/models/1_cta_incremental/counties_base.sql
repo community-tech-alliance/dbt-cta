@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('counties_ab4') }}
+-- depends_on: {{ ref('counties_ab3') }}
 select
     updated_at,
     name,
@@ -18,5 +18,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_counties_hashid
-from {{ ref('counties_ab4') }}
+from {{ ref('counties_ab3') }}
 -- counties from {{ source('cta', '_airbyte_raw_counties') }}

@@ -8,7 +8,7 @@
     partitions=partitions_to_replace
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('conversion_trackers_ab4') }}
+-- depends_on: {{ ref('conversion_trackers_ab3') }}
 select
     id,
     name,
@@ -21,7 +21,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_conversion_trackers_hashid
-from {{ ref('conversion_trackers_ab4') }}
+from {{ ref('conversion_trackers_ab3') }}
 -- conversion_trackers from {{ source('cta', '_airbyte_raw_conversion_trackers') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

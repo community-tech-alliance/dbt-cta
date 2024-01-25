@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('deposits_Line_DepositLineDetail_ab4') }}
+-- depends_on: {{ ref('deposits_Line_DepositLineDetail_ab3') }}
 select
     _airbyte_Line_hashid,
     PaymentMethodRef,
@@ -24,7 +24,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_DepositLineDetail_hashid
-from {{ ref('deposits_Line_DepositLineDetail_ab4') }}
+from {{ ref('deposits_Line_DepositLineDetail_ab3') }}
 -- DepositLineDetail at deposits/Line/DepositLineDetail from {{ ref('deposits_Line') }}
 
 {% if is_incremental() %}

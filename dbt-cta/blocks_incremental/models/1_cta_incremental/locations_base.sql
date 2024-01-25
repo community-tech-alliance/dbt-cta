@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('locations_ab4') }}
+-- depends_on: {{ ref('locations_ab3') }}
 select
     street_address,
     primary_point_of_contact,
@@ -52,5 +52,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_locations_hashid
-from {{ ref('locations_ab4') }}
+from {{ ref('locations_ab3') }}
 -- locations from {{ source('cta', '_airbyte_raw_locations') }}

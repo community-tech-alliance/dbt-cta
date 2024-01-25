@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('applications_ab4') }}
+-- depends_on: {{ ref('applications_ab3') }}
 select
     application_name,
     date_format,
@@ -28,7 +28,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_applications_hashid
-from {{ ref('applications_ab4') }}
+from {{ ref('applications_ab3') }}
 -- applications from {{ source('cta', '_airbyte_raw_applications') }}
 
 {% if is_incremental() %}

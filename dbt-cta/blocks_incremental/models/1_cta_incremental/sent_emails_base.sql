@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('sent_emails_ab4') }}
+-- depends_on: {{ ref('sent_emails_ab3') }}
 select
     recipients_count,
     event_id,
@@ -23,5 +23,5 @@ select
     _airbyte_emitted_at,
     _airbyte_normalized_at,
     _airbyte_sent_emails_hashid
-from {{ ref('sent_emails_ab4') }}
+from {{ ref('sent_emails_ab3') }}
 -- sent_emails from {{ source('cta', '_airbyte_raw_sent_emails') }}

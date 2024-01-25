@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('ctas_ab4') }}
+-- depends_on: {{ ref('ctas_ab3') }}
 select
     turfCuttingType,
     textCanvassingType,
@@ -53,7 +53,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_ctas_hashid
-from {{ ref('ctas_ab4') }}
+from {{ ref('ctas_ab3') }}
 -- ctas from {{ source('cta', '_airbyte_raw_ctas') }}
 
 {% if is_incremental() %}

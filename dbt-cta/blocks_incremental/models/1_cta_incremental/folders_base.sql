@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('folders_ab4') }}
+-- depends_on: {{ ref('folders_ab3') }}
 select
     depth,
     updated_at,
@@ -21,5 +21,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_folders_hashid
-from {{ ref('folders_ab4') }}
+from {{ ref('folders_ab3') }}
 -- folders from {{ source('cta', '_airbyte_raw_folders') }}

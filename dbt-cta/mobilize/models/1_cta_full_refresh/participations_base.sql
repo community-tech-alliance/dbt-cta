@@ -10,7 +10,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('participations_ab4') }}
+-- depends_on: {{ ref('participations_ab3') }}
 select
     id,
     status,
@@ -57,7 +57,7 @@ select
     _airbyte_emitted_at,
     current_timestamp() as _airbyte_normalized_at,
     _airbyte_participations_hashid
-from {{ ref('participations_ab4') }}
+from {{ ref('participations_ab3') }}
 -- participations from {{ source("cta", "_airbyte_raw_participations" ) }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('phone_banking_script_objects_ab4') }}
+-- depends_on: {{ ref('phone_banking_script_objects_ab3') }}
 select
     is_section_divider,
     scriptable_id,
@@ -22,5 +22,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_phone_banking_script_objects_hashid
-from {{ ref('phone_banking_script_objects_ab4') }}
+from {{ ref('phone_banking_script_objects_ab3') }}
 -- phone_banking_script_objects from {{ source('cta', '_airbyte_raw_phone_banking_script_objects') }}

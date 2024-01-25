@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('estimates_TxnTaxDetail_TaxLine_ab4') }}
+-- depends_on: {{ ref('estimates_TxnTaxDetail_TaxLine_ab3') }}
 select
     _airbyte_TxnTaxDetail_hashid,
     DetailType,
@@ -24,7 +24,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_TaxLine_hashid
-from {{ ref('estimates_TxnTaxDetail_TaxLine_ab4') }}
+from {{ ref('estimates_TxnTaxDetail_TaxLine_ab3') }}
 -- TaxLine at estimates/TxnTaxDetail/TaxLine from {{ ref('estimates_TxnTaxDetail') }}
 
 {% if is_incremental() %}

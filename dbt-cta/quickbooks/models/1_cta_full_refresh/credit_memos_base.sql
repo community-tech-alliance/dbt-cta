@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('credit_memos_ab4') }}
+-- depends_on: {{ ref('credit_memos_ab3') }}
 select
     CurrencyRef,
     ExchangeRate,
@@ -47,7 +47,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_credit_memos_hashid
-from {{ ref('credit_memos_ab4') }}
+from {{ ref('credit_memos_ab3') }}
 -- credit_memos from {{ source('cta', '_airbyte_raw_credit_memos') }}
 
 {% if is_incremental() %}

@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('tasks_ab4') }}
+-- depends_on: {{ ref('tasks_ab3') }}
 select
     id,
     resolved,
@@ -29,7 +29,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_tasks_hashid
-from {{ ref('tasks_ab4') }}
+from {{ ref('tasks_ab3') }}
 -- tasks from {{ source('cta', '_airbyte_raw_tasks') }}
 
 {% if is_incremental() %}

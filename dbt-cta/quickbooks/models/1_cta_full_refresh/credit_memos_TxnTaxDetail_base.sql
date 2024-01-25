@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('credit_memos_TxnTaxDetail_ab4') }}
+-- depends_on: {{ ref('credit_memos_TxnTaxDetail_ab3') }}
 select
     _airbyte_credit_memos_hashid,
     TotalTax,
@@ -22,7 +22,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_TxnTaxDetail_hashid
-from {{ ref('credit_memos_TxnTaxDetail_ab4') }}
+from {{ ref('credit_memos_TxnTaxDetail_ab3') }}
 -- TxnTaxDetail at credit_memos/TxnTaxDetail from {{ ref('credit_memos') }}
 
 {% if is_incremental() %}

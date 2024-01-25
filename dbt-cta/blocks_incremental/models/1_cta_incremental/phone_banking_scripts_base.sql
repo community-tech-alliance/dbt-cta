@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('phone_banking_scripts_ab4') }}
+-- depends_on: {{ ref('phone_banking_scripts_ab3') }}
 select
     updated_at,
     organization_id,
@@ -19,5 +19,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_phone_banking_scripts_hashid
-from {{ ref('phone_banking_scripts_ab4') }}
+from {{ ref('phone_banking_scripts_ab3') }}
 -- phone_banking_scripts from {{ source('cta', '_airbyte_raw_phone_banking_scripts') }}

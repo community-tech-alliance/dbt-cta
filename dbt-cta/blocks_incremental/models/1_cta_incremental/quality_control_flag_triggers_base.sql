@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('quality_control_flag_triggers_ab4') }}
+-- depends_on: {{ ref('quality_control_flag_triggers_ab3') }}
 select
     minimum_scan_count,
     phone_verification_response,
@@ -29,5 +29,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_quality_control_flag_triggers_hashid
-from {{ ref('quality_control_flag_triggers_ab4') }}
+from {{ ref('quality_control_flag_triggers_ab3') }}
 -- quality_control_flag_triggers from {{ source('cta', '_airbyte_raw_quality_control_flag_triggers') }}

@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('profileOrganizationTags_ab4') }}
+-- depends_on: {{ ref('profileOrganizationTags_ab3') }}
 select
     profileEid,
     tagId,
@@ -22,7 +22,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_profileOrganizationTags_hashid
-from {{ ref('profileOrganizationTags_ab4') }}
+from {{ ref('profileOrganizationTags_ab3') }}
 -- profileOrganizationTags from {{ source('cta', '_airbyte_raw_profileOrganizationTags') }}
 
 {% if is_incremental() %}

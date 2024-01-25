@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('dashboard_widgets_ab4') }}
+-- depends_on: {{ ref('dashboard_widgets_ab3') }}
 select
     widget_id,
     updated_at,
@@ -21,5 +21,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_dashboard_widgets_hashid
-from {{ ref('dashboard_widgets_ab4') }}
+from {{ ref('dashboard_widgets_ab3') }}
 -- dashboard_widgets from {{ source('cta', '_airbyte_raw_dashboard_widgets') }}

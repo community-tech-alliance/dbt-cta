@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('relationships_ab4') }}
+-- depends_on: {{ ref('relationships_ab3') }}
 select
     first_person_id,
     updated_at,
@@ -19,5 +19,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_relationships_hashid
-from {{ ref('relationships_ab4') }}
+from {{ ref('relationships_ab3') }}
 -- relationships from {{ source('cta', '_airbyte_raw_relationships') }}

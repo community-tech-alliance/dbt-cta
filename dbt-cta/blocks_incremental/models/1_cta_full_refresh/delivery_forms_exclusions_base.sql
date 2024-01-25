@@ -12,7 +12,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('delivery_forms_exclusions_ab4') }}
+-- depends_on: {{ ref('delivery_forms_exclusions_ab3') }}
 select
     voter_registration_scan_id,
     delivery_id,
@@ -20,7 +20,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_delivery_forms_exclusions_hashid
-from {{ ref('delivery_forms_exclusions_ab4') }}
+from {{ ref('delivery_forms_exclusions_ab3') }}
 -- delivery_forms_exclusions from {{ source('cta', '_airbyte_raw_delivery_forms_exclusions') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

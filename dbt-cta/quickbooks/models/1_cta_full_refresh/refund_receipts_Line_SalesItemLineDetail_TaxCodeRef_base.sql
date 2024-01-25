@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('refund_receipts_Line_SalesItemLineDetail_TaxCodeRef_ab4') }}
+-- depends_on: {{ ref('refund_receipts_Line_SalesItemLineDetail_TaxCodeRef_ab3') }}
 select
     _airbyte_SalesItemLineDetail_hashid,
     value,
@@ -22,7 +22,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_TaxCodeRef_hashid
-from {{ ref('refund_receipts_Line_SalesItemLineDetail_TaxCodeRef_ab4') }}
+from {{ ref('refund_receipts_Line_SalesItemLineDetail_TaxCodeRef_ab3') }}
 -- TaxCodeRef at refund_receipts/Line/SalesItemLineDetail/TaxCodeRef from {{ ref('refund_receipts_Line_SalesItemLineDetail') }}
 
 {% if is_incremental() %}

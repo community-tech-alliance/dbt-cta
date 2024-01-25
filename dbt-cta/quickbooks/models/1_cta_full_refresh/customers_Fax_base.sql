@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('customers_Fax_ab4') }}
+-- depends_on: {{ ref('customers_Fax_ab3') }}
 select
     _airbyte_customers_hashid,
     FreeFormNumber,
@@ -22,7 +22,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_Fax_hashid
-from {{ ref('customers_Fax_ab4') }}
+from {{ ref('customers_Fax_ab3') }}
 -- Fax at customers/Fax from {{ ref('customers') }}
 
 {% if is_incremental() %}

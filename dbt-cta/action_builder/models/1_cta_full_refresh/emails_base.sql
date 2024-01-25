@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('emails_ab4') }}
+-- depends_on: {{ ref('emails_ab3') }}
 select
     id,
     email,
@@ -32,7 +32,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_emails_hashid
-from {{ ref('emails_ab4') }}
+from {{ ref('emails_ab3') }}
 -- emails from {{ source('cta', '_airbyte_raw_emails') }}
 
 {% if is_incremental() %}

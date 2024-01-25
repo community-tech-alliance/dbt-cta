@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('turfs_ab4') }}
+-- depends_on: {{ ref('turfs_ab3') }}
 select
     van_api_config,
     turf_level_id,
@@ -34,5 +34,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_turfs_hashid
-from {{ ref('turfs_ab4') }}
+from {{ ref('turfs_ab3') }}
 -- turfs from {{ source('cta', '_airbyte_raw_turfs') }}

@@ -8,7 +8,7 @@
     partitions=partitions_to_replace
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('campaigns_day_part_ab4') }}
+-- depends_on: {{ ref('campaigns_day_part_ab3') }}
 select
     _airbyte_campaigns_hashid,
     enabled,
@@ -19,7 +19,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_day_part_hashid
-from {{ ref('campaigns_day_part_ab4') }}
+from {{ ref('campaigns_day_part_ab3') }}
 -- day_part at campaigns_base/day_part from {{ ref('campaigns_base') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

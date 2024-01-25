@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('state_party_codes_ab4') }}
+-- depends_on: {{ ref('state_party_codes_ab3') }}
 select
     code,
     updated_at,
@@ -18,5 +18,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_state_party_codes_hashid
-from {{ ref('state_party_codes_ab4') }}
+from {{ ref('state_party_codes_ab3') }}
 -- state_party_codes from {{ source('cta', '_airbyte_raw_state_party_codes') }}

@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('invoices_ab4') }}
+-- depends_on: {{ ref('invoices_ab3') }}
 select
     CurrencyRef,
     ExchangeRate,
@@ -53,7 +53,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_invoices_hashid
-from {{ ref('invoices_ab4') }}
+from {{ ref('invoices_ab3') }}
 -- invoices from {{ source('cta', '_airbyte_raw_invoices') }}
 
 {% if is_incremental() %}

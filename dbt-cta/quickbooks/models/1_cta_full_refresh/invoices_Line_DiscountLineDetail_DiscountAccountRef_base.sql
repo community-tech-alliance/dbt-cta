@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('invoices_Line_DiscountLineDetail_DiscountAccountRef_ab4') }}
+-- depends_on: {{ ref('invoices_Line_DiscountLineDetail_DiscountAccountRef_ab3') }}
 select
     _airbyte_DiscountLineDetail_hashid,
     name,
@@ -23,7 +23,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_DiscountAccountRef_hashid
-from {{ ref('invoices_Line_DiscountLineDetail_DiscountAccountRef_ab4') }}
+from {{ ref('invoices_Line_DiscountLineDetail_DiscountAccountRef_ab3') }}
 -- DiscountAccountRef at invoices/Line/DiscountLineDetail/DiscountAccountRef from {{ ref('invoices_Line_DiscountLineDetail') }}
 
 {% if is_incremental() %}

@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('follow_ups_ab4') }}
+-- depends_on: {{ ref('follow_ups_ab3') }}
 select
     id,
     entity_id,
@@ -29,7 +29,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_follow_ups_hashid
-from {{ ref('follow_ups_ab4') }}
+from {{ ref('follow_ups_ab3') }}
 -- follow_ups from {{ source('cta', '_airbyte_raw_follow_ups') }}
 
 {% if is_incremental() %}

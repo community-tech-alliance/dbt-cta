@@ -12,7 +12,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('vr_zips_lookup_ab4') }}
+-- depends_on: {{ ref('vr_zips_lookup_ab3') }}
 select
     voter_age,
     voter_gender,
@@ -26,7 +26,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_vr_zips_lookup_hashid
-from {{ ref('vr_zips_lookup_ab4') }}
+from {{ ref('vr_zips_lookup_ab3') }}
 -- vr_zips_lookup from {{ source('cta', '_airbyte_raw_vr_zips_lookup') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

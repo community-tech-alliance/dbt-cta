@@ -10,7 +10,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('van_persons_ab4') }}
+-- depends_on: {{ ref('van_persons_ab3') }}
 select
     id,
     van_id,
@@ -22,7 +22,7 @@ select
     _airbyte_emitted_at,
     current_timestamp() as _airbyte_normalized_at,
     _airbyte_van_persons_hashid
-from {{ ref('van_persons_ab4') }}
+from {{ ref('van_persons_ab3') }}
 -- van_persons from {{ source("cta", "_airbyte_raw_van_persons" ) }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

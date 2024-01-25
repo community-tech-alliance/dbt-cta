@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('estimates_MetaData_ab4') }}
+-- depends_on: {{ ref('estimates_MetaData_ab3') }}
 select
     _airbyte_estimates_hashid,
     CreateTime,
@@ -23,7 +23,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_MetaData_hashid
-from {{ ref('estimates_MetaData_ab4') }}
+from {{ ref('estimates_MetaData_ab3') }}
 -- MetaData at estimates/MetaData from {{ ref('estimates') }}
 
 {% if is_incremental() %}

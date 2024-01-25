@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('voter_sources_ab4') }}
+-- depends_on: {{ ref('voter_sources_ab3') }}
 select
     updated_at,
     date_obtained,
@@ -17,5 +17,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_voter_sources_hashid
-from {{ ref('voter_sources_ab4') }}
+from {{ ref('voter_sources_ab3') }}
 -- voter_sources from {{ source('cta', '_airbyte_raw_voter_sources') }}
