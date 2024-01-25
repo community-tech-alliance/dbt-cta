@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('search_documents_ab3') }}
+-- depends_on: {{ ref('search_documents_ab4') }}
 select
     updated_at,
     created_at,
@@ -17,4 +17,4 @@ select
     _airbyte_emitted_at,
     _airbyte_normalized_at,
     _airbyte_search_documents_hashid
-from {{ ref('search_documents_ab3') }}
+from {{ ref('search_documents_ab4') }}

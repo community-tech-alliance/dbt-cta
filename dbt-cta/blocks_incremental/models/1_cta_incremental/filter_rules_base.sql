@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('filter_rules_ab3') }}
+-- depends_on: {{ ref('filter_rules_ab4') }}
 select
     updated_at,
     param,
@@ -19,5 +19,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_filter_rules_hashid
-from {{ ref('filter_rules_ab3') }}
+from {{ ref('filter_rules_ab4') }}
 -- filter_rules from {{ source('cta', '_airbyte_raw_filter_rules') }}

@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('purchase_orders_ab3') }}
+-- depends_on: {{ ref('purchase_orders_ab4') }}
 select
     CurrencyRef,
     ExchangeRate,
@@ -48,7 +48,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_purchase_orders_hashid
-from {{ ref('purchase_orders_ab3') }}
+from {{ ref('purchase_orders_ab4') }}
 -- purchase_orders from {{ source('cta', '_airbyte_raw_purchase_orders') }}
 
 {% if is_incremental() %}

@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('estimates_BillAddr_ab3') }}
+-- depends_on: {{ ref('estimates_BillAddr_ab4') }}
 select
     _airbyte_estimates_hashid,
     Line4,
@@ -28,7 +28,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_BillAddr_hashid
-from {{ ref('estimates_BillAddr_ab3') }}
+from {{ ref('estimates_BillAddr_ab4') }}
 -- BillAddr at estimates/BillAddr from {{ ref('estimates') }}
 
 {% if is_incremental() %}

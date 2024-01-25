@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('bill_payments_ab3') }}
+-- depends_on: {{ ref('bill_payments_ab4') }}
 select
     CurrencyRef,
     ExchangeRate,
@@ -38,7 +38,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_bill_payments_hashid
-from {{ ref('bill_payments_ab3') }}
+from {{ ref('bill_payments_ab4') }}
 -- bill_payments from {{ source('cta', '_airbyte_raw_bill_payments') }}
 
 {% if is_incremental() %}

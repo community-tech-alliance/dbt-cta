@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('campaign_topline_setting_items_ab3') }}
+-- depends_on: {{ ref('campaign_topline_setting_items_ab4') }}
 select
     id,
     item_id,
@@ -30,7 +30,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_campaign_topline_setting_items_hashid
-from {{ ref('campaign_topline_setting_items_ab3') }}
+from {{ ref('campaign_topline_setting_items_ab4') }}
 -- campaign_topline_setting_items from {{ source('cta', '_airbyte_raw_campaign_topline_setting_items') }}
 
 {% if is_incremental() %}

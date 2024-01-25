@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('purchases_PurchaseEx_ab3') }}
+-- depends_on: {{ ref('purchases_PurchaseEx_ab4') }}
 select
     _airbyte_purchases_hashid,
     {{ adapter.quote('any') }},
@@ -22,7 +22,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_PurchaseEx_hashid
-from {{ ref('purchases_PurchaseEx_ab3') }}
+from {{ ref('purchases_PurchaseEx_ab4') }}
 -- PurchaseEx at purchases/PurchaseEx from {{ ref('purchases') }}
 
 {% if is_incremental() %}

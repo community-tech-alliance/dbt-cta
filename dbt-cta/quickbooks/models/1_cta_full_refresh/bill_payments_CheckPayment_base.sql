@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('bill_payments_CheckPayment_ab3') }}
+-- depends_on: {{ ref('bill_payments_CheckPayment_ab4') }}
 select
     _airbyte_bill_payments_hashid,
     PrintStatus,
@@ -23,7 +23,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_CheckPayment_hashid
-from {{ ref('bill_payments_CheckPayment_ab3') }}
+from {{ ref('bill_payments_CheckPayment_ab4') }}
 -- CheckPayment at bill_payments/CheckPayment from {{ ref('bill_payments') }}
 
 {% if is_incremental() %}

@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('absentee_ballot_request_forms_ab3') }}
+-- depends_on: {{ ref('absentee_ballot_request_forms_ab4') }}
 select
     gender,
     eligible_voting_age,
@@ -33,5 +33,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_absentee_ballot_request_forms_hashid
-from {{ ref('absentee_ballot_request_forms_ab3') }}
+from {{ ref('absentee_ballot_request_forms_ab4') }}
 -- absentee_ballot_request_forms from {{ source('cta', '_airbyte_raw_absentee_ballot_request_forms') }}

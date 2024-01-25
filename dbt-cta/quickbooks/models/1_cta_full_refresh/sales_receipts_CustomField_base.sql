@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('sales_receipts_CustomField_ab3') }}
+-- depends_on: {{ ref('sales_receipts_CustomField_ab4') }}
 select
     _airbyte_sales_receipts_hashid,
     Type,
@@ -24,7 +24,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_CustomField_hashid
-from {{ ref('sales_receipts_CustomField_ab3') }}
+from {{ ref('sales_receipts_CustomField_ab4') }}
 -- CustomField at sales_receipts/CustomField from {{ ref('sales_receipts') }}
 
 {% if is_incremental() %}

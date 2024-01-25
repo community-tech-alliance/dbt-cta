@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('global_notes_ab3') }}
+-- depends_on: {{ ref('global_notes_ab4') }}
 select
     id,
     text,
@@ -32,7 +32,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_global_notes_hashid
-from {{ ref('global_notes_ab3') }}
+from {{ ref('global_notes_ab4') }}
 -- global_notes from {{ source('cta', '_airbyte_raw_global_notes') }}
 
 {% if is_incremental() %}

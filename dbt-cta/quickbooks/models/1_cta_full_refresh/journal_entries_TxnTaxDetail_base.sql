@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('journal_entries_TxnTaxDetail_ab3') }}
+-- depends_on: {{ ref('journal_entries_TxnTaxDetail_ab4') }}
 select
     _airbyte_journal_entries_hashid,
     TotalTax,
@@ -24,7 +24,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_TxnTaxDetail_hashid
-from {{ ref('journal_entries_TxnTaxDetail_ab3') }}
+from {{ ref('journal_entries_TxnTaxDetail_ab4') }}
 -- TxnTaxDetail at journal_entries/TxnTaxDetail from {{ ref('journal_entries') }}
 
 {% if is_incremental() %}

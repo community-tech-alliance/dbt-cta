@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('turf_levels_ab3') }}
+-- depends_on: {{ ref('turf_levels_ab4') }}
 select
     updated_at,
     name,
@@ -16,5 +16,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_turf_levels_hashid
-from {{ ref('turf_levels_ab3') }}
+from {{ ref('turf_levels_ab4') }}
 -- turf_levels from {{ source('cta', '_airbyte_raw_turf_levels') }}

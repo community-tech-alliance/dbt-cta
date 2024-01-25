@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('phone_banking_responses_ab3') }}
+-- depends_on: {{ ref('phone_banking_responses_ab4') }}
 select
     answer_option_id,
     updated_at,
@@ -19,5 +19,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_phone_banking_responses_hashid
-from {{ ref('phone_banking_responses_ab3') }}
+from {{ ref('phone_banking_responses_ab4') }}
 -- phone_banking_responses from {{ source('cta', '_airbyte_raw_phone_banking_responses') }}

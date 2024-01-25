@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('estimates_ab3') }}
+-- depends_on: {{ ref('estimates_ab4') }}
 select
     CurrencyRef,
     ExchangeRate,
@@ -46,7 +46,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_estimates_hashid
-from {{ ref('estimates_ab3') }}
+from {{ ref('estimates_ab4') }}
 -- estimates from {{ source('cta', '_airbyte_raw_estimates') }}
 
 {% if is_incremental() %}

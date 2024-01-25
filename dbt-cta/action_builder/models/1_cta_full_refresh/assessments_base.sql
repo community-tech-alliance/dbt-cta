@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('assessments_ab3') }}
+-- depends_on: {{ ref('assessments_ab4') }}
 select
     id,
     level,
@@ -29,7 +29,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_assessments_hashid
-from {{ ref('assessments_ab3') }}
+from {{ ref('assessments_ab4') }}
 -- assessments from {{ source('cta', '_airbyte_raw_assessments') }}
 
 {% if is_incremental() %}

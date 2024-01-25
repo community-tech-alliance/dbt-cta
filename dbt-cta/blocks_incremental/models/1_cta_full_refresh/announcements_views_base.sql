@@ -12,7 +12,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('announcements_views_ab3') }}
+-- depends_on: {{ ref('announcements_views_ab4') }}
 select
     user_id,
     announcement_id,
@@ -20,7 +20,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_announcements_views_hashid
-from {{ ref('announcements_views_ab3') }}
+from {{ ref('announcements_views_ab4') }}
 -- announcements_views from {{ source('cta', '_airbyte_raw_announcements_views') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('friendly_id_slugs_ab3') }}
+-- depends_on: {{ ref('friendly_id_slugs_ab4') }}
 select
     sluggable_type,
     scope,
@@ -18,5 +18,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_friendly_id_slugs_hashid
-from {{ ref('friendly_id_slugs_ab3') }}
+from {{ ref('friendly_id_slugs_ab4') }}
 -- friendly_id_slugs from {{ source('cta', '_airbyte_raw_friendly_id_slugs') }}

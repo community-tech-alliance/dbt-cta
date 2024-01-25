@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('vendors_PrimaryEmailAddr_ab3') }}
+-- depends_on: {{ ref('vendors_PrimaryEmailAddr_ab4') }}
 select
     _airbyte_vendors_hashid,
     Address,
@@ -22,7 +22,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_PrimaryEmailAddr_hashid
-from {{ ref('vendors_PrimaryEmailAddr_ab3') }}
+from {{ ref('vendors_PrimaryEmailAddr_ab4') }}
 -- PrimaryEmailAddr at vendors/PrimaryEmailAddr from {{ ref('vendors') }}
 
 {% if is_incremental() %}

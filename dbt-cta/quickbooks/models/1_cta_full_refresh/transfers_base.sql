@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('transfers_ab3') }}
+-- depends_on: {{ ref('transfers_ab4') }}
 select
     SyncToken,
     CurrencyRef,
@@ -32,7 +32,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_transfers_hashid
-from {{ ref('transfers_ab3') }}
+from {{ ref('transfers_ab4') }}
 -- transfers from {{ source('cta', '_airbyte_raw_transfers') }}
 
 {% if is_incremental() %}

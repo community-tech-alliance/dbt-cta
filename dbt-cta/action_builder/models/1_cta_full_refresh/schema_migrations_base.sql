@@ -14,14 +14,14 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('schema_migrations_ab3') }}
+-- depends_on: {{ ref('schema_migrations_ab4') }}
 select
     version,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_schema_migrations_hashid
-from {{ ref('schema_migrations_ab3') }}
+from {{ ref('schema_migrations_ab4') }}
 -- schema_migrations from {{ source('cta', '_airbyte_raw_schema_migrations') }}
 
 {% if is_incremental() %}

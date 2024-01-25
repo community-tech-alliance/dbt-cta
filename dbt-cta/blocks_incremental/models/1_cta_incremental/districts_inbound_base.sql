@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('districts_inbound_ab3') }}
+-- depends_on: {{ ref('districts_inbound_ab4') }}
 select
     district_name,
     updated_at,
@@ -19,4 +19,4 @@ select
     _airbyte_emitted_at,
     _airbyte_normalized_at,
     _airbyte_districts_inbound_hashid
-from {{ ref('districts_inbound_ab3') }}
+from {{ ref('districts_inbound_ab4') }}

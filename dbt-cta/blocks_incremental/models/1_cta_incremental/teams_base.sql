@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('teams_ab3') }}
+-- depends_on: {{ ref('teams_ab4') }}
 select
     updated_at,
     turf_id,
@@ -24,5 +24,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_teams_hashid
-from {{ ref('teams_ab3') }}
+from {{ ref('teams_ab4') }}
 -- teams from {{ source('cta', '_airbyte_raw_teams') }}

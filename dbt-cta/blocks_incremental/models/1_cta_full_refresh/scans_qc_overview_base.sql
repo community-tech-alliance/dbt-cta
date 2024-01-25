@@ -12,7 +12,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('scans_qc_overview_ab3') }}
+-- depends_on: {{ ref('scans_qc_overview_ab4') }}
 select
     distance_from_location,
     eligible_voting_age,
@@ -94,7 +94,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_scans_qc_overview_hashid
-from {{ ref('scans_qc_overview_ab3') }}
+from {{ ref('scans_qc_overview_ab4') }}
 -- scans_qc_overview from {{ source('cta', '_airbyte_raw_scans_qc_overview') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

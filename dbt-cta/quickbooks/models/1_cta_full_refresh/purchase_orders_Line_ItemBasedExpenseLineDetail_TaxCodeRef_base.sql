@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('purchase_orders_Line_ItemBasedExpenseLineDetail_TaxCodeRef_ab3') }}
+-- depends_on: {{ ref('purchase_orders_Line_ItemBasedExpenseLineDetail_TaxCodeRef_ab4') }}
 select
     _airbyte_ItemBasedExpenseLineDetail_hashid,
     value,
@@ -22,7 +22,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_TaxCodeRef_hashid
-from {{ ref('purchase_orders_Line_ItemBasedExpenseLineDetail_TaxCodeRef_ab3') }}
+from {{ ref('purchase_orders_Line_ItemBasedExpenseLineDetail_TaxCodeRef_ab4') }}
 -- TaxCodeRef at purchase_orders/Line/ItemBasedExpenseLineDetail/TaxCodeRef from {{ ref('purchase_orders_Line_ItemBasedExpenseLineDetail') }}
 
 {% if is_incremental() %}

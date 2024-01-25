@@ -12,7 +12,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('states_ab3') }}
+-- depends_on: {{ ref('states_ab4') }}
 select
     full_name,
     updated_at,
@@ -22,7 +22,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_states_hashid
-from {{ ref('states_ab3') }}
+from {{ ref('states_ab4') }}
 -- states from {{ source('cta', '_airbyte_raw_states') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

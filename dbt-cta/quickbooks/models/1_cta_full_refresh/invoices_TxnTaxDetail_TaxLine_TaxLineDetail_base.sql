@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('invoices_TxnTaxDetail_TaxLine_TaxLineDetail_ab3') }}
+-- depends_on: {{ ref('invoices_TxnTaxDetail_TaxLine_TaxLineDetail_ab4') }}
 select
     _airbyte_TaxLine_hashid,
     PercentBased,
@@ -25,7 +25,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_TaxLineDetail_hashid
-from {{ ref('invoices_TxnTaxDetail_TaxLine_TaxLineDetail_ab3') }}
+from {{ ref('invoices_TxnTaxDetail_TaxLine_TaxLineDetail_ab4') }}
 -- TaxLineDetail at invoices/TxnTaxDetail/TaxLine/TaxLineDetail from {{ ref('invoices_TxnTaxDetail_TaxLine') }}
 
 {% if is_incremental() %}

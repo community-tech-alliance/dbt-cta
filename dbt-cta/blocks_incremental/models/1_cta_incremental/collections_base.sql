@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('collections_ab3') }}
+-- depends_on: {{ ref('collections_ab4') }}
 select
     updated_at,
     name,
@@ -19,5 +19,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_collections_hashid
-from {{ ref('collections_ab3') }}
+from {{ ref('collections_ab4') }}
 -- collections from {{ source('cta', '_airbyte_raw_collections') }}

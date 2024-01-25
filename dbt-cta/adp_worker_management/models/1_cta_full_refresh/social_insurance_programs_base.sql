@@ -11,7 +11,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('social_insurance_programs_ab3') }}
+-- depends_on: {{ ref('social_insurance_programs_ab4') }}
 
 select
     associateOID,
@@ -22,7 +22,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_social_insurance_programs_hashid
-from {{ ref('social_insurance_programs_ab3') }}
+from {{ ref('social_insurance_programs_ab4') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
