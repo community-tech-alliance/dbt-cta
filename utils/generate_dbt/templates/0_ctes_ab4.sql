@@ -5,7 +5,7 @@ SELECT * EXCEPT (rownum) FROM
 (
 SELECT 
     *,
-    ROW_NUMBER() OVER (PARTITION BY _airbyte_{{ table }}_hashid ORDER BY _airbyte_extracted_at desc) as rownum 
+    ROW_NUMBER() OVER (PARTITION BY _airbyte_{{ table }}_hashid ORDER BY _airbyte_emmited_at desc) as rownum 
 from {% raw %}{{ ref('{% endraw %}{{ table }}{% raw %}_ab3') }}{% endraw %}
 )
 where rownum=1
