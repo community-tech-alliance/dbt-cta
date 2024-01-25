@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('organization_memberships_ab3') }}
+-- depends_on: {{ ref('organization_memberships_ab4') }}
 select
     member_id,
     updated_at,
@@ -19,5 +19,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_organization_memberships_hashid
-from {{ ref('organization_memberships_ab3') }}
+from {{ ref('organization_memberships_ab4') }}
 -- organization_memberships from {{ source('cta', '_airbyte_raw_organization_memberships') }}

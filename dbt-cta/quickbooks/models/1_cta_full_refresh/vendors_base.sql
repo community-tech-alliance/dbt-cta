@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('vendors_ab3') }}
+-- depends_on: {{ ref('vendors_ab4') }}
 select
     CurrencyRef,
     Vendor1099,
@@ -46,7 +46,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_vendors_hashid
-from {{ ref('vendors_ab3') }}
+from {{ ref('vendors_ab4') }}
 -- vendors from {{ source('cta', '_airbyte_raw_vendors') }}
 
 {% if is_incremental() %}

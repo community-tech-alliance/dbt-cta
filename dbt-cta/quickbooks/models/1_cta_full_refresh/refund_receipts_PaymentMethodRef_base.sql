@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('refund_receipts_PaymentMethodRef_ab3') }}
+-- depends_on: {{ ref('refund_receipts_PaymentMethodRef_ab4') }}
 select
     _airbyte_refund_receipts_hashid,
     name,
@@ -23,7 +23,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_PaymentMethodRef_hashid
-from {{ ref('refund_receipts_PaymentMethodRef_ab3') }}
+from {{ ref('refund_receipts_PaymentMethodRef_ab4') }}
 -- PaymentMethodRef at refund_receipts/PaymentMethodRef from {{ ref('refund_receipts') }}
 
 {% if is_incremental() %}

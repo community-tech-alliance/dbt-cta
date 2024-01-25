@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('invoices_ShipAddr_ab3') }}
+-- depends_on: {{ ref('invoices_ShipAddr_ab4') }}
 select
     _airbyte_invoices_hashid,
     CountrySubDivisionCode,
@@ -28,7 +28,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_ShipAddr_hashid
-from {{ ref('invoices_ShipAddr_ab3') }}
+from {{ ref('invoices_ShipAddr_ab4') }}
 -- ShipAddr at invoices/ShipAddr from {{ ref('invoices') }}
 
 {% if is_incremental() %}

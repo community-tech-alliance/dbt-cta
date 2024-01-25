@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('user_profiles_ab3') }}
+-- depends_on: {{ ref('user_profiles_ab4') }}
 select
     facebook_url,
     gender,
@@ -26,5 +26,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_user_profiles_hashid
-from {{ ref('user_profiles_ab3') }}
+from {{ ref('user_profiles_ab4') }}
 -- user_profiles from {{ source('cta', '_airbyte_raw_user_profiles') }}

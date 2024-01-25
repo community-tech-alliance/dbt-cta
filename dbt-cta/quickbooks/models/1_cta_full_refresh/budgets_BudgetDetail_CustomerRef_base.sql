@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('budgets_BudgetDetail_CustomerRef_ab3') }}
+-- depends_on: {{ ref('budgets_BudgetDetail_CustomerRef_ab4') }}
 select
     _airbyte_BudgetDetail_hashid,
     name,
@@ -23,7 +23,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_CustomerRef_hashid
-from {{ ref('budgets_BudgetDetail_CustomerRef_ab3') }}
+from {{ ref('budgets_BudgetDetail_CustomerRef_ab4') }}
 -- CustomerRef at budgets/BudgetDetail/CustomerRef from {{ ref('budgets_BudgetDetail') }}
 
 {% if is_incremental() %}

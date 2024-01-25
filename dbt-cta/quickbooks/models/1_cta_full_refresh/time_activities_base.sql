@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('time_activities_ab3') }}
+-- depends_on: {{ ref('time_activities_ab4') }}
 select
     EmployeeRef,
     NameOf,
@@ -37,7 +37,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_time_activities_hashid
-from {{ ref('time_activities_ab3') }}
+from {{ ref('time_activities_ab4') }}
 -- time_activities from {{ source('cta', '_airbyte_raw_time_activities') }}
 
 {% if is_incremental() %}

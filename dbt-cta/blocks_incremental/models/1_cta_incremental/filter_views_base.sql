@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('filter_views_ab3') }}
+-- depends_on: {{ ref('filter_views_ab4') }}
 select
     metadata,
     conjunction,
@@ -20,5 +20,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_filter_views_hashid
-from {{ ref('filter_views_ab3') }}
+from {{ ref('filter_views_ab4') }}
 -- filter_views from {{ source('cta', '_airbyte_raw_filter_views') }}

@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('organization_integrations_ab3') }}
+-- depends_on: {{ ref('organization_integrations_ab4') }}
 select
     id,
     settings,
@@ -25,7 +25,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_organization_integrations_hashid
-from {{ ref('organization_integrations_ab3') }}
+from {{ ref('organization_integrations_ab4') }}
 -- organization_integrations from {{ source('cta', '_airbyte_raw_organization_integrations') }}
 
 {% if is_incremental() %}

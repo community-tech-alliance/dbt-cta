@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('tasks_ab3') }}
+-- depends_on: {{ ref('tasks_ab4') }}
 select
     taskable_type,
     taskable_id,
@@ -20,5 +20,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_tasks_hashid
-from {{ ref('tasks_ab3') }}
+from {{ ref('tasks_ab4') }}
 -- tasks from {{ source('cta', '_airbyte_raw_tasks') }}

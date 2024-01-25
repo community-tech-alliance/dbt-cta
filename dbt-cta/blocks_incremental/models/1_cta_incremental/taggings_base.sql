@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('taggings_ab3') }}
+-- depends_on: {{ ref('taggings_ab4') }}
 select
     context,
     tag_id,
@@ -21,5 +21,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_taggings_hashid
-from {{ ref('taggings_ab3') }}
+from {{ ref('taggings_ab4') }}
 -- taggings from {{ source('cta', '_airbyte_raw_taggings') }}

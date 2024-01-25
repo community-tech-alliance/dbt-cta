@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('refund_receipts_ab3') }}
+-- depends_on: {{ ref('refund_receipts_ab4') }}
 select
     BillAddr,
     CurrencyRef,
@@ -44,7 +44,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_refund_receipts_hashid
-from {{ ref('refund_receipts_ab3') }}
+from {{ ref('refund_receipts_ab4') }}
 -- refund_receipts from {{ source('cta', '_airbyte_raw_refund_receipts') }}
 
 {% if is_incremental() %}

@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('entity_sync_cursors_ab3') }}
+-- depends_on: {{ ref('entity_sync_cursors_ab4') }}
 select
     id,
     cursor,
@@ -25,7 +25,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_entity_sync_cursors_hashid
-from {{ ref('entity_sync_cursors_ab3') }}
+from {{ ref('entity_sync_cursors_ab4') }}
 -- entity_sync_cursors from {{ source('cta', '_airbyte_raw_entity_sync_cursors') }}
 
 {% if is_incremental() %}

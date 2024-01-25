@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('campaigns_ab3') }}
+-- depends_on: {{ ref('campaigns_ab4') }}
 select
     end_date,
     updated_at,
@@ -20,5 +20,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_campaigns_hashid
-from {{ ref('campaigns_ab3') }}
+from {{ ref('campaigns_ab4') }}
 -- campaigns from {{ source('cta', '_airbyte_raw_campaigns') }}

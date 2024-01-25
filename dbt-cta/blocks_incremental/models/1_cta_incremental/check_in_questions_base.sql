@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('check_in_questions_ab3') }}
+-- depends_on: {{ ref('check_in_questions_ab4') }}
 select
     archived,
     check_in_id,
@@ -18,5 +18,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_check_in_questions_hashid
-from {{ ref('check_in_questions_ab3') }}
+from {{ ref('check_in_questions_ab4') }}
 -- check_in_questions from {{ source('cta', '_airbyte_raw_check_in_questions') }}

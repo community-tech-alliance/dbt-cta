@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('phone_verification_responses_ab3') }}
+-- depends_on: {{ ref('phone_verification_responses_ab4') }}
 select
     round_number,
     notes,

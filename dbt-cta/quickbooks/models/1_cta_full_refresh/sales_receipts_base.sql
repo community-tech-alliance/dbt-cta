@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('sales_receipts_ab3') }}
+-- depends_on: {{ ref('sales_receipts_ab4') }}
 select
     CurrencyRef,
     ExchangeRate,
@@ -48,7 +48,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_sales_receipts_hashid
-from {{ ref('sales_receipts_ab3') }}
+from {{ ref('sales_receipts_ab4') }}
 -- sales_receipts from {{ source('cta', '_airbyte_raw_sales_receipts') }}
 
 {% if is_incremental() %}

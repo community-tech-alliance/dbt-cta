@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('petitions_books_ab3') }}
+-- depends_on: {{ ref('petitions_books_ab4') }}
 select
     petition_book_number,
     program_type,
@@ -24,5 +24,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_petitions_books_hashid
-from {{ ref('petitions_books_ab3') }}
+from {{ ref('petitions_books_ab4') }}
 -- petitions_books from {{ source('cta', '_airbyte_raw_petitions_books') }}

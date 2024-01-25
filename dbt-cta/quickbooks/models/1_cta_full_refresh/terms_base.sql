@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('terms_ab3') }}
+-- depends_on: {{ ref('terms_ab4') }}
 select
     DueNextMonthDays,
     airbyte_cursor,
@@ -35,7 +35,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_terms_hashid
-from {{ ref('terms_ab3') }}
+from {{ ref('terms_ab4') }}
 -- terms from {{ source('cta', '_airbyte_raw_terms') }}
 
 {% if is_incremental() %}

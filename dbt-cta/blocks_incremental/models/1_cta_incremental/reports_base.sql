@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('reports_ab3') }}
+-- depends_on: {{ ref('reports_ab4') }}
 select
     date,
     collection_id,
@@ -20,5 +20,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_reports_hashid
-from {{ ref('reports_ab3') }}
+from {{ ref('reports_ab4') }}
 -- reports from {{ source('cta', '_airbyte_raw_reports') }}

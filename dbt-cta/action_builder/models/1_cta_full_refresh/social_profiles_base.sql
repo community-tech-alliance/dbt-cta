@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('social_profiles_ab3') }}
+-- depends_on: {{ ref('social_profiles_ab4') }}
 select
     id,
     label,
@@ -32,7 +32,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_social_profiles_hashid
-from {{ ref('social_profiles_ab3') }}
+from {{ ref('social_profiles_ab4') }}
 -- social_profiles from {{ source('cta', '_airbyte_raw_social_profiles') }}
 
 {% if is_incremental() %}

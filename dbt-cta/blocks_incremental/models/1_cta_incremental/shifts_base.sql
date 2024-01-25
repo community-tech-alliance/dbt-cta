@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('shifts_ab3') }}
+-- depends_on: {{ ref('shifts_ab4') }}
 select
     notes,
     signatures_count,
@@ -53,5 +53,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_shifts_hashid
-from {{ ref('shifts_ab3') }}
+from {{ ref('shifts_ab4') }}
 -- shifts from {{ source('cta', '_airbyte_raw_shifts') }}

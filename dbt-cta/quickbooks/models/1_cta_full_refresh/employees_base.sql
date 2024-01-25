@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('employees_ab3') }}
+-- depends_on: {{ ref('employees_ab4') }}
 select
     HiredDate,
     Organization,
@@ -46,7 +46,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_employees_hashid
-from {{ ref('employees_ab3') }}
+from {{ ref('employees_ab4') }}
 -- employees from {{ source('cta', '_airbyte_raw_employees') }}
 
 {% if is_incremental() %}

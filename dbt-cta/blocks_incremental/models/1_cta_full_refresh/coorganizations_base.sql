@@ -12,7 +12,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('coorganizations_ab3') }}
+-- depends_on: {{ ref('coorganizations_ab4') }}
 select
     event_id,
     organization_id,
@@ -20,7 +20,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_coorganizations_hashid
-from {{ ref('coorganizations_ab3') }}
+from {{ ref('coorganizations_ab4') }}
 -- coorganizations from {{ source('cta', '_airbyte_raw_coorganizations') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

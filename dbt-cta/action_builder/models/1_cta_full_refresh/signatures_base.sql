@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('signatures_ab3') }}
+-- depends_on: {{ ref('signatures_ab4') }}
 select
     id,
     text,
@@ -24,7 +24,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_signatures_hashid
-from {{ ref('signatures_ab3') }}
+from {{ ref('signatures_ab4') }}
 -- signatures from {{ source('cta', '_airbyte_raw_signatures') }}
 
 {% if is_incremental() %}

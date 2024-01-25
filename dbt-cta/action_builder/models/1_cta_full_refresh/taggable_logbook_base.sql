@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('taggable_logbook_ab3') }}
+-- depends_on: {{ ref('taggable_logbook_ab4') }}
 select
     id,
     notes,
@@ -35,7 +35,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_taggable_logbook_hashid
-from {{ ref('taggable_logbook_ab3') }}
+from {{ ref('taggable_logbook_ab4') }}
 -- taggable_logbook from {{ source('cta', '_airbyte_raw_taggable_logbook') }}
 
 {% if is_incremental() %}

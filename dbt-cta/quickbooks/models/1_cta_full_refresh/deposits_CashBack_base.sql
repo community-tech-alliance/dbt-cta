@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('deposits_CashBack_ab3') }}
+-- depends_on: {{ ref('deposits_CashBack_ab4') }}
 select
     _airbyte_deposits_hashid,
     Amount,
@@ -24,7 +24,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_CashBack_hashid
-from {{ ref('deposits_CashBack_ab3') }}
+from {{ ref('deposits_CashBack_ab4') }}
 -- CashBack at deposits/CashBack from {{ ref('deposits') }}
 
 {% if is_incremental() %}

@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('tenants_ab3') }}
+-- depends_on: {{ ref('tenants_ab4') }}
 select
     contact_phone,
     logo_data,
@@ -27,4 +27,4 @@ select
     _airbyte_emitted_at,
     _airbyte_normalized_at,
     _airbyte_tenants_hashid
-from {{ ref('tenants_ab3') }}
+from {{ ref('tenants_ab4') }}

@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('tax_agencies_ab3') }}
+-- depends_on: {{ ref('tax_agencies_ab4') }}
 select
     SyncToken,
     TaxTrackedOnPurchases,
@@ -30,7 +30,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_tax_agencies_hashid
-from {{ ref('tax_agencies_ab3') }}
+from {{ ref('tax_agencies_ab4') }}
 -- tax_agencies from {{ source('cta', '_airbyte_raw_tax_agencies') }}
 
 {% if is_incremental() %}

@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('vendors_Mobile_ab3') }}
+-- depends_on: {{ ref('vendors_Mobile_ab4') }}
 select
     _airbyte_vendors_hashid,
     FreeFormNumber,
@@ -22,7 +22,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_Mobile_hashid
-from {{ ref('vendors_Mobile_ab3') }}
+from {{ ref('vendors_Mobile_ab4') }}
 -- Mobile at vendors/Mobile from {{ ref('vendors') }}
 
 {% if is_incremental() %}

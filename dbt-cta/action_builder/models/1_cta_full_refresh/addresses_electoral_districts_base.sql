@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('addresses_electoral_districts_ab3') }}
+-- depends_on: {{ ref('addresses_electoral_districts_ab4') }}
 select
     address_id,
     electoral_district_ocd_id,
@@ -22,7 +22,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_addresses_electoral_districts_hashid
-from {{ ref('addresses_electoral_districts_ab3') }}
+from {{ ref('addresses_electoral_districts_ab4') }}
 -- addresses_electoral_districts from {{ source('cta', '_airbyte_raw_addresses_electoral_districts') }}
 
 {% if is_incremental() %}

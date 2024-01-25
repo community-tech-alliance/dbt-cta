@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('ar_internal_metadata_ab3') }}
+-- depends_on: {{ ref('ar_internal_metadata_ab4') }}
 select
     key,
     value,
@@ -24,7 +24,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_ar_internal_metadata_hashid
-from {{ ref('ar_internal_metadata_ab3') }}
+from {{ ref('ar_internal_metadata_ab4') }}
 -- ar_internal_metadata from {{ source('cta', '_airbyte_raw_ar_internal_metadata') }}
 
 {% if is_incremental() %}

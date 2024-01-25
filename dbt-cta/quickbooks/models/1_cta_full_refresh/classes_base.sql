@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('classes_ab3') }}
+-- depends_on: {{ ref('classes_ab4') }}
 select
     SubClass,
     ParentRef,
@@ -30,7 +30,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_classes_hashid
-from {{ ref('classes_ab3') }}
+from {{ ref('classes_ab4') }}
 -- classes from {{ source('cta', '_airbyte_raw_classes') }}
 
 {% if is_incremental() %}
