@@ -6,6 +6,10 @@ profile: 'default'
 
 model-paths: ["{{ env_var('SYNC_NAME') }}/models"]
 packages-install-path: "dbt-packages"
+vars:
+  campaigns_raw: _airbyte_raw_campaigns
+  campaigns_base: campaigns_base
+  campaigns: campaigns
 
 models:
   +persist_docs:

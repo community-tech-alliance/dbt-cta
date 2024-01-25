@@ -5,7 +5,7 @@ SELECT * EXCEPT (rownum) FROM
 (
 SELECT 
     *,
-    ROW_NUMBER() OVER (PARTITION BY _airbyte_account_native_ads_stats_creatives_hashid ORDER BY _airbyte_emitted_at desc) as rownum 
+    ROW_NUMBER() OVER (PARTITION BY _airbyte_account_native_ads_stats_hashid ORDER BY _airbyte_emitted_at desc) as rownum 
 from {{ ref('account_native_ads_stats_creatives_ab3') }}
 )
 where rownum=1
