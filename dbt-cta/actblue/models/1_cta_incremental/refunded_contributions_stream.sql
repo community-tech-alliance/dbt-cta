@@ -8,7 +8,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('refunded_contributions_stream_ab4') }}
+-- depends_on: {{ ref('refunded_contributions_stream_ab3') }}
 select
     Fee,
     safe_cast(Date as timestamp) as Date,
@@ -97,6 +97,6 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_refunded_contributions_stream_hashid
-from {{ ref('refunded_contributions_stream_ab4') }}
+from {{ ref('refunded_contributions_stream_ab3') }}
 -- refunded_contributions_stream from {{ source('cta', '_airbyte_raw_refunded_contributions_stream') }}
 where 1 = 1
