@@ -5,7 +5,7 @@ SELECT * EXCEPT (rownum) FROM
 (
 SELECT 
     *,
-    ROW_NUMBER() OVER (PARTITION BY _airbyte_ctas_shareables_hashid ORDER BY _airbyte_emitted_at desc) as rownum 
+    ROW_NUMBER() OVER (PARTITION BY _airbyte_shareables_hashid ORDER BY _airbyte_emitted_at desc) as rownum 
 from {{ ref('ctas_shareables_ab3') }}
 )
 where rownum=1
