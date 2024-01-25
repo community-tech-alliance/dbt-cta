@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('campaign_context_notes_ab4') }}
+-- depends_on: {{ ref('campaign_context_notes_ab3') }}
 select
     id,
     text,
@@ -28,7 +28,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_campaign_context_notes_hashid
-from {{ ref('campaign_context_notes_ab4') }}
+from {{ ref('campaign_context_notes_ab3') }}
 -- campaign_context_notes from {{ source('cta', '_airbyte_raw_campaign_context_notes') }}
 
 {% if is_incremental() %}

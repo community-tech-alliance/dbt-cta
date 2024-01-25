@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('campaigns_entity_connection_types_ab4') }}
+-- depends_on: {{ ref('campaigns_entity_connection_types_ab3') }}
 select
     id,
     created_at,
@@ -25,7 +25,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_campaigns_entity_connection_types_hashid
-from {{ ref('campaigns_entity_connection_types_ab4') }}
+from {{ ref('campaigns_entity_connection_types_ab3') }}
 -- campaigns_entity_connection_types from {{ source('cta', '_airbyte_raw_campaigns_entity_connection_types') }}
 
 {% if is_incremental() %}

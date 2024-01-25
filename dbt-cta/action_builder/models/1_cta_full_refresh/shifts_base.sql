@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('shifts_ab4') }}
+-- depends_on: {{ ref('shifts_ab3') }}
 select
     id,
     timezone,
@@ -28,7 +28,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_shifts_hashid
-from {{ ref('shifts_ab4') }}
+from {{ ref('shifts_ab3') }}
 -- shifts from {{ source('cta', '_airbyte_raw_shifts') }}
 
 {% if is_incremental() %}

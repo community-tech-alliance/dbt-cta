@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('campaign_configuration_tag_categories_ab4') }}
+-- depends_on: {{ ref('campaign_configuration_tag_categories_ab3') }}
 select
     id,
     position,
@@ -28,7 +28,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_campaign_configuration_tag_categories_hashid
-from {{ ref('campaign_configuration_tag_categories_ab4') }}
+from {{ ref('campaign_configuration_tag_categories_ab3') }}
 -- campaign_configuration_tag_categories from {{ source('cta', '_airbyte_raw_campaign_configuration_tag_categories') }}
 
 {% if is_incremental() %}

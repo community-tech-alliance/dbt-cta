@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('external_services_ab4') }}
+-- depends_on: {{ ref('external_services_ab3') }}
 select
     id,
     client_id,
@@ -30,7 +30,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_external_services_hashid
-from {{ ref('external_services_ab4') }}
+from {{ ref('external_services_ab3') }}
 -- external_services from {{ source('cta', '_airbyte_raw_external_services') }}
 
 {% if is_incremental() %}

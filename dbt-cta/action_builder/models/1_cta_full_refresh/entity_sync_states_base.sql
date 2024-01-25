@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('entity_sync_states_ab4') }}
+-- depends_on: {{ ref('entity_sync_states_ab3') }}
 select
     id,
     last_run,
@@ -32,7 +32,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_entity_sync_states_hashid
-from {{ ref('entity_sync_states_ab4') }}
+from {{ ref('entity_sync_states_ab3') }}
 -- entity_sync_states from {{ source('cta', '_airbyte_raw_entity_sync_states') }}
 
 {% if is_incremental() %}
