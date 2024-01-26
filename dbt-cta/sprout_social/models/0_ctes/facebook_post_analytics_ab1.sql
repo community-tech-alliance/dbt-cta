@@ -10,6 +10,7 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
+    customer_profile_id,
     created_time,
     perma_link,
     text,

@@ -12,9 +12,6 @@ select
     'customer_profile_id',
     'reporting_period_day',
     'lifetime_snapshot_followers_count',
-    'lifetime_snapshot_followers_by_country',
-    'lifetime_snapshot_followers_by_age_gender',
-    'lifetime_snapshot_followers_by_city',
     'net_follower_growth',
     'followers_gained',
     'followers_gained_organic',
@@ -95,7 +92,5 @@ select
     'video_views_10s_repeat',
     'video_views_10s_unique',
     'posts_sent_count',
-    'posts_sent_by_post_type',
-    'posts_sent_by_content_type'
     ]) }} as _airbyte_facebook_profile_analytics_hashid
 from {{ ref('facebook_profile_analytics_ab1') }}

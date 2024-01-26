@@ -17,9 +17,9 @@ select
     metrics,
     -- metrics fields unnested:
     {{ json_extract_scalar('metrics', ['lifetime_snapshot.followers_count'], ['lifetime_snapshot.followers_count']) }} as lifetime_snapshot_followers_count,
-    {{ json_extract_scalar('metrics', ['lifetime_snapshot.followers_by_country'], ['lifetime_snapshot.followers_by_country']) }} as lifetime_snapshot_followers_by_country,
-    {{ json_extract_scalar('metrics', ['lifetime_snapshot.followers_by_age_gender'], ['lifetime_snapshot.followers_by_age_gender']) }} as lifetime_snapshot_followers_by_age_gender,
-    {{ json_extract_scalar('metrics', ['lifetime_snapshot.followers_by_city'], ['lifetime_snapshot.followers_by_city']) }} as lifetime_snapshot_followers_by_city,
+    json_extract(metrics, "$['lifetime_snapshot.followers_by_country']") as followers_by_country,
+    json_extract(metrics, "$['lifetime_snapshot.followers_by_age_gender']") as followers_by_age_gender,
+    json_extract(metrics, "$['lifetime_snapshot.followers_by_city']") as followers_by_city,
     {{ json_extract_scalar('metrics', ['lifetime_snapshot.following_count'], ['lifetime_snapshot.following_count']) }} as lifetime_snapshot_following_count,
     {{ json_extract_scalar('metrics', ['net_follower_growth'], ['net_follower_growth']) }} as net_follower_growth,
     {{ json_extract_scalar('metrics', ['followers_gained'], ['followers_gained']) }} as followers_gained,
@@ -40,6 +40,6 @@ select
     {{ json_extract_scalar('metrics', ['text_message_clicks'], ['text_message_clicks']) }} as text_message_clicks,
     {{ json_extract_scalar('metrics', ['website_clicks'], ['website_clicks']) }} as website_clicks,
     {{ json_extract_scalar('metrics', ['posts_sent_count'], ['posts_sent_count']) }} as posts_sent_count,
-    {{ json_extract_scalar('metrics', ['posts_sent_by_post_type'], ['posts_sent_by_post_type']) }} as posts_sent_by_post_type,
-    {{ json_extract_scalar('metrics', ['posts_sent_by_content_type'], ['posts_sent_by_content_type']) }} as posts_sent_by_content_type
+    json_extract(metrics, '$.posts_sent_by_post_type') as posts_sent_by_post_type,
+    json_extract(metrics, '$.posts_sent_by_content_type') as posts_sent_by_content_type
 from {{ source('cta', 'instagram_profile_analytics') }}
