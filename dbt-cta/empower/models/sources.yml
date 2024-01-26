@@ -65,8 +65,6 @@ sources:
         tests:
           - not_null
   - name: ctaResults_base
-  - name: ctaResults_answerIdsByPromptId_base
-  - name: ctaResults_answers_base
   - name: ctas_base
   - name: ctas_prompts_base
   - name: ctas_prompts_answers_base

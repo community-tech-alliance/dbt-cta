@@ -7,6 +7,12 @@ profile: 'default'
 model-paths: ["{{ env_var('SYNC_NAME') }}/models"]
 packages-install-path: "dbt-packages"
 
+vars:
+  disable_run_results: "false" 
+  disable_tests_results: "false" 
+  disable_dbt_artifacts_autoupload: "false"
+  disable_dbt_invocation_autoupload: "false"
+
 models:
   +persist_docs:
     relation: true
@@ -14,6 +20,7 @@ models:
   elementary:
     schema: "elementary"
     database:  "{{ env_var('CTA_PROJECT_ID') }}"
+    +enabled: false
   default:
     0_ctes:
       +tags: 
