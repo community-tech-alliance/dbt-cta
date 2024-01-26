@@ -12,9 +12,6 @@ select
     'customer_profile_id',
     'reporting_period_day',
     'lifetime_snapshot_followers_count',
-    'lifetime_snapshot_followers_by_country',
-    'lifetime_snapshot_followers_by_age_gender',
-    'lifetime_snapshot_followers_by_city',
     'lifetime_snapshot_following_count',
     'net_follower_growth',
     'followers_gained',
@@ -35,7 +32,5 @@ select
     'text_message_clicks',
     'website_clicks',
     'posts_sent_count',
-    'posts_sent_by_post_type',
-    'posts_sent_by_content_type',
     ]) }} as _airbyte_instagram_profile_analytics_hashid
 from {{ ref('instagram_profile_analytics_ab1') }}

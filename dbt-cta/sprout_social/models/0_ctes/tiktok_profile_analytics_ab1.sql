@@ -18,8 +18,8 @@ select
     -- metrics fields unnested:
     {{ json_extract_scalar('metrics', ['lifetime.likes'], ['lifetime.likes']) }} as lifetime_likes,
     {{ json_extract_scalar('metrics', ['lifetime_snapshot.followers_count'], ['lifetime_snapshot.followers_count']) }} as lifetime_snapshot_followers_count,
-    {{ json_extract_scalar('metrics', ['lifetime_snapshot.followers_by_country'], ['lifetime_snapshot.followers_by_country']) }} as lifetime_snapshot_followers_by_country,
-    {{ json_extract_scalar('metrics', ['lifetime_snapshot.followers_by_gender'], ['lifetime_snapshot.followers_by_gender']) }} as lifetime_snapshot_followers_by_gender,
+    json_extract(metrics, "$['lifetime_snapshot.followers_by_country']") as followers_by_country,
+    json_extract(metrics, "$['lifetime_snapshot.followers_by_gender']") as followers_by_gender,
     {{ json_extract_scalar('metrics', ['lifetime_snapshot.followers_online'], ['lifetime_snapshot.followers_online']) }} as lifetime_snapshot_followers_online,
     {{ json_extract_scalar('metrics', ['net_follower_growth'], ['net_follower_growth']) }} as net_follower_growth,
     {{ json_extract_scalar('metrics', ['impressions'], ['impressions']) }} as impressions,
@@ -29,5 +29,5 @@ select
     {{ json_extract_scalar('metrics', ['shares_count_total'], ['shares_count_total']) }} as shares_count_total,
     {{ json_extract_scalar('metrics', ['likes_total'], ['likes_total']) }} as likes_total,
     {{ json_extract_scalar('metrics', ['posts_sent_count'], ['posts_sent_count']) }} as posts_sent_count,
-    {{ json_extract('metrics', ['posts_sent_by_post_type'], ['posts_sent_by_post_type']) }} as posts_sent_by_post_type
+    json_extract(metrics, '$.posts_sent_by_post_type') as posts_sent_by_post_type
 from {{ source('cta', 'tiktok_profile_analytics') }}
