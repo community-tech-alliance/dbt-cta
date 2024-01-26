@@ -56,4 +56,4 @@ elementary:
       method: oauth
       project: "{{ env_var('CTA_PROJECT_ID') }}"
       dataset: elementary
-      threads: 4
+      threads: 1 
