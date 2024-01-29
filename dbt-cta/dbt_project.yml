@@ -20,7 +20,7 @@ models:
   elementary:
     schema: "elementary"
     database:  "{{ env_var('CTA_PROJECT_ID') }}"
-    +enabled: false
+    +enabled: true
   default:
     0_ctes:
       +tags:
