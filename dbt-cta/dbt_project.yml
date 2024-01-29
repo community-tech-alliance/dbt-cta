@@ -32,7 +32,8 @@ models:
       +materialized: incremental
       +incremental_strategy: insert_overwrite
       +on_schema_change: sync_all_columns
-      +full_refresh: true
+      +full_refresh: false
+      +pre-hook: "TRUNCATE TABLE {{ this }};"
     1_cta_incremental:
       +tags:
         - cta
