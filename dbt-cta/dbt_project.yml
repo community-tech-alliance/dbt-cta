@@ -39,7 +39,12 @@ models:
         - cta
       +materialized: incremental
       +on_schema_change: sync_all_columns
-    2_partner_matviews:
+    2_cta_delivery: # for delivery via Analytics Hub subscriptions
+      +tags: 
+        - cta_delivery
+      +materialized: table
+      +full_refresh: true
+    2_partner_matviews: # for delivery via materialized views
       +tags: 
         - partner
       +materialized: materialized_view
