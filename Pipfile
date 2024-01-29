@@ -13,8 +13,8 @@ google-cloud-bigquery = "*"
 sqlfluff = "==2.3.0"
 sqlfluff-templater-dbt = "*"
 pre-commit = "*"
-dbt-core = "==1.5.4"
-dbt-bigquery = "==1.5.5"
+dbt-core = "==1.7.4"
+dbt-bigquery = "==1.7.3"
 
 [dev-packages]
 
