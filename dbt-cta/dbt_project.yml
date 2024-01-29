@@ -7,12 +7,12 @@ profile: 'default'
 model-paths: ["{{ env_var('SYNC_NAME') }}/models"]
 packages-install-path: "dbt-packages"
 
-vars:
-  disable_run_results: "false" 
-  disable_tests_results: "false" 
-  disable_dbt_artifacts_autoupload: "false"
-  disable_dbt_invocation_autoupload: "false"
-
+  #vars:
+  #  disable_run_results: "false"
+  #  disable_tests_results: "false"
+  #  disable_dbt_artifacts_autoupload: "false"
+  #  disable_dbt_invocation_autoupload: "false"
+  #
 models:
   +persist_docs:
     relation: true
@@ -23,11 +23,11 @@ models:
     +enabled: false
   default:
     0_ctes:
-      +tags: 
+      +tags:
         - cta
       +materialized: ephemeral
     1_cta_full_refresh:
-      +tags: 
+      +tags:
         - cta
       +materialized: incremental
       +incremental_strategy: insert_overwrite
@@ -39,7 +39,7 @@ models:
       +materialized: incremental
       +on_schema_change: sync_all_columns
     2_partner_matviews:
-      +tags: 
+      +tags:
         - partner
       +materialized: materialized_view
       +auto_refresh: false
@@ -48,7 +48,7 @@ models:
         - project: "{{ env_var('CTA_PROJECT_ID') }}"
           dataset: "{{ env_var('CTA_DATASET_ID') }}"
     3_partner_views:
-      +tags: 
+      +tags:
         - partner
       +materialized: view
       +grant_access_to:
@@ -58,7 +58,7 @@ models:
     # These two models are specifically for google_ads,
     # which delivers raw data to the partner project instead of CTA:
     0_partner_ctes:
-      +tags: 
+      +tags:
         - partner
       +materialized: ephemeral
     1_partner_incremental:
@@ -89,6 +89,6 @@ models:
 
     # for testing
     0_ctes_dev:
-      +tags: 
+      +tags:
         - cta
       +materialized: table
