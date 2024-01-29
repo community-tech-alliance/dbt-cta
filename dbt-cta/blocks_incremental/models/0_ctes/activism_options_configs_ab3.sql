@@ -7,7 +7,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('activism_options_configs_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         array_to_string('skills'),
         array_to_string('campaigns'),
         array_to_string('languages'),

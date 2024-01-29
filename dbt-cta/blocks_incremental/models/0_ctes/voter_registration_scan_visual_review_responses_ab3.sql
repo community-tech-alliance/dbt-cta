@@ -7,7 +7,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('voter_registration_scan_visual_review_responses_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         'updated_at',
         'voter_registration_scan_id',
         'user_id',

@@ -8,7 +8,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('page_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         'name_with_location_descriptor',
         'attire',
         object_to_string('messaging_feature_status'),

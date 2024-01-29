@@ -6,7 +6,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('campaign_topline_setting_items_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         'id',
         'item_id',
         boolean_to_string('imported'),

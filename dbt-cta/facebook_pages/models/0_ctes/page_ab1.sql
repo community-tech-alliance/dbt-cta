@@ -7,7 +7,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ source('cta','page') }} 
 select
-    {{ dbt_utils.surrogate_key([        
+    {{ dbt_utils.generate_surrogate_key([        
         'name_with_location_descriptor',
         'attire',
         'about',

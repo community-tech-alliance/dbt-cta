@@ -7,7 +7,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('phone_banking_phone_banks_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         'end_date',
         'daily_end_time',
         'min_call_delay_in_hours',

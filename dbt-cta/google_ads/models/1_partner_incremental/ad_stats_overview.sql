@@ -37,7 +37,7 @@ select
   video_nc_stats.VideoQuartile50Rate,
   video_nc_stats.VideoQuartile25Rate,
   video_nc_stats.VideoViews,
-  {{ dbt_utils.surrogate_key([
+  {{ dbt_utils.generate_surrogate_key([
     'ad_stats.Date',
     'ad_stats.CampaignId',
     'ad_stats.AdGroupId',

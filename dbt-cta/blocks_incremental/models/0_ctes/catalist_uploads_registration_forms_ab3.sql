@@ -7,7 +7,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('catalist_uploads_registration_forms_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         'registration_form_id',
         'catalist_upload_id',
     ]) }} as _airbyte_catalist_uploads_registration_forms_hashid,

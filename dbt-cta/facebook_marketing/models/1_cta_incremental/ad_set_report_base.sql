@@ -44,7 +44,7 @@ GROUP BY
 
 SELECT
     *,
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
     'date_start',
     'adset_id',
     ]) }} as _ad_set_report_hashid

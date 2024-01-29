@@ -6,7 +6,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('group_growth_by_source_actions_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         'id',
         'end_at',
         'group_id',

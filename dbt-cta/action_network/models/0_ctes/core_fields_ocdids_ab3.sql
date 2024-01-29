@@ -6,7 +6,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('core_fields_ocdids_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         'id',
         'ocdid_id',
         'core_field_id',

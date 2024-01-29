@@ -18,7 +18,7 @@ select
     cast(datetime_canvassed_window_end as timestamp) as datetime_canvassed_window_end,
     cast(_cta_loaded_at as timestamp) as _cta_loaded_at,
     cast(subscription_name as string) as subscription_name,
-  {{ dbt_utils.surrogate_key([
+  {{ dbt_utils.generate_surrogate_key([
     'person_id',
     'record_id'
   ]) }} as _cta_hash_id

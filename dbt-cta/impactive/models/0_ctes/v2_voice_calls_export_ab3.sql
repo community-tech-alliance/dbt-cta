@@ -6,7 +6,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('v2_voice_calls_export_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         'selected_voterbase_id',
         'user_last_name',
         'created_at',

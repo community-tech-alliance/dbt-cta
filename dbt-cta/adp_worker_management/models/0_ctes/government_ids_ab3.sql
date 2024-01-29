@@ -8,7 +8,7 @@
 -- depends_on: {{ ref('government_ids_ab2') }}
 
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         'associateOID',
         'itemID',
         'idValue',

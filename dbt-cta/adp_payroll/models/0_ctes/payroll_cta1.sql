@@ -84,7 +84,7 @@ select
     cast(Check_Voucher_Number as {{ dbt_utils.type_bigint() }}) as Check_Voucher_Number,
 
     -- new fields
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         'Company_Code',
         'Payroll_Name',
         'File_Number',

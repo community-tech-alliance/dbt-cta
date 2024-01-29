@@ -7,7 +7,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('quality_control_flags_voter_registration_scans_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         'voter_registration_scan_id',
         'quality_control_flag_id',
     ]) }} as _airbyte_quality_control_flags_voter_registration_scans_hashid,

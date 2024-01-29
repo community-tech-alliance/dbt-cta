@@ -6,7 +6,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('ads_insights_overall_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         'ad_id',
         'date_start'
     ]) }} as _airbyte_ads_insights_overall_hashid

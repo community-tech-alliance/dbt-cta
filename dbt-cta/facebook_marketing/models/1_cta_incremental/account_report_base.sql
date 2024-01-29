@@ -27,7 +27,7 @@ with
 
 select
     *,
-    {{ dbt_utils.surrogate_key(["date_start", "account_id", "account_name"]) }}
+    {{ dbt_utils.generate_surrogate_key(["date_start", "account_id", "account_name"]) }}
     as _account_report_hashid,
     current_timestamp as _airbyte_normalized_at
 from aggregations

@@ -29,7 +29,7 @@ GROUP BY
 
 SELECT
     *,
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
     'date_start',
     'account_id',
     'account_name',

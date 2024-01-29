@@ -20,7 +20,7 @@ select
     bounceRate,
     property_id,
     parse_date("%Y%m%d", date) as date,
-   {{ dbt_utils.surrogate_key([
+   {{ dbt_utils.generate_surrogate_key([
      'date',
     'newUsers',
     'sessions',

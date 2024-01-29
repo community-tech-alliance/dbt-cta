@@ -7,7 +7,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('petitions_canvasser_pages_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         boolean_to_string('signed_in'),
         'canvasser_id',
         'sign_out_date',

@@ -23,7 +23,7 @@ select
   {{ ad_stats_ctr('campaign_stats.Clicks', 'campaign_stats.Impressions') }} as Ctr,
   cookie_stats.ImpressionReach,
   cookie_stats.AverageFrequency,
-  {{ dbt_utils.surrogate_key([
+  {{ dbt_utils.generate_surrogate_key([
     'campaign_stats.Date',
     'campaign_stats.CampaignId',
     'campaign_stats.AdNetworkType1',

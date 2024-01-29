@@ -8,7 +8,7 @@
 -- depends_on: {{ ref('work_assignments_assigned_organizational_units_ab2') }}
 
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         'associateOID',
         'itemID',
         'nameCode_codeValue',

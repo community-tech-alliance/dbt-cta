@@ -7,7 +7,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('campaigns_teams_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         'team_id',
         'campaign_id',
     ]) }} as _airbyte_campaigns_teams_hashid,

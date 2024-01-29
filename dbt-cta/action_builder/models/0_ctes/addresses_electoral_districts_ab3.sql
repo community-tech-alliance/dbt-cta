@@ -6,7 +6,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('addresses_electoral_districts_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         'address_id',
         'electoral_district_ocd_id',
     ]) }} as _airbyte_addresses_electoral_districts_hashid,
