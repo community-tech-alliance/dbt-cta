@@ -6,7 +6,7 @@
 ) }}
 -- depends_on: {{ ref('incoming_phone_numbers_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         'sid',
         'uri',
         boolean_to_string('beta'),

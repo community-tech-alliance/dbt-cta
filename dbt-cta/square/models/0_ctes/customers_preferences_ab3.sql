@@ -6,7 +6,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('customers_preferences_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         '_airbyte_customers_hashid',
         boolean_to_string('email_unsubscribed'),
     ]) }} as _airbyte_preferences_hashid,

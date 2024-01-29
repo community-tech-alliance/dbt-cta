@@ -5,7 +5,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('adsquads_targeting_geos_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         'ad_squad_id',
         'country_code',
         'region_id',

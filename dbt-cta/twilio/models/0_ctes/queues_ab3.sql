@@ -6,7 +6,7 @@
 ) }}
 -- depends_on: {{ ref('queues_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         'sid',
         'uri',
         'max_size',

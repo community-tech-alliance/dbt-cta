@@ -36,7 +36,7 @@ select
     cast(partition_name as {{ dbt_utils.type_string() }}) as partition_name,
 
     -- new fields
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         'id',
         'code',
         'created_at',

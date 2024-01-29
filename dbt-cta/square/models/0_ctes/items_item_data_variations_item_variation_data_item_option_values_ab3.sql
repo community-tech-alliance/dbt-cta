@@ -6,7 +6,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('items_item_data_variations_item_variation_data_item_option_values_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         '_airbyte_item_variation_data_hashid',
         'item_option_id',
         'item_option_value_id',

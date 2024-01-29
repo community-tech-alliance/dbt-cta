@@ -12,7 +12,7 @@ select
     _airbyte_meta,
     name,
     id,
-   {{ dbt_utils.surrogate_key([
+   {{ dbt_utils.generate_surrogate_key([
      'name',
     'id'
     ]) }} as _airbyte_customer_users_hashid

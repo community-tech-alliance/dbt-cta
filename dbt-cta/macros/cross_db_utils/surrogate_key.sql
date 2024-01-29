@@ -1,6 +1,6 @@
-{# surrogate_key  ----------------------------------     #}
+{# generate_surrogate_key  ----------------------------------     #}
 
-{% macro oracle__surrogate_key(field_list) -%}
+{% macro oracle__generate_surrogate_key(field_list) -%}
     ora_hash(
         {%- for field in field_list %}
             {% if not loop.last %}
@@ -12,7 +12,7 @@
     )
 {%- endmacro %}
 
-{% macro clickhouse__surrogate_key(field_list) -%}
+{% macro clickhouse__generate_surrogate_key(field_list) -%}
     assumeNotNull(hex(MD5(
         {%- for field in field_list %}
             {% if not loop.last %}

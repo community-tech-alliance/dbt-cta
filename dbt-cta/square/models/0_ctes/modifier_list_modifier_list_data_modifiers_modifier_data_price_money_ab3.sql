@@ -6,7 +6,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('modifier_list_modifier_list_data_modifiers_modifier_data_price_money_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         '_airbyte_modifier_data_hashid',
         'amount',
         'currency',

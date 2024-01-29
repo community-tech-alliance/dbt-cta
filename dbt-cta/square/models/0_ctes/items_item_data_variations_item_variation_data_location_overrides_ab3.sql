@@ -6,7 +6,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('items_item_data_variations_item_variation_data_location_overrides_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         '_airbyte_item_variation_data_hashid',
         'location_id',
         boolean_to_string('track_inventory'),

@@ -17,7 +17,7 @@ select
     customer_profile_id,
     network_type,
     native_name,
-   {{ dbt_utils.surrogate_key([
+   {{ dbt_utils.generate_surrogate_key([
      'native_id',
     'link',
     'name',

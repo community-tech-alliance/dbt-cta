@@ -6,7 +6,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('checkout_sessions_payment_method_options_acss_debit_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         '_airbyte_payment_method_options_hashid',
         'currency',
         object_to_string('mandate_options'),

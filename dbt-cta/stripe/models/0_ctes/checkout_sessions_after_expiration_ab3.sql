@@ -6,7 +6,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('checkout_sessions_after_expiration_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         '_airbyte_checkout_sessions_hashid',
         object_to_string('recovery'),
     ]) }} as _airbyte_after_expiration_hashid,

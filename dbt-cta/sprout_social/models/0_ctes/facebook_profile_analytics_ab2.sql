@@ -8,7 +8,7 @@
 
 select
     *,
-   {{ dbt_utils.surrogate_key([
+   {{ dbt_utils.generate_surrogate_key([
     'customer_profile_id',
     'reporting_period_day',
     'lifetime_snapshot_followers_count',

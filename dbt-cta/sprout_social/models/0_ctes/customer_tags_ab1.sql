@@ -16,7 +16,7 @@ select
     tag_id,
     text,
     type,
-   {{ dbt_utils.surrogate_key([
+   {{ dbt_utils.generate_surrogate_key([
      'any_group',
     'active',
     'tag_id',

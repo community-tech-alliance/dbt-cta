@@ -6,7 +6,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('payment_intents_last_payment_error_payment_method_card_three_d_secure_usage_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         '_airbyte_card_hashid',
         boolean_to_string('supported'),
     ]) }} as _airbyte_three_d_secure_usage_hashid,

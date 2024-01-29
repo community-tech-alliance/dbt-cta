@@ -40,7 +40,7 @@ select
     cast(partition_name as {{ dbt_utils.type_string() }}) as partition_name,
 
     -- new fields
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         'of_people_id',
         'conversation_id',
         'conversation_time',

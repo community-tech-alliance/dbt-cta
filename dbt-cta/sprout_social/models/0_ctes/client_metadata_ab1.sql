@@ -11,7 +11,7 @@ select
     _airbyte_extracted_at,
     _airbyte_meta,
     customer_id,
-   {{ dbt_utils.surrogate_key([
+   {{ dbt_utils.generate_surrogate_key([
      'customer_id'
     ]) }} as _airbyte_client_metadata_hashid
 from {{ source('cta', 'client_metadata') }}

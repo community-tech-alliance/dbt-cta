@@ -6,7 +6,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('estimates_TxnTaxDetail_TaxLine_TaxLineDetail_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         '_airbyte_TaxLine_hashid',
         boolean_to_string('PercentBased'),
         object_to_string('TaxRateRef'),

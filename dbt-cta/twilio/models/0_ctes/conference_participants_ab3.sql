@@ -6,7 +6,7 @@
 ) }}
 -- depends_on: {{ ref('conference_participants_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         'uri',
         boolean_to_string('hold'),
         'label',

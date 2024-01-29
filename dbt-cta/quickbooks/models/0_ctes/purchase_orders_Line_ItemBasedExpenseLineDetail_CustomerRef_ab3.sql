@@ -6,7 +6,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('purchase_orders_Line_ItemBasedExpenseLineDetail_CustomerRef_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         '_airbyte_ItemBasedExpenseLineDetail_hashid',
         'name',
         'value',

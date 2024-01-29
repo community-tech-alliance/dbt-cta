@@ -6,7 +6,7 @@
 ) }}
 -- depends_on: {{ ref('available_phone_numbers_local_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         boolean_to_string('beta'),
         'lata',
         'region',

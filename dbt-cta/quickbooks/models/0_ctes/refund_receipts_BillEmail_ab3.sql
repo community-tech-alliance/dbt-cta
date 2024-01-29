@@ -6,7 +6,7 @@
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('refund_receipts_BillEmail_ab2') }}
 select
-    {{ dbt_utils.surrogate_key([
+    {{ dbt_utils.generate_surrogate_key([
         '_airbyte_refund_receipts_hashid',
         'Address',
     ]) }} as _airbyte_BillEmail_hashid,

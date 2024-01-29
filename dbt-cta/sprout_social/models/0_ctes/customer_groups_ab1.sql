@@ -12,7 +12,7 @@ select
     _airbyte_meta,
     group_id,
     name,
-   {{ dbt_utils.surrogate_key([
+   {{ dbt_utils.generate_surrogate_key([
      'group_id',
     'name'
     ]) }} as _airbyte_customer_groups_hashid
