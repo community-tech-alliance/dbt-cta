@@ -10,7 +10,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('sms_opt_ins_ab3') }}
+-- depends_on: {{ ref('sms_opt_ins_ab4') }}
 select
     id,
     user_id,
@@ -23,7 +23,7 @@ select
     _airbyte_emitted_at,
     current_timestamp() as _airbyte_normalized_at,
     _airbyte_sms_opt_ins_hashid
-from {{ ref('sms_opt_ins_ab3') }}
+from {{ ref('sms_opt_ins_ab4') }}
 -- sms_opt_ins from {{ source("cta", "_airbyte_raw_sms_opt_ins" ) }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
