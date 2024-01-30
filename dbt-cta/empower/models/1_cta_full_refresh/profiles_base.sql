@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('profiles_ab3') }}
+-- depends_on: {{ ref('profiles_ab4') }}
 select
     zip,
     lastUsedEmpowerMts,
@@ -43,7 +43,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_profiles_hashid
-from {{ ref('profiles_ab3') }}
+from {{ ref('profiles_ab4') }}
 -- profiles from {{ source('cta', '_airbyte_raw_profiles') }}
 
 {% if is_incremental() %}

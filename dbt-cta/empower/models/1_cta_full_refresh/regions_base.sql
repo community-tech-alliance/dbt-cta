@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('regions_ab3') }}
+-- depends_on: {{ ref('regions_ab4') }}
 select
     organizationId,
     inviteCodeCreatedMts,
@@ -27,7 +27,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_regions_hashid
-from {{ ref('regions_ab3') }}
+from {{ ref('regions_ab4') }}
 -- regions from {{ source('cta', '_airbyte_raw_regions') }}
 
 {% if is_incremental() %}
