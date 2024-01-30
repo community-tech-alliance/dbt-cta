@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('venues_ab3') }}
+-- depends_on: {{ ref('venues_ab4') }}
 select
     maximum_size,
     rooms_available,
@@ -24,5 +24,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_venues_hashid
-from {{ ref('venues_ab3') }}
+from {{ ref('venues_ab4') }}
 -- venues from {{ source('cta', '_airbyte_raw_venues') }}

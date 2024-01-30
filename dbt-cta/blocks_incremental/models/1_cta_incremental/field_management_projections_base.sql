@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('field_management_projections_ab3') }}
+-- depends_on: {{ ref('field_management_projections_ab4') }}
 select
     end_date,
     turf_id,
@@ -20,5 +20,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_field_management_projections_hashid
-from {{ ref('field_management_projections_ab3') }}
+from {{ ref('field_management_projections_ab4') }}
 -- field_management_projections from {{ source('cta', '_airbyte_raw_field_management_projections') }}

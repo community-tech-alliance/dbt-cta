@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('quality_control_phone_verification_question_translations_ab3') }}
+-- depends_on: {{ ref('quality_control_phone_verification_question_translations_ab4') }}
 select
     translation_text,
     script_id,
@@ -16,5 +16,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_quality_control_phone_verification_question_translations_hashid
-from {{ ref('quality_control_phone_verification_question_translations_ab3') }}
+from {{ ref('quality_control_phone_verification_question_translations_ab4') }}
 -- quality_control_phone_verification_question_translations from {{ source('cta', '_airbyte_raw_quality_control_phone_verification_question_translations') }}

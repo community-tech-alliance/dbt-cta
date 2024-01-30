@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('petition_packets_ab3') }}
+-- depends_on: {{ ref('petition_packets_ab4') }}
 select
     filename,
     updated_at,
@@ -20,4 +20,4 @@ select
     _airbyte_emitted_at,
     _airbyte_normalized_at,
     _airbyte_petition_packets_hashid
-from {{ ref('petition_packets_ab3') }}
+from {{ ref('petition_packets_ab4') }}

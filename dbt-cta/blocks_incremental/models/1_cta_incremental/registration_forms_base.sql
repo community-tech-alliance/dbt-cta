@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('registration_forms_ab3') }}
+-- depends_on: {{ ref('registration_forms_ab4') }}
 select
     distance_from_location,
     metadata,
@@ -72,5 +72,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_registration_forms_hashid
-from {{ ref('registration_forms_ab3') }}
+from {{ ref('registration_forms_ab4') }}
 -- registration_forms from {{ source('cta', '_airbyte_raw_registration_forms') }}

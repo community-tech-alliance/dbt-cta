@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('registrant_matches_ab3') }}
+-- depends_on: {{ ref('registrant_matches_ab4') }}
 select
     reg_address_street_name,
     zip9,
@@ -88,5 +88,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_registrant_matches_hashid
-from {{ ref('registrant_matches_ab3') }}
+from {{ ref('registrant_matches_ab4') }}
 -- registrant_matches from {{ source('cta', '_airbyte_raw_registrant_matches') }}

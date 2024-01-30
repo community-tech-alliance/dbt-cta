@@ -12,7 +12,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('age_to_bin_ab3') }}
+-- depends_on: {{ ref('age_to_bin_ab4') }}
 select
     label,
     age,
@@ -20,7 +20,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_age_to_bin_hashid
-from {{ ref('age_to_bin_ab3') }}
+from {{ ref('age_to_bin_ab4') }}
 -- age_to_bin from {{ source('cta', '_airbyte_raw_age_to_bin') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

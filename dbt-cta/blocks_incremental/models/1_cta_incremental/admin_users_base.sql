@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('admin_users_ab3') }}
+-- depends_on: {{ ref('admin_users_ab4') }}
 select
     session,
     id,
@@ -16,5 +16,5 @@ select
     _airbyte_emitted_at,
     _airbyte_normalized_at,
     _airbyte_admin_users_hashid
-from {{ ref('admin_users_ab3') }}
+from {{ ref('admin_users_ab4') }}
 -- admin_users from {{ source('cta', '_airbyte_raw_admin_users') }}

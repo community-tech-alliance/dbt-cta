@@ -6,7 +6,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('announcements_ab3') }}
+-- depends_on: {{ ref('announcements_ab4') }}
 select
     starts_at,
     updated_at,
@@ -19,5 +19,5 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_announcements_hashid
-from {{ ref('announcements_ab3') }}
+from {{ ref('announcements_ab4') }}
 -- announcements from {{ source('cta', '_airbyte_raw_announcements') }}
