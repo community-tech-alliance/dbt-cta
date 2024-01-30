@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('bill_payments_CreditCardPayment_CCAccountRef_ab3') }}
+-- depends_on: {{ ref('bill_payments_CreditCardPayment_CCAccountRef_ab4') }}
 select
     _airbyte_CreditCardPayment_hashid,
     name,
@@ -23,7 +23,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_CCAccountRef_hashid
-from {{ ref('bill_payments_CreditCardPayment_CCAccountRef_ab3') }}
+from {{ ref('bill_payments_CreditCardPayment_CCAccountRef_ab4') }}
 -- CCAccountRef at bill_payments/CreditCardPayment/CCAccountRef from {{ ref('bill_payments_CreditCardPayment') }}
 
 {% if is_incremental() %}

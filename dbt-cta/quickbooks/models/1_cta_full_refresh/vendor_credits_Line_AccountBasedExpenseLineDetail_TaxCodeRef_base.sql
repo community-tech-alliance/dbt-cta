@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('vendor_credits_Line_AccountBasedExpenseLineDetail_TaxCodeRef_ab3') }}
+-- depends_on: {{ ref('vendor_credits_Line_AccountBasedExpenseLineDetail_TaxCodeRef_ab4') }}
 select
     _airbyte_AccountBasedExpenseLineDetail_hashid,
     value,
@@ -22,7 +22,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_TaxCodeRef_hashid
-from {{ ref('vendor_credits_Line_AccountBasedExpenseLineDetail_TaxCodeRef_ab3') }}
+from {{ ref('vendor_credits_Line_AccountBasedExpenseLineDetail_TaxCodeRef_ab4') }}
 -- TaxCodeRef at vendor_credits/Line/AccountBasedExpenseLineDetail/TaxCodeRef from {{ ref('vendor_credits_Line_AccountBasedExpenseLineDetail') }}
 
 {% if is_incremental() %}

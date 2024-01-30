@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('purchases_Line_AccountBasedExpenseLineDetail_AccountRef_ab3') }}
+-- depends_on: {{ ref('purchases_Line_AccountBasedExpenseLineDetail_AccountRef_ab4') }}
 select
     _airbyte_AccountBasedExpenseLineDetail_hashid,
     name,
@@ -23,7 +23,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_AccountRef_hashid
-from {{ ref('purchases_Line_AccountBasedExpenseLineDetail_AccountRef_ab3') }}
+from {{ ref('purchases_Line_AccountBasedExpenseLineDetail_AccountRef_ab4') }}
 -- AccountRef at purchases/Line/AccountBasedExpenseLineDetail/AccountRef from {{ ref('purchases_Line_AccountBasedExpenseLineDetail') }}
 
 {% if is_incremental() %}

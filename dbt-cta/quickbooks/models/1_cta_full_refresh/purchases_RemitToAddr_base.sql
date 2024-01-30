@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('purchases_RemitToAddr_ab3') }}
+-- depends_on: {{ ref('purchases_RemitToAddr_ab4') }}
 select
     _airbyte_purchases_hashid,
     CountrySubDivisionCode,
@@ -28,7 +28,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_RemitToAddr_hashid
-from {{ ref('purchases_RemitToAddr_ab3') }}
+from {{ ref('purchases_RemitToAddr_ab4') }}
 -- RemitToAddr at purchases/RemitToAddr from {{ ref('purchases') }}
 
 {% if is_incremental() %}

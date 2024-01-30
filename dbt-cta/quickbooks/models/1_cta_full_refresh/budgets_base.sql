@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('budgets_ab3') }}
+-- depends_on: {{ ref('budgets_ab4') }}
 select
     StartDate,
     SyncToken,
@@ -32,7 +32,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_budgets_hashid
-from {{ ref('budgets_ab3') }}
+from {{ ref('budgets_ab4') }}
 -- budgets from {{ source('cta', '_airbyte_raw_budgets') }}
 
 {% if is_incremental() %}

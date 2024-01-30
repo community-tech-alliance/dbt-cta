@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('journal_entries_CurrencyRef_ab3') }}
+-- depends_on: {{ ref('journal_entries_CurrencyRef_ab4') }}
 select
     _airbyte_journal_entries_hashid,
     name,
@@ -23,7 +23,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_CurrencyRef_hashid
-from {{ ref('journal_entries_CurrencyRef_ab3') }}
+from {{ ref('journal_entries_CurrencyRef_ab4') }}
 -- CurrencyRef at journal_entries/CurrencyRef from {{ ref('journal_entries') }}
 
 {% if is_incremental() %}

@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('accounts_ab3') }}
+-- depends_on: {{ ref('accounts_ab4') }}
 select
     CurrencyRef,
     airbyte_cursor,
@@ -38,7 +38,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_accounts_hashid
-from {{ ref('accounts_ab3') }}
+from {{ ref('accounts_ab4') }}
 -- accounts from {{ source('cta', '_airbyte_raw_accounts') }}
 
 {% if is_incremental() %}

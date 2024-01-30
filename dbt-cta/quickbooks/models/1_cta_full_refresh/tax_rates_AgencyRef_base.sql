@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('tax_rates_AgencyRef_ab3') }}
+-- depends_on: {{ ref('tax_rates_AgencyRef_ab4') }}
 select
     _airbyte_tax_rates_hashid,
     value,
@@ -22,7 +22,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_AgencyRef_hashid
-from {{ ref('tax_rates_AgencyRef_ab3') }}
+from {{ ref('tax_rates_AgencyRef_ab4') }}
 -- AgencyRef at tax_rates/AgencyRef from {{ ref('tax_rates') }}
 
 {% if is_incremental() %}

@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('purchase_orders_VendorAddr_ab3') }}
+-- depends_on: {{ ref('purchase_orders_VendorAddr_ab4') }}
 select
     _airbyte_purchase_orders_hashid,
     Line4,
@@ -30,7 +30,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_VendorAddr_hashid
-from {{ ref('purchase_orders_VendorAddr_ab3') }}
+from {{ ref('purchase_orders_VendorAddr_ab4') }}
 -- VendorAddr at purchase_orders/VendorAddr from {{ ref('purchase_orders') }}
 
 {% if is_incremental() %}

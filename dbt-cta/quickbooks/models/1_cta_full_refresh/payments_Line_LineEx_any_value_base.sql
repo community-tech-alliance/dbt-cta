@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('payments_Line_LineEx_any_value_ab3') }}
+-- depends_on: {{ ref('payments_Line_LineEx_any_value_ab4') }}
 select
     _airbyte_any_hashid,
     Value,
@@ -23,7 +23,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_value_hashid
-from {{ ref('payments_Line_LineEx_any_value_ab3') }}
+from {{ ref('payments_Line_LineEx_any_value_ab4') }}
 -- value at payments/Line/LineEx/any/value from {{ ref('payments_Line_LineEx_any') }}
 
 {% if is_incremental() %}

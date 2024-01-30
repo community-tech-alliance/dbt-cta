@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('invoices_SalesTermRef_ab3') }}
+-- depends_on: {{ ref('invoices_SalesTermRef_ab4') }}
 select
     _airbyte_invoices_hashid,
     value,
@@ -22,7 +22,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_SalesTermRef_hashid
-from {{ ref('invoices_SalesTermRef_ab3') }}
+from {{ ref('invoices_SalesTermRef_ab4') }}
 -- SalesTermRef at invoices/SalesTermRef from {{ ref('invoices') }}
 
 {% if is_incremental() %}

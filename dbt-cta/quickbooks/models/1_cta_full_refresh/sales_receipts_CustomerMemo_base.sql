@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('sales_receipts_CustomerMemo_ab3') }}
+-- depends_on: {{ ref('sales_receipts_CustomerMemo_ab4') }}
 select
     _airbyte_sales_receipts_hashid,
     value,
@@ -22,7 +22,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_CustomerMemo_hashid
-from {{ ref('sales_receipts_CustomerMemo_ab3') }}
+from {{ ref('sales_receipts_CustomerMemo_ab4') }}
 -- CustomerMemo at sales_receipts/CustomerMemo from {{ ref('sales_receipts') }}
 
 {% if is_incremental() %}

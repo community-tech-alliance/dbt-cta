@@ -14,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('transfers_FromAccountRef_ab3') }}
+-- depends_on: {{ ref('transfers_FromAccountRef_ab4') }}
 select
     _airbyte_transfers_hashid,
     name,
@@ -23,7 +23,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_FromAccountRef_hashid
-from {{ ref('transfers_FromAccountRef_ab3') }}
+from {{ ref('transfers_FromAccountRef_ab4') }}
 -- FromAccountRef at transfers/FromAccountRef from {{ ref('transfers') }}
 
 {% if is_incremental() %}
