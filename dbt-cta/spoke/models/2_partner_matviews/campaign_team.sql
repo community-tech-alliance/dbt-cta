@@ -1,7 +1,3 @@
-{{ config(
-	auto_refresh = false,
-	full_refresh = false
-)}}
 
 SELECT
     _cta_sync_rowid,
