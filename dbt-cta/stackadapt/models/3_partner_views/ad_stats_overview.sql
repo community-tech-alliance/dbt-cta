@@ -1,7 +1,3 @@
-{{ config(
-    auto_refresh = false,
-    full_refresh = false
-) }}
 select
     ad_stats.date,
     ad_stats.campaign_id,
