@@ -10,7 +10,7 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: __dbt__cte___airbyte_org_7e6abb14a314439581d38bb69eaa0083_van_shifts_ab4
+-- depends_on: {{ ref('van_shifts_ab4') }}
 select
     id,
     van_id,
