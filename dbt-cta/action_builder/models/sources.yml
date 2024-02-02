@@ -5,63 +5,363 @@ sources:
   schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables: 
   - name: contact_attempts_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: action_assignment_group_users_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: action_assignment_groups_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: action_assignments_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: action_entities_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: action_fields_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: actions_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: activity_events_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: addresses_electoral_districts_base
   - name: addresses_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: api_keys_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: ar_internal_metadata_base
+    columns:
+      - name: key
+        tests:
+          - unique
+          - not_null
   - name: assessments_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: attachments_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: campaign_configuration_tag_categories_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: campaign_context_notes_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: campaign_entity_type_configurations_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: campaign_entity_types_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: campaign_participations_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: campaign_topline_setting_items_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: campaigns_entities_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: campaigns_entity_connection_types_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: campaigns_tag_categories_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: campaigns_tag_groups_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: campaigns_tags_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: campaigns_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: contact_sources_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: contact_statuses_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: electoral_districts_base
+    columns:
+      - name: ocd_id
+        tests:
+          - unique
+          - not_null
   - name: emails_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: entities_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: entity_connections_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: entity_sync_cursors_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: entity_sync_states_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: entity_sync_stored_operations_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: entity_types_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: external_services_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: follow_ups_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: global_notes_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: integrations_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: organization_integration_links_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: organization_integrations_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: organizations_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: phone_numbers_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: queries_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: query_results_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: relationships_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: schema_migrations_base
+    columns:
+      - name: version
+        tests:
+          - unique
+          - not_null
   - name: shift_times_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: shifts_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: signatures_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: social_profiles_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: subscription_statuses_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: tag_categories_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: tag_groups_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: tags_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: tasks_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: turf_assignments_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: turf_tags_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: uploads_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: users_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
