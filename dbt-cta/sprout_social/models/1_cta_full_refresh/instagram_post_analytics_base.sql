@@ -1,6 +1,11 @@
 {% set partitions_to_replace = [
     "timestamp_trunc(current_timestamp, day)",
-    "timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)"
+    "timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)",
+    "timestamp_trunc(timestamp_sub(current_timestamp, interval 2 day), day)",
+    "timestamp_trunc(timestamp_sub(current_timestamp, interval 3 day), day)",
+    "timestamp_trunc(timestamp_sub(current_timestamp, interval 4 day), day)",
+    "timestamp_trunc(timestamp_sub(current_timestamp, interval 5 day), day)",
+    "timestamp_trunc(timestamp_sub(current_timestamp, interval 6 day), day)"
 ] %}
 {{ config(
     cluster_by = "_airbyte_extracted_at",
@@ -10,9 +15,9 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('instagram_post_analytics_ab1') }}
+-- depends_on: {{ ref('instagram_post_analytics_ab3') }}
 select * except (_airbyte_raw_id)
-from {{ ref('instagram_post_analytics_ab1') }}
+from {{ ref('instagram_post_analytics_ab3') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

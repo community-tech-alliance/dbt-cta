@@ -5,6 +5,6 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('{% endraw %}{{ table }}{% raw %}_ab1') }}{% endraw %}
+-- depends_on: {{ ref('{% endraw %}{{ table }}{% raw %}_ab2') }}{% endraw %}
 select * except (_airbyte_raw_id)
-from {% raw %}{{ ref('{% endraw %}{{ table }}{% raw %}_ab1') }}{% endraw %}
+from {% raw %}{{ ref('{% endraw %}{{ table }}{% raw %}_ab2') }}{% endraw %}

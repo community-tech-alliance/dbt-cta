@@ -1,6 +1,11 @@
 {% set partitions_to_replace = [
     "timestamp_trunc(current_timestamp, day)",
-    "timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)"
+    "timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)",
+    "timestamp_trunc(timestamp_sub(current_timestamp, interval 2 day), day)",
+    "timestamp_trunc(timestamp_sub(current_timestamp, interval 3 day), day)",
+    "timestamp_trunc(timestamp_sub(current_timestamp, interval 4 day), day)",
+    "timestamp_trunc(timestamp_sub(current_timestamp, interval 5 day), day)",
+    "timestamp_trunc(timestamp_sub(current_timestamp, interval 6 day), day)"
 ] %}
 {{ config(
     cluster_by = "_airbyte_emitted_at",
@@ -9,7 +14,7 @@
     unique_key = "_airbyte_ab_id"
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('applicants_to_jobs_ab3') }}
+-- depends_on: {{ ref('applicants_to_jobs_ab4') }}
 select
     date,
     applicant_id,
@@ -21,7 +26,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_applicants_to_jobs_hashid
-from {{ ref('applicants_to_jobs_ab3') }}
+from {{ ref('applicants_to_jobs_ab4') }}
 -- applicants_to_jobs from {{ source('cta', '_airbyte_raw_applicants_to_jobs') }}
 
 {% if is_incremental() %}

@@ -54,7 +54,14 @@ def extract_column_names(client, project_id, dataset_id, table_id):
 
 
 def generate_sql_files(
-    client, base_dir, sync_name, project_id, dataset_id, template_name, file_suffix
+    client,
+    base_dir,
+    sync_name,
+    project_id,
+    dataset_id,
+    template_name,
+    file_suffix,
+    destination_folder,
 ):
     """
     Generates SQL files for each table in a dataset based on a Jinja2 template.
@@ -67,6 +74,7 @@ def generate_sql_files(
     dataset_id (str): The dataset ID within the BigQuery project.
     template_name (str): The name of the Jinja2 template to be used.
     file_suffix (str): The suffix to be added to generated SQL files. This is '_ab1' for CTEs, '_base' for base models, and blank for partner materialized views.
+    destination_folder (str): The folder where SQL files will be placed.
     """
 
     template_file = f"templates/{template_name}.sql"
@@ -83,8 +91,8 @@ def generate_sql_files(
         # Generate the appropriate table file name based on the file_suffix
         table_file_name = f"{table_id}{file_suffix}.sql"
 
-        # Determine the appropriate subdirectory based on the template file name
-        subdirectory = f"models/{template_name.replace('.sql', '')}"
+        # Determine the appropriate subdirectory based on the destination_folder
+        subdirectory = f"models/{destination_folder}"
 
         columns = extract_column_names(client, project_id, dataset_id, table_id)
 
@@ -93,10 +101,12 @@ def generate_sql_files(
         all_columns_str = ",\n  ".join(all_columns)
 
         # Create a list of columns with data types string, int, float, bool, date, or timestamp
+        # TODO: figure out how to represent JSON/STRUCT/ARRAY types in here. We could get edge cases where multiple rows might appear duplicative but have different data in a nested field, which currently would be ignored by this script.
         columns_for_hashid = [
             f"'{field[0]}'"
             for field in columns
-            if field[1] in ["STRING", "INT64", "FLOAT64", "BOOL", "DATE", "TIMESTAMP"] and not field[0].startswith("_airbyte")
+            if field[1] in ["STRING", "INT64", "FLOAT64", "BOOL", "DATE", "TIMESTAMP"]
+            and not field[0].startswith("_airbyte")
         ]
 
         # Indent twice for every element after the first without leading line break
@@ -121,7 +131,7 @@ def generate_sql_files(
         with open(file_path, "w") as sql_file:
             sql_file.write(rendered_sql)
 
-        print(f"Generated models for table: {table_id} in {subdirectory}")
+        print(f"Generated {table_id}{file_suffix} model in {subdirectory}")
 
 
 def generate_sources_yaml(client, base_dir, sync_name, project_id, dataset_id):
@@ -169,11 +179,9 @@ def main():
     Collects user inputs and calls other functions to create directories and generate files to run dbt (SQL models and sources.yml).
     """
 
-    sync_name = input("Enter sync name (default: test)") or "test"
+    sync_name = input("Enter sync name: ")
     project_id = input("Enter project ID: ")
-    dataset_id = (
-        input("Enter dataset ID (default: dbt_gen_science): ") or "dbt_gen_science"
-    )
+    dataset_id = input("Enter dataset ID: ")
     base_models_option = (
         input(
             "Which base models do you need generated? (1=full_refresh, 2=incremental, 3 or skip to generate both): "
@@ -196,7 +204,8 @@ def main():
     # create the folders needed
     create_directory_structure(base_dir, sync_name, base_models_template_list)
 
-    # generate base models
+    # generate base models (full refresh and/or incremental depending on user input)
+    # Note that if your sync uses a combination of full refresh and incremental models, you will need to manually remove the models from each folder that are not needed
     for template_name in base_models_template_list:
         generate_sql_files(
             client,
@@ -204,19 +213,34 @@ def main():
             sync_name,
             project_id,
             dataset_id,
-            template_name,
+            template_name=template_name,
             file_suffix="_base",
+            destination_folder=template_name,
         )
 
-    # generate CTE models
+    # Generate CTE models with "_ab1" suffix in the "0_ctes" folder
     generate_sql_files(
         client,
         base_dir,
         sync_name,
         project_id,
         dataset_id,
-        template_name="0_ctes",
+        template_name="0_ctes_ab1",
         file_suffix="_ab1",
+        destination_folder="0_ctes",
+    )
+
+    # Generate additional CTE models with "_ab2" suffix in the same "0_ctes" folder
+    # These models deduplicate on hashid
+    generate_sql_files(
+        client,
+        base_dir,
+        sync_name,
+        project_id,
+        dataset_id,
+        template_name="0_ctes_ab2",
+        file_suffix="_ab2",
+        destination_folder="0_ctes",
     )
 
     # generate partner matviews
@@ -228,12 +252,21 @@ def main():
         dataset_id,
         template_name="2_partner_matviews",
         file_suffix="",
+        destination_folder="2_partner_matviews",
     )
 
     # generate sources.yml
     generate_sources_yaml(client, base_dir, sync_name, project_id, dataset_id)
 
-    print("Script completed")
+    print("Congratulations! You have a bunch of new dbt files.")
+    if base_models_option == "3":
+        print(
+            "Because you are using a combination of full_refresh and incremental models, you will need to manually remove the models from each folder that are not needed."
+        )
+    print(
+        "Don't forget to add tests and run SQL fluff for maximum stylishness by running `sh ../cta_dbt_helper.sh` and following the instructions."
+    )
+    print("Have a blessed day!")
 
 
 if __name__ == "__main__":

@@ -25,6 +25,18 @@ default:
       job_execution_timeout_seconds: 600
       job_retries: 5
       job_retry_deadline_seconds: 1200
+    cta_delivery:
+      project: "{{ env_var('CTA_PROJECT_ID') }}"
+      dataset: "{{ env_var('CTA_DATASET_ID') }}_delivery"
+      location: US
+      method: oauth
+      priority: batch
+      threads: 4
+      type: bigquery
+      job_creation_timeout_seconds: 30
+      job_execution_timeout_seconds: 600
+      job_retries: 5
+      job_retry_deadline_seconds: 1200
     cta_1_thread:
       project: "{{ env_var('CTA_PROJECT_ID') }}"
       dataset: "{{ env_var('CTA_DATASET_ID') }}"
@@ -56,4 +68,4 @@ elementary:
       method: oauth
       project: "{{ env_var('CTA_PROJECT_ID') }}"
       dataset: elementary
-      threads: 4
+      threads: 4 

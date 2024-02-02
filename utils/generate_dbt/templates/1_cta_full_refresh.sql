@@ -11,9 +11,9 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('{% endraw %}{{ table }}{% raw %}_ab1') }}{% endraw %}
+-- depends_on: {{ ref('{% endraw %}{{ table }}{% raw %}_ab2') }}{% endraw %}
 select * except (_airbyte_raw_id)
-from {% raw %}{{ ref('{% endraw %}{{ table }}{% raw %}_ab1') }}
+from {% raw %}{{ ref('{% endraw %}{{ table }}{% raw %}_ab2') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

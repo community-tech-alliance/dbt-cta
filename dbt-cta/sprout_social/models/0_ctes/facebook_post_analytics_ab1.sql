@@ -10,9 +10,12 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
+    customer_profile_id,
     created_time,
     perma_link,
     text,
+    sent,
+    json_extract_array(internal, '$.tags') as internal_tags,
     metrics,
     -- metrics fields unnested:
     {{ json_extract_scalar('metrics', ['lifetime.impressions'], ['lifetime.impressions']) }} as lifetime_impressions,
@@ -98,12 +101,5 @@ select
     {{ json_extract_scalar('metrics', ['lifetime.video_view_time_paid'], ['lifetime.video_view_time_paid']) }} as lifetime_video_view_time_paid,
     {{ json_extract_scalar('metrics', ['lifetime.video_ad_break_impressions'], ['lifetime.video_ad_break_impressions']) }} as lifetime_video_ad_break_impressions,
     {{ json_extract_scalar('metrics', ['lifetime.video_ad_break_earnings'], ['lifetime.video_ad_break_earnings']) }} as lifetime_video_ad_break_earnings,
-    {{ json_extract_scalar('metrics', ['lifetime.video_ad_break_cost_per_impression'], ['lifetime.video_ad_break_cost_per_impression']) }} as lifetime_video_ad_break_cost_per_impression,
-    sent,
-   {{ dbt_utils.surrogate_key([
-     'created_time',
-    'perma_link',
-    'text',
-    'sent'
-    ]) }} as _airbyte_facebook_post_analytics_hashid
+    {{ json_extract_scalar('metrics', ['lifetime.video_ad_break_cost_per_impression'], ['lifetime.video_ad_break_cost_per_impression']) }} as lifetime_video_ad_break_cost_per_impression
 from {{ source('cta', 'facebook_post_analytics') }}
