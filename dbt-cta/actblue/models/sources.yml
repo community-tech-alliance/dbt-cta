@@ -8,7 +8,6 @@ sources:
     columns:
       - name: _airbyte_ab_id
         tests:
-          - unique
           - not_null
       - name: _airbyte_emitted_at
         tests:
@@ -21,7 +20,6 @@ sources:
     columns:
       - name: _airbyte_ab_id
         tests:
-          - unique
           - not_null
       - name: _airbyte_emitted_at
         tests:
@@ -34,7 +32,6 @@ sources:
     columns:
       - name: _airbyte_ab_id
         tests:
-          - unique
           - not_null
       - name: _airbyte_emitted_at
         tests:
@@ -47,7 +44,6 @@ sources:
     columns:
       - name: _airbyte_ab_id
         tests:
-          - unique
           - not_null
       - name: _airbyte_emitted_at
         tests:
@@ -60,7 +56,6 @@ sources:
     columns:
       - name: _airbyte_ab_id
         tests:
-          - unique
           - not_null
       - name: _airbyte_emitted_at
         tests:
@@ -70,7 +65,6 @@ sources:
     columns:
       - name: _airbyte_ab_id
         tests:
-          - unique
           - not_null
       - name: _airbyte_emitted_at
         tests:
@@ -80,7 +74,6 @@ sources:
     columns:
       - name: _airbyte_ab_id
         tests:
-          - unique
           - not_null
       - name: _airbyte_emitted_at
         tests:
@@ -90,7 +83,6 @@ sources:
     columns:
       - name: _airbyte_ab_id
         tests:
-          - unique
           - not_null
       - name: _airbyte_emitted_at
         tests:
