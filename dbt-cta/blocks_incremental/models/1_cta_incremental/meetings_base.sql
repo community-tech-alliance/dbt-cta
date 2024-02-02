@@ -1,28 +1,10 @@
 {{ config(
-    cluster_by = ["_airbyte_emitted_at"],
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = 'id',
-    tags = [ "top-level" ]
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_meetings_hashid"
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('meetings_ab3') }}
-select
-    start_time,
-    notes,
-    updated_at,
-    user_id,
-    guest_attended,
-    end_time,
-    cancelled,
-    created_at,
-    id,
-    type,
-    location_id,
-    person_id,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
-    {{ current_timestamp() }} as _airbyte_normalized_at,
-    _airbyte_meetings_hashid
-from {{ ref('meetings_ab3') }}
--- meetings from {{ source('cta', '_airbyte_raw_meetings') }}
+-- depends_on: {{ ref('meetings_ab2') }}
+select * except (_airbyte_raw_id)
+from {{ ref('meetings_ab2') }}

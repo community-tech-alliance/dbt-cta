@@ -63,10 +63,10 @@ def get_model_config(model_name: str, target: str):
     stream = os.popen(command)
     output = stream.read()
 
-    print('Model: ', model_name)
-    print('----------------- DBT CMD OUTPUT -----------------')
+    print("Model: ", model_name)
+    print("----------------- DBT CMD OUTPUT -----------------")
     print(output)
-    print('--------------- END DBT CMD OUTPUT ---------------')
+    print("--------------- END DBT CMD OUTPUT ---------------")
     model_config = output.split("models:")[1]
 
     model_dict = yaml.load(model_config, Loader=yaml.Loader)
@@ -128,7 +128,7 @@ def generate_schema_dict(directory_path, universal_tests_path):
     if model_directory[:1] in ["0", "1"]:
         target = "cta"
     elif model_directory[:1] in ["2", "3"]:
-        #target = "partner"
+        # target = "partner"
         print("dbt tests currently do not work for partner models, skipping.")
         return
     else:
