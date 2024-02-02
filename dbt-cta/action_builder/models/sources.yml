@@ -1,0 +1,67 @@
+version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables: 
+  - name: contact_attempts_base
+  - name: action_assignment_group_users_base
+  - name: action_assignment_groups_base
+  - name: action_assignments_base
+  - name: action_entities_base
+  - name: action_fields_base
+  - name: actions_base
+  - name: activity_events_base
+  - name: addresses_electoral_districts_base
+  - name: addresses_base
+  - name: api_keys_base
+  - name: ar_internal_metadata_base
+  - name: assessments_base
+  - name: attachments_base
+  - name: campaign_configuration_tag_categories_base
+  - name: campaign_context_notes_base
+  - name: campaign_entity_type_configurations_base
+  - name: campaign_entity_types_base
+  - name: campaign_participations_base
+  - name: campaign_topline_setting_items_base
+  - name: campaigns_entities_base
+  - name: campaigns_entity_connection_types_base
+  - name: campaigns_tag_categories_base
+  - name: campaigns_tag_groups_base
+  - name: campaigns_tags_base
+  - name: campaigns_base
+  - name: contact_sources_base
+  - name: contact_statuses_base
+  - name: electoral_districts_base
+  - name: emails_base
+  - name: entities_base
+  - name: entity_connections_base
+  - name: entity_sync_cursors_base
+  - name: entity_sync_states_base
+  - name: entity_sync_stored_operations_base
+  - name: entity_types_base
+  - name: external_services_base
+  - name: follow_ups_base
+  - name: global_notes_base
+  - name: integrations_base
+  - name: organization_integration_links_base
+  - name: organization_integrations_base
+  - name: organizations_base
+  - name: phone_numbers_base
+  - name: queries_base
+  - name: query_results_base
+  - name: relationships_base
+  - name: schema_migrations_base
+  - name: shift_times_base
+  - name: shifts_base
+  - name: signatures_base
+  - name: social_profiles_base
+  - name: subscription_statuses_base
+  - name: tag_categories_base
+  - name: tag_groups_base
+  - name: tags_base
+  - name: tasks_base
+  - name: turf_assignments_base
+  - name: turf_tags_base
+  - name: uploads_base
+  - name: users_base

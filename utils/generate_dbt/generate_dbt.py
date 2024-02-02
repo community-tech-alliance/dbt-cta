@@ -88,7 +88,7 @@ def generate_sql_files(
         table_id = table.table_id
 
         # Skip tables that end with "_base" or start with "_"
-        if table_id.endswith("_base") or table_id.startswith("_"):
+        if table_id.startswith("_"):
             continue
 
         # Generate the appropriate table file name based on the file_suffix
