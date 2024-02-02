@@ -1,0 +1,20 @@
+select
+    last_name,
+    created_at,
+    contact_id,
+    contact_referral_id,
+    zip_code,
+    exported_at,
+    updated_at,
+    phone,
+    team_referral_id,
+    activity_id,
+    id,
+    opt_in,
+    first_name,
+    email,
+    campaign_id,
+    activity_title,
+    _airbyte_emitted_at,
+    _airbyte_forms_export_hashid
+from {{ source('cta','forms_export_base') }}
