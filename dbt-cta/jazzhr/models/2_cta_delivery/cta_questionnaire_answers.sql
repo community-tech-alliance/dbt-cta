@@ -1,0 +1,20 @@
+select
+    questionnaire_id,
+    questionnaire_code,
+    answer_value_00,
+    time_taken,
+    applicant_id,
+    answer_value_03,
+    answer_value_04,
+    job_id,
+    answer_value_01,
+    answer_correct_01,
+    answer_value_02,
+    answer_correct_00,
+    answer_correct_03,
+    answer_correct_02,
+    answer_correct_04,
+    date_taken,
+    _airbyte_emitted_at,
+    _airbyte_questionnaire_answers_hashid
+from {{ source('cta','questionnaire_answers_base') }}

@@ -1,0 +1,1 @@
+select * from {{ source('cta','payment_intents_last_payment_error_payment_method_card_wallet_visa_checkout_base') }}

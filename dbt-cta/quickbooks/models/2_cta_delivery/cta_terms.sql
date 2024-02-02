@@ -1,0 +1,19 @@
+select
+    DueNextMonthDays,
+    airbyte_cursor,
+    Name,
+    SyncToken,
+    Type,
+    Active,
+    sparse,
+    DueDays,
+    MetaData,
+    domain,
+    DiscountDayOfMonth,
+    Id,
+    DiscountDays,
+    DayOfMonthDue,
+    DiscountPercent,
+    _airbyte_emitted_at,
+    _airbyte_terms_hashid
+from {{ source('cta','terms_base') }}

@@ -144,7 +144,7 @@ def restructure_airbyte_dbt(airbyte_workspace_path, dbt_cta_path):
         )
         print(f"Moved {sources_file[0]} -> {dbt_cta_path}/models/sources.yml")
     else:
-        print(f"Couldn\'t find the sources file in {airbyte_workspace_path}")
+        print(f"Couldn't find the sources file in {airbyte_workspace_path}")
 
     # Cool, files are moved so now lets modify the file content
     modify_dbt_models(f"{dbt_cta_path}/models/0_ctes", "cte")
@@ -342,11 +342,7 @@ def create_matview_dbt_files_from_base(base_tables_path, output_path):
         os.mkdir(output_path)
         print(f"{output_path} is created!")
 
-    base_tables = [
-        f
-        for f in os.listdir(base_tables_path)
-        if f.endswith('.sql')
-    ]
+    base_tables = [f for f in os.listdir(base_tables_path) if f.endswith(".sql")]
     for table in base_tables:
         with open(f"{base_tables_path}/{table}", "r") as infile:
             with open(f"{output_path}/{table.replace('_base','')}", "w") as outfile:
@@ -362,8 +358,13 @@ def create_matview_dbt_files_from_base(base_tables_path, output_path):
                         write_to_file = False
                         outfile.write(f"from {{{{ source('cta','{table_name}') }}}}")
                     if write_to_file:
-                        if not any(substring in line for substring in
-                                   ['_airbyte_ab_id', '_airbyte_normalized_at']):
+                        if not any(
+                            substring in line
+                            for substring in [
+                                "_airbyte_ab_id",
+                                "_airbyte_normalized_at",
+                            ]
+                        ):
                             outfile.write(line)
 
 

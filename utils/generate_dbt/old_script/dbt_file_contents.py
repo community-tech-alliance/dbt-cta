@@ -1,9 +1,5 @@
 def get_base_sql(
-        table_schema_fields,
-        concat_fields,
-        table_id,
-        partition_datetime_field,
-        sync_mode
+    table_schema_fields, concat_fields, table_id, partition_datetime_field, sync_mode
 ):
     sql = f"""
 SELECT
@@ -14,28 +10,24 @@ FROM {{{{ source('cta', '{table_id}') }}}}
     
     """
 
-    if sync_mode == 'full_refresh':
+    if sync_mode == "full_refresh":
         sql += f"""{{% if is_incremental() %}}
 where timestamp_trunc({partition_datetime_field}, day) in ({{{{ partitions_to_replace | join(",") }}}})
 {{% endif %}}"""
 
         return sql
 
-    elif sync_mode == 'incremental':
-
+    elif sync_mode == "incremental":
         return sql
 
     else:
+        raise ValueError(
+            "Invalid sync mode (supported values: 'full_refresh', 'incremental')"
+        )
 
-        raise ValueError("Invalid sync mode (supported values: 'full_refresh', 'incremental')")
 
-
-def get_base_config(
-        partition_datetime_field,
-        unique_key,
-        sync_mode
-):
-    if sync_mode == 'full_refresh':
+def get_base_config(partition_datetime_field, unique_key, sync_mode):
+    if sync_mode == "full_refresh":
         dbt_config = f"""
 {{% set partitions_to_replace = [
     "timestamp_trunc(current_timestamp, day)",
@@ -54,7 +46,7 @@ def get_base_config(
 
         return dbt_config
 
-    elif sync_mode == 'incremental':
+    elif sync_mode == "incremental":
         dbt_config = f"""
 {{{{ config(
     cluster_by = "{partition_datetime_field}",
@@ -68,15 +60,12 @@ def get_base_config(
         return dbt_config
 
     else:
+        raise ValueError(
+            "Invalid sync mode (supported values: 'full_refresh', 'incremental')"
+        )
 
-        raise ValueError("Invalid sync mode (supported values: 'full_refresh', 'incremental')")
 
-
-def get_matview_sql(
-        matview_fields,
-        unique_key,
-        table_id_base
-):
+def get_matview_sql(matview_fields, unique_key, table_id_base):
     matview_sql = f"""
 {{{{ config(
 	auto_refresh = false,
