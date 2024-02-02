@@ -1,2 +1,2 @@
 select *
-from {{ source('cta','admin_users_base') }}
+from {{ source('cta', 'admin_users_base') }}

@@ -1,29 +1,37 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
-    tags = [ "top-level-intermediate" ]
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_raw_id'
 ) }}
--- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('cta', '_airbyte_raw_venues') }}
-select
-    {{ json_extract_scalar('_airbyte_data', ['maximum_size'], ['maximum_size']) }} as maximum_size,
-    {{ json_extract_scalar('_airbyte_data', ['rooms_available'], ['rooms_available']) }} as rooms_available,
-    {{ json_extract_scalar('_airbyte_data', ['updated_at'], ['updated_at']) }} as updated_at,
-    {{ json_extract_scalar('_airbyte_data', ['name'], ['name']) }} as name,
-    {{ json_extract_scalar('_airbyte_data', ['address_id'], ['address_id']) }} as address_id,
-    {{ json_extract_scalar('_airbyte_data', ['it_support'], ['it_support']) }} as it_support,
-    {{ json_extract_scalar('_airbyte_data', ['largest_size'], ['largest_size']) }} as largest_size,
-    {{ json_extract_scalar('_airbyte_data', ['created_at'], ['created_at']) }} as created_at,
-    {{ json_extract_scalar('_airbyte_data', ['public_transportation'], ['public_transportation']) }} as public_transportation,
-    {{ json_extract_scalar('_airbyte_data', ['id'], ['id']) }} as id,
-    {{ json_extract_scalar('_airbyte_data', ['parking_spots'], ['parking_spots']) }} as parking_spots,
-    {{ json_extract_scalar('_airbyte_data', ['hosted_event'], ['hosted_event']) }} as hosted_event,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
-    {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_venues') }}
--- venues
-where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
+-- SQL model to build a hash column based on the values of this record
+-- depends_on: {{ source('cta', 'venues') }}
 
+select
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
+    _airbyte_meta,
+    maximum_size,
+    rooms_available,
+    updated_at,
+    name,
+    address_id,
+    it_support,
+    largest_size,
+    created_at,
+    public_transportation,
+    id,
+    parking_spots,
+    hosted_event,
+   {{ dbt_utils.surrogate_key([
+     'maximum_size',
+    'rooms_available',
+    'name',
+    'address_id',
+    'it_support',
+    'largest_size',
+    'public_transportation',
+    'id',
+    'parking_spots',
+    'hosted_event'
+    ]) }} as _airbyte_venues_hashid
+from {{ source('cta', 'venues') }}

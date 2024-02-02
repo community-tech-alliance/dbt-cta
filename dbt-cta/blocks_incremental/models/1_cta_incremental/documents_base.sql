@@ -1,25 +1,10 @@
 {{ config(
-    cluster_by = ["_airbyte_emitted_at"],
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = 'id',
-    tags = [ "top-level" ]
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_documents_hashid"
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('documents_ab3') }}
-select
-    tenant_id,
-    updated_at,
-    user_id,
-    name,
-    created_at,
-    id,
-    folder_id,
-    file_data,
-    file_locator,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
-    {{ current_timestamp() }} as _airbyte_normalized_at,
-    _airbyte_documents_hashid
-from {{ ref('documents_ab3') }}
--- documents from {{ source('cta', '_airbyte_raw_documents') }}
+-- depends_on: {{ ref('documents_ab2') }}
+select * except (_airbyte_raw_id)
+from {{ ref('documents_ab2') }}
