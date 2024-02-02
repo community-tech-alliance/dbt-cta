@@ -34,16 +34,25 @@ models:
       +on_schema_change: sync_all_columns
       +full_refresh: false
       +pre-hook: "TRUNCATE TABLE {{ this }};"
+      +labels:
+        data_object_type: cta_base_table
+        sync_mode: full_refresh
     1_cta_incremental:
       +tags:
         - cta
       +materialized: incremental
       +on_schema_change: sync_all_columns
+      +labels:
+        data_object_type: cta_base_table
+        sync_mode: incremental
     2_cta_delivery: # for delivery via Analytics Hub subscriptions
       +tags: 
         - cta_delivery
       +materialized: table
       +full_refresh: true
+      +labels:
+        data_object_type: cta_delivery_table
+        sync_mode: full_refresh
     2_partner_matviews: # for delivery via materialized views
       +tags: 
         - partner
@@ -53,6 +62,9 @@ models:
       +grant_access_to:
         - project: "{{ env_var('CTA_PROJECT_ID') }}"
           dataset: "{{ env_var('CTA_DATASET_ID') }}"
+      +labels:
+        data_object_type: partner_materialized_view
+        origin: cta
     3_partner_views:
       +tags: 
         - partner
@@ -60,6 +72,9 @@ models:
       +grant_access_to:
         - project: "{{ env_var('CTA_PROJECT_ID') }}"
           dataset: "{{ env_var('CTA_DATASET_ID') }}"
+      +labels:
+        data_object_type: partner_materialized_view
+        origin: cta
 
     # These two models are specifically for google_ads,
     # which delivers raw data to the partner project instead of CTA:
@@ -72,6 +87,10 @@ models:
         - partner
       +materialized: incremental
       +on_schema_change: sync_all_columns
+      +labels:
+        data_object_type: partner_table
+        sync_mode: incremental
+        origin: cta
 
     # for the /bigquery_monitoring project (no other syncs use these models)
     0_staging:
@@ -92,9 +111,6 @@ models:
       +grant_access_to:
         - project: "{{ env_var('CTA_PROJECT_ID') }}"
           dataset: "{{ env_var('CTA_DATASET_ID') }}"
-
-    # for testing
-    0_ctes_dev:
-      +tags: 
-        - cta
-      +materialized: table
+      +labels:
+        data_object_type: partner_view
+        origin: cta
