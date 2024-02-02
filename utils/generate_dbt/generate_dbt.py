@@ -27,6 +27,9 @@ def create_directory_structure(base_dir, sync_name, base_models_template_list):
 
     os.makedirs(os.path.join(base_dir, sync_name, "models/0_ctes"), exist_ok=True)
     os.makedirs(
+        os.path.join(base_dir, sync_name, "models/2_cta_delivery"), exist_ok=True
+    )
+    os.makedirs(
         os.path.join(base_dir, sync_name, "models/2_partner_matviews"), exist_ok=True
     )
 
@@ -243,15 +246,27 @@ def main():
         destination_folder="0_ctes",
     )
 
-    # generate partner matviews
+    # generate delivery models. These are the models that will be used to deliver data via Analytics Hub linked datasets.
     generate_sql_files(
         client,
         base_dir,
         sync_name,
         project_id,
         dataset_id,
-        template_name="2_partner_matviews",
+        template_name="2_cta_delivery",
         file_suffix="",
+        destination_folder="2_cta_delivery",
+    )
+
+    # generate partner matviews. In the future, we plan to deliver data using Analytics Hub linked datasets, but we should keep creating these models for now.
+    generate_sql_files(
+        client,
+        base_dir,
+        sync_name,
+        project_id,
+        dataset_id,
+        template_name="2_cta_delivery",
+        file_suffix="_mv",
         destination_folder="2_partner_matviews",
     )
 
