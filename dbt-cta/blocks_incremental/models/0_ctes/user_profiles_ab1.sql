@@ -1,29 +1,41 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
-    tags = [ "top-level-intermediate" ]
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_raw_id'
 ) }}
--- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('cta', '_airbyte_raw_user_profiles') }}
+-- SQL model to build a hash column based on the values of this record
+-- depends_on: {{ source('cta', 'user_profiles') }}
+
 select
-    {{ json_extract_scalar('_airbyte_data', ['facebook_url'], ['facebook_url']) }} as facebook_url,
-    {{ json_extract_scalar('_airbyte_data', ['gender'], ['gender']) }} as gender,
-    {{ json_extract_scalar('_airbyte_data', ['date_of_birth'], ['date_of_birth']) }} as date_of_birth,
-    {{ json_extract_scalar('_airbyte_data', ['bio'], ['bio']) }} as bio,
-    {{ json_extract_scalar('_airbyte_data', ['extras'], ['extras']) }} as extras,
-    {{ json_extract_scalar('_airbyte_data', ['created_at'], ['created_at']) }} as created_at,
-    {{ json_extract_scalar('_airbyte_data', ['google_url'], ['google_url']) }} as google_url,
-    {{ json_extract_scalar('_airbyte_data', ['updated_at'], ['updated_at']) }} as updated_at,
-    {{ json_extract_scalar('_airbyte_data', ['website_url'], ['website_url']) }} as website_url,
-    {{ json_extract_scalar('_airbyte_data', ['user_id'], ['user_id']) }} as user_id,
-    {{ json_extract_scalar('_airbyte_data', ['phone_number'], ['phone_number']) }} as phone_number,
-    {{ json_extract_scalar('_airbyte_data', ['id'], ['id']) }} as id,
-    {{ json_extract_scalar('_airbyte_data', ['linkedin_url'], ['linkedin_url']) }} as linkedin_url,
-    {{ json_extract_scalar('_airbyte_data', ['twitter_url'], ['twitter_url']) }} as twitter_url,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
-    {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_user_profiles') }}
--- user_profiles
-where 1 = 1
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
+    _airbyte_meta,
+    facebook_url,
+    gender,
+    date_of_birth,
+    bio,
+    extras,
+    created_at,
+    google_url,
+    updated_at,
+    website_url,
+    user_id,
+    phone_number,
+    id,
+    linkedin_url,
+    twitter_url,
+   {{ dbt_utils.surrogate_key([
+     'facebook_url',
+    'gender',
+    'date_of_birth',
+    'bio',
+    'extras',
+    'google_url',
+    'website_url',
+    'user_id',
+    'phone_number',
+    'id',
+    'linkedin_url',
+    'twitter_url'
+    ]) }} as _airbyte_user_profiles_hashid
+from {{ source('cta', 'user_profiles') }}
