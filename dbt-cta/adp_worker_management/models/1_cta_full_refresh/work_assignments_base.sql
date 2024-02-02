@@ -11,7 +11,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('work_assignments_ab3') }}
+-- depends_on: {{ ref('work_assignments_ab4') }}
 
 select
     itemID,
@@ -46,7 +46,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_work_assignments_hashid
-from {{ ref('work_assignments_ab3') }}
+from {{ ref('work_assignments_ab4') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

@@ -1,0 +1,21 @@
+select
+    EmployeeRef,
+    NameOf,
+    Description,
+    Hours,
+    TxnDate,
+    airbyte_cursor,
+    Minutes,
+    HourlyRate,
+    SyncToken,
+    sparse,
+    BillableStatus,
+    MetaData,
+    domain,
+    Id,
+    ItemRef,
+    CustomerRef,
+    Taxable,
+    _airbyte_emitted_at,
+    _airbyte_time_activities_hashid
+from {{ source('cta','time_activities_base') }}

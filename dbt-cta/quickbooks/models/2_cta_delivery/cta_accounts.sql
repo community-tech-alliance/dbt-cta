@@ -1,0 +1,22 @@
+select
+    CurrencyRef,
+    airbyte_cursor,
+    CurrentBalance,
+    FullyQualifiedName,
+    AccountType,
+    Name,
+    ParentRef,
+    SyncToken,
+    Active,
+    sparse,
+    MetaData,
+    domain,
+    Classification,
+    CurrentBalanceWithSubAccounts,
+    SubAccount,
+    Id,
+    AcctNum,
+    AccountSubType,
+    _airbyte_emitted_at,
+    _airbyte_accounts_hashid
+from {{ source('cta','accounts_base') }}
