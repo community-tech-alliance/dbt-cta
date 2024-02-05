@@ -100,6 +100,6 @@ select
     {{ json_extract_scalar('metrics', ['video_views_10s_repeat'], ['video_views_10s_repeat']) }} as video_views_10s_repeat,
     {{ json_extract_scalar('metrics', ['video_views_10s_unique'], ['video_views_10s_unique']) }} as video_views_10s_unique,
     {{ json_extract_scalar('metrics', ['posts_sent_count'], ['posts_sent_count']) }} as posts_sent_count,
-    json_extract(metrics, '$.posts_sent_by_post_type') as posts_sent_by_post_type,
-    json_extract(metrics, '$.posts_sent_by_content_type') as posts_sent_by_content_type
+    json_extract(metrics, "$.posts_sent_by_post_type") as posts_sent_by_post_type,
+    json_extract(metrics, "$.posts_sent_by_content_type") as posts_sent_by_content_type
 from {{ source('cta', 'facebook_profile_analytics') }}
