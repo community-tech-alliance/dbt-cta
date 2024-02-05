@@ -1,20 +1,25 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
-    tags = [ "top-level-intermediate" ]
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_raw_id'
 ) }}
--- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('cta', '_airbyte_raw_imports_error_rows') }}
+-- SQL model to build a hash column based on the values of this record
+-- depends_on: {{ source('cta', 'imports_error_rows') }}
+
 select
-    {{ json_extract_scalar('_airbyte_data', ['errors_triggered'], ['errors_triggered']) }} as errors_triggered,
-    {{ json_extract_scalar('_airbyte_data', ['import_id'], ['import_id']) }} as import_id,
-    {{ json_extract_scalar('_airbyte_data', ['id'], ['id']) }} as id,
-    {{ json_extract_scalar('_airbyte_data', ['row_data'], ['row_data']) }} as row_data,
-    {{ json_extract_scalar('_airbyte_data', ['duplicate_found'], ['duplicate_found']) }} as duplicate_found,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
-    {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_imports_error_rows') }}
--- imports_error_rows
-where 1 = 1
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
+    _airbyte_meta,
+    errors_triggered,
+    import_id,
+    id,
+    row_data,
+    duplicate_found,
+   {{ dbt_utils.surrogate_key([
+     'errors_triggered',
+    'import_id',
+    'id',
+    'row_data',
+    'duplicate_found'
+    ]) }} as _airbyte_imports_error_rows_hashid
+from {{ source('cta', 'imports_error_rows') }}

@@ -1,34 +1,10 @@
-{% set partitions_to_replace = [
-    'timestamp_trunc(current_timestamp, day)',
-    'timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)'
-] %}
-
 {{ config(
-    partitions = partitions_to_replace,
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
-    tags = [ "top-level" ]
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_vr_zips_lookup_hashid"
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('vr_zips_lookup_ab3') }}
-select
-    voter_age,
-    voter_gender,
-    turnout_score_avg,
-    count,
-    state,
-    zip5,
-    support_avg,
-    party_score_avg,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
-    {{ current_timestamp() }} as _airbyte_normalized_at,
-    _airbyte_vr_zips_lookup_hashid
-from {{ ref('vr_zips_lookup_ab3') }}
--- vr_zips_lookup from {{ source('cta', '_airbyte_raw_vr_zips_lookup') }}
-{% if is_incremental() %}
-where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
-{% endif %}
-
+-- depends_on: {{ ref('vr_zips_lookup_ab2') }}
+select * except (_airbyte_raw_id)
+from {{ ref('vr_zips_lookup_ab2') }}

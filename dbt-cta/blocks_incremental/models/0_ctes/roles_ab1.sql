@@ -1,31 +1,41 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
-    tags = [ "top-level-intermediate" ]
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_raw_id'
 ) }}
--- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('cta', '_airbyte_raw_roles') }}
-select
-    {{ json_extract_scalar('_airbyte_data', ['needs_training'], ['needs_training']) }} as needs_training,
-    {{ json_extract_scalar('_airbyte_data', ['admin'], ['admin']) }} as admin,
-    {{ json_extract_scalar('_airbyte_data', ['created_at'], ['created_at']) }} as created_at,
-    {{ json_extract_scalar('_airbyte_data', ['description'], ['description']) }} as description,
-    {{ json_extract_scalar('_airbyte_data', ['abilities'], ['abilities']) }} as abilities,
-    {{ json_extract_scalar('_airbyte_data', ['depth'], ['depth']) }} as depth,
-    {{ json_extract_scalar('_airbyte_data', ['updated_at'], ['updated_at']) }} as updated_at,
-    {{ json_extract_scalar('_airbyte_data', ['parent_id'], ['parent_id']) }} as parent_id,
-    {{ json_extract_scalar('_airbyte_data', ['permissions'], ['permissions']) }} as permissions,
-    {{ json_extract_scalar('_airbyte_data', ['name'], ['name']) }} as name,
-    {{ json_extract_scalar('_airbyte_data', ['id'], ['id']) }} as id,
-    {{ json_extract_scalar('_airbyte_data', ['lft'], ['lft']) }} as lft,
-    {{ json_extract_scalar('_airbyte_data', ['rgt'], ['rgt']) }} as rgt,
-    {{ json_extract_scalar('_airbyte_data', ['dashboard_layout_id'], ['dashboard_layout_id']) }} as dashboard_layout_id,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
-    {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_roles') }}
--- roles
-where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
+-- SQL model to build a hash column based on the values of this record
+-- depends_on: {{ source('cta', 'roles') }}
 
+select
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
+    _airbyte_meta,
+    needs_training,
+    admin,
+    created_at,
+    description,
+    abilities,
+    depth,
+    updated_at,
+    parent_id,
+    permissions,
+    name,
+    id,
+    lft,
+    rgt,
+    dashboard_layout_id,
+   {{ dbt_utils.surrogate_key([
+     'needs_training',
+    'admin',
+    'description',
+    'abilities',
+    'depth',
+    'parent_id',
+    'permissions',
+    'name',
+    'id',
+    'lft',
+    'rgt',
+    'dashboard_layout_id'
+    ]) }} as _airbyte_roles_hashid
+from {{ source('cta', 'roles') }}

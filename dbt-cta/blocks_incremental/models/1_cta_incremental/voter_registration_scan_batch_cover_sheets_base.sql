@@ -1,20 +1,10 @@
 {{ config(
-    cluster_by = ["_airbyte_emitted_at"],
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "id",
-    tags = [ "top-level" ]
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_voter_registration_scan_batch_cover_sheets_hashid"
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('voter_registration_scan_batch_cover_sheets_ab4') }}
-select
-    updated_at,
-    voter_registration_scan_batch_id,
-    created_at,
-    id,
-    file_data,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
-    {{ current_timestamp() }} as _airbyte_normalized_at,
-    _airbyte_voter_registration_scan_batch_cover_sheets_hashid
-from {{ ref('voter_registration_scan_batch_cover_sheets_ab4') }}
+-- depends_on: {{ ref('voter_registration_scan_batch_cover_sheets_ab2') }}
+select * except (_airbyte_raw_id)
+from {{ ref('voter_registration_scan_batch_cover_sheets_ab2') }}
