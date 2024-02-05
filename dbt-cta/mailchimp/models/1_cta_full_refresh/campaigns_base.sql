@@ -10,7 +10,7 @@
     unique_key = '_airbyte_ab_id',
 ) }}
 
--- depends_on: {{ ref('campaigns_ab3') }}
+-- depends_on: {{ ref('campaigns_ab4') }}
 select
     id,
     type,
@@ -38,7 +38,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_campaigns_hashid
-from {{ ref('campaigns_ab3') }}
+from {{ ref('campaigns_ab4') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
