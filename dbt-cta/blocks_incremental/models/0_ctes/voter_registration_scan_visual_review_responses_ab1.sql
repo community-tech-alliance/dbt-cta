@@ -1,24 +1,29 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
-    tags = [ "top-level-intermediate" ]
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_raw_id'
 ) }}
--- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('cta', '_airbyte_raw_voter_registration_scan_visual_review_responses') }}
-select
-    {{ json_extract_scalar('_airbyte_data', ['updated_at'], ['updated_at']) }} as updated_at,
-    {{ json_extract_scalar('_airbyte_data', ['voter_registration_scan_id'], ['voter_registration_scan_id']) }} as voter_registration_scan_id,
-    {{ json_extract_scalar('_airbyte_data', ['user_id'], ['user_id']) }} as user_id,
-    {{ json_extract_scalar('_airbyte_data', ['petition_signature_id'], ['petition_signature_id']) }} as petition_signature_id,
-    {{ json_extract_scalar('_airbyte_data', ['created_at'], ['created_at']) }} as created_at,
-    {{ json_extract_scalar('_airbyte_data', ['id'], ['id']) }} as id,
-    {{ json_extract_scalar('_airbyte_data', ['visual_review_response_id'], ['visual_review_response_id']) }} as visual_review_response_id,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
-    {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_voter_registration_scan_visual_review_responses') }}
--- voter_registration_scan_visual_review_responses
-where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
+-- SQL model to build a hash column based on the values of this record
+-- depends_on: {{ source('cta', 'voter_registration_scan_visual_review_responses') }}
 
+select
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
+    _airbyte_meta,
+    updated_at,
+    voter_registration_scan_id,
+    user_id,
+    petition_signature_id,
+    created_at,
+    id,
+    visual_review_response_id,
+    petition_page_id,
+   {{ dbt_utils.surrogate_key([
+     'voter_registration_scan_id',
+    'user_id',
+    'petition_signature_id',
+    'id',
+    'visual_review_response_id',
+    'petition_page_id'
+    ]) }} as _airbyte_voter_registration_scan_visual_review_responses_hashid
+from {{ source('cta', 'voter_registration_scan_visual_review_responses') }}

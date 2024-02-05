@@ -263,7 +263,9 @@ def main():
         print(
             "Because you are using a combination of full_refresh and incremental models, you will need to manually remove the models from each folder that are not needed."
         )
-    print("Don't forget to add tests and run SQL fluff for maximum stylishness.")
+    print(
+        "Don't forget to add tests and run SQL fluff for maximum stylishness by running `sh ../cta_dbt_helper.sh` and following the instructions."
+    )
     print("Have a blessed day!")
 
 
