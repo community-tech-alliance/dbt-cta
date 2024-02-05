@@ -33,7 +33,6 @@ models:
       +incremental_strategy: insert_overwrite
       +on_schema_change: sync_all_columns
       +full_refresh: false
-      +pre-hook: "TRUNCATE TABLE {{ this }};"
       +labels:
         data_object_type: cta_base_table
         sync_mode: full_refresh
