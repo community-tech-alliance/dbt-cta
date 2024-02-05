@@ -1,2 +1,2 @@
 select *
-from {{ source('cta','petition_packets_base') }}
+from {{ source('cta', 'petition_packets_base') }}
