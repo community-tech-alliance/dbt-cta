@@ -1,24 +1,27 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
-    tags = [ "top-level-intermediate" ]
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_raw_id'
 ) }}
--- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('cta', '_airbyte_raw_phone_banking_responses') }}
-select
-    {{ json_extract_scalar('_airbyte_data', ['answer_option_id'], ['answer_option_id']) }} as answer_option_id,
-    {{ json_extract_scalar('_airbyte_data', ['updated_at'], ['updated_at']) }} as updated_at,
-    {{ json_extract_scalar('_airbyte_data', ['created_at'], ['created_at']) }} as created_at,
-    {{ json_extract_scalar('_airbyte_data', ['id'], ['id']) }} as id,
-    {{ json_extract_scalar('_airbyte_data', ['question_id'], ['question_id']) }} as question_id,
-    {{ json_extract_scalar('_airbyte_data', ['call_id'], ['call_id']) }} as call_id,
-    {{ json_extract_scalar('_airbyte_data', ['open_ended_answer_text'], ['open_ended_answer_text']) }} as open_ended_answer_text,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
-    {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_phone_banking_responses') }}
--- phone_banking_responses
-where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
+-- SQL model to build a hash column based on the values of this record
+-- depends_on: {{ source('cta', 'phone_banking_responses') }}
 
+select
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
+    _airbyte_meta,
+    answer_option_id,
+    updated_at,
+    created_at,
+    id,
+    question_id,
+    call_id,
+    open_ended_answer_text,
+   {{ dbt_utils.surrogate_key([
+     'answer_option_id',
+    'id',
+    'question_id',
+    'call_id',
+    'open_ended_answer_text'
+    ]) }} as _airbyte_phone_banking_responses_hashid
+from {{ source('cta', 'phone_banking_responses') }}

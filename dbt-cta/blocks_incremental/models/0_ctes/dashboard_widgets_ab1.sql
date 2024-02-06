@@ -1,26 +1,30 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
-    tags = [ "top-level-intermediate" ]
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_raw_id'
 ) }}
--- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('cta', '_airbyte_raw_dashboard_widgets') }}
-select
-    {{ json_extract_scalar('_airbyte_data', ['widget_id'], ['widget_id']) }} as widget_id,
-    {{ json_extract_scalar('_airbyte_data', ['updated_at'], ['updated_at']) }} as updated_at,
-    {{ json_extract_string_array('_airbyte_data', ['measurable_ids'], ['measurable_ids']) }} as measurable_ids,
-    {{ json_extract_scalar('_airbyte_data', ['created_at'], ['created_at']) }} as created_at,
-    {{ json_extract_scalar('_airbyte_data', ['id'], ['id']) }} as id,
-    {{ json_extract_scalar('_airbyte_data', ['position'], ['position']) }} as position,
-    {{ json_extract_scalar('_airbyte_data', ['title'], ['title']) }} as title,
-    {{ json_extract_scalar('_airbyte_data', ['measurable_type'], ['measurable_type']) }} as measurable_type,
-    {{ json_extract_scalar('_airbyte_data', ['dashboard_layout_id'], ['dashboard_layout_id']) }} as dashboard_layout_id,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
-    {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_dashboard_widgets') }}
--- dashboard_widgets
-where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
+-- SQL model to build a hash column based on the values of this record
+-- depends_on: {{ source('cta', 'dashboard_widgets') }}
 
+select
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
+    _airbyte_meta,
+    widget_id,
+    updated_at,
+    measurable_ids,
+    created_at,
+    id,
+    position,
+    title,
+    measurable_type,
+    dashboard_layout_id,
+   {{ dbt_utils.surrogate_key([
+     'widget_id',
+    'id',
+    'position',
+    'title',
+    'measurable_type',
+    'dashboard_layout_id'
+    ]) }} as _airbyte_dashboard_widgets_hashid
+from {{ source('cta', 'dashboard_widgets') }}

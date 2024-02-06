@@ -4,7 +4,7 @@
     unique_key = '_airbyte_ab_id'
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('account_native_ads_stats_ab3') }}
+-- depends_on: {{ ref('account_native_ads_stats_ab4') }}
 select
     ctr,
     cvr,
@@ -84,7 +84,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_account_native_ads_stats_hashid
-from {{ ref('account_native_ads_stats_ab3') }}
+from {{ ref('account_native_ads_stats_ab4') }}
 -- account_native_ads_stats from {{ source('cta', '_airbyte_raw_account_native_ads_stats') }}
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

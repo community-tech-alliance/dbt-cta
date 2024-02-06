@@ -1,25 +1,29 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
-    tags = [ "top-level-intermediate" ]
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_raw_id'
 ) }}
--- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('cta', '_airbyte_raw_tasks') }}
-select
-    {{ json_extract_scalar('_airbyte_data', ['taskable_type'], ['taskable_type']) }} as taskable_type,
-    {{ json_extract_scalar('_airbyte_data', ['taskable_id'], ['taskable_id']) }} as taskable_id,
-    {{ json_extract_scalar('_airbyte_data', ['assignee_type'], ['assignee_type']) }} as assignee_type,
-    {{ json_extract_scalar('_airbyte_data', ['updated_at'], ['updated_at']) }} as updated_at,
-    {{ json_extract_scalar('_airbyte_data', ['name'], ['name']) }} as name,
-    {{ json_extract_scalar('_airbyte_data', ['created_at'], ['created_at']) }} as created_at,
-    {{ json_extract_scalar('_airbyte_data', ['id'], ['id']) }} as id,
-    {{ json_extract_scalar('_airbyte_data', ['assignee_id'], ['assignee_id']) }} as assignee_id,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
-    {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_tasks') }}
--- tasks
-where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
+-- SQL model to build a hash column based on the values of this record
+-- depends_on: {{ source('cta', 'tasks') }}
 
+select
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
+    _airbyte_meta,
+    taskable_type,
+    taskable_id,
+    assignee_type,
+    updated_at,
+    name,
+    created_at,
+    id,
+    assignee_id,
+   {{ dbt_utils.surrogate_key([
+     'taskable_type',
+    'taskable_id',
+    'assignee_type',
+    'name',
+    'id',
+    'assignee_id'
+    ]) }} as _airbyte_tasks_hashid
+from {{ source('cta', 'tasks') }}

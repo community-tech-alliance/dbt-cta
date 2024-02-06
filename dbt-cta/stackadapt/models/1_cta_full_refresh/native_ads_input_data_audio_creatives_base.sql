@@ -8,7 +8,7 @@
     partitions=partitions_to_replace
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('native_ads_input_data_audio_creatives_ab3') }}
+-- depends_on: {{ ref('native_ads_input_data_audio_creatives_ab4') }}
 select
     _airbyte_input_data_hashid,
     width,
@@ -21,7 +21,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_audio_creatives_hashid
-from {{ ref('native_ads_input_data_audio_creatives_ab3') }}
+from {{ ref('native_ads_input_data_audio_creatives_ab4') }}
 -- audio_creatives at native_ads/input_data/audio_creatives from {{ ref('native_ads_input_data_base') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

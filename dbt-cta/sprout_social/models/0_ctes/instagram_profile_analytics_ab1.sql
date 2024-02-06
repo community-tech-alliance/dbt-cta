@@ -40,6 +40,6 @@ select
     {{ json_extract_scalar('metrics', ['text_message_clicks'], ['text_message_clicks']) }} as text_message_clicks,
     {{ json_extract_scalar('metrics', ['website_clicks'], ['website_clicks']) }} as website_clicks,
     {{ json_extract_scalar('metrics', ['posts_sent_count'], ['posts_sent_count']) }} as posts_sent_count,
-    json_extract(metrics, '$.posts_sent_by_post_type') as posts_sent_by_post_type,
-    json_extract(metrics, '$.posts_sent_by_content_type') as posts_sent_by_content_type
+    json_extract(metrics, "$.posts_sent_by_post_type") as posts_sent_by_post_type,
+    json_extract(metrics, "$.posts_sent_by_content_type") as posts_sent_by_content_type
 from {{ source('cta', 'instagram_profile_analytics') }}
