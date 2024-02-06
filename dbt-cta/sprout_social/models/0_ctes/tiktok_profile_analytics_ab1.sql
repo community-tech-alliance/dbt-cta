@@ -29,5 +29,5 @@ select
     {{ json_extract_scalar('metrics', ['shares_count_total'], ['shares_count_total']) }} as shares_count_total,
     {{ json_extract_scalar('metrics', ['likes_total'], ['likes_total']) }} as likes_total,
     {{ json_extract_scalar('metrics', ['posts_sent_count'], ['posts_sent_count']) }} as posts_sent_count,
-    json_extract(metrics, '$.posts_sent_by_post_type') as posts_sent_by_post_type
+    json_extract(metrics, "$.posts_sent_by_post_type") as posts_sent_by_post_type
 from {{ source('cta', 'tiktok_profile_analytics') }}

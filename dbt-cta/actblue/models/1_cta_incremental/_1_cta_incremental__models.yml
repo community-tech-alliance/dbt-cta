@@ -177,7 +177,6 @@ models:
         description: ''
         tests:
           - not_null
-          - unique
       - name: _airbyte_emitted_at
         description: ''
         tests:
@@ -367,7 +366,6 @@ models:
         description: ''
         tests:
           - not_null
-          - unique
       - name: _airbyte_emitted_at
         description: ''
         tests:
@@ -430,7 +428,6 @@ models:
         description: ''
         tests:
           - not_null
-          - unique
       - name: _airbyte_emitted_at
         description: ''
         tests:
@@ -620,7 +617,6 @@ models:
         description: ''
         tests:
           - not_null
-          - unique
       - name: _airbyte_emitted_at
         description: ''
         tests:
