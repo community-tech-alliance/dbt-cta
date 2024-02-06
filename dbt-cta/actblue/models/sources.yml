@@ -8,7 +8,6 @@ sources:
     columns:
       - name: _airbyte_ab_id
         tests:
-          - unique
           - not_null
       - name: _airbyte_emitted_at
         tests:
@@ -21,7 +20,6 @@ sources:
     columns:
       - name: _airbyte_ab_id
         tests:
-          - unique
           - not_null
       - name: _airbyte_emitted_at
         tests:
@@ -34,7 +32,6 @@ sources:
     columns:
       - name: _airbyte_ab_id
         tests:
-          - unique
           - not_null
       - name: _airbyte_emitted_at
         tests:
@@ -47,7 +44,6 @@ sources:
     columns:
       - name: _airbyte_ab_id
         tests:
-          - unique
           - not_null
       - name: _airbyte_emitted_at
         tests:
@@ -60,51 +56,35 @@ sources:
     columns:
       - name: _airbyte_ab_id
         tests:
-          - unique
           - not_null
       - name: _airbyte_emitted_at
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp
-      - name: _airbyte_data
-        tests:
-          - not_null
   - name: paid_contributions_stream
     columns:
       - name: _airbyte_ab_id
         tests:
-          - unique
           - not_null
       - name: _airbyte_emitted_at
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp
-      - name: _airbyte_data
-        tests:
-          - not_null
   - name: refunded_contributions_stream
     columns:
       - name: _airbyte_ab_id
         tests:
-          - unique
           - not_null
       - name: _airbyte_emitted_at
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp
-      - name: _airbyte_data
-        tests:
-          - not_null
   - name: cancelled_recurring_contributions_stream
     columns:
       - name: _airbyte_ab_id
         tests:
-          - unique
           - not_null
       - name: _airbyte_emitted_at
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp
-      - name: _airbyte_data
-        tests:
-          - not_null

@@ -8,7 +8,7 @@
     partitions=partitions_to_replace
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('native_ads_ab3') }}
+-- depends_on: {{ ref('native_ads_ab4') }}
 select
     id,
     icon,
@@ -35,7 +35,7 @@ select
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_native_ads_hashid
-from {{ ref('native_ads_ab3') }}
+from {{ ref('native_ads_ab4') }}
 -- native_ads from {{ source('cta', '_airbyte_raw_native_ads') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
