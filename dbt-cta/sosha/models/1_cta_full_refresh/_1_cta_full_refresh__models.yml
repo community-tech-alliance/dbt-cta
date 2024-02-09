@@ -1,0 +1,52 @@
+version: 2
+
+models:
+
+  - name: campaigns_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: id
+        description: ''
+      - name: name
+        description: ''
+      - name: created_at
+        description: ''
+      - name: supported_social_networks
+        description: ''
+      - name: _airbyte_campaigns_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+
+  - name: campaign_insights_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: numberofclicks
+        description: ''
+      - name: numberofshares
+        description: ''
+      - name: topsharedtexts
+        description: ''
+      - name: topsharedimages
+        description: ''
+      - name: topclickedimages
+        description: ''
+      - name: numberofclicksbyplatform
+        description: ''
+      - name: numberofsharesbyplatform
+        description: ''
+      - name: _airbyte_campaign_insights_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+
