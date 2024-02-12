@@ -1,6 +1,11 @@
 {% set partitions_to_replace = [
     'timestamp_trunc(current_timestamp, day)',
-    'timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)'
+    'timestamp_trunc(timestamp_sub(current_timestamp, interval 1 day), day)',
+    'timestamp_trunc(timestamp_sub(current_timestamp, interval 2 day), day)',
+    'timestamp_trunc(timestamp_sub(current_timestamp, interval 3 day), day)',
+    'timestamp_trunc(timestamp_sub(current_timestamp, interval 4 day), day)',
+    'timestamp_trunc(timestamp_sub(current_timestamp, interval 5 day), day)',
+    'timestamp_trunc(timestamp_sub(current_timestamp, interval 6 day), day)'
 ] %}
 {{ config(
     partitions=partitions_to_replace,
