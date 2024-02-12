@@ -185,6 +185,12 @@ sources:
         tests:
           - unique
           - not_null
+  - name: entity_connection_types_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: entity_connections_base
     columns:
       - name: id
@@ -329,6 +335,12 @@ sources:
         tests:
           - unique
           - not_null
+  - name: taggable_logbook_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: tags_base
     columns:
       - name: id
@@ -360,6 +372,12 @@ sources:
           - unique
           - not_null
   - name: users_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: versions_base
     columns:
       - name: id
         tests:
