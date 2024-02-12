@@ -3,137 +3,383 @@ sources:
 - name: cta
   database: "{{ env_var('CTA_PROJECT_ID') }}"
   schema: "{{ env_var('CTA_DATASET_ID') }}"
-  quoting:
-    database: true
-    schema: false
-    identifier: false
-  tables:
-  - name: _airbyte_raw_action_assignment_group_users
-  - name: _airbyte_raw_action_assignment_groups
-  - name: _airbyte_raw_action_assignments
-  - name: _airbyte_raw_action_entities
-  - name: _airbyte_raw_action_fields
-  - name: _airbyte_raw_actions
-  - name: _airbyte_raw_activity_events
-  - name: _airbyte_raw_addresses
-  - name: _airbyte_raw_addresses_electoral_districts
-  - name: _airbyte_raw_api_keys
-  - name: _airbyte_raw_ar_internal_metadata
-  - name: _airbyte_raw_assessments
-  - name: _airbyte_raw_attachments
-  - name: _airbyte_raw_campaign_configuration_tag_categories
-  - name: _airbyte_raw_campaign_context_notes
-  - name: _airbyte_raw_campaign_entity_type_configurations
-  - name: _airbyte_raw_campaign_entity_types
-  - name: _airbyte_raw_campaign_participations
-  - name: _airbyte_raw_campaign_topline_setting_items
-  - name: _airbyte_raw_campaigns
-  - name: _airbyte_raw_campaigns_entities
-  - name: _airbyte_raw_campaigns_entity_connection_types
-  - name: _airbyte_raw_campaigns_tag_categories
-  - name: _airbyte_raw_campaigns_tag_groups
-  - name: _airbyte_raw_campaigns_tags
-  - name: _airbyte_raw_contact_attempts
-  - name: _airbyte_raw_contact_sources
-  - name: _airbyte_raw_contact_statuses
-  - name: _airbyte_raw_electoral_districts
-  - name: _airbyte_raw_emails
-  - name: _airbyte_raw_entities
-  - name: _airbyte_raw_entity_connection_types
-  - name: _airbyte_raw_entity_connections
-  - name: _airbyte_raw_entity_sync_cursors
-  - name: _airbyte_raw_entity_sync_states
-  - name: _airbyte_raw_entity_sync_stored_operations
-  - name: _airbyte_raw_entity_types
-  - name: _airbyte_raw_external_services
-  - name: _airbyte_raw_follow_ups
-  - name: _airbyte_raw_global_notes
-  - name: _airbyte_raw_integrations
-  - name: _airbyte_raw_organization_integration_links
-  - name: _airbyte_raw_organization_integrations
-  - name: _airbyte_raw_organizations
-  - name: _airbyte_raw_phone_numbers
-  - name: _airbyte_raw_queries
-  - name: _airbyte_raw_query_results
-  - name: _airbyte_raw_relationships
-  - name: _airbyte_raw_schema_migrations
-  - name: _airbyte_raw_shift_times
-  - name: _airbyte_raw_shifts
-  - name: _airbyte_raw_signatures
-  - name: _airbyte_raw_social_profiles
-  - name: _airbyte_raw_subscription_statuses
-  - name: _airbyte_raw_tag_categories
-  - name: _airbyte_raw_tag_groups
-  - name: _airbyte_raw_taggable_logbook
-  - name: _airbyte_raw_tags
-  - name: _airbyte_raw_tasks
-  - name: _airbyte_raw_turf_assignments
-  - name: _airbyte_raw_turf_tags
-  - name: _airbyte_raw_uploads
-  - name: _airbyte_raw_users
-  - name: _airbyte_raw_versions
-  - name: action_assignment_group_users_base
-  - name: action_assignment_groups_base
-  - name: action_assignments_base
-  - name: action_entities_base
-  - name: action_fields_base
-  - name: actions_base
-  - name: activity_events_base
-  - name: addresses_base
-  - name: addresses_electoral_districts_base
-  - name: api_keys_base
-  - name: ar_internal_metadata_base
-  - name: assessments_base
-  - name: attachments_base
-  - name: campaign_configuration_tag_categories_base
-  - name: campaign_context_notes_base
-  - name: campaign_entity_type_configurations_base
-  - name: campaign_entity_types_base
-  - name: campaign_participations_base
-  - name: campaign_topline_setting_items_base
-  - name: campaigns_base
-  - name: campaigns_entities_base
-  - name: campaigns_entity_connection_types_base
-  - name: campaigns_tag_categories_base
-  - name: campaigns_tag_groups_base
-  - name: campaigns_tags_base
+  tables: 
   - name: contact_attempts_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: action_assignment_group_users_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: action_assignment_groups_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: action_assignments_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: action_entities_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: action_fields_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: actions_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: activity_events_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: addresses_electoral_districts_base
+  - name: addresses_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: api_keys_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: ar_internal_metadata_base
+    columns:
+      - name: key
+        tests:
+          - unique
+          - not_null
+  - name: assessments_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: attachments_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: campaign_configuration_tag_categories_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: campaign_context_notes_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: campaign_entity_type_configurations_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: campaign_entity_types_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: campaign_participations_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: campaign_topline_setting_items_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: campaigns_entities_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: campaigns_entity_connection_types_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: campaigns_tag_categories_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: campaigns_tag_groups_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: campaigns_tags_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: campaigns_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: contact_sources_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: contact_statuses_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: electoral_districts_base
+    columns:
+      - name: ocd_id
+        tests:
+          - unique
+          - not_null
   - name: emails_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: entities_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: entity_connection_types_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: entity_connections_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: entity_sync_cursors_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: entity_sync_states_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: entity_sync_stored_operations_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: entity_types_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: external_services_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: follow_ups_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: global_notes_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: integrations_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: organization_integration_links_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: organization_integrations_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: organizations_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: phone_numbers_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: queries_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: query_results_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: relationships_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: schema_migrations_base
+    columns:
+      - name: version
+        tests:
+          - unique
+          - not_null
   - name: shift_times_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: shifts_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: signatures_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: social_profiles_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: subscription_statuses_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: tag_categories_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: tag_groups_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: taggable_logbook_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: tags_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: tasks_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: turf_assignments_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: turf_tags_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: uploads_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: users_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
   - name: versions_base
-  
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
