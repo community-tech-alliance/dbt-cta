@@ -19,6 +19,7 @@ select
     numberOfClicksByPlatform,
     numberOfSharesByPlatform,
     {{ dbt_utils.surrogate_key([
+    'campaignId',
     'numberOfClicks',
     'numberOfShares',
     'topSharedTexts',
