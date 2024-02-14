@@ -10,6 +10,17 @@ select
     *,
     -- to do: add all unnested fields and all fields to surrogate_key
    {{ dbt_utils.surrogate_key([
-      
+    'sent',
+    'text',
+    'lifetime_comments_count',
+    'lifetime_impressions',
+    'lifetime_likes',
+    'lifetime_reactions',
+    'lifetime_shares_count',
+    'lifetime_video_views',
+    'internal',
+    'perma_link',
+    'created_time',
+    'customer_profile_id'
     ]) }} as _airbyte_twitter_post_analytics_hashid
 from {{ ref('twitter_post_analytics_ab1') }}

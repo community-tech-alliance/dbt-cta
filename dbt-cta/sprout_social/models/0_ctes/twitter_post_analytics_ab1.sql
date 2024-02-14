@@ -13,16 +13,15 @@ select
     sent,
     text,
     metrics,
-    -- TO DO: metrics fields unnested
+    -- metrics unnested
+    {{ json_extract_scalar('metrics', ['lifetime.comments_count'], ['lifetime.comments_count']) }} as lifetime_comments_count,
+    {{ json_extract_scalar('metrics', ['lifetime.impressions'], ['lifetime.impressions']) }} as lifetime_impressions,
+    {{ json_extract_scalar('metrics', ['lifetime.likes'], ['lifetime.likes']) }} as lifetime_likes,
+    {{ json_extract_scalar('metrics', ['lifetime.reactions'], ['lifetime.reactions']) }} as lifetime_reactions,
+    {{ json_extract_scalar('metrics', ['lifetime.shares_count'], ['lifetime.shares_count']) }} as lifetime_shares_count,
+    {{ json_extract_scalar('metrics', ['lifetime.video_views'], ['lifetime.video_views']) }} as lifetime_video_views,
     internal,
     perma_link,
     created_time,
-    customer_profile_id,
-   {{ dbt_utils.surrogate_key([
-     'sent',
-    'text',
-    'perma_link',
-    'created_time',
-    'customer_profile_id'
-    ]) }} as _airbyte_twitter_post_analytics_hashid
+    customer_profile_id
 from {{ source('cta', 'twitter_post_analytics') }}
