@@ -15,6 +15,8 @@ sources:
     - name: instagram_profile_analytics
     - name: tiktok_post_analytics
     - name: tiktok_profile_analytics
+    - name: twitter_post_analytics
+    - name: twitter_profile_analytics
   
     - name: client_metadata_base
     - name: customer_groups_base
@@ -27,3 +29,5 @@ sources:
     - name: instagram_profile_analytics_base
     - name: tiktok_post_analytics_base
     - name: tiktok_profile_analytics_base
+    - name: twitter_post_analytics_base
+    - name: twitter_profile_analytics_base
