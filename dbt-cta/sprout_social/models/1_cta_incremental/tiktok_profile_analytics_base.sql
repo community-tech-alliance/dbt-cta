@@ -5,6 +5,6 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('tiktok_profile_analytics_ab2') }}
+-- depends_on: {{ ref('tiktok_profile_analytics_ab3') }}
 select * except (_airbyte_raw_id)
-from {{ ref('tiktok_profile_analytics_ab2') }}
+from {{ ref('tiktok_profile_analytics_ab3') }}
