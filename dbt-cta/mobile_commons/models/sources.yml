@@ -1,0 +1,29 @@
+version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables: 
+    - name: broadcasts
+    - name: calls
+    - name: campaign_subscribers
+    - name: campaigns
+    - name: clicks
+    - name: incoming_messages
+    - name: keywords
+    - name: m_connects
+    - name: outgoing_messages
+    - name: profiles
+    - name: tiny_urls
+  
+    - name: broadcasts_base
+    - name: calls_base
+    - name: campaign_subscribers_base
+    - name: campaigns_base
+    - name: clicks_base
+    - name: incoming_messages_base
+    - name: keywords_base
+    - name: m_connects_base
+    - name: outgoing_messages_base
+    - name: profiles_base
+    - name: tiny_urls_base
