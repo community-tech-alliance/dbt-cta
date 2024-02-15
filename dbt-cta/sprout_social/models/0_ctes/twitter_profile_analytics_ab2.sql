@@ -8,7 +8,6 @@
 
 select
     *,
-    -- to do: add all unnested fields and all fields to surrogate_key
    {{ dbt_utils.surrogate_key([
     'comments_count',
     'engagements',

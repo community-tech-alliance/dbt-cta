@@ -21,6 +21,8 @@ select
     {{ json_extract_scalar('metrics', ['lifetime.shares_count'], ['lifetime.shares_count']) }} as lifetime_shares_count,
     {{ json_extract_scalar('metrics', ['lifetime.video_views'], ['lifetime.video_views']) }} as lifetime_video_views,
     internal,
+    {{ json_extract_scalar('internal', ['tags']) }} as internal_tags,
+    -- internal unnested
     perma_link,
     created_time,
     customer_profile_id

@@ -8,7 +8,6 @@
 
 select
     *,
-    -- to do: add all unnested fields and all fields to surrogate_key
    {{ dbt_utils.surrogate_key([
     'sent',
     'text',
@@ -18,7 +17,7 @@ select
     'lifetime_reactions',
     'lifetime_shares_count',
     'lifetime_video_views',
-    'internal',
+    'internal_tags',
     'perma_link',
     'created_time',
     'customer_profile_id'
