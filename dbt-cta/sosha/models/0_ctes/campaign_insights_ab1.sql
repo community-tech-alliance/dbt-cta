@@ -10,6 +10,7 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
+    campaignId,
     numberOfClicks,
     numberOfShares,
     topSharedTexts,
@@ -18,6 +19,7 @@ select
     numberOfClicksByPlatform,
     numberOfSharesByPlatform,
     {{ dbt_utils.surrogate_key([
+    'campaignId',
     'numberOfClicks',
     'numberOfShares',
     'topSharedTexts',
