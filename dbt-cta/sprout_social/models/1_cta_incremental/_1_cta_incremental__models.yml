@@ -705,3 +705,97 @@ models:
         tests:
           - unique
           - not_null
+
+  - name: twitter_post_analytics_base
+    description: ""
+    columns:
+      - name: _airbyte_extracted_at
+        description: ""
+      - name: _airbyte_meta
+        description: ""
+      - name: sent
+        description: ""
+      - name: text
+        description: ""
+      - name: metrics
+        description: ""
+      - name: lifetime_comments_count
+        description: ""
+      - name: lifetime_impressions
+        description: ""
+      - name: lifetime_likes
+        description: ""
+      - name: lifetime_reactions
+        description: ""
+      - name: lifetime_shares_count
+        description: ""
+      - name: lifetime_video_views
+        description: ""
+      - name: internal
+        description: ""
+      - name: internal_tags
+        description: ""
+      - name: perma_link
+        description: ""
+      - name: created_time
+        description: ""
+      - name: customer_profile_id
+        description: ""
+      - name: _airbyte_twitter_post_analytics_hashid
+        description: ""
+        tests:
+          - unique
+          - not_null
+
+  - name: twitter_profile_analytics_base
+    description: ""
+    columns:
+      - name: _airbyte_extracted_at
+        description: ""
+      - name: _airbyte_meta
+        description: ""
+      - name: metrics
+        description: ""
+      - name: comments_count
+        description: ""
+      - name: engagements
+        description: ""
+      - name: impressions
+        description: ""
+      - name: lifetime_snapshot_followers_count
+        description: ""
+      - name: likes
+        description: ""
+      - name: new_follower_growth
+        description: ""
+      - name: post_app_engagements
+        description: ""
+      - name: post_app_installs
+        description: ""
+      - name: post_app_opens
+        description: ""
+      - name: post_content_clicks
+        description: ""
+      - name: post_detail_expand_clicks
+        description: ""
+      - name: post_hashtag_clicks
+        description: ""
+      - name: post_link_clicks
+        description: ""
+      - name: post_media_clicks
+        description: ""
+      - name: shares_count
+        description: ""
+      - name: video_views
+        description: ""
+      - name: dimensions
+        description: ""
+      - name: customer_profile_id
+        description: ""
+      - name: reporting_period_day
+        description: ""
+      - name: _airbyte_twitter_profile_analytics_hashid
+        description: ""
+        tests:
+          - unique
+          - not_null
