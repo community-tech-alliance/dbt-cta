@@ -23,6 +23,9 @@ models:
         description: ''
       - name: _airbyte_campaigns_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: calls_base
     description: ''
@@ -69,6 +72,9 @@ models:
         description: ''
       - name: _airbyte_calls_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: tiny_urls_base
     description: ''
@@ -95,6 +101,9 @@ models:
         description: ''
       - name: _airbyte_tiny_urls_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: campaign_subscribers_base
     description: ''
@@ -115,6 +124,9 @@ models:
         description: ''
       - name: _airbyte_campaign_subscribers_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: outgoing_messages_base
     description: ''
@@ -149,6 +161,9 @@ models:
         description: ''
       - name: _airbyte_outgoing_messages_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: broadcasts_base
     description: ''
@@ -191,6 +206,9 @@ models:
         description: ''
       - name: _airbyte_broadcasts_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: m_connects_base
     description: ''
@@ -237,6 +255,9 @@ models:
         description: ''
       - name: _airbyte_m_connects_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: profiles_base
     description: ''
@@ -283,6 +304,9 @@ models:
         description: ''
       - name: _airbyte_profiles_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: incoming_messages_base
     description: ''
@@ -319,6 +343,9 @@ models:
         description: ''
       - name: _airbyte_incoming_messages_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: clicks_base
     description: ''
@@ -345,6 +372,9 @@ models:
         description: ''
       - name: _airbyte_clicks_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: keywords_base
     description: ''
@@ -369,4 +399,7 @@ models:
         description: ''
       - name: _airbyte_keywords_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
