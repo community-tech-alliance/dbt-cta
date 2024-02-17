@@ -17,7 +17,6 @@ select
     'lifetime_reactions',
     'lifetime_shares_count',
     'lifetime_video_views',
-    'internal_tags',
     'perma_link',
     'created_time',
     'customer_profile_id'

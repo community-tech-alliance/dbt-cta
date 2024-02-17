@@ -17,7 +17,6 @@ select
     {{ json_extract_scalar('metrics', ['lifetime_snapshot.followers_count'], ['lifetime_snapshot.followers_count']) }} as lifetime_snapshot_followers_count,
     {{ json_extract_scalar('metrics', ['likes'], ['likes']) }} as likes,
     {{ json_extract_scalar('metrics', ['net_follower_growth'], ['new_follower_growth']) }} as new_follower_growth,
-
     {{ json_extract_scalar('metrics', ['post_app_engagements'], ['post_app_engagements']) }} as post_app_engagements,
     {{ json_extract_scalar('metrics', ['post_app_installs'], ['post_app_installs']) }} as post_app_installs,
     {{ json_extract_scalar('metrics', ['post_app_opens'], ['post_app_opens']) }} as post_app_opens,
