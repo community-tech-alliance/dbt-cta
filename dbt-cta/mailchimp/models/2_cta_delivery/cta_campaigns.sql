@@ -33,6 +33,5 @@ SELECT
     ,MAX(_airbyte_raw_id) as _airbyte_raw_id
     ,MAX(_airbyte_extracted_at) as _airbyte_extracted_at
 
-{% set table_name = var('campaigns_base') %}
-from {{ source('cta', table_name) }} as table_alias
+from {{ source('cta', 'campaigns_base') }} as table_alias
 GROUP BY _airbyte_campaigns_hashid

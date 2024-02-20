@@ -1,3 +1,4 @@
+{% set raw_table = env_var("CTA_DATASET_ID") ~ "_raw__stream_campaigns" %}
 {{ config(
     cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
@@ -31,7 +32,6 @@ select
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 
-{% set table_name = var('campaigns_raw') %}
-from {{ source('cta', table_name) }} as table_alias
+from {{ source('cta_raw', raw_table) }} as table_alias
 where 1 = 1
 {{ incremental_clause('_airbyte_extracted_at') }}
