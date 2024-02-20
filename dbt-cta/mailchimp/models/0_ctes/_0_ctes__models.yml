@@ -10,7 +10,7 @@ models:
         tests:
           - unique
           - not_null   
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         tests:
           - unique
           - not_null
