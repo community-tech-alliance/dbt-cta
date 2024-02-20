@@ -30,7 +30,7 @@ SELECT
     ,MAX(variate_settings) as variate_settings
     ,MAX(parent_campaign_id) as parent_campaign_id
     ,MAX(needs_block_refresh) as needs_block_refresh
-    ,MAX(_airbyte_ab_id) as _airbyte_ab_id
+    ,MAX(_airbyte_raw_id) as _airbyte_raw_id
     ,MAX(_airbyte_emitted_at) as _airbyte_emitted_at
 
 {% set table_name = var('campaigns_base') %}
