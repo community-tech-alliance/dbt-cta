@@ -1,6 +1,6 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_campaigns_hashid'
 ) }}
 
@@ -31,7 +31,7 @@ SELECT
     ,MAX(parent_campaign_id) as parent_campaign_id
     ,MAX(needs_block_refresh) as needs_block_refresh
     ,MAX(_airbyte_raw_id) as _airbyte_raw_id
-    ,MAX(_airbyte_emitted_at) as _airbyte_emitted_at
+    ,MAX(_airbyte_extracted_at) as _airbyte_extracted_at
 
 {% set table_name = var('campaigns_base') %}
 from {{ source('cta', table_name) }} as table_alias

@@ -1,6 +1,6 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_raw_id',
 ) }}
 
@@ -33,5 +33,5 @@ select
     tmp.*
 from {{ ref('campaigns_ab2') }} tmp
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
+{{ incremental_clause('_airbyte_extracted_at') }}
 

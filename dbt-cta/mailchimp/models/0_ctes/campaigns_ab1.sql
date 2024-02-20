@@ -1,6 +1,6 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_raw_id',
 ) }}
 
@@ -28,10 +28,10 @@ select
     {{ json_extract_scalar('_airbyte_data', ['parent_campaign_id'], ['parent_campaign_id']) }} as parent_campaign_id,
     {{ json_extract_scalar('_airbyte_data', ['needs_block_refresh'], ['needs_block_refresh']) }} as needs_block_refresh,
     _airbyte_raw_id,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 
 {% set table_name = var('campaigns_raw') %}
 from {{ source('cta', table_name) }} as table_alias
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
+{{ incremental_clause('_airbyte_extracted_at') }}

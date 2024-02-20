@@ -9,8 +9,8 @@
 ] %}
 
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     partitions=partitions_to_replace,
     unique_key = '_airbyte_raw_id',
 ) }}
@@ -40,10 +40,10 @@ select
     parent_campaign_id,
     needs_block_refresh,
     _airbyte_raw_id,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_campaigns_hashid
 from {{ ref('campaigns_ab4') }}
 {% if is_incremental() %}
-where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
+where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
