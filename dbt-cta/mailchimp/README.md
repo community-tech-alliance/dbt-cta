@@ -7,7 +7,7 @@ This dbt project configures the source table names in a YAML outside this reposi
 The source table names 
 
 ### CTA (raw data & base tables):
-- _airbyte_raw_campaigns
+- campaigns (in dataset `airbyte_internal` after switching to V2 of Airbyte's BQ Destination Connector)
 - campaigns_base
 
 ### partner (materialized views):
