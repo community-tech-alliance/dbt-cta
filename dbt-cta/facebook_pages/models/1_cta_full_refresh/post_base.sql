@@ -15,7 +15,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('post_ab1') }}
+-- depends_on: {{ ref('post_ab2') }}
 select
     `_airbyte_post_hashid`,
     `_airbyte_extracted_at`,
@@ -32,7 +32,7 @@ select
     `message`,
     `permalink_url`,
     `actions`
-from {{ ref('post_ab1') }}
+from {{ ref('post_ab2') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})
