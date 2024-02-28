@@ -15,7 +15,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('page_ab1') }}
+-- depends_on: {{ ref('page_ab2') }}
 select
     `_airbyte_page_hashid`,
     `_airbyte_extracted_at`,
@@ -227,7 +227,7 @@ select
     `category`,
     `unread_notif_count`,
     `leadgen_tos_accepted`
-from {{ ref('page_ab1') }}
+from {{ ref('page_ab2') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

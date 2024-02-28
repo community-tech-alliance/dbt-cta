@@ -15,7 +15,7 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('post_insights_ab1') }}
+-- depends_on: {{ ref('post_insights_ab2') }}
 select
     `_airbyte_extracted_at`,
     `_airbyte_post_insights_hashid`,
@@ -26,7 +26,7 @@ select
     `description`,
     `id`,
     `title`
-from {{ ref('post_insights_ab1') }}
+from {{ ref('post_insights_ab2') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})
