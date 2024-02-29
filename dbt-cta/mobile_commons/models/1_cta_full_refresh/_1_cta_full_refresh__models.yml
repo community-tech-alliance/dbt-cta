@@ -1,0 +1,405 @@
+version: 2
+
+models:
+
+  - name: campaigns_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: id
+        description: ''
+      - name: name
+        description: ''
+      - name: tags
+        description: ''
+      - name: active
+        description: ''
+      - name: description
+        description: ''
+      - name: opt_in_paths
+        description: ''
+      - name: _airbyte_campaigns_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+
+  - name: calls_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: id
+        description: ''
+      - name: email
+        description: ''
+      - name: profile
+        description: ''
+      - name: duration
+        description: ''
+      - name: end_time
+        description: ''
+      - name: mconnect
+        description: ''
+      - name: voicemail
+        description: ''
+      - name: start_time
+        description: ''
+      - name: call_status
+        description: ''
+      - name: voip_number
+        description: ''
+      - name: carrier_name
+        description: ''
+      - name: transcription
+        description: ''
+      - name: handset_number
+        description: ''
+      - name: profile_status
+        description: ''
+      - name: connection_source
+        description: ''
+      - name: destination_number
+        description: ''
+      - name: voicemail_duration
+        description: ''
+      - name: profile_status_at_call_time
+        description: ''
+      - name: _airbyte_calls_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+
+  - name: tiny_urls_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: id
+        description: ''
+      - name: key
+        description: ''
+      - name: url
+        description: ''
+      - name: host
+        description: ''
+      - name: mode
+        description: ''
+      - name: name
+        description: ''
+      - name: created_at
+        description: ''
+      - name: description
+        description: ''
+      - name: _airbyte_tiny_urls_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+
+  - name: campaign_subscribers_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: id
+        description: ''
+      - name: profile_id
+        description: ''
+      - name: activated_at
+        description: ''
+      - name: opted_out_at
+        description: ''
+      - name: phone_number
+        description: ''
+      - name: _airbyte_campaign_subscribers_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+
+  - name: outgoing_messages_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: id
+        description: ''
+      - name: mms
+        description: ''
+      - name: body
+        description: ''
+      - name: type
+        description: ''
+      - name: status
+        description: ''
+      - name: profile
+        description: ''
+      - name: sent_at
+        description: ''
+      - name: campaign
+        description: ''
+      - name: multipart
+        description: ''
+      - name: previous_id
+        description: ''
+      - name: phone_number
+        description: ''
+      - name: message_template_id
+        description: ''
+      - name: _airbyte_outgoing_messages_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+
+  - name: broadcasts_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: id
+        description: ''
+      - name: body
+        description: ''
+      - name: name
+        description: ''
+      - name: tags
+        description: ''
+      - name: status
+        description: ''
+      - name: campaign
+        description: ''
+      - name: automated
+        description: ''
+      - name: localtime
+        description: ''
+      - name: throttled
+        description: ''
+      - name: delivery_time
+        description: ''
+      - name: replies_count
+        description: ''
+      - name: opt_outs_count
+        description: ''
+      - name: excluded_groups
+        description: ''
+      - name: included_groups
+        description: ''
+      - name: include_subscribers
+        description: ''
+      - name: estimated_recipients_count
+        description: ''
+      - name: _airbyte_broadcasts_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+
+  - name: m_connects_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: id
+        description: ''
+      - name: name
+        description: ''
+      - name: tags
+        description: ''
+      - name: active
+        description: ''
+      - name: autoroute
+        description: ''
+      - name: call_type
+        description: ''
+      - name: shortcode
+        description: ''
+      - name: voicemail
+        description: ''
+      - name: transcribe
+        description: ''
+      - name: voip_number
+        description: ''
+      - name: call_timeout
+        description: ''
+      - name: crm_alert_id
+        description: ''
+      - name: failover_text
+        description: ''
+      - name: failover_number
+        description: ''
+      - name: destination_number
+        description: ''
+      - name: subscriber_follow_up
+        description: ''
+      - name: destination_description
+        description: ''
+      - name: nonsubscriber_follow_up
+        description: ''
+      - name: _airbyte_m_connects_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+
+  - name: profiles_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: id
+        description: ''
+      - name: email
+        description: ''
+      - name: clicks
+        description: ''
+      - name: source
+        description: ''
+      - name: status
+        description: ''
+      - name: address
+        description: ''
+      - name: last_name
+        description: ''
+      - name: created_at
+        description: ''
+      - name: first_name
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: integrations
+        description: ''
+      - name: opted_out_at
+        description: ''
+      - name: phone_number
+        description: ''
+      - name: subscriptions
+        description: ''
+      - name: custom_columns
+        description: ''
+      - name: opted_out_source
+        description: ''
+      - name: last_saved_location
+        description: ''
+      - name: last_saved_districts
+        description: ''
+      - name: _airbyte_profiles_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+
+  - name: incoming_messages_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: id
+        description: ''
+      - name: mms
+        description: ''
+      - name: body
+        description: ''
+      - name: type
+        description: ''
+      - name: keyword
+        description: ''
+      - name: next_id
+        description: ''
+      - name: profile
+        description: ''
+      - name: campaign
+        description: ''
+      - name: multipart
+        description: ''
+      - name: received_at
+        description: ''
+      - name: carrier_name
+        description: ''
+      - name: phone_number
+        description: ''
+      - name: message_template_id
+        description: ''
+      - name: _airbyte_incoming_messages_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+
+  - name: clicks_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: id
+        description: ''
+      - name: url
+        description: ''
+      - name: created_at
+        description: ''
+      - name: profile_id
+        description: ''
+      - name: user_agent
+        description: ''
+      - name: clicked_url
+        description: ''
+      - name: remote_addr
+        description: ''
+      - name: http_referer
+        description: ''
+      - name: _airbyte_clicks_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+
+  - name: keywords_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: id
+        description: ''
+      - name: name
+        description: ''
+      - name: active
+        description: ''
+      - name: ended_at
+        description: ''
+      - name: created_at
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: opt_in_path_id
+        description: ''
+      - name: _airbyte_keywords_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+
