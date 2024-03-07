@@ -16,7 +16,7 @@ select
     type,
     status,
     profile,
-    sent_at,
+    cast(sent_at as {{dbt.type_timestamp()}}) as sent_at,
     campaign,
     multipart,
     previous_id,

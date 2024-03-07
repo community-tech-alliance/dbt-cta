@@ -13,9 +13,9 @@ select
     id,
     name,
     active,
-    ended_at,
-    created_at,
-    updated_at,
+    cast(ended_at as {{dbt.type_timestamp()}}) as ended_at,
+    cast(created_at as {{dbt.type_timestamp()}}) as created_at,
+    cast(updated_at as {{dbt.type_timestamp()}}) as updated_at,
     opt_in_path_id,
    {{ dbt_utils.surrogate_key([
      'id',

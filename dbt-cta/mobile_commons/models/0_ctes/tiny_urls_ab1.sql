@@ -16,7 +16,7 @@ select
     host,
     mode,
     name,
-    created_at,
+    cast(created_at as {{dbt.type_timestamp()}}) as created_at,
     description,
    {{ dbt_utils.surrogate_key([
      'id',
