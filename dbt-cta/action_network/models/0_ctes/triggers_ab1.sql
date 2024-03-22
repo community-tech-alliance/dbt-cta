@@ -1,7 +1,7 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_ab_id"
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_raw_id"
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ source('cta', '_airbyte_raw_triggers') }}
@@ -20,8 +20,8 @@ select
     {{ json_extract_scalar('_airbyte_data', ['trigger_type'], ['trigger_type']) }} as trigger_type,
     {{ json_extract_scalar('_airbyte_data', ['exclude_uploads'], ['exclude_uploads']) }} as exclude_uploads,
     {{ json_extract_scalar('_airbyte_data', ['only_text_to_join'], ['only_text_to_join']) }} as only_text_to_join,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ source('cta', '_airbyte_raw_triggers') }}
 -- triggers
