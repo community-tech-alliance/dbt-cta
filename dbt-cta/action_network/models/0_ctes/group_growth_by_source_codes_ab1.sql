@@ -1,3 +1,6 @@
+
+{% set raw_table = env_var("CTA_DATASET_ID") ~ "_airbyte_raw_group_growth_by_source_codes" %}
+
 {{ config(
     cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
@@ -19,6 +22,6 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_group_growth_by_source_codes') }}
+from {{ source('cta_raw', 'raw_table') }}
 -- group_growth_by_source_codes
 where 1 = 1
