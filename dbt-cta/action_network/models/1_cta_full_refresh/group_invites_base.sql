@@ -29,7 +29,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_group_invites_hashid
 from {{ ref('group_invites_ab4') }}
--- group_invites from {{ source('cta', '_airbyte_raw_group_invites') }}
+-- group_invites from {{ source('cta_raw', '_airbyte_raw_group_invites') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

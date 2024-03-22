@@ -29,7 +29,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_user_source_codes_hashid
 from {{ ref('user_source_codes_ab4') }}
--- user_source_codes from {{ source('cta', '_airbyte_raw_user_source_codes') }}
+-- user_source_codes from {{ source('cta_raw', '_airbyte_raw_user_source_codes') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

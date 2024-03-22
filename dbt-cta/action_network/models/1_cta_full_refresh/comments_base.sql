@@ -32,7 +32,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_comments_hashid
 from {{ ref('comments_ab4') }}
--- comments from {{ source('cta', '_airbyte_raw_comments') }}
+-- comments from {{ source('cta_raw', '_airbyte_raw_comments') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

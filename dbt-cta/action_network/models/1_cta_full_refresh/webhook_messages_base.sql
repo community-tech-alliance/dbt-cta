@@ -32,7 +32,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_webhook_messages_hashid
 from {{ ref('webhook_messages_ab4') }}
--- webhook_messages from {{ source('cta', '_airbyte_raw_webhook_messages') }}
+-- webhook_messages from {{ source('cta_raw', '_airbyte_raw_webhook_messages') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

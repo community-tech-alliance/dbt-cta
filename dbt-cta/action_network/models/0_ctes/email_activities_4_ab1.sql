@@ -6,7 +6,7 @@
     unique_key = "_airbyte_raw_id"
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('cta_raw', 'raw_table') }}
+-- depends_on: {{ source('cta_raw', raw_table) }}
 select
     {{ json_extract_scalar('_airbyte_data', ['id'], ['id']) }} as id,
     {{ json_extract_scalar('_airbyte_data', ['link_id'], ['link_id']) }} as link_id,

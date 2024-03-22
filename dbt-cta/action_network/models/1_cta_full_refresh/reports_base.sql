@@ -41,7 +41,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_reports_hashid
 from {{ ref('reports_ab4') }}
--- reports from {{ source('cta', '_airbyte_raw_reports') }}
+-- reports from {{ source('cta_raw', '_airbyte_raw_reports') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

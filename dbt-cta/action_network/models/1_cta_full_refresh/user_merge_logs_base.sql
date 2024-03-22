@@ -30,7 +30,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_user_merge_logs_hashid
 from {{ ref('user_merge_logs_ab4') }}
--- user_merge_logs from {{ source('cta', '_airbyte_raw_user_merge_logs') }}
+-- user_merge_logs from {{ source('cta_raw', '_airbyte_raw_user_merge_logs') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

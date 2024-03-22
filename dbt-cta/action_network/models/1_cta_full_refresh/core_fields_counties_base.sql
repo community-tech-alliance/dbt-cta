@@ -24,7 +24,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_core_fields_counties_hashid
 from {{ ref('core_fields_counties_ab4') }}
--- core_fields_counties from {{ source('cta', '_airbyte_raw_core_fields_counties') }}
+-- core_fields_counties from {{ source('cta_raw', '_airbyte_raw_core_fields_counties') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

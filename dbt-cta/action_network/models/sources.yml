@@ -124,6 +124,11 @@ sources:
   - name: _airbyte_raw_users
   - name: _airbyte_raw_webhook_messages
   - name: _airbyte_raw_webhooks
+
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables:
   - name: action_keywords_base
   - name: action_questions_base
   - name: actions_base

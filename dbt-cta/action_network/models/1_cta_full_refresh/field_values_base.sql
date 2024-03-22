@@ -28,7 +28,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_field_values_hashid
 from {{ ref('field_values_ab4') }}
--- field_values from {{ source('cta', '_airbyte_raw_field_values') }}
+-- field_values from {{ source('cta_raw', '_airbyte_raw_field_values') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

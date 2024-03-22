@@ -33,7 +33,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_letter_templates_hashid
 from {{ ref('letter_templates_ab4') }}
--- letter_templates from {{ source('cta', '_airbyte_raw_letter_templates') }}
+-- letter_templates from {{ source('cta_raw', '_airbyte_raw_letter_templates') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

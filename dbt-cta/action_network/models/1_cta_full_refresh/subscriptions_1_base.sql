@@ -40,7 +40,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_subscriptions_1_hashid
 from {{ ref('subscriptions_1_ab4') }}
--- subscriptions_1 from {{ source('cta', '_airbyte_raw_subscriptions_1') }}
+-- subscriptions_1 from {{ source('cta_raw', '_airbyte_raw_subscriptions_1') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

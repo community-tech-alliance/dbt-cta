@@ -28,7 +28,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_mobile_message_fields_hashid
 from {{ ref('mobile_message_fields_ab4') }}
--- mobile_message_fields from {{ source('cta', '_airbyte_raw_mobile_message_fields') }}
+-- mobile_message_fields from {{ source('cta_raw', '_airbyte_raw_mobile_message_fields') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

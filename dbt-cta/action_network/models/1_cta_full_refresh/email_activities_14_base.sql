@@ -32,7 +32,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_email_activities_14_hashid
 from {{ ref('email_activities_14_ab4') }}
--- email_activities_14 from {{ source('cta', '_airbyte_raw_email_activities_14') }}
+-- email_activities_14 from {{ source('cta_raw', '_airbyte_raw_email_activities_14') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

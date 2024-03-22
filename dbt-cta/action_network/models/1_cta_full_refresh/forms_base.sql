@@ -75,7 +75,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_forms_hashid
 from {{ ref('forms_ab4') }}
--- forms from {{ source('cta', '_airbyte_raw_forms') }}
+-- forms from {{ source('cta_raw', '_airbyte_raw_forms') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

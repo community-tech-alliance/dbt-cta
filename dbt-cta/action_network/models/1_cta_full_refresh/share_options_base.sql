@@ -50,7 +50,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_share_options_hashid
 from {{ ref('share_options_ab4') }}
--- share_options from {{ source('cta', '_airbyte_raw_share_options') }}
+-- share_options from {{ source('cta_raw', '_airbyte_raw_share_options') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

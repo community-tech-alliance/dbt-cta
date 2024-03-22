@@ -32,7 +32,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_sms_status_logs_hashid
 from {{ ref('sms_status_logs_ab4') }}
--- sms_status_logs from {{ source('cta', '_airbyte_raw_sms_status_logs') }}
+-- sms_status_logs from {{ source('cta_raw', '_airbyte_raw_sms_status_logs') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

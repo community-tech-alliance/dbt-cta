@@ -28,7 +28,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_user_tags_hashid
 from {{ ref('user_tags_ab4') }}
--- user_tags from {{ source('cta', '_airbyte_raw_user_tags') }}
+-- user_tags from {{ source('cta_raw', '_airbyte_raw_user_tags') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

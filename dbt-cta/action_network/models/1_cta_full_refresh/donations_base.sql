@@ -49,7 +49,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_donations_hashid
 from {{ ref('donations_ab4') }}
--- donations from {{ source('cta', '_airbyte_raw_donations') }}
+-- donations from {{ source('cta_raw', '_airbyte_raw_donations') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

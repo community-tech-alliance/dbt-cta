@@ -31,7 +31,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_tickets_hashid
 from {{ ref('tickets_ab4') }}
--- tickets from {{ source('cta', '_airbyte_raw_tickets') }}
+-- tickets from {{ source('cta_raw', '_airbyte_raw_tickets') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

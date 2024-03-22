@@ -109,7 +109,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_groups_hashid
 from {{ ref('groups_ab4') }}
--- groups from {{ source('cta', '_airbyte_raw_groups') }}
+-- groups from {{ source('cta_raw', '_airbyte_raw_groups') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

@@ -30,7 +30,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_steps_hashid
 from {{ ref('steps_ab4') }}
--- steps from {{ source('cta', '_airbyte_raw_steps') }}
+-- steps from {{ source('cta_raw', '_airbyte_raw_steps') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

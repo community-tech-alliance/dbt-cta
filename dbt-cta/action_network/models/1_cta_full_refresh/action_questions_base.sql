@@ -29,7 +29,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_action_questions_hashid
 from {{ ref('action_questions_ab4') }}
--- action_questions from {{ source('cta', '_airbyte_raw_action_questions') }}
+-- action_questions from {{ source('cta_raw', '_airbyte_raw_action_questions') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})
