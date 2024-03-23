@@ -37,7 +37,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_call_targets_hashid
 from {{ ref('call_targets_ab4') }}
--- call_targets from {{ source('cta_raw', '_airbyte_raw_call_targets') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

@@ -1,4 +1,4 @@
-{% set raw_table = env_var("CTA_DATASET_ID") ~ "_airbyte_raw_catalist_syncs" %}
+{% set raw_table = env_var("CTA_DATASET_ID") ~ "_raw__stream_catalist_syncs" %}
 
 {{ config(
     cluster_by = "_airbyte_extracted_at",

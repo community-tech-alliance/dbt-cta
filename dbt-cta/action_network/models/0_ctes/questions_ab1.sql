@@ -1,4 +1,4 @@
-{% set raw_table = env_var("CTA_DATASET_ID") ~ "_airbyte_raw_questions" %}
+{% set raw_table = env_var("CTA_DATASET_ID") ~ "_raw__stream_questions" %}
 
 {{ config(
     cluster_by = "_airbyte_extracted_at",

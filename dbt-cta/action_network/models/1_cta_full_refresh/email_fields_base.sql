@@ -30,7 +30,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_email_fields_hashid
 from {{ ref('email_fields_ab4') }}
--- email_fields from {{ source('cta_raw', '_airbyte_raw_email_fields') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

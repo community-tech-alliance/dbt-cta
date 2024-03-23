@@ -35,7 +35,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_sms_message_activities_hashid
 from {{ ref('sms_message_activities_ab4') }}
--- sms_message_activities from {{ source('cta_raw', '_airbyte_raw_sms_message_activities') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

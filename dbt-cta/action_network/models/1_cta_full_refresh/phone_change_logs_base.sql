@@ -31,7 +31,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_phone_change_logs_hashid
 from {{ ref('phone_change_logs_ab4') }}
--- phone_change_logs from {{ source('cta_raw', '_airbyte_raw_phone_change_logs') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

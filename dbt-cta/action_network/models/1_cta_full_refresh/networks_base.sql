@@ -35,7 +35,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_networks_hashid
 from {{ ref('networks_ab4') }}
--- networks from {{ source('cta_raw', '_airbyte_raw_networks') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

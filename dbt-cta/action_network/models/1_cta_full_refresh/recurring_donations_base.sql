@@ -31,7 +31,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_recurring_donations_hashid
 from {{ ref('recurring_donations_ab4') }}
--- recurring_donations from {{ source('cta_raw', '_airbyte_raw_recurring_donations') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

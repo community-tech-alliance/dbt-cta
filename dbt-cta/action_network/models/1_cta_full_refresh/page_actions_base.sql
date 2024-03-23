@@ -27,7 +27,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_page_actions_hashid
 from {{ ref('page_actions_ab4') }}
--- page_actions from {{ source('cta_raw', '_airbyte_raw_page_actions') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

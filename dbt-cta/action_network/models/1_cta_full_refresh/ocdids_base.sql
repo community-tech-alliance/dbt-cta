@@ -26,7 +26,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_ocdids_hashid
 from {{ ref('ocdids_ab4') }}
--- ocdids from {{ source('cta_raw', '_airbyte_raw_ocdids') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

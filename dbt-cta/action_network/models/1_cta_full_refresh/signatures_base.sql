@@ -42,7 +42,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_signatures_hashid
 from {{ ref('signatures_ab4') }}
--- signatures from {{ source('cta_raw', '_airbyte_raw_signatures') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

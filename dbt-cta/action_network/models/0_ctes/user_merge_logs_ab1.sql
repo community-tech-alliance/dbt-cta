@@ -1,5 +1,5 @@
 
-{% set raw_table = env_var("CTA_DATASET_ID") ~ "_airbyte_raw_user_merge_logs" %}
+{% set raw_table = env_var("CTA_DATASET_ID") ~ "_raw__stream_user_merge_logs" %}
 
 {{ config(
     cluster_by = "_airbyte_extracted_at",

@@ -31,7 +31,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_groups_syndications_hashid
 from {{ ref('groups_syndications_ab4') }}
--- groups_syndications from {{ source('cta_raw', '_airbyte_raw_groups_syndications') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

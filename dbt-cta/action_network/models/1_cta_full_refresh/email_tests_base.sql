@@ -32,7 +32,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_email_tests_hashid
 from {{ ref('email_tests_ab4') }}
--- email_tests from {{ source('cta_raw', '_airbyte_raw_email_tests') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

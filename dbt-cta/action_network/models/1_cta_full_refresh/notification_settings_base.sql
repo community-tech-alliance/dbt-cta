@@ -28,7 +28,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_notification_settings_hashid
 from {{ ref('notification_settings_ab4') }}
--- notification_settings from {{ source('cta_raw', '_airbyte_raw_notification_settings') }}
 
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})

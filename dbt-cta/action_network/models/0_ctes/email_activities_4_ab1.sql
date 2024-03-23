@@ -1,4 +1,4 @@
-{% set raw_table = env_var("CTA_DATASET_ID") ~ "_airbyte_raw_email_activities_3" %}
+{% set raw_table = env_var("CTA_DATASET_ID") ~ "_raw__stream_email_activities_3" %}
 
 {{ config(
     cluster_by = "_airbyte_extracted_at",
@@ -22,6 +22,6 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_email_activities_4') }}
+from {{ source('cta_raw', raw_table) }}
 -- email_activities_4
 where 1 = 1

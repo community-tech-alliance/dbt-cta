@@ -1,4 +1,4 @@
-{% set raw_table = env_var("CTA_DATASET_ID") ~ "_airbyte_raw_mobile_message_fields" %}
+{% set raw_table = env_var("CTA_DATASET_ID") ~ "_raw__stream_mobile_message_fields" %}
 
 {{ config(
     cluster_by = "_airbyte_extracted_at",
