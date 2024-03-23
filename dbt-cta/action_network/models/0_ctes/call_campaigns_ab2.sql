@@ -1,7 +1,7 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_ab_id"
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_raw_id"
 ) }}
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
 -- depends_on: {{ ref('call_campaigns_ab1') }}
@@ -62,8 +62,8 @@ select
     cast(audio_message_content_type as {{ dbt_utils.type_string() }}) as audio_message_content_type,
     cast(targets_not_found_sms_text as {{ dbt_utils.type_string() }}) as targets_not_found_sms_text,
     cast(targets_not_found_sms_enabled as {{ dbt_utils.type_bigint() }}) as targets_not_found_sms_enabled,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('call_campaigns_ab1') }}
 -- call_campaigns
