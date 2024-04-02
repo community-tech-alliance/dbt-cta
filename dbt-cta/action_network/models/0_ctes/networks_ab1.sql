@@ -1,10 +1,12 @@
+{% set raw_table = env_var("CTA_DATASET_ID") ~ "_raw__stream_networks" %}
+
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_ab_id"
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_raw_id"
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('cta', '_airbyte_raw_networks') }}
+-- depends_on: {{ source('cta_raw', raw_table) }}
 select
     {{ json_extract_scalar('_airbyte_data', ['id'], ['id']) }} as id,
     {{ json_extract_scalar('_airbyte_data', ['name'], ['name']) }} as name,
@@ -20,9 +22,9 @@ select
     {{ json_extract_scalar('_airbyte_data', ['lock_custom_fields'], ['lock_custom_fields']) }} as lock_custom_fields,
     {{ json_extract_scalar('_airbyte_data', ['top_level_group_id'], ['top_level_group_id']) }} as top_level_group_id,
     {{ json_extract_scalar('_airbyte_data', ['opted_in_mobile_number'], ['opted_in_mobile_number']) }} as opted_in_mobile_number,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_networks') }}
+from {{ source('cta_raw', raw_table) }}
 -- networks
 where 1 = 1
