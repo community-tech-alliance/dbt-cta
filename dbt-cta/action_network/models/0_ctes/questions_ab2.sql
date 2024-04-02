@@ -1,7 +1,7 @@
 {{ config(
-    cluster_by = "_airbyte_extracted_at",
-    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_raw_id"
+    cluster_by = "_airbyte_emitted_at",
+    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
 -- depends_on: {{ ref('questions_ab1') }}
@@ -22,8 +22,8 @@ select
     cast(question_hidden as {{ dbt_utils.type_bigint() }}) as question_hidden,
     cast(sent_to_children as {{ dbt_utils.type_bigint() }}) as sent_to_children,
     cast(originating_system as {{ dbt_utils.type_string() }}) as originating_system,
-    _airbyte_raw_id,
-    _airbyte_extracted_at,
+    _airbyte_ab_id,
+    _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('questions_ab1') }}
 -- questions

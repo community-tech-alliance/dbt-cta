@@ -18,12 +18,12 @@ models:
         description: ''
       - name: email_campaign_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -73,12 +73,12 @@ models:
         description: ''
       - name: logo_content_type
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -208,12 +208,12 @@ models:
         description: ''
       - name: form_builder_output_json
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -379,12 +379,12 @@ models:
         description: ''
       - name: default_auto_response_email_template_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -534,12 +534,12 @@ models:
         description: ''
       - name: form_builder_output_json
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -583,12 +583,12 @@ models:
         description: ''
       - name: email_stat_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -632,12 +632,12 @@ models:
         description: ''
       - name: email_stat_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -771,12 +771,12 @@ models:
         description: ''
       - name: targets_not_found_sms_enabled
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -820,12 +820,12 @@ models:
         description: ''
       - name: subscription_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -871,12 +871,12 @@ models:
         description: ''
       - name: event_campaign_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -912,12 +912,12 @@ models:
         description: ''
       - name: action_type
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -969,12 +969,12 @@ models:
         description: ''
       - name: event_campaign_upload_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -1036,12 +1036,12 @@ models:
         description: ''
       - name: recurring_interval
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -1085,12 +1085,12 @@ models:
         description: ''
       - name: user_permissions
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -1122,12 +1122,12 @@ models:
         description: ''
       - name: recurring_donation_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -1165,12 +1165,12 @@ models:
         description: ''
       - name: network_group_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -1204,12 +1204,12 @@ models:
         description: ''
       - name: fundraising_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -1249,12 +1249,12 @@ models:
         description: ''
       - name: sent_to_children
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -1314,12 +1314,12 @@ models:
         description: ''
       - name: source_action_type
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -1361,12 +1361,12 @@ models:
         description: ''
       - name: recurring_period
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -1410,12 +1410,12 @@ models:
         description: ''
       - name: last_subscription_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -1461,12 +1461,12 @@ models:
         description: ''
       - name: twilio_message_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -1504,12 +1504,12 @@ models:
         description: ''
       - name: source_code_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -1645,12 +1645,12 @@ models:
         description: ''
       - name: form_builder_output_json
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -1696,12 +1696,12 @@ models:
         description: ''
       - name: image_attribution
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -1777,12 +1777,12 @@ models:
         description: ''
       - name: originating_system
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -1838,12 +1838,12 @@ models:
         description: ''
       - name: logo_content_type
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -1887,12 +1887,12 @@ models:
         description: ''
       - name: email_stat_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -1936,12 +1936,12 @@ models:
         description: ''
       - name: email_stat_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -1991,12 +1991,12 @@ models:
         description: ''
       - name: only_text_to_join
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -2028,12 +2028,12 @@ models:
         description: ''
       - name: core_field_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -2061,12 +2061,12 @@ models:
         description: ''
       - name: core_field_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -2126,12 +2126,12 @@ models:
         description: ''
       - name: administrative_title
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -2167,12 +2167,12 @@ models:
         description: ''
       - name: field_name_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -2216,12 +2216,12 @@ models:
         description: ''
       - name: mobile_message_stat_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -2269,12 +2269,12 @@ models:
         description: ''
       - name: token_updated_at
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -2308,12 +2308,12 @@ models:
         description: ''
       - name: event_campaign_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -2355,12 +2355,12 @@ models:
         description: ''
       - name: removed_core_field_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -2390,12 +2390,12 @@ models:
         description: ''
       - name: field_name_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -2459,12 +2459,12 @@ models:
         description: ''
       - name: originating_system
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -2498,12 +2498,12 @@ models:
         description: ''
       - name: source_code
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -2563,12 +2563,12 @@ models:
         description: ''
       - name: recurring_period
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -2606,12 +2606,12 @@ models:
         description: ''
       - name: source_group_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -2655,12 +2655,12 @@ models:
         description: ''
       - name: email_stat_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -2704,12 +2704,12 @@ models:
         description: ''
       - name: email_stat_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -2751,12 +2751,12 @@ models:
         description: ''
       - name: source_action_type
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -2792,12 +2792,12 @@ models:
         description: ''
       - name: mobile_message_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -2863,12 +2863,12 @@ models:
         description: ''
       - name: updates_from_sponsor
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -2906,12 +2906,12 @@ models:
         description: ''
       - name: mobile_message_field_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -2945,12 +2945,12 @@ models:
         description: ''
       - name: source_group_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -2988,12 +2988,12 @@ models:
         description: ''
       - name: sending_type
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -3073,12 +3073,12 @@ models:
         description: ''
       - name: facebook_image_content_type
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -3116,12 +3116,12 @@ models:
         description: ''
       - name: updated_at
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -3165,12 +3165,12 @@ models:
         description: ''
       - name: commentable_type
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -3214,12 +3214,12 @@ models:
         description: ''
       - name: email_stat_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -3263,12 +3263,12 @@ models:
         description: ''
       - name: email_stat_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -3466,12 +3466,12 @@ models:
         description: ''
       - name: mobile_message_stats_csv_content_type
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -3513,12 +3513,12 @@ models:
         description: ''
       - name: syndication_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -3554,12 +3554,12 @@ models:
         description: ''
       - name: source_group_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -3613,12 +3613,12 @@ models:
         description: ''
       - name: source_action_type
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -3658,12 +3658,12 @@ models:
         description: ''
       - name: removed_user_email
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -3691,12 +3691,12 @@ models:
         description: ''
       - name: core_field_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -3820,12 +3820,12 @@ models:
         description: ''
       - name: form_builder_output_json
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -3863,12 +3863,12 @@ models:
         description: ''
       - name: question_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -3912,12 +3912,12 @@ models:
         description: ''
       - name: email_stat_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -3961,12 +3961,12 @@ models:
         description: ''
       - name: email_stat_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -4004,12 +4004,12 @@ models:
         description: ''
       - name: ticket_receipt_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -4045,12 +4045,12 @@ models:
         description: ''
       - name: updated_at
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -4114,12 +4114,12 @@ models:
         description: ''
       - name: updates_from_sponsor
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -4173,12 +4173,12 @@ models:
         description: ''
       - name: originating_system
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -4222,12 +4222,12 @@ models:
         description: ''
       - name: email_stat_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -4281,12 +4281,12 @@ models:
         description: ''
       - name: target_position
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -4320,12 +4320,12 @@ models:
         description: ''
       - name: updated_at
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -4359,12 +4359,12 @@ models:
         description: ''
       - name: accepted_terms
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -4398,12 +4398,12 @@ models:
         description: ''
       - name: page_wrapper_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -4447,12 +4447,12 @@ models:
         description: ''
       - name: email_stat_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -4492,12 +4492,12 @@ models:
         description: ''
       - name: removed_user_email
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -4553,12 +4553,12 @@ models:
         description: ''
       - name: updated_at
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -4618,12 +4618,12 @@ models:
         description: ''
       - name: source_action_type
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -4807,12 +4807,12 @@ models:
         description: ''
       - name: form_builder_output_json
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -4852,12 +4852,12 @@ models:
         description: ''
       - name: updated_at
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -4897,12 +4897,12 @@ models:
         description: ''
       - name: alternate_next_step_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -4942,12 +4942,12 @@ models:
         description: ''
       - name: builder_json
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -4991,12 +4991,12 @@ models:
         description: ''
       - name: winning_email_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -5088,12 +5088,12 @@ models:
         description: ''
       - name: administrative_title
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -5141,12 +5141,12 @@ models:
         description: ''
       - name: schedule_action
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -5196,12 +5196,12 @@ models:
         description: ''
       - name: mobile_message_field_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -5233,12 +5233,12 @@ models:
         description: ''
       - name: ocdid_value
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -5280,12 +5280,12 @@ models:
         description: ''
       - name: source_action_type
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -5327,12 +5327,12 @@ models:
         description: ''
       - name: source_action_type
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -5402,12 +5402,12 @@ models:
         description: ''
       - name: updates_from_sponsor
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -5443,12 +5443,12 @@ models:
         description: ''
       - name: updated_at
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -5494,12 +5494,12 @@ models:
         description: ''
       - name: validation_description
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -5539,12 +5539,12 @@ models:
         description: ''
       - name: updated_at
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -5588,12 +5588,12 @@ models:
         description: ''
       - name: error_message
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -5637,12 +5637,12 @@ models:
         description: ''
       - name: filterable_type
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -5720,12 +5720,12 @@ models:
         description: ''
       - name: updates_from_sponsor
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -5791,12 +5791,12 @@ models:
         description: ''
       - name: administrative_title
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -5830,12 +5830,12 @@ models:
         description: ''
       - name: updated_at
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -5879,12 +5879,12 @@ models:
         description: ''
       - name: email_stat_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -5928,12 +5928,12 @@ models:
         description: ''
       - name: email_stat_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -6001,12 +6001,12 @@ models:
         description: ''
       - name: photo_content_type
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -6038,12 +6038,12 @@ models:
         description: ''
       - name: collection_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -6173,12 +6173,12 @@ models:
         description: ''
       - name: recurring_upsell_description
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -6232,12 +6232,12 @@ models:
         description: ''
       - name: user_file_content_type
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -6345,12 +6345,12 @@ models:
         description: ''
       - name: receive_transactional_email
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -6380,12 +6380,12 @@ models:
         description: ''
       - name: county_state
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -6479,12 +6479,12 @@ models:
         description: ''
       - name: overwrite_sms_subs
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -6526,12 +6526,12 @@ models:
         description: ''
       - name: ticketed_event_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -6567,12 +6567,12 @@ models:
         description: ''
       - name: notificate_third_parties
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -6622,12 +6622,12 @@ models:
         description: ''
       - name: opted_in_mobile_number
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -6661,12 +6661,12 @@ models:
         description: ''
       - name: source_type
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -6710,12 +6710,12 @@ models:
         description: ''
       - name: email_stat_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -6759,12 +6759,12 @@ models:
         description: ''
       - name: email_stat_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -6808,12 +6808,12 @@ models:
         description: ''
       - name: email_stat_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -6877,12 +6877,12 @@ models:
         description: ''
       - name: letter_template_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -6930,12 +6930,12 @@ models:
         description: ''
       - name: csv_content_type
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -6973,12 +6973,12 @@ models:
         description: ''
       - name: actions_count
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -7042,12 +7042,12 @@ models:
         description: ''
       - name: updates_from_sponsor
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -7089,12 +7089,12 @@ models:
         description: ''
       - name: last_subscription_id
         description: ''
-      - name: _airbyte_raw_id
+      - name: _airbyte_ab_id
         description: ''
         tests:
           - not_null
           - unique
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:

@@ -1,7 +1,7 @@
 {{ config(
-    cluster_by = "_airbyte_extracted_at",
-    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_raw_id"
+    cluster_by = "_airbyte_emitted_at",
+    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
 -- depends_on: {{ ref('users_ab1') }}
@@ -49,8 +49,8 @@ select
     cast(current_email_template_id as {{ dbt_utils.type_bigint() }}) as current_email_template_id,
     cast(salesforce_sync_successful as {{ dbt_utils.type_bigint() }}) as salesforce_sync_successful,
     cast(receive_transactional_email as {{ dbt_utils.type_bigint() }}) as receive_transactional_email,
-    _airbyte_raw_id,
-    _airbyte_extracted_at,
+    _airbyte_ab_id,
+    _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('users_ab1') }}
 -- users

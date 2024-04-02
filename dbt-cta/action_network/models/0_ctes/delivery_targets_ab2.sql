@@ -1,7 +1,7 @@
 {{ config(
-    cluster_by = "_airbyte_extracted_at",
-    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_raw_id"
+    cluster_by = "_airbyte_emitted_at",
+    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
 -- depends_on: {{ ref('delivery_targets_ab1') }}
@@ -27,8 +27,8 @@ select
     cast(target_position as {{ dbt_utils.type_string() }}) as target_position,
     cast(captcha_required as {{ dbt_utils.type_bigint() }}) as captcha_required,
     cast(letter_template_id as {{ dbt_utils.type_bigint() }}) as letter_template_id,
-    _airbyte_raw_id,
-    _airbyte_extracted_at,
+    _airbyte_ab_id,
+    _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('delivery_targets_ab1') }}
 -- delivery_targets

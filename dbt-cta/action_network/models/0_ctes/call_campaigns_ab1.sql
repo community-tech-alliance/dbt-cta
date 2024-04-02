@@ -1,12 +1,10 @@
-{% set raw_table = env_var("CTA_DATASET_ID") ~ "_raw__stream_call_campaigns" %}
-
 {{ config(
-    cluster_by = "_airbyte_extracted_at",
-    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_raw_id"
+    cluster_by = "_airbyte_emitted_at",
+    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('cta_raw', raw_table) }}
+-- depends_on: {{ source('cta', '_airbyte_raw_call_campaigns') }}
 select
     {{ json_extract_scalar('_airbyte_data', ['id'], ['id']) }} as id,
     {{ json_extract_scalar('_airbyte_data', ['uuid'], ['uuid']) }} as uuid,
@@ -64,9 +62,9 @@ select
     {{ json_extract_scalar('_airbyte_data', ['audio_message_content_type'], ['audio_message_content_type']) }} as audio_message_content_type,
     {{ json_extract_scalar('_airbyte_data', ['targets_not_found_sms_text'], ['targets_not_found_sms_text']) }} as targets_not_found_sms_text,
     {{ json_extract_scalar('_airbyte_data', ['targets_not_found_sms_enabled'], ['targets_not_found_sms_enabled']) }} as targets_not_found_sms_enabled,
-    _airbyte_raw_id,
-    _airbyte_extracted_at,
+    _airbyte_ab_id,
+    _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta_raw', raw_table) }}
+from {{ source('cta', '_airbyte_raw_call_campaigns') }}
 -- call_campaigns
 where 1 = 1
