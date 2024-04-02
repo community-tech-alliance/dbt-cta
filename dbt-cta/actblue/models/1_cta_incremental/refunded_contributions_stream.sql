@@ -1,6 +1,6 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = 'Lineitem_ID',
     materialized = "incremental",
     incremental_strategy = "merge",
@@ -93,10 +93,9 @@ select
     Fundraiser_Contact_Last_Name,
     Fundraiser_Contact_First_Name,
     Card_Replaced_by_Account_Updater,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_refunded_contributions_stream_hashid
 from {{ ref('refunded_contributions_stream_ab4') }}
--- refunded_contributions_stream from {{ source('cta', '_airbyte_raw_refunded_contributions_stream') }}
 where 1 = 1

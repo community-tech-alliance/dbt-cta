@@ -21,7 +21,7 @@ select
     Initial_Pledge_Length,
     Bump_Recurring_Succeeded,
     Initial_Contribution_Date,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     _airbyte_cancelled_recurring_contributions_stream_hashid
 from {{ source("cta", "cancelled_recurring_contributions_stream") }}
