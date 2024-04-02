@@ -1,7 +1,7 @@
 {{ config(
-    cluster_by = "_airbyte_extracted_at",
-    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_raw_id"
+    cluster_by = "_airbyte_emitted_at",
+    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
 -- depends_on: {{ ref('networks_ab1') }}
@@ -20,8 +20,8 @@ select
     cast(lock_custom_fields as {{ dbt_utils.type_bigint() }}) as lock_custom_fields,
     cast(top_level_group_id as {{ dbt_utils.type_bigint() }}) as top_level_group_id,
     cast(opted_in_mobile_number as {{ dbt_utils.type_bigint() }}) as opted_in_mobile_number,
-    _airbyte_raw_id,
-    _airbyte_extracted_at,
+    _airbyte_ab_id,
+    _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('networks_ab1') }}
 -- networks

@@ -1,7 +1,7 @@
 {{ config(
-    cluster_by = "_airbyte_extracted_at",
-    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_raw_id"
+    cluster_by = "_airbyte_emitted_at",
+    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
 -- depends_on: {{ ref('user_files_ab1') }}
@@ -22,8 +22,8 @@ select
     cast(user_file_file_name as {{ dbt_utils.type_string() }}) as user_file_file_name,
     cast(user_file_file_size as {{ dbt_utils.type_bigint() }}) as user_file_file_size,
     cast(user_file_content_type as {{ dbt_utils.type_string() }}) as user_file_content_type,
-    _airbyte_raw_id,
-    _airbyte_extracted_at,
+    _airbyte_ab_id,
+    _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('user_files_ab1') }}
 -- user_files
