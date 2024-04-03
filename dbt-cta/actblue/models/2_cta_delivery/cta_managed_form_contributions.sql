@@ -85,4 +85,4 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_managed_form_contributions_stream_hashid
-from {{ source("cta", "managed_form_contributions_stream") }}
+from {{ source("cta", "managed_form_contributions_base") }}

@@ -24,4 +24,4 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_cancelled_recurring_contributions_stream_hashid
-from {{ source("cta", "cancelled_recurring_contributions_stream") }}
+from {{ source("cta", "cancelled_recurring_contributions_base") }}

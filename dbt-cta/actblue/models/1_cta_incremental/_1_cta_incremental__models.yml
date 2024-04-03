@@ -2,7 +2,7 @@ version: 2
 
 models:
 
-  - name: managed_form_contributions_stream
+  - name: managed_form_contributions_base
     description: ''
     columns:
       - name: fee
@@ -193,7 +193,7 @@ models:
           - not_null
           - unique
 
-  - name: refunded_contributions_stream
+  - name: refunded_contributions_base
     description: ''
     columns:
       - name: fee
@@ -377,7 +377,7 @@ models:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp
 
-  - name: cancelled_recurring_contributions_stream
+  - name: cancelled_recurring_contributions_base
     description: ''
     columns:
       - name: donor_zip
@@ -444,7 +444,7 @@ models:
           - not_null
           - unique
 
-  - name: paid_contributions_stream
+  - name: paid_contributions_base
     description: ''
     columns:
       - name: fee
