@@ -4,7 +4,7 @@ sources:
   database: "{{ env_var('CTA_PROJECT_ID') }}"
   schema: airbyte_internal
   tables:
-  - name: _airbyte_raw_managed_form_contributions_stream
+  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_managed_form_contributions_stream' }}"
     columns:
       - name: _airbyte_raw_id
         tests:
@@ -16,7 +16,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-  - name: _airbyte_raw_paid_contributions_stream
+  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_paid_contributions_stream' }}"
     columns:
       - name: _airbyte_raw_id
         tests:
@@ -28,7 +28,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-  - name: _airbyte_raw_refunded_contributions_stream
+  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_refunded_contributions_stream' }}"
     columns:
       - name: _airbyte_raw_id
         tests:
@@ -40,7 +40,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-  - name: _airbyte_raw_cancelled_recurring_contributions_stream
+  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_cancelled_recurring_contributions_stream' }}"
     columns:
       - name: _airbyte_raw_id
         tests:
@@ -52,6 +52,47 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
+  - name: managed_form_contributions_stream
+    columns:
+      - name: _airbyte_raw_id
+        tests:
+          - not_null
+      - name: _airbyte_extracted_at
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+  - name: paid_contributions_stream
+    columns:
+      - name: _airbyte_raw_id
+        tests:
+          - not_null
+      - name: _airbyte_extracted_at
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+  - name: refunded_contributions_stream
+    columns:
+      - name: _airbyte_raw_id
+        tests:
+          - not_null
+      - name: _airbyte_extracted_at
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+  - name: cancelled_recurring_contributions_stream
+    columns:
+      - name: _airbyte_raw_id
+        tests:
+          - not_null
+      - name: _airbyte_extracted_at
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp
+
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables:
   - name: managed_form_contributions_stream
     columns:
       - name: _airbyte_raw_id
