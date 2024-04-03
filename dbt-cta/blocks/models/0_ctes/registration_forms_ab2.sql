@@ -45,7 +45,7 @@ select
     cast(voting_street_address_two as {{ dbt_utils.type_string() }}) as voting_street_address_two,
     cast(voting_zipcode as {{ dbt_utils.type_string() }}) as voting_zipcode,
     cast(mailing_zipcode as {{ dbt_utils.type_string() }}) as mailing_zipcode,
-    cast(registration_type as {{ dbt_utils.type_bigint() }}) as registration_type,
+    cast(registration_type as {{ dbt_utils.type_string() }}) as registration_type,
     redacted_fields,
     cast(van_id as {{ dbt_utils.type_string() }}) as van_id,
     cast(name_prefix as {{ dbt_utils.type_string() }}) as name_prefix,
