@@ -1,10 +1,12 @@
+{% set raw_table = env_var("CTA_DATASET_ID") ~ "_raw__stream_rsvps" %}
+
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_ab_id"
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_raw_id"
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('cta', '_airbyte_raw_rsvps') }}
+-- depends_on: {{ source('cta_raw', raw_table) }}
 select
     {{ json_extract_scalar('_airbyte_data', ['id'], ['id']) }} as id,
     {{ json_extract_scalar('_airbyte_data', ['city'], ['city']) }} as city,
@@ -28,9 +30,9 @@ select
     {{ json_extract_scalar('_airbyte_data', ['originating_system'], ['originating_system']) }} as originating_system,
     {{ json_extract_scalar('_airbyte_data', ['updates_from_creator'], ['updates_from_creator']) }} as updates_from_creator,
     {{ json_extract_scalar('_airbyte_data', ['updates_from_sponsor'], ['updates_from_sponsor']) }} as updates_from_sponsor,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_rsvps') }}
+from {{ source('cta_raw', raw_table) }}
 -- rsvps
 where 1 = 1

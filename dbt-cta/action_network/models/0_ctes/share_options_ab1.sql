@@ -1,10 +1,12 @@
+{% set raw_table = env_var("CTA_DATASET_ID") ~ "_raw__stream_share_options" %}
+
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_ab_id"
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_raw_id"
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('cta', '_airbyte_raw_share_options') }}
+-- depends_on: {{ source('cta_raw', raw_table) }}
 select
     {{ json_extract_scalar('_airbyte_data', ['id'], ['id']) }} as id,
     {{ json_extract_scalar('_airbyte_data', ['from'], ['from']) }} as {{ adapter.quote('from') }},
@@ -35,9 +37,9 @@ select
     {{ json_extract_scalar('_airbyte_data', ['facebook_image_file_name'], ['facebook_image_file_name']) }} as facebook_image_file_name,
     {{ json_extract_scalar('_airbyte_data', ['facebook_image_file_size'], ['facebook_image_file_size']) }} as facebook_image_file_size,
     {{ json_extract_scalar('_airbyte_data', ['facebook_image_content_type'], ['facebook_image_content_type']) }} as facebook_image_content_type,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_share_options') }}
+from {{ source('cta_raw', raw_table) }}
 -- share_options
 where 1 = 1
