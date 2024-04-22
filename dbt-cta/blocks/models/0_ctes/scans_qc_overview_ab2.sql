@@ -50,7 +50,7 @@ select
     cast(phone_verification_completed_by_user_id as {{ dbt_utils.type_bigint() }}) as phone_verification_completed_by_user_id,
     cast(voting_zipcode as {{ dbt_utils.type_string() }}) as voting_zipcode,
     cast(mailing_zipcode as {{ dbt_utils.type_string() }}) as mailing_zipcode,
-    cast(registration_type as {{ dbt_utils.type_bigint() }}) as registration_type,
+    cast(registration_type as {{ dbt_utils.type_string() }}) as registration_type,
     cast(registration_form_id as {{ dbt_utils.type_bigint() }}) as registration_form_id,
     cast(packet_filename as {{ dbt_utils.type_string() }}) as packet_filename,
     cast(name_prefix as {{ dbt_utils.type_string() }}) as name_prefix,
