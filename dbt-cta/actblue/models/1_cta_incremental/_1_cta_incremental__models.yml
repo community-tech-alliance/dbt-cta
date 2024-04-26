@@ -2,7 +2,7 @@ version: 2
 
 models:
 
-  - name: managed_form_contributions_stream
+  - name: managed_form_contributions_base
     description: ''
     columns:
       - name: fee
@@ -173,11 +173,11 @@ models:
         description: ''
       - name: card_replaced_by_account_updater
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
         tests:
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -193,7 +193,7 @@ models:
           - not_null
           - unique
 
-  - name: refunded_contributions_stream
+  - name: refunded_contributions_base
     description: ''
     columns:
       - name: fee
@@ -362,11 +362,11 @@ models:
         description: ''
       - name: card_replaced_by_account_updater
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
         tests:
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -377,7 +377,7 @@ models:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp
 
-  - name: cancelled_recurring_contributions_stream
+  - name: cancelled_recurring_contributions_base
     description: ''
     columns:
       - name: donor_zip
@@ -424,11 +424,11 @@ models:
         description: ''
       - name: initial_contribution_date
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
         tests:
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
@@ -444,7 +444,7 @@ models:
           - not_null
           - unique
 
-  - name: paid_contributions_stream
+  - name: paid_contributions_base
     description: ''
     columns:
       - name: fee
@@ -613,11 +613,11 @@ models:
         description: ''
       - name: card_replaced_by_account_updater
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
         tests:
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:

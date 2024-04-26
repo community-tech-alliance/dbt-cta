@@ -1,7 +1,7 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id',
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_raw_id',
     tags = [ "top-level-intermediate" ]
 ) }}
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
@@ -29,8 +29,8 @@ select
     cast(Initial_Pledge_Length as {{ dbt_utils.type_string() }}) as Initial_Pledge_Length,
     cast(Bump_Recurring_Succeeded as {{ dbt_utils.type_string() }}) as Bump_Recurring_Succeeded,
     cast({{ empty_string_to_null('Initial_Contribution_Date') }} as {{ type_date() }}) as Initial_Contribution_Date,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('cancelled_recurring_contributions_stream_ab1') }}
 -- cancelled_recurring_contributions_stream
