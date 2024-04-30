@@ -1,8 +1,8 @@
 {{
     config(
-        cluster_by="_airbyte_emitted_at",
+        cluster_by="_airbyte_extracted_at",
         partition_by={
-            "field": "_airbyte_emitted_at",
+            "field": "_airbyte_extracted_at",
             "data_type": "timestamp",
             "granularity": "day",
         },
@@ -93,7 +93,7 @@ select
     max(location__state_senate_district) as location__state_senate_district,
     max(location__congressional_district) as location__congressional_district,
     max(organization__is_primary_campaign) as organization__is_primary_campaign,
-    max(_airbyte_ab_id) as _airbyte_ab_id,
-    max(_airbyte_emitted_at) as _airbyte_emitted_at
+    max(_airbyte_raw_id) as _airbyte_raw_id,
+    max(_airbyte_extracted_at) as _airbyte_extracted_at
 from {{ source("cta", "events_base") }}
 group by _airbyte_events_hashid

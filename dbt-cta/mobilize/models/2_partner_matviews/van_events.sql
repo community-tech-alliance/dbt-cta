@@ -1,8 +1,8 @@
 {{
     config(
-        cluster_by="_airbyte_emitted_at",
+        cluster_by="_airbyte_extracted_at",
         partition_by={
-            "field": "_airbyte_emitted_at",
+            "field": "_airbyte_extracted_at",
             "data_type": "timestamp",
             "granularity": "day",
         },
@@ -21,7 +21,7 @@ select
     max(modified_date) as modified_date,
     max(sync_aggregation) as sync_aggregation,
     max(event_campaign_id) as event_campaign_id,
-    max(_airbyte_ab_id) as _airbyte_ab_id,
-    max(_airbyte_emitted_at) as _airbyte_emitted_at
+    max(_airbyte_raw_id) as _airbyte_raw_id,
+    max(_airbyte_extracted_at) as _airbyte_extracted_at
 from {{ source("cta", "van_events_base") }}
 group by _airbyte_van_events_hashid
