@@ -1,3 +1,4 @@
+{% set raw_table = env_var("CTA_DATASET_ID") ~ "_raw__stream_users" %}
 
 -- SQL model to parse JSON blob stored in a single column and extract into separated
 -- field columns as described by the JSON Schema
@@ -28,9 +29,9 @@ select
     json_extract_scalar(
         _airbyte_data, "$['membership__permission_tier']"
     ) as membership__permission_tier,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     current_timestamp() as _airbyte_normalized_at
-from {{ source("cta", "_airbyte_raw_users") }} as table_alias
+from {{ source('cta_raw', raw_table) }} as table_alias
 -- users
 where 1 = 1
