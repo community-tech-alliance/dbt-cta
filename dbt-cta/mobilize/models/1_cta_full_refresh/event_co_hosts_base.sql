@@ -28,7 +28,7 @@ select
     current_timestamp() as _airbyte_normalized_at,
     _airbyte_event_co_hosts_hashid
 from {{ ref('event_co_hosts_ab4') }}
--- event_co_hosts from {{ source("cta", "_airbyte_raw_event_co_hosts" ) }}
+
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

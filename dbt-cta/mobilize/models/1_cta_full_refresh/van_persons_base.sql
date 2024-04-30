@@ -28,7 +28,7 @@ select
     current_timestamp() as _airbyte_normalized_at,
     _airbyte_van_persons_hashid
 from {{ ref('van_persons_ab4') }}
--- van_persons from {{ source("cta", "_airbyte_raw_van_persons" ) }}
+
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

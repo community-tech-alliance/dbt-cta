@@ -63,7 +63,7 @@ select
     current_timestamp() as _airbyte_normalized_at,
     _airbyte_participations_hashid
 from {{ ref('participations_ab4') }}
--- participations from {{ source("cta", "_airbyte_raw_participations" ) }}
+
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
