@@ -2,7 +2,7 @@
 
 -- SQL model to parse JSON blob stored in a single column and extract into separated
 -- field columns as described by the JSON Schema
--- depends_on: {{ source("cta", "_airbyte_raw_sms_opt_ins" ) }}
+-- depends_on: {{ source('cta_raw', raw_table) }}
 select
     json_extract_scalar(_airbyte_data, "$['id']") as id,
     json_extract_scalar(_airbyte_data, "$['user_id']") as user_id,
