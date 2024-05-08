@@ -44,8 +44,6 @@ select
     zip_5,
     contact_script_id,
     conversation_code_id,
-    partition_schema_name,
-    partition_name,
     _redshift_people_attempts_hashid,
     _cta_loaded_at
 

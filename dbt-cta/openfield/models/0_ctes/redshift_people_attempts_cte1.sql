@@ -36,8 +36,6 @@ select
     cast(zip_5 as {{ dbt_utils.type_string() }}) as zip_5,
     cast(contact_script_id as {{ dbt_utils.type_bigint() }}) as contact_script_id,
     cast(conversation_code_id as {{ dbt_utils.type_bigint() }}) as conversation_code_id,
-    cast(partition_schema_name as {{ dbt_utils.type_string() }}) as partition_schema_name,
-    cast(partition_name as {{ dbt_utils.type_string() }}) as partition_name,
 
     -- new fields
     {{ dbt_utils.surrogate_key([
@@ -68,9 +66,7 @@ select
         'county',
         'zip_5',
         'contact_script_id',
-        'conversation_code_id',
-        'partition_schema_name',
-        'partition_name',
+        'conversation_code_id'
     ]) }} as _redshift_people_attempts_hashid,
     {{ current_timestamp() }} as _cta_loaded_at
 from {{ source('cta', '_raw_redshift_people_attempts') }}

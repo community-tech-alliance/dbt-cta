@@ -47,8 +47,6 @@ select
     question_id,
     question_text,
     response,
-    partition_schema_name,
-    partition_name,
     _redshift_people_shorttext_conversations_hashid,
     _cta_loaded_at
 from {{ ref('redshift_people_shorttext_conversations_cte2') }}

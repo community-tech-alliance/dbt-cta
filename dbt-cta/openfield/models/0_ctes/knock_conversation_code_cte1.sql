@@ -32,8 +32,8 @@ select
     cast(universal_source_code as {{ dbt_utils.type_string() }}) as universal_source_code,
     cast(starting_location_id as {{ dbt_utils.type_bigint() }}) as starting_location_id,
     cast(skip_people_search as bool) as skip_people_search,
-    cast(partition_schema_name as {{ dbt_utils.type_string() }}) as partition_schema_name,
-    cast(partition_name as {{ dbt_utils.type_string() }}) as partition_name,
+    cast(turf_cutter_celery_task_id as {{ dbt_utils.type_string() }}) as turf_cutter_celery_task_id,
+    cast(turf_cutter_status as {{ dbt_utils.type_string() }}) as turf_cutter_status,
 
     -- new fields
     {{ dbt_utils.surrogate_key([
@@ -61,8 +61,8 @@ select
         'universal_source_code',
         'starting_location_id',
         'skip_people_search',
-        'partition_schema_name',
-        'partition_name'
+        'turf_cutter_celery_task_id',
+        'turf_cutter_status',
     ]) }} as _knock_conversation_code_hashid,
     {{ current_timestamp() }} as _cta_loaded_at
 from {{ source('cta', '_raw_knock_conversation_code') }}

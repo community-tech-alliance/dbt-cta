@@ -119,11 +119,6 @@ select
     cast(phone_opt_in3 as bool) as phone_opt_in3,
     cast(phone_opt_in4 as bool) as phone_opt_in4,
     cast(voterbase_id as {{ dbt_utils.type_string() }}) as voterbase_id,
-    cast(mail_zip_4 as {{ dbt_utils.type_string() }}) as mail_zip_4,
-    cast(prov_zip_4 as {{ dbt_utils.type_string() }}) as prov_zip_4,
-    cast(reg_zip_4 as {{ dbt_utils.type_string() }}) as reg_zip_4,
-    cast(partition_schema_name as {{ dbt_utils.type_string() }}) as partition_schema_name,
-    cast(partition_name as {{ dbt_utils.type_string() }}) as partition_name,
 
     -- new fields
     {{ dbt_utils.surrogate_key([
@@ -237,12 +232,7 @@ select
         'phone4',
         'phone_opt_in3',
         'phone_opt_in4',
-        'voterbase_id',
-        'mail_zip_4',
-        'prov_zip_4',
-        'reg_zip_4',
-        'partition_schema_name',
-        'partition_name',
+        'voterbase_id'
     ]) }} as _knock_people_hashid,
     {{ current_timestamp() }} as _cta_loaded_at
 from {{ source('cta', '_raw_knock_people') }}

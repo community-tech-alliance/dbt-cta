@@ -127,11 +127,6 @@ select
     phone_opt_in3,
     phone_opt_in4,
     voterbase_id,
-    mail_zip_4,
-    prov_zip_4,
-    reg_zip_4,
-    partition_schema_name,
-    partition_name,
     _knock_people_hashid,
     _cta_loaded_at
 
