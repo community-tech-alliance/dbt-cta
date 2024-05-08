@@ -2,19 +2,19 @@ version: 2
 
 models:
 
-  - name: ads_insights_overall_base
+  - name: ads_insights_base
     description: ''
     columns:
-      - name: _airbyte_ads_insights_overall_hashid
+      - name: _airbyte_ads_insights_hashid
         description: ''
         tests:
           - unique
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string 
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
       - name: ad_id
         description: ''
@@ -202,51 +202,6 @@ models:
             - ad_id
             - date_start
 
-  - name: ad_set_report_base
-    description: ''
-    columns:
-      - name: _ad_set_report_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: date_start
-        description: ''
-      - name: account_id
-        description: ''
-        tests:
-          - not_null
-          - relationships:
-              to: ref('ad_account_base')
-              field: account_id_stripped
-              config:
-                where: "date_start > '2023-01-01'"
-      - name: account_name
-        description: ''
-      - name: campaign_id
-        description: ''
-      - name: campaign_name
-        description: ''
-      - name: adset_id
-        description: ''
-      - name: adset_name
-        description: ''
-      - name: _airbyte_emitted_at
-        description: ''
-      - name: clicks
-        description: ''
-      - name: impressions
-        description: ''
-      - name: spend
-        description: ''
-      - name: _airbyte_normalized_at
-        description: ''
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - adset_id
-            - date_start
-
   - name: ad_account_base
     description: ''
     columns:
@@ -257,9 +212,9 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string 
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
       - name: account_id_stripped
         description: ''
@@ -372,56 +327,6 @@ models:
       - name: is_in_3ds_authorization_enabled_market
         description: ''
 
-  - name: campaign_report_base
-    description: ''
-    columns:
-      - name: _campaign_report_hashid
-        description: ''
-        tests:
-          - unique
-          - not_null
-      - name: date_start
-        description: ''
-      - name: account_id
-        description: ''
-        tests:
-          - not_null
-          - relationships:
-              to: ref('ad_account_base')
-              field: account_id_stripped
-              config:
-                where: "date_start > '2023-01-01'"
-      - name: account_name
-        description: ''
-      - name: campaign_id
-        description: ''
-        tests:
-          - not_null
-          - relationships:
-              to: ref('campaigns_base')
-              field: id
-              # Depending on how airbyte is configured, we may have insights records for
-              # campaigns that are inactive/not in the campaigns table
-              config:
-                where: "date_start > '2023-01-01' and spend > 0"
-      - name: campaign_name
-        description: ''
-      - name: _airbyte_emitted_at
-        description: ''
-      - name: clicks
-        description: ''
-      - name: impressions
-        description: ''
-      - name: spend
-        description: ''
-      - name: _airbyte_normalized_at
-        description: ''
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - campaign_id
-            - date_start
-
   - name: account_report_base
     description: ''
     columns:
@@ -446,7 +351,7 @@ models:
                 where: "date_start > '2023-01-01'"
       - name: account_name
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: clicks
         description: ''
@@ -467,9 +372,9 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string 
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
       - name: name
         description: ''
@@ -531,9 +436,9 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string 
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
       - name: body
         description: ''
@@ -625,9 +530,9 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string 
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
       - name: name
         description: ''
@@ -684,9 +589,9 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string 
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
       - name: creative_id
         description: ''
@@ -765,9 +670,9 @@ models:
         tests:
           - unique
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
       - name: ad_id
         description: ''
@@ -955,3 +860,4 @@ models:
         description: ''
       - name: conversion_values
         description: ''
+  - name: ads_insights_delivery_device_base
