@@ -39,8 +39,7 @@ select
     cast(question_id as {{ dbt_utils.type_bigint() }}) as question_id,
     cast(question_text as {{ dbt_utils.type_string() }}) as question_text,
     cast(response as {{ dbt_utils.type_string() }}) as response,
-    cast(partition_schema_name as {{ dbt_utils.type_string() }}) as partition_schema_name,
-    cast(partition_name as {{ dbt_utils.type_string() }}) as partition_name,
+    cast(email_opt_in as {{ dbt_utils.type_string() }}) as email_opt_in,
 
     -- new fields
     {{ dbt_utils.surrogate_key([
@@ -75,8 +74,7 @@ select
         'question_id',
         'question_text',
         'response',
-        'partition_schema_name',
-        'partition_name',
+        'email_opt_in'
     ]) }} as _redshift_people_email_conversations_hashid,
     {{ current_timestamp() }} as _cta_loaded_at
 from {{ source('cta', '_raw_redshift_people_email_conversations') }}
