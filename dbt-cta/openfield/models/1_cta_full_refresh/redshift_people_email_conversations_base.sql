@@ -47,8 +47,7 @@ select
     question_id,
     question_text,
     response,
-    partition_schema_name,
-    partition_name,
+    email_opt_in,
     _redshift_people_email_conversations_hashid,
     _cta_loaded_at
 from {{ ref('redshift_people_email_conversations_cte2') }}
