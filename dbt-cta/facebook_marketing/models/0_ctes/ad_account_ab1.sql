@@ -11,6 +11,7 @@ select
    _airbyte_raw_id,
    _airbyte_extracted_at,
    _airbyte_meta,
+   split(id,'_')[offset(1)] as account_id_stripped,
    id,
    age,
    name,

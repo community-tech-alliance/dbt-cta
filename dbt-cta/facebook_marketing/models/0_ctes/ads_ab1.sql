@@ -19,6 +19,7 @@ select
    bid_info,
    bid_type,
    creative,
+   json_extract_scalar(creative, "$.id") AS creative_id,
    targeting,
    account_id,
    bid_amount,
