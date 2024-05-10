@@ -102,7 +102,6 @@ select
    cost_per_unique_action_type,
    unique_inline_link_click_ctr,
    video_15_sec_watched_actions,
-   video_15_sec_watched_actions as thruplays,
    video_30_sec_watched_actions,
    cost_per_unique_outbound_click,
    video_avg_time_watched_actions,
