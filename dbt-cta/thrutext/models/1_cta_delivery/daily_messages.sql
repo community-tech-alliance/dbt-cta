@@ -1,2 +1,2 @@
 select *
-from {{ ref('daily_messages_base') }}
+from {{ source('cta','daily_messages_base') }}

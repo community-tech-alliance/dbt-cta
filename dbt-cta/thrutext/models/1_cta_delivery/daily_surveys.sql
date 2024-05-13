@@ -1,2 +1,2 @@
 select *
-from {{ ref('daily_surveys_base') }}
+from {{ source('cta','daily_surveys_base') }}
