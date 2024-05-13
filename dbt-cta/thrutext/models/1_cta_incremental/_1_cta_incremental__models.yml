@@ -123,8 +123,6 @@ models:
         description: ''
       - name: _daily_surveys_hashid
         description: ''
-      - name: _airbyte_account_line_items_stats_hashid
-        description: ''
         tests:
           - not_null
           - unique
