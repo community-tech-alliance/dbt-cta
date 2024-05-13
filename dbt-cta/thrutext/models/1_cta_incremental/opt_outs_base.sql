@@ -7,6 +7,7 @@
             "granularity": "day",
         },
         unique_key="_opt_outs_hashid",
+        on_schema_change="add"
     )
 }}
 

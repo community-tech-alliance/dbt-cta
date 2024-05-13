@@ -4,28 +4,6 @@
 ) }}
 
 select
-    timestamp,
-    message_id,
-    message_direction,
-    message_body,
-    sender_first_name,
-    sender_last_name,
-    sender_phone,
-    sender_email,
-    campaign_id,
-    campaign_name,
-    conversation_id,
-    conversation_phone,
-    contact_id,
-    contact_first_name,
-    contact_last_name,
-    contact_phone,
-    media_content,
-    message_segment_count,
-    message_error,
-    "Polling Location" as polling_location,
-    van_campaign_id,
-    van_id,
    {{ dbt_utils.surrogate_key([
     'message_id',
     'conversation_id',
@@ -33,5 +11,7 @@ select
     'contact_id',
     'van_id',
     'van_campaign_id'
-    ]) }} as _daily_messages_hashid
+    ]) }} as _daily_messages_hashid,
+    "Polling Location" as polling_location, -- This field needs to be renamed or dbt/BQ throws an error
+    * except(`Polling Location`) -- use * in case custom fields get added
 from {{ source('cta', '_stg_daily_messages') }}
