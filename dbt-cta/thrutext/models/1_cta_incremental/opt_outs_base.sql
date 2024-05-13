@@ -10,6 +10,5 @@
     )
 }}
 
-select
-    *
+select *
 from {{ ref('opt_outs_cte2') }}

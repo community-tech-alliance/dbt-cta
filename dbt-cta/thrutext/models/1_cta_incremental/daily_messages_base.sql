@@ -10,6 +10,5 @@
     )
 }}
 
-select
-    *
+select *
 from {{ ref('daily_messages_cte2') }}

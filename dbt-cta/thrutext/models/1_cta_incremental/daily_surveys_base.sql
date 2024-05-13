@@ -10,6 +10,5 @@
     )
 }}
 
-select
-    *
+select *
 from {{ ref('daily_surveys_cte2') }}
