@@ -1,6 +1,6 @@
 {{ config(
-    cluster_by = "timestamp",
-    partition_by = {"field": "timestamp", "data_type": "timestamp", "granularity": "day"}
+    cluster_by = "updated_at",
+    partition_by = {"field": "updated_at", "data_type": "updated_at", "granularity": "day"}
 ) }}
 
 select
