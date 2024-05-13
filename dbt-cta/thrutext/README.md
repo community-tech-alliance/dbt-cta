@@ -1,19 +1,10 @@
-# Running Locally
+# Thrutext
 
-Run these commands from within the `dbt-cta` folder _within_ this repo (sorry, it's confusing).
+This is a special snowflake because ThruText exports contain custom fields that are defined for each GetThru customer. For that reason, the dbt incrementally updates base tables using a combination of `SELECT *` and the config `on_schema_change: add`, which should cause schema changes to result in new columns being added. We won't really test this until/unless schemas actually change, though.
 
-```shell
-cd dbt-cta
+## In the event of a schema change
 
-export CTA_PROJECT_ID=some_project_id
-export CTA_DATASET_ID=partner_a_getthru_thrutext
-export PARTNER_PROJECT_ID=another_project_id
-export PARTNER_DATASET_ID=thrutext
-export SYNC_NAME=thrutext
+The DAG and this dbt will still succeed, but the partner will probably let us know that they need a new field(s) to be added. If we need to change/add those fields:
 
-# to run a single model, replace tag:cta with the name of the file
-pipenv run dbt run --target cta --select daily_messages_base
-
-
-# run dbt tests for a single table
-pipenv run dbt test --target cta --select daily_messages_base
+1 - update the schema JSON (this is in the repo with the Airflow DAG)
+2 - trigger the DAG with `refresh_matviews: True` to refresh the matviews so that they reflect the updated schema.
