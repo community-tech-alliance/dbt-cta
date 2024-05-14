@@ -8,9 +8,7 @@ select
     'survey_id',
     'conversation_id',
     'campaign_id',
-    'contact_id',
-    'van_id',
-    'van_campaign_id'
+    'contact_id'
     ]) }} as _daily_surveys_hashid,
     "Polling Location" as polling_location, -- This field needs to be renamed or dbt/BQ throws an error
     * except(`Polling Location`) -- use * in case custom fields get added
