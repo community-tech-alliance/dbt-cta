@@ -11,5 +11,5 @@ select
     'contact_id'
     ]) }} as _daily_messages_hashid,
     "Polling Location" as polling_location, -- This field needs to be renamed or dbt/BQ throws an error
-    * except(`Polling Location`) -- use * in case custom fields get added
+    * except (`Polling Location`) -- use * in case custom fields get added
 from {{ source('cta', '_stg_daily_messages') }}
