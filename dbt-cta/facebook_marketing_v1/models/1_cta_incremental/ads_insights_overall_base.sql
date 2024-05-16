@@ -91,4 +91,4 @@ SELECT
     ,landing_page_views
     ,shares
     ,conversion_values
-from {{ ref('ads_insights_overall_ab4') }}
+from {{ ref('ads_insights_overall_ab5') }}
