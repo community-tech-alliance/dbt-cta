@@ -1,0 +1,129 @@
+version: 2
+
+models:
+
+  - name: daily_messages_base
+    description: ''
+    columns:
+      - name: timestamp
+        description: ''
+      - name: message_id
+        description: ''
+      - name: message_direction
+        description: ''
+      - name: message_body
+        description: ''
+      - name: sender_first_name
+        description: ''
+      - name: sender_last_name
+        description: ''
+      - name: sender_phone
+        description: ''
+      - name: sender_email
+        description: ''
+      - name: campaign_id
+        description: ''
+      - name: campaign_name
+        description: ''
+      - name: conversation_id
+        description: ''
+      - name: conversation_phone
+        description: ''
+      - name: contact_id
+        description: ''
+      - name: contact_first_name
+        description: ''
+      - name: contact_last_name
+        description: ''
+      - name: contact_phone
+        description: ''
+      - name: media_content
+        description: ''
+      - name: message_segment_count
+        description: ''
+      - name: message_error
+        description: ''
+      - name: polling_location
+        description: ''
+      - name: van_campaign_id
+        description: ''
+      - name: van_id
+        description: ''
+      - name: _daily_messages_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: opt_outs_base
+    description: ''
+    columns:
+      - name: timestamp
+        description: ''
+      - name: contact_id
+        description: ''
+      - name: contact_first_name
+        description: ''
+      - name: contact_last_name
+        description: ''
+      - name: contact_phone
+        description: ''
+      - name: conversation_id
+        description: ''
+      - name: note
+        description: ''
+      - name: opt_out_type
+        description: ''
+      - name: polling_location
+        description: ''
+      - name: van_campaign_id
+        description: ''
+      - name: van_id
+        description: ''
+      - name: _opt_outs_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
+  - name: daily_surveys_base
+    description: ''
+    columns:
+      - name: campaign_id
+        description: ''
+      - name: campaign_name
+        description: ''
+      - name: conversation_id
+        description: ''
+      - name: survey_id
+        description: ''
+      - name: survey_question
+        description: ''
+      - name: survey_type
+        description: ''
+      - name: response
+        description: ''
+      - name: contact_id
+        description: ''
+      - name: contact_first_name
+        description: ''
+      - name: contact_last_name
+        description: ''
+      - name: contact_phone
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: sync_status
+        description: ''
+      - name: polling_location
+        description: ''
+      - name: van_campaign_id
+        description: ''
+      - name: van_id
+        description: ''
+      - name: _daily_surveys_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+
