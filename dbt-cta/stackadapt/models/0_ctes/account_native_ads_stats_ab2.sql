@@ -1,7 +1,7 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id'
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_raw_id'
 ) }}
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
 -- depends_on: {{ ref('account_native_ads_stats_ab1') }}
@@ -75,11 +75,11 @@ select
     cast(sub_advertiser_id as {{ dbt_utils.type_bigint() }}) as sub_advertiser_id,
     cast(conv_click_time_avg as {{ dbt_utils.type_float() }}) as conv_click_time_avg,
     cast(unique_imp_inverse_rate as {{ dbt_utils.type_float() }}) as unique_imp_inverse_rate,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('account_native_ads_stats_ab1') }}
 -- account_native_ads_stats
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
+{{ incremental_clause('_airbyte_extracted_at') }}
 

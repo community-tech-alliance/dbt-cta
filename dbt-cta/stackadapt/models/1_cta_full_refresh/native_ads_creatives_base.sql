@@ -8,8 +8,8 @@
     'timestamp_trunc(timestamp_sub(current_timestamp, interval 6 day), day)'
 ] %}
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     partitions=partitions_to_replace
 ) }}
 -- Final base SQL model
@@ -21,13 +21,12 @@ select
     width,
     height,
     file_name,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_creatives_hashid
 from {{ ref('native_ads_creatives_ab4') }}
--- creatives at native_ads/creatives from {{ ref('native_ads_base') }}
 {% if is_incremental() %}
-where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
+where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
 
