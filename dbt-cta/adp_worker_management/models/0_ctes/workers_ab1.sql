@@ -1,3 +1,5 @@
+{% set raw_table = env_var("CTA_DATASET_ID") ~ "_raw__stream_workers" %}
+
 {{ config(
     cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
@@ -5,7 +7,7 @@
 ) }}
 
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('cta', '_airbyte_raw_workers') }}
+-- depends_on: {{ source('cta_raw', raw_table) }}
 
 select
 
@@ -59,5 +61,5 @@ select
     json_extract_array(_airbyte_data, '$.businessCommunication.faxes') as work_faxes,
     json_extract_array(_airbyte_data, '$.businessCommunication.pagers') as work_pagers,
     json_extract_array(_airbyte_data, '$.workAssignments') as workAssignments
-from {{ source('cta', '_airbyte_raw_workers') }}
+from {{ source('cta_raw', raw_table) }}
 where 1 = 1
