@@ -7,7 +7,7 @@
             "granularity": "day",
         },
         unique_key="_daily_surveys_hashid",
-        on_schema_change="add"
+        on_schema_change="sync_all_columns"
     )
 }}
 
