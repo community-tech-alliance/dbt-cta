@@ -93,7 +93,3 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_event_campaigns_hashid
 from {{ ref('event_campaigns_ab4') }}
-
-{% if is_incremental() %}
-where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})
-{% endif %}

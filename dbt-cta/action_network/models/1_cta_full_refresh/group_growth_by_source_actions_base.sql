@@ -32,7 +32,3 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_group_growth_by_source_actions_hashid
 from {{ ref('group_growth_by_source_actions_ab4') }}
-
-{% if is_incremental() %}
-where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})
-{% endif %}
