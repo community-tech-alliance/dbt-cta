@@ -5,7 +5,7 @@ SELECT * EXCEPT (rownum) FROM
 (
 SELECT 
     *,
-    ROW_NUMBER() OVER (PARTITION BY _airbyte_triggers_hashid ORDER BY _airbyte_extracted_at desc) as rownum 
+    ROW_NUMBER() OVER (PARTITION BY id ORDER BY _airbyte_extracted_at desc) as rownum
 from {{ ref('triggers_ab3') }}
 )
 where rownum=1
