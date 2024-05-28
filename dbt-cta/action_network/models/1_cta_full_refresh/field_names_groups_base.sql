@@ -13,6 +13,7 @@
     partitions = partitions_to_replace,
     unique_key = "_airbyte_raw_id"
 ) }}
+
 -- Final base SQL model
 -- depends_on: {{ ref('field_names_groups_ab4') }}
 select
@@ -25,3 +26,7 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_field_names_groups_hashid
 from {{ ref('field_names_groups_ab4') }}
+
+{% if is_incremental() %}
+where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(",") }})
+{% endif %}
