@@ -1,4 +1,3 @@
-
 {% set raw_table = env_var("CTA_DATASET_ID") ~ "_raw__stream_user_merge_logs" %}
 
 {{ config(
