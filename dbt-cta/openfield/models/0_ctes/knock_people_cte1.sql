@@ -14,7 +14,6 @@ select
     cast(county_file_id as {{ dbt_utils.type_string() }}) as county_file_id,
     cast(action_network_id as {{ dbt_utils.type_string() }}) as action_network_id,
     cast(other_voter_file_id as {{ dbt_utils.type_string() }}) as other_voter_file_id,
-    cast(alloy_uuid as {{ dbt_utils.type_string() }}) as alloy_uuid,
     cast(vr_status as {{ dbt_utils.type_string() }}) as vr_status,
     cast(full_name as {{ dbt_utils.type_string() }}) as full_name,
     cast(honorarium as {{ dbt_utils.type_string() }}) as honorarium,
