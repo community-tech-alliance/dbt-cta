@@ -13,7 +13,6 @@ select
     cast(state_file_id as {{ dbt_utils.type_string() }}) as state_file_id,
     cast(county_file_id as {{ dbt_utils.type_string() }}) as county_file_id,
     cast(action_network_id as {{ dbt_utils.type_string() }}) as action_network_id,
-    cast(of_voter_file_id as {{ dbt_utils.type_string() }}) as of_voter_file_id,
     cast(other_voter_file_id as {{ dbt_utils.type_string() }}) as other_voter_file_id,
     cast(alloy_uuid as {{ dbt_utils.type_string() }}) as alloy_uuid,
     cast(vr_status as {{ dbt_utils.type_string() }}) as vr_status,
@@ -120,6 +119,7 @@ select
     cast(phone_opt_in4 as bool) as phone_opt_in4,
     cast(voterbase_id as {{ dbt_utils.type_string() }}) as voterbase_id,
 
+
     -- new fields
     {{ dbt_utils.surrogate_key([
         'id',
@@ -127,7 +127,6 @@ select
         'state_file_id',
         'county_file_id',
         'action_network_id',
-        'of_voter_file_id',
         'other_voter_file_id',
         'alloy_uuid',
         'vr_status',
@@ -232,7 +231,7 @@ select
         'phone4',
         'phone_opt_in3',
         'phone_opt_in4',
-        'voterbase_id'
+        'voterbase_id',
     ]) }} as _knock_people_hashid,
     {{ current_timestamp() }} as _cta_loaded_at
 from {{ source('cta', '_raw_knock_people') }}
