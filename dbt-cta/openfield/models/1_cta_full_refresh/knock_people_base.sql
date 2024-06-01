@@ -21,7 +21,6 @@ select
     state_file_id,
     county_file_id,
     action_network_id,
-    of_voter_file_id,
     other_voter_file_id,
     alloy_uuid,
     vr_status,
