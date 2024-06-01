@@ -22,7 +22,6 @@ select
     county_file_id,
     action_network_id,
     other_voter_file_id,
-    alloy_uuid,
     vr_status,
     full_name,
     honorarium,
