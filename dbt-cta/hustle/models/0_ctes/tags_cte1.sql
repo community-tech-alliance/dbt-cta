@@ -5,7 +5,7 @@
 SELECT
     CAST(`deleted_at` AS STRING) AS `deleted_at`,
     CAST(`id` AS STRING) AS `id`,
-    CAST(`agent_visibility` AS STRING) AS `group_id`,
+    CAST(`agent_visibility` AS STRING) AS `agent_visibility`,
     CAST(`organization_id` AS STRING) AS `organization_id`,
     CAST(`tag` AS STRING) AS `type`,
     CAST(`created_at` AS TIMESTAMP) AS `created_at`,
