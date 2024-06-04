@@ -6,7 +6,7 @@ models:
     description: 'Table for a DDX Standard Subscription Stream data with record type of survey-response'
     columns:
       - name: person_id
-        description: "A configurable voter identification valu. Can be a Catalist DWID, TargetSmart voterbase ID or VAN ID"
+        description: "A configurable voter identification value. Can be a Catalist DWID, TargetSmart voterbase ID or VAN ID"
       - name: state_code
         description: 'Two letter code indicating the state or territory the person is registered to vote in'
       - name: contact_type_name
@@ -41,3 +41,14 @@ models:
           - not_null
           - unique
 
+  - name: universe_builder
+    description: 'Table for a DDX Standard Subscription Stream data with record type of universe-builder'
+    columns:
+      - name: person_id
+        description: "A configurable voter identification value. Can be a Catalist DWID, TargetSmart voterbase ID or VAN ID"
+      - name: state_code
+        description: 'Two letter code indicating the state or territory the person is registered to vote in'
+      - name: client_slug
+        description: "A unique identifier for the client organization that made the purchase of data using DDx credits."
+      - name: universe_name
+        description: 'A plain-text version of the universe name set by the user when they made the purchase. Spaces will be removed from the universe names set in the interface.'

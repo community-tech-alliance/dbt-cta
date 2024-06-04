@@ -5,3 +5,4 @@ sources:
   schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables:
     - name: _survey_response_raw
+    - name: _universe_builder_raw
