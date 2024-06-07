@@ -12,12 +12,9 @@ SELECT
     CAST(`updated_at` AS TIMESTAMP) AS `updated_at`,
     TO_HEX(MD5(CONCAT(
                       `id`,
-                      `agent_visibility`,
-                      `organization_id`,
                       `tag`,
                       `created_at`,
-                      `updated_at`,
-                      `deleted_at`))) AS _cta_hashid,
+                      `updated_at`))) AS _cta_hashid,
     CURRENT_TIMESTAMP() as _cta_sync_datetime_utc
 FROM {{ source('cta', '_tags_raw') }}
     
