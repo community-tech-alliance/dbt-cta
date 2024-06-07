@@ -1,20 +1,25 @@
 version: 2
 sources:
-- name: cta
+- name: cta_raw
   database: "{{ env_var('CTA_PROJECT_ID') }}"
-  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  schema: airbyte_internal
   tables:
-  - name: "{{ var('campaigns_raw') }}"
+  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_campaigns' }}"
     columns:
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         tests:
           - unique
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
       - name: _airbyte_data
         tests:
           - not_null
-  - name: "{{ var('campaigns_base') }}"
+
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables:          
+  - name: campaigns_base
     columns:
       - name: _airbyte_campaigns_hashid
         tests:
@@ -28,4 +33,4 @@ sources:
   database: "{{ env_var('PARTNER_PROJECT_ID') }}"
   schema: "{{ env_var('PARTNER_DATASET_ID') }}"
   tables:
-  - name: "{{ var('campaigns') }}"
+  - name: campaigns
