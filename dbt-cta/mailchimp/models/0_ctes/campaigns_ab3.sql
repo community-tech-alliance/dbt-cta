@@ -31,7 +31,7 @@ select
         boolean_to_string('needs_block_refresh'),
     ]) }} as _airbyte_campaigns_hashid,
     tmp.*
-from {{ ref('campaigns_ab2') }} tmp
+from {{ ref('campaigns_ab2') }} as tmp
 where 1 = 1
 {{ incremental_clause('_airbyte_extracted_at') }}
 
