@@ -7,11 +7,11 @@
 -- depends_on: {{ ref('knock_people_cte1') }}
 -- ensures the base model contains only one row per id
 
-SELECT * FROM 
-(
-SELECT 
-    *,
-    ROW_NUMBER() OVER (PARTITION BY _knock_people_hashid ORDER BY _cta_loaded_at desc) as rownum 
-FROM {{ ref('knock_people_cte1') }}
-)
-where rownum=1
+select * from
+    (
+        select
+            *,
+            row_number() over (partition by _knock_people_hashid order by _cta_loaded_at desc) as rownum
+        from {{ ref('knock_people_cte1') }}
+    )
+where rownum = 1
