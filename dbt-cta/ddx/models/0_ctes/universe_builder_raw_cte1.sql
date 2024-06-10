@@ -17,7 +17,7 @@ select
     cast(datetime_canvassed_window_start as timestamp) as datetime_canvassed_window_start,
     cast(datetime_canvassed_window_end as timestamp) as datetime_canvassed_window_end,
     cast(client_slug as string) as client_slug,
-    cast(universe_name as string) as subsuniverse_namecription_name,
+    cast(universe_name as string) as universe_name,
     cast(corrid as string) as corrid,
     cast(_cta_loaded_at as timestamp) as _cta_loaded_at,
   {{ dbt_utils.surrogate_key([
