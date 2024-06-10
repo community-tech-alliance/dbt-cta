@@ -95,10 +95,10 @@ models:
         description: "A unique identifier for the client organization that made the purchase of data using DDx credits."
       - name: universe_name
         description: 'A plain-text version of the universe name set by the user when they made the purchase. Spaces will be removed from the universe names set in the interface.'
-      - name: corrid
-        description: A unique identifier in the form of a uuid4, representing a unique extraction of data. This represents either an individual run of a standard subscription, or an individual universe cut from the Universe Builder tool.
       - name: _cta_loaded_at
         description: 'The timestamp of when CTA loaded this data into BigQuery'
+      - name: corrid
+        description: A unique identifier in the form of a uuid4, representing a unique extraction of data. This represents either an individual run of a standard subscription, or an individual universe cut from the Universe Builder tool.
       - name: _cta_hash_id
         description: 'A unique identifier for this row. Created using a combination of fields from this record'
         tests:
