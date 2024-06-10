@@ -1,5 +1,5 @@
 {{ config(
-    cluster_by = {"field": "corrid", "data_type": "string"},
+    cluster_by = "corrid",
     unique_key = "_cta_hash_id",
     tags = [ "universe-builder" ],
     persist_docs = {"columns": true}

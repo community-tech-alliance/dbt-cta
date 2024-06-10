@@ -6,3 +6,4 @@ sources:
   tables:
     - name: _survey_response_raw
     - name: _universe_builder_raw
+    - name: _universe_builder_raw_raw
