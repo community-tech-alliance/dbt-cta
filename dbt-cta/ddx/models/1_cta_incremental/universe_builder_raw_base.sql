@@ -1,7 +1,7 @@
 {{ config(
     partition_by = {"field": "datetime_pulled", "data_type": "timestamp", "granularity": "day"},
     unique_key = "_cta_hash_id",
-    tags = [ "survey-response" ],
+    tags = [ "univer-builder-raw" ],
     persist_docs = {"columns": true}
 ) }}
 

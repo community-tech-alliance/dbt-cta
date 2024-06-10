@@ -63,7 +63,7 @@ models:
           - unique
 
   - name: universe_builder_raw
-    description: 'Table for a DDX Standard Subscription Stream data with record type of survey-response'
+    description: 'Table that contain all DDx data that was used to generate the person list file via the Universe Builder tool'
     columns:
       - name: person_id
         description: "A configurable voter identification value. Can be a Catalist DWID, TargetSmart voterbase ID or VAN ID"
