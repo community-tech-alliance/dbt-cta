@@ -4,7 +4,7 @@ select * from
     (
         select
             *,
-            row_number() over (partition by _cta_hash_id order by datetime_pulled desc) as rownum
+            row_number() over (partition by _cta_hash_id) as rownum
         from {{ ref('universe_builder_cte1') }}
     )
 where rownum = 1

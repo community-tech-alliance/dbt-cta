@@ -8,7 +8,7 @@ select
     cast(client_slug as string) as client_slug,
     cast(universe_name as string) as universe_name,
     cast(_cta_loaded_at as timestamp) as _cta_loaded_at,
-    cast(subscription_name as string) as subscription_name,
+    cast(corrid as string) as corrid,
   {{ dbt_utils.surrogate_key([
     'person_id',
     'client_slug'
