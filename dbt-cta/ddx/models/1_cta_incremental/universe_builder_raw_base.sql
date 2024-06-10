@@ -24,4 +24,4 @@ select
     corrid,
     _cta_loaded_at,
     _cta_hash_id
-from {{ ref('survey_response_cte2') }}
+from {{ ref('universe_builder_raw_cte2') }}
