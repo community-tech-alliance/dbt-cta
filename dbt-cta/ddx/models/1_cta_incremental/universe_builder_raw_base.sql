@@ -2,7 +2,7 @@
     partition_by = {"field": "datetime_pulled", "data_type": "timestamp", "granularity": "day"},
     unique_key = "_cta_hash_id",
     tags = [ "universe-builder-raw" ],
-    persist_docs = {"columns": true}
+    persist_docs = {"columns": true, "relation": true}
 ) }}
 
 select

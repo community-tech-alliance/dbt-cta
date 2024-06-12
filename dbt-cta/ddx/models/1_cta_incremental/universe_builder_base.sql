@@ -2,7 +2,7 @@
     cluster_by = "corrid",
     unique_key = "_cta_hash_id",
     tags = [ "universe-builder" ],
-    persist_docs = {"columns": true}
+    persist_docs = {"columns": true, "relation": true}
 ) }}
 
 select
