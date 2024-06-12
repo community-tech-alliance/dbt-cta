@@ -3,10 +3,10 @@ version: 2
 models:
 
   - name: survey_response
-    description: 'Table for a DDX Standard Subscription Stream data with record type of survey-response'
+    description: Table for a DDX Standard Subscription Stream data with record type of survey-response
     columns:
       - name: person_id
-        description: "A configurable voter identification value. Can be a Catalist DWID, TargetSmart voterbase ID or VAN ID"
+        description: A configurable voter identification value. Can be a Catalist DWID, TargetSmart voterbase ID or VAN ID
       - name: state_code
         description: 'Two letter code indicating the state or territory the person is registered to vote in'
       - name: contact_type_name
