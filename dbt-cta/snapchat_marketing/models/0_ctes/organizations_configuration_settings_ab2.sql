@@ -13,4 +13,3 @@ select
 from {{ ref('organizations_configuration_settings_ab1') }}
 -- configuration_settings at organizations/configuration_settings
 where 1 = 1
-

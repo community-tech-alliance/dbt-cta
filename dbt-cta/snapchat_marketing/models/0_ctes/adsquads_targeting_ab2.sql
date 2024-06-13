@@ -15,5 +15,3 @@ select
 from {{ ref('adsquads_targeting_ab1') }}
 -- targeting at adsquads/targeting
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
-

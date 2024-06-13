@@ -17,5 +17,3 @@ select
 from {{ ref('creatives_web_view_properties_ab1') }}
 -- web_view_properties at creatives/web_view_properties
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
-

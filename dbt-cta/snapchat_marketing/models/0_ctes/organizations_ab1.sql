@@ -34,4 +34,3 @@ select
 from {{ source('cta', '_airbyte_raw_organizations') }} as table_alias
 -- organizations
 where 1 = 1
-

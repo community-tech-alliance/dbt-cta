@@ -17,5 +17,3 @@ select
 from {{ ref('adsquads_targeting_geos_ab1') }}
 -- geos at adsquads/targeting/geos
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
-

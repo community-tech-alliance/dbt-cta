@@ -13,5 +13,3 @@ select
 from {{ ref('adaccounts_regulations_ab1') }}
 -- regulations at adaccounts/regulations
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
-

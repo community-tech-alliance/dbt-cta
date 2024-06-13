@@ -28,5 +28,3 @@ select
 from {{ source('cta', '_airbyte_raw_media') }} as table_alias
 -- media
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
-

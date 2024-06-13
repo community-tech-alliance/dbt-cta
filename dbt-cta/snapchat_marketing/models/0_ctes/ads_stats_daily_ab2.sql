@@ -84,4 +84,3 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('ads_stats_daily_ab1') }}
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}

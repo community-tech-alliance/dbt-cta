@@ -23,5 +23,3 @@ select
 from {{ ref('ads_ab1') }}
 -- ads
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
-

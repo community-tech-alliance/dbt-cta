@@ -26,5 +26,3 @@ select
 from {{ ref('segments_ab1') }}
 -- segments
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
-

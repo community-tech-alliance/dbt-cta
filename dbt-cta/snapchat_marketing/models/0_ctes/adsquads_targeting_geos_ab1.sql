@@ -8,9 +8,9 @@
 select
     ad_squad_id,
     {{ json_extract_scalar(unnested_column_value('geos'), ['country_code'], ['country_code']) }} as country_code,
-    {{ extract_snapchat_geo('region_id') }}[SAFE_ORDINAL(1)] as region_id,
-    {{ extract_snapchat_geo('metro') }}[SAFE_ORDINAL(1)] as metro,
-    {{ extract_snapchat_geo('postal_code') }}[SAFE_ORDINAL(1)] as postal_code,
+    {{ extract_snapchat_geo('region_id') }}[safe_ordinal(1)] as region_id,
+    {{ extract_snapchat_geo('metro') }}[safe_ordinal(1)] as metro,
+    {{ extract_snapchat_geo('postal_code') }}[safe_ordinal(1)] as postal_code,
     -- NOTE: The snapchat marketing documentation mentions an "electoral" geo type,
     -- but it doesn't appear in any of our test data, so leaving it out for now.
     {{ json_extract_scalar(unnested_column_value('geos'), ['operation'], ['operation']) }} as operation,
@@ -18,10 +18,9 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('adsquads_targeting_base') }} as table_alias
+from {{ ref('adsquads_targeting_base') }}
 -- geos at adsquads_base/targeting/geos
 {{ cross_join_unnest('targeting', 'geos') }}
-where 1 = 1
-and geos is not null
-{{ incremental_clause('_airbyte_emitted_at') }}
-
+where
+    1 = 1
+    and geos is not null

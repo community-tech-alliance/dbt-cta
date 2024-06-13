@@ -4,6 +4,5 @@
     unique_key = '_airbyte_geos_hashid'
 ) }}
 
-SELECT
-  *
-FROM {{ source('cta', 'adsquads_targeting_geos_base') }}
+select *
+from {{ source('cta', 'adsquads_targeting_geos_base') }}

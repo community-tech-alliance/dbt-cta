@@ -4,6 +4,5 @@
     unique_key = 'id'
 ) }}
 
-SELECT
-  *
-FROM {{ source('cta', 'media_base') }}
+select *
+from {{ source('cta', 'media_base') }}

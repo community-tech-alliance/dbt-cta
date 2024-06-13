@@ -34,4 +34,3 @@ select
 from {{ ref('organizations_ab1') }}
 -- organizations
 where 1 = 1
-

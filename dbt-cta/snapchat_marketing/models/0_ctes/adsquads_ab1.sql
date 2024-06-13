@@ -38,5 +38,3 @@ select
 from {{ source('cta', '_airbyte_raw_adsquads') }} as table_alias
 -- adsquads
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
-

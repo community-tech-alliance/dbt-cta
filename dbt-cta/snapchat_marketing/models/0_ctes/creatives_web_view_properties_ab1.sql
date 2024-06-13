@@ -14,9 +14,8 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('creatives_base') }} as table_alias
+from {{ ref('creatives_base') }}
 -- web_view_properties at creatives_base/web_view_properties
-where 1 = 1
-and web_view_properties is not null
-{{ incremental_clause('_airbyte_emitted_at') }}
-
+where
+    1 = 1
+    and web_view_properties is not null

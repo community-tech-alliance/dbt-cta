@@ -4,6 +4,5 @@
     unique_key = 'id'
 ) }}
 
-SELECT
-    *
-FROM {{ source('cta', 'organizations_base') }}
+select *
+from {{ source('cta', 'organizations_base') }}

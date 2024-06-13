@@ -13,5 +13,3 @@ select
 from {{ ref('adsquads_skadnetwork_properties_ab1') }}
 -- skadnetwork_properties at adsquads/skadnetwork_properties
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
-
