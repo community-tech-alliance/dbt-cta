@@ -20,6 +20,7 @@ sources:
   - name: _organizations_raw
   - name: _survey_questions_raw
   - name: _survey_responses_raw
+  - name: _tags_raw
   - name: _threads_raw
   - name: _users_raw
   - name: _workflows_raw
@@ -39,6 +40,7 @@ sources:
   - name: organizations_base
   - name: survey_questions_base
   - name: survey_responses_base
+  - name: tags_base
   - name: threads_base
   - name: users_base
   - name: workflows_base
