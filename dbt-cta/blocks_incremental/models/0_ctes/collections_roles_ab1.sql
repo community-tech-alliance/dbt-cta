@@ -1,3 +1,4 @@
+
 {{ config(
     cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
@@ -7,13 +8,13 @@
 -- depends_on: {{ source('cta', 'collections_roles') }}
 
 select
-    _airbyte_raw_id,
-    _airbyte_extracted_at,
-    _airbyte_meta,
-    collection_id,
-    role_id,
+   _airbyte_raw_id,
+   _airbyte_extracted_at,
+   _airbyte_meta,
+   role_id,
+   collection_id,
    {{ dbt_utils.surrogate_key([
-     'collection_id',
-    'role_id'
+     'role_id',
+    'collection_id'
     ]) }} as _airbyte_collections_roles_hashid
 from {{ source('cta', 'collections_roles') }}

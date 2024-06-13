@@ -1,3 +1,4 @@
+
 {{ config(
     cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
@@ -7,25 +8,25 @@
 -- depends_on: {{ source('cta', 'contact_methods') }}
 
 select
-    _airbyte_raw_id,
-    _airbyte_extracted_at,
-    _airbyte_meta,
-    extension,
-    contact_type,
-    updated_at,
-    invalid,
-    created_at,
-    description,
-    id,
-    content,
-    person_id,
+   _airbyte_raw_id,
+   _airbyte_extracted_at,
+   _airbyte_meta,
+   id,
+   content,
+   invalid,
+   extension,
+   person_id,
+   created_at,
+   updated_at,
+   description,
+   contact_type,
    {{ dbt_utils.surrogate_key([
-     'extension',
-    'contact_type',
-    'invalid',
-    'description',
-    'id',
+     'id',
     'content',
-    'person_id'
+    'invalid',
+    'extension',
+    'person_id',
+    'description',
+    'contact_type'
     ]) }} as _airbyte_contact_methods_hashid
 from {{ source('cta', 'contact_methods') }}

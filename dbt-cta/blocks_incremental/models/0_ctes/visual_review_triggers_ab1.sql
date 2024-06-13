@@ -1,3 +1,4 @@
+
 {{ config(
     cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
@@ -7,25 +8,25 @@
 -- depends_on: {{ source('cta', 'visual_review_triggers') }}
 
 select
-    _airbyte_raw_id,
-    _airbyte_extracted_at,
-    _airbyte_meta,
-    custom_field,
-    string_value,
-    invert,
-    response_id,
-    record,
-    column,
-    match_type,
-    id,
+   _airbyte_raw_id,
+   _airbyte_extracted_at,
+   _airbyte_meta,
+   id,
+   column,
+   invert,
+   record,
+   match_type,
+   response_id,
+   custom_field,
+   string_value,
    {{ dbt_utils.surrogate_key([
-     'custom_field',
-    'string_value',
-    'invert',
-    'response_id',
-    'record',
+     'id',
     'column',
+    'invert',
+    'record',
     'match_type',
-    'id'
+    'response_id',
+    'custom_field',
+    'string_value'
     ]) }} as _airbyte_visual_review_triggers_hashid
 from {{ source('cta', 'visual_review_triggers') }}

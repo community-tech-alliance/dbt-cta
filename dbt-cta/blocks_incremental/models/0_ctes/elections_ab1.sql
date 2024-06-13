@@ -1,3 +1,4 @@
+
 {{ config(
     cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
@@ -7,19 +8,21 @@
 -- depends_on: {{ source('cta', 'elections') }}
 
 select
-    _airbyte_raw_id,
-    _airbyte_extracted_at,
-    _airbyte_meta,
-    date,
-    updated_at,
-    created_at,
-    description,
-    id,
-    state,
+   _airbyte_raw_id,
+   _airbyte_extracted_at,
+   _airbyte_meta,
+   id,
+   key,
+   date,
+   state,
+   created_at,
+   updated_at,
+   description,
    {{ dbt_utils.surrogate_key([
-     'date',
-    'description',
-    'id',
-    'state'
+     'id',
+    'key',
+    'date',
+    'state',
+    'description'
     ]) }} as _airbyte_elections_hashid
 from {{ source('cta', 'elections') }}

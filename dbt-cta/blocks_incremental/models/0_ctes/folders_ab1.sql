@@ -1,3 +1,4 @@
+
 {{ config(
     cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
@@ -7,25 +8,25 @@
 -- depends_on: {{ source('cta', 'folders') }}
 
 select
-    _airbyte_raw_id,
-    _airbyte_extracted_at,
-    _airbyte_meta,
-    depth,
-    updated_at,
-    parent_id,
-    name,
-    extras,
-    created_at,
-    id,
-    lft,
-    rgt,
+   _airbyte_raw_id,
+   _airbyte_extracted_at,
+   _airbyte_meta,
+   id,
+   lft,
+   rgt,
+   name,
+   depth,
+   extras,
+   parent_id,
+   created_at,
+   updated_at,
    {{ dbt_utils.surrogate_key([
-     'depth',
-    'parent_id',
-    'name',
-    'extras',
-    'id',
+     'id',
     'lft',
-    'rgt'
+    'rgt',
+    'name',
+    'depth',
+    'extras',
+    'parent_id'
     ]) }} as _airbyte_folders_hashid
 from {{ source('cta', 'folders') }}
