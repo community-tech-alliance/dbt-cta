@@ -13,7 +13,7 @@ select
    _airbyte_meta,
    id,
    body,
-   from,
+   `from`,
    list_id,
    subject,
    team_id,
@@ -25,7 +25,7 @@ select
    {{ dbt_utils.surrogate_key([
      'id',
     'body',
-    'from',
+    '`from`',
     'list_id',
     'subject',
     'team_id',

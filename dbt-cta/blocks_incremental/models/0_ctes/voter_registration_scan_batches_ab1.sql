@@ -27,7 +27,7 @@ select
    original_filename,
    created_by_user_id,
    scans_need_delivery,
-   scans_with_phone_count
+   scans_with_phones_count,
    {{ dbt_utils.surrogate_key([
     'id',
     'ocr',
@@ -44,6 +44,6 @@ select
     'original_filename',
     'created_by_user_id',
     'scans_need_delivery',
-    'scans_with_phone_count'
+    'scans_with_phones_count'
     ]) }} as _airbyte_voter_registration_scan_batches_hashid
 from {{ source('cta', 'voter_registration_scan_batches') }}

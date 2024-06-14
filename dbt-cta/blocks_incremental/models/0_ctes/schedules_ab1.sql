@@ -18,7 +18,7 @@ select
    time,
    count,
    until,
-   interval,
+   `interval`,
    created_at,
    updated_at,
    day_of_week,
@@ -30,7 +30,7 @@ select
     'date',
     'rule',
     'count',
-    'interval',
+    '`interval`',
     'day_of_week',
     'schedulable_id',
     'schedulable_type'

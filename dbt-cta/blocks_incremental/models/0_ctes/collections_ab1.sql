@@ -21,7 +21,7 @@ select
    {{ dbt_utils.surrogate_key([
      'id',
     'name',
-    'default',
+    '`default`',
     'collection_type',
     'created_by_user_id'
     ]) }} as _airbyte_collections_hashid
