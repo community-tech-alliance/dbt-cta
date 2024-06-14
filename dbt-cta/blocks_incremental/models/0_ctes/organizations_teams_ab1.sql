@@ -10,10 +10,10 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    organization_id,
     team_id,
+    organization_id,
    {{ dbt_utils.surrogate_key([
-     'organization_id',
-    'team_id'
+     'team_id',
+    'organization_id'
     ]) }} as _airbyte_organizations_teams_hashid
 from {{ source('cta', 'organizations_teams') }}

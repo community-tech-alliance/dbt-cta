@@ -11,9 +11,9 @@ select
     _airbyte_extracted_at,
     _airbyte_meta,
     event_id,
+    created_at,
     updated_at,
     email_template_id,
-    created_at,
    {{ dbt_utils.surrogate_key([
      'event_id',
     'email_template_id'

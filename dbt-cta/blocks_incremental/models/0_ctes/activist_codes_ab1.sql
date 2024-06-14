@@ -10,14 +10,14 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    updated_at,
-    name,
-    created_at,
     id,
+    name,
     label,
+    created_at,
+    updated_at,
    {{ dbt_utils.surrogate_key([
-     'name',
-    'id',
+     'id',
+    'name',
     'label'
     ]) }} as _airbyte_activist_codes_hashid
 from {{ source('cta', 'activist_codes') }}

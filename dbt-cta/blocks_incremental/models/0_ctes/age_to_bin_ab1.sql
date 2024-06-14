@@ -10,10 +10,10 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    label,
     age,
+    label,
    {{ dbt_utils.surrogate_key([
-     'label',
-    'age'
+     'age',
+    'label'
     ]) }} as _airbyte_age_to_bin_hashid
 from {{ source('cta', 'age_to_bin') }}

@@ -10,18 +10,16 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    member_id,
-    updated_at,
-    responsibility,
-    created_at,
     id,
     team_id,
-    responsibility_id,
+    member_id,
+    created_at,
+    updated_at,
+    responsibility,
    {{ dbt_utils.surrogate_key([
-     'member_id',
-    'responsibility',
-    'id',
+     'id',
     'team_id',
-    'responsibility_id'
+    'member_id',
+    'responsibility'
     ]) }} as _airbyte_team_memberships_hashid
 from {{ source('cta', 'team_memberships') }}

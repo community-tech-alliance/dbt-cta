@@ -10,16 +10,18 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    date,
-    updated_at,
-    created_at,
-    description,
     id,
+    key,
+    date,
     state,
+    created_at,
+    updated_at,
+    description,
    {{ dbt_utils.surrogate_key([
-     'date',
-    'description',
-    'id',
-    'state'
+     'id',
+    'key',
+    'date',
+    'state',
+    'description'
     ]) }} as _airbyte_elections_hashid
 from {{ source('cta', 'elections') }}

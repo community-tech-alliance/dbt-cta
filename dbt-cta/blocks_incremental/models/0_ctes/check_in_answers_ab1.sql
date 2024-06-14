@@ -10,16 +10,16 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    updated_at,
-    user_id,
-    created_at,
     id,
     text,
+    user_id,
+    created_at,
+    updated_at,
     question_id,
    {{ dbt_utils.surrogate_key([
-     'user_id',
-    'id',
+     'id',
     'text',
+    'user_id',
     'question_id'
     ]) }} as _airbyte_check_in_answers_hashid
 from {{ source('cta', 'check_in_answers') }}

@@ -10,12 +10,10 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    id,
-    phone_verification_question_id,
     turf_id,
+    phone_verification_question_id,
    {{ dbt_utils.surrogate_key([
-        'id',
-        'phone_verification_question_id',
-        'turf_id',
+     'turf_id',
+    'phone_verification_question_id'
     ]) }} as _airbyte_turf_pvqs_hashid
 from {{ source('cta', 'turf_pvqs') }}

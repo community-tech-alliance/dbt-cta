@@ -10,16 +10,16 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    updated_at,
-    name,
-    created_at,
-    description,
     id,
+    name,
     state,
+    created_at,
+    updated_at,
+    description,
    {{ dbt_utils.surrogate_key([
-     'name',
-    'description',
-    'id',
-    'state'
+     'id',
+    'name',
+    'state',
+    'description'
     ]) }} as _airbyte_counties_hashid
 from {{ source('cta', 'counties') }}

@@ -10,16 +10,16 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    updated_at,
-    name,
-    created_at,
     id,
-    created_by_user_id,
+    name,
     content,
+    created_at,
+    updated_at,
+    created_by_user_id,
    {{ dbt_utils.surrogate_key([
-     'name',
-    'id',
-    'created_by_user_id',
-    'content'
+     'id',
+    'name',
+    'content',
+    'created_by_user_id'
     ]) }} as _airbyte_dashboard_layouts_hashid
 from {{ source('cta', 'dashboard_layouts') }}
