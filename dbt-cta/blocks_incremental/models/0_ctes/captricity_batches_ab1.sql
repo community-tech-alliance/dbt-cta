@@ -1,4 +1,3 @@
-
 {{ config(
     cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
@@ -8,22 +7,22 @@
 -- depends_on: {{ source('cta', 'captricity_batches') }}
 
 select
-   _airbyte_raw_id,
-   _airbyte_extracted_at,
-   _airbyte_meta,
-   id,
-   status,
-   api_log,
-   remote_id,
-   created_at,
-   updated_at,
-   imported_at,
-   rejected_at,
-   submitted_at,
-   reject_reason,
-   petitions_book_id,
-   petition_packet_id,
-   voter_registration_scan_batch_id,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
+    _airbyte_meta,
+    id,
+    status,
+    api_log,
+    remote_id,
+    created_at,
+    updated_at,
+    imported_at,
+    rejected_at,
+    submitted_at,
+    reject_reason,
+    petitions_book_id,
+    petition_packet_id,
+    voter_registration_scan_batch_id,
    {{ dbt_utils.surrogate_key([
      'id',
     'status',

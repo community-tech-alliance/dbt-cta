@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM  {{ source('cta', 'import_lcv_base') }}
+select *
+from {{ source('cta', 'import_lcv_base') }}

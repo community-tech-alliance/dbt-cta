@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM  {{ source('cta', 'quality_control_comments_base') }}
+select *
+from {{ source('cta', 'quality_control_comments_base') }}

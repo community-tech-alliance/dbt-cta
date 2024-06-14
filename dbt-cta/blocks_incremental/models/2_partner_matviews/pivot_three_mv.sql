@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM  {{ source('cta', 'pivot_three_base') }}
+select *
+from {{ source('cta', 'pivot_three_base') }}

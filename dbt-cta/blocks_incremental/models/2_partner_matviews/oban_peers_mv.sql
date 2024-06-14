@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM  {{ source('cta', 'oban_peers_base') }}
+select *
+from {{ source('cta', 'oban_peers_base') }}

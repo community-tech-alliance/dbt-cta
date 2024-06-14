@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM  {{ source('cta', 'tenant_blocks_base') }}
+select *
+from {{ source('cta', 'tenant_blocks_base') }}

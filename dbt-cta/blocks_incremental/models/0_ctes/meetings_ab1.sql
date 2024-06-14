@@ -1,4 +1,3 @@
-
 {{ config(
     cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
@@ -8,22 +7,22 @@
 -- depends_on: {{ source('cta', 'meetings') }}
 
 select
-   _airbyte_raw_id,
-   _airbyte_extracted_at,
-   _airbyte_meta,
-   id,
-   type,
-   notes,
-   user_id,
-   end_time,
-   cancelled,
-   person_id,
-   created_at,
-   start_time,
-   updated_at,
-   location_id,
-   guest_attended,
-   additional_person_id,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
+    _airbyte_meta,
+    id,
+    type,
+    notes,
+    user_id,
+    end_time,
+    cancelled,
+    person_id,
+    created_at,
+    start_time,
+    updated_at,
+    location_id,
+    guest_attended,
+    additional_person_id,
    {{ dbt_utils.surrogate_key([
      'id',
     'type',

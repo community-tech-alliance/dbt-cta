@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM  {{ source('cta', 'twilio_calls_base') }}
+select *
+from {{ source('cta', 'twilio_calls_base') }}
