@@ -20,11 +20,12 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('ads_insights_overall_ab3') }} as table_alias
+from {{ ref('ads_insights_overall_ab3') }}
 -- actions at ads_insights_overall/actions
 {{ cross_join_unnest('ads_insights_overall_ab3', 'actions') }}
-where 1 = 1
-AND actions is not null
-AND json_extract_scalar(actions, "$['action_type']") = 'landing_page_view'
+where
+    1 = 1
+    and actions is not null
+    and json_extract_scalar(actions, "$['action_type']") = "landing_page_view"
 {{ incremental_clause('_airbyte_emitted_at') }}
 

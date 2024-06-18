@@ -20,10 +20,11 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('ads_insights_platform_and_device_ab3') }} as table_alias
+from {{ ref('ads_insights_platform_and_device_ab3') }}
 -- cost_per_2_sec_continuous_video_view at ads_insights_platform_and_device/cost_per_2_sec_continuous_video_view
 {{ cross_join_unnest('ads_insights_platform_and_device_ab3', 'cost_per_2_sec_continuous_video_view') }}
-where 1 = 1
-and cost_per_2_sec_continuous_video_view is not null
+where
+    1 = 1
+    and cost_per_2_sec_continuous_video_view is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

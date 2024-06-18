@@ -32,4 +32,3 @@ select
 from {{ ref('ads_ab1') }}
 -- ads
 where 1 = 1
-
