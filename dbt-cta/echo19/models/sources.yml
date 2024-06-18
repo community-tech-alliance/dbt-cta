@@ -1,0 +1,14 @@
+version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables: 
+  - name: _stg_ivr_contact
+  - name: _stg_survey_result
+  - name: _stg_tag_result
+  - name: _stg_text_contact
+  - name: ivr_contact_base
+  - name: survey_result_base
+  - name: tag_result_base
+  - name: text_contact_base
