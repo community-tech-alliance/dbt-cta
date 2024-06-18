@@ -56,7 +56,7 @@ campaigns as (
 
 join1 as (
     select
-        campaign_id,
+        campaigns.campaign_id,
         campaign_name,
         campaign_objective,
         adset_id,
@@ -69,7 +69,7 @@ join1 as (
 
 join2 as (
 select
-    adset_id,
+    join1.adset_id,
     campaign_id,
     campaign_name,
     campaign_objective,
