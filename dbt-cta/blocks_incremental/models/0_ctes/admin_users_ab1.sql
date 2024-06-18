@@ -10,14 +10,14 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    session,
     id,
     email,
+    session,
     encrypted_password,
    {{ dbt_utils.surrogate_key([
-     'session',
-    'id',
+     'id',
     'email',
+    'session',
     'encrypted_password'
     ]) }} as _airbyte_admin_users_hashid
 from {{ source('cta', 'admin_users') }}

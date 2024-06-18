@@ -10,18 +10,16 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    first_person_id,
-    updated_at,
-    relationship_type_id,
-    second_person_id,
-    created_at,
     id,
     type,
+    created_at,
+    updated_at,
+    first_person_id,
+    second_person_id,
    {{ dbt_utils.surrogate_key([
-     'first_person_id',
-    'relationship_type_id',
-    'second_person_id',
-    'id',
-    'type'
+     'id',
+    'type',
+    'first_person_id',
+    'second_person_id'
     ]) }} as _airbyte_relationships_hashid
 from {{ source('cta', 'relationships') }}

@@ -10,20 +10,20 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    updated_at,
-    name,
-    metric_type,
-    created_at,
     id,
+    name,
     label,
-    show_on_leaderboard,
     required,
+    created_at,
+    updated_at,
+    metric_type,
+    show_on_leaderboard,
    {{ dbt_utils.surrogate_key([
-     'name',
-    'metric_type',
-    'id',
+     'id',
+    'name',
     'label',
-    'show_on_leaderboard',
-    'required'
+    'required',
+    'metric_type',
+    'show_on_leaderboard'
     ]) }} as _airbyte_metrics_hashid
 from {{ source('cta', 'metrics') }}

@@ -10,18 +10,18 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    archived,
-    check_in_id,
-    turf_id,
     id,
     text,
+    turf_id,
+    archived,
     position,
+    check_in_id,
    {{ dbt_utils.surrogate_key([
-     'archived',
-    'check_in_id',
-    'turf_id',
-    'id',
+     'id',
     'text',
-    'position'
+    'turf_id',
+    'archived',
+    'position',
+    'check_in_id'
     ]) }} as _airbyte_check_in_questions_hashid
 from {{ source('cta', 'check_in_questions') }}

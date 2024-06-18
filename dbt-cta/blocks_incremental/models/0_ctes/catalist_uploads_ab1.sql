@@ -10,18 +10,18 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    updated_at,
-    remote_file_url,
-    remote_id,
-    created_at,
     id,
     uuid,
     status,
+    remote_id,
+    created_at,
+    updated_at,
+    remote_file_url,
    {{ dbt_utils.surrogate_key([
-     'remote_file_url',
-    'remote_id',
-    'id',
+     'id',
     'uuid',
-    'status'
+    'status',
+    'remote_id',
+    'remote_file_url'
     ]) }} as _airbyte_catalist_uploads_hashid
 from {{ source('cta', 'catalist_uploads') }}

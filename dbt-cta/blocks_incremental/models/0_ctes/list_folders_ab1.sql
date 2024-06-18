@@ -10,14 +10,14 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    updated_at,
-    user_id,
-    name,
-    created_at,
     id,
+    name,
+    user_id,
+    created_at,
+    updated_at,
    {{ dbt_utils.surrogate_key([
-     'user_id',
+     'id',
     'name',
-    'id'
+    'user_id'
     ]) }} as _airbyte_list_folders_hashid
 from {{ source('cta', 'list_folders') }}

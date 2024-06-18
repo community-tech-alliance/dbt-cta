@@ -10,16 +10,16 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    updated_at,
-    created_at,
     id,
-    created_by_user_id,
     content,
     person_id,
+    created_at,
+    updated_at,
+    created_by_user_id,
    {{ dbt_utils.surrogate_key([
      'id',
-    'created_by_user_id',
     'content',
-    'person_id'
+    'person_id',
+    'created_by_user_id'
     ]) }} as _airbyte_notes_hashid
 from {{ source('cta', 'notes') }}

@@ -3,6 +3,8 @@ These dbt models are for transforming and delivering DDX standard subscription s
 
 # Currently Implemented Streams
 - survey-responses
+- universe-builder
+- universe-builder-raw
 - (Pending) contact-attempt
 - (Pending) universe-inclusion
 - (Pending) phone-number

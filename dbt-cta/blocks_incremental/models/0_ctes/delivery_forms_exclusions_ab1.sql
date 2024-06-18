@@ -10,10 +10,10 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    voter_registration_scan_id,
     delivery_id,
+    voter_registration_scan_id,
    {{ dbt_utils.surrogate_key([
-     'voter_registration_scan_id',
-    'delivery_id'
+     'delivery_id',
+    'voter_registration_scan_id'
     ]) }} as _airbyte_delivery_forms_exclusions_hashid
 from {{ source('cta', 'delivery_forms_exclusions') }}
