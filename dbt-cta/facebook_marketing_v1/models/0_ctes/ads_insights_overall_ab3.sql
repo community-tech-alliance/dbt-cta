@@ -9,8 +9,8 @@ select
     {{ dbt_utils.surrogate_key([
         'ad_id',
         'date_start'
-    ]) }} as _airbyte_ads_insights_overall_hashid
-    ,tmp.*
-from {{ ref('ads_insights_overall_ab2') }} tmp
+    ]) }} as _airbyte_ads_insights_overall_hashid,
+    tmp.*
+from {{ ref('ads_insights_overall_ab2') }} as tmp
 -- ads_insights
 where 1 = 1
