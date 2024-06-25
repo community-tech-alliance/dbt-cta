@@ -10,14 +10,14 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    translation_text,
-    script_id,
     id,
+    script_id,
     question_id,
+    translation_text,
    {{ dbt_utils.surrogate_key([
-     'translation_text',
+     'id',
     'script_id',
-    'id',
-    'question_id'
+    'question_id',
+    'translation_text'
     ]) }} as _airbyte_quality_control_phone_verification_question_translations_hashid
 from {{ source('cta', 'quality_control_phone_verification_question_translations') }}

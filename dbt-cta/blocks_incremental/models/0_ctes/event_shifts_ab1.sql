@@ -10,14 +10,14 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    start_time,
-    event_id,
-    updated_at,
-    end_time,
-    created_at,
     id,
+    end_time,
+    event_id,
+    created_at,
+    start_time,
+    updated_at,
    {{ dbt_utils.surrogate_key([
-     'event_id',
-    'id'
+     'id',
+    'event_id'
     ]) }} as _airbyte_event_shifts_hashid
 from {{ source('cta', 'event_shifts') }}

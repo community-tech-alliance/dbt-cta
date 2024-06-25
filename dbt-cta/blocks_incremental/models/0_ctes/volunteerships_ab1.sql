@@ -10,20 +10,18 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    event_shift_id,
-    updated_at,
-    user_id,
-    responsibility,
-    created_at,
     id,
-    responsibility_id,
+    user_id,
     person_id,
+    created_at,
+    updated_at,
+    event_shift_id,
+    responsibility,
    {{ dbt_utils.surrogate_key([
-     'event_shift_id',
+     'id',
     'user_id',
-    'responsibility',
-    'id',
-    'responsibility_id',
-    'person_id'
+    'person_id',
+    'event_shift_id',
+    'responsibility'
     ]) }} as _airbyte_volunteerships_hashid
 from {{ source('cta', 'volunteerships') }}

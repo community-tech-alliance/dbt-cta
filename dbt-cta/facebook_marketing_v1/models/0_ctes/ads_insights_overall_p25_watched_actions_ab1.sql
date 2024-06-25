@@ -21,10 +21,11 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('ads_insights_overall_ab3') }} as table_alias
+from {{ ref('ads_insights_overall_ab3') }}
 -- video_p25_watched_actions at ads_insights_overall/video_p25_watched_actions
 {{ cross_join_unnest('ads_insights_overall_ab3', 'video_p25_watched_actions') }}
-where 1 = 1
-and video_p25_watched_actions is not null
+where
+    1 = 1
+    and video_p25_watched_actions is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

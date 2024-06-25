@@ -10,16 +10,16 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    starts_at,
-    updated_at,
-    user_id,
-    created_at,
     id,
     ends_at,
     message,
+    user_id,
+    starts_at,
+    created_at,
+    updated_at,
    {{ dbt_utils.surrogate_key([
-     'user_id',
-    'id',
-    'message'
+     'id',
+    'message',
+    'user_id'
     ]) }} as _airbyte_announcements_hashid
 from {{ source('cta', 'announcements') }}

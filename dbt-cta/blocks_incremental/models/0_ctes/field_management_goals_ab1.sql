@@ -10,18 +10,18 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    end_date,
-    turf_id,
     id,
-    targets,
     labels,
+    targets,
+    turf_id,
+    end_date,
     start_date,
    {{ dbt_utils.surrogate_key([
-     'end_date',
-    'turf_id',
-    'id',
-    'targets',
+     'id',
     'labels',
+    'targets',
+    'turf_id',
+    'end_date',
     'start_date'
     ]) }} as _airbyte_field_management_goals_hashid
 from {{ source('cta', 'field_management_goals') }}

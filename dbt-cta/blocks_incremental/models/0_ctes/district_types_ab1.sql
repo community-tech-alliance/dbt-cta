@@ -10,10 +10,10 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    updated_at,
-    created_at,
     id,
     label,
+    created_at,
+    updated_at,
     primary_key,
    {{ dbt_utils.surrogate_key([
      'id',

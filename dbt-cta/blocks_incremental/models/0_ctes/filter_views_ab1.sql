@@ -10,20 +10,20 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    metadata,
-    conjunction,
-    updated_at,
-    user_id,
-    name,
-    created_at,
-    rules,
     id,
+    name,
+    rules,
+    user_id,
+    metadata,
+    created_at,
+    updated_at,
+    conjunction,
    {{ dbt_utils.surrogate_key([
-     'metadata',
-    'conjunction',
-    'user_id',
+     'id',
     'name',
     'rules',
-    'id'
+    'user_id',
+    'metadata',
+    'conjunction'
     ]) }} as _airbyte_filter_views_hashid
 from {{ source('cta', 'filter_views') }}
