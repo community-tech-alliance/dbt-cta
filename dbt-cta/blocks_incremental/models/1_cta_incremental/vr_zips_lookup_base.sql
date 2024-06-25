@@ -5,6 +5,6 @@
 ) }}
 
 -- Final base SQL model
--- depends_on: {{ ref('vr_zips_lookup_ab2') }}
+-- depends_on: {{ ref('votes_ab2') }}
 select * except (_airbyte_raw_id)
 from {{ ref('vr_zips_lookup_ab2') }}
