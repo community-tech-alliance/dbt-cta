@@ -10,7 +10,7 @@ select
     programId,
     programName,
     scheduleName,
-    "to" as `to`,
+    to_field,
     disposition,
     dateCreated,
     duration,

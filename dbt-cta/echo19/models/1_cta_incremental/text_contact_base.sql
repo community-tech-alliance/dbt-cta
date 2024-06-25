@@ -11,8 +11,8 @@ select
     programId,
     programName,
     scheduleName,
-    "from" as `from`, --SQL is weird, idk
-    "to" as `to`,
+    from_field,
+    to_field,
     direction,
     message,
     isMMS,
