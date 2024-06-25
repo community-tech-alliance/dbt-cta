@@ -7,7 +7,7 @@ select
   programId,
   programName,
   scheduleName,
-  [`to`] as to_field,
+  t.to,
   disposition,
   dateCreated,
   duration,
@@ -95,4 +95,4 @@ select
     'contactExtra29',
     'contactExtra30',
     ]) }} as ivr_contact_hashid
-from {{ source('cta', '_stg_ivr_contact') }}
+from {{ source('cta', '_stg_ivr_contact') }} as t

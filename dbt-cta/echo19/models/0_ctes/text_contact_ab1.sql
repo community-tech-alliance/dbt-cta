@@ -7,8 +7,8 @@ select
     programId,
     programName,
     scheduleName,
-    [`from`] as from_field,
-    [`to`] as to_field,
+    t.from,
+    t.to,
     direction,
     message,
     isMMS,
@@ -110,4 +110,4 @@ select
     'contactExtra29',
     'contactExtra30'
     ]) }} as text_contact_hashid
-from {{ source('cta', '_stg_text_contact') }}
+from {{ source('cta', '_stg_text_contact') }} as t

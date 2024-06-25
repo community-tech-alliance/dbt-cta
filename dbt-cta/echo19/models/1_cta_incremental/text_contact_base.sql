@@ -11,8 +11,8 @@ select
     programId,
     programName,
     scheduleName,
-    from_field,
-    to_field,
+    t.from,
+    t.to,
     direction,
     message,
     isMMS,
@@ -61,4 +61,4 @@ select
     contactExtra29,
     contactExtra30,
     text_contact_hashid
-from {{ ref('text_contact_ab2') }}
+from {{ ref('text_contact_ab2') }} as t
