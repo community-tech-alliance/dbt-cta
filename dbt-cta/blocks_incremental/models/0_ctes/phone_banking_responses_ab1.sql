@@ -10,18 +10,18 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    answer_option_id,
-    updated_at,
-    created_at,
     id,
-    question_id,
     call_id,
+    created_at,
+    updated_at,
+    question_id,
+    answer_option_id,
     open_ended_answer_text,
    {{ dbt_utils.surrogate_key([
-     'answer_option_id',
-    'id',
-    'question_id',
+     'id',
     'call_id',
+    'question_id',
+    'answer_option_id',
     'open_ended_answer_text'
     ]) }} as _airbyte_phone_banking_responses_hashid
 from {{ source('cta', 'phone_banking_responses') }}

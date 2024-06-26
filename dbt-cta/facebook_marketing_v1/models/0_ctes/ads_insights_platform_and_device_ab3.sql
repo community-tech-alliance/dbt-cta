@@ -14,6 +14,6 @@ select
         'impression_device'
     ]) }} as _airbyte_ads_insights_platform_and_device_hashid,
     tmp.*
-from {{ ref('ads_insights_platform_and_device_ab2') }} tmp
+from {{ ref('ads_insights_platform_and_device_ab2') }} as tmp
 -- ads_insights_platform_and_device
 where 1 = 1

@@ -10,18 +10,18 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    voter_age,
-    voter_gender,
-    turnout_score_avg,
+    zip5,
     count,
     state,
-    zip5,
+    voter_age,
     support_avg,
+    voter_gender,
     party_score_avg,
+    turnout_score_avg,
    {{ dbt_utils.surrogate_key([
-     'voter_gender',
+     'zip5',
     'count',
     'state',
-    'zip5'
+    'voter_gender'
     ]) }} as _airbyte_vr_zips_lookup_hashid
 from {{ source('cta', 'vr_zips_lookup') }}

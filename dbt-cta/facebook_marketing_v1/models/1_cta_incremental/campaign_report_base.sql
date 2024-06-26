@@ -8,26 +8,26 @@
 
 with aggregations as (
 
-SELECT
-    date_start,
-    account_id,
-    account_name,
-    campaign_id,
-    campaign_name,
-    max(timestamp_trunc(_airbyte_emitted_at, day)) as _airbyte_emitted_at,
-    sum(clicks) as clicks,
-    sum(impressions) as impressions,
-    sum(spend) as spend
-FROM  {{ ref('ads_insights_overall_base') }}
-GROUP BY
-    date_start,
-    account_id,
-    account_name,
-    campaign_id,
-    campaign_name
+    select
+        date_start,
+        account_id,
+        account_name,
+        campaign_id,
+        campaign_name,
+        max(timestamp_trunc(_airbyte_emitted_at, day)) as _airbyte_emitted_at,
+        sum(clicks) as clicks,
+        sum(impressions) as impressions,
+        sum(spend) as spend
+    from {{ ref('ads_insights_overall_base') }}
+    group by
+        date_start,
+        account_id,
+        account_name,
+        campaign_id,
+        campaign_name
 )
 
-SELECT
+select
     *,
     {{ dbt_utils.surrogate_key([
     'date_start',
@@ -35,6 +35,6 @@ SELECT
     'account_name',
     'campaign_id',
     'campaign_name'
-    ]) }} as _campaign_report_hashid
-    ,current_timestamp as _airbyte_normalized_at
-FROM aggregations
+    ]) }} as _campaign_report_hashid,
+    current_timestamp as _airbyte_normalized_at
+from aggregations

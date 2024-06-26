@@ -11,13 +11,13 @@ select
     _airbyte_extracted_at,
     _airbyte_meta,
     code,
-    updated_at,
-    created_at,
-    description,
     state,
+    created_at,
+    updated_at,
+    description,
    {{ dbt_utils.surrogate_key([
      'code',
-    'description',
-    'state'
+    'state',
+    'description'
     ]) }} as _airbyte_voted_labels_hashid
 from {{ source('cta', 'voted_labels') }}

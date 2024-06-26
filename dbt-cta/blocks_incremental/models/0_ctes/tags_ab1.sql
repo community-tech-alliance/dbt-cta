@@ -10,12 +10,12 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    name,
     id,
+    name,
     taggings_count,
    {{ dbt_utils.surrogate_key([
-     'name',
-    'id',
+     'id',
+    'name',
     'taggings_count'
     ]) }} as _airbyte_tags_hashid
 from {{ source('cta', 'tags') }}

@@ -10,22 +10,22 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    tenant_id,
-    updated_at,
-    user_id,
-    file_name_data,
-    created_at,
     id,
+    user_id,
     encoding,
     file_size,
     row_count,
+    tenant_id,
+    created_at,
+    updated_at,
+    file_name_data,
    {{ dbt_utils.surrogate_key([
-     'tenant_id',
+     'id',
     'user_id',
-    'file_name_data',
-    'id',
     'encoding',
     'file_size',
-    'row_count'
+    'row_count',
+    'tenant_id',
+    'file_name_data'
     ]) }} as _airbyte_import_files_hashid
 from {{ source('cta', 'import_files') }}

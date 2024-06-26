@@ -10,14 +10,14 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    skills,
-    campaigns,
-    languages,
-    turf_id,
     id,
     issues,
+    skills,
+    turf_id,
+    campaigns,
+    languages,
    {{ dbt_utils.surrogate_key([
-     'turf_id',
-    'id'
+     'id',
+    'turf_id'
     ]) }} as _airbyte_activism_options_configs_hashid
 from {{ source('cta', 'activism_options_configs') }}

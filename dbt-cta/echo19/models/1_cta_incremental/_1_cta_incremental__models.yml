@@ -1,0 +1,173 @@
+version: 2
+
+models:
+
+  - name: text_contact_base
+    description: ''
+    columns:
+      - name: textresultid
+        description: ''
+      - name: scheduleid
+        description: ''
+      - name: programid
+        description: ''
+      - name: programname
+        description: ''
+      - name: schedulename
+        description: ''
+      - name: from
+        description: ''
+      - name: to
+        description: ''
+      - name: direction
+        description: ''
+      - name: message
+        description: ''
+      - name: ismms
+        description: ''
+      - name: segments
+        description: ''
+      - name: threadid
+        description: ''
+      - name: disposition
+        description: ''
+      - name: error
+        description: ''
+      - name: datecreated
+        description: ''
+      - name: calleridphonenumberid
+        description: ''
+      - name: cost
+        description: ''
+      - name: contactid
+        description: ''
+      - name: externalid
+        description: ''
+      - name: contactfirstname
+        description: ''
+      - name: contactlastname
+        description: ''
+      - name: contactage
+        description: ''
+      - name: contactgender
+        description: ''
+      - name: contactrace
+        description: ''
+      - name: contactextra1
+        description: ''
+      - name: contactextra2
+        description: ''
+      - name: contactextra3
+        description: ''
+      - name: contactextra4
+        description: ''
+      - name: contactextra5
+        description: ''
+      - name: contactextra6
+        description: ''
+      - name: contactextra7
+        description: ''
+      - name: contactextra8
+        description: ''
+      - name: contactextra9
+        description: ''
+      - name: contactextra10
+        description: ''
+      - name: contactextra11
+        description: ''
+      - name: contactextra12
+        description: ''
+      - name: contactextra13
+        description: ''
+      - name: contactextra14
+        description: ''
+      - name: contactextra15
+        description: ''
+      - name: contactextra16
+        description: ''
+      - name: contactextra17
+        description: ''
+      - name: contactextra18
+        description: ''
+      - name: contactextra19
+        description: ''
+      - name: contactextra20
+        description: ''
+      - name: contactextra21
+        description: ''
+      - name: contactextra22
+        description: ''
+      - name: contactextra23
+        description: ''
+      - name: contactextra24
+        description: ''
+      - name: contactextra25
+        description: ''
+      - name: contactextra26
+        description: ''
+      - name: contactextra27
+        description: ''
+      - name: contactextra28
+        description: ''
+      - name: contactextra29
+        description: ''
+      - name: contactextra30
+        description: ''
+      - name: text_contact_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+          
+  - name: survey_result_base
+    description: ''
+    columns:
+      - name: answerid
+        description: ''
+      - name: contactid
+        description: ''
+      - name: scheduleid
+        description: ''
+      - name: questionid
+        description: ''
+      - name: questiontext
+        description: ''
+      - name: answeractionid
+        description: ''
+      - name: answervalue
+        description: ''
+      - name: digit
+        description: ''
+      - name: datecreated
+        description: ''
+      - name: survey_result_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+
+  - name: tag_result_base
+    description: ''
+    columns:
+      - name: tagresultid
+        description: ''
+      - name: tagid
+        description: ''
+      - name: scheduleid
+        description: ''
+      - name: programid
+        description: ''
+      - name: name
+        description: ''
+      - name: contactid
+        description: ''
+      - name: isoptout
+        description: ''
+      - name: datecreated
+        description: ''
+      - name: tag_result_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+

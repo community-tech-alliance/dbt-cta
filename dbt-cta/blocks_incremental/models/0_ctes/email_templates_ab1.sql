@@ -10,18 +10,18 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    updated_at,
-    template_content,
+    id,
     name,
     extras,
     created_at,
-    id,
+    updated_at,
+    template_content,
     created_by_user_id,
    {{ dbt_utils.surrogate_key([
-     'template_content',
+     'id',
     'name',
     'extras',
-    'id',
+    'template_content',
     'created_by_user_id'
     ]) }} as _airbyte_email_templates_hashid
 from {{ source('cta', 'email_templates') }}

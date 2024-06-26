@@ -10,14 +10,14 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    updated_at,
+    id,
     name,
     created_at,
+    updated_at,
     description,
-    id,
    {{ dbt_utils.surrogate_key([
-     'name',
-    'description',
-    'id'
+     'id',
+    'name',
+    'description'
     ]) }} as _airbyte_parties_hashid
 from {{ source('cta', 'parties') }}

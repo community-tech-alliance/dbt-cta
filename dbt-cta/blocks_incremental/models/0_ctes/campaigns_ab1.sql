@@ -10,20 +10,20 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
+    id,
+    name,
     end_date,
+    created_at,
+    creator_id,
+    start_date,
     updated_at,
     campaign_type,
-    name,
-    creator_id,
-    created_at,
-    id,
-    start_date,
    {{ dbt_utils.surrogate_key([
-     'end_date',
-    'campaign_type',
+     'id',
     'name',
+    'end_date',
     'creator_id',
-    'id',
-    'start_date'
+    'start_date',
+    'campaign_type'
     ]) }} as _airbyte_campaigns_hashid
 from {{ source('cta', 'campaigns') }}

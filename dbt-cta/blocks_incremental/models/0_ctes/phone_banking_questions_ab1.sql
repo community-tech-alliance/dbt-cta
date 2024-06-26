@@ -10,20 +10,20 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     _airbyte_meta,
-    question_to_ask,
-    updated_at,
+    id,
     name,
+    type,
     extras,
     created_at,
-    id,
-    type,
+    updated_at,
+    question_to_ask,
     created_by_user_id,
    {{ dbt_utils.surrogate_key([
-     'question_to_ask',
+     'id',
     'name',
-    'extras',
-    'id',
     'type',
+    'extras',
+    'question_to_ask',
     'created_by_user_id'
     ]) }} as _airbyte_phone_banking_questions_hashid
 from {{ source('cta', 'phone_banking_questions') }}

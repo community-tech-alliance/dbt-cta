@@ -3,10 +3,10 @@ version: 2
 models:
 
   - name: survey_response
-    description: 'Table for a DDX Standard Subscription Stream data with record type of survey-response'
+    description: Table for a DDX Standard Subscription Stream data with record type of survey-response
     columns:
       - name: person_id
-        description: "A configurable voter identification valu. Can be a Catalist DWID, TargetSmart voterbase ID or VAN ID"
+        description: A configurable voter identification value. Can be a Catalist DWID, TargetSmart voterbase ID or VAN ID
       - name: state_code
         description: 'Two letter code indicating the state or territory the person is registered to vote in'
       - name: contact_type_name
@@ -41,3 +41,66 @@ models:
           - not_null
           - unique
 
+  - name: universe_builder
+    description: 'Table for a DDX Standard Subscription Stream data with record type of universe-builder'
+    columns:
+      - name: person_id
+        description: "A configurable voter identification value. Can be a Catalist DWID, TargetSmart voterbase ID or VAN ID"
+      - name: state_code
+        description: 'Two letter code indicating the state or territory the person is registered to vote in'
+      - name: client_slug
+        description: "A unique identifier for the client organization that made the purchase of data using DDx credits."
+      - name: universe_name
+        description: 'A plain-text version of the universe name set by the user when they made the purchase. Spaces will be removed from the universe names set in the interface.'
+      - name: corrid
+        description: A unique identifier in the form of a uuid4, representing a unique extraction of data. This represents either an individual run of a standard subscription, or an individual universe cut from the Universe Builder tool.
+      - name: _cta_loaded_at
+        description: 'The timestamp of when CTA loaded this data into BigQuery'
+      - name: _cta_hash_id
+        description: 'A unique identifier for this row. Created using a combination of fields from this record'
+        tests:
+          - not_null
+          - unique
+
+  - name: universe_builder_raw
+    description: 'Table that contain all DDx data that was used to generate the person list file via the Universe Builder tool'
+    columns:
+      - name: person_id
+        description: "A configurable voter identification value. Can be a Catalist DWID, TargetSmart voterbase ID or VAN ID"
+      - name: state_code
+        description: 'Two letter code indicating the state or territory the person is registered to vote in'
+      - name: contact_type_name
+        description: 'The mode of contact used in the effort to reach out to the person'
+      - name: contact_result_name
+        description: 'The result of the effort made to reach out to the person'
+      - name: exchange_survey_question_code
+        description: 'A unique code representing to a standardized DDx Golden Question, representing the most granular view of normalized data available for this record'
+      - name: exchange_survey_question_response_name
+        description: 'The string value of the response given to the exchange survey question'
+      - name: aggregated_exchange_survey_question_code
+        description: 'When applicable, a unique code representing to a standardized DDx Golden Question indicating a more aggregated characterization of the record.'
+      - name: aggregated_exchange_survey_question_response_name
+        description: 'The string value of the response given to the aggregate exchange survey question'
+      - name: record_id
+        description: 'A unique ID representing a single survey response record.'
+      - name: contact_attempt_record_id
+        description: 'A unique ID representing a single contact attempt. Any survey responses that have the same value for this field were generated from the same contact'
+      - name: datetime_pulled
+        description: 'The date and time that the data was pulled from DDx'
+      - name: datetime_canvassed_window_start
+        description: 'The start of the abstracted window of time in which the data was collected.'
+      - name: datetime_canvassed_window_end
+        description: 'The end of the abstracted window of time in which the data was collected.'
+      - name: client_slug
+        description: "A unique identifier for the client organization that made the purchase of data using DDx credits."
+      - name: universe_name
+        description: 'A plain-text version of the universe name set by the user when they made the purchase. Spaces will be removed from the universe names set in the interface.'
+      - name: _cta_loaded_at
+        description: 'The timestamp of when CTA loaded this data into BigQuery'
+      - name: corrid
+        description: A unique identifier in the form of a uuid4, representing a unique extraction of data. This represents either an individual run of a standard subscription, or an individual universe cut from the Universe Builder tool.
+      - name: _cta_hash_id
+        description: 'A unique identifier for this row. Created using a combination of fields from this record'
+        tests:
+          - not_null
+          - unique

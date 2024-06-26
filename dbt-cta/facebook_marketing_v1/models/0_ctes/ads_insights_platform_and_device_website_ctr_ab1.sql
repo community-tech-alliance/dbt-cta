@@ -20,10 +20,11 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('ads_insights_platform_and_device_ab3') }} as table_alias
+from {{ ref('ads_insights_platform_and_device_ab3') }}
 -- website_ctr at ads_insights_platform_and_device/website_ctr
 {{ cross_join_unnest('ads_insights_platform_and_device_ab3', 'website_ctr') }}
-where 1 = 1
-and website_ctr is not null
+where
+    1 = 1
+    and website_ctr is not null
 {{ incremental_clause('_airbyte_emitted_at') }}
 

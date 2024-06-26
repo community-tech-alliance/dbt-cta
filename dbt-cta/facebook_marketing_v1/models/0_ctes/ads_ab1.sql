@@ -32,4 +32,3 @@ select
 from {{ source('cta', '_airbyte_raw_ads') }} as table_alias
 -- ads
 where 1 = 1
-
