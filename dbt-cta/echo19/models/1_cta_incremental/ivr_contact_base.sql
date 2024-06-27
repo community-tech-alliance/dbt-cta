@@ -10,7 +10,7 @@ select
     programId,
     programName,
     scheduleName,
-    t.to,
+    cast(t.to as string) as `to`,
     disposition,
     dateCreated,
     duration,
