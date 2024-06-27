@@ -10,7 +10,6 @@ select
     ipAddress,
     longUrl,
    {{ dbt_utils.surrogate_key([
-     'textResultId',
     'clickId',
     'scheduleId',
     'programId',
