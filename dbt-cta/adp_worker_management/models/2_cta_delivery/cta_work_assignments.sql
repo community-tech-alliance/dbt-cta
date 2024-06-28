@@ -27,6 +27,6 @@ select
     payrollScheduledGroupID,
     payrollFileNumber,
     managementPositionIndicator,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_work_assignments_hashid
 from {{ source('cta','work_assignments_base') }}

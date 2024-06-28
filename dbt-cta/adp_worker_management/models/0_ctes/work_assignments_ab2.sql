@@ -1,6 +1,6 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
 ) }}
 
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
@@ -38,8 +38,8 @@ select
     cast(managementPositionIndicator as boolean) as managementPositionIndicator,
     homeOrganizationalUnits,
     assignedOrganizationalUnits,
-    t._airbyte_ab_id,
-    t._airbyte_emitted_at
+    t._airbyte_raw_id,
+    t._airbyte_extracted_at
 
 from {{ ref('work_assignments_ab1') }} as t
 where 1 = 1

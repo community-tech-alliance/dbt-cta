@@ -5,7 +5,7 @@ SELECT * EXCEPT (rownum) FROM
 (
 SELECT 
     *,
-    ROW_NUMBER() OVER (PARTITION BY _airbyte_personal_landlines_hashid ORDER BY _airbyte_emitted_at desc) as rownum 
+    ROW_NUMBER() OVER (PARTITION BY _airbyte_personal_landlines_hashid ORDER BY _airbyte_extracted_at desc) as rownum 
 from {{ ref('personal_landlines_ab3') }}
 )
 where rownum=1
