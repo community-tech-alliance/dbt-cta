@@ -44,6 +44,6 @@ select
     work_faxes,
     work_pagers,
     workAssignments,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_workers_hashid
 from {{ source('cta','workers_base') }}

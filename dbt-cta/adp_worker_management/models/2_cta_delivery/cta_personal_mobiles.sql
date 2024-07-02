@@ -8,6 +8,6 @@ select
     dialNumber,
     access,
     formattedNumber,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_personal_mobiles_hashid
 from {{ source('cta','personal_mobiles_base') }}

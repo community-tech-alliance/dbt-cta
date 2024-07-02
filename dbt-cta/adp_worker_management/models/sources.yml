@@ -1,34 +1,37 @@
 version: 2
 sources:
-- name: cta
+- name: cta_raw
   database: "{{ env_var('CTA_PROJECT_ID') }}"
-  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  schema: airbyte_internal
   tables:
-  - name: _airbyte_raw_workers
+  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_workers'}}"
     columns:
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         tests:
           - unique
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp
       - name: _airbyte_data
         tests:
           - not_null
-
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables:
   - name: workers_base
     columns:
       - name: associateoid
         tests:
           - unique
           - not_null
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         tests:
           - unique
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp
@@ -37,13 +40,13 @@ sources:
           - unique
           - not_null
 
-# Tables from unnested fields (_airbyte_ab_id is not unique, only the _hashid is)
+# Tables from unnested fields (_airbyte_raw_id is not unique, only the _hashid is)
   - name: social_insurance_programs_base
     columns:
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         tests:
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp
@@ -53,10 +56,10 @@ sources:
           - unique
   - name: government_ids_base
     columns:
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         tests:
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp
@@ -66,10 +69,10 @@ sources:
           - unique
   - name: personal_landlines_base
     columns:
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         tests:
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp
@@ -79,10 +82,10 @@ sources:
           - unique
   - name: personal_mobiles_base
     columns:
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         tests:
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp
@@ -92,10 +95,10 @@ sources:
           - unique
   - name: personal_emails_base
     columns:
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         tests:
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp
@@ -105,10 +108,10 @@ sources:
           - unique
   - name: personal_faxes_base
     columns:
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         tests:
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp
@@ -118,10 +121,10 @@ sources:
           - unique
   - name: work_landlines_base
     columns:
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         tests:
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp
@@ -131,10 +134,10 @@ sources:
           - unique
   - name: work_mobiles_base
     columns:
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         tests:
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp
@@ -144,10 +147,10 @@ sources:
           - unique
   - name: work_emails_base
     columns:
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         tests:
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp
@@ -157,10 +160,10 @@ sources:
           - unique
   - name: work_faxes_base
     columns:
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         tests:
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp
@@ -170,10 +173,10 @@ sources:
           - unique
   - name: work_pagers_base
     columns:
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         tests:
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp
@@ -183,10 +186,10 @@ sources:
           - unique
   - name: work_assignments_base
     columns:
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         tests:
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp
@@ -196,10 +199,10 @@ sources:
           - unique
   - name: work_assignments_home_organizational_units_base
     columns:
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         tests:
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp
@@ -209,10 +212,10 @@ sources:
           - unique
   - name: work_assignments_assigned_organizational_units_base
     columns:
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         tests:
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: timestamp
