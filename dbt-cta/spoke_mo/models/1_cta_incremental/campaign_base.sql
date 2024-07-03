@@ -1,6 +1,6 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = 'id',
     materialized = "incremental",
     incremental_strategy = "merge",
@@ -34,11 +34,10 @@ select
     messageservice_sid,
     id,
     response_window,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_campaign_hashid
 from {{ ref('campaign_ab4') }}
--- campaign from {{ source('cta', '_airbyte_raw_campaign') }}
 where 1=1
 
