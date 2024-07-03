@@ -8,6 +8,6 @@ select
     dialNumber,
     access,
     formattedNumber,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_work_pagers_hashid
 from {{ source('cta','work_pagers_base') }}

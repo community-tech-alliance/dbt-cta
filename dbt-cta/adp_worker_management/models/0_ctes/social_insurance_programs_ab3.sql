@@ -1,6 +1,6 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_social_insurance_programs_hashid'
 ) }}
 
@@ -17,4 +17,4 @@ select
     tmp.*
 from {{ ref('social_insurance_programs_ab2') }} as tmp
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
+{{ incremental_clause('_airbyte_extracted_at') }}

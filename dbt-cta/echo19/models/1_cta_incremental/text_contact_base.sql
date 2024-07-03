@@ -11,8 +11,8 @@ select
     programId,
     programName,
     scheduleName,
-    "from" as `from`, --SQL is weird, idk
-    "to" as `to`,
+    cast(t.from as string) as `from`,
+    cast(t.to as string) as `to`,
     direction,
     message,
     isMMS,
@@ -61,4 +61,4 @@ select
     contactExtra29,
     contactExtra30,
     text_contact_hashid
-from {{ ref('text_contact_ab2') }}
+from {{ ref('text_contact_ab2') }} as t

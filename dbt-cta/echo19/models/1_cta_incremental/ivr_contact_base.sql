@@ -10,7 +10,7 @@ select
     programId,
     programName,
     scheduleName,
-    "to" as `to`,
+    cast(t.to as string) as `to`,
     disposition,
     dateCreated,
     duration,
@@ -52,4 +52,4 @@ select
     contactExtra29,
     contactExtra30,
     ivr_contact_hashid
-from {{ ref('ivr_contact_ab2') }}
+from {{ ref('ivr_contact_ab2') }} as t
