@@ -1,8 +1,8 @@
 version: 2
 sources:
 - name: cta_raw
-  database: airbyte_internal
-  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: airbyte_internal
   tables:
   - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_assignment' }}"
     columns:
