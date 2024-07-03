@@ -23,7 +23,7 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('ct_raw', raw_table) }} as table_alias
+from {{ source('cta_raw', raw_table) }} as table_alias
 -- organization_contact
 where 1 = 1
 
