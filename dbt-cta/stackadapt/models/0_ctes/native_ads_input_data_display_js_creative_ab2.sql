@@ -1,6 +1,6 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     schema = "_airbyte_vfp_stackadapt_raw_v2",
     tags = [ "nested-intermediate" ]
 ) }}
@@ -14,8 +14,8 @@ select
     cast(js_code as {{ dbt_utils.type_string() }}) as js_code,
     safe_cast(is_expandable as boolean) as is_expandable,
     cast(js_code_macro as {{ dbt_utils.type_string() }}) as js_code_macro,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('native_ads_input_data_display_js_creative_ab1') }}
 -- display_js_creative at native_ads/input_data/display_js_creative
