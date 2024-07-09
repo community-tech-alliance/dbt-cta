@@ -47,7 +47,6 @@ select
     question_id,
     question_text,
     response,
-    phone_opt_in,
     _redshift_people_celloptins_conversations_hashid,
     _cta_loaded_at
 from {{ ref('redshift_people_celloptins_conversations_cte2') }}

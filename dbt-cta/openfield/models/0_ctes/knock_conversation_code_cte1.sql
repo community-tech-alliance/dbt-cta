@@ -32,8 +32,6 @@ select
     cast(universal_source_code as {{ dbt_utils.type_string() }}) as universal_source_code,
     cast(starting_location_id as {{ dbt_utils.type_bigint() }}) as starting_location_id,
     cast(skip_people_search as bool) as skip_people_search,
-    cast(turf_cutter_celery_task_id as {{ dbt_utils.type_string() }}) as turf_cutter_celery_task_id,
-    cast(turf_cutter_status as {{ dbt_utils.type_string() }}) as turf_cutter_status,
 
     -- new fields
     {{ dbt_utils.surrogate_key([
@@ -60,9 +58,7 @@ select
         'action_url',
         'universal_source_code',
         'starting_location_id',
-        'skip_people_search',
-        'turf_cutter_celery_task_id',
-        'turf_cutter_status',
+        'skip_people_search'
     ]) }} as _knock_conversation_code_hashid,
     {{ current_timestamp() }} as _cta_loaded_at
 from {{ source('cta', '_raw_knock_conversation_code') }}

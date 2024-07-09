@@ -39,7 +39,6 @@ select
     cast(question_id as {{ dbt_utils.type_bigint() }}) as question_id,
     cast(question_text as {{ dbt_utils.type_string() }}) as question_text,
     cast(response as {{ dbt_utils.type_string() }}) as response,
-    cast(phone_opt_in as {{ dbt_utils.type_string() }}) as phone_opt_in,
 
     -- new fields
     {{ dbt_utils.surrogate_key([
@@ -73,8 +72,7 @@ select
         'conversation_code_id',
         'question_id',
         'question_text',
-        'response',
-        'phone_opt_in'
+        'response'
     ]) }} as _redshift_people_celloptins_conversations_hashid,
     {{ current_timestamp() }} as _cta_loaded_at
 from {{ source('cta', '_raw_redshift_people_celloptins_conversations') }}

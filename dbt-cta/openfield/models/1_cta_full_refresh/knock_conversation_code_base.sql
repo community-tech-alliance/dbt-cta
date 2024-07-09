@@ -40,8 +40,6 @@ select
     universal_source_code,
     starting_location_id,
     skip_people_search,
-    turf_cutter_celery_task_id,
-    turf_cutter_status,
     _knock_conversation_code_hashid,
     _cta_loaded_at
 
