@@ -1,7 +1,7 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_ab_id"
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_raw_id"
 ) }}
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
 -- depends_on: {{ ref('interaction_step_ab1') }}
@@ -16,8 +16,8 @@ select
     cast(parent_interaction_id as {{ dbt_utils.type_bigint() }}) as parent_interaction_id,
     cast(script as {{ dbt_utils.type_string() }}) as script,
     cast(campaign_id as {{ dbt_utils.type_bigint() }}) as campaign_id,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('interaction_step_ab1') }}
 -- interaction_step

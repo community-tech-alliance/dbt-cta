@@ -1,6 +1,6 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = 'zip'
 ) }}
 
@@ -11,7 +11,7 @@ SELECT * FROM
 (
 SELECT 
     *,
-    ROW_NUMBER() OVER (PARTITION BY zip ORDER BY _airbyte_emitted_at desc) as rownum 
+    ROW_NUMBER() OVER (PARTITION BY zip ORDER BY _airbyte_extracted_at desc) as rownum 
 FROM {{ ref('zip_code_ab3') }}
 )
 where rownum=1
