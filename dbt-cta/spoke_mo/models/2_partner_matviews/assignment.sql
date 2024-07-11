@@ -4,6 +4,6 @@ select
     created_at,
     id,
     campaign_id,
-    _airbyte_extracted_at,
+    _airbyte_emitted_at,
     _airbyte_assignment_hashid
 from {{ source('cta','assignment_base') }}

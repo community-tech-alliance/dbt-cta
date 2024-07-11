@@ -14,6 +14,6 @@ select
     id,
     first_name,
     campaign_id,
-    _airbyte_extracted_at,
+    _airbyte_emitted_at,
     _airbyte_campaign_contact_hashid
 from {{ source('cta','campaign_contact_base') }}

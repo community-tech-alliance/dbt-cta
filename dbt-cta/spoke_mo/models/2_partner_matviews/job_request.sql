@@ -11,6 +11,6 @@ select
     id,
     campaign_id,
     status,
-    _airbyte_extracted_at,
+    _airbyte_emitted_at,
     _airbyte_job_request_hashid
 from {{ source('cta','job_request_base') }}
