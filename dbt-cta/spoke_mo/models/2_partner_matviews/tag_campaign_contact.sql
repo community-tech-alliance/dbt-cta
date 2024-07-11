@@ -5,6 +5,6 @@ select
     created_at,
     id,
     value,
-    _airbyte_extracted_at,
+    _airbyte_emitted_at,
     _airbyte_tag_campaign_contact_hashid
 from {{ source('cta','tag_campaign_contact_base') }}

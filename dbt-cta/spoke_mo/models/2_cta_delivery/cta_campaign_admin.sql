@@ -10,6 +10,6 @@ select
     duplicate_contacts_count,
     contacts_count,
     campaign_id,
-    _airbyte_extracted_at,
+    _airbyte_emitted_at,
     _airbyte_campaign_admin_hashid
 from {{ source('cta','campaign_admin_base') }}

@@ -7,6 +7,6 @@ select
     text,
     title,
     campaign_id,
-    _airbyte_extracted_at,
+    _airbyte_emitted_at,
     _airbyte_canned_response_hashid
 from {{ source('cta','canned_response_base') }}

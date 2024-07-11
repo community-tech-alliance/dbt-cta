@@ -1,7 +1,7 @@
 {{ config(
-    cluster_by = "_airbyte_extracted_at",
-    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_raw_id"
+    cluster_by = "_airbyte_emitted_at",
+    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_ab_id"
 ) }}
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
 -- depends_on: {{ ref('organization_contact_ab1') }}
@@ -18,8 +18,8 @@ select
     cast(contact_number as {{ dbt_utils.type_string() }}) as contact_number,
     cast(user_number as {{ dbt_utils.type_string() }}) as user_number,
     cast(last_error_code as {{ dbt_utils.type_bigint() }}) as last_error_code,
-    _airbyte_raw_id,
-    _airbyte_extracted_at,
+    _airbyte_ab_id,
+    _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('organization_contact_ab1') }}
 -- organization_contact
