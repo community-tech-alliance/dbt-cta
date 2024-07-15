@@ -11,6 +11,7 @@ select
    _airbyte_raw_id,
    _airbyte_extracted_at,
    _airbyte_meta,
+   age,
    cpc,
    cpm,
    cpp,
@@ -123,7 +124,8 @@ select
    catalog_segment_value_mobile_purchase_roas,
    catalog_segment_value_website_purchase_roas,
    {{ dbt_utils.surrogate_key([
-     'ad_id',
+    'age',
+    'ad_id',
     'reach',
     'clicks',
     'ad_name',

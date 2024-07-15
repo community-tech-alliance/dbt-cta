@@ -15,6 +15,7 @@ select
    cpm,
    cpp,
    ctr,
+   dma,
    ad_id,
    reach,
    spend,
@@ -123,7 +124,8 @@ select
    catalog_segment_value_mobile_purchase_roas,
    catalog_segment_value_website_purchase_roas,
    {{ dbt_utils.surrogate_key([
-     'ad_id',
+    'dma',
+    'ad_id',
     'reach',
     'clicks',
     'ad_name',
