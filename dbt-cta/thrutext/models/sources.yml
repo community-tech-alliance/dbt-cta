@@ -5,9 +5,9 @@ sources:
     database: "{{ env_var('CTA_PROJECT_ID') }}"
     schema: "{{ env_var('CTA_DATASET_ID') }}"
     tables:
-      - name: _stg_daily_messages
-      - name: _stg_daily_surveys
-      - name: _stg_opt_outs
+      - name: _raw_daily_messages
+      - name: _raw_daily_surveys
+      - name: _raw_opt_outs
       - name: daily_messages_base
       - name: daily_surveys_base
       - name: opt_outs_base
