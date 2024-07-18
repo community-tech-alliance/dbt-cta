@@ -5,6 +5,6 @@ select
     created_at,
     id,
     cell,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_opt_out_hashid
 from {{ source('cta','opt_out_base') }}
