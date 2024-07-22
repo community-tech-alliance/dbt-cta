@@ -6,6 +6,6 @@ select
     job_title,
     first_name,
     prospect_phone,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_applicants_hashid
 from {{ source('cta','applicants_base') }}
