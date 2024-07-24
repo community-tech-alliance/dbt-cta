@@ -9,6 +9,6 @@ select
     parent_interaction_id,
     script,
     campaign_id,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_interaction_step_hashid
 from {{ source('cta','interaction_step_base') }}

@@ -7,6 +7,6 @@ select
     id,
     contact_number,
     user_number,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_pending_message_part_hashid
 from {{ source('cta','pending_message_part_base') }}

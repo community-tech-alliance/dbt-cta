@@ -7,6 +7,6 @@ select
     texting_hours_end,
     id,
     uuid,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_organization_hashid
 from {{ source('cta','organization_base') }}
