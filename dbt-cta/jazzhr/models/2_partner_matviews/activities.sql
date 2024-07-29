@@ -7,6 +7,6 @@ select
     team_id,
     category,
     object_id,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_activities_hashid
 from {{ source('cta','activities_base') }}

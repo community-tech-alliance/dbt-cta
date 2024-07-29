@@ -15,6 +15,6 @@ select
     answer_correct_02,
     answer_correct_04,
     date_taken,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_questionnaire_answers_hashid
 from {{ source('cta','questionnaire_answers_base') }}

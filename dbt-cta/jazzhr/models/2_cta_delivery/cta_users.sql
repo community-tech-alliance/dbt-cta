@@ -5,6 +5,6 @@ select
     type,
     first_name,
     email,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_users_hashid
 from {{ source('cta','users_base') }}

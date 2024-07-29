@@ -12,6 +12,6 @@ select
     id,
     status,
     assignee_id,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_tasks_hashid
 from {{ source('cta','tasks_base') }}
