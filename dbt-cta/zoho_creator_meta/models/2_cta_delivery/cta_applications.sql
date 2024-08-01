@@ -7,6 +7,6 @@ select
     time_zone,
     created_by,
     workspace_name,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_applications_hashid
 from {{ source('cta','applications_base') }}
