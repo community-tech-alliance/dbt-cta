@@ -46,7 +46,7 @@ models:
     2_partner_matviews: # for delivery via materialized views
       +tags: 
         - partner
-      +materialized: materialized_view
+      +materialized: cta_materialized_view
       +auto_refresh: false
       +refresh_interval_minutes: 1440
       +grant_access_to:
