@@ -1,8 +1,8 @@
 {{
     config(
-        cluster_by="_airbyte_emitted_at",
+        cluster_by="_airbyte_extracted_at",
         partition_by={
-            "field": "_airbyte_emitted_at",
+            "field": "_airbyte_extracted_at",
             "data_type": "timestamp",
             "granularity": "day",
         },
@@ -20,7 +20,7 @@ aggregations as (
         sum(clicks) as clicks,
         sum(impressions) as impressions,
         sum(spend) as spend,
-        max(_airbyte_emitted_at) as _airbyte_emitted_at
+        max(_airbyte_extracted_at) as _airbyte_extracted_at
     from {{ ref("ads_insights_overall_base") }}
     group by date_start, account_id, account_name
 )
