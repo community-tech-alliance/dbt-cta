@@ -1,6 +1,6 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = 'id'
 ) }}
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
@@ -61,8 +61,8 @@ select
     cast(extended_credit_invoice_group as {{ dbt_utils.type_float() }}) as extended_credit_invoice_group,
     {{ cast_to_boolean('is_attribution_spec_system_default') }} as is_attribution_spec_system_default,
     {{ cast_to_boolean('is_in_3ds_authorization_enabled_market') }} as is_in_3ds_authorization_enabled_market,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('ad_account_ab1') }}
 -- ad_account
