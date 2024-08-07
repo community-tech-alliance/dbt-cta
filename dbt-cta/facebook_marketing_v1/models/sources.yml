@@ -4,7 +4,7 @@ sources:
   database: "{{ env_var('CTA_PROJECT_ID') }}"
   schema: airbyte_internal
   tables:
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream__ad_account'}}"
+  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_ad_account'}}"
     columns:
       - name: _airbyte_raw_id
         tests:
@@ -14,7 +14,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream__ad_creatives'}}"
+  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_ad_creatives'}}"
     columns:
       - name: _airbyte_raw_id
         tests:
@@ -24,7 +24,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream__ad_sets'}}"
+  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_ad_sets'}}"
     columns:
       - name: _airbyte_raw_id
         tests:
@@ -34,7 +34,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream__ads'}}"
+  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_ads'}}"
     columns:
       - name: _airbyte_raw_id
         tests:
@@ -44,7 +44,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream__ads_insights'}}"
+  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_ads_insights'}}"
     columns:
       - name: _airbyte_raw_id
         tests:
@@ -54,7 +54,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream__ads_insights_platform_and_device'}}"
+  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_ads_insights_platform_and_device'}}"
     columns:
       - name: _airbyte_raw_id
         tests:
@@ -64,7 +64,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream__campaigns'}}"
+  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_campaigns'}}"
     columns:
       - name: _airbyte_raw_id
         tests:
