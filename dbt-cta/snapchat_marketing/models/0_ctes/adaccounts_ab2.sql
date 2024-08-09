@@ -1,7 +1,7 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id'
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_raw_id'
 ) }}
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
 -- depends_on: {{ ref('adaccounts_ab1') }}
@@ -22,11 +22,11 @@ select
     {{ cast_to_boolean('client_paying_invoices') }} as client_paying_invoices,
     cast(advertiser_organization_id as {{ dbt_utils.type_string() }}) as advertiser_organization_id,
     {{ cast_to_boolean('agency_representing_client') }} as agency_representing_client,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('adaccounts_ab1') }}
 -- adaccounts
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
+{{ incremental_clause('_airbyte_extracted_at') }}
 
