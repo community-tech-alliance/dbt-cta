@@ -44,9 +44,9 @@ models:
         description: ''
       - name: agency_representing_client
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -64,9 +64,9 @@ models:
               field: id
       - name: status
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -121,9 +121,9 @@ models:
         description: ''
       - name: administrative_district_level_1
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -145,9 +145,9 @@ models:
         description: ''
       - name: regulated_content
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -182,9 +182,9 @@ models:
               field: id
       - name: delivery_status
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -247,9 +247,9 @@ models:
         description: ''
       - name: targeting_reach_status
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -285,9 +285,9 @@ models:
         description: ''
       - name: allow_snap_javascript_sdk
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -354,9 +354,9 @@ models:
         description: ''
       - name: forced_view_eligibility
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -403,9 +403,9 @@ models:
         description: ''
       - name: approximate_number_users
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -568,9 +568,9 @@ models:
         description: ''
       - name: attachment_total_view_time_millis
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -610,9 +610,9 @@ models:
           - accepted_values:
               values: ['region','metro','postal_code']
       - name: geo_value
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -633,9 +633,9 @@ models:
               field: id
       - name: restricted_delivery_signals
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -676,9 +676,9 @@ models:
         description: ''
       - name: delivery_status
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -696,9 +696,9 @@ models:
               field: id
       - name: notifications_enabled
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -741,9 +741,9 @@ models:
         description: ''
       - name: duration_in_seconds
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''

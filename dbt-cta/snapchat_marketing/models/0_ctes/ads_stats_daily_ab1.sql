@@ -1,7 +1,9 @@
+{% set raw_table = env_var("CTA_DATASET_ID") ~ "_raw__stream_ads_stats_daily" %}
+
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id'
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_raw_id'
 ) }}
 
 -- depends_on: {{ source('cta', '_airbyte_raw_ads_stats_daily') }}
@@ -79,9 +81,9 @@ select
     {{ json_extract_scalar('_airbyte_data', ['attachment_avg_view_time_millis'], ['attachment_avg_view_time_millis']) }} as attachment_avg_view_time_millis,
     {{ json_extract_scalar('_airbyte_data', ['conversion_achievement_unlocked'], ['conversion_achievement_unlocked']) }} as conversion_achievement_unlocked,
     {{ json_extract_scalar('_airbyte_data', ['attachment_total_view_time_millis'], ['attachment_total_view_time_millis']) }} as attachment_total_view_time_millis,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ source('cta', '_airbyte_raw_ads_stats_daily') }} as table_alias
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
+{{ incremental_clause('_airbyte_extracted_at') }}
