@@ -6,7 +6,7 @@
     unique_key = '_airbyte_raw_id'
 ) }}
 
--- depends_on: {{ source('cta', '_airbyte_raw_ads_stats_daily') }}
+-- depends_on: { source('cta_raw', raw_table) }}
 select
     {{ json_extract_scalar('_airbyte_data', ['id'], ['id']) }} as id,
     {{ json_extract_scalar('_airbyte_data', ['type'], ['type']) }} as type,
@@ -84,6 +84,6 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_ads_stats_daily') }} as table_alias
+from { source('cta_raw', raw_table) }} as table_alias
 where 1 = 1
 {{ incremental_clause('_airbyte_extracted_at') }}
