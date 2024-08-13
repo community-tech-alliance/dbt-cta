@@ -1,6 +1,6 @@
 {{ config(
-    cluster_by = "_airbyte_extracted_at",
-    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    cluster_by = "_airbyte_emitted_at",
+    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = 'id'
 ) }}
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
@@ -28,8 +28,8 @@ select
     cast(smart_promotion_type as {{ dbt_utils.type_string() }}) as smart_promotion_type,
     {{ cast_to_boolean('budget_rebalance_flag') }} as budget_rebalance_flag,
     special_ad_category_country,
-    _airbyte_raw_id,
-    _airbyte_extracted_at,
+    _airbyte_ab_id,
+    _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('campaigns_ab1') }}
 -- campaigns
