@@ -1,84 +1,79 @@
 version: 2
 sources:
-- name: cta_raw
-  database: "{{ env_var('CTA_PROJECT_ID') }}"
-  schema: airbyte_internal
-  tables:
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_ad_account'}}"
-    columns:
-      - name: _airbyte_raw_id
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_extracted_at
-      - name: _airbyte_data
-        tests:
-          - not_null
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_ad_creatives'}}"
-    columns:
-      - name: _airbyte_raw_id
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_extracted_at
-      - name: _airbyte_data
-        tests:
-          - not_null
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_ad_sets'}}"
-    columns:
-      - name: _airbyte_raw_id
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_extracted_at
-      - name: _airbyte_data
-        tests:
-          - not_null
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_ads'}}"
-    columns:
-      - name: _airbyte_raw_id
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_extracted_at
-      - name: _airbyte_data
-        tests:
-          - not_null
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_ads_insights'}}"
-    columns:
-      - name: _airbyte_raw_id
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_extracted_at
-      - name: _airbyte_data
-        tests:
-          - not_null
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_ads_insights_platform_and_device'}}"
-    columns:
-      - name: _airbyte_raw_id
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_extracted_at
-      - name: _airbyte_data
-        tests:
-          - not_null
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_campaigns'}}"
-    columns:
-      - name: _airbyte_raw_id
-        tests:
-          - unique
-          - not_null
-      - name: _airbyte_extracted_at
-      - name: _airbyte_data
-        tests:
-          - not_null
-
 - name: cta
   database: "{{ env_var('CTA_PROJECT_ID') }}"
   schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables:
+  - name: _airbyte_raw_ad_account
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_emitted_at
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_ad_creatives
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_emitted_at
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_ad_sets
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_emitted_at
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_ads
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_emitted_at
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_ads_insights
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_emitted_at
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_ads_insights_platform_and_device
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_emitted_at
+      - name: _airbyte_data
+        tests:
+          - not_null
+  - name: _airbyte_raw_campaigns
+    columns:
+      - name: _airbyte_ab_id
+        tests:
+          - unique
+          - not_null
+      - name: _airbyte_emitted_at
+      - name: _airbyte_data
+        tests:
+          - not_null
   - name: ads_insights_overall_base
   - name: ads_insights_platform_and_device_base
   - name: ads_base

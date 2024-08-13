@@ -199,7 +199,7 @@ models:
         description: ''
       - name: conversion_values
         description: ''
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
     tests:
       - dbt_utils.unique_combination_of_columns:
@@ -401,7 +401,7 @@ models:
         description: ''
       - name: conversion_values
         description: ''
-      - name: _airbyte_extracted_at
+      - name: _airbyte_emitted_at
         description: ''
     tests:
       - dbt_utils.unique_combination_of_columns:

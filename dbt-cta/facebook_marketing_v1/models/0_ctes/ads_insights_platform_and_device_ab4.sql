@@ -1,14 +1,14 @@
 {{ config(
-    cluster_by = "_airbyte_extracted_at",
-    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    cluster_by = "_airbyte_emitted_at",
+    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_ads_insights_platform_and_device_hashid'
 ) }}
 
 -- depends_on: {{ ref('ads_insights_platform_and_device_ab3') }}, {{ ref('ads_insights_platform_and_device_cost_per_thruplay_ab2') }} ,{{ ref('ads_insights_platform_and_device_cost_per_2_sec_continuous_video_view_ab2') }} ,{{ ref('ads_insights_platform_and_device_cost_per_15_sec_video_view_ab2') }} ,{{ ref('ads_insights_platform_and_device_video_15_sec_watched_actions_ab2') }} ,{{ ref('ads_insights_platform_and_device_video_30_sec_watched_actions_ab2') }} ,{{ ref('ads_insights_platform_and_device_video_p25_watched_actions_ab2') }} ,{{ ref('ads_insights_platform_and_device_video_p50_watched_actions_ab2') }} ,{{ ref('ads_insights_platform_and_device_video_p75_watched_actions_ab2') }} ,{{ ref('ads_insights_platform_and_device_video_p95_watched_actions_ab2') }} ,{{ ref('ads_insights_platform_and_device_video_p100_watched_actions_ab2') }}, {{ ref('ads_insights_platform_and_device_website_ctr_ab2') }}, {{ ref('ads_insights_platform_and_device_actions_ab2') }}, {{ ref('ads_insights_platform_and_device_video_play_actions_ab2') }}
 select
     insights._airbyte_ads_insights_platform_and_device_hashid,
-    insights._airbyte_extracted_at,
-    insights._airbyte_raw_id,
+    insights._airbyte_emitted_at,
+    insights._airbyte_ab_id,
     insights.ad_id,
     insights.date_start,
     insights.date_stop,

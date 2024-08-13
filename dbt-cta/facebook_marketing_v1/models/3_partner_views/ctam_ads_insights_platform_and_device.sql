@@ -187,7 +187,7 @@ stats.video_p100_watched,
 stats.shares,
 stats.landing_page_views,
 stats.conversion_values,
-stats._airbyte_extracted_at
+stats._airbyte_emitted_at
 from join2
 left join stats on join2.ad_id = stats.ad_id
 where

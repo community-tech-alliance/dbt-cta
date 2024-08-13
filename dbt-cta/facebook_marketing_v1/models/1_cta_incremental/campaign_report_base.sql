@@ -1,6 +1,6 @@
 {{ config(
-    cluster_by = "_airbyte_extracted_at",
-    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    cluster_by = "_airbyte_emitted_at",
+    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_campaign_report_hashid'
 ) }}
 
@@ -14,7 +14,7 @@ with aggregations as (
         account_name,
         campaign_id,
         campaign_name,
-        max(timestamp_trunc(_airbyte_extracted_at, day)) as _airbyte_extracted_at,
+        max(timestamp_trunc(_airbyte_emitted_at, day)) as _airbyte_emitted_at,
         sum(clicks) as clicks,
         sum(impressions) as impressions,
         sum(spend) as spend
