@@ -1,14 +1,14 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = 'id',
 ) }}
 
 -- depends_on: {{ ref('ad_sets_ab2') }}
 select
     id,
-    _airbyte_emitted_at,
-    _airbyte_ab_id,
+    _airbyte_extracted_at,
+    _airbyte_raw_id,
     name,
     adlabels,
     bid_info,
