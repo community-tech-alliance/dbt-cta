@@ -2,7 +2,7 @@
 
 packages:
   - git: "https://github.com/community-tech-alliance/dbt-materialized-views.git"
-    revision: 1.0.1
+    revision: 2.0.0
   - git: "https://github.com/calogica/dbt-expectations.git"
     revision: 0.8.2
   - git: "https://github.com/dbt-labs/dbt-codegen.git"

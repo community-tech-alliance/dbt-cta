@@ -19,6 +19,6 @@ select
     department,
     country_id,
     status,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_jobs_hashid
 from {{ source('cta','jobs_base') }}
