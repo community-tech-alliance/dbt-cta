@@ -26,4 +26,3 @@ select
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('media_ab2') }}
--- media from {{ source('cta', '_airbyte_raw_media') }}
