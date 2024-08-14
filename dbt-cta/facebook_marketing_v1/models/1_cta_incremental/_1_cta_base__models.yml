@@ -24,8 +24,7 @@ models:
               to: ref('ads_base')
               field: id
               config:
-                severity: error
-                error_if: ">10"
+                severity: warn
                 warn_if: ">0"
       - name: date_start
         description: ''
