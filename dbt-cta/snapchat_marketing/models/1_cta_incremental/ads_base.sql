@@ -1,6 +1,6 @@
 {{ config(
-    cluster_by = "_airbyte_extracted_at",
-    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    cluster_by = "_airbyte_emitted_at",
+    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = 'id'
 ) }}
 
@@ -17,7 +17,7 @@ select
     render_type,
     review_status,
     delivery_status,
-    _airbyte_raw_id,
-    _airbyte_extracted_at,
+    _airbyte_ab_id,
+    _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('ads_ab2') }}

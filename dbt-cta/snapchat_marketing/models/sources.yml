@@ -1,23 +1,18 @@
 version: 2
 sources:
-- name: cta_raw
-  database: "{{ env_var('CTA_PROJECT_ID') }}"
-  schema: airbyte_internal
-  tables:
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_adaccounts' }}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_ads' }}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_ads_stats_daily' }}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_adsquads' }}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_campaigns' }}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_creatives' }}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_media' }}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_organizations' }}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_segments' }}"
-
 - name: cta
   database: "{{ env_var('CTA_PROJECT_ID') }}"
   schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables:
+  - name: _airbyte_raw_adaccounts
+  - name: _airbyte_raw_ads
+  - name: _airbyte_raw_ads_stats_daily
+  - name: _airbyte_raw_adsquads
+  - name: _airbyte_raw_campaigns
+  - name: _airbyte_raw_creatives
+  - name: _airbyte_raw_media
+  - name: _airbyte_raw_organizations
+  - name: _airbyte_raw_segments
   - name: adaccounts_base
   - name: adaccounts_regulations_base
   - name: ads_base
