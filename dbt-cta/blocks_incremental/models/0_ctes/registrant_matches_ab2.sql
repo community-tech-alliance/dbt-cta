@@ -5,7 +5,7 @@ select * except (rownum) from
     (
         select
             *,
-            row_number() over (partition by _airbyte_registrant_matches_hashid order by _airbyte_extracted_at desc) as rownum
+            row_number() over (partition by id order by _airbyte_extracted_at desc) as rownum
         from {{ ref('registrant_matches_ab1') }}
     )
 where rownum = 1
