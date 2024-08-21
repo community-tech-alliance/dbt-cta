@@ -5,7 +5,7 @@ select * except (rownum) from
     (
         select
             *,
-            row_number() over (partition by _airbyte_voter_registration_scan_batches_hashid order by _airbyte_extracted_at desc) as rownum
+            row_number() over (partition by id order by _airbyte_extracted_at desc) as rownum
         from {{ ref('voter_registration_scan_batches_ab1') }}
     )
 where rownum = 1
