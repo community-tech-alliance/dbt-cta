@@ -1,5 +1,5 @@
 {{ config(
-    unique_key = "tag_result_hashid"
+    unique_key = "tagResultId"
 ) }}
 
 -- Final base SQL model

@@ -1,5 +1,5 @@
 {{ config(
-    unique_key = "clicks_hashid"
+    unique_key = "clickId"
 ) }}
 
 -- Final base SQL model
