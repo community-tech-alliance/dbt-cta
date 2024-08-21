@@ -1,5 +1,5 @@
 {{ config(
-    unique_key = "survey_result_hashid"
+    unique_key = "answerId"
 ) }}
 
 -- Final base SQL model

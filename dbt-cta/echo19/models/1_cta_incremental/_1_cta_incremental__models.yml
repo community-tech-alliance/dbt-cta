@@ -2,11 +2,42 @@ version: 2
 
 models:
 
+  - name: clicks_base
+    description: ''
+    columns:
+      - name: clickId
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: clicks_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+
+  - name: ivr_contact_base
+    description: ''
+    columns:
+      - name: ivrResultId
+        description: ''
+        tests:
+          - unique
+          - not_null
+      - name: ivr_contact_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null
+
   - name: text_contact_base
     description: ''
     columns:
       - name: textresultid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: scheduleid
         description: ''
       - name: programid
@@ -124,6 +155,9 @@ models:
     columns:
       - name: answerid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: contactid
         description: ''
       - name: scheduleid
@@ -151,6 +185,9 @@ models:
     columns:
       - name: tagresultid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: tagid
         description: ''
       - name: scheduleid
