@@ -5,7 +5,7 @@ select * except (rownum) from
     (
         select
             *,
-            row_number() over (partition by ivr_contact_hashid order by dateCreated desc) as rownum
+            row_number() over (partition by ivrResultId order by dateCreated desc) as rownum
         from {{ ref('ivr_contact_ab1') }}
     )
 where rownum = 1

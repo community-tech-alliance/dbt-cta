@@ -5,7 +5,7 @@ select * except (rownum) from
     (
         select
             *,
-            row_number() over (partition by clicks_hashid order by dateCreated desc) as rownum
+            row_number() over (partition by clickId order by dateCreated desc) as rownum
         from {{ ref('clicks_ab1') }}
     )
 where rownum = 1
