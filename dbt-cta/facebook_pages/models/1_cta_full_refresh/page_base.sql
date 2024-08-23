@@ -25,7 +25,6 @@ select
     `messaging_feature_status`,
     `subscribed_apps`,
     `about`,
-    `videos`,
     `published_posts`,
     `cover`,
     `culinary_team`,
