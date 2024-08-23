@@ -11,6 +11,9 @@ models:
         description: ''
       - name: customer_id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: _airbyte_client_metadata_hashid
         description: ''
         tests:
@@ -28,6 +31,9 @@ models:
         description: ''
       - name: customer_profile_id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: reporting_period_day
         description: ''
       - name: metrics
@@ -221,6 +227,9 @@ models:
         description: ''
       - name: customer_profile_id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: reporting_period_day
         description: ''
       - name: metrics
@@ -582,6 +591,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: _airbyte_customer_users_hashid
         description: ''
         tests:
@@ -605,6 +617,9 @@ models:
         description: ''
       - name: customer_profile_id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: network_type
         description: ''
       - name: native_name
@@ -679,6 +694,9 @@ models:
         description: ''
       - name: tag_id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: text
         description: ''
       - name: type
@@ -698,6 +716,9 @@ models:
         description: ''
       - name: group_id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: name
         description: ''
       - name: _airbyte_customer_groups_hashid
