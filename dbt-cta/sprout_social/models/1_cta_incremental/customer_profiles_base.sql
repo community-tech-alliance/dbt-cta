@@ -1,7 +1,7 @@
 {{ config(
     cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "customer_profile_id"
+    unique_key = "_airbyte_customer_profiles_hashid"
 ) }}
 
 -- Final base SQL model
