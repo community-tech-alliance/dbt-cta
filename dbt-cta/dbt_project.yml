@@ -12,7 +12,7 @@ vars:
   disable_tests_results: "false" 
   disable_dbt_artifacts_autoupload: "false"
   disable_dbt_invocation_autoupload: "false"
-
+  surrogate_key_treat_nulls_as_empty_strings: "true"
 models:
   +persist_docs:
     relation: true
