@@ -383,3 +383,93 @@ sources:
         tests:
           - unique
           - not_null
+  - name: active_storage_attachments_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: active_storage_blobs_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: active_storage_variant_records_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: calendar_event_actions_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: calendar_event_responses_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: calendar_event_types_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: calendar_event_users_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: calendar_events_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: custom_form_fields_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: custom_forms_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: custom_id_types_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: delete_entities_operations_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: entity_custom_ids_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: import_row_errors_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: imports_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null

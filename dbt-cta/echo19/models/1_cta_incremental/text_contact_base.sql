@@ -1,5 +1,5 @@
 {{ config(
-    unique_key = "text_contact_hashid"
+    unique_key = "textResultId"
 ) }}
 
 -- Final base SQL model

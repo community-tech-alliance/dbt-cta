@@ -1,5 +1,5 @@
 {{ config(
-    unique_key = "ivr_contact_hashid"
+    unique_key = "ivrResultId"
 ) }}
 
 -- Final base SQL model
