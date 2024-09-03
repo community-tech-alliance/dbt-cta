@@ -1,10 +1,12 @@
+{% set raw_table = env_var("CTA_DATASET_ID") ~ "_raw__stream_creatives" %}
+
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id'
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_raw_id'
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('cta', '_airbyte_raw_creatives') }}
+-- depends_on: {{ source('cta_raw', raw_table) }}
 select
     {{ json_extract_scalar('_airbyte_data', ['id'], ['id']) }} as id,
     {{ json_extract_scalar('_airbyte_data', ['name'], ['name']) }} as name,
@@ -25,11 +27,11 @@ select
     {{ json_extract_scalar('_airbyte_data', ['review_status_details'], ['review_status_details']) }} as review_status_details,
     {{ json_extract_scalar('_airbyte_data', ['top_snap_crop_position'], ['top_snap_crop_position']) }} as top_snap_crop_position,
     {{ json_extract_scalar('_airbyte_data', ['forced_view_eligibility'], ['forced_view_eligibility']) }} as forced_view_eligibility,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_creatives') }} as table_alias
+from {{ source('cta_raw', raw_table) }} as table_alias
 -- creatives
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
+{{ incremental_clause('_airbyte_extracted_at') }}
 
