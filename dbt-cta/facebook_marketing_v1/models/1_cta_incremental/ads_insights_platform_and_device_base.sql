@@ -4,8 +4,8 @@
 ] %}
 
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     partitions = partitions_to_replace,
     unique_key = '_airbyte_ads_insights_platform_and_device_hashid'
 ) }}
@@ -13,8 +13,8 @@
 -- depends_on: {{ ref('ads_insights_platform_and_device_ab4') }}
 select
     _airbyte_ads_insights_platform_and_device_hashid,
-    _airbyte_emitted_at,
-    _airbyte_ab_id,
+    _airbyte_extracted_at,
+    _airbyte_raw_id,
     ad_id,
     date_start,
     date_stop,
@@ -105,5 +105,5 @@ select
 from {{ ref('ads_insights_platform_and_device_ab4') }}
 
 {% if is_incremental() %}
-where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})
+where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}

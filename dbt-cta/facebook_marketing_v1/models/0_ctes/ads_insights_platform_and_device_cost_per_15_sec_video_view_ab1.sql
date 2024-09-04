@@ -1,6 +1,6 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"}
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"}
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ ref('ads_insights_platform_and_device_ab3') }}
@@ -17,8 +17,8 @@ select
     {{ json_extract_scalar(unnested_column_value('cost_per_15_sec_video_view'), ['action_type'], ['action_type']) }} as action_type,
     {{ json_extract_scalar(unnested_column_value('cost_per_15_sec_video_view'), ['action_target_id'], ['action_target_id']) }} as action_target_id,
     {{ json_extract_scalar(unnested_column_value('cost_per_15_sec_video_view'), ['action_destination'], ['action_destination']) }} as action_destination,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('ads_insights_platform_and_device_ab3') }}
 -- cost_per_15_sec_video_view at ads_insights_platform_and_device/cost_per_15_sec_video_view
@@ -26,4 +26,4 @@ from {{ ref('ads_insights_platform_and_device_ab3') }}
 where
     1 = 1
     and cost_per_15_sec_video_view is not null
-{{ incremental_clause('_airbyte_emitted_at') }}
+{{ incremental_clause('_airbyte_extracted_at') }}

@@ -1,6 +1,6 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = 'id'
 ) }}
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
@@ -22,8 +22,8 @@ select
     cast(promoted_object as {{ type_json() }}) as promoted_object,
     cast(budget_remaining as {{ dbt_utils.type_float() }}) as budget_remaining,
     cast(effective_status as {{ dbt_utils.type_string() }}) as effective_status,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('ad_sets_ab1') }}
 -- ad_sets

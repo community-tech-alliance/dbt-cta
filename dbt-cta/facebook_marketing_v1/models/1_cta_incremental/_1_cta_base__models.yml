@@ -12,9 +12,9 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string 
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
       - name: ad_id
         description: ''
@@ -222,7 +222,7 @@ models:
         description: ''
       - name: adset_name
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: clicks
         description: ''
@@ -248,9 +248,9 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string 
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
       - name: account_id_stripped
         description: ''
@@ -391,7 +391,7 @@ models:
               field: id
       - name: campaign_name
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: clicks
         description: ''
@@ -429,7 +429,7 @@ models:
               field: account_id_stripped
       - name: account_name
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: clicks
         description: ''
@@ -450,9 +450,9 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string 
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
       - name: name
         description: ''
@@ -512,9 +512,9 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string 
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
       - name: body
         description: ''
@@ -606,9 +606,9 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string 
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
       - name: name
         description: ''
@@ -661,9 +661,9 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: string 
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
       - name: creative_id
         description: ''
@@ -734,9 +734,9 @@ models:
         tests:
           - unique
           - not_null
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
       - name: ad_id
         description: ''
