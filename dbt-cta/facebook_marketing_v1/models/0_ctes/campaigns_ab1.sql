@@ -1,10 +1,12 @@
+{% set raw_table = env_var("CTA_DATASET_ID") ~ "_raw__stream_campaigns" %}
+
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = 'id'
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('cta', '_airbyte_raw_campaigns') }}
+-- depends_on: {{ source('cta_raw', raw_table) }}
 select
     {{ json_extract_scalar('_airbyte_data', ['id'], ['id']) }} as id,
     {{ json_extract_scalar('_airbyte_data', ['name'], ['name']) }} as name,
@@ -28,9 +30,9 @@ select
     {{ json_extract_scalar('_airbyte_data', ['smart_promotion_type'], ['smart_promotion_type']) }} as smart_promotion_type,
     {{ json_extract_scalar('_airbyte_data', ['budget_rebalance_flag'], ['budget_rebalance_flag']) }} as budget_rebalance_flag,
     {{ json_extract_array('_airbyte_data', ['special_ad_category_country'], ['special_ad_category_country']) }} as special_ad_category_country,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_campaigns') }}
+from {{ source('cta_raw', raw_table) }}
 -- campaigns
 where 1 = 1

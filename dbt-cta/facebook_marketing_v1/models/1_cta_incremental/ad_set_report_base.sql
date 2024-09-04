@@ -1,6 +1,6 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_ad_set_report_hashid'
 ) }}
 
@@ -14,7 +14,7 @@ with aggregations as (
         campaign_name,
         adset_id,
         adset_name,
-        timestamp_trunc(_airbyte_emitted_at, day) as _airbyte_emitted_at,
+        timestamp_trunc(_airbyte_extracted_at, day) as _airbyte_extracted_at,
         sum(clicks) as clicks,
         sum(impressions) as impressions,
         sum(spend) as spend
@@ -27,7 +27,7 @@ with aggregations as (
         campaign_name,
         adset_id,
         adset_name,
-        timestamp_trunc(_airbyte_emitted_at, day)
+        timestamp_trunc(_airbyte_extracted_at, day)
 ),
 
 report_base as (
