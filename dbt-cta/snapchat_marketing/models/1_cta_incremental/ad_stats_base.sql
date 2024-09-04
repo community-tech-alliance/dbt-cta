@@ -1,6 +1,6 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_ads_stats_daily_hashid'
 ) }}
 
@@ -79,8 +79,8 @@ select
     attachment_avg_view_time_millis,
     conversion_achievement_unlocked,
     attachment_total_view_time_millis,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_ads_stats_daily_hashid
 from {{ ref('ads_stats_daily_ab3') }}
