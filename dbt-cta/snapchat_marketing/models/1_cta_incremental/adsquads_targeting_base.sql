@@ -4,7 +4,7 @@
     unique_key = 'ad_squad_id'
 ) }}
 
--- depends_on: {{ ref('adsquads_targeting_ab2') }}
+-- depends_on: {{ ref('adsquads_targeting_ab3') }}
 select
     ad_squad_id,
     geos,
@@ -13,4 +13,4 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('adsquads_targeting_ab2') }}
+from {{ ref('adsquads_targeting_ab3') }}
