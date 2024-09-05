@@ -4,7 +4,7 @@
     unique_key = 'id'
 ) }}
 
--- depends_on: {{ ref('ads_ab2') }}
+-- depends_on: {{ ref('ads_ab3') }}
 select
     id,
     name,
@@ -20,4 +20,4 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('ads_ab2') }}
+from {{ ref('ads_ab3') }}

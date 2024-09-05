@@ -4,7 +4,7 @@
     unique_key = '_airbyte_geos_hashid'
 ) }}
 
--- depends_on: {{ ref('adsquads_targeting_geos_ab3') }}
+-- depends_on: {{ ref('adsquads_targeting_geos_ab4') }}
 select
     _airbyte_geos_hashid,
     ad_squad_id,
@@ -19,4 +19,4 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('adsquads_targeting_geos_ab3') }}
+from {{ ref('adsquads_targeting_geos_ab4') }}

@@ -4,12 +4,12 @@
     unique_key = 'ad_squad_id'
 ) }}
 
--- depends_on: {{ ref('adsquads_skadnetwork_properties_ab2') }}
+-- depends_on: {{ ref('adsquads_skadnetwork_properties_ab3') }}
 select
     ad_squad_id,
     status,
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('adsquads_skadnetwork_properties_ab2') }}
+from {{ ref('adsquads_skadnetwork_properties_ab3') }}
 -- skadnetwork_properties at adsquads_base/skadnetwork_properties from {{ ref('adsquads_base') }}

@@ -4,7 +4,7 @@
     unique_key = 'id'
 ) }}
 
--- depends_on: {{ ref('segments_ab2') }}
+-- depends_on: {{ ref('segments_ab3') }}
 select
     id,
     name,
@@ -23,4 +23,4 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('segments_ab2') }}
+from {{ ref('segments_ab3') }}

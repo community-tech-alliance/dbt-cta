@@ -4,7 +4,7 @@
     unique_key = '_airbyte_ads_stats_daily_hashid'
 ) }}
 
--- depends_on: {{ ref('ads_stats_daily_ab3') }}
+-- depends_on: {{ ref('ads_stats_daily_ab4') }}
 select
     id,
     type,
@@ -83,4 +83,4 @@ select
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_ads_stats_daily_hashid
-from {{ ref('ads_stats_daily_ab3') }}
+from {{ ref('ads_stats_daily_ab4') }}
