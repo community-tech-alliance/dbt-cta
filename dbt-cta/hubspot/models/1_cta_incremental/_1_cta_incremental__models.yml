@@ -13,6 +13,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: name
         description: ''
       - name: archived
@@ -137,6 +140,9 @@ models:
         description: ''
       - name: _airbyte_forms_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: deal_pipelines_base
     description: ''
@@ -163,12 +169,18 @@ models:
         description: ''
       - name: pipelineid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: displayorder
         description: ''
       - name: objecttypeid
         description: ''
       - name: _airbyte_deal_pipelines_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: email_events_base
     description: ''
@@ -183,6 +195,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: bcc
         description: ''
       - name: url
@@ -265,6 +280,9 @@ models:
         description: ''
       - name: _airbyte_email_events_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: campaigns_base
     description: ''
@@ -277,6 +295,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: name
         description: ''
       - name: type
@@ -341,6 +362,9 @@ models:
         description: ''
       - name: _airbyte_campaigns_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: deals_property_history_base
     description: ''
@@ -1531,6 +1555,9 @@ models:
         description: ''
       - name: _airbyte_deals_property_history_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: form_submissions_base
     description: ''
@@ -1553,6 +1580,9 @@ models:
         description: ''
       - name: _airbyte_form_submissions_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: subscription_changes_base
     description: ''
@@ -1575,6 +1605,9 @@ models:
         description: ''
       - name: _airbyte_subscription_changes_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: engagements_notes_base
     description: ''
@@ -1587,6 +1620,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: deals
         description: ''
       - name: tickets
@@ -1695,6 +1731,9 @@ models:
         description: ''
       - name: _airbyte_engagements_notes_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: goals_base
     description: ''
@@ -1707,6 +1746,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: archived
         description: ''
       - name: createdat
@@ -1917,6 +1959,9 @@ models:
         description: ''
       - name: _airbyte_goals_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: companies_base
     description: ''
@@ -1929,6 +1974,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: archived
         description: ''
       - name: contacts
@@ -2289,6 +2337,9 @@ models:
         description: ''
       - name: _airbyte_companies_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: contacts_list_memberships_base
     description: ''
@@ -2307,12 +2358,18 @@ models:
         description: ''
       - name: canonical_vid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: static_list_id
         description: ''
       - name: internal_list_id
         description: ''
       - name: _airbyte_contacts_list_memberships_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: companies_property_history_base
     description: ''
@@ -2691,6 +2748,9 @@ models:
         description: ''
       - name: _airbyte_companies_property_history_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: engagements_calls_base
     description: ''
@@ -2703,6 +2763,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: deals
         description: ''
       - name: tickets
@@ -2881,6 +2944,9 @@ models:
         description: ''
       - name: _airbyte_engagements_calls_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: engagements_meetings_base
     description: ''
@@ -2893,6 +2959,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: deals
         description: ''
       - name: tickets
@@ -3067,6 +3136,9 @@ models:
         description: ''
       - name: _airbyte_engagements_meetings_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: engagements_base
     description: ''
@@ -3079,6 +3151,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: uid
         description: ''
       - name: type
@@ -3293,6 +3368,9 @@ models:
         description: ''
       - name: _airbyte_engagements_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: contacts_property_history_base
     description: ''
@@ -4251,6 +4329,9 @@ models:
         description: ''
       - name: _airbyte_contacts_property_history_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ticket_pipelines_base
     description: ''
@@ -4263,6 +4344,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: label
         description: ''
       - name: stages
@@ -4277,6 +4361,9 @@ models:
         description: ''
       - name: _airbyte_ticket_pipelines_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: deal_splits_base
     description: ''
@@ -4289,6 +4376,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: archived
         description: ''
       - name: createdat
@@ -4339,6 +4429,9 @@ models:
         description: ''
       - name: _airbyte_deal_splits_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: deals_base
     description: ''
@@ -4351,6 +4444,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: archived
         description: ''
       - name: contacts
@@ -5541,6 +5637,9 @@ models:
         description: ''
       - name: _airbyte_deals_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: tickets_base
     description: ''
@@ -5553,6 +5652,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: deals
         description: ''
       - name: archived
@@ -5915,6 +6017,9 @@ models:
         description: ''
       - name: _airbyte_tickets_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: engagements_emails_base
     description: ''
@@ -5927,6 +6032,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: deals
         description: ''
       - name: tickets
@@ -6159,6 +6267,9 @@ models:
         description: ''
       - name: _airbyte_engagements_emails_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: workflows_base
     description: ''
@@ -6171,6 +6282,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: name
         description: ''
       - name: type
@@ -6213,6 +6327,9 @@ models:
         description: ''
       - name: _airbyte_workflows_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: engagements_tasks_base
     description: ''
@@ -6225,6 +6342,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: deals
         description: ''
       - name: tickets
@@ -6441,6 +6561,9 @@ models:
         description: ''
       - name: _airbyte_engagements_tasks_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: owners_archived_base
     description: ''
@@ -6453,6 +6576,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: email
         description: ''
       - name: teams
@@ -6471,6 +6597,9 @@ models:
         description: ''
       - name: _airbyte_owners_archived_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: products_base
     description: ''
@@ -6483,6 +6612,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: archived
         description: ''
       - name: createdat
@@ -6591,6 +6723,9 @@ models:
         description: ''
       - name: _airbyte_products_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: line_items_base
     description: ''
@@ -6603,6 +6738,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: archived
         description: ''
       - name: createdat
@@ -6773,6 +6911,9 @@ models:
         description: ''
       - name: _airbyte_line_items_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: deals_archived_base
     description: ''
@@ -6785,6 +6926,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: archived
         description: ''
       - name: contacts
@@ -7977,6 +8121,9 @@ models:
         description: ''
       - name: _airbyte_deals_archived_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: contacts_base
     description: ''
@@ -7989,6 +8136,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: archived
         description: ''
       - name: companies
@@ -8919,6 +9069,9 @@ models:
         description: ''
       - name: _airbyte_contacts_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: participants_base
     description: ''
@@ -8931,6 +9084,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: archived
         description: ''
       - name: createdat
@@ -9147,6 +9303,9 @@ models:
         description: ''
       - name: _airbyte_participants_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: owners_base
     description: ''
@@ -9159,6 +9318,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: email
         description: ''
       - name: teams
@@ -9177,6 +9339,9 @@ models:
         description: ''
       - name: _airbyte_owners_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: email_subscriptions_base
     description: ''
@@ -9189,6 +9354,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: name
         description: ''
       - name: order
@@ -9211,6 +9379,9 @@ models:
         description: ''
       - name: _airbyte_email_subscriptions_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: contact_lists_base
     description: ''
@@ -9225,6 +9396,9 @@ models:
         description: ''
       - name: listid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: dynamic
         description: ''
       - name: filters
@@ -9275,4 +9449,7 @@ models:
         description: ''
       - name: _airbyte_contact_lists_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 

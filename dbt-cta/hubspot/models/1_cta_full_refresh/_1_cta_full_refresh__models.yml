@@ -63,6 +63,9 @@ models:
         description: ''
       - name: _airbyte_contacts_merged_audit_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: contacts_form_submissions_base
     description: ''
@@ -99,6 +102,9 @@ models:
         description: ''
       - name: _airbyte_contacts_form_submissions_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: marketing_emails_base
     description: ''
@@ -113,6 +119,9 @@ models:
         description: ''
       - name: id
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: url
         description: ''
       - name: name
@@ -355,4 +364,7 @@ models:
         description: ''
       - name: _airbyte_marketing_emails_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
