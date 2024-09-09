@@ -15,7 +15,7 @@ select
    label,
    active,
    stages,
-   default,
+   `default`,
    createdAt,
    updatedAt,
    objectType,
@@ -25,7 +25,6 @@ select
    {{ dbt_utils.surrogate_key([
      'label',
     'active',
-    'default',
     'createdAt',
     'updatedAt',
     'objectType',
