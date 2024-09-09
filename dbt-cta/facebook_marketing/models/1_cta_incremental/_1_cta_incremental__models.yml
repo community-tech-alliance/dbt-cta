@@ -233,6 +233,9 @@ models:
         description: ''
       - name: _airbyte_ads_insights_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ads_insights_action_video_type_base
     description: ''
@@ -465,6 +468,9 @@ models:
         description: ''
       - name: _airbyte_ads_insights_action_video_type_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ad_account_base
     description: ''
@@ -583,6 +589,9 @@ models:
         description: ''
       - name: _airbyte_ad_account_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ads_insights_delivery_platform_and_device_platform_base
     description: ''
@@ -819,6 +828,9 @@ models:
         description: ''
       - name: _airbyte_ads_insights_delivery_platform_and_device_platform_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ads_insights_action_conversion_device_base
     description: ''
@@ -1053,6 +1065,9 @@ models:
         description: ''
       - name: _airbyte_ads_insights_action_conversion_device_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: account_report_base
     description: ''
@@ -1073,6 +1088,9 @@ models:
         description: ''
       - name: _account_report_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
       - name: _airbyte_normalized_at
         description: ''
         tests:
@@ -1132,6 +1150,9 @@ models:
         description: ''
       - name: _airbyte_campaigns_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: images_base
     description: ''
@@ -1174,6 +1195,9 @@ models:
         description: ''
       - name: _airbyte_images_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ads_insights_action_carousel_card_base
     description: ''
@@ -1406,6 +1430,9 @@ models:
         description: ''
       - name: _airbyte_ads_insights_action_carousel_card_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ads_insights_age_and_gender_base
     description: ''
@@ -1642,6 +1669,9 @@ models:
         description: ''
       - name: _airbyte_ads_insights_age_and_gender_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ads_insights_demographics_age_base
     description: ''
@@ -1876,6 +1906,9 @@ models:
         description: ''
       - name: _airbyte_ads_insights_demographics_age_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ads_insights_region_base
     description: ''
@@ -2110,6 +2143,9 @@ models:
         description: ''
       - name: _airbyte_ads_insights_region_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ads_insights_demographics_country_base
     description: ''
@@ -2344,6 +2380,9 @@ models:
         description: ''
       - name: _airbyte_ads_insights_demographics_country_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ads_insights_delivery_platform_base
     description: ''
@@ -2578,6 +2617,9 @@ models:
         description: ''
       - name: _airbyte_ads_insights_delivery_platform_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ads_insights_action_reaction_base
     description: ''
@@ -2810,6 +2852,9 @@ models:
         description: ''
       - name: _airbyte_ads_insights_action_reaction_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ads_insights_action_type_base
     description: ''
@@ -3042,6 +3087,9 @@ models:
         description: ''
       - name: _airbyte_ads_insights_action_type_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ads_insights_demographics_dma_region_base
     description: ''
@@ -3276,6 +3324,9 @@ models:
         description: ''
       - name: _airbyte_ads_insights_demographics_dma_region_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: custom_conversions_base
     description: ''
@@ -3320,6 +3371,9 @@ models:
         description: ''
       - name: _airbyte_custom_conversions_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ad_creatives_base
     description: ''
@@ -3396,6 +3450,9 @@ models:
         description: ''
       - name: _airbyte_ad_creatives_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ads_insights_demographics_gender_base
     description: ''
@@ -3630,6 +3687,9 @@ models:
         description: ''
       - name: _airbyte_ads_insights_demographics_gender_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ads_insights_dma_base
     description: ''
@@ -3864,6 +3924,9 @@ models:
         description: ''
       - name: _airbyte_ads_insights_dma_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: activities_base
     description: ''
@@ -3898,6 +3961,9 @@ models:
         description: ''
       - name: _airbyte_activities_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ads_insights_action_video_sound_base
     description: ''
@@ -4130,6 +4196,9 @@ models:
         description: ''
       - name: _airbyte_ads_insights_action_video_sound_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ads_insights_country_base
     description: ''
@@ -4364,6 +4433,9 @@ models:
         description: ''
       - name: _airbyte_ads_insights_country_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ads_insights_delivery_device_base
     description: ''
@@ -4598,6 +4670,9 @@ models:
         description: ''
       - name: _airbyte_ads_insights_delivery_device_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ad_sets_base
     description: ''
@@ -4646,6 +4721,9 @@ models:
         description: ''
       - name: _airbyte_ad_sets_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ads_insights_action_product_id_base
     description: ''
@@ -4880,6 +4958,9 @@ models:
         description: ''
       - name: _airbyte_ads_insights_action_product_id_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: videos_base
     description: ''
@@ -4948,6 +5029,9 @@ models:
         description: ''
       - name: _airbyte_videos_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ads_base
     description: ''
@@ -4998,6 +5082,9 @@ models:
         description: ''
       - name: _airbyte_ads_hashid
         description: ''
+        tests:
+          - unique
+          - not_null
 
   - name: ads_insights_platform_and_device_base
     description: ''
@@ -5236,4 +5323,6 @@ models:
         description: ''
       - name: _airbyte_ads_insights_platform_and_device_hashid
         description: ''
-
+        tests:
+          - unique
+          - not_null
