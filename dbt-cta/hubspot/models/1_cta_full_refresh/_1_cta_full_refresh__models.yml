@@ -1,0 +1,358 @@
+version: 2
+
+models:
+
+  - name: contacts_merged_audit_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: _airbyte_generation_id
+        description: ''
+      - name: user_id
+        description: ''
+      - name: entity_id
+        description: ''
+      - name: last_name
+        description: ''
+      - name: timestamp
+        description: ''
+      - name: first_name
+        description: ''
+      - name: vid_to_merge
+        description: ''
+      - name: canonical_vid
+        description: ''
+      - name: merged_to_email
+        description: ''
+      - name: merged_from_email
+        description: ''
+      - name: num_properties_moved
+        description: ''
+      - name: merged_to_email_value
+        description: ''
+      - name: merged_from_email_value
+        description: ''
+      - name: merged_to_email_selected
+        description: ''
+      - name: merged_to_email_source_id
+        description: ''
+      - name: merged_to_email_timestamp
+        description: ''
+      - name: merged_from_email_selected
+        description: ''
+      - name: merged_from_email_source_id
+        description: ''
+      - name: merged_from_email_timestamp
+        description: ''
+      - name: merged_to_email_source_type
+        description: ''
+      - name: merged_to_email_source_label
+        description: ''
+      - name: merged_from_email_source_type
+        description: ''
+      - name: merged_from_email_source_vids
+        description: ''
+      - name: merged_from_email_source_label
+        description: ''
+      - name: merged_to_email_updated_by_user_id
+        description: ''
+      - name: merged_from_email_updated_by_user_id
+        description: ''
+      - name: _airbyte_contacts_merged_audit_hashid
+        description: ''
+
+  - name: contacts_form_submissions_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: _airbyte_generation_id
+        description: ''
+      - name: title
+        description: ''
+      - name: form_id
+        description: ''
+      - name: page_url
+        description: ''
+      - name: form_type
+        description: ''
+      - name: meta_data
+        description: ''
+      - name: portal_id
+        description: ''
+      - name: timestamp
+        description: ''
+      - name: page_title
+        description: ''
+      - name: canonical_url
+        description: ''
+      - name: canonical_vid
+        description: ''
+      - name: conversion_id
+        description: ''
+      - name: contact_associated_by
+        description: ''
+      - name: _airbyte_contacts_form_submissions_hashid
+        description: ''
+
+  - name: marketing_emails_base
+    description: ''
+    columns:
+      - name: _airbyte_extracted_at
+        description: ''
+      - name: _airbyte_meta
+        description: ''
+      - name: _airbyte_generation_id
+        description: ''
+      - name: ab
+        description: ''
+      - name: id
+        description: ''
+      - name: url
+        description: ''
+      - name: name
+        description: ''
+      - name: slug
+        description: ''
+      - name: state
+        description: ''
+      - name: stats
+        description: ''
+      - name: author
+        description: ''
+      - name: domain
+        description: ''
+      - name: created
+        description: ''
+      - name: replyto
+        description: ''
+      - name: subject
+        description: ''
+      - name: updated
+        description: ''
+      - name: abstatus
+        description: ''
+      - name: archived
+        description: ''
+      - name: authorat
+        description: ''
+      - name: campaign
+        description: ''
+      - name: folderid
+        description: ''
+      - name: fromname
+        description: ''
+      - name: language
+        description: ''
+      - name: portalid
+        description: ''
+      - name: sections
+        description: ''
+      - name: selected
+        description: ''
+      - name: emailbody
+        description: ''
+      - name: emailnote
+        description: ''
+      - name: emailtype
+        description: ''
+      - name: flexareas
+        description: ''
+      - name: htmltitle
+        description: ''
+      - name: rootmicid
+        description: ''
+      - name: teamperms
+        description: ''
+      - name: userperms
+        description: ''
+      - name: aifeatures
+        description: ''
+      - name: archivedat
+        description: ''
+      - name: authorname
+        description: ''
+      - name: categoryid
+        description: ''
+      - name: clonedfrom
+        description: ''
+      - name: createpage
+        description: ''
+      - name: freezedate
+        description: ''
+      - name: leadflowid
+        description: ''
+      - name: livedomain
+        description: ''
+      - name: previewkey
+        description: ''
+      - name: abvariation
+        description: ''
+      - name: absoluteurl
+        description: ''
+      - name: campaignutm
+        description: ''
+      - name: createdbyid
+        description: ''
+      - name: ispublished
+        description: ''
+      - name: publishdate
+        description: ''
+      - name: publishedat
+        description: ''
+      - name: rssemailurl
+        description: ''
+      - name: subcategory
+        description: ''
+      - name: updatedbyid
+        description: ''
+      - name: authoruserid
+        description: ''
+      - name: campaignname
+        description: ''
+      - name: currentstate
+        description: ''
+      - name: publishedurl
+        description: ''
+      - name: subscription
+        description: ''
+      - name: templatepath
+        description: ''
+      - name: translations
+        description: ''
+      - name: vidsexcluded
+        description: ''
+      - name: vidsincluded
+        description: ''
+      - name: visibletoall
+        description: ''
+      - name: abhourstowait
+        description: ''
+      - name: blogemailtype
+        description: ''
+      - name: customreplyto
+        description: ''
+      - name: maxrssentries
+        description: ''
+      - name: publishedbyid
+        description: ''
+      - name: securitystate
+        description: ''
+      - name: stylesettings
+        description: ''
+      - name: transactional
+        description: ''
+      - name: unpublishedat
+        description: ''
+      - name: audienceaccess
+        description: ''
+      - name: layoutsections
+        description: ''
+      - name: pageredirected
+        description: ''
+      - name: resolveddomain
+        description: ''
+      - name: rssemailbytext
+        description: ''
+      - name: absuccessmetric
+        description: ''
+      - name: analyticspageid
+        description: ''
+      - name: blogrsssettings
+        description: ''
+      - name: metadescription
+        description: ''
+      - name: publishedbyname
+        description: ''
+      - name: abtestpercentage
+        description: ''
+      - name: feedbacksurveyid
+        description: ''
+      - name: lasteditupdateid
+        description: ''
+      - name: processingstatus
+        description: ''
+      - name: publishedbyemail
+        description: ''
+      - name: smartemailfields
+        description: ''
+      - name: subscriptionname
+        description: ''
+      - name: absamplingdefault
+        description: ''
+      - name: analyticspagetype
+        description: ''
+      - name: canspamsettingsid
+        description: ''
+      - name: emailtemplatemode
+        description: ''
+      - name: lasteditsessionid
+        description: ''
+      - name: pageexpiryenabled
+        description: ''
+      - name: currentlypublished
+        description: ''
+      - name: emailbodyplaintext
+        description: ''
+      - name: publishimmediately
+        description: ''
+      - name: absamplesizedefault
+        description: ''
+      - name: allemailcampaignids
+        description: ''
+      - name: archivedindashboard
+        description: ''
+      - name: contenttypecategory
+        description: ''
+      - name: islocaltimezonesend
+        description: ''
+      - name: rssemailcommenttext
+        description: ''
+      - name: contentaccessruleids
+        description: ''
+      - name: customreplytoenabled
+        description: ''
+      - name: emailcampaigngroupid
+        description: ''
+      - name: isinstancelayoutpage
+        description: ''
+      - name: mailinglistsexcluded
+        description: ''
+      - name: mailinglistsincluded
+        description: ''
+      - name: pastmabexperimentids
+        description: ''
+      - name: feedbackemailcategory
+        description: ''
+      - name: hascontentaccessrules
+        description: ''
+      - name: rssemailimagemaxwidth
+        description: ''
+      - name: contentaccessruletypes
+        description: ''
+      - name: primaryemailcampaignid
+        description: ''
+      - name: iscreatedfomsandboxsync
+        description: ''
+      - name: mailingilslistsexcluded
+        description: ''
+      - name: mailingilslistsincluded
+        description: ''
+      - name: userssheadlineassubject
+        description: ''
+      - name: rssemailclickthroughtext
+        description: ''
+      - name: isgraymailsuppressionenabled
+        description: ''
+      - name: rssemailentrytemplateenabled
+        description: ''
+      - name: isrecipientfatiguesuppressionenabled
+        description: ''
+      - name: _airbyte_marketing_emails_hashid
+        description: ''
+
