@@ -1,0 +1,77 @@
+version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables: 
+    - name: campaigns
+    - name: companies
+    - name: companies_property_history
+    - name: contact_lists
+    - name: contacts
+    - name: contacts_form_submissions
+    - name: contacts_list_memberships
+    - name: contacts_merged_audit
+    - name: contacts_property_history
+    - name: deal_pipelines
+    - name: deal_splits
+    - name: deals
+    - name: deals_archived
+    - name: deals_property_history
+    - name: email_events
+    - name: email_subscriptions
+    - name: engagements
+    - name: engagements_calls
+    - name: engagements_emails
+    - name: engagements_meetings
+    - name: engagements_notes
+    - name: engagements_tasks
+    - name: form_submissions
+    - name: forms
+    - name: goals
+    - name: line_items
+    - name: marketing_emails
+    - name: owners
+    - name: owners_archived
+    - name: participants
+    - name: products
+    - name: subscription_changes
+    - name: ticket_pipelines
+    - name: tickets
+    - name: workflows
+  
+    - name: campaigns_base
+    - name: companies_base
+    - name: companies_property_history_base
+    - name: contact_lists_base
+    - name: contacts_base
+    - name: contacts_form_submissions_base
+    - name: contacts_list_memberships_base
+    - name: contacts_merged_audit_base
+    - name: contacts_property_history_base
+    - name: deal_pipelines_base
+    - name: deal_splits_base
+    - name: deals_base
+    - name: deals_archived_base
+    - name: deals_property_history_base
+    - name: email_events_base
+    - name: email_subscriptions_base
+    - name: engagements_base
+    - name: engagements_calls_base
+    - name: engagements_emails_base
+    - name: engagements_meetings_base
+    - name: engagements_notes_base
+    - name: engagements_tasks_base
+    - name: form_submissions_base
+    - name: forms_base
+    - name: goals_base
+    - name: line_items_base
+    - name: marketing_emails_base
+    - name: owners_base
+    - name: owners_archived_base
+    - name: participants_base
+    - name: products_base
+    - name: subscription_changes_base
+    - name: ticket_pipelines_base
+    - name: tickets_base
+    - name: workflows_base

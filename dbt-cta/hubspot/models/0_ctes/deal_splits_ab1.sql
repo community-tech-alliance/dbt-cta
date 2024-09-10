@@ -1,0 +1,65 @@
+
+{{ config(
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_raw_id'
+) }}
+-- SQL model to build a hash column based on the values of this record
+-- depends_on: {{ source('cta', 'deal_splits') }}
+
+select
+   _airbyte_raw_id,
+   _airbyte_extracted_at,
+   _airbyte_meta,
+   _airbyte_generation_id,
+   id,
+   archived,
+   createdAt,
+   updatedAt,
+   properties,
+   properties_hs_deal_id,
+   properties_hs_object_id,
+   properties_hs_read_only,
+   properties_hs_createdate,
+   properties_hs_was_imported,
+   properties_hs_object_source,
+   properties_hubspot_owner_id,
+   properties_hs_deal_split_type,
+   properties_hs_shared_team_ids,
+   properties_hs_shared_user_ids,
+   properties_hs_lastmodifieddate,
+   properties_hs_object_source_id,
+   properties_hs_deal_split_amount,
+   properties_hs_object_source_label,
+   properties_hs_deal_split_percentage,
+   properties_hs_object_source_user_id,
+   properties_hs_object_source_detail_1,
+   properties_hs_object_source_detail_2,
+   properties_hs_object_source_detail_3,
+   properties_hubspot_owner_assigneddate,
+   {{ dbt_utils.surrogate_key([
+     'id',
+    'archived',
+    'createdAt',
+    'updatedAt',
+    'properties_hs_deal_id',
+    'properties_hs_object_id',
+    'properties_hs_read_only',
+    'properties_hs_createdate',
+    'properties_hs_was_imported',
+    'properties_hs_object_source',
+    'properties_hubspot_owner_id',
+    'properties_hs_deal_split_type',
+    'properties_hs_shared_team_ids',
+    'properties_hs_shared_user_ids',
+    'properties_hs_lastmodifieddate',
+    'properties_hs_object_source_id',
+    'properties_hs_deal_split_amount',
+    'properties_hs_object_source_label',
+    'properties_hs_deal_split_percentage',
+    'properties_hs_object_source_detail_1',
+    'properties_hs_object_source_detail_2',
+    'properties_hs_object_source_detail_3',
+    'properties_hubspot_owner_assigneddate'
+    ]) }} as _airbyte_deal_splits_hashid
+from {{ source('cta', 'deal_splits') }}
