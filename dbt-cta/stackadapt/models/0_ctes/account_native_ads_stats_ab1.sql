@@ -1,10 +1,12 @@
+{% set raw_table = env_var("CTA_DATASET_ID") ~ "_raw__stream_account_native_ads_stats" %}
+
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id'
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_raw_id'
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('cta', '_airbyte_raw_account_native_ads_stats') }}
+-- depends_on: {{ source('cta_raw', raw_table) }}
 select
     {{ json_extract_scalar('_airbyte_data', ['ctr'], ['ctr']) }} as ctr,
     {{ json_extract_scalar('_airbyte_data', ['cvr'], ['cvr']) }} as cvr,
@@ -75,11 +77,11 @@ select
     {{ json_extract_scalar('_airbyte_data', ['sub_advertiser_id'], ['sub_advertiser_id']) }} as sub_advertiser_id,
     {{ json_extract_scalar('_airbyte_data', ['conv_click_time_avg'], ['conv_click_time_avg']) }} as conv_click_time_avg,
     {{ json_extract_scalar('_airbyte_data', ['unique_imp_inverse_rate'], ['unique_imp_inverse_rate']) }} as unique_imp_inverse_rate,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_account_native_ads_stats') }}
+from from {{ source('cta_raw', raw_table) }}
 -- account_native_ads_stats
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
+{{ incremental_clause('_airbyte_extracted_at') }}
 
