@@ -1,0 +1,14 @@
+version: 2
+sources:
+  - name: partner
+    database: "{{ env_var('PARTNER_PROJECT_ID') }}"
+    schema: "{{ env_var('PARTNER_DATASET_ID') }}"
+    tables:
+      - name: basic_user_data
+        tests:
+          - unique:
+              column_name: id
+      - name: clickstream_data
+        tests:
+          - unique:
+              column_name: session_id
