@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM  {{ source('cta', 'entity_sync_states_base') }}
+select *
+from {{ source('cta', 'entity_sync_states_base') }}

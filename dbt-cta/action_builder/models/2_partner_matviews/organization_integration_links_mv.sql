@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM  {{ source('cta', 'organization_integration_links_base') }}
+select *
+from {{ source('cta', 'organization_integration_links_base') }}

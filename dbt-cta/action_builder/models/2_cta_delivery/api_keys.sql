@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM  {{ source('cta', 'api_keys_base') }}
+select *
+from {{ source('cta', 'api_keys_base') }}

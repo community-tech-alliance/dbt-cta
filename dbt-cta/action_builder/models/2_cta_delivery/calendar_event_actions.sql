@@ -1,1 +1,1 @@
-select * from {{ source('cta', 'calendar_event_actions_base')  }}
+select * from {{ source('cta', 'calendar_event_actions_base') }}
