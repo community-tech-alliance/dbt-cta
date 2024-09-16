@@ -1,8 +1,8 @@
 #!/bin/bash
+# Run this from the root directory in order to use the .sqlfluff configs: sh utils/sqlfluff_all.sh
 
 # Set the base directory to the location of your folders
 BASE_DIR="dbt-cta"
-count=0  # Initialize a counter to limit to 3 folders
 
 # Iterate over each folder in the base directory
 for folder in "$BASE_DIR"/*; do
@@ -22,10 +22,5 @@ for folder in "$BASE_DIR"/*; do
     # Run the sqlfluff fix command
     pipenv run sqlfluff fix "$BASE_DIR/$foldername/"
     
-    # Increment the counter and break the loop if it's reached 3 folders
-    ((count++))
-    if [ "$count" -ge 2 ]; then
-      break
-    fi
   fi
 done
