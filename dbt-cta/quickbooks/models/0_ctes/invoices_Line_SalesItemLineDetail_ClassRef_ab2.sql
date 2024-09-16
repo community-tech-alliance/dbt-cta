@@ -15,4 +15,3 @@ select
 from {{ ref('invoices_Line_SalesItemLineDetail_ClassRef_ab1') }}
 -- ClassRef at invoices/Line/SalesItemLineDetail/ClassRef
 where 1 = 1
-

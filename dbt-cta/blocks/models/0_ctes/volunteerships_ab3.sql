@@ -18,7 +18,7 @@ select
         'person_id',
     ]) }} as _airbyte_volunteerships_hashid,
     tmp.*
-from {{ ref('volunteerships_ab2') }} tmp
+from {{ ref('volunteerships_ab2') }} as tmp
 -- volunteerships
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

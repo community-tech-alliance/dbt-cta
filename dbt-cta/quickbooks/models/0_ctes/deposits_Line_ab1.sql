@@ -17,9 +17,9 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('deposits_base') }} as table_alias
+from {{ ref('deposits_base') }}
 -- Line at deposits/Line
 {{ cross_join_unnest('deposits', 'Line') }}
-where 1 = 1
-and Line is not null
-
+where
+    1 = 1
+    and Line is not null

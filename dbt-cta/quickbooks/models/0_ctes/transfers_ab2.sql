@@ -24,4 +24,3 @@ select
 from {{ ref('transfers_ab1') }}
 -- transfers
 where 1 = 1
-

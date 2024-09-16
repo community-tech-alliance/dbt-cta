@@ -14,4 +14,3 @@ select
 from {{ ref('vendors_TermRef_ab1') }}
 -- TermRef at vendors/TermRef
 where 1 = 1
-

@@ -23,4 +23,3 @@ select
 from {{ ref('invoices_BillAddr_ab1') }}
 -- BillAddr at invoices/BillAddr
 where 1 = 1
-

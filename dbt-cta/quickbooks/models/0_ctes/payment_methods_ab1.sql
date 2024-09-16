@@ -21,4 +21,3 @@ select
 from {{ source('cta', '_airbyte_raw_payment_methods') }} as table_alias
 -- payment_methods
 where 1 = 1
-

@@ -11,7 +11,6 @@ select
         'value',
     ]) }} as _airbyte_TaxCodeRef_hashid,
     tmp.*
-from {{ ref('purchases_Line_ItemBasedExpenseLineDetail_TaxCodeRef_ab2') }} tmp
+from {{ ref('purchases_Line_ItemBasedExpenseLineDetail_TaxCodeRef_ab2') }} as tmp
 -- TaxCodeRef at purchases/Line/ItemBasedExpenseLineDetail/TaxCodeRef
 where 1 = 1
-

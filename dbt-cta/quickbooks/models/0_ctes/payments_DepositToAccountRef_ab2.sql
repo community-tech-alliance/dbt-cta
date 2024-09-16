@@ -14,4 +14,3 @@ select
 from {{ ref('payments_DepositToAccountRef_ab1') }}
 -- DepositToAccountRef at payments/DepositToAccountRef
 where 1 = 1
-

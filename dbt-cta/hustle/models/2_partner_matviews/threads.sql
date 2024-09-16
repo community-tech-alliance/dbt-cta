@@ -1,3 +1,2 @@
-SELECT
-*
-FROM {{ source('cta','threads_base') }}
+select *
+from {{ source('cta','threads_base') }}

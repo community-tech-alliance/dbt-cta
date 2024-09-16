@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_TaxRateRef_hashid,
     tmp.*
-from {{ ref('tax_codes_SalesTaxRateList_TaxRateDetail_TaxRateRef_ab2') }} tmp
+from {{ ref('tax_codes_SalesTaxRateList_TaxRateDetail_TaxRateRef_ab2') }} as tmp
 -- TaxRateRef at tax_codes/SalesTaxRateList/TaxRateDetail/TaxRateRef
 where 1 = 1
-

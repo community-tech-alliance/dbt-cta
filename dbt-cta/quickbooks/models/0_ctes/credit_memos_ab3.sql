@@ -36,7 +36,6 @@ select
         object_to_string('TxnTaxDetail'),
     ]) }} as _airbyte_credit_memos_hashid,
     tmp.*
-from {{ ref('credit_memos_ab2') }} tmp
+from {{ ref('credit_memos_ab2') }} as tmp
 -- credit_memos
 where 1 = 1
-

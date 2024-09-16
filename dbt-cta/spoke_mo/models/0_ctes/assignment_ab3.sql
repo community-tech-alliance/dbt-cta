@@ -14,8 +14,6 @@ select
         'campaign_id',
     ]) }} as _airbyte_assignment_hashid,
     tmp.*
-from {{ ref('assignment_ab2') }} tmp
+from {{ ref('assignment_ab2') }} as tmp
 -- assignment
 where 1 = 1
-
-

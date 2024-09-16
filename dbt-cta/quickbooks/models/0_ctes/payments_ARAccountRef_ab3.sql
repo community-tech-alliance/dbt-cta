@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_ARAccountRef_hashid,
     tmp.*
-from {{ ref('payments_ARAccountRef_ab2') }} tmp
+from {{ ref('payments_ARAccountRef_ab2') }} as tmp
 -- ARAccountRef at payments/ARAccountRef
 where 1 = 1
-

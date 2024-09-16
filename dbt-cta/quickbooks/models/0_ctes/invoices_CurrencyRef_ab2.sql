@@ -15,4 +15,3 @@ select
 from {{ ref('invoices_CurrencyRef_ab1') }}
 -- CurrencyRef at invoices/CurrencyRef
 where 1 = 1
-

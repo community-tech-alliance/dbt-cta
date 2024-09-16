@@ -17,7 +17,6 @@ select
         object_to_string('CustomerRef'),
     ]) }} as _airbyte_ItemBasedExpenseLineDetail_hashid,
     tmp.*
-from {{ ref('purchase_orders_Line_ItemBasedExpenseLineDetail_ab2') }} tmp
+from {{ ref('purchase_orders_Line_ItemBasedExpenseLineDetail_ab2') }} as tmp
 -- ItemBasedExpenseLineDetail at purchase_orders/Line/ItemBasedExpenseLineDetail
 where 1 = 1
-

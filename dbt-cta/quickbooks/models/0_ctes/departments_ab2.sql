@@ -22,4 +22,3 @@ select
 from {{ ref('departments_ab1') }}
 -- departments
 where 1 = 1
-

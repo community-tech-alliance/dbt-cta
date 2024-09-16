@@ -16,6 +16,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('credit_memos_Line_base') }} as table_alias
 -- SalesItemLineDetail at credit_memos/Line/SalesItemLineDetail
-where 1 = 1
-and SalesItemLineDetail is not null
-
+where
+    1 = 1
+    and SalesItemLineDetail is not null

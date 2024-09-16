@@ -19,4 +19,3 @@ select
 from {{ ref('deposits_Line_ab1') }}
 -- Line at deposits/Line
 where 1 = 1
-

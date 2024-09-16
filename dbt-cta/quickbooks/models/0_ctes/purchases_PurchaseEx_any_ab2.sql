@@ -20,4 +20,3 @@ select
 from {{ ref('purchases_PurchaseEx_any_ab1') }}
 -- any at purchases/PurchaseEx/any
 where 1 = 1
-

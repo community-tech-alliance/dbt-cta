@@ -15,6 +15,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('journal_entries_base') }} as table_alias
 -- TxnTaxDetail at journal_entries/TxnTaxDetail
-where 1 = 1
-and TxnTaxDetail is not null
-
+where
+    1 = 1
+    and TxnTaxDetail is not null

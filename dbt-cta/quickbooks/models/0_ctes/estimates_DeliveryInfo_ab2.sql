@@ -14,4 +14,3 @@ select
 from {{ ref('estimates_DeliveryInfo_ab1') }}
 -- DeliveryInfo at estimates/DeliveryInfo
 where 1 = 1
-

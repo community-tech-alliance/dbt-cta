@@ -19,8 +19,6 @@ select
         'allocated_at',
     ]) }} as _airbyte_owned_phone_number_hashid,
     tmp.*
-from {{ ref('owned_phone_number_ab2') }} tmp
+from {{ ref('owned_phone_number_ab2') }} as tmp
 -- owned_phone_number
 where 1 = 1
-
-

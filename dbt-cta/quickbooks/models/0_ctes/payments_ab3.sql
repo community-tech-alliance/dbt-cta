@@ -29,7 +29,6 @@ select
         array_to_string('LinkedTxn'),
     ]) }} as _airbyte_payments_hashid,
     tmp.*
-from {{ ref('payments_ab2') }} tmp
+from {{ ref('payments_ab2') }} as tmp
 -- payments
 where 1 = 1
-

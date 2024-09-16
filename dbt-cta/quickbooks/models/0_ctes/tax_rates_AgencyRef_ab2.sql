@@ -14,4 +14,3 @@ select
 from {{ ref('tax_rates_AgencyRef_ab1') }}
 -- AgencyRef at tax_rates/AgencyRef
 where 1 = 1
-

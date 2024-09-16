@@ -14,4 +14,3 @@ select
 from {{ ref('customers_Mobile_ab1') }}
 -- Mobile at customers/Mobile
 where 1 = 1
-

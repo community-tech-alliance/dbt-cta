@@ -12,7 +12,6 @@ select
         'role_id',
     ]) }} as _airbyte_collections_roles_hashid,
     tmp.*
-from {{ ref('collections_roles_ab2') }} tmp
+from {{ ref('collections_roles_ab2') }} as tmp
 -- collections_roles
 where 1 = 1
-

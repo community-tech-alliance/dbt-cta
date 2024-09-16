@@ -31,5 +31,3 @@ select
 from {{ ref('message_ab1') }}
 -- message
 where 1 = 1
-
-

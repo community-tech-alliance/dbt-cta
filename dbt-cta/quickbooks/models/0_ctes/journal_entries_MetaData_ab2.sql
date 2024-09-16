@@ -15,4 +15,3 @@ select
 from {{ ref('journal_entries_MetaData_ab1') }}
 -- MetaData at journal_entries/MetaData
 where 1 = 1
-

@@ -26,4 +26,3 @@ select
 from {{ ref('vendor_credits_ab1') }}
 -- vendor_credits
 where 1 = 1
-

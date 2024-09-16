@@ -18,4 +18,3 @@ select
     _airbyte_relationship_types_hashid
 from {{ ref('relationship_types_ab3') }}
 -- relationship_types from {{ source('cta', '_airbyte_raw_relationship_types') }}
-

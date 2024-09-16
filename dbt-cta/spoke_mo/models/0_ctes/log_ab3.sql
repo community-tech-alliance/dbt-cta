@@ -16,8 +16,6 @@ select
         'message_sid',
     ]) }} as _airbyte_log_hashid,
     tmp.*
-from {{ ref('log_ab2') }} tmp
+from {{ ref('log_ab2') }} as tmp
 -- log
 where 1 = 1
-
-

@@ -36,4 +36,3 @@ select
 from {{ source('cta', '_airbyte_raw_refund_receipts') }} as table_alias
 -- refund_receipts
 where 1 = 1
-

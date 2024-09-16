@@ -16,4 +16,3 @@ select
 from {{ ref('address_districts_ab1') }}
 -- address_districts
 where 1 = 1
-

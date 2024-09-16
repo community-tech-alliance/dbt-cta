@@ -20,4 +20,3 @@ select
 from {{ ref('bills_Line_ab1') }}
 -- Line at bills/Line
 where 1 = 1
-

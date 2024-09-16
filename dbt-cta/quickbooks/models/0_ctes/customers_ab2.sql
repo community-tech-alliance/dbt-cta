@@ -46,4 +46,3 @@ select
 from {{ ref('customers_ab1') }}
 -- customers
 where 1 = 1
-

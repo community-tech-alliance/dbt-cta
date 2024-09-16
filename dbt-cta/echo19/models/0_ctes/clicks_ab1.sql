@@ -18,4 +18,4 @@ select
     'ipAddress',
     'longUrl',
     ]) }} as clicks_hashid
-from {{ source('cta', '_stg_clicks') }} as t
+from {{ source('cta', '_stg_clicks') }}

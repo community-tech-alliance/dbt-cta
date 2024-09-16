@@ -13,7 +13,6 @@ select
         array_to_string('TaxLine'),
     ]) }} as _airbyte_TxnTaxDetail_hashid,
     tmp.*
-from {{ ref('journal_entries_TxnTaxDetail_ab2') }} tmp
+from {{ ref('journal_entries_TxnTaxDetail_ab2') }} as tmp
 -- TxnTaxDetail at journal_entries/TxnTaxDetail
 where 1 = 1
-

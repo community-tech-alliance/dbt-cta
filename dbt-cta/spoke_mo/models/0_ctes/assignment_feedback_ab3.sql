@@ -16,8 +16,6 @@ select
         boolean_to_string('complete'),
     ]) }} as _airbyte_assignment_feedback_hashid,
     tmp.*
-from {{ ref('assignment_feedback_ab2') }} tmp
+from {{ ref('assignment_feedback_ab2') }} as tmp
 -- assignment_feedback
 where 1 = 1
-
-

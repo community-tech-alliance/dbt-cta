@@ -25,4 +25,3 @@ select
     _airbyte_quick_links_hashid
 from {{ ref('quick_links_ab3') }}
 -- quick_links from {{ source('cta', '_airbyte_raw_quick_links') }}
-

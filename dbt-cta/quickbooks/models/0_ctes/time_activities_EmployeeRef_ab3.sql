@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_EmployeeRef_hashid,
     tmp.*
-from {{ ref('time_activities_EmployeeRef_ab2') }} tmp
+from {{ ref('time_activities_EmployeeRef_ab2') }} as tmp
 -- EmployeeRef at time_activities/EmployeeRef
 where 1 = 1
-

@@ -19,4 +19,3 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('districts_inbound_ab1') }}
 -- districts_inbound
-

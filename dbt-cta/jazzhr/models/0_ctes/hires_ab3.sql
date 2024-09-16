@@ -16,7 +16,6 @@ select
         'hired_date',
     ]) }} as _airbyte_hires_hashid,
     tmp.*
-from {{ ref('hires_ab2') }} tmp
+from {{ ref('hires_ab2') }} as tmp
 -- hires
 where 1 = 1
-

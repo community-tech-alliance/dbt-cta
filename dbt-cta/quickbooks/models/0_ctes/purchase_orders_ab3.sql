@@ -37,7 +37,6 @@ select
         object_to_string('TxnTaxDetail'),
     ]) }} as _airbyte_purchase_orders_hashid,
     tmp.*
-from {{ ref('purchase_orders_ab2') }} tmp
+from {{ ref('purchase_orders_ab2') }} as tmp
 -- purchase_orders
 where 1 = 1
-

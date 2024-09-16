@@ -33,4 +33,3 @@ select
 from {{ ref('items_ab1') }}
 -- items
 where 1 = 1
-

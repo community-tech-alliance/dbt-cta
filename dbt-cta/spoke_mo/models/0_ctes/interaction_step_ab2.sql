@@ -22,5 +22,3 @@ select
 from {{ ref('interaction_step_ab1') }}
 -- interaction_step
 where 1 = 1
-
-

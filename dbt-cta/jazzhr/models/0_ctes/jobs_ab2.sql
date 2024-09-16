@@ -33,4 +33,3 @@ select
 from {{ ref('jobs_ab1') }}
 -- jobs
 where 1 = 1
-

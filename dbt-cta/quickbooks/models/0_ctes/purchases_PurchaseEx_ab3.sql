@@ -11,7 +11,6 @@ select
         array_to_string(adapter.quote('any')),
     ]) }} as _airbyte_PurchaseEx_hashid,
     tmp.*
-from {{ ref('purchases_PurchaseEx_ab2') }} tmp
+from {{ ref('purchases_PurchaseEx_ab2') }} as tmp
 -- PurchaseEx at purchases/PurchaseEx
 where 1 = 1
-

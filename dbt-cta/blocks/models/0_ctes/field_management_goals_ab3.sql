@@ -16,7 +16,6 @@ select
         'start_date',
     ]) }} as _airbyte_field_management_goals_hashid,
     tmp.*
-from {{ ref('field_management_goals_ab2') }} tmp
+from {{ ref('field_management_goals_ab2') }} as tmp
 -- field_management_goals
 where 1 = 1
-

@@ -31,7 +31,7 @@ select
         'ballot_delivery_address_id',
     ]) }} as _airbyte_absentee_ballot_request_forms_hashid,
     tmp.*
-from {{ ref('absentee_ballot_request_forms_ab2') }} tmp
+from {{ ref('absentee_ballot_request_forms_ab2') }} as tmp
 -- absentee_ballot_request_forms
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

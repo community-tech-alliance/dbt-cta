@@ -21,4 +21,3 @@ select
 from {{ ref('payment_methods_ab1') }}
 -- payment_methods
 where 1 = 1
-

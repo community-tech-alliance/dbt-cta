@@ -17,7 +17,6 @@ select
         'Lat',
     ]) }} as _airbyte_RemitToAddr_hashid,
     tmp.*
-from {{ ref('purchases_RemitToAddr_ab2') }} tmp
+from {{ ref('purchases_RemitToAddr_ab2') }} as tmp
 -- RemitToAddr at purchases/RemitToAddr
 where 1 = 1
-

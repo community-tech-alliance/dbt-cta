@@ -18,7 +18,6 @@ select
         'start_date',
     ]) }} as _airbyte_field_management_projections_hashid,
     tmp.*
-from {{ ref('field_management_projections_ab2') }} tmp
+from {{ ref('field_management_projections_ab2') }} as tmp
 -- field_management_projections
 where 1 = 1
-

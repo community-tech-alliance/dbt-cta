@@ -15,6 +15,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('deposits_base') }} as table_alias
 -- CashBack at deposits/CashBack
-where 1 = 1
-and CashBack is not null
-
+where
+    1 = 1
+    and CashBack is not null

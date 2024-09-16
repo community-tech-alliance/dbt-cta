@@ -40,4 +40,3 @@ select
 from {{ source('cta', '_airbyte_raw_purchase_orders') }} as table_alias
 -- purchase_orders
 where 1 = 1
-

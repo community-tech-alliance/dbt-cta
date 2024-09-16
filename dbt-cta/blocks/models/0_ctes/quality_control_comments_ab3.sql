@@ -16,7 +16,7 @@ select
         'author_id',
     ]) }} as _airbyte_quality_control_comments_hashid,
     tmp.*
-from {{ ref('quality_control_comments_ab2') }} tmp
+from {{ ref('quality_control_comments_ab2') }} as tmp
 -- quality_control_comments
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

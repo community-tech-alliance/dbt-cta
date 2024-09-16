@@ -12,7 +12,7 @@ select
     _airbyte_meta,
     id,
     url,
-    cast(created_at as {{dbt.type_timestamp()}}) as created_at,
+    cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
     profile_id,
     user_agent,
     clicked_url,

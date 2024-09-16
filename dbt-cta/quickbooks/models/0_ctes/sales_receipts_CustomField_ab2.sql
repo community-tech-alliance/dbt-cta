@@ -16,4 +16,3 @@ select
 from {{ ref('sales_receipts_CustomField_ab1') }}
 -- CustomField at sales_receipts/CustomField
 where 1 = 1
-

@@ -17,4 +17,3 @@ select
 from {{ ref('credit_memos_Line_SalesItemLineDetail_ab1') }}
 -- SalesItemLineDetail at credit_memos/Line/SalesItemLineDetail
 where 1 = 1
-

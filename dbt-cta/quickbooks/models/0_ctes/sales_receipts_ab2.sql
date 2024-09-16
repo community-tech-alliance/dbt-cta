@@ -40,4 +40,3 @@ select
 from {{ ref('sales_receipts_ab1') }}
 -- sales_receipts
 where 1 = 1
-

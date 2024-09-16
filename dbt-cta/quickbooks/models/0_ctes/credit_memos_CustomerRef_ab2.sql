@@ -15,4 +15,3 @@ select
 from {{ ref('credit_memos_CustomerRef_ab1') }}
 -- CustomerRef at credit_memos/CustomerRef
 where 1 = 1
-

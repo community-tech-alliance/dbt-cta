@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_CustomerRef_hashid,
     tmp.*
-from {{ ref('invoices_CustomerRef_ab2') }} tmp
+from {{ ref('invoices_CustomerRef_ab2') }} as tmp
 -- CustomerRef at invoices/CustomerRef
 where 1 = 1
-

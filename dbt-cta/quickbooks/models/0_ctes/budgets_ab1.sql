@@ -24,4 +24,3 @@ select
 from {{ source('cta', '_airbyte_raw_budgets') }} as table_alias
 -- budgets
 where 1 = 1
-

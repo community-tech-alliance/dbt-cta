@@ -13,7 +13,6 @@ select
         'Name',
     ]) }} as _airbyte_CustomField_hashid,
     tmp.*
-from {{ ref('sales_receipts_CustomField_ab2') }} tmp
+from {{ ref('sales_receipts_CustomField_ab2') }} as tmp
 -- CustomField at sales_receipts/CustomField
 where 1 = 1
-

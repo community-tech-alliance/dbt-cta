@@ -15,7 +15,7 @@ select
         'id',
     ]) }} as _airbyte_list_folders_hashid,
     tmp.*
-from {{ ref('list_folders_ab2') }} tmp
+from {{ ref('list_folders_ab2') }} as tmp
 -- list_folders
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

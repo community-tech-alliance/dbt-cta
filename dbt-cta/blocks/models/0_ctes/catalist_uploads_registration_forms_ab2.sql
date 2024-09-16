@@ -15,4 +15,3 @@ select
 from {{ ref('catalist_uploads_registration_forms_ab1') }}
 -- catalist_uploads_registration_forms
 where 1 = 1
-

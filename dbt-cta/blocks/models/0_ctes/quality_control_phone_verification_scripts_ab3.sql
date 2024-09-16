@@ -14,7 +14,6 @@ select
         'structure',
     ]) }} as _airbyte_quality_control_phone_verification_scripts_hashid,
     tmp.*
-from {{ ref('quality_control_phone_verification_scripts_ab2') }} tmp
+from {{ ref('quality_control_phone_verification_scripts_ab2') }} as tmp
 -- quality_control_phone_verification_scripts
 where 1 = 1
-

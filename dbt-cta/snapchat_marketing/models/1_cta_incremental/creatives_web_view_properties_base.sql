@@ -8,16 +8,16 @@
 select
     creative_id,
     url,
-    REGEXP_EXTRACT(url,r'utm_source=([^&]+)') as utm_source,
-    REGEXP_EXTRACT(url,r'utm_medium=([^&]+)') as utm_medium,
-    REGEXP_EXTRACT(url,r'utm_campaign=([^&]+)') as utm_campaign,
-    REGEXP_EXTRACT(url,r'utm_term=([^&]+)') as utm_term,
-    REGEXP_EXTRACT(REGEXP_EXTRACT(url,r'utm_content=([^&]+)'),r'([a-zA-Z0-9]+)') as utm_content,
     block_preload,
     deep_link_urls,
     use_immersive_mode,
     allow_snap_javascript_sdk,
     _airbyte_raw_id,
     _airbyte_extracted_at,
+    regexp_extract(url, r'utm_source=([^&]+)') as utm_source,
+    regexp_extract(url, r'utm_medium=([^&]+)') as utm_medium,
+    regexp_extract(url, r'utm_campaign=([^&]+)') as utm_campaign,
+    regexp_extract(url, r'utm_term=([^&]+)') as utm_term,
+    regexp_extract(regexp_extract(url, r'utm_content=([^&]+)'), r'([a-zA-Z0-9]+)') as utm_content,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('creatives_web_view_properties_ab3') }}

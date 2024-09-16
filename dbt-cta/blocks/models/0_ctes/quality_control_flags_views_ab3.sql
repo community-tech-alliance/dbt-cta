@@ -12,7 +12,6 @@ select
         'user_id',
     ]) }} as _airbyte_quality_control_flags_views_hashid,
     tmp.*
-from {{ ref('quality_control_flags_views_ab2') }} tmp
+from {{ ref('quality_control_flags_views_ab2') }} as tmp
 -- quality_control_flags_views
 where 1 = 1
-

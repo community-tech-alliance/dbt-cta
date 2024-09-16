@@ -4,6 +4,5 @@
     unique_key = 'creative_id'
 ) }}
 
-SELECT
-  *
-FROM {{ source('cta', 'creatives_web_view_properties_base') }}
+select *
+from {{ source('cta', 'creatives_web_view_properties_base') }}

@@ -15,7 +15,7 @@ select
         'file_data',
     ]) }} as _airbyte_voter_registration_scan_batch_cover_sheets_hashid,
     tmp.*
-from {{ ref('voter_registration_scan_batch_cover_sheets_ab2') }} tmp
+from {{ ref('voter_registration_scan_batch_cover_sheets_ab2') }} as tmp
 -- voter_registration_scan_batch_cover_sheets
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

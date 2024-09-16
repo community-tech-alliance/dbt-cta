@@ -21,7 +21,6 @@ select
         'sender_id',
     ]) }} as _airbyte_sent_emails_hashid,
     tmp.*
-from {{ ref('sent_emails_ab2') }} tmp
+from {{ ref('sent_emails_ab2') }} as tmp
 -- sent_emails
 where 1 = 1
-

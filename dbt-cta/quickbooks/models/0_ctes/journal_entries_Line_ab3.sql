@@ -15,7 +15,6 @@ select
         object_to_string('JournalEntryLineDetail'),
     ]) }} as _airbyte_Line_hashid,
     tmp.*
-from {{ ref('journal_entries_Line_ab2') }} tmp
+from {{ ref('journal_entries_Line_ab2') }} as tmp
 -- Line at journal_entries/Line
 where 1 = 1
-

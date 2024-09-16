@@ -28,8 +28,6 @@ select
         'service_response_at',
     ]) }} as _airbyte_message_hashid,
     tmp.*
-from {{ ref('message_ab2') }} tmp
+from {{ ref('message_ab2') }} as tmp
 -- message
 where 1 = 1
-
-

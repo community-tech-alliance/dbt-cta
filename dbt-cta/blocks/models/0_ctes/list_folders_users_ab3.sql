@@ -12,7 +12,6 @@ select
         'list_folder_id',
     ]) }} as _airbyte_list_folders_users_hashid,
     tmp.*
-from {{ ref('list_folders_users_ab2') }} tmp
+from {{ ref('list_folders_users_ab2') }} as tmp
 -- list_folders_users
 where 1 = 1
-

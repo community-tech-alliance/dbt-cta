@@ -40,4 +40,3 @@ select
 from {{ source('cta', '_airbyte_raw_sales_receipts') }} as table_alias
 -- sales_receipts
 where 1 = 1
-

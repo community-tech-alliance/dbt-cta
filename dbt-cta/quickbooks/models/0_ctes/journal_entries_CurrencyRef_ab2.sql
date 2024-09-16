@@ -15,4 +15,3 @@ select
 from {{ ref('journal_entries_CurrencyRef_ab1') }}
 -- CurrencyRef at journal_entries/CurrencyRef
 where 1 = 1
-

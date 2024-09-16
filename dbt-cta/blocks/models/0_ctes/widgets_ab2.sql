@@ -21,4 +21,3 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('widgets_ab1') }}
 -- widgets
-

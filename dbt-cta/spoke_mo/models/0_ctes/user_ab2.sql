@@ -24,5 +24,3 @@ select
 from {{ ref('user_ab1') }}
 -- user
 where 1 = 1
-
-

@@ -26,4 +26,3 @@ select
 from {{ source('cta', '_airbyte_raw_tax_rates') }} as table_alias
 -- tax_rates
 where 1 = 1
-

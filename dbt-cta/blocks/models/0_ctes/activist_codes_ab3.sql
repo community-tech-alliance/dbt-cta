@@ -15,7 +15,7 @@ select
         'label',
     ]) }} as _airbyte_activist_codes_hashid,
     tmp.*
-from {{ ref('activist_codes_ab2') }} tmp
+from {{ ref('activist_codes_ab2') }} as tmp
 -- activist_codes
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

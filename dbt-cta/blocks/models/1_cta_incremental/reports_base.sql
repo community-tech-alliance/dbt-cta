@@ -22,4 +22,3 @@ select
     _airbyte_reports_hashid
 from {{ ref('reports_ab3') }}
 -- reports from {{ source('cta', '_airbyte_raw_reports') }}
-

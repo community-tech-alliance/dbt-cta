@@ -29,4 +29,3 @@ select
 from {{ ref('questionnaire_answers_ab1') }}
 -- questionnaire_answers
 where 1 = 1
-

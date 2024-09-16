@@ -12,7 +12,6 @@ select
         object_to_string('BankAccountRef'),
     ]) }} as _airbyte_CheckPayment_hashid,
     tmp.*
-from {{ ref('bill_payments_CheckPayment_ab2') }} tmp
+from {{ ref('bill_payments_CheckPayment_ab2') }} as tmp
 -- CheckPayment at bill_payments/CheckPayment
 where 1 = 1
-

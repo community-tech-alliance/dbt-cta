@@ -11,7 +11,6 @@ select
         'value',
     ]) }} as _airbyte_CustomerMemo_hashid,
     tmp.*
-from {{ ref('credit_memos_CustomerMemo_ab2') }} tmp
+from {{ ref('credit_memos_CustomerMemo_ab2') }} as tmp
 -- CustomerMemo at credit_memos/CustomerMemo
 where 1 = 1
-

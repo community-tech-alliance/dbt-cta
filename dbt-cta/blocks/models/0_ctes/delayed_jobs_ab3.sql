@@ -22,7 +22,6 @@ select
         'attempts',
     ]) }} as _airbyte_delayed_jobs_hashid,
     tmp.*
-from {{ ref('delayed_jobs_ab2') }} tmp
+from {{ ref('delayed_jobs_ab2') }} as tmp
 -- delayed_jobs
 where 1 = 1
-

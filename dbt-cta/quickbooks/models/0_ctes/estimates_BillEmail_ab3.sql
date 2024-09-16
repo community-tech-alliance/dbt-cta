@@ -11,7 +11,6 @@ select
         'Address',
     ]) }} as _airbyte_BillEmail_hashid,
     tmp.*
-from {{ ref('estimates_BillEmail_ab2') }} tmp
+from {{ ref('estimates_BillEmail_ab2') }} as tmp
 -- BillEmail at estimates/BillEmail
 where 1 = 1
-

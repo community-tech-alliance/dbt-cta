@@ -19,4 +19,3 @@ select
 from {{ ref('purchases_Line_ab1') }}
 -- Line at purchases/Line
 where 1 = 1
-

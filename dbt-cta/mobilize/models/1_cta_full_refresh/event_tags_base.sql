@@ -26,8 +26,8 @@ select
     modified_date,
     _airbyte_raw_id,
     _airbyte_extracted_at,
-    current_timestamp() as _airbyte_normalized_at,
-    _airbyte_event_tags_hashid
+    _airbyte_event_tags_hashid,
+    current_timestamp() as _airbyte_normalized_at
 from {{ ref('event_tags_ab4') }}
 
 {% if is_incremental() %}

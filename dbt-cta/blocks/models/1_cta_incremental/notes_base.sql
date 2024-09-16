@@ -20,4 +20,3 @@ select
     _airbyte_notes_hashid
 from {{ ref('notes_ab3') }}
 -- notes from {{ source('cta', '_airbyte_raw_notes') }}
-

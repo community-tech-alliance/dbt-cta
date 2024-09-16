@@ -14,7 +14,6 @@ select
         'TaxPercent',
     ]) }} as _airbyte_TaxLineDetail_hashid,
     tmp.*
-from {{ ref('invoices_TxnTaxDetail_TaxLine_TaxLineDetail_ab2') }} tmp
+from {{ ref('invoices_TxnTaxDetail_TaxLine_TaxLineDetail_ab2') }} as tmp
 -- TaxLineDetail at invoices/TxnTaxDetail/TaxLine/TaxLineDetail
 where 1 = 1
-

@@ -27,4 +27,3 @@ select
 from {{ source('cta', '_airbyte_raw_terms') }} as table_alias
 -- terms
 where 1 = 1
-

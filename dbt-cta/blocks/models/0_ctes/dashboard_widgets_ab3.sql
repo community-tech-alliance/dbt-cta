@@ -19,7 +19,7 @@ select
         'dashboard_layout_id',
     ]) }} as _airbyte_dashboard_widgets_hashid,
     tmp.*
-from {{ ref('dashboard_widgets_ab2') }} tmp
+from {{ ref('dashboard_widgets_ab2') }} as tmp
 -- dashboard_widgets
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

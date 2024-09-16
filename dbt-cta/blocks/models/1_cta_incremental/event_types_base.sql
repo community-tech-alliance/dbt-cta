@@ -18,4 +18,3 @@ select
     _airbyte_event_types_hashid
 from {{ ref('event_types_ab3') }}
 -- event_types from {{ source('cta', '_airbyte_raw_event_types') }}
-

@@ -11,8 +11,6 @@ select
         'index',
     ]) }} as _airbyte_knex_migrations_lock_hashid,
     tmp.*
-from {{ ref('knex_migrations_lock_ab2') }} tmp
+from {{ ref('knex_migrations_lock_ab2') }} as tmp
 -- knex_migrations_lock
 where 1 = 1
-
-

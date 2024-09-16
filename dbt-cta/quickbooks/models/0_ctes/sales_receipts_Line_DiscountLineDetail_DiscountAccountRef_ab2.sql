@@ -15,4 +15,3 @@ select
 from {{ ref('sales_receipts_Line_DiscountLineDetail_DiscountAccountRef_ab1') }}
 -- DiscountAccountRef at sales_receipts/Line/DiscountLineDetail/DiscountAccountRef
 where 1 = 1
-

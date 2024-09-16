@@ -17,4 +17,3 @@ select
 from {{ ref('public_event_links_ab1') }}
 -- public_event_links
 where 1 = 1
-

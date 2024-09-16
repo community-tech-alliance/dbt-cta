@@ -11,7 +11,6 @@ select
         'TotalTax',
     ]) }} as _airbyte_TxnTaxDetail_hashid,
     tmp.*
-from {{ ref('credit_memos_TxnTaxDetail_ab2') }} tmp
+from {{ ref('credit_memos_TxnTaxDetail_ab2') }} as tmp
 -- TxnTaxDetail at credit_memos/TxnTaxDetail
 where 1 = 1
-

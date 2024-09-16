@@ -19,4 +19,3 @@ select
     _airbyte_activist_codes_hashid
 from {{ ref('activist_codes_ab3') }}
 -- activist_codes from {{ source('cta', '_airbyte_raw_activist_codes') }}
-

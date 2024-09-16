@@ -42,8 +42,8 @@ select
     declined_to_commit_to_host_date,
     _airbyte_raw_id,
     _airbyte_extracted_at,
-    current_timestamp() as _airbyte_normalized_at,
-    _airbyte_affiliations_hashid
+    _airbyte_affiliations_hashid,
+    current_timestamp() as _airbyte_normalized_at
 from {{ ref('affiliations_ab4') }}
 
 {% if is_incremental() %}

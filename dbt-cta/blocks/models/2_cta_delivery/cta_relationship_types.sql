@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM {{ source('cta', 'relationship_types_base') }}
+select *
+from {{ source('cta', 'relationship_types_base') }}

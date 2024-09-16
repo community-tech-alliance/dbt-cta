@@ -20,5 +20,3 @@ select
 from {{ ref('canned_response_ab1') }}
 -- canned_response
 where 1 = 1
-
-

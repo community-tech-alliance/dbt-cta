@@ -16,4 +16,3 @@ select
 from {{ ref('invoices_Line_DiscountLineDetail_ab1') }}
 -- DiscountLineDetail at invoices/Line/DiscountLineDetail
 where 1 = 1
-

@@ -30,7 +30,7 @@ select
         'start_date',
     ]) }} as _airbyte_phone_banking_phone_banks_hashid,
     tmp.*
-from {{ ref('phone_banking_phone_banks_ab2') }} tmp
+from {{ ref('phone_banking_phone_banks_ab2') }} as tmp
 -- phone_banking_phone_banks
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

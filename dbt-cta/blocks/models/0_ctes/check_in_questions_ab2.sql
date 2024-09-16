@@ -19,4 +19,3 @@ select
 from {{ ref('check_in_questions_ab1') }}
 -- check_in_questions
 where 1 = 1
-

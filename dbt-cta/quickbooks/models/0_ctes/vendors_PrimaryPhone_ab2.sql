@@ -14,4 +14,3 @@ select
 from {{ ref('vendors_PrimaryPhone_ab1') }}
 -- PrimaryPhone at vendors/PrimaryPhone
 where 1 = 1
-

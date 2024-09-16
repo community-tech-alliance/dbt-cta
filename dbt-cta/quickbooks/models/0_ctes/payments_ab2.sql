@@ -32,4 +32,3 @@ select
 from {{ ref('payments_ab1') }}
 -- payments
 where 1 = 1
-

@@ -12,9 +12,10 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('adsquads_base') }} as table_alias
+from {{ ref('adsquads_base') }}
 -- targeting at adsquads_base/targeting
-where 1 = 1
-and targeting is not null
+where
+    1 = 1
+    and targeting is not null
 {{ incremental_clause('_airbyte_extracted_at') }}
 

@@ -27,5 +27,4 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_user_hashid
 from {{ ref('user_ab4') }}
-where 1=1
-
+where 1 = 1

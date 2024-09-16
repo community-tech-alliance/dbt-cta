@@ -15,4 +15,3 @@ select
 from {{ ref('quality_control_flags_views_ab1') }}
 -- quality_control_flags_views
 where 1 = 1
-

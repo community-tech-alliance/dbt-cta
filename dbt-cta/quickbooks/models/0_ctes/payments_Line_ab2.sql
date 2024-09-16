@@ -16,4 +16,3 @@ select
 from {{ ref('payments_Line_ab1') }}
 -- Line at payments/Line
 where 1 = 1
-

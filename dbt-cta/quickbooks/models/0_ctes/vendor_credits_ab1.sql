@@ -26,4 +26,3 @@ select
 from {{ source('cta', '_airbyte_raw_vendor_credits') }} as table_alias
 -- vendor_credits
 where 1 = 1
-

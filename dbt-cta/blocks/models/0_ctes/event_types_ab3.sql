@@ -14,7 +14,7 @@ select
         'id',
     ]) }} as _airbyte_event_types_hashid,
     tmp.*
-from {{ ref('event_types_ab2') }} tmp
+from {{ ref('event_types_ab2') }} as tmp
 -- event_types
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

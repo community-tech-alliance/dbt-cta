@@ -17,7 +17,6 @@ select
         'Line3',
     ]) }} as _airbyte_BillAddr_hashid,
     tmp.*
-from {{ ref('sales_receipts_BillAddr_ab2') }} tmp
+from {{ ref('sales_receipts_BillAddr_ab2') }} as tmp
 -- BillAddr at sales_receipts/BillAddr
 where 1 = 1
-

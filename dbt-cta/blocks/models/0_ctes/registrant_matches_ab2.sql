@@ -89,4 +89,3 @@ select
 from {{ ref('registrant_matches_ab1') }}
 -- registrant_matches
 where 1 = 1
-

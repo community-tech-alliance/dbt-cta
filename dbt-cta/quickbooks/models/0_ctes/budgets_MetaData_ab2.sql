@@ -15,4 +15,3 @@ select
 from {{ ref('budgets_MetaData_ab1') }}
 -- MetaData at budgets/MetaData
 where 1 = 1
-

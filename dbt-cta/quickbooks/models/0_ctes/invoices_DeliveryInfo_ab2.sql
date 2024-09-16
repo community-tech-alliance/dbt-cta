@@ -14,4 +14,3 @@ select
 from {{ ref('invoices_DeliveryInfo_ab1') }}
 -- DeliveryInfo at invoices/DeliveryInfo
 where 1 = 1
-

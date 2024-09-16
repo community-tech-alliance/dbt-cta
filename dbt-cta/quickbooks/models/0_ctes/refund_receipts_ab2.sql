@@ -36,4 +36,3 @@ select
 from {{ ref('refund_receipts_ab1') }}
 -- refund_receipts
 where 1 = 1
-

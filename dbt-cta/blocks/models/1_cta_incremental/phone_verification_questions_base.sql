@@ -19,4 +19,3 @@ select
     _airbyte_phone_verification_questions_hashid
 from {{ ref('phone_verification_questions_ab3') }}
 -- phone_verification_questions from {{ source('cta', '_airbyte_raw_phone_verification_questions') }}
-

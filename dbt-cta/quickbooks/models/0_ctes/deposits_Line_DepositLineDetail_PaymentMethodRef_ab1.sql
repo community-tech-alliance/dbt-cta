@@ -11,8 +11,8 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('deposits_Line_DepositLineDetail_base') }} as table_alias
+from {{ ref('deposits_Line_DepositLineDetail_base') }}
 -- PaymentMethodRef at deposits/Line/DepositLineDetail/PaymentMethodRef
-where 1 = 1
-and PaymentMethodRef is not null
-
+where
+    1 = 1
+    and PaymentMethodRef is not null

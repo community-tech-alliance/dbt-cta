@@ -29,7 +29,6 @@ select
         array_to_string('LinkedTxn'),
     ]) }} as _airbyte_bills_hashid,
     tmp.*
-from {{ ref('bills_ab2') }} tmp
+from {{ ref('bills_ab2') }} as tmp
 -- bills
 where 1 = 1
-

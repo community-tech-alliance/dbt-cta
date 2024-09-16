@@ -30,4 +30,3 @@ select
 from {{ ref('quality_control_flag_triggers_ab1') }}
 -- quality_control_flag_triggers
 where 1 = 1
-

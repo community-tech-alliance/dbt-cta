@@ -14,9 +14,9 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('estimates_base') }} as table_alias
+from {{ ref('estimates_base') }}
 -- CustomField at estimates/CustomField
 {{ cross_join_unnest('estimates', 'CustomField') }}
-where 1 = 1
-and CustomField is not null
-
+where
+    1 = 1
+    and CustomField is not null

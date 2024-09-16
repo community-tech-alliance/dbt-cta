@@ -7,8 +7,8 @@
 -- depends_on: {{ ref('work_assignments_ab3') }}
 
 select
-    t.associateOID as associateOID,
-    t.itemID as itemID,
+    t.associateOID,
+    t.itemID,
     t._airbyte_raw_id,
     t._airbyte_extracted_at,
     json_extract_scalar(homeOrganizationalUnits, '$.nameCode.codeValue') as nameCode_codeValue,

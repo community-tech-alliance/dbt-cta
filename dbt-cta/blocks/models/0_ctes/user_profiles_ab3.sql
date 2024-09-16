@@ -24,7 +24,6 @@ select
         'twitter_url',
     ]) }} as _airbyte_user_profiles_hashid,
     tmp.*
-from {{ ref('user_profiles_ab2') }} tmp
+from {{ ref('user_profiles_ab2') }} as tmp
 -- user_profiles
 where 1 = 1
-

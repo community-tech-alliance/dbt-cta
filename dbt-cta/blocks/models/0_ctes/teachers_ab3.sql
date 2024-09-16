@@ -31,7 +31,7 @@ select
         'person_id',
     ]) }} as _airbyte_teachers_hashid,
     tmp.*
-from {{ ref('teachers_ab2') }} tmp
+from {{ ref('teachers_ab2') }} as tmp
 -- teachers
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

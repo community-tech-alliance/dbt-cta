@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_ClassRef_hashid,
     tmp.*
-from {{ ref('credit_memos_ClassRef_ab2') }} tmp
+from {{ ref('credit_memos_ClassRef_ab2') }} as tmp
 -- ClassRef at credit_memos/ClassRef
 where 1 = 1
-

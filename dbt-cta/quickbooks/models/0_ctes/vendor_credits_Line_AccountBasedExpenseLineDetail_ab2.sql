@@ -18,4 +18,3 @@ select
 from {{ ref('vendor_credits_Line_AccountBasedExpenseLineDetail_ab1') }}
 -- AccountBasedExpenseLineDetail at vendor_credits/Line/AccountBasedExpenseLineDetail
 where 1 = 1
-

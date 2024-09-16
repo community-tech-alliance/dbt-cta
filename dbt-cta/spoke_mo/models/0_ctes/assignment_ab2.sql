@@ -17,5 +17,3 @@ select
 from {{ ref('assignment_ab1') }}
 -- assignment
 where 1 = 1
-
-

@@ -16,7 +16,6 @@ select
         'prospect_phone',
     ]) }} as _airbyte_applicants_hashid,
     tmp.*
-from {{ ref('applicants_ab2') }} tmp
+from {{ ref('applicants_ab2') }} as tmp
 -- applicants
 where 1 = 1
-

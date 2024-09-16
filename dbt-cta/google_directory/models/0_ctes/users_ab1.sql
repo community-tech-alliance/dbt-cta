@@ -1,17 +1,19 @@
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ source('cta', '_airbyte_raw_users') }}
 select
+    _airbyte_ab_id,
+    _airbyte_emitted_at,
     json_extract_scalar(_airbyte_data, "$['id']") as id,
     json_extract_scalar(_airbyte_data, "$['primaryEmail']") as primaryEmail,
+
     json_extract_scalar(_airbyte_data, "$['recoveryEmail']") as recoveryEmail,
     json_extract_scalar(_airbyte_data, "$['kind']") as kind,
-    
-        json_extract(table_alias._airbyte_data, "$['name']")
-     as name,
+    json_extract(table_alias._airbyte_data, "$['name']")
+        as name,
     json_extract_array(_airbyte_data, "$['emails']") as emails,
     json_extract_array(_airbyte_data, "$['phones']") as phones,
     array(
-        select ifnull(x, "NULL")
+        select coalesce(x, "NULL")
         from unnest(json_value_array(_airbyte_data, '$."aliases"')) as x
     ) as aliases,
     json_extract_scalar(_airbyte_data, "$['isAdmin']") as isAdmin,
@@ -29,13 +31,11 @@ select
     json_extract_scalar(_airbyte_data, "$['isMailboxSetup']") as isMailboxSetup,
     json_extract_scalar(_airbyte_data, "$['isDelegatedAdmin']") as isDelegatedAdmin,
     array(
-        select ifnull(x, "NULL")
+        select coalesce(x, "NULL")
         from unnest(json_value_array(_airbyte_data, '$."nonEditableAliases"')) as x
     ) as nonEditableAliases,
     json_extract_scalar(_airbyte_data, "$['changePasswordAtNextLogin']") as changePasswordAtNextLogin,
     json_extract_scalar(_airbyte_data, "$['includeInGlobalAddressList']") as includeInGlobalAddressList,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
-    CURRENT_TIMESTAMP() as _airbyte_normalized_at
+    current_timestamp() as _airbyte_normalized_at
 from {{ source('cta', '_airbyte_raw_users') }} as table_alias
 where 1 = 1

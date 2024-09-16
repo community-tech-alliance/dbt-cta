@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM  {{ source('cta', 'deal_splits_base') }}
+select *
+from {{ source('cta', 'deal_splits_base') }}

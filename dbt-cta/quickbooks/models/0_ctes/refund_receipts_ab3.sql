@@ -33,7 +33,6 @@ select
         object_to_string('TxnTaxDetail'),
     ]) }} as _airbyte_refund_receipts_hashid,
     tmp.*
-from {{ ref('refund_receipts_ab2') }} tmp
+from {{ ref('refund_receipts_ab2') }} as tmp
 -- refund_receipts
 where 1 = 1
-

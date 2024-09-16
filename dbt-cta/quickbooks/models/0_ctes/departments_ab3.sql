@@ -19,7 +19,6 @@ select
         'Name',
     ]) }} as _airbyte_departments_hashid,
     tmp.*
-from {{ ref('departments_ab2') }} tmp
+from {{ ref('departments_ab2') }} as tmp
 -- departments
 where 1 = 1
-

@@ -18,4 +18,3 @@ select
 from {{ ref('grouping_measurements_ab1') }}
 -- grouping_measurements
 where 1 = 1
-

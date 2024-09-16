@@ -15,4 +15,3 @@ select
 from {{ ref('journal_entries_Line_JournalEntryLineDetail_ab1') }}
 -- JournalEntryLineDetail at journal_entries/Line/JournalEntryLineDetail
 where 1 = 1
-

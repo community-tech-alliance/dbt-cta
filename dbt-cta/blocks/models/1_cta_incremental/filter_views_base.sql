@@ -22,4 +22,3 @@ select
     _airbyte_filter_views_hashid
 from {{ ref('filter_views_ab3') }}
 -- filter_views from {{ source('cta', '_airbyte_raw_filter_views') }}
-

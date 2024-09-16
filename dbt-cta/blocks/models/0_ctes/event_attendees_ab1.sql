@@ -22,7 +22,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_event_attendees') }} as table_alias
+from {{ source('cta', '_airbyte_raw_event_attendees') }}
 -- event_attendees
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

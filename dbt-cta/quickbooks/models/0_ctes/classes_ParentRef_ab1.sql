@@ -12,8 +12,8 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('classes_base') }} as table_alias
+from {{ ref('classes_base') }}
 -- ParentRef at classes/ParentRef
-where 1 = 1
-and ParentRef is not null
-
+where
+    1 = 1
+    and ParentRef is not null
