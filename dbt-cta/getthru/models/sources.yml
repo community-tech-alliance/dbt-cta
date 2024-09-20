@@ -8,6 +8,10 @@ sources:
       - name: _raw_daily_messages
       - name: _raw_daily_surveys
       - name: _raw_opt_outs
+      - name: _raw_daily_campaign_dials
+      - name: _raw_caller_activity_details
       - name: daily_messages_base
       - name: daily_surveys_base
       - name: opt_outs_base
+      - name: daily_campaign_dials_base
+      - name: caller_activity_details_base
