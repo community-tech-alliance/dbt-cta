@@ -9,10 +9,10 @@ models:
         tests:
           - not_null
           - unique
-  - name: daily_campaign_dials_base
+  - name: caller_activity_details
     description: ''
     columns:
-      - name: _daily_campaign_dials_hashid
+      - name: _caller_activity_details_hashid
         description: ''
         tests:
           - not_null
