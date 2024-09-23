@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: daily_campaign_dials_base
+    description: ''
+    columns:
+      - name: _daily_campaign_dials_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
+  - name: daily_campaign_dials_base
+    description: ''
+    columns:
+      - name: _daily_campaign_dials_hashid
+        description: ''
+        tests:
+          - not_null
+          - unique
