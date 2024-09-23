@@ -25,16 +25,27 @@ with aggregations as (
         account_name,
         campaign_id,
         campaign_name
+),
+
+report_base as (
+    select
+        *,
+        {{ dbt_utils.surrogate_key([
+        'date_start',
+        'campaign_id'
+        ]) }} as _campaign_report_hashid,
+        current_timestamp as _airbyte_normalized_at
+    from aggregations
 )
 
-select
-    *,
-    {{ dbt_utils.surrogate_key([
-    'date_start',
-    'account_id',
-    'account_name',
-    'campaign_id',
-    'campaign_name'
-    ]) }} as _campaign_report_hashid,
-    current_timestamp as _airbyte_normalized_at
-from aggregations
+-- ensures the base model contains only one row per hashid
+-- this deduplicates data even if the source data contains duplicate rows
+
+select * except (rownum) from
+    (
+        select
+            *,
+            row_number() over (partition by _campaign_report_hashid order by _airbyte_normalized_at desc) as rownum
+        from report_base
+    )
+where rownum = 1
