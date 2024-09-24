@@ -35,12 +35,7 @@ report_base as (
         *,
     {{ dbt_utils.surrogate_key([
     'date_start',
-    'account_id',
-    'account_name',
-    'campaign_id',
-    'campaign_name',
-    'adset_id',
-    'adset_name'
+    'adset_id'
     ]) }} as _ad_set_report_hashid,
         current_timestamp as _airbyte_normalized_at
     from aggregations
