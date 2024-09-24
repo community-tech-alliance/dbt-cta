@@ -1,6 +1,6 @@
-# Thrutext
+# Thrutalk
 
-This is a special snowflake because ThruText exports contain custom fields that are defined for each GetThru customer. For that reason, the dbt incrementally updates base tables using a combination of `SELECT *` and the config `on_schema_change: add`, which should cause schema changes to result in new columns being added. We won't really test this until/unless schemas actually change, though.
+This is a special snowflake because GetThru exports contain custom fields that are defined for each GetThru customer. For that reason, the dbt incrementally updates base tables using a combination of `SELECT *` and the config `on_schema_change: append_new_columns`, which should cause schema changes to result in new columns being added. We won't really test this until/unless schemas actually change, though.
 
 ## In the event of a schema change
 
