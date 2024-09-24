@@ -17,7 +17,7 @@ select
         'status',
     ]) }} as _airbyte_catalist_uploads_hashid,
     tmp.*
-from {{ ref('catalist_uploads_ab2') }} tmp
+from {{ ref('catalist_uploads_ab2') }} as tmp
 -- catalist_uploads
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

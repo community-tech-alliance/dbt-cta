@@ -15,4 +15,3 @@ select
 from {{ ref('schema_migrations_ab1') }}
 -- schema_migrations
 where 1 = 1
-

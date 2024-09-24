@@ -15,4 +15,3 @@ select
 from {{ ref('classes_MetaData_ab1') }}
 -- MetaData at classes/MetaData
 where 1 = 1
-

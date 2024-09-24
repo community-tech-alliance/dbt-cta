@@ -15,4 +15,3 @@ select
 from {{ ref('campaigns_people_ab1') }}
 -- campaigns_people
 where 1 = 1
-

@@ -14,4 +14,3 @@ select
 from {{ ref('customers_ParentRef_ab1') }}
 -- ParentRef at customers/ParentRef
 where 1 = 1
-

@@ -11,7 +11,6 @@ select
         'FreeFormNumber',
     ]) }} as _airbyte_Mobile_hashid,
     tmp.*
-from {{ ref('customers_Mobile_ab2') }} tmp
+from {{ ref('customers_Mobile_ab2') }} as tmp
 -- Mobile at customers/Mobile
 where 1 = 1
-

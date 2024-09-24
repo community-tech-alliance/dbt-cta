@@ -15,4 +15,3 @@ select
 from {{ ref('sales_receipts_CustomerRef_ab1') }}
 -- CustomerRef at sales_receipts/CustomerRef
 where 1 = 1
-

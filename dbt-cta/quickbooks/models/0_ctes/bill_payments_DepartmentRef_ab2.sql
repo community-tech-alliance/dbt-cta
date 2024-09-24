@@ -15,4 +15,3 @@ select
 from {{ ref('bill_payments_DepartmentRef_ab1') }}
 -- DepartmentRef at bill_payments/DepartmentRef
 where 1 = 1
-

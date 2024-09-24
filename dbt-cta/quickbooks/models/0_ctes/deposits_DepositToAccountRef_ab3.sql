@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_DepositToAccountRef_hashid,
     tmp.*
-from {{ ref('deposits_DepositToAccountRef_ab2') }} tmp
+from {{ ref('deposits_DepositToAccountRef_ab2') }} as tmp
 -- DepositToAccountRef at deposits/DepositToAccountRef
 where 1 = 1
-

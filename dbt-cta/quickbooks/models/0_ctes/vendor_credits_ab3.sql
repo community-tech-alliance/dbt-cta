@@ -23,7 +23,6 @@ select
         object_to_string('VendorRef'),
     ]) }} as _airbyte_vendor_credits_hashid,
     tmp.*
-from {{ ref('vendor_credits_ab2') }} tmp
+from {{ ref('vendor_credits_ab2') }} as tmp
 -- vendor_credits
 where 1 = 1
-

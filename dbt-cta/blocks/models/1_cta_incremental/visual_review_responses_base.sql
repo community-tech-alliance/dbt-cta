@@ -24,4 +24,3 @@ select
     _airbyte_visual_review_responses_hashid
 from {{ ref('visual_review_responses_ab3') }}
 -- visual_review_responses from {{ source('cta', '_airbyte_raw_visual_review_responses') }}
-

@@ -16,4 +16,3 @@ select
 from {{ ref('purchases_EntityRef_ab1') }}
 -- EntityRef at purchases/EntityRef
 where 1 = 1
-

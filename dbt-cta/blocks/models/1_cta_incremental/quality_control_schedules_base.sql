@@ -21,4 +21,3 @@ select
     _airbyte_quality_control_schedules_hashid
 from {{ ref('quality_control_schedules_ab3') }}
 -- quality_control_schedules from {{ source('cta', '_airbyte_raw_quality_control_schedules') }}
-

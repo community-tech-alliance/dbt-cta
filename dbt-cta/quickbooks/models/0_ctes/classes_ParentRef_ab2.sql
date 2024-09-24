@@ -15,4 +15,3 @@ select
 from {{ ref('classes_ParentRef_ab1') }}
 -- ParentRef at classes/ParentRef
 where 1 = 1
-

@@ -30,7 +30,6 @@ select
         boolean_to_string('Taxable'),
     ]) }} as _airbyte_items_hashid,
     tmp.*
-from {{ ref('items_ab2') }} tmp
+from {{ ref('items_ab2') }} as tmp
 -- items
 where 1 = 1
-

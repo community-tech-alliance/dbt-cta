@@ -20,4 +20,4 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_assignment_hashid
 from {{ ref('assignment_ab4') }}
-where 1=1
+where 1 = 1

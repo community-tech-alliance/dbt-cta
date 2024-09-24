@@ -16,7 +16,6 @@ select
         object_to_string('DepartmentRef'),
     ]) }} as _airbyte_BudgetDetail_hashid,
     tmp.*
-from {{ ref('budgets_BudgetDetail_ab2') }} tmp
+from {{ ref('budgets_BudgetDetail_ab2') }} as tmp
 -- BudgetDetail at budgets/BudgetDetail
 where 1 = 1
-

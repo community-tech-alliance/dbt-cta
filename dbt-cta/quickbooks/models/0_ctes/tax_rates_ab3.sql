@@ -23,7 +23,6 @@ select
         'Id',
     ]) }} as _airbyte_tax_rates_hashid,
     tmp.*
-from {{ ref('tax_rates_ab2') }} tmp
+from {{ ref('tax_rates_ab2') }} as tmp
 -- tax_rates
 where 1 = 1
-

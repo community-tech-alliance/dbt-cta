@@ -15,4 +15,3 @@ select
 from {{ ref('purchase_orders_ClassRef_ab1') }}
 -- ClassRef at purchase_orders/ClassRef
 where 1 = 1
-

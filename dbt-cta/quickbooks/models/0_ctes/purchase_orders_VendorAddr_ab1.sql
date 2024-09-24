@@ -19,8 +19,8 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('purchase_orders_base') }} as table_alias
+from {{ ref('purchase_orders_base') }}
 -- VendorAddr at purchase_orders/VendorAddr
-where 1 = 1
-and VendorAddr is not null
-
+where
+    1 = 1
+    and VendorAddr is not null

@@ -86,7 +86,6 @@ select
         'precinct_name',
     ]) }} as _airbyte_registrant_matches_hashid,
     tmp.*
-from {{ ref('registrant_matches_ab2') }} tmp
+from {{ ref('registrant_matches_ab2') }} as tmp
 -- registrant_matches
 where 1 = 1
-

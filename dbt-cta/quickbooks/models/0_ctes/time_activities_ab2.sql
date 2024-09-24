@@ -29,4 +29,3 @@ select
 from {{ ref('time_activities_ab1') }}
 -- time_activities
 where 1 = 1
-

@@ -26,7 +26,6 @@ select
         boolean_to_string('Taxable'),
     ]) }} as _airbyte_time_activities_hashid,
     tmp.*
-from {{ ref('time_activities_ab2') }} tmp
+from {{ ref('time_activities_ab2') }} as tmp
 -- time_activities
 where 1 = 1
-

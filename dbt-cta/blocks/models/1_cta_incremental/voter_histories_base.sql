@@ -27,4 +27,3 @@ select
     _airbyte_voter_histories_hashid
 from {{ ref('voter_histories_ab3') }}
 -- voter_histories from {{ source('cta', '_airbyte_raw_voter_histories') }}
-

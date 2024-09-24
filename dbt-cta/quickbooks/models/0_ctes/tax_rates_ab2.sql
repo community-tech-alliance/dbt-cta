@@ -26,4 +26,3 @@ select
 from {{ ref('tax_rates_ab1') }}
 -- tax_rates
 where 1 = 1
-

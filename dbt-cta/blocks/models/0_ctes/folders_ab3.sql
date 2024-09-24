@@ -19,7 +19,7 @@ select
         'rgt',
     ]) }} as _airbyte_folders_hashid,
     tmp.*
-from {{ ref('folders_ab2') }} tmp
+from {{ ref('folders_ab2') }} as tmp
 -- folders
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

@@ -19,4 +19,3 @@ select
 from {{ ref('applicants_ab1') }}
 -- applicants
 where 1 = 1
-

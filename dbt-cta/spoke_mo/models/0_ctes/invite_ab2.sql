@@ -16,5 +16,3 @@ select
 from {{ ref('invite_ab1') }}
 -- invite
 where 1 = 1
-
-

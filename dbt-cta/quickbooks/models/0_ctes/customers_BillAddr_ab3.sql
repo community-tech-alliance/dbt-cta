@@ -18,7 +18,6 @@ select
         'Lat',
     ]) }} as _airbyte_BillAddr_hashid,
     tmp.*
-from {{ ref('customers_BillAddr_ab2') }} tmp
+from {{ ref('customers_BillAddr_ab2') }} as tmp
 -- BillAddr at customers/BillAddr
 where 1 = 1
-

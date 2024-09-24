@@ -15,4 +15,3 @@ select
 from {{ ref('budgets_BudgetDetail_AccountRef_ab1') }}
 -- AccountRef at budgets/BudgetDetail/AccountRef
 where 1 = 1
-

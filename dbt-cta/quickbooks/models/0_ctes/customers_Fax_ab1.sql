@@ -11,8 +11,8 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('customers_base') }} as table_alias
+from {{ ref('customers_base') }}
 -- Fax at customers/Fax
-where 1 = 1
-and Fax is not null
-
+where
+    1 = 1
+    and Fax is not null

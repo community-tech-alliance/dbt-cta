@@ -12,7 +12,6 @@ select
         'id',
     ]) }} as _airbyte_categories_to_applicants_hashid,
     tmp.*
-from {{ ref('categories_to_applicants_ab2') }} tmp
+from {{ ref('categories_to_applicants_ab2') }} as tmp
 -- categories_to_applicants
 where 1 = 1
-

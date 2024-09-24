@@ -14,4 +14,3 @@ select
 from {{ ref('tax_codes_SalesTaxRateList_ab1') }}
 -- SalesTaxRateList at tax_codes/SalesTaxRateList
 where 1 = 1
-

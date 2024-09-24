@@ -14,6 +14,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('journal_entries_Line_base') }} as table_alias
 -- JournalEntryLineDetail at journal_entries/Line/JournalEntryLineDetail
-where 1 = 1
-and JournalEntryLineDetail is not null
-
+where
+    1 = 1
+    and JournalEntryLineDetail is not null

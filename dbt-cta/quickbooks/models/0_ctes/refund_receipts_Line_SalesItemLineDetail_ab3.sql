@@ -14,7 +14,6 @@ select
         object_to_string('ItemRef'),
     ]) }} as _airbyte_SalesItemLineDetail_hashid,
     tmp.*
-from {{ ref('refund_receipts_Line_SalesItemLineDetail_ab2') }} tmp
+from {{ ref('refund_receipts_Line_SalesItemLineDetail_ab2') }} as tmp
 -- SalesItemLineDetail at refund_receipts/Line/SalesItemLineDetail
 where 1 = 1
-

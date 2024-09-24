@@ -36,4 +36,3 @@ select
 from {{ source('cta_raw', raw_table) }} as table_alias
 -- organizations
 where 1 = 1
-

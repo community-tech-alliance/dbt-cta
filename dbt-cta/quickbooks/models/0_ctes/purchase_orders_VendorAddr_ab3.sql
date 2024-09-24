@@ -19,7 +19,6 @@ select
         'Line3',
     ]) }} as _airbyte_VendorAddr_hashid,
     tmp.*
-from {{ ref('purchase_orders_VendorAddr_ab2') }} tmp
+from {{ ref('purchase_orders_VendorAddr_ab2') }} as tmp
 -- VendorAddr at purchase_orders/VendorAddr
 where 1 = 1
-

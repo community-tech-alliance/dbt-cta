@@ -22,4 +22,3 @@ select
     _airbyte_tasks_hashid
 from {{ ref('tasks_ab3') }}
 -- tasks from {{ source('cta', '_airbyte_raw_tasks') }}
-

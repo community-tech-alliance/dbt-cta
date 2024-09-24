@@ -12,8 +12,8 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('journal_entries_TxnTaxDetail_TaxLine_TaxLineDetail_base') }} as table_alias
+from {{ ref('journal_entries_TxnTaxDetail_TaxLine_TaxLineDetail_base') }}
 -- TaxRateRef at journal_entries/TxnTaxDetail/TaxLine/TaxLineDetail/TaxRateRef
-where 1 = 1
-and TaxRateRef is not null
-
+where
+    1 = 1
+    and TaxRateRef is not null

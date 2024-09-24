@@ -33,4 +33,3 @@ select
 from {{ source('cta', '_airbyte_raw_items') }} as table_alias
 -- items
 where 1 = 1
-

@@ -26,4 +26,3 @@ select
 from {{ source('cta', '_airbyte_raw_tax_codes') }} as table_alias
 -- tax_codes
 where 1 = 1
-

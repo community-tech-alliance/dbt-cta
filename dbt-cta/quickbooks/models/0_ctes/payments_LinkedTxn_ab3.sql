@@ -12,7 +12,6 @@ select
         'TxnType',
     ]) }} as _airbyte_LinkedTxn_hashid,
     tmp.*
-from {{ ref('payments_LinkedTxn_ab2') }} tmp
+from {{ ref('payments_LinkedTxn_ab2') }} as tmp
 -- LinkedTxn at payments/LinkedTxn
 where 1 = 1
-

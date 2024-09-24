@@ -22,4 +22,3 @@ select
 from {{ source('cta', '_airbyte_raw_tax_agencies') }} as table_alias
 -- tax_agencies
 where 1 = 1
-

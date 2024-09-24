@@ -15,4 +15,3 @@ select
 from {{ ref('credit_memos_ClassRef_ab1') }}
 -- ClassRef at credit_memos/ClassRef
 where 1 = 1
-

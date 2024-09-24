@@ -32,4 +32,3 @@ select
 from {{ source('cta', '_airbyte_raw_payments') }} as table_alias
 -- payments
 where 1 = 1
-

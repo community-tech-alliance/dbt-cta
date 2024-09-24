@@ -21,8 +21,6 @@ select
         'email',
     ]) }} as _airbyte_user_hashid,
     tmp.*
-from {{ ref('user_ab2') }} tmp
+from {{ ref('user_ab2') }} as tmp
 -- user
 where 1 = 1
-
-

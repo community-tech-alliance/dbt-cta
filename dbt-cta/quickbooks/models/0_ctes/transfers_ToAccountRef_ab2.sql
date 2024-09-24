@@ -15,4 +15,3 @@ select
 from {{ ref('transfers_ToAccountRef_ab1') }}
 -- ToAccountRef at transfers/ToAccountRef
 where 1 = 1
-

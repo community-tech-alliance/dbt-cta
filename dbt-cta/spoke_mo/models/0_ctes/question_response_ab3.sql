@@ -14,8 +14,6 @@ select
         'interaction_step_id',
     ]) }} as _airbyte_question_response_hashid,
     tmp.*
-from {{ ref('question_response_ab2') }} tmp
+from {{ ref('question_response_ab2') }} as tmp
 -- question_response
 where 1 = 1
-
-

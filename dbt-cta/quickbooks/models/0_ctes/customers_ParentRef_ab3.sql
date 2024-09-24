@@ -11,7 +11,6 @@ select
         'value',
     ]) }} as _airbyte_ParentRef_hashid,
     tmp.*
-from {{ ref('customers_ParentRef_ab2') }} tmp
+from {{ ref('customers_ParentRef_ab2') }} as tmp
 -- ParentRef at customers/ParentRef
 where 1 = 1
-

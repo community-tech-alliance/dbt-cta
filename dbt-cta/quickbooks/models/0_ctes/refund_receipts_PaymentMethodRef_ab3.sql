@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_PaymentMethodRef_hashid,
     tmp.*
-from {{ ref('refund_receipts_PaymentMethodRef_ab2') }} tmp
+from {{ ref('refund_receipts_PaymentMethodRef_ab2') }} as tmp
 -- PaymentMethodRef at refund_receipts/PaymentMethodRef
 where 1 = 1
-

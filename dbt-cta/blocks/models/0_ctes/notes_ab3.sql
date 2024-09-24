@@ -16,7 +16,7 @@ select
         'person_id',
     ]) }} as _airbyte_notes_hashid,
     tmp.*
-from {{ ref('notes_ab2') }} tmp
+from {{ ref('notes_ab2') }} as tmp
 -- notes
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

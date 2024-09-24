@@ -17,7 +17,7 @@ select
         'created_by_user_id',
     ]) }} as _airbyte_email_templates_hashid,
     tmp.*
-from {{ ref('email_templates_ab2') }} tmp
+from {{ ref('email_templates_ab2') }} as tmp
 -- email_templates
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

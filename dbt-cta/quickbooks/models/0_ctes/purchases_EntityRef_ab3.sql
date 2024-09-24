@@ -13,7 +13,6 @@ select
         'value',
     ]) }} as _airbyte_EntityRef_hashid,
     tmp.*
-from {{ ref('purchases_EntityRef_ab2') }} tmp
+from {{ ref('purchases_EntityRef_ab2') }} as tmp
 -- EntityRef at purchases/EntityRef
 where 1 = 1
-

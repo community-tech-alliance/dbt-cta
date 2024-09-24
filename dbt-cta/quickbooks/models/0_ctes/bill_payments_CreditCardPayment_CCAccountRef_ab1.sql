@@ -12,8 +12,8 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('bill_payments_CreditCardPayment_base') }} as table_alias
+from {{ ref('bill_payments_CreditCardPayment_base') }}
 -- CCAccountRef at bill_payments/CreditCardPayment/CCAccountRef
-where 1 = 1
-and CCAccountRef is not null
-
+where
+    1 = 1
+    and CCAccountRef is not null

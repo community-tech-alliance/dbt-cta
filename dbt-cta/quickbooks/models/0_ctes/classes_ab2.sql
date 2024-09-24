@@ -22,4 +22,3 @@ select
 from {{ ref('classes_ab1') }}
 -- classes
 where 1 = 1
-

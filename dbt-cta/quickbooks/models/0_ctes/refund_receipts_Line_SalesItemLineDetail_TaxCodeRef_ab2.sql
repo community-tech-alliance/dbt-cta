@@ -14,4 +14,3 @@ select
 from {{ ref('refund_receipts_Line_SalesItemLineDetail_TaxCodeRef_ab1') }}
 -- TaxCodeRef at refund_receipts/Line/SalesItemLineDetail/TaxCodeRef
 where 1 = 1
-

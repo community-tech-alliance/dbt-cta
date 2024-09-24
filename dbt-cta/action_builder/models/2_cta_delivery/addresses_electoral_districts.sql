@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM  {{ source('cta', 'addresses_electoral_districts_base') }}
+select *
+from {{ source('cta', 'addresses_electoral_districts_base') }}

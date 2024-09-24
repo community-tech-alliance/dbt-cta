@@ -20,4 +20,3 @@ select
     _airbyte_check_ins_hashid
 from {{ ref('check_ins_ab3') }}
 -- check_ins from {{ source('cta', '_airbyte_raw_check_ins') }}
-

@@ -15,4 +15,3 @@ select
 from {{ ref('events_teams_ab1') }}
 -- events_teams
 where 1 = 1
-

@@ -24,7 +24,6 @@ select
         object_to_string('TxnTaxDetail'),
     ]) }} as _airbyte_journal_entries_hashid,
     tmp.*
-from {{ ref('journal_entries_ab2') }} tmp
+from {{ ref('journal_entries_ab2') }} as tmp
 -- journal_entries
 where 1 = 1
-

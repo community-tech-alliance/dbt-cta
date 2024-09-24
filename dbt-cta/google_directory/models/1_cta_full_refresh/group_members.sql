@@ -24,8 +24,8 @@ select
     email,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-    CURRENT_TIMESTAMP() as _airbyte_normalized_at,
-    _airbyte_group_members_hashid
+    _airbyte_group_members_hashid,
+    current_timestamp() as _airbyte_normalized_at
 from {{ ref('group_members_ab3') }}
 {% if is_incremental() %}
 where timestamp_trunc(_airbyte_emitted_at, day) in ({{ partitions_to_replace | join(',') }})

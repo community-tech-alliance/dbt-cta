@@ -33,8 +33,6 @@ select
         'response_window',
     ]) }} as _airbyte_campaign_hashid,
     tmp.*
-from {{ ref('campaign_ab2') }} tmp
+from {{ ref('campaign_ab2') }} as tmp
 -- campaign
 where 1 = 1
-
-

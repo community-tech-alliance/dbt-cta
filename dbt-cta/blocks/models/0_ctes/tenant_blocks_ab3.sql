@@ -15,7 +15,6 @@ select
         'block_id'
     ]) }} as _airbyte_tenant_blocks_hashid,
     tmp.*
-from {{ ref('tenant_blocks_ab2') }} tmp
+from {{ ref('tenant_blocks_ab2') }} as tmp
 -- tenant_blocks
 where 1 = 1
-

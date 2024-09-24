@@ -14,7 +14,6 @@ select
         'question_id',
     ]) }} as _airbyte_quality_control_phone_verification_question_translations_hashid,
     tmp.*
-from {{ ref('quality_control_phone_verification_question_translations_ab2') }} tmp
+from {{ ref('quality_control_phone_verification_question_translations_ab2') }} as tmp
 -- quality_control_phone_verification_question_translations
 where 1 = 1
-

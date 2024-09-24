@@ -14,4 +14,3 @@ select
 from {{ ref('customers_WebAddr_ab1') }}
 -- WebAddr at customers/WebAddr
 where 1 = 1
-

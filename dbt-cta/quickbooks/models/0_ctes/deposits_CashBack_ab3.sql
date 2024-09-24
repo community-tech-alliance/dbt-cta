@@ -13,7 +13,6 @@ select
         'Memo',
     ]) }} as _airbyte_CashBack_hashid,
     tmp.*
-from {{ ref('deposits_CashBack_ab2') }} tmp
+from {{ ref('deposits_CashBack_ab2') }} as tmp
 -- CashBack at deposits/CashBack
 where 1 = 1
-

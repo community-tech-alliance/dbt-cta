@@ -15,4 +15,3 @@ select
 from {{ ref('time_activities_MetaData_ab1') }}
 -- MetaData at time_activities/MetaData
 where 1 = 1
-

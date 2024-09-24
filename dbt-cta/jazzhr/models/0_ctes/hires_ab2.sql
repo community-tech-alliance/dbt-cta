@@ -20,4 +20,3 @@ select
 from {{ ref('hires_ab1') }}
 -- hires
 where 1 = 1
-

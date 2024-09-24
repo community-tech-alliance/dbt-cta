@@ -1,28 +1,27 @@
-
 -- CTE:
 -- casts fields to data types
 -- adds columns `_cta_hashid` and `_cta_sync_datetime_utc`
-       
-SELECT
-    CAST(`integration_id` AS STRING) AS `integration_id`,
-    CAST(`question` AS STRING) AS `question`,
-    CAST(`van_survey_question_id` AS INTEGER) AS `van_survey_question_id`,
-    CAST(`goal_step_id` AS STRING) AS `goal_step_id`,
-    CAST(`goal_id` AS STRING) AS `goal_id`,
-    CAST(`organization_id` AS STRING) AS `organization_id`,
-    CAST(`created_at` AS TIMESTAMP) AS `created_at`,
-    CAST(`updated_at` AS TIMESTAMP) AS `updated_at`,
-    CAST(`id` AS STRING) AS `id`,
-    TO_HEX(MD5(CONCAT(`integration_id`,
-                      `question`,
-                      `van_survey_question_id`,
-                      `goal_step_id`,
-                      `goal_id`,
-                      `organization_id`,
-                      `created_at`,
-                      `updated_at`,
-                      `id`))) AS _cta_hashid,
-    CURRENT_TIMESTAMP() as _cta_sync_datetime_utc
-FROM {{ source('cta', '_survey_questions_raw') }}
-    
-    
+
+select
+    cast(`integration_id` as string) as `integration_id`,
+    cast(`question` as string) as `question`,
+    cast(`van_survey_question_id` as integer) as `van_survey_question_id`,
+    cast(`goal_step_id` as string) as `goal_step_id`,
+    cast(`goal_id` as string) as `goal_id`,
+    cast(`organization_id` as string) as `organization_id`,
+    cast(`created_at` as timestamp) as `created_at`,
+    cast(`updated_at` as timestamp) as `updated_at`,
+    cast(`id` as string) as `id`,
+    to_hex(md5(concat(
+        `integration_id`,
+        `question`,
+        `van_survey_question_id`,
+        `goal_step_id`,
+        `goal_id`,
+        `organization_id`,
+        `created_at`,
+        `updated_at`,
+        `id`
+    ))) as _cta_hashid,
+    current_timestamp() as _cta_sync_datetime_utc
+from {{ source('cta', '_survey_questions_raw') }}

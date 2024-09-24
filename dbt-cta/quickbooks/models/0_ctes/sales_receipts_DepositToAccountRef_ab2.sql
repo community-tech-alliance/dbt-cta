@@ -15,4 +15,3 @@ select
 from {{ ref('sales_receipts_DepositToAccountRef_ab1') }}
 -- DepositToAccountRef at sales_receipts/DepositToAccountRef
 where 1 = 1
-

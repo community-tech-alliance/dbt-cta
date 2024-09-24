@@ -15,8 +15,6 @@ select
         'value',
     ]) }} as _airbyte_tag_campaign_contact_hashid,
     tmp.*
-from {{ ref('tag_campaign_contact_ab2') }} tmp
+from {{ ref('tag_campaign_contact_ab2') }} as tmp
 -- tag_campaign_contact
 where 1 = 1
-
-

@@ -16,4 +16,3 @@ select
 from {{ ref('purchase_orders_CustomField_ab1') }}
 -- CustomField at purchase_orders/CustomField
 where 1 = 1
-

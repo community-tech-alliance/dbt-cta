@@ -45,4 +45,3 @@ select
 from {{ ref('invoices_ab1') }}
 -- invoices
 where 1 = 1
-

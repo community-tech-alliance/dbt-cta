@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_ToAccountRef_hashid,
     tmp.*
-from {{ ref('transfers_ToAccountRef_ab2') }} tmp
+from {{ ref('transfers_ToAccountRef_ab2') }} as tmp
 -- ToAccountRef at transfers/ToAccountRef
 where 1 = 1
-

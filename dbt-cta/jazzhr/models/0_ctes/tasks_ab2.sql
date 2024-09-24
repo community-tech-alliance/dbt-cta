@@ -25,4 +25,3 @@ select
 from {{ ref('tasks_ab1') }}
 -- tasks
 where 1 = 1
-

@@ -17,4 +17,3 @@ select
 from {{ ref('email_templates_events_ab1') }}
 -- email_templates_events
 where 1 = 1
-

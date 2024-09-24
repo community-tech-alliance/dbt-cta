@@ -1,18 +1,20 @@
 -- CTE:
 -- casts fields to data types
 -- adds columns `_cta_hashid` and `_cta_sync_datetime_utc`
-        
-SELECT
-    CAST(`updated_at` AS TIMESTAMP) AS `updated_at`,
-    CAST(`deleted_at` AS STRING) AS `deleted_at`,
-    CAST(`deactivated_at` AS STRING) AS `deactivated_at`,
-    CAST(`created_at` AS TIMESTAMP) AS `created_at`,
-    CAST(`lead_id` AS STRING) AS `lead_id`,
-    CAST(`group_id` AS STRING) AS `group_id`,
-    CAST(`organization_id` AS STRING) AS `organization_id`,
-    TO_HEX(MD5(CONCAT(`updated_at`,
-                      `created_at`,
-                      `group_id`,
-                      `organization_id`))) AS _cta_hashid,
-    CURRENT_TIMESTAMP() as _cta_sync_datetime_utc
-FROM {{ source('cta', '_group_memberships_raw') }}
+
+select
+    cast(`updated_at` as timestamp) as `updated_at`,
+    cast(`deleted_at` as string) as `deleted_at`,
+    cast(`deactivated_at` as string) as `deactivated_at`,
+    cast(`created_at` as timestamp) as `created_at`,
+    cast(`lead_id` as string) as `lead_id`,
+    cast(`group_id` as string) as `group_id`,
+    cast(`organization_id` as string) as `organization_id`,
+    to_hex(md5(concat(
+        `updated_at`,
+        `created_at`,
+        `group_id`,
+        `organization_id`
+    ))) as _cta_hashid,
+    current_timestamp() as _cta_sync_datetime_utc
+from {{ source('cta', '_group_memberships_raw') }}

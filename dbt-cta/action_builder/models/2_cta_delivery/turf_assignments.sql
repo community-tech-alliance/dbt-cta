@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM  {{ source('cta', 'turf_assignments_base') }}
+select *
+from {{ source('cta', 'turf_assignments_base') }}

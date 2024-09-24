@@ -27,7 +27,6 @@ select
         boolean_to_string('implies_canvasser_issue'),
     ]) }} as _airbyte_quality_control_flag_triggers_hashid,
     tmp.*
-from {{ ref('quality_control_flag_triggers_ab2') }} tmp
+from {{ ref('quality_control_flag_triggers_ab2') }} as tmp
 -- quality_control_flag_triggers
 where 1 = 1
-

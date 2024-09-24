@@ -19,4 +19,3 @@ select
 from {{ ref('vendor_credits_Line_ab1') }}
 -- Line at vendor_credits/Line
 where 1 = 1
-

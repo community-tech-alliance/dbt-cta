@@ -16,7 +16,6 @@ select
         'position',
     ]) }} as _airbyte_check_in_questions_hashid,
     tmp.*
-from {{ ref('check_in_questions_ab2') }} tmp
+from {{ ref('check_in_questions_ab2') }} as tmp
 -- check_in_questions
 where 1 = 1
-

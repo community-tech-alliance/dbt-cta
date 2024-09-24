@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_ClassRef_hashid,
     tmp.*
-from {{ ref('invoices_Line_SalesItemLineDetail_ClassRef_ab2') }} tmp
+from {{ ref('invoices_Line_SalesItemLineDetail_ClassRef_ab2') }} as tmp
 -- ClassRef at invoices/Line/SalesItemLineDetail/ClassRef
 where 1 = 1
-

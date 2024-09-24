@@ -14,4 +14,3 @@ select
 from {{ ref('projections_ab1') }}
 -- projections
 where 1 = 1
-

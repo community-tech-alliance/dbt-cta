@@ -11,7 +11,6 @@ select
         'DeliveryType',
     ]) }} as _airbyte_DeliveryInfo_hashid,
     tmp.*
-from {{ ref('estimates_DeliveryInfo_ab2') }} tmp
+from {{ ref('estimates_DeliveryInfo_ab2') }} as tmp
 -- DeliveryInfo at estimates/DeliveryInfo
 where 1 = 1
-

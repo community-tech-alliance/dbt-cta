@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM {{ source('cta', 'age_to_bin_base') }}
+select *
+from {{ source('cta', 'age_to_bin_base') }}

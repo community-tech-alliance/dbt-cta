@@ -17,4 +17,3 @@ select
 from {{ ref('estimates_TxnTaxDetail_TaxLine_TaxLineDetail_ab1') }}
 -- TaxLineDetail at estimates/TxnTaxDetail/TaxLine/TaxLineDetail
 where 1 = 1
-

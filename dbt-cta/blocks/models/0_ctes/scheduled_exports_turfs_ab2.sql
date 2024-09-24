@@ -15,4 +15,3 @@ select
 from {{ ref('scheduled_exports_turfs_ab1') }}
 -- scheduled_exports_turfs
 where 1 = 1
-

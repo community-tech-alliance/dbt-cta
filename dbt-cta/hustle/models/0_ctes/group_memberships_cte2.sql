@@ -1,10 +1,10 @@
 -- ensures the base model contains only one row per _cta_hashid
 
-SELECT * FROM 
-(
-SELECT 
-    *,
-    ROW_NUMBER() OVER (PARTITION BY _cta_hashid ORDER BY updated_at desc) as rownum 
-FROM {{ ref('group_memberships_cte1') }}
-)
-where rownum=1
+select * from
+    (
+        select
+            *,
+            row_number() over (partition by _cta_hashid order by updated_at desc) as rownum
+        from {{ ref('group_memberships_cte1') }}
+    )
+where rownum = 1

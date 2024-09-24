@@ -29,4 +29,3 @@ select
 from {{ source('cta', '_airbyte_raw_time_activities') }} as table_alias
 -- time_activities
 where 1 = 1
-

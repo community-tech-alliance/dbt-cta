@@ -15,4 +15,3 @@ select
 from {{ ref('purchases_PurchaseEx_any_value_ab1') }}
 -- value at purchases/PurchaseEx/any/value
 where 1 = 1
-

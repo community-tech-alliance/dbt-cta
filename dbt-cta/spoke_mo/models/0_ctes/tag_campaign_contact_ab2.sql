@@ -18,5 +18,3 @@ select
 from {{ ref('tag_campaign_contact_ab1') }}
 -- tag_campaign_contact
 where 1 = 1
-
-

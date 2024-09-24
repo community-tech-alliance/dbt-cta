@@ -19,4 +19,3 @@ select
     _airbyte_list_folders_hashid
 from {{ ref('list_folders_ab3') }}
 -- list_folders from {{ source('cta', '_airbyte_raw_list_folders') }}
-

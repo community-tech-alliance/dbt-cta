@@ -18,4 +18,3 @@ select
 from {{ ref('imports_error_rows_ab1') }}
 -- imports_error_rows
 where 1 = 1
-

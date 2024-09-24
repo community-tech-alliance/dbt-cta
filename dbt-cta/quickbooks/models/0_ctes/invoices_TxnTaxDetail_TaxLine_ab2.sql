@@ -16,4 +16,3 @@ select
 from {{ ref('invoices_TxnTaxDetail_TaxLine_ab1') }}
 -- TaxLine at invoices/TxnTaxDetail/TaxLine
 where 1 = 1
-

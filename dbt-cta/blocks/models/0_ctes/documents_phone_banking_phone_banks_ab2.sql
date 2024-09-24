@@ -17,4 +17,3 @@ select
 from {{ ref('documents_phone_banking_phone_banks_ab1') }}
 -- documents_phone_banking_phone_banks
 where 1 = 1
-

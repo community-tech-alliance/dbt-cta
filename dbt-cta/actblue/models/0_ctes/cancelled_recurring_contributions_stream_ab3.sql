@@ -34,4 +34,3 @@ select
     'Initial_Contribution_Date'
 ]) }} as _airbyte_cancelled_recurring_contributions_stream_hashid
 from {{ ref('cancelled_recurring_contributions_stream_ab2') }}
-

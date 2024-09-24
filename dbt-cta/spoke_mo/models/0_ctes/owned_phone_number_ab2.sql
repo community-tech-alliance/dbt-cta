@@ -22,5 +22,3 @@ select
 from {{ ref('owned_phone_number_ab1') }}
 -- owned_phone_number
 where 1 = 1
-
-

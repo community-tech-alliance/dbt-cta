@@ -17,7 +17,7 @@ select
         'position',
     ]) }} as _airbyte_groupings_hashid,
     tmp.*
-from {{ ref('groupings_ab2') }} tmp
+from {{ ref('groupings_ab2') }} as tmp
 -- groupings
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

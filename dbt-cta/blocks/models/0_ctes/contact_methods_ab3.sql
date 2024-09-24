@@ -19,7 +19,6 @@ select
         'person_id',
     ]) }} as _airbyte_contact_methods_hashid,
     tmp.*
-from {{ ref('contact_methods_ab2') }} tmp
+from {{ ref('contact_methods_ab2') }} as tmp
 -- contact_methods
 where 1 = 1
-

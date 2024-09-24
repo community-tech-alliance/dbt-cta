@@ -12,7 +12,6 @@ select
         'LastUpdatedTime',
     ]) }} as _airbyte_MetaData_hashid,
     tmp.*
-from {{ ref('estimates_MetaData_ab2') }} tmp
+from {{ ref('estimates_MetaData_ab2') }} as tmp
 -- MetaData at estimates/MetaData
 where 1 = 1
-

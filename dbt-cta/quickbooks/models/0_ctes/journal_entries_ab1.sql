@@ -27,4 +27,3 @@ select
 from {{ source('cta', '_airbyte_raw_journal_entries') }} as table_alias
 -- journal_entries
 where 1 = 1
-

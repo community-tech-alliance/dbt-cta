@@ -25,5 +25,4 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_interaction_step_hashid
 from {{ ref('interaction_step_ab4') }}
-where 1=1
-
+where 1 = 1

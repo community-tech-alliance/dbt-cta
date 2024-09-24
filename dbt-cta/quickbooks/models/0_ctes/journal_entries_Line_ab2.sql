@@ -18,4 +18,3 @@ select
 from {{ ref('journal_entries_Line_ab1') }}
 -- Line at journal_entries/Line
 where 1 = 1
-

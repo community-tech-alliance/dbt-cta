@@ -27,4 +27,3 @@ select
     _airbyte_schedules_hashid
 from {{ ref('schedules_ab3') }}
 -- schedules from {{ source('cta', '_airbyte_raw_schedules') }}
-

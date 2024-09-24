@@ -14,4 +14,3 @@ select
 from {{ ref('deposits_Line_DepositLineDetail_PaymentMethodRef_ab1') }}
 -- PaymentMethodRef at deposits/Line/DepositLineDetail/PaymentMethodRef
 where 1 = 1
-

@@ -17,7 +17,7 @@ select
         'responsibility_id',
     ]) }} as _airbyte_organization_memberships_hashid,
     tmp.*
-from {{ ref('organization_memberships_ab2') }} tmp
+from {{ ref('organization_memberships_ab2') }} as tmp
 -- organization_memberships
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

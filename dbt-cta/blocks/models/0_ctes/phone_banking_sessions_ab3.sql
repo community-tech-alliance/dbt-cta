@@ -17,7 +17,7 @@ select
         'caller_survey_response',
     ]) }} as _airbyte_phone_banking_sessions_hashid,
     tmp.*
-from {{ ref('phone_banking_sessions_ab2') }} tmp
+from {{ ref('phone_banking_sessions_ab2') }} as tmp
 -- phone_banking_sessions
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

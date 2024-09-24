@@ -14,5 +14,3 @@ select
 from {{ ref('knex_migrations_lock_ab1') }}
 -- knex_migrations_lock
 where 1 = 1
-
-

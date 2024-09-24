@@ -1,4 +1,3 @@
-
 -- depends_on: {{ source('cta', 'van_persons_base') }}
 select
     _airbyte_van_persons_hashid,

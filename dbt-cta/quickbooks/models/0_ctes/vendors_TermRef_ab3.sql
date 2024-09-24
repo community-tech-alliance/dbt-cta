@@ -11,7 +11,6 @@ select
         'value',
     ]) }} as _airbyte_TermRef_hashid,
     tmp.*
-from {{ ref('vendors_TermRef_ab2') }} tmp
+from {{ ref('vendors_TermRef_ab2') }} as tmp
 -- TermRef at vendors/TermRef
 where 1 = 1
-

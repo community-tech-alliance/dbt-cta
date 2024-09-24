@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_AccountRef_hashid,
     tmp.*
-from {{ ref('vendor_credits_Line_AccountBasedExpenseLineDetail_AccountRef_ab2') }} tmp
+from {{ ref('vendor_credits_Line_AccountBasedExpenseLineDetail_AccountRef_ab2') }} as tmp
 -- AccountRef at vendor_credits/Line/AccountBasedExpenseLineDetail/AccountRef
 where 1 = 1
-

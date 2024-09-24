@@ -19,7 +19,7 @@ select
         array_to_string('current_list'),
     ]) }} as _airbyte_searches_hashid,
     tmp.*
-from {{ ref('searches_ab2') }} tmp
+from {{ ref('searches_ab2') }} as tmp
 -- searches
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

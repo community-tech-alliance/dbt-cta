@@ -15,4 +15,3 @@ select
 from {{ ref('sales_receipts_MetaData_ab1') }}
 -- MetaData at sales_receipts/MetaData
 where 1 = 1
-

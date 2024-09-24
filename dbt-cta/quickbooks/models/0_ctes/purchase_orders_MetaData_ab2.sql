@@ -15,4 +15,3 @@ select
 from {{ ref('purchase_orders_MetaData_ab1') }}
 -- MetaData at purchase_orders/MetaData
 where 1 = 1
-

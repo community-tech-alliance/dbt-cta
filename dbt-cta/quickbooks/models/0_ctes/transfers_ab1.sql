@@ -24,4 +24,3 @@ select
 from {{ source('cta', '_airbyte_raw_transfers') }} as table_alias
 -- transfers
 where 1 = 1
-

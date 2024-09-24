@@ -24,7 +24,6 @@ select
         'PrivateNote',
     ]) }} as _airbyte_deposits_hashid,
     tmp.*
-from {{ ref('deposits_ab2') }} tmp
+from {{ ref('deposits_ab2') }} as tmp
 -- deposits
 where 1 = 1
-

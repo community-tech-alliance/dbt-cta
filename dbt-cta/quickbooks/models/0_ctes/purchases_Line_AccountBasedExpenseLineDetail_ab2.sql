@@ -17,4 +17,3 @@ select
 from {{ ref('purchases_Line_AccountBasedExpenseLineDetail_ab1') }}
 -- AccountBasedExpenseLineDetail at purchases/Line/AccountBasedExpenseLineDetail
 where 1 = 1
-

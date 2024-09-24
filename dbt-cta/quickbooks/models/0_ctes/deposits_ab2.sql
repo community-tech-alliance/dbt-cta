@@ -27,4 +27,3 @@ select
 from {{ ref('deposits_ab1') }}
 -- deposits
 where 1 = 1
-

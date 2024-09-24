@@ -16,7 +16,6 @@ select
         'slug',
     ]) }} as _airbyte_friendly_id_slugs_hashid,
     tmp.*
-from {{ ref('friendly_id_slugs_ab2') }} tmp
+from {{ ref('friendly_id_slugs_ab2') }} as tmp
 -- friendly_id_slugs
 where 1 = 1
-

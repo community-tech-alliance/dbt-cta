@@ -3,13 +3,14 @@
 
 select
     _airbyte_users_hashid,
-    json_extract_scalar(phones, "$['type']") as type,
-    json_extract_scalar(phones, "$['value']") as value,
     _airbyte_ab_id,
     _airbyte_emitted_at,
-    CURRENT_TIMESTAMP() as _airbyte_normalized_at
-from {{ source('cta', 'users') }} as table_alias
+    json_extract_scalar(phones, "$['type']") as type,
+    json_extract_scalar(phones, "$['value']") as value,
+    current_timestamp() as _airbyte_normalized_at
+from {{ source('cta', 'users') }}
 -- phones at users/phones
 cross join unnest(phones) as phones
-where 1 = 1
-and phones is not null
+where
+    1 = 1
+    and phones is not null

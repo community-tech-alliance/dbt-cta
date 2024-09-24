@@ -13,6 +13,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('bill_payments_base') }} as table_alias
 -- CreditCardPayment at bill_payments/CreditCardPayment
-where 1 = 1
-and CreditCardPayment is not null
-
+where
+    1 = 1
+    and CreditCardPayment is not null

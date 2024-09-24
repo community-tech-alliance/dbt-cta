@@ -26,4 +26,3 @@ select
     _airbyte_meetings_hashid
 from {{ ref('meetings_ab3') }}
 -- meetings from {{ source('cta', '_airbyte_raw_meetings') }}
-

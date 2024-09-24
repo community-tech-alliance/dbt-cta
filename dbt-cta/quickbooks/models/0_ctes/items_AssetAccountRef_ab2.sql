@@ -15,4 +15,3 @@ select
 from {{ ref('items_AssetAccountRef_ab1') }}
 -- AssetAccountRef at items/AssetAccountRef
 where 1 = 1
-

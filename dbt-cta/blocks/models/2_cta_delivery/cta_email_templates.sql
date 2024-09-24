@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM {{ source('cta', 'email_templates_base') }}
+select *
+from {{ source('cta', 'email_templates_base') }}

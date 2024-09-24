@@ -15,4 +15,3 @@ select
 from {{ ref('denominations_organizations_ab1') }}
 -- denominations_organizations
 where 1 = 1
-

@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_VendorRef_hashid,
     tmp.*
-from {{ ref('purchase_orders_VendorRef_ab2') }} tmp
+from {{ ref('purchase_orders_VendorRef_ab2') }} as tmp
 -- VendorRef at purchase_orders/VendorRef
 where 1 = 1
-

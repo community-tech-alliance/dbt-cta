@@ -20,4 +20,3 @@ select
 from {{ ref('invoices_ShipAddr_ab1') }}
 -- ShipAddr at invoices/ShipAddr
 where 1 = 1
-

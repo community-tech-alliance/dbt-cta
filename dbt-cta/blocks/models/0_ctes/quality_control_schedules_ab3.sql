@@ -17,7 +17,7 @@ select
         'id',
     ]) }} as _airbyte_quality_control_schedules_hashid,
     tmp.*
-from {{ ref('quality_control_schedules_ab2') }} tmp
+from {{ ref('quality_control_schedules_ab2') }} as tmp
 -- quality_control_schedules
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

@@ -13,7 +13,6 @@ select
         'Amount',
     ]) }} as _airbyte_TaxLine_hashid,
     tmp.*
-from {{ ref('estimates_TxnTaxDetail_TaxLine_ab2') }} tmp
+from {{ ref('estimates_TxnTaxDetail_TaxLine_ab2') }} as tmp
 -- TaxLine at estimates/TxnTaxDetail/TaxLine
 where 1 = 1
-

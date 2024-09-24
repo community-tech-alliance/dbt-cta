@@ -23,4 +23,3 @@ select
     _airbyte_dashboard_widgets_hashid
 from {{ ref('dashboard_widgets_ab3') }}
 -- dashboard_widgets from {{ source('cta', '_airbyte_raw_dashboard_widgets') }}
-

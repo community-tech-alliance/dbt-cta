@@ -16,7 +16,6 @@ select
         array_to_string('issues'),
     ]) }} as _airbyte_activism_options_configs_hashid,
     tmp.*
-from {{ ref('activism_options_configs_ab2') }} tmp
+from {{ ref('activism_options_configs_ab2') }} as tmp
 -- activism_options_configs
 where 1 = 1
-

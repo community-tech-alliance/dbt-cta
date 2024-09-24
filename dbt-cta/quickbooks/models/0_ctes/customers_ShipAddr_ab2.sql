@@ -21,4 +21,3 @@ select
 from {{ ref('customers_ShipAddr_ab1') }}
 -- ShipAddr at customers/ShipAddr
 where 1 = 1
-

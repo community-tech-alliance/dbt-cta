@@ -14,7 +14,7 @@ select
         'id',
     ]) }} as _airbyte_turf_levels_hashid,
     tmp.*
-from {{ ref('turf_levels_ab2') }} tmp
+from {{ ref('turf_levels_ab2') }} as tmp
 -- turf_levels
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

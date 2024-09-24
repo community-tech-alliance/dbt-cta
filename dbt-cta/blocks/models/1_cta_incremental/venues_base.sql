@@ -26,4 +26,3 @@ select
     _airbyte_venues_hashid
 from {{ ref('venues_ab3') }}
 -- venues from {{ source('cta', '_airbyte_raw_venues') }}
-

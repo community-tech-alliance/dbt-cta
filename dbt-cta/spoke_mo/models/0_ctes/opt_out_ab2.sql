@@ -18,5 +18,3 @@ select
 from {{ ref('opt_out_ab1') }}
 -- opt_out
 where 1 = 1
-
-

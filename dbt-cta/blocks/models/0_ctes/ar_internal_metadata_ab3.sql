@@ -14,7 +14,7 @@ select
         'key',
     ]) }} as _airbyte_ar_internal_metadata_hashid,
     tmp.*
-from {{ ref('ar_internal_metadata_ab2') }} tmp
+from {{ ref('ar_internal_metadata_ab2') }} as tmp
 -- ar_internal_metadata
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

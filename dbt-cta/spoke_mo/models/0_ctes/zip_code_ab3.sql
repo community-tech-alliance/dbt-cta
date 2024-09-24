@@ -16,8 +16,6 @@ select
         'longitude',
     ]) }} as _airbyte_zip_code_hashid,
     tmp.*
-from {{ ref('zip_code_ab2') }} tmp
+from {{ ref('zip_code_ab2') }} as tmp
 -- zip_code
 where 1 = 1
-
-

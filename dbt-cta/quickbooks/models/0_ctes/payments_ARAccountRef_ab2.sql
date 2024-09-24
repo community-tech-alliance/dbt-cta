@@ -15,4 +15,3 @@ select
 from {{ ref('payments_ARAccountRef_ab1') }}
 -- ARAccountRef at payments/ARAccountRef
 where 1 = 1
-

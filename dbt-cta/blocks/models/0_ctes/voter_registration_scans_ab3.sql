@@ -25,7 +25,7 @@ select
         'id',
     ]) }} as _airbyte_voter_registration_scans_hashid,
     tmp.*
-from {{ ref('voter_registration_scans_ab2') }} tmp
+from {{ ref('voter_registration_scans_ab2') }} as tmp
 -- voter_registration_scans
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

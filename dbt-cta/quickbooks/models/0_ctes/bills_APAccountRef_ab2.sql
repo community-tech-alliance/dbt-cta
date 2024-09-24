@@ -15,4 +15,3 @@ select
 from {{ ref('bills_APAccountRef_ab1') }}
 -- APAccountRef at bills/APAccountRef
 where 1 = 1
-

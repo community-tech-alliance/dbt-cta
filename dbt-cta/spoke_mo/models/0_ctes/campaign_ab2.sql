@@ -36,5 +36,3 @@ select
 from {{ ref('campaign_ab1') }}
 -- campaign
 where 1 = 1
-
-

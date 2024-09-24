@@ -17,4 +17,3 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('search_documents_ab1') }}
 -- search_documents
-

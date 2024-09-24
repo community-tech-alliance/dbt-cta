@@ -19,4 +19,3 @@ select
     _airbyte_district_types_hashid
 from {{ ref('district_types_ab3') }}
 -- district_types from {{ source('cta', '_airbyte_raw_district_types') }}
-

@@ -6,7 +6,7 @@
 
 -- SQL model to cast each column to its adequate SQL type converted from the JSON
 -- schema type
--- depends_on: {{ ref("van_persons_ab1")}}
+-- depends_on: {{ ref("van_persons_ab1") }}
 
 select
     cast(id as int64) as id,
@@ -18,6 +18,6 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     current_timestamp() as _airbyte_normalized_at
-from {{ ref("van_persons_ab1")}}
+from {{ ref("van_persons_ab1") }}
 -- van_persons
 where 1 = 1

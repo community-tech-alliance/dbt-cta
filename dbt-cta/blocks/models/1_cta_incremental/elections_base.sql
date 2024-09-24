@@ -20,4 +20,3 @@ select
     _airbyte_elections_hashid
 from {{ ref('elections_ab3') }}
 -- elections from {{ source('cta', '_airbyte_raw_elections') }}
-

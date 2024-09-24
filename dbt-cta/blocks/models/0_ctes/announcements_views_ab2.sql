@@ -15,4 +15,3 @@ select
 from {{ ref('announcements_views_ab1') }}
 -- announcements_views
 where 1 = 1
-

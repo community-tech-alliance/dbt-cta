@@ -15,4 +15,3 @@ select
 from {{ ref('invoices_LinkedTxn_ab1') }}
 -- LinkedTxn at invoices/LinkedTxn
 where 1 = 1
-

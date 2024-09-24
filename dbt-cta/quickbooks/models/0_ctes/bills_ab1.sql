@@ -32,4 +32,3 @@ select
 from {{ source('cta', '_airbyte_raw_bills') }} as table_alias
 -- bills
 where 1 = 1
-

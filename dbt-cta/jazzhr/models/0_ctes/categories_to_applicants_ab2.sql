@@ -16,4 +16,3 @@ select
 from {{ ref('categories_to_applicants_ab1') }}
 -- categories_to_applicants
 where 1 = 1
-

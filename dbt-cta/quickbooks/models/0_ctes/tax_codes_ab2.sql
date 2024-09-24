@@ -26,4 +26,3 @@ select
 from {{ ref('tax_codes_ab1') }}
 -- tax_codes
 where 1 = 1
-

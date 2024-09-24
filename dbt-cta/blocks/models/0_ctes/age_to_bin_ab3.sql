@@ -12,7 +12,6 @@ select
         'age',
     ]) }} as _airbyte_age_to_bin_hashid,
     tmp.*
-from {{ ref('age_to_bin_ab2') }} tmp
+from {{ ref('age_to_bin_ab2') }} as tmp
 -- age_to_bin
 where 1 = 1
-

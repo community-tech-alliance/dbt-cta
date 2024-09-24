@@ -24,7 +24,7 @@ select
         'id',
     ]) }} as _airbyte_petitions_canvasser_pages_hashid,
     tmp.*
-from {{ ref('petitions_canvasser_pages_ab2') }} tmp
+from {{ ref('petitions_canvasser_pages_ab2') }} as tmp
 -- petitions_canvasser_pages
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

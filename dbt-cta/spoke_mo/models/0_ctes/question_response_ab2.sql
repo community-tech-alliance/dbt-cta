@@ -17,5 +17,3 @@ select
 from {{ ref('question_response_ab1') }}
 -- question_response
 where 1 = 1
-
-

@@ -9,7 +9,7 @@ select
     id,
     type,
     saves,
-    spend/1000000.00 as spend,
+    spend / 1000000.00 as spend,
     shares,
     swipes as swipe_ups,
     uniques,

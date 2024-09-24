@@ -1,3 +1,2 @@
-SELECT
-*
-FROM {{ source('cta','lead_externals_base') }}
+select *
+from {{ source('cta','lead_externals_base') }}

@@ -14,4 +14,3 @@ select
 from {{ ref('purchase_orders_Line_ItemBasedExpenseLineDetail_TaxCodeRef_ab1') }}
 -- TaxCodeRef at purchase_orders/Line/ItemBasedExpenseLineDetail/TaxCodeRef
 where 1 = 1
-

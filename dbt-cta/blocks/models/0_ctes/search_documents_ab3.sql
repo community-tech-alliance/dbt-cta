@@ -15,7 +15,6 @@ select
         'search_id'
     ]) }} as _airbyte_search_documents_hashid,
     tmp.*
-from {{ ref('search_documents_ab2') }} tmp
+from {{ ref('search_documents_ab2') }} as tmp
 -- search_documents
 where 1 = 1
-

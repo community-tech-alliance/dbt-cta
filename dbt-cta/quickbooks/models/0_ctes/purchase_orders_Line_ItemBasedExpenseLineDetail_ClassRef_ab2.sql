@@ -15,4 +15,3 @@ select
 from {{ ref('purchase_orders_Line_ItemBasedExpenseLineDetail_ClassRef_ab1') }}
 -- ClassRef at purchase_orders/Line/ItemBasedExpenseLineDetail/ClassRef
 where 1 = 1
-
