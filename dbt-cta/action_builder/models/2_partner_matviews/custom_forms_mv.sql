@@ -1,1 +1,1 @@
-select * from {{ source('cta', 'custom_forms_base')  }}
+select * from {{ source('cta', 'custom_forms_base') }}

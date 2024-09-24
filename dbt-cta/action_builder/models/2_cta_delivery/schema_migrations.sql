@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM  {{ source('cta', 'schema_migrations_base') }}
+select *
+from {{ source('cta', 'schema_migrations_base') }}

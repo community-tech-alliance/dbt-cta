@@ -19,7 +19,7 @@ select
     profile,
     campaign,
     multipart,
-    cast(received_at as {{dbt.type_timestamp()}}) as received_at,
+    cast(received_at as {{ dbt.type_timestamp() }}) as received_at,
     carrier_name,
     phone_number,
     message_template_id,

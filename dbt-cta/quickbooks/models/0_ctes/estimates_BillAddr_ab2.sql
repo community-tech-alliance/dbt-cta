@@ -20,4 +20,3 @@ select
 from {{ ref('estimates_BillAddr_ab1') }}
 -- BillAddr at estimates/BillAddr
 where 1 = 1
-

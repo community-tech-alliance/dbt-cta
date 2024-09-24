@@ -24,5 +24,3 @@ select
 from {{ ref('job_request_ab1') }}
 -- job_request
 where 1 = 1
-
-

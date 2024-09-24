@@ -11,7 +11,6 @@ select
         'value',
     ]) }} as _airbyte_AgencyRef_hashid,
     tmp.*
-from {{ ref('tax_rates_AgencyRef_ab2') }} tmp
+from {{ ref('tax_rates_AgencyRef_ab2') }} as tmp
 -- AgencyRef at tax_rates/AgencyRef
 where 1 = 1
-

@@ -15,4 +15,3 @@ select
 from {{ ref('tax_rates_MetaData_ab1') }}
 -- MetaData at tax_rates/MetaData
 where 1 = 1
-

@@ -15,6 +15,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('deposits_Line_base') }} as table_alias
 -- DepositLineDetail at deposits/Line/DepositLineDetail
-where 1 = 1
-and DepositLineDetail is not null
-
+where
+    1 = 1
+    and DepositLineDetail is not null

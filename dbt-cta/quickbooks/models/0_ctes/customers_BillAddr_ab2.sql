@@ -21,4 +21,3 @@ select
 from {{ ref('customers_BillAddr_ab1') }}
 -- BillAddr at customers/BillAddr
 where 1 = 1
-

@@ -14,4 +14,3 @@ select
 from {{ ref('invoices_TxnTaxDetail_TaxLine_TaxLineDetail_TaxRateRef_ab1') }}
 -- TaxRateRef at invoices/TxnTaxDetail/TaxLine/TaxLineDetail/TaxRateRef
 where 1 = 1
-

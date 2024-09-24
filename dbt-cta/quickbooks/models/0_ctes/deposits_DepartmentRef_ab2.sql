@@ -15,4 +15,3 @@ select
 from {{ ref('deposits_DepartmentRef_ab1') }}
 -- DepartmentRef at deposits/DepartmentRef
 where 1 = 1
-

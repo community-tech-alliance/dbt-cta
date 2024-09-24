@@ -14,4 +14,3 @@ select
 from {{ ref('purchases_PurchaseEx_ab1') }}
 -- PurchaseEx at purchases/PurchaseEx
 where 1 = 1
-

@@ -20,4 +20,3 @@ select
     _airbyte_event_shifts_hashid
 from {{ ref('event_shifts_ab3') }}
 -- event_shifts from {{ source('cta', '_airbyte_raw_event_shifts') }}
-

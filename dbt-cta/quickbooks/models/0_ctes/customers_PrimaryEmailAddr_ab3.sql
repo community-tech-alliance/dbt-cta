@@ -11,7 +11,6 @@ select
         'Address',
     ]) }} as _airbyte_PrimaryEmailAddr_hashid,
     tmp.*
-from {{ ref('customers_PrimaryEmailAddr_ab2') }} tmp
+from {{ ref('customers_PrimaryEmailAddr_ab2') }} as tmp
 -- PrimaryEmailAddr at customers/PrimaryEmailAddr
 where 1 = 1
-

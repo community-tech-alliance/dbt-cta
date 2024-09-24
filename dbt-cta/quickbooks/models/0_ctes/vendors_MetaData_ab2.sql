@@ -15,4 +15,3 @@ select
 from {{ ref('vendors_MetaData_ab1') }}
 -- MetaData at vendors/MetaData
 where 1 = 1
-

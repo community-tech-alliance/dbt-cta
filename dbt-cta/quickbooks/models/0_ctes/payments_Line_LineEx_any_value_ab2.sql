@@ -15,4 +15,3 @@ select
 from {{ ref('payments_Line_LineEx_any_value_ab1') }}
 -- value at payments/Line/LineEx/any/value
 where 1 = 1
-

@@ -13,8 +13,8 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('purchases_base') }} as table_alias
+from {{ ref('purchases_base') }}
 -- EntityRef at purchases/EntityRef
-where 1 = 1
-and EntityRef is not null
-
+where
+    1 = 1
+    and EntityRef is not null

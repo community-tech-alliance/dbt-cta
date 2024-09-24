@@ -15,4 +15,3 @@ select
 from {{ ref('locations_organizations_ab1') }}
 -- locations_organizations
 where 1 = 1
-

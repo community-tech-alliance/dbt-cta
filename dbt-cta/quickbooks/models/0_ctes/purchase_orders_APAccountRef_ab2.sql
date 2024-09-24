@@ -15,4 +15,3 @@ select
 from {{ ref('purchase_orders_APAccountRef_ab1') }}
 -- APAccountRef at purchase_orders/APAccountRef
 where 1 = 1
-

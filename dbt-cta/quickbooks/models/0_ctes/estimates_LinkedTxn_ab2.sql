@@ -15,4 +15,3 @@ select
 from {{ ref('estimates_LinkedTxn_ab1') }}
 -- LinkedTxn at estimates/LinkedTxn
 where 1 = 1
-

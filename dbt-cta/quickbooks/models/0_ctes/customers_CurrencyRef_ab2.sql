@@ -15,4 +15,3 @@ select
 from {{ ref('customers_CurrencyRef_ab1') }}
 -- CurrencyRef at customers/CurrencyRef
 where 1 = 1
-

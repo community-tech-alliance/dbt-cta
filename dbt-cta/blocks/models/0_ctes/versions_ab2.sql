@@ -21,4 +21,3 @@ select
 from {{ ref('versions_ab1') }}
 -- versions
 where 1 = 1
-

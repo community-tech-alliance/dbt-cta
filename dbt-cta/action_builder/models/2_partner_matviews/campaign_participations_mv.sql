@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM  {{ source('cta', 'campaign_participations_base') }}
+select *
+from {{ source('cta', 'campaign_participations_base') }}

@@ -1,21 +1,20 @@
 -- CTE:
 -- casts fields to data types
 -- adds columns `_cta_hashid` and `_cta_sync_datetime_utc`
-                    
-SELECT
-    CAST(`deleted_at` AS STRING) AS `deleted_at`,
-    CAST(`id` AS STRING) AS `id`,
-    CAST(`agent_visibility` AS STRING) AS `agent_visibility`,
-    CAST(`organization_id` AS STRING) AS `organization_id`,
-    CAST(`tag` AS STRING) AS `tag`,
-    CAST(`created_at` AS TIMESTAMP) AS `created_at`,
-    CAST(`updated_at` AS TIMESTAMP) AS `updated_at`,
-    TO_HEX(MD5(CONCAT(
-                      `id`,
-                      `tag`,
-                      `created_at`,
-                      `updated_at`))) AS _cta_hashid,
-    CURRENT_TIMESTAMP() as _cta_sync_datetime_utc
-FROM {{ source('cta', '_tags_raw') }}
-    
-    
+
+select
+    cast(`deleted_at` as string) as `deleted_at`,
+    cast(`id` as string) as `id`,
+    cast(`agent_visibility` as string) as `agent_visibility`,
+    cast(`organization_id` as string) as `organization_id`,
+    cast(`tag` as string) as `tag`,
+    cast(`created_at` as timestamp) as `created_at`,
+    cast(`updated_at` as timestamp) as `updated_at`,
+    to_hex(md5(concat(
+        `id`,
+        `tag`,
+        `created_at`,
+        `updated_at`
+    ))) as _cta_hashid,
+    current_timestamp() as _cta_sync_datetime_utc
+from {{ source('cta', '_tags_raw') }}

@@ -26,8 +26,8 @@ select
     user__phone_number,
     _airbyte_raw_id,
     _airbyte_extracted_at,
-    current_timestamp() as _airbyte_normalized_at,
-    _airbyte_sms_opt_ins_hashid
+    _airbyte_sms_opt_ins_hashid,
+    current_timestamp() as _airbyte_normalized_at
 from {{ ref('sms_opt_ins_ab4') }}
 
 {% if is_incremental() %}

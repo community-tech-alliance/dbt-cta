@@ -16,7 +16,7 @@ select
         'state',
     ]) }} as _airbyte_elections_hashid,
     tmp.*
-from {{ ref('elections_ab2') }} tmp
+from {{ ref('elections_ab2') }} as tmp
 -- elections
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

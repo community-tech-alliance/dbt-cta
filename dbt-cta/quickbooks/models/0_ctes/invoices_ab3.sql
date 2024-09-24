@@ -42,7 +42,6 @@ select
         object_to_string('TxnTaxDetail'),
     ]) }} as _airbyte_invoices_hashid,
     tmp.*
-from {{ ref('invoices_ab2') }} tmp
+from {{ ref('invoices_ab2') }} as tmp
 -- invoices
 where 1 = 1
-

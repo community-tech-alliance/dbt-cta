@@ -52,7 +52,7 @@ select
         'position',
     ]) }} as _airbyte_people_hashid,
     tmp.*
-from {{ ref('people_ab2') }} tmp
+from {{ ref('people_ab2') }} as tmp
 -- people
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

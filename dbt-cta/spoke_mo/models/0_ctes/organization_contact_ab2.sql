@@ -24,5 +24,3 @@ select
 from {{ ref('organization_contact_ab1') }}
 -- organization_contact
 where 1 = 1
-
-

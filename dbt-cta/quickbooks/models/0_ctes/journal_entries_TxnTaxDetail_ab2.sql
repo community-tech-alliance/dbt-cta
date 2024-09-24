@@ -16,4 +16,3 @@ select
 from {{ ref('journal_entries_TxnTaxDetail_ab1') }}
 -- TxnTaxDetail at journal_entries/TxnTaxDetail
 where 1 = 1
-

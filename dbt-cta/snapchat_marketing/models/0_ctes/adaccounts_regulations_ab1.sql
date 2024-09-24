@@ -10,8 +10,9 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('adaccounts_base') }} as table_alias
-where 1 = 1
-and regulations is not null
+from {{ ref('adaccounts_base') }}
+where
+    1 = 1
+    and regulations is not null
 {{ incremental_clause('_airbyte_extracted_at') }}
 

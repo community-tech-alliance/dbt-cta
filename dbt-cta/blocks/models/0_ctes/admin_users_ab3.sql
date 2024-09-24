@@ -14,7 +14,6 @@ select
         'encrypted_password',
     ]) }} as _airbyte_admin_users_hashid,
     tmp.*
-from {{ ref('admin_users_ab2') }} tmp
+from {{ ref('admin_users_ab2') }} as tmp
 -- admin_users
 where 1 = 1
-

@@ -15,4 +15,3 @@ select
 from {{ ref('quality_control_flags_voter_registration_scans_ab1') }}
 -- quality_control_flags_voter_registration_scans
 where 1 = 1
-

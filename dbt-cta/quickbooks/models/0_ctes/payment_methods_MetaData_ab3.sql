@@ -12,7 +12,6 @@ select
         'LastUpdatedTime',
     ]) }} as _airbyte_MetaData_hashid,
     tmp.*
-from {{ ref('payment_methods_MetaData_ab2') }} tmp
+from {{ ref('payment_methods_MetaData_ab2') }} as tmp
 -- MetaData at payment_methods/MetaData
 where 1 = 1
-

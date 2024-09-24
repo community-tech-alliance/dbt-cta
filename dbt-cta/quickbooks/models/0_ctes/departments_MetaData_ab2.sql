@@ -15,4 +15,3 @@ select
 from {{ ref('departments_MetaData_ab1') }}
 -- MetaData at departments/MetaData
 where 1 = 1
-

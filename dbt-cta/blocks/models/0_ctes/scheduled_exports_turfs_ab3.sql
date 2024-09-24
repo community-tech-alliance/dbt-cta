@@ -12,7 +12,6 @@ select
         'turf_id',
     ]) }} as _airbyte_scheduled_exports_turfs_hashid,
     tmp.*
-from {{ ref('scheduled_exports_turfs_ab2') }} tmp
+from {{ ref('scheduled_exports_turfs_ab2') }} as tmp
 -- scheduled_exports_turfs
 where 1 = 1
-

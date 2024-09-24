@@ -14,4 +14,3 @@ select
 from {{ ref('bill_payments_CreditCardPayment_ab1') }}
 -- CreditCardPayment at bill_payments/CreditCardPayment
 where 1 = 1
-

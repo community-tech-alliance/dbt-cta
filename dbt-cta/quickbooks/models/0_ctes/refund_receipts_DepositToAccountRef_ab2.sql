@@ -15,4 +15,3 @@ select
 from {{ ref('refund_receipts_DepositToAccountRef_ab1') }}
 -- DepositToAccountRef at refund_receipts/DepositToAccountRef
 where 1 = 1
-

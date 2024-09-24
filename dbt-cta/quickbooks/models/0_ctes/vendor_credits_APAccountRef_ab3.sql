@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_APAccountRef_hashid,
     tmp.*
-from {{ ref('vendor_credits_APAccountRef_ab2') }} tmp
+from {{ ref('vendor_credits_APAccountRef_ab2') }} as tmp
 -- APAccountRef at vendor_credits/APAccountRef
 where 1 = 1
-

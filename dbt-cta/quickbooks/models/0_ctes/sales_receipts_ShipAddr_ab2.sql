@@ -21,4 +21,3 @@ select
 from {{ ref('sales_receipts_ShipAddr_ab1') }}
 -- ShipAddr at sales_receipts/ShipAddr
 where 1 = 1
-

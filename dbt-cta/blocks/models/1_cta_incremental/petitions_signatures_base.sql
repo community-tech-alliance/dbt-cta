@@ -38,4 +38,3 @@ select
     _airbyte_petitions_signatures_hashid
 from {{ ref('petitions_signatures_ab3') }}
 -- petitions_signatures from {{ source('cta', '_airbyte_raw_petitions_signatures') }}
-

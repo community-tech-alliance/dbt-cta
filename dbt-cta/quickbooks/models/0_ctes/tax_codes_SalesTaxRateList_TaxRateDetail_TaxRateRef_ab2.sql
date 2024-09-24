@@ -15,4 +15,3 @@ select
 from {{ ref('tax_codes_SalesTaxRateList_TaxRateDetail_TaxRateRef_ab1') }}
 -- TaxRateRef at tax_codes/SalesTaxRateList/TaxRateDetail/TaxRateRef
 where 1 = 1
-

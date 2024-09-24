@@ -1,4 +1,3 @@
-
 -- depends_on: {{ source('cta', 'van_events_base') }}
 select
     _airbyte_van_events_hashid,

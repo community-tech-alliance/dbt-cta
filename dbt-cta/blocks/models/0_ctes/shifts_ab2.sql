@@ -54,4 +54,3 @@ select
 from {{ ref('shifts_ab1') }}
 -- shifts
 where 1 = 1
-

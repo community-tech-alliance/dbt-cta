@@ -20,8 +20,6 @@ select
         'campaign_id',
     ]) }} as _airbyte_campaign_admin_hashid,
     tmp.*
-from {{ ref('campaign_admin_ab2') }} tmp
+from {{ ref('campaign_admin_ab2') }} as tmp
 -- campaign_admin
 where 1 = 1
-
-

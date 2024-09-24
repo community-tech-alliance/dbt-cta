@@ -21,7 +21,6 @@ select
         'BudgetEntryType',
     ]) }} as _airbyte_budgets_hashid,
     tmp.*
-from {{ ref('budgets_ab2') }} tmp
+from {{ ref('budgets_ab2') }} as tmp
 -- budgets
 where 1 = 1
-

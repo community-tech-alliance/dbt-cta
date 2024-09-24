@@ -14,4 +14,3 @@ select
 from {{ ref('employees_PrimaryPhone_ab1') }}
 -- PrimaryPhone at employees/PrimaryPhone
 where 1 = 1
-

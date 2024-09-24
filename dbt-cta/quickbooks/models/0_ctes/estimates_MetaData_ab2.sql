@@ -15,4 +15,3 @@ select
 from {{ ref('estimates_MetaData_ab1') }}
 -- MetaData at estimates/MetaData
 where 1 = 1
-

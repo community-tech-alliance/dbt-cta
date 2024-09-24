@@ -32,7 +32,6 @@ select
         'slug',
     ]) }} as _airbyte_turfs_hashid,
     tmp.*
-from {{ ref('turfs_ab2') }} tmp
+from {{ ref('turfs_ab2') }} as tmp
 -- turfs
 where 1 = 1
-

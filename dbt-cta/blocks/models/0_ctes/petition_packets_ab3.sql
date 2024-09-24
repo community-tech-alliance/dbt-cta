@@ -18,7 +18,6 @@ select
         'file_locator'
     ]) }} as _airbyte_petition_packets_hashid,
     tmp.*
-from {{ ref('petition_packets_ab2') }} tmp
+from {{ ref('petition_packets_ab2') }} as tmp
 -- petition_packets
 where 1 = 1
-

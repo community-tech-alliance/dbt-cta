@@ -13,8 +13,6 @@ select
         'id',
     ]) }} as _airbyte_knex_migrations_hashid,
     tmp.*
-from {{ ref('knex_migrations_ab2') }} tmp
+from {{ ref('knex_migrations_ab2') }} as tmp
 -- knex_migrations
 where 1 = 1
-
-

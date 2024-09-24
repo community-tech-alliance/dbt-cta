@@ -14,7 +14,7 @@ select
         'id',
     ]) }} as _airbyte_denominations_hashid,
     tmp.*
-from {{ ref('denominations_ab2') }} tmp
+from {{ ref('denominations_ab2') }} as tmp
 -- denominations
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

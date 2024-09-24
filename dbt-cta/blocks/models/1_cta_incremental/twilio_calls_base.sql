@@ -22,4 +22,3 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_twilio_calls_hashid
 from {{ ref('twilio_calls_ab4') }}
-

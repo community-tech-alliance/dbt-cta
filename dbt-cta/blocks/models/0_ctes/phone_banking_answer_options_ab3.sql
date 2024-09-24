@@ -16,7 +16,7 @@ select
         'question_id',
     ]) }} as _airbyte_phone_banking_answer_options_hashid,
     tmp.*
-from {{ ref('phone_banking_answer_options_ab2') }} tmp
+from {{ ref('phone_banking_answer_options_ab2') }} as tmp
 -- phone_banking_answer_options
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

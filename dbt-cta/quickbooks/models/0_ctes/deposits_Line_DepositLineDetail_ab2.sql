@@ -16,4 +16,3 @@ select
 from {{ ref('deposits_Line_DepositLineDetail_ab1') }}
 -- DepositLineDetail at deposits/Line/DepositLineDetail
 where 1 = 1
-

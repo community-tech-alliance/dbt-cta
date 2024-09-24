@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_CurrencyRef_hashid,
     tmp.*
-from {{ ref('bill_payments_CurrencyRef_ab2') }} tmp
+from {{ ref('bill_payments_CurrencyRef_ab2') }} as tmp
 -- CurrencyRef at bill_payments/CurrencyRef
 where 1 = 1
-

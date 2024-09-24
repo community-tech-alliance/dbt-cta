@@ -23,7 +23,7 @@ select
         'person_id',
     ]) }} as _airbyte_voter_histories_hashid,
     tmp.*
-from {{ ref('voter_histories_ab2') }} tmp
+from {{ ref('voter_histories_ab2') }} as tmp
 -- voter_histories
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

@@ -20,4 +20,3 @@ select
 from {{ ref('sales_receipts_Line_ab1') }}
 -- Line at sales_receipts/Line
 where 1 = 1
-

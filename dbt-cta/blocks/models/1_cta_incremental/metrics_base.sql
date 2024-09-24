@@ -22,4 +22,3 @@ select
     _airbyte_metrics_hashid
 from {{ ref('metrics_ab3') }}
 -- metrics from {{ source('cta', '_airbyte_raw_metrics') }}
-

@@ -14,9 +14,9 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('refund_receipts_base') }} as table_alias
+from {{ ref('refund_receipts_base') }}
 -- CustomField at refund_receipts/CustomField
 {{ cross_join_unnest('refund_receipts', 'CustomField') }}
-where 1 = 1
-and CustomField is not null
-
+where
+    1 = 1
+    and CustomField is not null

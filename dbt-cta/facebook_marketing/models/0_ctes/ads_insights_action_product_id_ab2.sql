@@ -1,11 +1,11 @@
 -- ensures the base model contains only one row per hashid
 -- this deduplicates data even if the source data contains duplicate rows
 
-SELECT * EXCEPT (rownum) FROM 
-(
-SELECT 
-    *,
-    ROW_NUMBER() OVER (PARTITION BY _airbyte_ads_insights_action_product_id_hashid ORDER BY _airbyte_extracted_at desc) as rownum 
-from {{ ref('ads_insights_action_product_id_ab1') }}
-)
-where rownum=1
+select * except (rownum) from
+    (
+        select
+            *,
+            row_number() over (partition by _airbyte_ads_insights_action_product_id_hashid order by _airbyte_extracted_at desc) as rownum
+        from {{ ref('ads_insights_action_product_id_ab1') }}
+    )
+where rownum = 1

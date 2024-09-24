@@ -56,4 +56,3 @@ select
     _airbyte_people_hashid
 from {{ ref('people_ab3') }}
 -- people from {{ source('cta', '_airbyte_raw_people') }}
-

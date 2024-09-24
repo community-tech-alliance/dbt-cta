@@ -11,8 +11,8 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('estimates_Line_SalesItemLineDetail_base') }} as table_alias
+from {{ ref('estimates_Line_SalesItemLineDetail_base') }}
 -- TaxCodeRef at estimates/Line/SalesItemLineDetail/TaxCodeRef
-where 1 = 1
-and TaxCodeRef is not null
-
+where
+    1 = 1
+    and TaxCodeRef is not null

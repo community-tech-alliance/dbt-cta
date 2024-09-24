@@ -36,7 +36,7 @@ select
         'attended_count',
     ]) }} as _airbyte_events_hashid,
     tmp.*
-from {{ ref('events_ab2') }} tmp
+from {{ ref('events_ab2') }} as tmp
 -- events
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

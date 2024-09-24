@@ -17,9 +17,9 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('budgets_base') }} as table_alias
+from {{ ref('budgets_base') }}
 -- BudgetDetail at budgets/BudgetDetail
 {{ cross_join_unnest('budgets', 'BudgetDetail') }}
-where 1 = 1
-and BudgetDetail is not null
-
+where
+    1 = 1
+    and BudgetDetail is not null

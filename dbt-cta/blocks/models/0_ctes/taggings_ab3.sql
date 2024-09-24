@@ -19,7 +19,6 @@ select
         'taggable_type',
     ]) }} as _airbyte_taggings_hashid,
     tmp.*
-from {{ ref('taggings_ab2') }} tmp
+from {{ ref('taggings_ab2') }} as tmp
 -- taggings
 where 1 = 1
-

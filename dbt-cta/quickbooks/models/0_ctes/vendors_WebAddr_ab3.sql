@@ -11,7 +11,6 @@ select
         'URI',
     ]) }} as _airbyte_WebAddr_hashid,
     tmp.*
-from {{ ref('vendors_WebAddr_ab2') }} tmp
+from {{ ref('vendors_WebAddr_ab2') }} as tmp
 -- WebAddr at vendors/WebAddr
 where 1 = 1
-

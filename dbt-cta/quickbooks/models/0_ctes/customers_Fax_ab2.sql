@@ -14,4 +14,3 @@ select
 from {{ ref('customers_Fax_ab1') }}
 -- Fax at customers/Fax
 where 1 = 1
-

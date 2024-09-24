@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM  {{ source('cta', 'activity_events_base') }}
+select *
+from {{ source('cta', 'activity_events_base') }}

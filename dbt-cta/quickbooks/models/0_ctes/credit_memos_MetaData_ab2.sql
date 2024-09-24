@@ -15,4 +15,3 @@ select
 from {{ ref('credit_memos_MetaData_ab1') }}
 -- MetaData at credit_memos/MetaData
 where 1 = 1
-

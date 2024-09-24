@@ -20,5 +20,3 @@ select
 from {{ ref('organization_ab1') }}
 -- organization
 where 1 = 1
-
-

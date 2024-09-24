@@ -18,7 +18,6 @@ select
         'Lat',
     ]) }} as _airbyte_ShipAddr_hashid,
     tmp.*
-from {{ ref('sales_receipts_ShipAddr_ab2') }} tmp
+from {{ ref('sales_receipts_ShipAddr_ab2') }} as tmp
 -- ShipAddr at sales_receipts/ShipAddr
 where 1 = 1
-

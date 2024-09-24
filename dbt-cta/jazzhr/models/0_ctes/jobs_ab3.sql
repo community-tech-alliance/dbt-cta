@@ -29,7 +29,6 @@ select
         'status',
     ]) }} as _airbyte_jobs_hashid,
     tmp.*
-from {{ ref('jobs_ab2') }} tmp
+from {{ ref('jobs_ab2') }} as tmp
 -- jobs
 where 1 = 1
-

@@ -23,4 +23,3 @@ select
     _airbyte_searches_hashid
 from {{ ref('searches_ab3') }}
 -- searches from {{ source('cta', '_airbyte_raw_searches') }}
-

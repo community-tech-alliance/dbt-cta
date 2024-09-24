@@ -38,4 +38,3 @@ select
 from {{ source('cta', '_airbyte_raw_estimates') }} as table_alias
 -- estimates
 where 1 = 1
-

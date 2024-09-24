@@ -13,7 +13,6 @@ select
         'DiscountPercent',
     ]) }} as _airbyte_DiscountLineDetail_hashid,
     tmp.*
-from {{ ref('invoices_Line_DiscountLineDetail_ab2') }} tmp
+from {{ ref('invoices_Line_DiscountLineDetail_ab2') }} as tmp
 -- DiscountLineDetail at invoices/Line/DiscountLineDetail
 where 1 = 1
-

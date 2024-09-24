@@ -12,8 +12,8 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('deposits_CashBack_base') }} as table_alias
+from {{ ref('deposits_CashBack_base') }}
 -- AccountRef at deposits/CashBack/AccountRef
-where 1 = 1
-and AccountRef is not null
-
+where
+    1 = 1
+    and AccountRef is not null

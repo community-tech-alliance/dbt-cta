@@ -19,5 +19,3 @@ select
 from {{ ref('log_ab1') }}
 -- log
 where 1 = 1
-
-

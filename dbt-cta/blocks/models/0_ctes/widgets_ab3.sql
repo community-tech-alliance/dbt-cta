@@ -19,7 +19,6 @@ select
         'measurable_type'
     ]) }} as _airbyte_widgets_hashid,
     tmp.*
-from {{ ref('widgets_ab2') }} tmp
+from {{ ref('widgets_ab2') }} as tmp
 -- widgets
 where 1 = 1
-

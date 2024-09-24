@@ -35,7 +35,6 @@ select
         object_to_string('TxnTaxDetail'),
     ]) }} as _airbyte_estimates_hashid,
     tmp.*
-from {{ ref('estimates_ab2') }} tmp
+from {{ ref('estimates_ab2') }} as tmp
 -- estimates
 where 1 = 1
-

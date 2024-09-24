@@ -15,4 +15,3 @@ select
 from {{ ref('purchase_orders_ShipTo_ab1') }}
 -- ShipTo at purchase_orders/ShipTo
 where 1 = 1
-

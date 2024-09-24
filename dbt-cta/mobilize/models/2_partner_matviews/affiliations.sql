@@ -1,4 +1,3 @@
-
 -- depends_on: {{ source('cta', 'affiliations_base') }}
 select
     _airbyte_affiliations_hashid,

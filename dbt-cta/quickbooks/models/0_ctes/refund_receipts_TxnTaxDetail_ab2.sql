@@ -14,4 +14,3 @@ select
 from {{ ref('refund_receipts_TxnTaxDetail_ab1') }}
 -- TxnTaxDetail at refund_receipts/TxnTaxDetail
 where 1 = 1
-

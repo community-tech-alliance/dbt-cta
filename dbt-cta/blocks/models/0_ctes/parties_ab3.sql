@@ -15,7 +15,7 @@ select
         'id',
     ]) }} as _airbyte_parties_hashid,
     tmp.*
-from {{ ref('parties_ab2') }} tmp
+from {{ ref('parties_ab2') }} as tmp
 -- parties
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

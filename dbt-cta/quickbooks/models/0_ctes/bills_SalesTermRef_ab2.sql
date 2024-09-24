@@ -15,4 +15,3 @@ select
 from {{ ref('bills_SalesTermRef_ab1') }}
 -- SalesTermRef at bills/SalesTermRef
 where 1 = 1
-

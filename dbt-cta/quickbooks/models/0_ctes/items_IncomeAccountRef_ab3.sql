@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_IncomeAccountRef_hashid,
     tmp.*
-from {{ ref('items_IncomeAccountRef_ab2') }} tmp
+from {{ ref('items_IncomeAccountRef_ab2') }} as tmp
 -- IncomeAccountRef at items/IncomeAccountRef
 where 1 = 1
-

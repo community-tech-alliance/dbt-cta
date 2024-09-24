@@ -24,7 +24,7 @@ select
         'status',
     ]) }} as _airbyte_imports_hashid,
     tmp.*
-from {{ ref('imports_ab2') }} tmp
+from {{ ref('imports_ab2') }} as tmp
 -- imports
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

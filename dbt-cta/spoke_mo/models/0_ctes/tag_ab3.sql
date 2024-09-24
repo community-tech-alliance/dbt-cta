@@ -17,8 +17,6 @@ select
         adapter.quote('group'),
     ]) }} as _airbyte_tag_hashid,
     tmp.*
-from {{ ref('tag_ab2') }} tmp
+from {{ ref('tag_ab2') }} as tmp
 -- tag
 where 1 = 1
-
-

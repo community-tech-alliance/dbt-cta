@@ -15,4 +15,3 @@ select
 from {{ ref('coorganizations_ab1') }}
 -- coorganizations
 where 1 = 1
-

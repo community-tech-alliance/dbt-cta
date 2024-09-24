@@ -27,4 +27,3 @@ select
 from {{ ref('journal_entries_ab1') }}
 -- journal_entries
 where 1 = 1
-

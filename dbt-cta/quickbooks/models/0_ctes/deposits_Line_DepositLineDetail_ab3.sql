@@ -13,7 +13,6 @@ select
         'CheckNum',
     ]) }} as _airbyte_DepositLineDetail_hashid,
     tmp.*
-from {{ ref('deposits_Line_DepositLineDetail_ab2') }} tmp
+from {{ ref('deposits_Line_DepositLineDetail_ab2') }} as tmp
 -- DepositLineDetail at deposits/Line/DepositLineDetail
 where 1 = 1
-

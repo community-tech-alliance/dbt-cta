@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_ClassRef_hashid,
     tmp.*
-from {{ ref('budgets_BudgetDetail_ClassRef_ab2') }} tmp
+from {{ ref('budgets_BudgetDetail_ClassRef_ab2') }} as tmp
 -- ClassRef at budgets/BudgetDetail/ClassRef
 where 1 = 1
-

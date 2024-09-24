@@ -12,8 +12,8 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('bill_payments_base') }} as table_alias
+from {{ ref('bill_payments_base') }}
 -- APAccountRef at bill_payments/APAccountRef
-where 1 = 1
-and APAccountRef is not null
-
+where
+    1 = 1
+    and APAccountRef is not null

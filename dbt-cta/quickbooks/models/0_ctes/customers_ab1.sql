@@ -46,4 +46,3 @@ select
 from {{ source('cta', '_airbyte_raw_customers') }} as table_alias
 -- customers
 where 1 = 1
-

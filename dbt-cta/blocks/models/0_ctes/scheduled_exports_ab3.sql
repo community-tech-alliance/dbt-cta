@@ -26,7 +26,7 @@ select
         'hour_of_the_day',
     ]) }} as _airbyte_scheduled_exports_hashid,
     tmp.*
-from {{ ref('scheduled_exports_ab2') }} tmp
+from {{ ref('scheduled_exports_ab2') }} as tmp
 -- scheduled_exports
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

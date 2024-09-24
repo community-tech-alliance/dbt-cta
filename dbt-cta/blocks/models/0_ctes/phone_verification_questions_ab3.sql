@@ -15,7 +15,7 @@ select
         'id',
     ]) }} as _airbyte_phone_verification_questions_hashid,
     tmp.*
-from {{ ref('phone_verification_questions_ab2') }} tmp
+from {{ ref('phone_verification_questions_ab2') }} as tmp
 -- phone_verification_questions
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

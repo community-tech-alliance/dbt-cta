@@ -1,4 +1,3 @@
-
 -- depends_on: {{ source('cta', 'sms_opt_ins_base') }}
 select
     _airbyte_sms_opt_ins_hashid,

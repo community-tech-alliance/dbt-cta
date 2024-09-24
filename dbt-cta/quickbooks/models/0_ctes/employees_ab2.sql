@@ -38,4 +38,3 @@ select
 from {{ ref('employees_ab1') }}
 -- employees
 where 1 = 1
-

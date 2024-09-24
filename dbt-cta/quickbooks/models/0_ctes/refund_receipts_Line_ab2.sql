@@ -19,4 +19,3 @@ select
 from {{ ref('refund_receipts_Line_ab1') }}
 -- Line at refund_receipts/Line
 where 1 = 1
-

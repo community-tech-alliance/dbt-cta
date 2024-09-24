@@ -15,4 +15,3 @@ select
 from {{ ref('sales_receipts_PaymentMethodRef_ab1') }}
 -- PaymentMethodRef at sales_receipts/PaymentMethodRef
 where 1 = 1
-

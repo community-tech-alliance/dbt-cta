@@ -20,7 +20,7 @@ select
         'script_text_id',
     ]) }} as _airbyte_phone_banking_script_objects_hashid,
     tmp.*
-from {{ ref('phone_banking_script_objects_ab2') }} tmp
+from {{ ref('phone_banking_script_objects_ab2') }} as tmp
 -- phone_banking_script_objects
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

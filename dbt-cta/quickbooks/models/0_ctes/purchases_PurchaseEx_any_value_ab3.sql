@@ -12,7 +12,6 @@ select
         'Name',
     ]) }} as _airbyte_value_hashid,
     tmp.*
-from {{ ref('purchases_PurchaseEx_any_value_ab2') }} tmp
+from {{ ref('purchases_PurchaseEx_any_value_ab2') }} as tmp
 -- value at purchases/PurchaseEx/any/value
 where 1 = 1
-

@@ -14,4 +14,3 @@ select
 from {{ ref('contacts_ab1') }}
 -- contacts
 where 1 = 1
-

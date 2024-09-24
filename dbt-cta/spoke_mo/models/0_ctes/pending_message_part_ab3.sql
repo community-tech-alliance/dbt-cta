@@ -17,8 +17,6 @@ select
         'user_number',
     ]) }} as _airbyte_pending_message_part_hashid,
     tmp.*
-from {{ ref('pending_message_part_ab2') }} tmp
+from {{ ref('pending_message_part_ab2') }} as tmp
 -- pending_message_part
 where 1 = 1
-
-

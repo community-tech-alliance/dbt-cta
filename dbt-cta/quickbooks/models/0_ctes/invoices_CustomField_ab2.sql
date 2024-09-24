@@ -17,4 +17,3 @@ select
 from {{ ref('invoices_CustomField_ab1') }}
 -- CustomField at invoices/CustomField
 where 1 = 1
-

@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM  {{ source('cta', 'tag_groups_base') }}
+select *
+from {{ source('cta', 'tag_groups_base') }}

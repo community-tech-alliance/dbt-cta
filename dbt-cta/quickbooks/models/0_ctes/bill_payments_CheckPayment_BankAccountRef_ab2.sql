@@ -15,4 +15,3 @@ select
 from {{ ref('bill_payments_CheckPayment_BankAccountRef_ab1') }}
 -- BankAccountRef at bill_payments/CheckPayment/BankAccountRef
 where 1 = 1
-

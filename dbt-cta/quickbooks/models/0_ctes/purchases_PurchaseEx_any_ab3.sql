@@ -17,7 +17,6 @@ select
         object_to_string('value'),
     ]) }} as _airbyte_any_hashid,
     tmp.*
-from {{ ref('purchases_PurchaseEx_any_ab2') }} tmp
+from {{ ref('purchases_PurchaseEx_any_ab2') }} as tmp
 -- any at purchases/PurchaseEx/any
 where 1 = 1
-

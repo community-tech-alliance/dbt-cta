@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_DiscountAccountRef_hashid,
     tmp.*
-from {{ ref('sales_receipts_Line_DiscountLineDetail_DiscountAccountRef_ab2') }} tmp
+from {{ ref('sales_receipts_Line_DiscountLineDetail_DiscountAccountRef_ab2') }} as tmp
 -- DiscountAccountRef at sales_receipts/Line/DiscountLineDetail/DiscountAccountRef
 where 1 = 1
-

@@ -22,4 +22,3 @@ select
 from {{ ref('taggings_ab1') }}
 -- taggings
 where 1 = 1
-

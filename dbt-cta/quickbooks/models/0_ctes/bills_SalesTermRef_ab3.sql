@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_SalesTermRef_hashid,
     tmp.*
-from {{ ref('bills_SalesTermRef_ab2') }} tmp
+from {{ ref('bills_SalesTermRef_ab2') }} as tmp
 -- SalesTermRef at bills/SalesTermRef
 where 1 = 1
-

@@ -17,7 +17,7 @@ select
         'message',
     ]) }} as _airbyte_announcements_hashid,
     tmp.*
-from {{ ref('announcements_ab2') }} tmp
+from {{ ref('announcements_ab2') }} as tmp
 -- announcements
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

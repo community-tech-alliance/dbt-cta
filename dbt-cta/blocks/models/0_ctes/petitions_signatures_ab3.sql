@@ -34,7 +34,7 @@ select
         'petition_page_id',
     ]) }} as _airbyte_petitions_signatures_hashid,
     tmp.*
-from {{ ref('petitions_signatures_ab2') }} tmp
+from {{ ref('petitions_signatures_ab2') }} as tmp
 -- petitions_signatures
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

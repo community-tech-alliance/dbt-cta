@@ -11,7 +11,6 @@ select
         object_to_string('CCAccountRef'),
     ]) }} as _airbyte_CreditCardPayment_hashid,
     tmp.*
-from {{ ref('bill_payments_CreditCardPayment_ab2') }} tmp
+from {{ ref('bill_payments_CreditCardPayment_ab2') }} as tmp
 -- CreditCardPayment at bill_payments/CreditCardPayment
 where 1 = 1
-

@@ -20,5 +20,3 @@ select
 from {{ ref('pending_message_part_ab1') }}
 -- pending_message_part
 where 1 = 1
-
-

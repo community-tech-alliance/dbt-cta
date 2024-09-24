@@ -12,8 +12,8 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('journal_entries_Line_JournalEntryLineDetail_base') }} as table_alias
+from {{ ref('journal_entries_Line_JournalEntryLineDetail_base') }}
 -- AccountRef at journal_entries/Line/JournalEntryLineDetail/AccountRef
-where 1 = 1
-and AccountRef is not null
-
+where
+    1 = 1
+    and AccountRef is not null

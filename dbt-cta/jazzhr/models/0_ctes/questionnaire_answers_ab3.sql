@@ -25,7 +25,6 @@ select
         'date_taken',
     ]) }} as _airbyte_questionnaire_answers_hashid,
     tmp.*
-from {{ ref('questionnaire_answers_ab2') }} tmp
+from {{ ref('questionnaire_answers_ab2') }} as tmp
 -- questionnaire_answers
 where 1 = 1
-

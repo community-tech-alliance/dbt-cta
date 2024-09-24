@@ -35,4 +35,3 @@ select
     _airbyte_teachers_hashid
 from {{ ref('teachers_ab3') }}
 -- teachers from {{ source('cta', '_airbyte_raw_teachers') }}
-

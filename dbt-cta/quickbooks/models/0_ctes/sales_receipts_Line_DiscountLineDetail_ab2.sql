@@ -16,4 +16,3 @@ select
 from {{ ref('sales_receipts_Line_DiscountLineDetail_ab1') }}
 -- DiscountLineDetail at sales_receipts/Line/DiscountLineDetail
 where 1 = 1
-

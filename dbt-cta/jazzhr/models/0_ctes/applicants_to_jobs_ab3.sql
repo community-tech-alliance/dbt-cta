@@ -15,7 +15,6 @@ select
         'workflow_step_id',
     ]) }} as _airbyte_applicants_to_jobs_hashid,
     tmp.*
-from {{ ref('applicants_to_jobs_ab2') }} tmp
+from {{ ref('applicants_to_jobs_ab2') }} as tmp
 -- applicants_to_jobs
 where 1 = 1
-

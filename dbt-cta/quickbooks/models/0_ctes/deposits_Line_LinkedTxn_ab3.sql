@@ -13,7 +13,6 @@ select
         'TxnLineId',
     ]) }} as _airbyte_LinkedTxn_hashid,
     tmp.*
-from {{ ref('deposits_Line_LinkedTxn_ab2') }} tmp
+from {{ ref('deposits_Line_LinkedTxn_ab2') }} as tmp
 -- LinkedTxn at deposits/Line/LinkedTxn
 where 1 = 1
-

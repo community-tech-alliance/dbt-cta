@@ -17,7 +17,7 @@ select
         'visual_review_response_id',
     ]) }} as _airbyte_voter_registration_scan_visual_review_responses_hashid,
     tmp.*
-from {{ ref('voter_registration_scan_visual_review_responses_ab2') }} tmp
+from {{ ref('voter_registration_scan_visual_review_responses_ab2') }} as tmp
 -- voter_registration_scan_visual_review_responses
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

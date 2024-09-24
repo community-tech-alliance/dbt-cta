@@ -45,4 +45,3 @@ select
     _airbyte_organizations_hashid
 from {{ ref('organizations_ab3') }}
 -- organizations from {{ source('cta', '_airbyte_raw_organizations') }}
-

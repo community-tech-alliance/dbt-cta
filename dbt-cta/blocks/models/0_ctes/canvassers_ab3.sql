@@ -28,7 +28,7 @@ select
         'person_id',
     ]) }} as _airbyte_canvassers_hashid,
     tmp.*
-from {{ ref('canvassers_ab2') }} tmp
+from {{ ref('canvassers_ab2') }} as tmp
 -- canvassers
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

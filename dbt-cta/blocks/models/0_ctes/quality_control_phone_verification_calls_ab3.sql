@@ -20,7 +20,7 @@ select
         'status',
     ]) }} as _airbyte_quality_control_phone_verification_calls_hashid,
     tmp.*
-from {{ ref('quality_control_phone_verification_calls_ab2') }} tmp
+from {{ ref('quality_control_phone_verification_calls_ab2') }} as tmp
 -- quality_control_phone_verification_calls
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

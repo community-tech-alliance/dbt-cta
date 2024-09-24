@@ -1,10 +1,10 @@
-{{config(
+{{ config(
     cluster_by="_cta_sync_datetime_utc",
     partition_by={"field": "_cta_sync_datetime_utc", "data_type": "timestamp", "granularity": "day"},
     unique_key="_cta_hashid"
-)}}
-    
+) }}
+
 -- Final base SQL model
-        
-SELECT * EXCEPT (rownum)
-FROM {{ ref('lead_tags_cte2') }}
+
+select * except (rownum)
+from {{ ref('lead_tags_cte2') }}

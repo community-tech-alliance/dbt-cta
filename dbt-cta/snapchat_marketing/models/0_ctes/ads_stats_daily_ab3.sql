@@ -13,6 +13,6 @@ select
         'start_time',
     ]) }} as _airbyte_ads_stats_daily_hashid,
     tmp.*
-from {{ ref('ads_stats_daily_ab2') }} tmp
+from {{ ref('ads_stats_daily_ab2') }} as tmp
 where 1 = 1
 {{ incremental_clause('_airbyte_extracted_at') }}

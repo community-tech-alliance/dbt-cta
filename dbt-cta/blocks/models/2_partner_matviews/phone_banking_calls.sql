@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM {{ source('cta', 'phone_banking_calls_base') }}
+select *
+from {{ source('cta', 'phone_banking_calls_base') }}

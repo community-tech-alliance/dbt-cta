@@ -23,4 +23,3 @@ select
     _airbyte_import_files_hashid
 from {{ ref('import_files_ab3') }}
 -- import_files from {{ source('cta', '_airbyte_raw_import_files') }}
-

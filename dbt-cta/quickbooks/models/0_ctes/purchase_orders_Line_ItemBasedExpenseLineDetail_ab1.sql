@@ -19,6 +19,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('purchase_orders_Line_base') }} as table_alias
 -- ItemBasedExpenseLineDetail at purchase_orders/Line/ItemBasedExpenseLineDetail
-where 1 = 1
-and ItemBasedExpenseLineDetail is not null
-
+where
+    1 = 1
+    and ItemBasedExpenseLineDetail is not null

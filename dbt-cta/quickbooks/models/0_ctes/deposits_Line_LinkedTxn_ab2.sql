@@ -16,4 +16,3 @@ select
 from {{ ref('deposits_Line_LinkedTxn_ab1') }}
 -- LinkedTxn at deposits/Line/LinkedTxn
 where 1 = 1
-

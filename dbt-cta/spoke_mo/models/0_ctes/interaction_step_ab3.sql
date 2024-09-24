@@ -19,8 +19,6 @@ select
         'campaign_id',
     ]) }} as _airbyte_interaction_step_hashid,
     tmp.*
-from {{ ref('interaction_step_ab2') }} tmp
+from {{ ref('interaction_step_ab2') }} as tmp
 -- interaction_step
 where 1 = 1
-
-

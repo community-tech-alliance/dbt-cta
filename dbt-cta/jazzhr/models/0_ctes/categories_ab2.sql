@@ -18,4 +18,3 @@ select
 from {{ ref('categories_ab1') }}
 -- categories
 where 1 = 1
-

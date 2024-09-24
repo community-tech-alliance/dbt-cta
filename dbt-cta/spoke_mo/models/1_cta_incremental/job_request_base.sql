@@ -27,5 +27,4 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_job_request_hashid
 from {{ ref('job_request_ab4') }}
-where 1=1
-
+where 1 = 1

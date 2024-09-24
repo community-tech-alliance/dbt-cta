@@ -16,4 +16,3 @@ select
 from {{ ref('refund_receipts_CustomField_ab1') }}
 -- CustomField at refund_receipts/CustomField
 where 1 = 1
-

@@ -14,7 +14,7 @@ select
         'operation'
     ]) }} as _airbyte_geos_hashid,
     tmp.*
-from {{ ref('adsquads_targeting_geos_ab2') }} tmp
+from {{ ref('adsquads_targeting_geos_ab2') }} as tmp
 -- geos at adsquads/targeting/geos
 where 1 = 1
 {{ incremental_clause('_airbyte_extracted_at') }}

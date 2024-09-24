@@ -21,8 +21,6 @@ select
         'last_error_code',
     ]) }} as _airbyte_organization_contact_hashid,
     tmp.*
-from {{ ref('organization_contact_ab2') }} tmp
+from {{ ref('organization_contact_ab2') }} as tmp
 -- organization_contact
 where 1 = 1
-
-

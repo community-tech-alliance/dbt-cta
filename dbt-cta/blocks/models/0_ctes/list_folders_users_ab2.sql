@@ -15,4 +15,3 @@ select
 from {{ ref('list_folders_users_ab1') }}
 -- list_folders_users
 where 1 = 1
-

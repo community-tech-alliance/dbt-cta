@@ -14,4 +14,3 @@ select
 from {{ ref('estimates_BillEmail_ab1') }}
 -- BillEmail at estimates/BillEmail
 where 1 = 1
-

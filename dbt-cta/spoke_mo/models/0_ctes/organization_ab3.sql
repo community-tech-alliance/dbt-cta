@@ -17,8 +17,6 @@ select
         'uuid',
     ]) }} as _airbyte_organization_hashid,
     tmp.*
-from {{ ref('organization_ab2') }} tmp
+from {{ ref('organization_ab2') }} as tmp
 -- organization
 where 1 = 1
-
-

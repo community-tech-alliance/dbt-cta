@@ -20,7 +20,7 @@ select
         boolean_to_string('implies_incomplete_form'),
     ]) }} as _airbyte_visual_review_responses_hashid,
     tmp.*
-from {{ ref('visual_review_responses_ab2') }} tmp
+from {{ ref('visual_review_responses_ab2') }} as tmp
 -- visual_review_responses
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

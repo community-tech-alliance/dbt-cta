@@ -12,7 +12,6 @@ select
         'announcement_id',
     ]) }} as _airbyte_announcements_views_hashid,
     tmp.*
-from {{ ref('announcements_views_ab2') }} tmp
+from {{ ref('announcements_views_ab2') }} as tmp
 -- announcements_views
 where 1 = 1
-

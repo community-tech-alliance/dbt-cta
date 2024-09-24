@@ -1,4 +1,3 @@
-
 -- depends_on: {{ source('cta', 'van_shifts_base') }}
 select
     _airbyte_van_shifts_hashid,

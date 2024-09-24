@@ -39,4 +39,3 @@ select
 from {{ source('cta', '_airbyte_raw_credit_memos') }} as table_alias
 -- credit_memos
 where 1 = 1
-

@@ -14,4 +14,3 @@ select
 from {{ ref('vendors_Fax_ab1') }}
 -- Fax at vendors/Fax
 where 1 = 1
-

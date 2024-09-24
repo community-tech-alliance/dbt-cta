@@ -14,9 +14,9 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('journal_entries_TxnTaxDetail_base') }} as table_alias
+from {{ ref('journal_entries_TxnTaxDetail_base') }}
 -- TaxLine at journal_entries/TxnTaxDetail/TaxLine
 {{ cross_join_unnest('TxnTaxDetail', 'TaxLine') }}
-where 1 = 1
-and TaxLine is not null
-
+where
+    1 = 1
+    and TaxLine is not null

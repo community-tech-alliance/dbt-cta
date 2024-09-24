@@ -21,4 +21,3 @@ select
     _airbyte_announcements_hashid
 from {{ ref('announcements_ab3') }}
 -- announcements from {{ source('cta', '_airbyte_raw_announcements') }}
-

@@ -20,4 +20,3 @@ select
 from {{ ref('purchases_RemitToAddr_ab1') }}
 -- RemitToAddr at purchases/RemitToAddr
 where 1 = 1
-

@@ -10,7 +10,6 @@ select
         'id',
     ]) }} as _airbyte_contacts_hashid,
     tmp.*
-from {{ ref('contacts_ab2') }} tmp
+from {{ ref('contacts_ab2') }} as tmp
 -- contacts
 where 1 = 1
-

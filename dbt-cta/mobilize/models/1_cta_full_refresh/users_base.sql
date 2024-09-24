@@ -34,8 +34,8 @@ select
     membership__permission_tier,
     _airbyte_raw_id,
     _airbyte_extracted_at,
-    current_timestamp() as _airbyte_normalized_at,
-    _airbyte_users_hashid
+    _airbyte_users_hashid,
+    current_timestamp() as _airbyte_normalized_at
 from {{ ref('users_ab4') }}
 
 {% if is_incremental() %}

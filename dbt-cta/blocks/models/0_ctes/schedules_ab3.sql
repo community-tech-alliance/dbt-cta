@@ -23,7 +23,7 @@ select
         'day_of_week',
     ]) }} as _airbyte_schedules_hashid,
     tmp.*
-from {{ ref('schedules_ab2') }} tmp
+from {{ ref('schedules_ab2') }} as tmp
 -- schedules
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
