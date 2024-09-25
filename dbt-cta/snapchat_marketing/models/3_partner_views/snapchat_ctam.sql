@@ -12,12 +12,12 @@ with stats as (
         quartile_3,
         view_completion,
         conversion_page_views,
-        total_reach as reach,,
+        total_reach as reach,
         frequency,
         date(start_time) as start_date,
         case when total_impressions > 0 then spend / (total_impressions * 1000) else 0 end as cpm,
         case when total_impressions > 0 then swipe_ups / total_impressions else 0 end as ctr,
-        case when total_impressions > 0 then conversion_page_views / total_impressions else 0 end as pvr --previously called "uniques"
+        case when total_impressions > 0 then conversion_page_views / total_impressions else 0 end as pvr, --previously called "uniques"
         case when video_views > 0 then view_completion / video_views else 0 end as vcr
     from {{ source('partner', 'ad_stats') }}
 ),
