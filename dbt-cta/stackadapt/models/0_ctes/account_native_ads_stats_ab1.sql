@@ -80,7 +80,7 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from from {{ source('cta_raw', raw_table) }}
+from{{ source('cta_raw', raw_table) }}
 -- account_native_ads_stats
 where 1 = 1
 {{ incremental_clause('_airbyte_extracted_at') }}
