@@ -1,15 +1,12 @@
+---
 version: 2
-
 models:
-
   - name: conversion_trackers_base
     description: ''
     columns:
       - name: id
         description: ''
-        tests:
-          - not_null
-          - unique
+        tests: [not_null, unique]
       - name: name
         description: ''
       - name: user_id
@@ -24,8 +21,7 @@ models:
         description: ''
       - name: _airbyte_raw_id
         description: ''
-        tests:
-          - not_null
+        tests: [not_null]
       - name: _airbyte_extracted_at
         description: ''
         tests:
@@ -38,18 +34,13 @@ models:
               column_type: timestamp
       - name: _airbyte_conversion_trackers_hashid
         description: ''
-        tests:
-          - not_null
-          - unique
-
+        tests: [not_null, unique]
   - name: campaigns_base
     description: ''
     columns:
       - name: id
         description: ''
-        tests:
-          - not_null
-          - unique
+        tests: [not_null, unique]
       - name: name
         description: ''
       - name: state
@@ -148,9 +139,7 @@ models:
         description: ''
       - name: _airbyte_raw_id
         description: ''
-        tests:
-          - not_null
-          - unique
+        tests: [not_null, unique]
       - name: _airbyte_extracted_at
         description: ''
         tests:
@@ -163,17 +152,13 @@ models:
               column_type: timestamp
       - name: _airbyte_campaigns_hashid
         description: ''
-        tests:
-          - not_null
-          - unique
-
+        tests: [not_null, unique]
   - name: native_ads_input_data_video_creatives_base
     description: ''
     columns:
       - name: _airbyte_input_data_hashid
         description: ''
-        tests:
-          - not_null
+        tests: [not_null]
       - name: width
         description: ''
       - name: height
@@ -188,8 +173,7 @@ models:
         description: ''
       - name: _airbyte_raw_id
         description: ''
-        tests:
-          - not_null
+        tests: [not_null]
       - name: _airbyte_extracted_at
         description: ''
         tests:
@@ -202,18 +186,13 @@ models:
               column_type: timestamp
       - name: _airbyte_video_creatives_hashid
         description: ''
-        tests:
-          - not_null
-          - unique
-
+        tests: [not_null, unique]
   - name: advertisers_base
     description: ''
     columns:
       - name: id
         description: ''
-        tests:
-          - not_null
-          - unique
+        tests: [not_null, unique]
       - name: name
         description: ''
       - name: description
@@ -222,9 +201,7 @@ models:
         description: ''
       - name: _airbyte_raw_id
         description: ''
-        tests:
-          - not_null
-          - unique
+        tests: [not_null, unique]
       - name: _airbyte_extracted_at
         description: ''
         tests:
@@ -237,18 +214,13 @@ models:
               column_type: timestamp
       - name: _airbyte_advertisers_hashid
         description: ''
-        tests:
-          - not_null
-          - unique
-
+        tests: [not_null, unique]
   - name: native_ads_base
     description: ''
     columns:
       - name: id
         description: ''
-        tests:
-          - not_null
-          - unique
+        tests: [not_null, unique]
       - name: icon
         description: ''
       - name: name
@@ -291,9 +263,7 @@ models:
         description: ''
       - name: _airbyte_raw_id
         description: ''
-        tests:
-          - not_null
-          - unique
+        tests: [not_null, unique]
       - name: _airbyte_extracted_at
         description: ''
         tests:
@@ -306,17 +276,13 @@ models:
               column_type: timestamp
       - name: _airbyte_native_ads_hashid
         description: ''
-        tests:
-          - not_null
-          - unique
-
+        tests: [not_null, unique]
   - name: native_ads_input_data_audio_creatives_base
     description: ''
     columns:
       - name: _airbyte_input_data_hashid
         description: ''
-        tests:
-          - not_null
+        tests: [not_null]
       - name: width
         description: ''
       - name: height
@@ -331,8 +297,7 @@ models:
         description: ''
       - name: _airbyte_raw_id
         description: ''
-        tests:
-          - not_null
+        tests: [not_null]
       - name: _airbyte_extracted_at
         description: ''
         tests:
@@ -345,17 +310,13 @@ models:
               column_type: timestamp
       - name: _airbyte_audio_creatives_hashid
         description: ''
-        tests:
-          - not_null
-          - unique
-
+        tests: [not_null, unique]
   - name: native_ads_input_data_base
     description: ''
     columns:
       - name: _airbyte_native_ads_hashid
         description: ''
-        tests:
-          - not_null
+        tests: [not_null]
       - name: heading
         description: ''
       - name: tagline
@@ -372,8 +333,7 @@ models:
         description: ''
       - name: _airbyte_raw_id
         description: ''
-        tests:
-          - not_null
+        tests: [not_null]
       - name: _airbyte_extracted_at
         description: ''
         tests:
@@ -386,17 +346,13 @@ models:
               column_type: timestamp
       - name: _airbyte_input_data_hashid
         description: ''
-        tests:
-          - not_null
-          - unique
-
+        tests: [not_null, unique]
   - name: campaigns_day_part_base
     description: ''
     columns:
       - name: _airbyte_campaigns_hashid
         description: ''
-        tests:
-          - not_null
+        tests: [not_null]
       - name: enabled
         description: ''
       - name: end_hour
@@ -407,8 +363,7 @@ models:
         description: ''
       - name: _airbyte_raw_id
         description: ''
-        tests:
-          - not_null
+        tests: [not_null]
       - name: _airbyte_extracted_at
         description: ''
         tests:
@@ -421,17 +376,13 @@ models:
               column_type: timestamp
       - name: _airbyte_day_part_hashid
         description: ''
-        tests:
-          - not_null
-          - unique
-
+        tests: [not_null, unique]
   - name: native_ads_creatives_base
     description: ''
     columns:
       - name: _airbyte_native_ads_hashid
         description: ''
-        tests:
-          - not_null
+        tests: [not_null]
       - name: id
         description: ''
       - name: url
@@ -444,8 +395,7 @@ models:
         description: ''
       - name: _airbyte_raw_id
         description: ''
-        tests:
-          - not_null
+        tests: [not_null]
       - name: _airbyte_extracted_at
         description: ''
         tests:
@@ -458,24 +408,20 @@ models:
               column_type: timestamp
       - name: _airbyte_creatives_hashid
         description: ''
-        tests:
-          - not_null
-
+        tests: [not_null]
   - name: native_ads_vast_trackers_base
     description: ''
     columns:
       - name: _airbyte_native_ads_hashid
         description: ''
-        tests:
-          - not_null
+        tests: [not_null]
       - name: url
         description: ''
       - name: event_type
         description: ''
       - name: _airbyte_raw_id
         description: ''
-        tests:
-          - not_null
+        tests: [not_null]
       - name: _airbyte_extracted_at
         description: ''
         tests:
@@ -488,17 +434,13 @@ models:
               column_type: timestamp
       - name: _airbyte_vast_trackers_hashid
         description: ''
-        tests:
-          - not_null
-          - unique
-
+        tests: [not_null, unique]
   - name: native_ads_icon_base
     description: ''
     columns:
       - name: _airbyte_native_ads_hashid
         description: ''
-        tests:
-          - not_null
+        tests: [not_null]
       - name: id
         description: ''
       - name: url
@@ -511,8 +453,7 @@ models:
         description: ''
       - name: _airbyte_raw_id
         description: ''
-        tests:
-          - not_null
+        tests: [not_null]
       - name: _airbyte_extracted_at
         description: ''
         tests:
@@ -525,17 +466,13 @@ models:
               column_type: timestamp
       - name: _airbyte_icon_hashid
         description: ''
-        tests:
-          - not_null
-          - unique
-
+        tests: [not_null, unique]
   - name: native_ads_input_data_display_js_creative_base
     description: ''
     columns:
       - name: _airbyte_input_data_hashid
         description: ''
-        tests:
-          - not_null
+        tests: [not_null]
       - name: width
         description: ''
       - name: height
@@ -550,8 +487,7 @@ models:
         description: ''
       - name: _airbyte_raw_id
         description: ''
-        tests:
-          - not_null
+        tests: [not_null]
       - name: _airbyte_extracted_at
         description: ''
         tests:
@@ -564,18 +500,13 @@ models:
               column_type: timestamp
       - name: _airbyte_display_js_creative_hashid
         description: ''
-        tests:
-          - not_null
-          - unique
-
+        tests: [not_null, unique]
   - name: line_items_base
     description: ''
     columns:
       - name: id
         description: ''
-        tests:
-          - not_null
-          - unique
+        tests: [not_null, unique]
       - name: name
         description: ''
       - name: state
@@ -604,9 +535,7 @@ models:
         description: ''
       - name: _airbyte_raw_id
         description: ''
-        tests:
-          - not_null
-          - unique
+        tests: [not_null, unique]
       - name: _airbyte_extracted_at
         description: ''
         tests:
@@ -619,7 +548,4 @@ models:
               column_type: timestamp
       - name: _airbyte_line_items_hashid
         description: ''
-        tests:
-          - not_null
-          - unique
-
+        tests: [not_null, unique]

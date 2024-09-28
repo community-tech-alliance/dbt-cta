@@ -1,34 +1,36 @@
+---
 version: 2
 sources:
-- name: cta_raw
-  database: "{{ env_var('CTA_PROJECT_ID') }}"
-  schema: airbyte_internal
-  tables:
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_account_campaigns_stats' }}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_account_line_items_stats' }}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_account_native_ads_stats' }}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_advertisers' }}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_campaigns' }}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_conversion_trackers' }}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_line_items' }}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_native_ads' }}"
-- name: cta
-  database: "{{ env_var('CTA_PROJECT_ID') }}"
-  schema: "{{ env_var('CTA_DATASET_ID') }}"
-  - name: account_campaigns_stats_base
-  - name: account_line_items_stats_base
-  - name: account_native_ads_stats_base
-  - name: account_native_ads_stats_creatives_base
-  - name: advertisers_base
-  - name: campaigns_base
-  - name: campaigns_day_part_base
-  - name: conversion_trackers_base
-  - name: line_items_base
-  - name: native_ads_base
-  - name: native_ads_creatives_base
-  - name: native_ads_icon_base
-  - name: native_ads_input_data_base
-  - name: native_ads_input_data_audio_creatives_base
-  - name: native_ads_input_data_display_js_creative_base
-  - name: native_ads_input_data_video_creatives_base
-  - name: native_ads_vast_trackers_base
+  - name: cta_raw
+    database: "{{ env_var('CTA_PROJECT_ID') }}"
+    schema: airbyte_internal
+    tables:
+      - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_account_campaigns_stats' }}"
+      - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_account_line_items_stats' }}"
+      - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_account_native_ads_stats' }}"
+      - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_advertisers' }}"
+      - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_campaigns' }}"
+      - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_conversion_trackers' }}"
+      - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_line_items' }}"
+      - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_native_ads' }}"
+  - name: cta
+    database: "{{ env_var('CTA_PROJECT_ID') }}"
+    schema: "{{ env_var('CTA_DATASET_ID') }}"
+    tables:
+      - name: account_campaigns_stats_base
+      - name: account_line_items_stats_base
+      - name: account_native_ads_stats_base
+      - name: account_native_ads_stats_creatives_base
+      - name: advertisers_base
+      - name: campaigns_base
+      - name: campaigns_day_part_base
+      - name: conversion_trackers_base
+      - name: line_items_base
+      - name: native_ads_base
+      - name: native_ads_creatives_base
+      - name: native_ads_icon_base
+      - name: native_ads_input_data_base
+      - name: native_ads_input_data_audio_creatives_base
+      - name: native_ads_input_data_display_js_creative_base
+      - name: native_ads_input_data_video_creatives_base
+      - name: native_ads_vast_trackers_base

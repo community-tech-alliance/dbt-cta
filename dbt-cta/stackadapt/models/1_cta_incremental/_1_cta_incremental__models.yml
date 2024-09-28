@@ -1,7 +1,6 @@
+---
 version: 2
-
 models:
-
   - name: account_line_items_stats_base
     description: ''
     columns:
@@ -109,9 +108,7 @@ models:
         description: ''
       - name: _airbyte_raw_id
         description: ''
-        tests:
-          - not_null
-          - unique
+        tests: [not_null, unique]
       - name: _airbyte_extracted_at
         description: ''
         tests:
@@ -124,10 +121,7 @@ models:
               column_type: timestamp
       - name: _airbyte_account_line_items_stats_hashid
         description: ''
-        tests:
-          - not_null
-          - unique
-
+        tests: [not_null, unique]
   - name: account_native_ads_stats_creatives_base
     description: ''
     columns:
@@ -139,8 +133,7 @@ models:
         description: ''
       - name: _airbyte_raw_id
         description: ''
-        tests:
-          - not_null
+        tests: [not_null]
       - name: _airbyte_extracted_at
         description: ''
         tests:
@@ -153,9 +146,7 @@ models:
               column_type: timestamp
       - name: _airbyte_creatives_hashid
         description: ''
-        tests:
-          - not_null
-
+        tests: [not_null]
   - name: account_campaigns_stats_base
     description: ''
     columns:
@@ -275,9 +266,7 @@ models:
         description: ''
       - name: _airbyte_raw_id
         description: ''
-        tests:
-          - not_null
-          - unique
+        tests: [not_null, unique]
       - name: _airbyte_extracted_at
         description: ''
         tests:
@@ -290,10 +279,7 @@ models:
               column_type: timestamp
       - name: _airbyte_account_campaigns_stats_hashid
         description: ''
-        tests:
-          - not_null
-          - unique
-
+        tests: [not_null, unique]
   - name: account_native_ads_stats_base
     description: ''
     columns:
@@ -447,9 +433,7 @@ models:
         description: ''
       - name: _airbyte_raw_id
         description: ''
-        tests:
-          - not_null
-          - unique
+        tests: [not_null, unique]
       - name: _airbyte_extracted_at
         description: ''
         tests:
@@ -462,7 +446,4 @@ models:
               column_type: timestamp
       - name: _airbyte_account_native_ads_stats_hashid
         description: ''
-        tests:
-          - not_null
-          - unique
-
+        tests: [not_null, unique]
