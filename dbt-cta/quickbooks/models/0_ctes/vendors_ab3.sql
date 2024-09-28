@@ -35,7 +35,6 @@ select
         'Balance',
     ]) }} as _airbyte_vendors_hashid,
     tmp.*
-from {{ ref('vendors_ab2') }} tmp
+from {{ ref('vendors_ab2') }} as tmp
 -- vendors
 where 1 = 1
-

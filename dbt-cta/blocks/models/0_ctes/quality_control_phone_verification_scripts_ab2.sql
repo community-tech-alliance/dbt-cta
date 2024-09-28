@@ -17,4 +17,3 @@ select
 from {{ ref('quality_control_phone_verification_scripts_ab1') }}
 -- quality_control_phone_verification_scripts
 where 1 = 1
-

@@ -19,4 +19,3 @@ select
 from {{ ref('purchase_orders_ShipAddr_ab1') }}
 -- ShipAddr at purchase_orders/ShipAddr
 where 1 = 1
-

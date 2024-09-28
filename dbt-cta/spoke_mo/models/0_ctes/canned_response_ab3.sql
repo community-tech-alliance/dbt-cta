@@ -17,8 +17,6 @@ select
         'campaign_id',
     ]) }} as _airbyte_canned_response_hashid,
     tmp.*
-from {{ ref('canned_response_ab2') }} tmp
+from {{ ref('canned_response_ab2') }} as tmp
 -- canned_response
 where 1 = 1
-
-

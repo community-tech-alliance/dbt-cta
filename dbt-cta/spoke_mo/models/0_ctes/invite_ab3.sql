@@ -13,8 +13,6 @@ select
         adapter.quote('hash'),
     ]) }} as _airbyte_invite_hashid,
     tmp.*
-from {{ ref('invite_ab2') }} tmp
+from {{ ref('invite_ab2') }} as tmp
 -- invite
 where 1 = 1
-
-

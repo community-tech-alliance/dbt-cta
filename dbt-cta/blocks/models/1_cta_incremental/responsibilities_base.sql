@@ -18,4 +18,3 @@ select
     _airbyte_responsibilities_hashid
 from {{ ref('responsibilities_ab3') }}
 -- responsibilities from {{ source('cta', '_airbyte_raw_responsibilities') }}
-

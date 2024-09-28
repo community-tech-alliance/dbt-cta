@@ -14,7 +14,7 @@ select
         'id'
     ]) }} as _airbyte_blocks_hashid,
     tmp.*
-from {{ ref('blocks_ab2') }} tmp
+from {{ ref('blocks_ab2') }} as tmp
 -- blocks
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

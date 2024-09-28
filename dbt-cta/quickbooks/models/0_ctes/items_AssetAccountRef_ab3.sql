@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_AssetAccountRef_hashid,
     tmp.*
-from {{ ref('items_AssetAccountRef_ab2') }} tmp
+from {{ ref('items_AssetAccountRef_ab2') }} as tmp
 -- AssetAccountRef at items/AssetAccountRef
 where 1 = 1
-

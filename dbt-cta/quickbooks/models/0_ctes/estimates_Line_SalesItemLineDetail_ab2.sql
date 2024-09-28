@@ -17,4 +17,3 @@ select
 from {{ ref('estimates_Line_SalesItemLineDetail_ab1') }}
 -- SalesItemLineDetail at estimates/Line/SalesItemLineDetail
 where 1 = 1
-

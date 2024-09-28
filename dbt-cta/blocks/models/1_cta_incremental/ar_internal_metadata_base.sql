@@ -18,4 +18,3 @@ select
     _airbyte_ar_internal_metadata_hashid
 from {{ ref('ar_internal_metadata_ab3') }}
 -- ar_internal_metadata from {{ source('cta', '_airbyte_raw_ar_internal_metadata') }}
-

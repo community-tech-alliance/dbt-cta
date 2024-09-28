@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM  {{ source('cta', 'deals_property_history_base') }}
+select *
+from {{ source('cta', 'deals_property_history_base') }}

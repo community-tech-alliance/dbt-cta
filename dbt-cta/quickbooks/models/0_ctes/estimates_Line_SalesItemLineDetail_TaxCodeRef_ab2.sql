@@ -14,4 +14,3 @@ select
 from {{ ref('estimates_Line_SalesItemLineDetail_TaxCodeRef_ab1') }}
 -- TaxCodeRef at estimates/Line/SalesItemLineDetail/TaxCodeRef
 where 1 = 1
-

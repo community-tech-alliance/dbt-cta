@@ -15,4 +15,3 @@ select
 from {{ ref('time_activities_CustomerRef_ab1') }}
 -- CustomerRef at time_activities/CustomerRef
 where 1 = 1
-

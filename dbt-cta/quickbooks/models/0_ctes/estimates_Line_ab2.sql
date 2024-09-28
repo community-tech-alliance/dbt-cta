@@ -19,4 +19,3 @@ select
 from {{ ref('estimates_Line_ab1') }}
 -- Line at estimates/Line
 where 1 = 1
-

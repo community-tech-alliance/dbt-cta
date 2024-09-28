@@ -15,6 +15,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('sales_receipts_Line_base') }} as table_alias
 -- DiscountLineDetail at sales_receipts/Line/DiscountLineDetail
-where 1 = 1
-and DiscountLineDetail is not null
-
+where
+    1 = 1
+    and DiscountLineDetail is not null

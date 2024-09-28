@@ -13,7 +13,6 @@ select
         'district_type',
     ]) }} as _airbyte_address_districts_hashid,
     tmp.*
-from {{ ref('address_districts_ab2') }} tmp
+from {{ ref('address_districts_ab2') }} as tmp
 -- address_districts
 where 1 = 1
-

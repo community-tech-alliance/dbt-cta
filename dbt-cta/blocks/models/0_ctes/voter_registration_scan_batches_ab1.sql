@@ -28,7 +28,7 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_voter_registration_scan_batches') }} as table_alias
+from {{ source('cta', '_airbyte_raw_voter_registration_scan_batches') }}
 -- voter_registration_scan_batches
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

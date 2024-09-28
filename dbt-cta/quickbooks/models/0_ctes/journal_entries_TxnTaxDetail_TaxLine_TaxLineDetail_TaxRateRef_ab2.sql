@@ -15,4 +15,3 @@ select
 from {{ ref('journal_entries_TxnTaxDetail_TaxLine_TaxLineDetail_TaxRateRef_ab1') }}
 -- TaxRateRef at journal_entries/TxnTaxDetail/TaxLine/TaxLineDetail/TaxRateRef
 where 1 = 1
-

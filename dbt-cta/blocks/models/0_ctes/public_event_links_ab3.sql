@@ -14,7 +14,6 @@ select
         'url',
     ]) }} as _airbyte_public_event_links_hashid,
     tmp.*
-from {{ ref('public_event_links_ab2') }} tmp
+from {{ ref('public_event_links_ab2') }} as tmp
 -- public_event_links
 where 1 = 1
-

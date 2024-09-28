@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_ClassRef_hashid,
     tmp.*
-from {{ ref('purchase_orders_ClassRef_ab2') }} tmp
+from {{ ref('purchase_orders_ClassRef_ab2') }} as tmp
 -- ClassRef at purchase_orders/ClassRef
 where 1 = 1
-

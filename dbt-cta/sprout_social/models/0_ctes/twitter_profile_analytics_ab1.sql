@@ -31,5 +31,5 @@ select
     -- extracted dimensions
     {{ json_extract_scalar('dimensions', ['customer_profile_id'], ['customer_profile_id']) }} as customer_profile_id,
     {{ json_extract_scalar('dimensions', ['reporting_period.by(day)'], ['reporting_period.by(day)']) }} as reporting_period_day
-    
+
 from {{ source('cta', 'twitter_profile_analytics') }}

@@ -14,4 +14,3 @@ select
 from {{ ref('vendors_Mobile_ab1') }}
 -- Mobile at vendors/Mobile
 where 1 = 1
-

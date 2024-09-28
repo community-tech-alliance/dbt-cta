@@ -14,4 +14,3 @@ select
 from {{ ref('vendors_PrimaryEmailAddr_ab1') }}
 -- PrimaryEmailAddr at vendors/PrimaryEmailAddr
 where 1 = 1
-

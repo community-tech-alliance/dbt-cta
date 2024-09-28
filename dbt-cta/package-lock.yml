@@ -1,0 +1,16 @@
+packages:
+  - git: https://github.com/community-tech-alliance/dbt-materialized-views.git
+    revision: b73dc5bb998efbc45bd92717ec326f81caf926a3
+  - git: https://github.com/calogica/dbt-expectations.git
+    revision: 7857ce56e06c4abe20f00c6f94dd41b652859cad
+  - git: https://github.com/dbt-labs/dbt-codegen.git
+    revision: 81eb3115b165e345e3abfe0912393ecca6871522
+  - package: elementary-data/elementary
+    version: 0.10.3
+  - package: dbt-labs/dbt_external_tables
+    version: 0.8.3
+  - package: calogica/dbt_date
+    version: 0.7.2
+  - package: dbt-labs/dbt_utils
+    version: 0.8.6
+sha1_hash: 4e38dc5a2dc04387808f379cbf8772985bba174c

@@ -15,4 +15,3 @@ select
 from {{ ref('deposits_Line_DepositLineDetail_AccountRef_ab1') }}
 -- AccountRef at deposits/Line/DepositLineDetail/AccountRef
 where 1 = 1
-

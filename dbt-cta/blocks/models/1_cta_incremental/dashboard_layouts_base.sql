@@ -20,4 +20,3 @@ select
     _airbyte_dashboard_layouts_hashid
 from {{ ref('dashboard_layouts_ab3') }}
 -- dashboard_layouts from {{ source('cta', '_airbyte_raw_dashboard_layouts') }}
-

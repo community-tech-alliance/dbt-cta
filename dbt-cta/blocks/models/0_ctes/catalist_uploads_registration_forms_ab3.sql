@@ -12,7 +12,6 @@ select
         'catalist_upload_id',
     ]) }} as _airbyte_catalist_uploads_registration_forms_hashid,
     tmp.*
-from {{ ref('catalist_uploads_registration_forms_ab2') }} tmp
+from {{ ref('catalist_uploads_registration_forms_ab2') }} as tmp
 -- catalist_uploads_registration_forms
 where 1 = 1
-

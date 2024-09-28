@@ -30,4 +30,3 @@ select
 from {{ ref('bill_payments_ab1') }}
 -- bill_payments
 where 1 = 1
-

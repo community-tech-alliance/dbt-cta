@@ -15,4 +15,3 @@ select
 from {{ ref('purchases_Line_ItemBasedExpenseLineDetail_ItemRef_ab1') }}
 -- ItemRef at purchases/Line/ItemBasedExpenseLineDetail/ItemRef
 where 1 = 1
-

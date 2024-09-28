@@ -23,4 +23,3 @@ select
     _airbyte_votes_hashid
 from {{ ref('votes_ab3') }}
 -- votes from {{ source('cta', '_airbyte_raw_votes') }}
-

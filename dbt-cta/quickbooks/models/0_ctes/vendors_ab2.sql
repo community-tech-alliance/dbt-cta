@@ -38,4 +38,3 @@ select
 from {{ ref('vendors_ab1') }}
 -- vendors
 where 1 = 1
-

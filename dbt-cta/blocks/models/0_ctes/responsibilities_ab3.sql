@@ -14,7 +14,7 @@ select
         'id',
     ]) }} as _airbyte_responsibilities_hashid,
     tmp.*
-from {{ ref('responsibilities_ab2') }} tmp
+from {{ ref('responsibilities_ab2') }} as tmp
 -- responsibilities
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

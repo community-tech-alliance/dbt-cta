@@ -19,5 +19,3 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_tag_canned_response_hashid
 from {{ ref('tag_canned_response_ab4') }}
-
-

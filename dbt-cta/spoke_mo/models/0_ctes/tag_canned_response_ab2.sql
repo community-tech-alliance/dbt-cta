@@ -16,5 +16,3 @@ select
 from {{ ref('tag_canned_response_ab1') }}
 -- tag_canned_response
 where 1 = 1
-
-

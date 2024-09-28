@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM  {{ source('cta', 'ads_insights_country_base') }}
+select *
+from {{ source('cta', 'ads_insights_country_base') }}

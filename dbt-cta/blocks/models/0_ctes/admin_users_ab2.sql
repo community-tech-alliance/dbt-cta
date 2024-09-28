@@ -17,4 +17,3 @@ select
 from {{ ref('admin_users_ab1') }}
 -- admin_users
 where 1 = 1
-

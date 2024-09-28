@@ -4,6 +4,8 @@
 -- field columns as described by the JSON Schema
 -- depends_on: {{ source('cta_raw', raw_table) }}
 select
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     json_extract_scalar(_airbyte_data, "$['id']") as id,
     json_extract_scalar(_airbyte_data, "$['given_name']") as given_name,
     json_extract_scalar(_airbyte_data, "$['family_name']") as family_name,
@@ -29,9 +31,7 @@ select
     json_extract_scalar(
         _airbyte_data, "$['membership__permission_tier']"
     ) as membership__permission_tier,
-    _airbyte_raw_id,
-    _airbyte_extracted_at,
     current_timestamp() as _airbyte_normalized_at
-from {{ source('cta_raw', raw_table) }} as table_alias
+from {{ source('cta_raw', raw_table) }}
 -- users
 where 1 = 1

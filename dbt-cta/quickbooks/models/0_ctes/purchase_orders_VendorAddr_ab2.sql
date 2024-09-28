@@ -22,4 +22,3 @@ select
 from {{ ref('purchase_orders_VendorAddr_ab1') }}
 -- VendorAddr at purchase_orders/VendorAddr
 where 1 = 1
-

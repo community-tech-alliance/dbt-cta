@@ -32,4 +32,3 @@ select
 from {{ ref('purchases_ab1') }}
 -- purchases
 where 1 = 1
-

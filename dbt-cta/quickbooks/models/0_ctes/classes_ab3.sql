@@ -19,7 +19,6 @@ select
         'Name',
     ]) }} as _airbyte_classes_hashid,
     tmp.*
-from {{ ref('classes_ab2') }} tmp
+from {{ ref('classes_ab2') }} as tmp
 -- classes
 where 1 = 1
-

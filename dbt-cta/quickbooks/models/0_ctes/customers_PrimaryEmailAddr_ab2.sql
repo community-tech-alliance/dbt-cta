@@ -14,4 +14,3 @@ select
 from {{ ref('customers_PrimaryEmailAddr_ab1') }}
 -- PrimaryEmailAddr at customers/PrimaryEmailAddr
 where 1 = 1
-

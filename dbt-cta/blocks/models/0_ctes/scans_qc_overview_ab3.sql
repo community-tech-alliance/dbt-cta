@@ -86,7 +86,6 @@ select
         'collection_location_state',
     ]) }} as _airbyte_scans_qc_overview_hashid,
     tmp.*
-from {{ ref('scans_qc_overview_ab2') }} tmp
+from {{ ref('scans_qc_overview_ab2') }} as tmp
 -- scans_qc_overview
 where 1 = 1
-

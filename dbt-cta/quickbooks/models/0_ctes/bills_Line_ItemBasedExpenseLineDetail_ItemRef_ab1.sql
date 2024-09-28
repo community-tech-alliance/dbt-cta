@@ -12,8 +12,8 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('bills_Line_ItemBasedExpenseLineDetail_base') }} as table_alias
+from {{ ref('bills_Line_ItemBasedExpenseLineDetail_base') }}
 -- ItemRef at bills/Line/ItemBasedExpenseLineDetail/ItemRef
-where 1 = 1
-and ItemRef is not null
-
+where
+    1 = 1
+    and ItemRef is not null

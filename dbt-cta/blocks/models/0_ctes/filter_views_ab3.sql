@@ -18,7 +18,7 @@ select
         'id',
     ]) }} as _airbyte_filter_views_hashid,
     tmp.*
-from {{ ref('filter_views_ab2') }} tmp
+from {{ ref('filter_views_ab2') }} as tmp
 -- filter_views
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

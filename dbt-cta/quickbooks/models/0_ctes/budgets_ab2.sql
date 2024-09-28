@@ -24,4 +24,3 @@ select
 from {{ ref('budgets_ab1') }}
 -- budgets
 where 1 = 1
-

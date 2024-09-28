@@ -15,4 +15,3 @@ select
 from {{ ref('departments_ParentRef_ab1') }}
 -- ParentRef at departments/ParentRef
 where 1 = 1
-

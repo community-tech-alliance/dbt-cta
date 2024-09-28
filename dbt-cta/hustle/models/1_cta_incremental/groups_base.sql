@@ -1,4 +1,3 @@
-
 {{ config(
     cluster_by = "_cta_sync_datetime_utc",
     partition_by = {"field": "_cta_sync_datetime_utc", "data_type": "timestamp", "granularity": "day"},
@@ -6,8 +5,6 @@
 ) }}
 
 -- Final base SQL model
-            
-SELECT * EXCEPT (rownum)
-FROM {{ ref('groups_cte2') }}
-    
-    
+
+select * except (rownum)
+from {{ ref('groups_cte2') }}

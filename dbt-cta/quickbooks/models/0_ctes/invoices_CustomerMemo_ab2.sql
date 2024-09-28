@@ -14,4 +14,3 @@ select
 from {{ ref('invoices_CustomerMemo_ab1') }}
 -- CustomerMemo at invoices/CustomerMemo
 where 1 = 1
-

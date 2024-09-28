@@ -11,8 +11,8 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('sales_receipts_base') }} as table_alias
+from {{ ref('sales_receipts_base') }}
 -- CustomerMemo at sales_receipts/CustomerMemo
-where 1 = 1
-and CustomerMemo is not null
-
+where
+    1 = 1
+    and CustomerMemo is not null

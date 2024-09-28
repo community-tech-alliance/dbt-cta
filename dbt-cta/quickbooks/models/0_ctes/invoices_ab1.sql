@@ -45,4 +45,3 @@ select
 from {{ source('cta', '_airbyte_raw_invoices') }} as table_alias
 -- invoices
 where 1 = 1
-

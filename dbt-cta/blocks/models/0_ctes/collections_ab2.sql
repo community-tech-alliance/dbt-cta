@@ -20,4 +20,3 @@ select
 from {{ ref('collections_ab1') }}
 -- collections
 where 1 = 1
-

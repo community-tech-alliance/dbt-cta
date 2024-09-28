@@ -11,7 +11,6 @@ select
         array_to_string(adapter.quote('any')),
     ]) }} as _airbyte_LineEx_hashid,
     tmp.*
-from {{ ref('payments_Line_LineEx_ab2') }} tmp
+from {{ ref('payments_Line_LineEx_ab2') }} as tmp
 -- LineEx at payments/Line/LineEx
 where 1 = 1
-

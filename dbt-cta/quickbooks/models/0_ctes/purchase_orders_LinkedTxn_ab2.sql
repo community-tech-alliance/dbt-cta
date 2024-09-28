@@ -15,4 +15,3 @@ select
 from {{ ref('purchase_orders_LinkedTxn_ab1') }}
 -- LinkedTxn at purchase_orders/LinkedTxn
 where 1 = 1
-

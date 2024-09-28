@@ -15,4 +15,3 @@ select
 from {{ ref('journal_entries_TaxRateRef_ab1') }}
 -- TaxRateRef at journal_entries/TaxRateRef
 where 1 = 1
-

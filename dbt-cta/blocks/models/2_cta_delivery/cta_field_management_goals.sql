@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM {{ source('cta', 'field_management_goals_base') }}
+select *
+from {{ source('cta', 'field_management_goals_base') }}

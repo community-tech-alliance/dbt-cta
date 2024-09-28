@@ -26,4 +26,3 @@ select
     _airbyte_petitions_books_hashid
 from {{ ref('petitions_books_ab3') }}
 -- petitions_books from {{ source('cta', '_airbyte_raw_petitions_books') }}
-

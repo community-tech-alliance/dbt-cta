@@ -15,8 +15,6 @@ select
         'cell',
     ]) }} as _airbyte_opt_out_hashid,
     tmp.*
-from {{ ref('opt_out_ab2') }} tmp
+from {{ ref('opt_out_ab2') }} as tmp
 -- opt_out
 where 1 = 1
-
-

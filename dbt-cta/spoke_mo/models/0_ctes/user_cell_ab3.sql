@@ -14,8 +14,6 @@ select
         'cell',
     ]) }} as _airbyte_user_cell_hashid,
     tmp.*
-from {{ ref('user_cell_ab2') }} tmp
+from {{ ref('user_cell_ab2') }} as tmp
 -- user_cell
 where 1 = 1
-
-

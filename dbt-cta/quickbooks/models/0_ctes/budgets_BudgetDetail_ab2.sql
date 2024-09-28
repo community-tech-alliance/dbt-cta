@@ -19,4 +19,3 @@ select
 from {{ ref('budgets_BudgetDetail_ab1') }}
 -- BudgetDetail at budgets/BudgetDetail
 where 1 = 1
-

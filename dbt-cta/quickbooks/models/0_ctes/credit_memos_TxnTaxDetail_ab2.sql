@@ -14,4 +14,3 @@ select
 from {{ ref('credit_memos_TxnTaxDetail_ab1') }}
 -- TxnTaxDetail at credit_memos/TxnTaxDetail
 where 1 = 1
-

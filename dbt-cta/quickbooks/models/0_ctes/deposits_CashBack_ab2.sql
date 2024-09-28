@@ -16,4 +16,3 @@ select
 from {{ ref('deposits_CashBack_ab1') }}
 -- CashBack at deposits/CashBack
 where 1 = 1
-

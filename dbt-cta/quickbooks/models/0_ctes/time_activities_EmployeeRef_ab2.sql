@@ -15,4 +15,3 @@ select
 from {{ ref('time_activities_EmployeeRef_ab1') }}
 -- EmployeeRef at time_activities/EmployeeRef
 where 1 = 1
-

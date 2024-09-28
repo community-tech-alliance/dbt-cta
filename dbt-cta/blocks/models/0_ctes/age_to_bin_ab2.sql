@@ -15,4 +15,3 @@ select
 from {{ ref('age_to_bin_ab1') }}
 -- age_to_bin
 where 1 = 1
-

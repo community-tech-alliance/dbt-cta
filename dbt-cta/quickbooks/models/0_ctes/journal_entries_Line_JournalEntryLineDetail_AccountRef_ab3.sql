@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_AccountRef_hashid,
     tmp.*
-from {{ ref('journal_entries_Line_JournalEntryLineDetail_AccountRef_ab2') }} tmp
+from {{ ref('journal_entries_Line_JournalEntryLineDetail_AccountRef_ab2') }} as tmp
 -- AccountRef at journal_entries/Line/JournalEntryLineDetail/AccountRef
 where 1 = 1
-

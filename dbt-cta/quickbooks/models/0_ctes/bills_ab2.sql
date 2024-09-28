@@ -32,4 +32,3 @@ select
 from {{ ref('bills_ab1') }}
 -- bills
 where 1 = 1
-

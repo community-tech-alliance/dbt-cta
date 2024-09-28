@@ -16,7 +16,7 @@ select
         'id',
     ]) }} as _airbyte_check_ins_hashid,
     tmp.*
-from {{ ref('check_ins_ab2') }} tmp
+from {{ ref('check_ins_ab2') }} as tmp
 -- check_ins
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

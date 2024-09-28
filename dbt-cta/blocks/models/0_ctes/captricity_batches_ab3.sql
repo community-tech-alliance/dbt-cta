@@ -23,7 +23,7 @@ select
         'status',
     ]) }} as _airbyte_captricity_batches_hashid,
     tmp.*
-from {{ ref('captricity_batches_ab2') }} tmp
+from {{ ref('captricity_batches_ab2') }} as tmp
 -- captricity_batches
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

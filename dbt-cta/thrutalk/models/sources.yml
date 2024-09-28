@@ -1,0 +1,11 @@
+---
+version: 2
+sources:
+  - name: cta
+    database: "{{ env_var('CTA_PROJECT_ID') }}"
+    schema: "{{ env_var('CTA_DATASET_ID') }}"
+    tables:
+      - name: _raw_daily_campaign_dials
+      - name: _raw_caller_activity_details
+      - name: daily_campaign_dials_base
+      - name: caller_activity_details_base

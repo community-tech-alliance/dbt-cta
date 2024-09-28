@@ -15,7 +15,7 @@ select
         'id',
     ]) }} as _airbyte_voter_sources_hashid,
     tmp.*
-from {{ ref('voter_sources_ab2') }} tmp
+from {{ ref('voter_sources_ab2') }} as tmp
 -- voter_sources
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

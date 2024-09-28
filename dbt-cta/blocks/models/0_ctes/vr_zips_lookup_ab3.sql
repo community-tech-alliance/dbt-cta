@@ -18,7 +18,6 @@ select
         'party_score_avg',
     ]) }} as _airbyte_vr_zips_lookup_hashid,
     tmp.*
-from {{ ref('vr_zips_lookup_ab2') }} tmp
+from {{ ref('vr_zips_lookup_ab2') }} as tmp
 -- vr_zips_lookup
 where 1 = 1
-

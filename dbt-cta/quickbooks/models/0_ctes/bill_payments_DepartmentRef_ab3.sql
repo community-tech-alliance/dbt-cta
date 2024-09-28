@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_DepartmentRef_hashid,
     tmp.*
-from {{ ref('bill_payments_DepartmentRef_ab2') }} tmp
+from {{ ref('bill_payments_DepartmentRef_ab2') }} as tmp
 -- DepartmentRef at bill_payments/DepartmentRef
 where 1 = 1
-

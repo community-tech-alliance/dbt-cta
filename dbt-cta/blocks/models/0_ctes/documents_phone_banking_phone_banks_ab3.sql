@@ -14,7 +14,6 @@ select
         'document_id',
     ]) }} as _airbyte_documents_phone_banking_phone_banks_hashid,
     tmp.*
-from {{ ref('documents_phone_banking_phone_banks_ab2') }} tmp
+from {{ ref('documents_phone_banking_phone_banks_ab2') }} as tmp
 -- documents_phone_banking_phone_banks
 where 1 = 1
-

@@ -25,4 +25,3 @@ select
 from {{ ref('delayed_jobs_ab1') }}
 -- delayed_jobs
 where 1 = 1
-

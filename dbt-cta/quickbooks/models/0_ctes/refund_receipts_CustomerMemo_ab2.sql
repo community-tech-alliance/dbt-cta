@@ -14,4 +14,3 @@ select
 from {{ ref('refund_receipts_CustomerMemo_ab1') }}
 -- CustomerMemo at refund_receipts/CustomerMemo
 where 1 = 1
-

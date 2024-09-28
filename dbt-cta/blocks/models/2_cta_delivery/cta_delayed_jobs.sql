@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM {{ source('cta', 'delayed_jobs_base') }}
+select *
+from {{ source('cta', 'delayed_jobs_base') }}

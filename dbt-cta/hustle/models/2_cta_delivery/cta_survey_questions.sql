@@ -1,3 +1,2 @@
-SELECT
-*
-FROM {{ source('cta','survey_questions_base') }}
+select *
+from {{ source('cta','survey_questions_base') }}

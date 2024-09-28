@@ -12,8 +12,8 @@ select
     _airbyte_meta,
     id,
     profile_id,
-    cast(activated_at as {{dbt.type_timestamp()}}) as activated_at,
-    cast(opted_out_at as {{dbt.type_timestamp()}}) as opted_out_at,
+    cast(activated_at as {{ dbt.type_timestamp() }}) as activated_at,
+    cast(opted_out_at as {{ dbt.type_timestamp() }}) as opted_out_at,
     phone_number,
    {{ dbt_utils.surrogate_key([
      'id',

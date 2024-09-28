@@ -19,7 +19,6 @@ select
         boolean_to_string('TaxTrackedOnSales'),
     ]) }} as _airbyte_tax_agencies_hashid,
     tmp.*
-from {{ ref('tax_agencies_ab2') }} tmp
+from {{ ref('tax_agencies_ab2') }} as tmp
 -- tax_agencies
 where 1 = 1
-

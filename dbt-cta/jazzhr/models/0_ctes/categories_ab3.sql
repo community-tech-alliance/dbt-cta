@@ -14,7 +14,6 @@ select
         'status',
     ]) }} as _airbyte_categories_hashid,
     tmp.*
-from {{ ref('categories_ab2') }} tmp
+from {{ ref('categories_ab2') }} as tmp
 -- categories
 where 1 = 1
-

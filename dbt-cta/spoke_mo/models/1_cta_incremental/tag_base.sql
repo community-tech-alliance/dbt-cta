@@ -23,5 +23,4 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_tag_hashid
 from {{ ref('tag_ab4') }}
-where 1=1
-
+where 1 = 1

@@ -39,4 +39,3 @@ select
 from {{ ref('credit_memos_ab1') }}
 -- credit_memos
 where 1 = 1
-

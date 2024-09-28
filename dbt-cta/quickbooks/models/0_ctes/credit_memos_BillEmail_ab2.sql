@@ -14,4 +14,3 @@ select
 from {{ ref('credit_memos_BillEmail_ab1') }}
 -- BillEmail at credit_memos/BillEmail
 where 1 = 1
-

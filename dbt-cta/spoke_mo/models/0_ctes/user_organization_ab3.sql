@@ -13,8 +13,6 @@ select
         'id',
     ]) }} as _airbyte_user_organization_hashid,
     tmp.*
-from {{ ref('user_organization_ab2') }} tmp
+from {{ ref('user_organization_ab2') }} as tmp
 -- user_organization
 where 1 = 1
-
-

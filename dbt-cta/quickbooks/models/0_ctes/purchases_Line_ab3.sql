@@ -16,7 +16,6 @@ select
         'Id',
     ]) }} as _airbyte_Line_hashid,
     tmp.*
-from {{ ref('purchases_Line_ab2') }} tmp
+from {{ ref('purchases_Line_ab2') }} as tmp
 -- Line at purchases/Line
 where 1 = 1
-

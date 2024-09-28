@@ -19,4 +19,3 @@ select
 from {{ ref('credit_memos_Line_ab1') }}
 -- Line at credit_memos/Line
 where 1 = 1
-

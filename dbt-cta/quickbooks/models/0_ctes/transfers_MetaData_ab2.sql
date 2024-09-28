@@ -15,4 +15,3 @@ select
 from {{ ref('transfers_MetaData_ab1') }}
 -- MetaData at transfers/MetaData
 where 1 = 1
-

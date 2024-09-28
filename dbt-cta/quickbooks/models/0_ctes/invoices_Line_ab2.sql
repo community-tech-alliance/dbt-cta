@@ -21,4 +21,3 @@ select
 from {{ ref('invoices_Line_ab1') }}
 -- Line at invoices/Line
 where 1 = 1
-

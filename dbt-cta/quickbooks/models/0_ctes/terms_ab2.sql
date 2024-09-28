@@ -27,4 +27,3 @@ select
 from {{ ref('terms_ab1') }}
 -- terms
 where 1 = 1
-

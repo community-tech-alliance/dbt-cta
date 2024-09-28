@@ -27,8 +27,8 @@ select
     event_campaign_id,
     _airbyte_raw_id,
     _airbyte_extracted_at,
-    current_timestamp() as _airbyte_normalized_at,
-    _airbyte_van_events_hashid
+    _airbyte_van_events_hashid,
+    current_timestamp() as _airbyte_normalized_at
 from {{ ref('van_events_ab4') }}
 
 {% if is_incremental() %}

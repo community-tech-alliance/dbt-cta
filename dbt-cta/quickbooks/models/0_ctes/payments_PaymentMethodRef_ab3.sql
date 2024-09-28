@@ -11,7 +11,6 @@ select
         'value',
     ]) }} as _airbyte_PaymentMethodRef_hashid,
     tmp.*
-from {{ ref('payments_PaymentMethodRef_ab2') }} tmp
+from {{ ref('payments_PaymentMethodRef_ab2') }} as tmp
 -- PaymentMethodRef at payments/PaymentMethodRef
 where 1 = 1
-

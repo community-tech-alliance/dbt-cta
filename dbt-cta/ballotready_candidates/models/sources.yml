@@ -1,0 +1,34 @@
+version: 2
+sources:
+  - name: partner
+    database: "{{ env_var('PARTNER_PROJECT_ID') }}"
+    schema: "{{ env_var('PARTNER_DATASET_ID') }}"
+    tables:
+      - name: candidacies
+        tests:
+          - unique:
+              column_name: candidacy_id
+      - name: education
+        tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - education_id
+                - position_id
+      - name: endorsements
+        tests:
+          - unique:
+              column_name: endorsement_id
+      - name: experience
+        tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - experience_id
+                - position_id
+      - name: office_holders
+        tests:
+          - unique:
+              column_name: office_holder_id
+      - name: recruitment
+        tests:
+          - unique:
+              column_name: race_id

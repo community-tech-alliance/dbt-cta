@@ -27,7 +27,6 @@ select
         object_to_string('VendorRef'),
     ]) }} as _airbyte_bill_payments_hashid,
     tmp.*
-from {{ ref('bill_payments_ab2') }} tmp
+from {{ ref('bill_payments_ab2') }} as tmp
 -- bill_payments
 where 1 = 1
-

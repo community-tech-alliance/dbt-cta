@@ -16,5 +16,3 @@ select
 from {{ ref('user_organization_ab1') }}
 -- user_organization
 where 1 = 1
-
-

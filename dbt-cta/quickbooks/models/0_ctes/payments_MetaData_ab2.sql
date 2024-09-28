@@ -15,4 +15,3 @@ select
 from {{ ref('payments_MetaData_ab1') }}
 -- MetaData at payments/MetaData
 where 1 = 1
-

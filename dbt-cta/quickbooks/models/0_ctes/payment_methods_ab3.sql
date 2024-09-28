@@ -18,7 +18,6 @@ select
         'Name',
     ]) }} as _airbyte_payment_methods_hashid,
     tmp.*
-from {{ ref('payment_methods_ab2') }} tmp
+from {{ ref('payment_methods_ab2') }} as tmp
 -- payment_methods
 where 1 = 1
-

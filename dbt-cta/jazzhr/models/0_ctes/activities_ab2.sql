@@ -20,4 +20,3 @@ select
 from {{ ref('activities_ab1') }}
 -- activities
 where 1 = 1
-

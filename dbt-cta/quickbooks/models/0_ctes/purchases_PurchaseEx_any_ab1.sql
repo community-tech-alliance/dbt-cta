@@ -18,9 +18,9 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('purchases_PurchaseEx_base') }} as table_alias
+from {{ ref('purchases_PurchaseEx_base') }}
 -- any at purchases/PurchaseEx/any
 {{ cross_join_unnest('PurchaseEx', adapter.quote('any')) }}
-where 1 = 1
-and {{ adapter.quote('any') }} is not null
-
+where
+    1 = 1
+    and {{ adapter.quote('any') }} is not null

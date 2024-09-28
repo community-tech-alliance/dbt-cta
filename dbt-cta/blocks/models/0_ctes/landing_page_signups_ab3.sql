@@ -65,7 +65,7 @@ select
         boolean_to_string('opt_in_partner_email'),
     ]) }} as _airbyte_landing_page_signups_hashid,
     tmp.*
-from {{ ref('landing_page_signups_ab2') }} tmp
+from {{ ref('landing_page_signups_ab2') }} as tmp
 -- landing_page_signups
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

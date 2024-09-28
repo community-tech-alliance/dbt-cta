@@ -12,8 +12,8 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('payments_base') }} as table_alias
+from {{ ref('payments_base') }}
 -- CurrencyRef at payments/CurrencyRef
-where 1 = 1
-and CurrencyRef is not null
-
+where
+    1 = 1
+    and CurrencyRef is not null

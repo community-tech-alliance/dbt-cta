@@ -22,4 +22,3 @@ select
 from {{ source('cta', '_airbyte_raw_classes') }} as table_alias
 -- classes
 where 1 = 1
-

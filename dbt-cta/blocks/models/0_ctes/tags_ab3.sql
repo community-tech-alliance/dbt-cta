@@ -13,7 +13,6 @@ select
         'taggings_count',
     ]) }} as _airbyte_tags_hashid,
     tmp.*
-from {{ ref('tags_ab2') }} tmp
+from {{ ref('tags_ab2') }} as tmp
 -- tags
 where 1 = 1
-

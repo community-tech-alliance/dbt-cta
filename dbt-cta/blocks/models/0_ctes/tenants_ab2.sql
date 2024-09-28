@@ -27,4 +27,3 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('tenants_ab1') }}
 -- tenants
-

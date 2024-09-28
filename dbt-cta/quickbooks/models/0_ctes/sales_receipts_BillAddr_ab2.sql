@@ -20,4 +20,3 @@ select
 from {{ ref('sales_receipts_BillAddr_ab1') }}
 -- BillAddr at sales_receipts/BillAddr
 where 1 = 1
-

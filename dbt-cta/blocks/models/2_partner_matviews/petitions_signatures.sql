@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM {{ source('cta', 'petitions_signatures_base') }}
+select *
+from {{ source('cta', 'petitions_signatures_base') }}

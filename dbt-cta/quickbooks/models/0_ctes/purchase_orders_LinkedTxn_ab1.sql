@@ -13,9 +13,9 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('purchase_orders_base') }} as table_alias
+from {{ ref('purchase_orders_base') }}
 -- LinkedTxn at purchase_orders/LinkedTxn
 {{ cross_join_unnest('purchase_orders', 'LinkedTxn') }}
-where 1 = 1
-and LinkedTxn is not null
-
+where
+    1 = 1
+    and LinkedTxn is not null

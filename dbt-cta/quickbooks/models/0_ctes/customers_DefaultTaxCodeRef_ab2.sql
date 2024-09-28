@@ -15,4 +15,3 @@ select
 from {{ ref('customers_DefaultTaxCodeRef_ab1') }}
 -- DefaultTaxCodeRef at customers/DefaultTaxCodeRef
 where 1 = 1
-

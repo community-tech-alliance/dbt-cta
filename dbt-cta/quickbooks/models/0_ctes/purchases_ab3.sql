@@ -29,7 +29,6 @@ select
         'PrivateNote',
     ]) }} as _airbyte_purchases_hashid,
     tmp.*
-from {{ ref('purchases_ab2') }} tmp
+from {{ ref('purchases_ab2') }} as tmp
 -- purchases
 where 1 = 1
-

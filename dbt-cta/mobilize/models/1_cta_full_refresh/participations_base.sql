@@ -60,8 +60,8 @@ select
     experience_feedback_type,
     _airbyte_raw_id,
     _airbyte_extracted_at,
-    current_timestamp() as _airbyte_normalized_at,
-    _airbyte_participations_hashid
+    _airbyte_participations_hashid,
+    current_timestamp() as _airbyte_normalized_at
 from {{ ref('participations_ab4') }}
 
 {% if is_incremental() %}

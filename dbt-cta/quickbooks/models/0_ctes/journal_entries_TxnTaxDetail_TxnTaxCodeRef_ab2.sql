@@ -15,4 +15,3 @@ select
 from {{ ref('journal_entries_TxnTaxDetail_TxnTaxCodeRef_ab1') }}
 -- TxnTaxCodeRef at journal_entries/TxnTaxDetail/TxnTaxCodeRef
 where 1 = 1
-

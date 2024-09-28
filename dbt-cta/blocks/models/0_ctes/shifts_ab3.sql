@@ -51,7 +51,6 @@ select
         'status',
     ]) }} as _airbyte_shifts_hashid,
     tmp.*
-from {{ ref('shifts_ab2') }} tmp
+from {{ ref('shifts_ab2') }} as tmp
 -- shifts
 where 1 = 1
-

@@ -35,7 +35,6 @@ select
         'BirthDate',
     ]) }} as _airbyte_employees_hashid,
     tmp.*
-from {{ ref('employees_ab2') }} tmp
+from {{ ref('employees_ab2') }} as tmp
 -- employees
 where 1 = 1
-

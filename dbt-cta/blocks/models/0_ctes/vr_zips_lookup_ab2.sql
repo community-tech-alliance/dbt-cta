@@ -21,4 +21,3 @@ select
 from {{ ref('vr_zips_lookup_ab1') }}
 -- vr_zips_lookup
 where 1 = 1
-

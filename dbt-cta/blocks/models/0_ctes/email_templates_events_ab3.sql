@@ -14,7 +14,6 @@ select
         'created_at',
     ]) }} as _airbyte_email_templates_events_hashid,
     tmp.*
-from {{ ref('email_templates_events_ab2') }} tmp
+from {{ ref('email_templates_events_ab2') }} as tmp
 -- email_templates_events
 where 1 = 1
-

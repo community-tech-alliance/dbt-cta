@@ -16,4 +16,3 @@ select
 from {{ ref('estimates_CustomField_ab1') }}
 -- CustomField at estimates/CustomField
 where 1 = 1
-

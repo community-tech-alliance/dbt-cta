@@ -11,7 +11,6 @@ select
         array_to_string('TaxRateDetail'),
     ]) }} as _airbyte_SalesTaxRateList_hashid,
     tmp.*
-from {{ ref('tax_codes_SalesTaxRateList_ab2') }} tmp
+from {{ ref('tax_codes_SalesTaxRateList_ab2') }} as tmp
 -- SalesTaxRateList at tax_codes/SalesTaxRateList
 where 1 = 1
-

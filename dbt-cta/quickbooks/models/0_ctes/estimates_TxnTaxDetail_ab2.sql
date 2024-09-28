@@ -16,4 +16,3 @@ select
 from {{ ref('estimates_TxnTaxDetail_ab1') }}
 -- TxnTaxDetail at estimates/TxnTaxDetail
 where 1 = 1
-

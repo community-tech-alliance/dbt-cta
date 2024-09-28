@@ -22,4 +22,3 @@ select
     _airbyte_campaigns_hashid
 from {{ ref('campaigns_ab3') }}
 -- campaigns from {{ source('cta', '_airbyte_raw_campaigns') }}
-

@@ -17,8 +17,8 @@ select
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('estimates_base') }} as table_alias
+from {{ ref('estimates_base') }}
 -- BillAddr at estimates/BillAddr
-where 1 = 1
-and BillAddr is not null
-
+where
+    1 = 1
+    and BillAddr is not null

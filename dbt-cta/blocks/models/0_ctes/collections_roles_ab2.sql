@@ -15,4 +15,3 @@ select
 from {{ ref('collections_roles_ab1') }}
 -- collections_roles
 where 1 = 1
-

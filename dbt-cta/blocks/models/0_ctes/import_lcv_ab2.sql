@@ -33,4 +33,3 @@ select
 from {{ ref('import_lcv_ab1') }}
 -- import_lcv
 where 1 = 1
-

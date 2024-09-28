@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_DefaultTaxCodeRef_hashid,
     tmp.*
-from {{ ref('customers_DefaultTaxCodeRef_ab2') }} tmp
+from {{ ref('customers_DefaultTaxCodeRef_ab2') }} as tmp
 -- DefaultTaxCodeRef at customers/DefaultTaxCodeRef
 where 1 = 1
-

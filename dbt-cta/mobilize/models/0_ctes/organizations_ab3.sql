@@ -5,9 +5,10 @@
 ) }}
 
 -- SQL model to build a hash column based on the values of this record
--- depends_on: {{ ref("organizations_ab2")}}
+-- depends_on: {{ ref("organizations_ab2") }}
 
 select
+    tmp.*,
     to_hex(
         md5(
             cast(
@@ -22,8 +23,7 @@ select
                 ) as string
             )
         )
-    ) as _airbyte_organizations_hashid,
-    tmp.*
-from {{ ref("organizations_ab2")}} tmp
+    ) as _airbyte_organizations_hashid
+from {{ ref("organizations_ab2") }} as tmp
 -- organizations
 where 1 = 1

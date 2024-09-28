@@ -1,4 +1,3 @@
-
 -- depends_on: {{ source('cta', 'events_base') }}
 select
     _airbyte_events_hashid,

@@ -15,4 +15,3 @@ select
 from {{ ref('vendor_credits_Line_AccountBasedExpenseLineDetail_ClassRef_ab1') }}
 -- ClassRef at vendor_credits/Line/AccountBasedExpenseLineDetail/ClassRef
 where 1 = 1
-

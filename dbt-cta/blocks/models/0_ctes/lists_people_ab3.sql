@@ -12,7 +12,6 @@ select
         'person_id',
     ]) }} as _airbyte_lists_people_hashid,
     tmp.*
-from {{ ref('lists_people_ab2') }} tmp
+from {{ ref('lists_people_ab2') }} as tmp
 -- lists_people
 where 1 = 1
-

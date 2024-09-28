@@ -15,4 +15,3 @@ select
 from {{ ref('budgets_BudgetDetail_ClassRef_ab1') }}
 -- ClassRef at budgets/BudgetDetail/ClassRef
 where 1 = 1
-

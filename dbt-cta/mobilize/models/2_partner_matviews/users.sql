@@ -1,4 +1,3 @@
-
 -- depends_on: {{ source('cta', 'users_base') }}
 select
     _airbyte_users_hashid,

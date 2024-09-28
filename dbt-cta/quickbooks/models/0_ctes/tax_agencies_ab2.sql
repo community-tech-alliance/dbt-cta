@@ -22,4 +22,3 @@ select
 from {{ ref('tax_agencies_ab1') }}
 -- tax_agencies
 where 1 = 1
-

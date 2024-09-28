@@ -1,8 +1,8 @@
 {{
     config(
-        cluster_by="timestamp",
+        cluster_by="loaded_at",
         partition_by={
-            "field": "timestamp",
+            "field": "loaded_at",
             "data_type": "timestamp",
             "granularity": "day",
         },

@@ -11,5 +11,5 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-    
+
 from {{ ref('adaccounts_regulations_ab3') }}

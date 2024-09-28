@@ -38,4 +38,3 @@ select
 from {{ ref('estimates_ab1') }}
 -- estimates
 where 1 = 1
-

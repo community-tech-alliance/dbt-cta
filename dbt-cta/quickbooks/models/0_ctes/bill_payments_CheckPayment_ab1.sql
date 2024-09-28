@@ -14,6 +14,6 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('bill_payments_base') }} as table_alias
 -- CheckPayment at bill_payments/CheckPayment
-where 1 = 1
-and CheckPayment is not null
-
+where
+    1 = 1
+    and CheckPayment is not null

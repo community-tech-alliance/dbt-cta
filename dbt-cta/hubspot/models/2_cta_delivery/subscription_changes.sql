@@ -1,4 +1,2 @@
-
-SELECT
-    *
-FROM  {{ source('cta', 'subscription_changes_base') }}
+select *
+from {{ source('cta', 'subscription_changes_base') }}

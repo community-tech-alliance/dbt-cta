@@ -40,4 +40,3 @@ select
 from {{ ref('purchase_orders_ab1') }}
 -- purchase_orders
 where 1 = 1
-

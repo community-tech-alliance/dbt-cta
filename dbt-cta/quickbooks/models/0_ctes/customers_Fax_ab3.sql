@@ -11,7 +11,6 @@ select
         'FreeFormNumber',
     ]) }} as _airbyte_Fax_hashid,
     tmp.*
-from {{ ref('customers_Fax_ab2') }} tmp
+from {{ ref('customers_Fax_ab2') }} as tmp
 -- Fax at customers/Fax
 where 1 = 1
-

@@ -1,4 +1,3 @@
-
 -- depends_on: {{ source('cta', 'event_co_hosts_base') }}
 select
     _airbyte_event_co_hosts_hashid,

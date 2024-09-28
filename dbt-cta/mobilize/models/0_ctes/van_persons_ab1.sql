@@ -4,15 +4,15 @@
 -- field columns as described by the JSON Schema
 -- depends_on: {{ source('cta_raw', raw_table) }}
 select
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     json_extract_scalar(_airbyte_data, "$['id']") as id,
     json_extract_scalar(_airbyte_data, "$['van_id']") as van_id,
     json_extract_scalar(_airbyte_data, "$['user_id']") as user_id,
     json_extract_scalar(_airbyte_data, "$['committee_id']") as committee_id,
     json_extract_scalar(_airbyte_data, "$['created_date']") as created_date,
     json_extract_scalar(_airbyte_data, "$['modified_date']") as modified_date,
-    _airbyte_raw_id,
-    _airbyte_extracted_at,
     current_timestamp() as _airbyte_normalized_at
-from {{ source('cta_raw', raw_table) }} as table_alias
+from {{ source('cta_raw', raw_table) }}
 -- van_persons
 where 1 = 1

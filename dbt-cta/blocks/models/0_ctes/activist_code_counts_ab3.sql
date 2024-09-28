@@ -17,7 +17,7 @@ select
         'datecanvassed',
     ]) }} as _airbyte_activist_code_counts_hashid,
     tmp.*
-from {{ ref('activist_code_counts_ab2') }} tmp
+from {{ ref('activist_code_counts_ab2') }} as tmp
 -- activist_code_counts
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

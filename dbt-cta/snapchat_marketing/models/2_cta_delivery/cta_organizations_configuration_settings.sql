@@ -4,6 +4,5 @@
     unique_key = 'organization_id'
 ) }}
 
-SELECT
-    *
-FROM {{ source('cta', 'organizations_configuration_settings_base') }}
+select *
+from {{ source('cta', 'organizations_configuration_settings_base') }}

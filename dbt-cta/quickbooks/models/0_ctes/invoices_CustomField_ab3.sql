@@ -14,7 +14,6 @@ select
         'Name',
     ]) }} as _airbyte_CustomField_hashid,
     tmp.*
-from {{ ref('invoices_CustomField_ab2') }} tmp
+from {{ ref('invoices_CustomField_ab2') }} as tmp
 -- CustomField at invoices/CustomField
 where 1 = 1
-

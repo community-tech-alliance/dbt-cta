@@ -16,4 +16,3 @@ select
 from {{ ref('credit_memos_CustomField_ab1') }}
 -- CustomField at credit_memos/CustomField
 where 1 = 1
-

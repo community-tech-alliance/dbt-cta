@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_ItemRef_hashid,
     tmp.*
-from {{ ref('time_activities_ItemRef_ab2') }} tmp
+from {{ ref('time_activities_ItemRef_ab2') }} as tmp
 -- ItemRef at time_activities/ItemRef
 where 1 = 1
-

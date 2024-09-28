@@ -22,7 +22,7 @@ select
         'status',
     ]) }} as _airbyte_petitions_books_hashid,
     tmp.*
-from {{ ref('petitions_books_ab2') }} tmp
+from {{ ref('petitions_books_ab2') }} as tmp
 -- petitions_books
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}

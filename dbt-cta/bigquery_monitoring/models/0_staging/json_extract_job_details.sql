@@ -1,6 +1,6 @@
 select
     resource.labels.project_id as projectId,
-    protopayload_auditlog.authenticationInfo.principalEmail as principalEmail,
+    protopayload_auditlog.authenticationInfo.principalEmail,
     protopayload_auditlog.requestMetadata.callerSuppliedUserAgent as userAgent,
     resource.type as resource_type,
     cast(

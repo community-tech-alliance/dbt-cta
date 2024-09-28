@@ -1,3 +1,2 @@
-SELECT
-*
-FROM {{ source('cta','workflows_base') }}
+select *
+from {{ source('cta','workflows_base') }}

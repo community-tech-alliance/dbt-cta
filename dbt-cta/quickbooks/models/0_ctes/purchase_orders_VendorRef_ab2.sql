@@ -15,4 +15,3 @@ select
 from {{ ref('purchase_orders_VendorRef_ab1') }}
 -- VendorRef at purchase_orders/VendorRef
 where 1 = 1
-

@@ -20,4 +20,3 @@ select
 from {{ ref('credit_memos_BillAddr_ab1') }}
 -- BillAddr at credit_memos/BillAddr
 where 1 = 1
-

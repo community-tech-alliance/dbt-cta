@@ -1,4 +1,3 @@
-
 -- depends_on: {{ source('cta', 'timeslots_base') }}
 select
     _airbyte_timeslots_hashid,

@@ -12,7 +12,6 @@ select
         'organization_id',
     ]) }} as _airbyte_denominations_organizations_hashid,
     tmp.*
-from {{ ref('denominations_organizations_ab2') }} tmp
+from {{ ref('denominations_organizations_ab2') }} as tmp
 -- denominations_organizations
 where 1 = 1
-

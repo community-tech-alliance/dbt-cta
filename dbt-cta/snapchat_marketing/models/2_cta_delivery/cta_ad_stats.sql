@@ -4,6 +4,5 @@
     unique_key = '_airbyte_ads_stats_daily_hashid'
 ) }}
 
-select
-    *
-FROM {{ source('cta', 'ad_stats_base') }}
+select *
+from {{ source('cta', 'ad_stats_base') }}

@@ -24,7 +24,6 @@ select
         'DiscountPercent',
     ]) }} as _airbyte_terms_hashid,
     tmp.*
-from {{ ref('terms_ab2') }} tmp
+from {{ ref('terms_ab2') }} as tmp
 -- terms
 where 1 = 1
-

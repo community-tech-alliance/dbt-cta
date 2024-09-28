@@ -4,6 +4,5 @@
     unique_key = 'ad_squad_id'
 ) }}
 
-SELECT
-  *
-FROM {{ source('cta', 'adsquads_targeting_base') }}
+select *
+from {{ source('cta', 'adsquads_targeting_base') }}

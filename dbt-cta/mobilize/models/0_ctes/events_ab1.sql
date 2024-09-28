@@ -4,6 +4,8 @@
 -- field columns as described by the JSON Schema
 -- depends_on: {{ source('cta_raw', raw_table) }}
 select
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     json_extract_scalar(_airbyte_data, "$['id']") as id,
     json_extract_scalar(_airbyte_data, "$['title']") as title,
     json_extract_scalar(_airbyte_data, "$['summary']") as summary,
@@ -166,9 +168,7 @@ select
     json_extract_scalar(
         _airbyte_data, "$['organization__is_primary_campaign']"
     ) as organization__is_primary_campaign,
-    _airbyte_raw_id,
-    _airbyte_extracted_at,
     current_timestamp() as _airbyte_normalized_at
-from {{ source('cta_raw', raw_table) }} as table_alias
+from {{ source('cta_raw', raw_table) }}
 -- events
 where 1 = 1

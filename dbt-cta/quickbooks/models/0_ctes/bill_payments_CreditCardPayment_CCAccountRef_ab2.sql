@@ -15,4 +15,3 @@ select
 from {{ ref('bill_payments_CreditCardPayment_CCAccountRef_ab1') }}
 -- CCAccountRef at bill_payments/CreditCardPayment/CCAccountRef
 where 1 = 1
-

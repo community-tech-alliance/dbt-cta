@@ -12,7 +12,6 @@ select
         'value',
     ]) }} as _airbyte_ShipTo_hashid,
     tmp.*
-from {{ ref('purchase_orders_ShipTo_ab2') }} tmp
+from {{ ref('purchase_orders_ShipTo_ab2') }} as tmp
 -- ShipTo at purchase_orders/ShipTo
 where 1 = 1
-
