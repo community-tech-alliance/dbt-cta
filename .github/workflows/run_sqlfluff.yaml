@@ -1,0 +1,19 @@
+name: Run SQLFluff
+
+on:
+    pull_request:
+
+jobs:
+    sqlfluff_lint_check:
+        name: SQLFluff lint check
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Setup python
+              uses: actions/setup-python@v5
+              with:
+                python-version: '3.12'
+            - name: Install SQLFluff
+              run: python3.12 -m pip install sqlfluff sqlfluff-templater-dbt
+            - name: Run SQLFluff lint
+              run: sqlfluff lint "${github.workspace}/dbt-cta/" --format github-annotation
