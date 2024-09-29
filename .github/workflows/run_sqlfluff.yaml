@@ -9,11 +9,23 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
+            - name: Get all changed sql files
+              id: changed-sql-files
+              uses: tj-actions/changed-files@v45
+              with:
+                files: |
+                  **.sql
             - name: Setup python
               uses: actions/setup-python@v5
               with:
                 python-version: '3.12'
             - name: Install SQLFluff
               run: python3.12 -m pip install sqlfluff sqlfluff-templater-dbt
-            - name: Run SQLFluff lint
-              run: sqlfluff lint "${github.workspace}/dbt-cta/" --format github-annotation
+            - name: Run SQLFluff lint on each changed SQL file
+              if: steps.changed-sql-files.outputs.any_changed == 'true'
+              env:
+                ALL_CHANGED_FILES: ${{ steps.changed-sql-files.outputs.all_changed_files }}
+              run: |
+                for file in ${ALL_CHANGED_FILES}; do
+                  sqlfluff lint "${file}" --format github-annotation
+                done
