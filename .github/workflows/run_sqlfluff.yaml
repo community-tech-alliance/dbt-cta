@@ -13,8 +13,7 @@ jobs:
               id: changed-sql-files
               uses: tj-actions/changed-files@v45
               with:
-                files: |
-                  **.sql
+                files: dbt-cta/**.sql
             - name: Setup python
               uses: actions/setup-python@v5
               with:
@@ -27,5 +26,6 @@ jobs:
                 ALL_CHANGED_FILES: ${{ steps.changed-sql-files.outputs.all_changed_files }}
               run: |
                 for file in ${ALL_CHANGED_FILES}; do
+                  echo "Running lint check on ${file}"
                   sqlfluff lint "${file}" --format github-annotation
                 done
