@@ -34,7 +34,7 @@ jobs:
               with:
                 python-version: 3.12
             - name: Install dbt deps
-              run: dbt deps --project-dir dbt-cta/
+              run: pipenv run dbt deps --project-dir dbt-cta/
             - name: Run SQLFluff lint on each changed SQL file
               if: steps.changed-sql-files.outputs.any_changed == 'true'
               env:
