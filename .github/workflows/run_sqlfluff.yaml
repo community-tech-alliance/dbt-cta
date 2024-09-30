@@ -4,6 +4,8 @@ on:
     pull_request:
         branches:
             - main
+        paths:
+            - dbt-cta/**
 
 jobs:
     sqlfluff_lint_check:
@@ -20,8 +22,10 @@ jobs:
               uses: actions/setup-python@v5
               with:
                 python-version: '3.12'
-            - name: Install SQLFluff
-              run: python3.12 -m pip install sqlfluff==3.0.7 sqlfluff-templater-dbt==3.0.7
+            - name: Install Python, pipenv and Pipfile packages
+              uses: palewire/install-python-pipenv-pipfile@v4
+              with:
+                python-version: 3.12
             - name: Run SQLFluff lint on each changed SQL file
               if: steps.changed-sql-files.outputs.any_changed == 'true'
               env:
@@ -29,5 +33,5 @@ jobs:
               run: |
                 for file in ${ALL_CHANGED_FILES}; do
                   echo "Running lint check on ${file}"
-                  sqlfluff lint "${file}" --format github-annotation
+                  pipenv run sqlfluff lint "${file}" --format github-annotation
                 done
