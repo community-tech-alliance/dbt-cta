@@ -23,7 +23,7 @@ jobs:
               id: changed-sql-files
               uses: tj-actions/changed-files@v45
               with:
-                files: dbt-cta/**.sql
+                files: dbt-cta/**/*.sql
             - name: Setup python
               uses: actions/setup-python@v5
               with:
@@ -39,7 +39,6 @@ jobs:
               run: |
                 for file in ${ALL_CHANGED_FILES}; do
                   echo "Running lint check on ${file}"
-                  PARTNER_
                   SYNC_NAME=$(echo "${file}" | awk -F "dbt-cta/" "{print $2}" | cut -d "/" -f1)
                   pipenv run sqlfluff lint "${file}" --format github-annotation
                 done
