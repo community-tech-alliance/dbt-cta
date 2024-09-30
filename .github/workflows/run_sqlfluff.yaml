@@ -7,6 +7,12 @@ on:
         paths:
             - dbt-cta/**
 
+env:
+    CTA_PROJECT_ID: dev3869c056
+    CTA_DATASET_ID: test_dataset
+    PARTNER_PROJECT_ID: dev-partner-a-25693fa5
+    PARTNER_DATASET_ID: test_db
+    
 jobs:
     sqlfluff_lint_check:
         name: SQLFluff lint check
@@ -33,6 +39,7 @@ jobs:
               run: |
                 for file in ${ALL_CHANGED_FILES}; do
                   echo "Running lint check on ${file}"
+                  PARTNER_
                   SYNC_NAME=$(echo "${file}" | awk -F "dbt-cta/" "{print $2}" | cut -d "/" -f1)
                   pipenv run sqlfluff lint "${file}" --format github-annotation
                 done
