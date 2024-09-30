@@ -4,6 +4,8 @@ on:
     pull_request:
         branches:
             - main
+        paths:
+            - dbt-cta/**
 
 jobs:
     sqlfluff_lint_check:
