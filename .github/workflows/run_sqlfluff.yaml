@@ -12,6 +12,7 @@ env:
     CTA_DATASET_ID: test_dataset
     PARTNER_PROJECT_ID: dev-partner-a-25693fa5
     PARTNER_DATASET_ID: test_db
+    SYNC_NAME: test
     
 jobs:
     sqlfluff_lint_check:
@@ -32,6 +33,8 @@ jobs:
               uses: palewire/install-python-pipenv-pipfile@v4
               with:
                 python-version: 3.12
+            - name: Install dbt deps
+              run: dbt deps --project-dir dbt-cta/
             - name: Run SQLFluff lint on each changed SQL file
               if: steps.changed-sql-files.outputs.any_changed == 'true'
               env:
