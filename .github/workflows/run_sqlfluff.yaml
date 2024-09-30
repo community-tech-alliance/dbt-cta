@@ -2,6 +2,8 @@ name: Run SQLFluff
 
 on:
     pull_request:
+        branches:
+            - main
 
 jobs:
     sqlfluff_lint_check:
@@ -19,7 +21,7 @@ jobs:
               with:
                 python-version: '3.12'
             - name: Install SQLFluff
-              run: python3.12 -m pip install sqlfluff sqlfluff-templater-dbt
+              run: python3.12 -m pip install sqlfluff==3.0.7 sqlfluff-templater-dbt==3.0.7
             - name: Run SQLFluff lint on each changed SQL file
               if: steps.changed-sql-files.outputs.any_changed == 'true'
               env:
