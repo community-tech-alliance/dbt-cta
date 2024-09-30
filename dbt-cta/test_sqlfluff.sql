@@ -1,0 +1,1 @@
+select * from fake_dataset.fake_table;
