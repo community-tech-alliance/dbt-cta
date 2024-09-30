@@ -41,7 +41,7 @@ jobs:
                 pipenv run dbt deps --project-dir dbt-cta/
                 for file in ${ALL_CHANGED_FILES}; do
                   unset SYNC_NAME
-                  SYNC_NAME=$(echo ${file} | awk -F'dbt-cta/' '{print $2}'' | cut -d'/' -f1)
+                  SYNC_NAME=$(echo ${file} | awk -F'dbt-cta/' '{print $2}' | cut -d'/' -f1)
                   echo "SYNC_NAME: ${SYNC_NAME}"
                   export SYNC_NAME="${SYNC_NAME}"
                   echo "Running lint check on ${file}"
