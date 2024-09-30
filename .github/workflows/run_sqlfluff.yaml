@@ -8,6 +8,10 @@ on:
             - dbt-cta/**
 
 env:
+    GOOGLE_PROJECT_ID: ${{ vars.GOOGLE_PROJECT_ID }}
+    GOOGLE_COMPOSER_ENVIRONMENT: ${{ vars.GOOGLE_COMPOSER_ENVIRONMENT }}
+    GOOGLE_SERVICE_ACCOUNT: ${{ vars.GOOGLE_SERVICE_ACCOUNT }}
+    GOOGLE_WORKLOAD_IDENTITY_PROVIDER: ${{ vars.GOOGLE_WORKLOAD_IDENTITY_PROVIDER }}
     CTA_PROJECT_ID: dev3869c056
     CTA_DATASET_ID: test_dataset
     PARTNER_PROJECT_ID: dev-partner-a-25693fa5
@@ -17,6 +21,7 @@ jobs:
     sqlfluff_lint_check:
         name: SQLFluff lint check
         runs-on: ubuntu-latest
+        environment: dev
         steps:
             - uses: actions/checkout@v4
             - name: Get all changed sql files
