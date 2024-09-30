@@ -1,0 +1,33 @@
+name: Run SQLFluff
+
+on:
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    sqlfluff_lint_check:
+        name: SQLFluff lint check
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Get all changed sql files
+              id: changed-sql-files
+              uses: tj-actions/changed-files@v45
+              with:
+                files: dbt-cta/**.sql
+            - name: Setup python
+              uses: actions/setup-python@v5
+              with:
+                python-version: '3.12'
+            - name: Install SQLFluff
+              run: python3.12 -m pip install sqlfluff==3.0.7 sqlfluff-templater-dbt==3.0.7
+            - name: Run SQLFluff lint on each changed SQL file
+              if: steps.changed-sql-files.outputs.any_changed == 'true'
+              env:
+                ALL_CHANGED_FILES: ${{ steps.changed-sql-files.outputs.all_changed_files }}
+              run: |
+                for file in ${ALL_CHANGED_FILES}; do
+                  echo "Running lint check on ${file}"
+                  sqlfluff lint "${file}" --format github-annotation
+                done
