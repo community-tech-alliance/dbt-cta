@@ -37,12 +37,13 @@ jobs:
               env:
                 ALL_CHANGED_FILES: ${{ steps.changed-sql-files.outputs.all_changed_files }}
               run: |
+                export SYNC_NAME=test
+                pipenv run dbt deps --project-dir dbt-cta/
                 for file in ${ALL_CHANGED_FILES}; do
-                  echo "Running lint check on ${file}"
                   unset SYNC_NAME
-                  SYNC_NAME=$(echo "${file}" | awk -F "dbt-cta/" "{print $2}" | cut -d "/" -f1)
+                  SYNC_NAME=$(echo ${file} | awk -F'dbt-cta/' '{print $2}' | cut -d'/' -f1)
                   echo "SYNC_NAME: ${SYNC_NAME}"
                   export SYNC_NAME="${SYNC_NAME}"
-                  pipenv run dbt deps --project-dir dbt-cta/
+                  echo "Running lint check on ${file}"
                   pipenv run sqlfluff lint "${file}" --format github-annotation
                 done
