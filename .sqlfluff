@@ -1,9 +1,10 @@
 [sqlfluff]
-templater = dbt
+templater = jinja
 dialect = bigquery
 nocolor = True
 max_line_length = 0
 exclude_rules = CP02, RF04
+ignore = templating
 
 [sqlfluff:templater:dbt]
 project_dir = dbt-cta/
