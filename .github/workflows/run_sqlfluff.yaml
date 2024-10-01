@@ -50,5 +50,5 @@ jobs:
                   echo "SYNC_NAME: ${SYNC_NAME}"
                   export SYNC_NAME="${SYNC_NAME}"
                   echo "Running lint check on ${file}"
-                  pipenv run sqlfluff lint "${file}" --format github-annotation
+                  pipenv run sqlfluff lint "${file}" --format human
                 done
