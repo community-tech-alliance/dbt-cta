@@ -9,12 +9,12 @@ select
     cast(`organization_id` as string) as `organization_id`,
     cast(`tag` as string) as `tag`,
     cast(`created_at` as timestamp) as `created_at`,
-    cast(`updated_id` as timestamp) as `updated_at`, -- this was originally updated_at and then changed to updated_id in the raw data
+    cast(`updated_at` as timestamp) as `updated_at`, -- this was originally updated_at and then changed to updated_id in the raw data
     to_hex(md5(concat(
         `id`,
         `tag`,
         `created_at`,
-        `updated_id`
+        `updated_at`
     ))) as _cta_hashid,
     current_timestamp() as _cta_sync_datetime_utc
 from {{ source('cta', '_tags_raw') }}
