@@ -4,17 +4,17 @@
 
 select
     cast(`created_at` as timestamp) as created_at,
-    cast(`lead_id` as string) as lead_id,	
-    cast(`organization_id` as string) as organization_id,	
-    cast(`updated_at` as timestamp) as updated_at,	
-    cast(`inbox_address_id` as string) as inbox_address_id,	
-    cast(`id` as string) as id,	
+    cast(`lead_id` as string) as lead_id,
+    cast(`organization_id` as string) as organization_id,
+    cast(`updated_at` as timestamp) as updated_at,
+    cast(`inbox_address_id` as string) as inbox_address_id,
+    cast(`id` as string) as id,
     to_hex(md5(concat(
         `created_at`,
-        `lead_id`,	
-        `organization_id`,	
-        `updated_at`,	
-        `inbox_address_id`,	
+        `lead_id`,
+        `organization_id`,
+        `updated_at`,
+        `inbox_address_id`,
         `id`
     ))) as _cta_hashid,
     current_timestamp() as _cta_sync_datetime_utc
