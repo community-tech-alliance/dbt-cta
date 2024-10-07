@@ -1,12 +1,12 @@
-version: 2
+version: 3
 
 models:
 
-  - name: survey_response
-    description: Table for a DDX Standard Subscription Stream data with record type of survey-response
+  - name: contact_attempt
+    description: Table for a DDX Standard Subscription Stream data with record type of contact-attempt
     columns:
       - name: person_id
-        description: A configurable voter identification value. Can be a Catalist DWID, TargetSmart voterbase ID or VAN ID
+        description: A configurable voter identification value. Can be TargetSmart's Voterbase ID, Catalists's DWID SmartVAN's VAN ID, AV's VAN ID, or Votebuilder VAN ID. Will be the primary person id established on client settings. 
       - name: state_code
         description: 'Two letter code indicating the state or territory the person is registered to vote in'
       - name: contact_type_name
@@ -33,6 +33,33 @@ models:
         description: 'The end of the abstracted window of time in which the data was collected.'
       - name: subscription_name
         description: 'The name of the DDX Subscription that this record came from'
+      - name: _cta_loaded_at
+        description: 'The timestamp of when CTA loaded this data into BigQuery'
+      - name: _cta_hash_id
+        description: 'A unique identifier for this row. Created using a combination of fields from this record'
+        tests:
+          - not_null
+          - unique
+
+  - name: survey_response
+    description: Table for a DDX Standard Subscription Stream data with record type of survey-response
+    columns:
+      - name: person_id
+        description: A configurable voter identification value. Can be TargetSmart's Voterbase ID, Catalists's DWID SmartVAN's VAN ID, AV's VAN ID, or Votebuilder VAN ID. Will be the primary person id established on client settings. 
+      - name: state_code
+        description: 'Two letter code indicating the state or territory the person is registered to vote in'
+      - name: contact_type_name
+        description: 'The mode of contact used in the effort to reach out to the person'
+      - name: contact_result_name
+        description: 'The result of the effort made to reach out to the person'
+      - name: record_id
+        description: 'A unique ID in UUID4 form representing a single disposition record.'
+      - name: datetime_pulled
+        description: 'The date and time that the data was pulled from DDx'
+      - name: datetimed_window_start
+        description: The start of the abstracted window of time in which the data was collected. This will be a January 1 00:00:00, March 1 00:00:00, May 1 00:00:00, July 1 00:00:00, September 1 00:00:00, or November 1 00:00:00 datetime value.'
+      - name: datetime_window_end
+        description: 'The end of the abstracted window of time in which the data was collected. This will either be a February 28th or 29th 11:59:59, April 30 11:59:59, June 30 11:59:59, August 31 11:59:59, October 31 11:59:59, or December 31 11:59:59 datetime value.'
       - name: _cta_loaded_at
         description: 'The timestamp of when CTA loaded this data into BigQuery'
       - name: _cta_hash_id
