@@ -12,6 +12,7 @@ select
     cast(datetime_window_start as timestamp) as datetime_window_start,
     cast(datetime_window_end as timestamp) as datetime_window_end,
     cast(_cta_loaded_at as timestamp) as _cta_loaded_at,
+    cast(subscription_name as string) as subscription_name,
   {{ dbt_utils.surrogate_key([
     'person_id',
     'record_id'

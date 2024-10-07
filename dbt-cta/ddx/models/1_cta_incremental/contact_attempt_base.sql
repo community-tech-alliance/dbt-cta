@@ -14,6 +14,7 @@ select
     datetime_pulled,
     datetime_window_start,
     datetime_window_end,
+    subscription_name,
     _cta_loaded_at,
     _cta_hash_id
 from {{ ref('contact_attempt_cte2') }}
