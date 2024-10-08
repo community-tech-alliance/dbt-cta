@@ -13,6 +13,8 @@ models:
         description: 'The mode of contact used in the effort to reach out to the person'
       - name: contact_result_name
         description: 'The result of the effort made to reach out to the person'
+      - name: phone_number
+        description: (not in data dictionary but in the CSV files)
       - name: record_id
         description: 'A unique ID in UUID4 form representing a single disposition record.'
       - name: datetime_pulled

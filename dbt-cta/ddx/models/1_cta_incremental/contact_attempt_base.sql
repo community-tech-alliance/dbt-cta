@@ -10,6 +10,7 @@ select
     state_code,
     contact_type_name,
     contact_result_name,
+    phone_number,
     record_id,
     datetime_pulled,
     datetime_window_start,

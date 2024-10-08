@@ -8,6 +8,7 @@ select
     cast(state_code as string) as state_code,
     cast(contact_type_name as string) as contact_type_name,
     cast(contact_result_name as string) as contact_result_name,
+    cast(phone_number as string) as phone_number,
     cast(datetime_pulled as timestamp) as datetime_pulled,
     cast(datetime_window_start as timestamp) as datetime_window_start,
     cast(datetime_window_end as timestamp) as datetime_window_end,
