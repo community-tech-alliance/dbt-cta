@@ -1,10 +1,10 @@
 version: 2
 sources:
 - name: cta_raw
-  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  database: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
   schema: airbyte_internal
   tables:
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_workers'}}"
+  - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_workers'}}"
     columns:
       - name: _airbyte_raw_id
         tests:
@@ -18,8 +18,8 @@ sources:
         tests:
           - not_null
 - name: cta
-  database: "{{ env_var('CTA_PROJECT_ID') }}"
-  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  database: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
+  schema: "{{ env_var('CTA_DATASET_ID', 'not-set') }}"
   tables:
   - name: workers_base
     columns:
