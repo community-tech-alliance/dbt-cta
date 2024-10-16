@@ -1,0 +1,18 @@
+version: 2
+
+models:
+
+  - name: ap_ru_data_stg
+    description: ''
+    columns:
+      - name: ap_ru_data_hashid
+        description: ''
+        tests:
+          - unique
+          - not_null      
+    tests:
+      - dbt_expectations.expect_column_pair_values_A_to_be_greater_than_B:
+          column_A: votes
+          column_B: election_day_in_person
+          or_equal: True
+    # add the rest of the tests
