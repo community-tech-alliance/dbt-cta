@@ -1,0 +1,42 @@
+-- SQL model to build a hash column based on the values of this record
+-- depends_on: {{ source('cta', 'ap_ru_data') }}
+
+select
+    state_code,	
+    fips_code,	
+    reporting_unit_name,	
+    reporting_unit_id,	
+    level,	
+    office,	
+    office_id,	
+    district_number,	
+    precincts_reporting,	
+    precincts_total,	
+    precinct_reporting_pct,	
+    timestamp_last_updated,	
+    candidate_name,	
+    candidate_party,	
+    candidate_id,	
+    votes,	
+    election_day_in_person,	
+    provisional,	
+    early_in_person,	
+    absentee_in_person,	
+    absentee_by_mail,	
+    timestamp_retrieved,	
+    timestamp_run,	
+    run_id,	
+   {{ dbt_utils.surrogate_key([
+    'state_code',	
+    'fips_code',	
+    'reporting_unit_name',	
+    'reporting_unit_id',	
+    'level',	
+    'office',	
+    'office_id',	
+    'district_number',
+    'candidate_name',	
+    'candidate_party',	
+    'candidate_id',	
+    ]) }} as ap_ru_data_hashid
+from {{ source('cta', 'ap_ru_data') }}

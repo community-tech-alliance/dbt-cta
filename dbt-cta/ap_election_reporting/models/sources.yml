@@ -1,0 +1,14 @@
+version: 2
+sources:
+# both the _raw and _stg data will be in this dataset
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables:
+  - name: "ap_ru_data"
+# data will only be materialized to _delivery if tests pass on the _stg tables
+- name: cta_delivery
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}_delivery"
+  tables:
+  - name: "ap_ru_data"
