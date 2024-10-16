@@ -5,10 +5,9 @@ sources:
   database: "{{ env_var('CTA_PROJECT_ID') }}"
   schema: "{{ env_var('CTA_DATASET_ID') }}"
   tables:
-  - name: "ap_ru_data"
+  - name: "ap_ru_data_raw"
+  - name: "ap_ru_data_stg"
 # data will only be materialized to _delivery if tests pass on the _stg tables
 - name: cta_delivery
   database: "{{ env_var('CTA_PROJECT_ID') }}"
   schema: "{{ env_var('CTA_DATASET_ID') }}_delivery"
-  tables:
-  - name: "ap_ru_data"

@@ -1,5 +1,5 @@
 -- SQL model to build a hash column based on the values of this record
--- depends_on: {{ source('cta', 'ap_ru_data') }}
+-- depends_on: {{ source('cta', 'ap_ru_data_raw') }}
 
 select
     state_code,	
@@ -39,4 +39,4 @@ select
     'candidate_party',	
     'candidate_id',	
     ]) }} as ap_ru_data_hashid
-from {{ source('cta', 'ap_ru_data') }}
+from {{ source('cta', 'ap_ru_data_raw') }}
