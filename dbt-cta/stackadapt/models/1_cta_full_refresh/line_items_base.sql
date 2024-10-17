@@ -35,6 +35,5 @@ select
     _airbyte_line_items_hashid
 from {{ ref('line_items_ab4') }}
 {% if is_incremental() %}
-where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(',') }})
+    where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
-
