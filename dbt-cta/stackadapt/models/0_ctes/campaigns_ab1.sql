@@ -15,7 +15,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['channel'], ['channel']) }} as channel,
     {{ json_extract_scalar('_airbyte_data', ['use_dma'], ['use_dma']) }} as use_dma,
     {{ json_extract_scalar('_airbyte_data', ['bid_type'], ['bid_type']) }} as bid_type,
-    {{ json_extract('table_alias', '_airbyte_data', ['day_part'], ['day_part']) }} as day_part,
+    {{ json_extract_scalar('_airbyte_data', ['day_part'], ['day_part']) }} as day_part,
     {{ json_extract_scalar('_airbyte_data', ['end_date'], ['end_date']) }} as end_date,
     {{ json_extract_scalar('_airbyte_data', ['timezone'], ['timezone']) }} as timezone,
     {{ json_extract_scalar('_airbyte_data', ['daily_cap'], ['daily_cap']) }} as daily_cap,

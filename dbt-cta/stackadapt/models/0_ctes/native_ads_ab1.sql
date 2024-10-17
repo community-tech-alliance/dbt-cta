@@ -9,7 +9,7 @@
 -- depends_on: {{ source('cta_raw', raw_table) }}
 select
     {{ json_extract_scalar('_airbyte_data', ['id'], ['id']) }} as id,
-    {{ json_extract('table_alias', '_airbyte_data', ['icon'], ['icon']) }} as icon,
+    {{ json_extract_scalar( '_airbyte_data', ['icon'], ['icon']) }} as icon,
     {{ json_extract_scalar('_airbyte_data', ['name'], ['name']) }} as name,
     {{ json_extract_scalar('_airbyte_data', ['state'], ['state']) }} as state,
     {{ json_extract_scalar('_airbyte_data', ['channel'], ['channel']) }} as channel,
@@ -18,7 +18,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['click_url'], ['click_url']) }} as click_url,
     {{ json_extract_array('_airbyte_data', ['creatives'], ['creatives']) }} as creatives,
     {{ json_extract_scalar('_airbyte_data', ['created_at'], ['created_at']) }} as created_at,
-    {{ json_extract('table_alias', '_airbyte_data', ['input_data'], ['input_data']) }} as input_data,
+    {{ json_extract_scalar('_airbyte_data', ['input_data'], ['input_data']) }} as input_data,
     {{ json_extract_scalar('_airbyte_data', ['updated_at'], ['updated_at']) }} as updated_at,
     {{ json_extract_scalar('_airbyte_data', ['audit_status'], ['audit_status']) }} as audit_status,
     {{ json_extract_array('_airbyte_data', ['vast_trackers'], ['vast_trackers']) }} as vast_trackers,
