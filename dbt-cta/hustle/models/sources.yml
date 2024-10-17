@@ -12,6 +12,11 @@ sources:
   - name: _goals_raw
   - name: _group_memberships_raw
   - name: _groups_raw
+  - name: _inbox_addresses_raw
+  - name: _inbox_calls_raw
+  - name: _inbox_goals_raw
+  - name: _inbox_messages_raw
+  - name: _inbox_threads_raw
   - name: _integrations_raw
   - name: _lead_externals_raw
   - name: _lead_tags_raw
@@ -32,6 +37,11 @@ sources:
   - name: goals_base
   - name: group_memberships_base
   - name: groups_base
+  - name: inbox_addresses_base
+  - name: inbox_calls_base
+  - name: inbox_goals_base
+  - name: inbox_messages_base
+  - name: inbox_threads_base
   - name: integrations_base
   - name: lead_externals_base
   - name: lead_tags_base

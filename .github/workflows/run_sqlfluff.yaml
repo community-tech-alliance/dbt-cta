@@ -1,0 +1,54 @@
+name: Run SQLFluff
+
+on:
+    pull_request:
+        branches:
+            - main
+        paths:
+            - dbt-cta/**
+
+env:
+    GOOGLE_PROJECT_ID: ${{ vars.GOOGLE_PROJECT_ID }}
+    GOOGLE_COMPOSER_ENVIRONMENT: ${{ vars.GOOGLE_COMPOSER_ENVIRONMENT }}
+    GOOGLE_SERVICE_ACCOUNT: ${{ vars.GOOGLE_SERVICE_ACCOUNT }}
+    GOOGLE_WORKLOAD_IDENTITY_PROVIDER: ${{ vars.GOOGLE_WORKLOAD_IDENTITY_PROVIDER }}
+    CTA_PROJECT_ID: dev3869c056
+    CTA_DATASET_ID: test_dataset
+    PARTNER_PROJECT_ID: dev-partner-a-25693fa5
+    PARTNER_DATASET_ID: test_db
+    
+jobs:
+    sqlfluff_lint_check:
+        name: SQLFluff lint check
+        runs-on: ubuntu-latest
+        environment: dev
+        steps:
+            - uses: actions/checkout@v4
+            - name: Get all changed sql files
+              id: changed-sql-files
+              uses: tj-actions/changed-files@v45
+              with:
+                files: dbt-cta/**/*.sql
+            - name: Setup python
+              uses: actions/setup-python@v5
+              with:
+                python-version: '3.12'
+            - name: Install Python, pipenv and Pipfile packages
+              uses: palewire/install-python-pipenv-pipfile@v4
+              with:
+                python-version: 3.12
+            - name: Run SQLFluff lint on each changed SQL file
+              if: steps.changed-sql-files.outputs.any_changed == 'true'
+              env:
+                ALL_CHANGED_FILES: ${{ steps.changed-sql-files.outputs.all_changed_files }}
+              run: |
+                export SYNC_NAME=test
+                pipenv run dbt deps --project-dir dbt-cta/
+                for file in ${ALL_CHANGED_FILES}; do
+                  unset SYNC_NAME
+                  SYNC_NAME=$(echo ${file} | awk -F'dbt-cta/' '{print $2}' | cut -d'/' -f1)
+                  echo "SYNC_NAME: ${SYNC_NAME}"
+                  export SYNC_NAME="${SYNC_NAME}"
+                  echo "Running lint check on ${file}"
+                  pipenv run sqlfluff lint "${file}" --format human
+                done
