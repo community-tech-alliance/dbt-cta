@@ -60,6 +60,6 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta_raw', raw_table) }}
+from {{ source('cta_raw', raw_table) }} as table_alias
 -- campaigns
 where 1 = 1

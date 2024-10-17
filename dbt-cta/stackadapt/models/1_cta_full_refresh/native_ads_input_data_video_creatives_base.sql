@@ -29,5 +29,6 @@ select
 from {{ ref('native_ads_input_data_video_creatives_ab4') }}
 -- video_creatives at native_ads/input_data/video_creatives from {{ ref('native_ads_input_data_base') }}
 {% if is_incremental() %}
-    where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(',') }})
+where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
+

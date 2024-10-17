@@ -30,5 +30,6 @@ select
 from {{ ref('native_ads_input_data_ab4') }}
 -- input_data at native_ads/input_data from {{ ref('native_ads_base') }}
 {% if is_incremental() %}
-    where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(',') }})
+where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
+
