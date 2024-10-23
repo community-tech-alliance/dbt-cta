@@ -9,8 +9,10 @@ sources:
   - name: _stg_survey_result
   - name: _stg_tag_result
   - name: _stg_text_contact
+  - name: _stg_optouts
   - name: clicks_base
   - name: ivr_contact_base
   - name: survey_result_base
   - name: tag_result_base
   - name: text_contact_base
+  - name: optouts_base
