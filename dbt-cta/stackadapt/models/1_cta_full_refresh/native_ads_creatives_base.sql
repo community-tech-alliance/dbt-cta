@@ -28,6 +28,5 @@ select
 from {{ ref('native_ads_creatives_ab4') }}
 -- creatives at native_ads/creatives from {{ ref('native_ads_base') }}
 {% if is_incremental() %}
-where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(',') }})
+    where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
-
