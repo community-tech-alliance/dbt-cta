@@ -6,7 +6,6 @@
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ ref('native_ads_base') }}
-{{ unnest_cte(ref('native_ads_base'), 'native_ads', 'icon') }}
 select
     _airbyte_native_ads_hashid,
     {{ json_extract_scalar('icon', ['id'], ['id']) }} as id,
