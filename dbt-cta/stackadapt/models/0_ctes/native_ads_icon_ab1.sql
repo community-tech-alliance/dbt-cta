@@ -6,18 +6,17 @@
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ ref('native_ads_base') }}
+
 select
     _airbyte_native_ads_hashid,
-    {{ json_extract_scalar('icon', ['id'], ['id']) }} as id,
-    {{ json_extract_scalar('icon', ['url'], ['url']) }} as url,
-    {{ json_extract_scalar('icon', ['width'], ['width']) }} as width,
-    {{ json_extract_scalar('icon', ['height'], ['height']) }} as height,
-    {{ json_extract_scalar('icon', ['file_name'], ['file_name']) }} as file_name,
+    JSON_EXTRACT_SCALAR(icon, '$.id') as id,
+    JSON_EXTRACT_SCALAR(icon, '$.url') as url,
+    JSON_EXTRACT_SCALAR(icon, '$.width') as width,
+    JSON_EXTRACT_SCALAR(icon, '$.height') as height,
+    JSON_EXTRACT_SCALAR(icon, '$.file_name') as file_name,
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('native_ads_base') }}
 -- icon at native_ads/icon
-where
-    1 = 1
-    and icon is not null
+where icon is not null
