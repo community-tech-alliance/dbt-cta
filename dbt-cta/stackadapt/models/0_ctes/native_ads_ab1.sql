@@ -9,7 +9,7 @@
 -- depends_on: {{ source('cta_raw', raw_table) }}
 select
     {{ json_extract_scalar('_airbyte_data', ['id'], ['id']) }} as id,
-    {{ json_extract_scalar( '_airbyte_data', ['icon'], ['icon']) }} as icon,
+    json_extract(_airbyte_data, "$['icon']") as icon,
     {{ json_extract_scalar('_airbyte_data', ['name'], ['name']) }} as name,
     {{ json_extract_scalar('_airbyte_data', ['state'], ['state']) }} as state,
     {{ json_extract_scalar('_airbyte_data', ['channel'], ['channel']) }} as channel,
