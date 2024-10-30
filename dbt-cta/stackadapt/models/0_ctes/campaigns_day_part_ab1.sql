@@ -6,6 +6,7 @@
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ ref('campaigns_base') }}
+{{ unnest_cte(ref('campaigns_base'), 'campaigns', 'day_part') }}
 select
     _airbyte_campaigns_hashid,
     {{ json_extract_scalar('day_part', ['enabled'], ['enabled']) }} as enabled,
