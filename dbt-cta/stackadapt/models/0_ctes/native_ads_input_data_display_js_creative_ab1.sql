@@ -6,7 +6,7 @@
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ ref('native_ads_input_data_base') }}
-{select
+select
     _airbyte_input_data_hashid,
     JSON_EXTRACT_SCALAR(display_js_creative, '$.width') as width,
     JSON_EXTRACT_SCALAR(display_js_creative, '$.height') as height,
