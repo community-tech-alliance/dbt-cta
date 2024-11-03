@@ -20,6 +20,7 @@ select
     end_date,
     call_type,
     script_id,
+    time_zone,
     created_at,
     start_date,
     updated_at,
