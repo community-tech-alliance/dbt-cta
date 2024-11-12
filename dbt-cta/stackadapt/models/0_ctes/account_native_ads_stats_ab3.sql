@@ -46,7 +46,7 @@ select
         'vcomp_75',
         'vcomp_95',
         'click_url',
-        array_to_string('creatives'),
+        '(SELECT STRING_AGG(TO_JSON_STRING(STRUCT(JSON_EXTRACT_SCALAR(element, \'$.url\') as url, JSON_EXTRACT_SCALAR(element, \'$.size\') as size)), \',\' ORDER BY JSON_EXTRACT_SCALAR(element, \'$.url\'), JSON_EXTRACT_SCALAR(element, \'$.size\')) FROM UNNEST(creatives) as element)',
         'line_item',
         'page_time',
         'uniq_conv',
