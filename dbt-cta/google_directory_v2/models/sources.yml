@@ -1,0 +1,14 @@
+version: 2
+sources:
+- name: cta_raw
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: airbyte_internal
+  tables:
+  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_users'}}"
+  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_group_members'}}"
+  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_groups'}}"
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  tables:
+    - name: users
