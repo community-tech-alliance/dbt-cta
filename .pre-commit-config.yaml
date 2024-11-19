@@ -4,3 +4,13 @@ repos:
   hooks:
     - id: sqlfluff-lint
       additional_dependencies: ['dbt-bigquery==1.8.2', 'sqlfluff-templater-dbt==3.0.7']
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v5.0.0
+  hooks:
+    - id: detect-private-key
+- repo: local
+  hooks:
+    - id: trufflehog
+      name: trufflehog
+      entry: trufflehog filesystem .
+      language: system
