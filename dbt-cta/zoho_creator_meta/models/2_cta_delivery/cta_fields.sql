@@ -9,6 +9,6 @@ select
     mandatory,
     form_link_name,
     application_link_name,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_fields_hashid
 from {{ source('cta','fields_base') }}
