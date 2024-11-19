@@ -20,6 +20,8 @@ pre-commit run                      # Run once to make sure the pre-commit works
 
 All done! Be on the lookout for any secrets that were detected during the pre-commit step from your local machine.
 
+Note: if you're using GitHub Desktop, this should still work but you'll need to configure GitHub Desktop to use your default shell application (such as Terminal, iTerm 2, etc.). You can do that by going to `GitHub Desktop -> Settings -> Integrations -> Shell` then restart GitHub Desktop afterwards.
+
 ## How CTA runs dbt
 
 CTA runs dbt in Composer, which is Airflow managed by Google Cloud Platform. It's just Airflow, but Google calls it Composer. Why? Because reasons.
