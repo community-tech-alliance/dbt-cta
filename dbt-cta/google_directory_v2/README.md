@@ -1,3 +1,0 @@
-# Google Directory
-
-TKTKTK
