@@ -50,5 +50,5 @@ select
     current_timestamp() as _airbyte_normalized_at
 from {{ ref('users_ab3') }}
 {% if is_incremental() %}
-where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(',') }})
+    where timestamp_trunc(_airbyte_extracted_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
