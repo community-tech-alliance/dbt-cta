@@ -14,6 +14,6 @@ select
 ), '')) as
     string
 ))) as _airbyte_emails_hashid,
-    tmp.*
+    *
 from {{ ref('users_emails_ab2') }}
 where 1 = 1
