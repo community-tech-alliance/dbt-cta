@@ -3,7 +3,7 @@ templater = jinja
 dialect = bigquery
 nocolor = True
 max_line_length = 0
-exclude_rules = CP02, RF04
+exclude_rules = CP02, RF04, LT02
 ignore = templating
 
 [sqlfluff:templater:dbt]
