@@ -8,7 +8,7 @@ select
     cast(address as
     string
 ) as address,
-    cast(primary as boolean) as primary,
+    cast(primary as boolean) as primary, --noqa
     cast(customType as 
     string
 ) as customType,
