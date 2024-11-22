@@ -7,7 +7,7 @@ select
     string
 ), ''), '-', coalesce(cast(address as
     string
-), ''), '-', coalesce(cast(primary as
+), ''), '-', coalesce(cast(primary as --noqa
     string
 ), ''), '-', coalesce(cast(customType as
     string
