@@ -5,7 +5,7 @@ select
     _airbyte_users_hashid,
     json_extract_scalar(emails, "$['type']") as type,
     json_extract_scalar(emails, "$['address']") as address,
-    json_extract_scalar(emails, "$['primary']") as primary,
+    json_extract_scalar(emails, "$['primary']") as primary, --noqa
     json_extract_scalar(emails, "$['customType']") as customType,
     _airbyte_raw_id,
     _airbyte_extracted_at,
