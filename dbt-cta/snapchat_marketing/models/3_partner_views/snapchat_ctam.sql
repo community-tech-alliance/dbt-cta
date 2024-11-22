@@ -65,45 +65,45 @@ join1 as (
 ),
 
 join2 as (
-select *
-from join1
-left join ads on join1.ad_squad_id = ads.ad_squad_id
+    select *
+    from join1
+    left join ads on join1.ad_squad_id = ads.ad_squad_id
 ),
 
 final_cte as (
-select *
-from join2
-left join stats on join2.ad_id = stats.ad_id
+    select *
+    from join2
+    left join stats on join2.ad_id = stats.ad_id
 )
 
 select
-start_date,
-campaign_objective,
-campaign_name,
-adset_name,
-ad_name,
-ad_type,
-utm_source,
-utm_medium,
-utm_campaign,
-utm_term,
-utm_content,
-spend,
-clicks,
-impressions,
-video_views,
-quartile_1,
-quartile_2,
-quartile_3,
-view_completion,
-conversion_page_views,
-cpm,
-ctr,
-pvr,
-vcr,
-reach,
-frequency,
-adsquad_daily_budget / 1000000 as adsquad_daily_budget,
-adsquad_lifetime_budget / 1000000 as adsquad_lifetime_budget
+    start_date,
+    campaign_objective,
+    campaign_name,
+    adset_name,
+    ad_name,
+    ad_type,
+    utm_source,
+    utm_medium,
+    utm_campaign,
+    utm_term,
+    utm_content,
+    spend,
+    clicks,
+    impressions,
+    video_views,
+    quartile_1,
+    quartile_2,
+    quartile_3,
+    view_completion,
+    conversion_page_views,
+    cpm,
+    ctr,
+    pvr,
+    vcr,
+    reach,
+    frequency,
+    adsquad_daily_budget / 1000000 as adsquad_daily_budget,
+    adsquad_lifetime_budget / 1000000 as adsquad_lifetime_budget
 from final_cte
 where spend > 0
