@@ -19,7 +19,7 @@ with stats as (
         case when total_impressions > 0 then swipe_ups / total_impressions else 0 end as ctr,
         case when total_impressions > 0 then conversion_page_views / total_impressions else 0 end as pvr, --previously called "uniques"
         case when video_views > 0 then view_completion / video_views else 0 end as vcr
-    from {{ source('partner', 'ad_stats') }}
+    from {{ source('cta_delivery', 'ad_stats') }}
 ),
 
 ads as (
@@ -34,8 +34,8 @@ ads as (
         c.utm_campaign,
         c.utm_term,
         c.utm_content
-    from {{ source('partner', 'ads') }} as a
-    left join {{ source('partner', 'creatives') }} as c
+    from {{ source('cta_delivery', 'ads') }} as a
+    left join {{ source('cta_delivery', 'creatives') }} as c
         on a.creative_id = c.id
 ),
 
@@ -46,7 +46,7 @@ ad_sets as (
         name as adset_name,
         daily_budget_micro as adsquad_daily_budget,
         lifetime_budget_micro as adsquad_lifetime_budget
-    from {{ source('partner', 'adsquads') }}
+    from {{ source('cta_delivery', 'adsquads') }}
 ),
 
 
@@ -55,7 +55,7 @@ campaigns as (
         id as campaign_id,
         name as campaign_name,
         objective as campaign_objective
-    from {{ source('partner', 'campaigns') }}
+    from {{ source('cta_delivery', 'campaigns') }}
 ),
 
 join1 as (
