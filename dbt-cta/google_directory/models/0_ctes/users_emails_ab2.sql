@@ -2,10 +2,10 @@
 -- depends_on: {{ ref('users_emails_ab1') }}
 select
     _airbyte_users_hashid,
-    cast(type as 
+    cast(type as
     string
 ) as type,
-    cast(address as 
+    cast(address as
     string
 ) as address,
     cast(primary as boolean) as primary,

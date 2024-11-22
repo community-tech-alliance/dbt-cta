@@ -10,7 +10,7 @@ select
     _airbyte_raw_id,
     _airbyte_extracted_at,
     CURRENT_TIMESTAMP() as _airbyte_normalized_at
-from {{ ref('users_ab3') }} as table_alias
+from {{ ref('users_ab3') }}
 cross join unnest(emails) as emails
 where 1 = 1
 and emails is not null
