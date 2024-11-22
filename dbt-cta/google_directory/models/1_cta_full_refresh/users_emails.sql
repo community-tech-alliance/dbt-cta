@@ -20,7 +20,7 @@ select
     _airbyte_users_hashid,
     type,
     address,
-    primary,
+    primary, --noqa
     customType,
     _airbyte_raw_id,
     _airbyte_extracted_at,
