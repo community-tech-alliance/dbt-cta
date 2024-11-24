@@ -11,7 +11,6 @@ select
     _airbyte_extracted_at,
     _airbyte_meta,
     id,
-    file_data,
     created_at,
     updated_at,
     file_locator,

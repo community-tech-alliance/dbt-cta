@@ -11,7 +11,6 @@ select
     _airbyte_extracted_at,
     _airbyte_meta,
     id,
-    city,
     name,
     slug,
     notes,
