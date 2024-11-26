@@ -207,4 +207,12 @@ models:
         tests:
           - unique
           - not_null
+      - name: optouts_base
+        description: ''
+        columns:
+          - name: optOutId
+            description: ''
+            tests:
+              - unique
+              - not_null
 
