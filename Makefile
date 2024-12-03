@@ -35,7 +35,7 @@ tag:		## Add a tag to an existing Artifact.
 ##  Optional Args: TAG, GIT_HASH
 ##  
 	ifndef PROJECT_ID
-		$(error PROJECT_ID must be passed in. Example: make build PROJECT_ID=myprojectid)
+		$(error PROJECT_ID must be passed in. Example: make tag PROJECT_ID=myprojectid)
 	endif
 	echo "Adding tag: ${TAG} to Artifact: us-central1-docker.pkg.dev/${PROJECT_ID}/${ARTIFACT_NAME}/${ARTIFACT_NAME}:${GIT_HASH}"
 	gcloud artifacts docker tags add \
@@ -48,7 +48,7 @@ helper:
 
 run:  ## Run dbt with current Git Hash Artifact
 	ifndef PROJECT_ID
-		$(error PROJECT_ID must be passed in. Example: make build PROJECT_ID=myprojectid)
+		$(error PROJECT_ID must be passed in. Example: make run PROJECT_ID=myprojectid)
 	endif
 	$(call get_env_vars)
 	cd dbt-cta
