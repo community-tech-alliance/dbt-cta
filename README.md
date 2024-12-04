@@ -66,7 +66,7 @@ There is a _Dockerfile_ at the root of this repo that can be used to create a db
 - Setup Docker Authentication to Artifact Registry
     - [Documentation from GCP](https://cloud.google.com/artifact-registry/docs/docker/authentication)
     - I've had no issues using the [gcloud cli credential helper](https://cloud.google.com/artifact-registry/docs/docker/authentication#gcloud-helper)
-- If you are running the dbt locally, you mush have Docker up and running on your computer.
+- If you are running the dbt locally, you must have Docker up and running on your computer.
 
 ### Using the Makefile
 Below are the commands you can run with the Makefile. To view a summary of these on your CLI, run `make help`
