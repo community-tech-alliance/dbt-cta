@@ -10,8 +10,8 @@ sources:
   - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_pages' }}"
   - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_reports' }}"
 - name: cta
-  database: "{{ env_var('CTA_PROJECT_ID') }}"
-  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  database: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
+  schema: "{{ env_var('CTA_DATASET_ID', 'not-set') }}"
   tables:
   - name: applications_base
   - name: fields_base

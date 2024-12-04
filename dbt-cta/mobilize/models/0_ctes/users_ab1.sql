@@ -1,4 +1,4 @@
-{% set raw_table = env_var("CTA_DATASET_ID") ~ "_raw__stream_users" %}
+{% set raw_table = env_var("CTA_DATASET_ID", "not-set") ~ "_raw__stream_users" %}
 
 -- SQL model to parse JSON blob stored in a single column and extract into separated
 -- field columns as described by the JSON Schema
