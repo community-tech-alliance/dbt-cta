@@ -8,10 +8,10 @@
 -- depends_on: {{ ref('campaigns_base') }}
 select
     _airbyte_campaigns_hashid,
-    JSON_EXTRACT_SCALAR(day_part, '$.enabled') as enabled,
-    JSON_EXTRACT_SCALAR(day_part, '$.end_hour') as end_hour,
-    JSON_EXTRACT_SCALAR(day_part, '$.timezone') as timezone,
-    JSON_EXTRACT_SCALAR(day_part, '$.start_hour') as start_hour,
+    json_extract_scalar(day_part, '$.enabled') as enabled,
+    json_extract_scalar(day_part, '$.end_hour') as end_hour,
+    json_extract_scalar(day_part, '$.timezone') as timezone,
+    json_extract_scalar(day_part, '$.start_hour') as start_hour,
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
