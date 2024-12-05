@@ -15,5 +15,4 @@ select
 from {{ ref('account_native_ads_stats_creatives_ab2') }} as tmp
 -- creatives at account_native_ads_stats/creatives
 where 1 = 1
-{{ incremental_clause('_airbyte_extracted_at') }}
-
+{{ incremental_clause('_airbyte_extracted_at') }} --noqa

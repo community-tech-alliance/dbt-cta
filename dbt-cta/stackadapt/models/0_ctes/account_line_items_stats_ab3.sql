@@ -14,5 +14,5 @@ select
 from {{ ref('account_line_items_stats_ab2') }} as tmp
 -- account_line_items_stats
 where 1 = 1
-{{ incremental_clause('_airbyte_extracted_at') }}
+{{ incremental_clause('_airbyte_extracted_at') }} --noqa
 

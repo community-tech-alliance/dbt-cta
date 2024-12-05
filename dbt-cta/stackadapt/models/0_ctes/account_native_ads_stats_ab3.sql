@@ -25,5 +25,6 @@ select
 from {{ ref('account_native_ads_stats_ab2') }} as tmp
 -- account_native_ads_stats
 where 1 = 1
-{{ incremental_clause('_airbyte_extracted_at') }}
+{{ incremental_clause('_airbyte_extracted_at') }} --noqa
+
 
