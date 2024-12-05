@@ -9,11 +9,11 @@
 
 select
     _airbyte_native_ads_hashid,
-    JSON_EXTRACT_SCALAR(icon, '$.id') as id,
-    JSON_EXTRACT_SCALAR(icon, '$.url') as url,
-    JSON_EXTRACT_SCALAR(icon, '$.width') as width,
-    JSON_EXTRACT_SCALAR(icon, '$.height') as height,
-    JSON_EXTRACT_SCALAR(icon, '$.file_name') as file_name,
+    json_extract_scalar(icon, '$.id') as id,
+    json_extract_scalar(icon, '$.url') as url,
+    json_extract_scalar(icon, '$.width') as width,
+    json_extract_scalar(icon, '$.height') as height,
+    json_extract_scalar(icon, '$.file_name') as file_name,
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
