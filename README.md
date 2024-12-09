@@ -87,6 +87,7 @@ Below are the commands you can run with the Makefile. To view a summary of these
     DBT_TARGET="cta"  # Can be any available target in profiles.yml
     DBT_SELECT="tag:cta"  # Specify what models should be selected, can specify tags, model names, folders, etc..
     ```
+    There is an example .env file that you can use for inspiration. It is called `.env.example` and is at the root of the repo.
 - `make helper` - Will kickoff the `utils/cta_dbt_helper.sh` script.
 
 
