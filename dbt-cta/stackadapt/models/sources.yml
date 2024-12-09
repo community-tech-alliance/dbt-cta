@@ -2,7 +2,7 @@
 version: 2
 sources:
   - name: cta_raw
-    database: "{{ env_var('CTA_PROJECT_ID') }}"
+    database: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
     schema: airbyte_internal
     tables:
       - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_account_campaigns_stats' }}"
@@ -14,8 +14,8 @@ sources:
       - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_line_items' }}"
       - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_native_ads' }}"
   - name: cta
-    database: "{{ env_var('CTA_PROJECT_ID') }}"
-    schema: "{{ env_var('CTA_DATASET_ID') }}"
+    database: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
+    schema: "{{ env_var('CTA_DATASET_ID', 'not-set') }}"
     tables:
       - name: account_campaigns_stats_base
       - name: account_line_items_stats_base
