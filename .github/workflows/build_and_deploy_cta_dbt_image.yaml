@@ -17,7 +17,7 @@ env:
 
 jobs:
   deploy:
-    name: Deploy dbt to Google Composer
+    name: Build and Deploy cta-dbt Image
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     permissions:

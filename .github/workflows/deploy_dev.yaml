@@ -17,6 +17,5 @@ jobs:
       if: ${{ contains(github.event.pull_request.labels.*.name,'dev_deploy') }}
       with:
         environment: dev
-        tag: latest
       secrets: inherit
         
