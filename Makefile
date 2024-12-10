@@ -27,7 +27,7 @@ build:		## Start a cloud build job for dbt-cta artifact.
 	@[ "${PROJECT_ID}" ] || ( echo "PROJECT_ID must be passed in. Example: make target PROJECT_ID=myprojectid"; exit 1 )
 # Build and deploy image
 	echo "Building Artifact and Deploying to: us-central1-docker.pkg.dev/${PROJECT_ID}/${ARTIFACT_NAME}/${ARTIFACT_NAME}:${GIT_HASH}"
-	gcloud builds submit --region=us-central1 --tag us-central1-docker.pkg.dev/${PROJECT_ID}/${ARTIFACT_NAME}/${ARTIFACT_NAME}:${GIT_HASH} --gcs-log-dir=gs://${PROJECT_ID}_cloudbuild/logs/ --verbosity=debug --log-http
+	gcloud builds submit --region=us-central1 --tag us-central1-docker.pkg.dev/${PROJECT_ID}/${ARTIFACT_NAME}/${ARTIFACT_NAME}:${GIT_HASH} --gcs-log-dir=gs://${PROJECT_ID}_cloudbuild/logs/
 	echo "Successfully built ${ARTIFACT_NAME} with tag: ${GIT_HASH}"
 
 tag:		## Add a tag to an existing Artifact.
