@@ -1,0 +1,50 @@
+name: Build and Deploy cta-dbt Image
+on:
+  workflow_call:
+    inputs:
+        environment:
+          default: dev
+          required: true
+          type: string
+# Pull vars from repo and assign to env vars
+env:
+  GOOGLE_PROJECT_ID: ${{ vars.GOOGLE_PROJECT_ID }}
+  GOOGLE_SERVICE_ACCOUNT: ${{ vars.GOOGLE_SERVICE_ACCOUNT }}
+  GOOGLE_WORKLOAD_IDENTITY_PROVIDER: ${{ vars.GOOGLE_WORKLOAD_IDENTITY_PROVIDER }}
+
+jobs:
+  deploy:
+    name: Deploy dbt to Google Composer
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    steps:
+
+      #############
+      ### setup ###
+      #############
+
+      # Checkout repo, this needs to happen first
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # Keyless Auth!
+      - id: 'auth'
+        name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v0
+        with:
+          workload_identity_provider: ${{ env.GOOGLE_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ env.GOOGLE_SERVICE_ACCOUNT }}
+
+      # Set up gcloud pointing to CTA project
+      - name: Set up Cloud SDK
+        uses: 'google-github-actions/setup-gcloud@v0'
+        with:
+          project_id: ${{ env.GOOGLE_PROJECT_ID }}
+      
+      # Run Makefile Command to build and deploy image to Artifact Registry
+      - name: Build and deploy image to Artifact Registry
+        run: |
+          make build PROJECT_ID=${{ env.GOOGLE_PROJECT_ID }}
