@@ -6,6 +6,9 @@ on:
           default: dev
           required: true
           type: string
+        tag:
+          required: false
+          type: string
 # Pull vars from repo and assign to env vars
 env:
   GOOGLE_PROJECT_ID: ${{ vars.GOOGLE_PROJECT_ID }}
@@ -48,3 +51,9 @@ jobs:
       - name: Build and deploy image to Artifact Registry
         run: |
           make build PROJECT_ID=${{ env.GOOGLE_PROJECT_ID }}
+
+      # Add Tag to newly built image
+      - name: Add tag to image we just built, this is optional
+        if: "${{ inputs.tag != '' }}"
+        run: |
+          make tag PROJECT_ID=${{ env.GOOGLE_PROJECT_ID }} TAG=${{inputs.tag}}
