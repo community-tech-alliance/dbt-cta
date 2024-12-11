@@ -1,8 +1,8 @@
 version: 2
 sources:
 - name: cta
-  database: "{{ env_var('CTA_PROJECT_ID') }}"
-  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  database: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
+  schema: "{{ env_var('CTA_DATASET_ID', 'not-set') }}"
   tables:
   - name: activities_base
   - name: applicants_base
@@ -16,17 +16,17 @@ sources:
   - name: tasks_base
   - name: users_base
 - name: cta_raw
-  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  database: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
   schema: airbyte_internal
   tables:
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_activities'}}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_applicants'}}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_applicants_to_jobs'}}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_categories'}}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_categories_to_applicants'}}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_contacts'}}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_hires'}}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_jobs'}}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_questionnaire_answers'}}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_tasks'}}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_users'}}"
+  - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_activities'}}"
+  - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_applicants'}}"
+  - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_applicants_to_jobs'}}"
+  - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_categories'}}"
+  - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_categories_to_applicants'}}"
+  - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_contacts'}}"
+  - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_hires'}}"
+  - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_jobs'}}"
+  - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_questionnaire_answers'}}"
+  - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_tasks'}}"
+  - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_users'}}"
