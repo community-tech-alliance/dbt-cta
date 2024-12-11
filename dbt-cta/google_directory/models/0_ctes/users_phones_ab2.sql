@@ -10,8 +10,8 @@ select
         value as
         string
     ) as value,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     current_timestamp() as _airbyte_normalized_at
 from {{ ref('users_phones_ab1') }}
 where 1 = 1
