@@ -1,8 +1,8 @@
 version: 2
 sources:
 - name: cta
-  database: "{{ env_var('CTA_PROJECT_ID') }}"
-  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  database: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
+  schema: "{{ env_var('CTA_DATASET_ID', 'not-set') }}"
   tables: 
     - name: daily_active_users
     - name: devices
