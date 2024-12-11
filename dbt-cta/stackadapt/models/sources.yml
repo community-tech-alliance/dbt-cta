@@ -37,9 +37,3 @@ sources:
   - name: campaigns
   - name: line_items
 
-
-
-
-from {{ source('cta_delivery', 'account_native_ads_stats') }} as ad_stats
-inner join {{ source('cta_delivery', 'campaigns') }} as campaigns_base on ad_stats.campaign_id = campaigns_base.id
-inner join {{ source('cta_delivery', 'line_items') }} as line_items_base on ad_stats.line_item_id = line_items_base.id
