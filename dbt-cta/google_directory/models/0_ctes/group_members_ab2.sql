@@ -21,8 +21,8 @@ select
         email as
         string
     ) as email,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     current_timestamp() as _airbyte_normalized_at
 from {{ ref('group_members_ab1') }}
 where 1 = 1

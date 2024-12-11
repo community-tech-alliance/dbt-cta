@@ -11,14 +11,12 @@ select
     _airbyte_extracted_at,
     _airbyte_meta,
     id,
-    file_data,
     created_at,
     updated_at,
     file_locator,
     voter_registration_scan_batch_id,
    {{ dbt_utils.surrogate_key([
      'id',
-    'file_data',
     'file_locator',
     'voter_registration_scan_batch_id'
     ]) }} as _airbyte_voter_registration_scan_batch_cover_sheets_hashid

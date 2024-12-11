@@ -5,7 +5,7 @@ select * except (rownum) from
     (
         select
             *,
-            row_number() over (partition by _airbyte_creatives_hashid order by _airbyte_emitted_at desc) as rownum
+            row_number() over (partition by _airbyte_creatives_hashid order by _airbyte_extracted_at desc) as rownum
         from {{ ref('native_ads_creatives_ab3') }}
     )
 where rownum = 1

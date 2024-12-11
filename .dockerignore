@@ -1,0 +1,8 @@
+*
+!utils/
+!dbt-cta/
+!Dockerfile
+!Pipfile
+!Pipfile.lock
+!.sqlfluff
+!.sqlfluffignore
