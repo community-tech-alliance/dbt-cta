@@ -1,4 +1,4 @@
-{% set raw_table = env_var("CTA_DATASET_ID") ~ "_raw__stream_tag_canned_response" %}
+{% set raw_table = env_var("CTA_DATASET_ID", "not-set") ~ "_raw__stream_tag_canned_response" %}
 
 {{ config(
     cluster_by = "_airbyte_extracted_at",

@@ -13,8 +13,6 @@ select
     id,
     name,
     content,
-    created_at,
-    updated_at,
     created_by_user_id,
    {{ dbt_utils.surrogate_key([
      'id',
