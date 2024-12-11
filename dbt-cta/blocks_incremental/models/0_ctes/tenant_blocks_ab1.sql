@@ -13,8 +13,6 @@ select
     id,
     block_id,
     tenant_id,
-    created_at,
-    updated_at,
    {{ dbt_utils.surrogate_key([
      'id',
     'block_id',
