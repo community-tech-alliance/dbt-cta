@@ -8,3 +8,7 @@ sources:
     - name: _survey_response_raw
     - name: _universe_builder_raw
     - name: _universe_builder_raw_raw
+    - name: contact_attempt_base
+    - name: survey_response_base
+    - name: universe_builder_base
+    - name: universe_builder_raw_base
