@@ -53,8 +53,8 @@ select
     nonEditableAliases,
     cast(changePasswordAtNextLogin as boolean) as changePasswordAtNextLogin,
     cast(includeInGlobalAddressList as boolean) as includeInGlobalAddressList,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     replace(split(orgUnitPath, '/')[safe_offset(1)], '"', '') as org,
     replace(split(orgUnitPath, '/')[safe_offset(2)], '"', '') as orgSubUnit,
     current_timestamp() as _airbyte_normalized_at

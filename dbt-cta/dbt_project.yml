@@ -4,7 +4,7 @@ config-version: 2
 
 profile: 'default'
 
-model-paths: ["{{ env_var('SYNC_NAME') }}/models"]
+model-paths: ["{{ env_var('SYNC_NAME', 'not-set') }}/models"]
 packages-install-path: "dbt-packages"
 
 vars:
@@ -19,7 +19,7 @@ models:
     columns: true
   elementary:
     schema: "elementary"
-    database:  "{{ env_var('CTA_PROJECT_ID') }}"
+    database:  "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
     +enabled: false
   default:
     0_ctes:
@@ -50,15 +50,15 @@ models:
       +auto_refresh: false
       +refresh_interval_minutes: 1440
       +grant_access_to:
-        - project: "{{ env_var('CTA_PROJECT_ID') }}"
-          dataset: "{{ env_var('CTA_DATASET_ID') }}"
+        - project: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
+          dataset: "{{ env_var('CTA_DATASET_ID', 'not-set') }}"
     3_partner_views:
       +tags: 
         - partner
       +materialized: view
       +grant_access_to:
-        - project: "{{ env_var('CTA_PROJECT_ID') }}"
-          dataset: "{{ env_var('CTA_DATASET_ID') }}"
+        - project: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
+          dataset: "{{ env_var('CTA_DATASET_ID', 'not-set') }}"
 
     # These two models are specifically for google_ads,
     # which delivers raw data to the partner project instead of CTA:
@@ -82,15 +82,15 @@ models:
         - partner
       +materialized: view
       +grant_access_to:
-        - project: "{{ env_var('CTA_PROJECT_ID') }}"
-          dataset: "{{ env_var('CTA_DATASET_ID') }}"
+        - project: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
+          dataset: "{{ env_var('CTA_DATASET_ID', 'not-set'), 'not-set' }}"
     2_reporting:
       +tags:
         - partner
       +materialized: view
       +grant_access_to:
-        - project: "{{ env_var('CTA_PROJECT_ID') }}"
-          dataset: "{{ env_var('CTA_DATASET_ID') }}"
+        - project: "{{ env_var('CTA_PROJECT_ID', 'not-set'), 'not-set' }}"
+          dataset: "{{ env_var('CTA_DATASET_ID', 'not-set'), 'not-set' }}"
 
     # for testing
     0_ctes_dev:

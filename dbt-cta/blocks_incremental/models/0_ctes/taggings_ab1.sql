@@ -14,7 +14,6 @@ select
     tag_id,
     context,
     tagger_id,
-    created_at,
     taggable_id,
     tagger_type,
     taggable_type,
