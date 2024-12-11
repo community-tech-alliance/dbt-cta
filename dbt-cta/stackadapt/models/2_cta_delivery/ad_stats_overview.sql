@@ -32,6 +32,6 @@ select
     safe_cast(campaigns_base.budget as string) as campaign_budget,
     safe_cast(line_items_base.budget as string) as line_item_budget,
     safe_divide(ad_stats.page_start, ad_stats.imp) as pageview_rate
-from {{ source('cta', 'account_native_ads_stats_base') }} as ad_stats
-inner join {{ source('cta', 'campaigns_base') }} as campaigns_base on ad_stats.campaign_id = campaigns_base.id
-inner join {{ source('cta', 'line_items_base') }} as line_items_base on ad_stats.line_item_id = line_items_base.id
+from {{ ref('account_native_ads_stats') }} as ad_stats
+inner join {{ ref('campaigns') }} as campaigns_base on ad_stats.campaign_id = campaigns_base.id
+inner join {{ ref('line_items') }} as line_items_base on ad_stats.line_item_id = line_items_base.id
