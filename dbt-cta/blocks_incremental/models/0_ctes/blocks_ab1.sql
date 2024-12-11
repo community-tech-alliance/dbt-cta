@@ -12,8 +12,6 @@ select
     _airbyte_meta,
     id,
     name,
-    created_at,
-    updated_at,
    {{ dbt_utils.surrogate_key([
      'id',
     'name'
