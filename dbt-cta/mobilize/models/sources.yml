@@ -1,10 +1,10 @@
 version: 2
 sources:
 - name: cta_raw
-  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  database: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
   schema: airbyte_internal
   tables:
-    - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_affiliations' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_affiliations' }}"
       columns:
       - name: _airbyte_raw_id
         tests:
@@ -17,7 +17,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-    - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_event_co_hosts' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_event_co_hosts' }}"
       columns:
       - name: _airbyte_raw_id
         tests:
@@ -30,7 +30,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-    - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_event_tags' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_event_tags' }}"
       columns:
       - name: _airbyte_raw_id
         tests:
@@ -43,7 +43,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-    - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_events' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_events' }}"
       columns:
       - name: _airbyte_raw_id
         tests:
@@ -56,7 +56,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-    - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_organizations' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_organizations' }}"
       columns:
       - name: _airbyte_raw_id
         tests:
@@ -69,7 +69,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-    - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_participations' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_participations' }}"
       columns:
       - name: _airbyte_raw_id
         tests:
@@ -82,7 +82,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-    - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_sms_opt_ins' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_sms_opt_ins' }}"
       columns:
       - name: _airbyte_raw_id
         tests:
@@ -95,7 +95,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-    - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_timeslots' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_timeslots' }}"
       columns:
       - name: _airbyte_raw_id
         tests:
@@ -108,7 +108,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-    - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_users' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_users' }}"
       columns:
       - name: _airbyte_raw_id
         tests:
@@ -121,7 +121,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-    - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_van_events' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_van_events' }}"
       columns:
       - name: _airbyte_raw_id
         tests:
@@ -134,7 +134,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-    - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_van_locations' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_van_locations' }}"
       columns:
       - name: _airbyte_raw_id
         tests:
@@ -147,7 +147,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-    - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_van_persons' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_van_persons' }}"
       columns:
       - name: _airbyte_raw_id
         tests:
@@ -160,7 +160,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-    - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_van_shifts' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_van_shifts' }}"
       columns:
       - name: _airbyte_raw_id
         tests:
@@ -173,7 +173,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-    - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_van_signups' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_van_signups' }}"
       columns:
       - name: _airbyte_raw_id
         tests:
@@ -188,8 +188,8 @@ sources:
           - not_null
 
 - name: cta
-  database: "{{ env_var('CTA_PROJECT_ID') }}"
-  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  database: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
+  schema: "{{ env_var('CTA_DATASET_ID', 'not-set') }}"
   tables:
     - name: affiliations_base
     - name: event_co_hosts_base
