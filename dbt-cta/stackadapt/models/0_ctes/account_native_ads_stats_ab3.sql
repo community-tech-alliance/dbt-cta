@@ -1,7 +1,7 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = '_airbyte_ab_id'
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = '_airbyte_raw_id'
 ) }}
 -- SQL model to build a hash column based on the values of this record
 -- depends_on: {{ ref('account_native_ads_stats_ab2') }}
@@ -46,7 +46,7 @@ select
         'vcomp_75',
         'vcomp_95',
         'click_url',
-        array_to_string('creatives'),
+        '(SELECT STRING_AGG(TO_JSON_STRING(STRUCT(JSON_EXTRACT_SCALAR(element, \'$.url\') as url, JSON_EXTRACT_SCALAR(element, \'$.size\') as size)), \',\' ORDER BY JSON_EXTRACT_SCALAR(element, \'$.url\'), JSON_EXTRACT_SCALAR(element, \'$.size\')) FROM UNNEST(creatives) as element)',
         'line_item',
         'page_time',
         'uniq_conv',
@@ -81,5 +81,5 @@ select
 from {{ ref('account_native_ads_stats_ab2') }} as tmp
 -- account_native_ads_stats
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
+{{ incremental_clause('_airbyte_extracted_at') }}
 
