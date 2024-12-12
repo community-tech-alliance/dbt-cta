@@ -34,9 +34,9 @@ sources:
   - name: organizations_base
   - name: organizations_configuration_settings_base
 
-- name: partner
-  database: "{{ env_var('PARTNER_PROJECT_ID') }}"
-  schema: "{{ env_var('PARTNER_DATASET_ID') }}"
+- name: cta_delivery
+  database: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
+  schema: "{{ env_var('CTA_DATASET_ID', 'not-set') }}_delivery"
   tables:
   - name: ad_stats
   - name: adaccounts
