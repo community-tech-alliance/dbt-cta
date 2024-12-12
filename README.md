@@ -86,10 +86,46 @@ Below are the commands you can run with the Makefile. To view a summary of these
     SYNC_NAME=sync_name  # Example: actblue
     DBT_TARGET="cta"  # Can be any available target in profiles.yml
     DBT_SELECT="tag:cta"  # Specify what models should be selected, can specify tags, model names, folders, etc..
+    DBT_FLAGS="--full-refresh"  # (OPTIONAL) You can also pass in any extra dbt run flags with this env var just add spaces between the flags.
     ```
     There is an example .env file that you can use for inspiration. It is called `.env.example` and is at the root of the repo.
 - `make helper` - Will kickoff the `utils/cta_dbt_helper.sh` script.
 
+### Some Examples of using the Makefile
+Kicking off a new build
+
+```shell
+make build PROJECT_ID=myprojectid
+```
+
+Kicking off a build and tagging it as latest (run with multiple targets)
+
+```shell
+make build tag PROJECT_ID=myprojectid
+```
+
+Tag current Git hash image with a custom tag
+
+```shell
+make build tag PROJECT_ID=myprojectid TAG=mycooltag
+```
+
+Tag a specific Git hash image with a custom tag
+
+```shell
+make build tag PROJECT_ID=myprojectid GIT_HASH=bacf2765940b46612f8a71bsomegithash TAG=mycooltag
+```
+
+Running dbt with current Git Hash image. (Make sure you have all your vars defined in the `.env` file)
+
+```shell
+make run PROJECT_ID=myprojectid
+```
+
+Run dbt with a specific git hash image. (This will pull down the image with the specified git hash tag and run dbt with it)
+```shell
+make run PROJECT_ID=myprojectid GIT_HASH=bacf2765940b46612f8a71bsomegithash
+```
 
 ## Cleanup Scripts
 

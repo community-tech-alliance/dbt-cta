@@ -4,6 +4,6 @@ sources:
   database: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
   schema: airbyte_internal
   tables:
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_users'}}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_group_members'}}"
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_groups'}}"
+  - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_users'}}"
+  - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_group_members'}}"
+  - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_groups'}}"

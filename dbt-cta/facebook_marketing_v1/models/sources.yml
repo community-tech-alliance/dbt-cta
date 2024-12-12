@@ -91,8 +91,8 @@ sources:
   - name: ad_set_report_base
 
 - name: partner
-  database: "{{ env_var('PARTNER_PROJECT_ID') }}"
-  schema: "{{ env_var('PARTNER_DATASET_ID') }}"
+  database: "{{ env_var('PARTNER_PROJECT_ID', 'not-set') }}"
+  schema: "{{ env_var('PARTNER_DATASET_ID', 'not-set') }}"
   tables:
   - name: ads_insights_overall
   - name: ads_insights_platform_and_device
