@@ -62,7 +62,7 @@ run:		## Run dbt with current Git Hash Artifact
   -e GOOGLE_APPLICATION_CREDENTIALS=/tmp/gcloud/application_default_credentials.json \
   -v ${HOME}/.config/gcloud/application_default_credentials.json:/tmp/gcloud/application_default_credentials.json \
   us-central1-docker.pkg.dev/${PROJECT_ID}/${ARTIFACT_NAME}/${ARTIFACT_NAME}:${GIT_HASH} \
-	run --profiles-dir /dbt --target ${DBT_TARGET} --select ${DBT_SELECT}
+	run --profiles-dir /dbt --target ${DBT_TARGET} --select ${DBT_SELECT} ${DBT_FLAGS}
 
 helper:		## Run cta_dbt_helper script
 ##  
