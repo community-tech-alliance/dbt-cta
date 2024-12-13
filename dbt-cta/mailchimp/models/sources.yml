@@ -30,7 +30,7 @@ sources:
           - unique
           - not_null
 - name: partner
-  database: "{{ env_var('PARTNER_PROJECT_ID') }}"
-  schema: "{{ env_var('PARTNER_DATASET_ID') }}"
+  database: "{{ env_var('PARTNER_PROJECT_ID', 'not-set') }}"
+  schema: "{{ env_var('PARTNER_DATASET_ID', 'not-set') }}"
   tables:
   - name: campaigns
