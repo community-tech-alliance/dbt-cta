@@ -12,4 +12,10 @@ jobs:
     with:
       environment: prod
     secrets: inherit
-      
+  build_and_deploy_image:
+    uses: ./.github/workflows/build_and_deploy_cta_dbt_image.yaml
+    with:
+      environment: prod
+      tag: latest
+    secrets: inherit
+        

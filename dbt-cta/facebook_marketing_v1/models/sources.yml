@@ -1,10 +1,10 @@
 version: 2
 sources:
 - name: cta_raw
-  database: "{{ env_var('CTA_PROJECT_ID') }}"
+  database: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
   schema: airbyte_internal
   tables:
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_ad_account'}}"
+  - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_ad_account'}}"
     columns:
       - name: _airbyte_raw_id
         tests:
@@ -14,7 +14,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_ad_creatives'}}"
+  - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_ad_creatives'}}"
     columns:
       - name: _airbyte_raw_id
         tests:
@@ -24,7 +24,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_ad_sets'}}"
+  - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_ad_sets'}}"
     columns:
       - name: _airbyte_raw_id
         tests:
@@ -34,7 +34,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_ads'}}"
+  - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_ads'}}"
     columns:
       - name: _airbyte_raw_id
         tests:
@@ -44,7 +44,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_ads_insights'}}"
+  - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_ads_insights'}}"
     columns:
       - name: _airbyte_raw_id
         tests:
@@ -54,7 +54,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_ads_insights_platform_and_device'}}"
+  - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_ads_insights_platform_and_device'}}"
     columns:
       - name: _airbyte_raw_id
         tests:
@@ -64,7 +64,7 @@ sources:
       - name: _airbyte_data
         tests:
           - not_null
-  - name: "{{ env_var('CTA_DATASET_ID') ~ '_raw__stream_campaigns'}}"
+  - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_campaigns'}}"
     columns:
       - name: _airbyte_raw_id
         tests:
@@ -76,8 +76,8 @@ sources:
           - not_null
 
 - name: cta
-  database: "{{ env_var('CTA_PROJECT_ID') }}"
-  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  database: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
+  schema: "{{ env_var('CTA_DATASET_ID', 'not-set') }}"
   tables:
   - name: ads_insights_overall_base
   - name: ads_insights_platform_and_device_base
@@ -91,8 +91,8 @@ sources:
   - name: ad_set_report_base
 
 - name: partner
-  database: "{{ env_var('PARTNER_PROJECT_ID') }}"
-  schema: "{{ env_var('PARTNER_DATASET_ID') }}"
+  database: "{{ env_var('PARTNER_PROJECT_ID', 'not-set') }}"
+  schema: "{{ env_var('PARTNER_DATASET_ID', 'not-set') }}"
   tables:
   - name: ads_insights_overall
   - name: ads_insights_platform_and_device

@@ -1,10 +1,14 @@
 version: 2
 sources:
 - name: cta
-  database: "{{ env_var('CTA_PROJECT_ID') }}"
-  schema: "{{ env_var('CTA_DATASET_ID') }}"
+  database: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
+  schema: "{{ env_var('CTA_DATASET_ID', 'not-set') }}"
   tables:
     - name: _contact_attempt_raw
     - name: _survey_response_raw
     - name: _universe_builder_raw
     - name: _universe_builder_raw_raw
+    - name: contact_attempt_base
+    - name: survey_response_base
+    - name: universe_builder_base
+    - name: universe_builder_raw_base

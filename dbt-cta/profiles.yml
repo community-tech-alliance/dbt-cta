@@ -14,8 +14,8 @@ default:
       project: default
       dataset: default
     cta:
-      project: "{{ env_var('CTA_PROJECT_ID') }}"
-      dataset: "{{ env_var('CTA_DATASET_ID') }}"
+      project: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
+      dataset: "{{ env_var('CTA_DATASET_ID', 'not-set') }}"
       location: US
       method: oauth
       priority: batch
@@ -26,8 +26,8 @@ default:
       job_retries: 5
       job_retry_deadline_seconds: 1200
     cta_delivery:
-      project: "{{ env_var('CTA_PROJECT_ID') }}"
-      dataset: "{{ env_var('CTA_DATASET_ID') }}_delivery"
+      project: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
+      dataset: "{{ env_var('CTA_DATASET_ID', 'not-set') }}_delivery"
       location: US
       method: oauth
       priority: batch
@@ -38,8 +38,8 @@ default:
       job_retries: 5
       job_retry_deadline_seconds: 1200
     cta_1_thread:
-      project: "{{ env_var('CTA_PROJECT_ID') }}"
-      dataset: "{{ env_var('CTA_DATASET_ID') }}"
+      project: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
+      dataset: "{{ env_var('CTA_DATASET_ID', 'not-set') }}"
       location: US
       method: oauth
       priority: batch
@@ -50,8 +50,8 @@ default:
       job_retries: 5
       job_retry_deadline_seconds: 1200
     partner:
-      project: "{{ env_var('PARTNER_PROJECT_ID') }}"
-      dataset: "{{ env_var('PARTNER_DATASET_ID') }}"
+      project: "{{ env_var('PARTNER_PROJECT_ID', 'not-set') }}"
+      dataset: "{{ env_var('PARTNER_DATASET_ID', 'not-set') }}"
       location: US
       method: oauth
       priority: batch
@@ -66,6 +66,6 @@ elementary:
     default:
       type: bigquery
       method: oauth
-      project: "{{ env_var('CTA_PROJECT_ID') }}"
+      project: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
       dataset: elementary
       threads: 4 
