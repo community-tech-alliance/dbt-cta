@@ -13,6 +13,6 @@ select
     MetaData,
     domain,
     Id,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_tax_rates_hashid
 from {{ source('cta','tax_rates_base') }}

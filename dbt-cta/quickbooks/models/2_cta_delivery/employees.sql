@@ -25,6 +25,6 @@ select
     Id,
     ReleasedDate,
     BirthDate,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_employees_hashid
 from {{ source('cta','employees_base') }}

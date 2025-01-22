@@ -1,10 +1,11 @@
+{% set raw_table = env_var("CTA_DATASET_ID", "not-set") ~ "_raw__stream_vendors" %}
+
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_ab_id"
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_raw_id"
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('cta', '_airbyte_raw_vendors') }}
 select
     {{ json_extract('table_alias', '_airbyte_data', ['CurrencyRef'], ['CurrencyRef']) }} as CurrencyRef,
     {{ json_extract_scalar('_airbyte_data', ['Vendor1099'], ['Vendor1099']) }} as Vendor1099,
@@ -32,9 +33,9 @@ select
     {{ json_extract_scalar('_airbyte_data', ['Id'], ['Id']) }} as Id,
     {{ json_extract('table_alias', '_airbyte_data', ['Fax'], ['Fax']) }} as Fax,
     {{ json_extract_scalar('_airbyte_data', ['Balance'], ['Balance']) }} as Balance,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_vendors') }} as table_alias
+from {{ source('cta_raw', raw_table) }} as table_alias
 -- vendors
 where 1 = 1

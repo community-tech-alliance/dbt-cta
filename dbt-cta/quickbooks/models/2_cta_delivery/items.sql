@@ -20,6 +20,6 @@ select
     InvStartDate,
     Id,
     Taxable,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_items_hashid
 from {{ source('cta','items_base') }}

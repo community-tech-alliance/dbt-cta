@@ -17,6 +17,6 @@ select
     CheckPayment,
     Id,
     VendorRef,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_bill_payments_hashid
 from {{ source('cta','bill_payments_base') }}

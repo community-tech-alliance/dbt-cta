@@ -1,7 +1,7 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_ab_id"
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_raw_id"
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ ref('budgets_base') }}
@@ -14,8 +14,8 @@ select
     {{ json_extract_scalar(unnested_column_value('BudgetDetail'), ['BudgetDate'], ['BudgetDate']) }} as BudgetDate,
     {{ json_extract('', unnested_column_value('BudgetDetail'), ['CustomerRef'], ['CustomerRef']) }} as CustomerRef,
     {{ json_extract('', unnested_column_value('BudgetDetail'), ['DepartmentRef'], ['DepartmentRef']) }} as DepartmentRef,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('budgets_base') }}
 -- BudgetDetail at budgets/BudgetDetail

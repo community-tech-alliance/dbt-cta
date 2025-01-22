@@ -16,6 +16,6 @@ select
     ItemRef,
     CustomerRef,
     Taxable,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_time_activities_hashid
 from {{ source('cta','time_activities_base') }}

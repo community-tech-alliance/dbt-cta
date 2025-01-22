@@ -9,6 +9,6 @@ select
     DisplayName,
     Id,
     TaxTrackedOnSales,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_tax_agencies_hashid
 from {{ source('cta','tax_agencies_base') }}

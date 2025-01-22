@@ -11,9 +11,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -31,9 +31,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -55,9 +55,9 @@ models:
         description: ''
       - name: taxpercent
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -75,9 +75,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -95,9 +95,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -141,9 +141,9 @@ models:
         description: ''
       - name: discountpercent
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -161,9 +161,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -181,9 +181,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -201,9 +201,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -221,9 +221,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -241,9 +241,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -259,9 +259,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -277,9 +277,9 @@ models:
         description: ''
       - name: totaltax
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -295,9 +295,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -315,9 +315,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -335,9 +335,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -355,9 +355,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -375,9 +375,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -395,9 +395,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -431,9 +431,9 @@ models:
           - unique
       - name: name
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -451,9 +451,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -477,9 +477,9 @@ models:
         description: ''
       - name: JournalEntryLineDetail
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -495,9 +495,9 @@ models:
         description: ''
       - name: address
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -515,9 +515,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -535,9 +535,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -555,9 +555,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -575,9 +575,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -595,9 +595,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -613,9 +613,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -633,9 +633,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -717,9 +717,9 @@ models:
         description: ''
       - name: taxable
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -735,9 +735,9 @@ models:
         description: ''
       - name: freeformnumber
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -755,9 +755,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -801,9 +801,9 @@ models:
         description: ''
       - name: privatenote
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -821,9 +821,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -841,9 +841,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -863,9 +863,9 @@ models:
         description: ''
       - name: name
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -881,9 +881,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -921,9 +921,9 @@ models:
         description: ''
       - name: budgetentrytype
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -941,9 +941,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -961,9 +961,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1033,9 +1033,9 @@ models:
         description: ''
       - name: TxnTaxDetail
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1063,9 +1063,9 @@ models:
         description: ''
       - name: line3
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1083,9 +1083,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1101,9 +1101,9 @@ models:
         description: ''
       - name: deliverytype
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1119,9 +1119,9 @@ models:
         description: ''
       - name: any
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1139,9 +1139,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1157,9 +1157,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1225,9 +1225,9 @@ models:
         description: ''
       - name: birthdate
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1249,9 +1249,9 @@ models:
         description: ''
       - name: taxpercent
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1273,9 +1273,9 @@ models:
         description: ''
       - name: name
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1291,9 +1291,9 @@ models:
         description: ''
       - name: deliverytype
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1313,9 +1313,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1331,9 +1331,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1351,9 +1351,9 @@ models:
         description: ''
       - name: txntype
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1369,9 +1369,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1389,9 +1389,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1409,9 +1409,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1429,9 +1429,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1451,9 +1451,9 @@ models:
         description: ''
       - name: taxline
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1471,9 +1471,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1493,9 +1493,9 @@ models:
         description: ''
       - name: taxline
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1511,9 +1511,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1531,9 +1531,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1549,9 +1549,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1601,9 +1601,9 @@ models:
         description: ''
       - name: accountsubtype
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1633,9 +1633,9 @@ models:
         description: ''
       - name: line3
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1657,9 +1657,9 @@ models:
         description: ''
       - name: ItemRef
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1679,9 +1679,9 @@ models:
         description: ''
       - name: amount
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1697,9 +1697,9 @@ models:
         description: ''
       - name: address
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1717,9 +1717,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1737,9 +1737,9 @@ models:
         description: ''
       - name: txntype
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1757,9 +1757,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1775,9 +1775,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1797,9 +1797,9 @@ models:
         description: ''
       - name: taxline
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1841,9 +1841,9 @@ models:
           - unique
       - name: taxable
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1861,9 +1861,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1881,9 +1881,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1901,9 +1901,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1921,9 +1921,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1941,9 +1941,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1961,9 +1961,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -1983,9 +1983,9 @@ models:
         description: ''
       - name: name
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2003,9 +2003,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2021,9 +2021,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2039,9 +2039,9 @@ models:
         description: ''
       - name: totaltax
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2057,9 +2057,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2089,9 +2089,9 @@ models:
         description: ''
         tests:
           - unique
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2107,9 +2107,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2127,9 +2127,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2159,9 +2159,9 @@ models:
         description: ''
       - name: line3
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2179,9 +2179,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2199,9 +2199,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2219,9 +2219,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2239,9 +2239,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2269,9 +2269,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2301,9 +2301,9 @@ models:
         description: ''
       - name: line3
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2335,9 +2335,9 @@ models:
         description: ''
       - name: lat
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2353,9 +2353,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2371,9 +2371,9 @@ models:
         description: ''
       - name: address
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2401,9 +2401,9 @@ models:
         description: ''
         tests:
           - unique
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2421,9 +2421,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2441,9 +2441,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2479,9 +2479,9 @@ models:
         description: ''
       - name: line3
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2547,9 +2547,9 @@ models:
         description: ''
       - name: TxnTaxDetail
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2567,9 +2567,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2585,9 +2585,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2605,9 +2605,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2633,9 +2633,9 @@ models:
         description: ''
       - name: id
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2653,9 +2653,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2683,9 +2683,9 @@ models:
         description: ''
         tests:
           - unique
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2703,9 +2703,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2721,9 +2721,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2741,9 +2741,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2763,9 +2763,9 @@ models:
         description: ''
       - name: name
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2783,9 +2783,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2851,9 +2851,9 @@ models:
         description: ''
       - name: balance
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2871,9 +2871,9 @@ models:
         description: ''
       - name: txntype
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2907,9 +2907,9 @@ models:
           - unique
       - name: taxtrackedonsales
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2927,9 +2927,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2955,9 +2955,9 @@ models:
         description: ''
       - name: ItemRef
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -2999,9 +2999,9 @@ models:
           - unique
       - name: VendorRef
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3019,9 +3019,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3039,9 +3039,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3059,9 +3059,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3079,9 +3079,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3097,9 +3097,9 @@ models:
         description: ''
       - name: freeformnumber
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3129,9 +3129,9 @@ models:
         description: ''
       - name: linkedtxn
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3149,9 +3149,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3167,9 +3167,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3187,9 +3187,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3209,9 +3209,9 @@ models:
         description: ''
       - name: checknum
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3227,9 +3227,9 @@ models:
         description: ''
       - name: address
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3247,9 +3247,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3271,9 +3271,9 @@ models:
         description: ''
       - name: ItemRef
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3289,9 +3289,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3339,9 +3339,9 @@ models:
         description: ''
       - name: taxable
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3357,9 +3357,9 @@ models:
         description: ''
       - name: address
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3429,9 +3429,9 @@ models:
         description: ''
       - name: TxnTaxDetail
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3449,9 +3449,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3467,9 +3467,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3485,9 +3485,9 @@ models:
         description: ''
       - name: totaltax
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3505,9 +3505,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3527,9 +3527,9 @@ models:
         description: ''
       - name: amount
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3547,9 +3547,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3565,9 +3565,9 @@ models:
         description: ''
       - name: freeformnumber
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3585,9 +3585,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3605,9 +3605,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3627,9 +3627,9 @@ models:
         description: ''
       - name: memo
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3645,9 +3645,9 @@ models:
         description: ''
       - name: uri
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3701,9 +3701,9 @@ models:
         description: ''
       - name: privatenote
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3721,9 +3721,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3741,9 +3741,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3785,9 +3785,9 @@ models:
         description: ''
         tests:
           - unique
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3805,9 +3805,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3825,9 +3825,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3845,9 +3845,9 @@ models:
         description: ''
       - name: txntype
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3881,9 +3881,9 @@ models:
         description: ''
       - name: line3
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3909,9 +3909,9 @@ models:
         description: ''
       - name: id
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3927,9 +3927,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3947,9 +3947,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3967,9 +3967,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -3987,9 +3987,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4007,9 +4007,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4027,9 +4027,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4047,9 +4047,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4105,9 +4105,9 @@ models:
           - unique
       - name: taxable
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4131,9 +4131,9 @@ models:
         description: ''
       - name: customerref
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4151,9 +4151,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4171,9 +4171,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4191,9 +4191,9 @@ models:
         description: ''
       - name: BankAccountRef
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4211,9 +4211,9 @@ models:
         description: ''
       - name: txntype
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4231,9 +4231,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4261,9 +4261,9 @@ models:
         description: ''
       - name: customerref
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4281,9 +4281,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4301,9 +4301,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4321,9 +4321,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4339,9 +4339,9 @@ models:
         description: ''
       - name: freeformnumber
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4359,9 +4359,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4379,9 +4379,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4399,9 +4399,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4433,9 +4433,9 @@ models:
         description: ''
       - name: lat
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4515,9 +4515,9 @@ models:
         description: ''
       - name: TxnTaxDetail
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4533,9 +4533,9 @@ models:
         description: ''
       - name: CCAccountRef
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4553,9 +4553,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4623,9 +4623,9 @@ models:
         description: ''
       - name: TxnTaxDetail
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4643,9 +4643,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4663,9 +4663,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4689,9 +4689,9 @@ models:
         description: ''
       - name: ItemRef
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4729,9 +4729,9 @@ models:
           - unique
       - name: privatenote
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4751,9 +4751,9 @@ models:
         description: ''
       - name: txnlineid
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4815,9 +4815,9 @@ models:
         description: ''
       - name: TxnTaxDetail
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4835,9 +4835,9 @@ models:
         description: ''
       - name: name
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4857,9 +4857,9 @@ models:
         description: ''
       - name: discountpercent
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4879,9 +4879,9 @@ models:
         description: ''
       - name: name
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4901,9 +4901,9 @@ models:
         description: ''
       - name: discountpercent
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4921,9 +4921,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4955,9 +4955,9 @@ models:
           - unique
       - name: name
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4973,9 +4973,9 @@ models:
         description: ''
       - name: freeformnumber
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -4993,9 +4993,9 @@ models:
         description: ''
       - name: txntype
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5011,9 +5011,9 @@ models:
         description: ''
       - name: address
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5033,9 +5033,9 @@ models:
         description: ''
       - name: linkedtxn
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5053,9 +5053,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5073,9 +5073,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5093,9 +5093,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5119,9 +5119,9 @@ models:
         description: ''
       - name: ItemRef
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5139,9 +5139,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5159,9 +5159,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5177,9 +5177,9 @@ models:
         description: ''
       - name: any
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5197,9 +5197,9 @@ models:
         description: ''
       - name: name
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5217,9 +5217,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5235,9 +5235,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5255,9 +5255,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5273,9 +5273,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5305,9 +5305,9 @@ models:
         description: ''
       - name: lat
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5325,9 +5325,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5345,9 +5345,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5365,9 +5365,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5385,9 +5385,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5405,9 +5405,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5461,9 +5461,9 @@ models:
         description: ''
       - name: linkedtxn
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5481,9 +5481,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5503,9 +5503,9 @@ models:
         description: ''
       - name: taxtypeapplicable
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5533,9 +5533,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5553,9 +5553,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5585,9 +5585,9 @@ models:
         description: ''
       - name: lat
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5619,9 +5619,9 @@ models:
         description: ''
       - name: lat
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5637,9 +5637,9 @@ models:
         description: ''
       - name: freeformnumber
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5657,9 +5657,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5679,9 +5679,9 @@ models:
         description: ''
       - name: name
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5699,9 +5699,9 @@ models:
         description: ''
       - name: accountref
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5731,9 +5731,9 @@ models:
         description: ''
       - name: lat
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5755,9 +5755,9 @@ models:
         description: ''
       - name: customerref
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5785,9 +5785,9 @@ models:
         description: ''
         tests:
           - unique
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5805,9 +5805,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5825,9 +5825,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5845,9 +5845,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5879,9 +5879,9 @@ models:
         description: ''
       - name: lat
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5899,9 +5899,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5917,9 +5917,9 @@ models:
         description: ''
       - name: TaxRateDetail
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5935,9 +5935,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5955,9 +5955,9 @@ models:
         description: ''
       - name: txntype
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -5983,9 +5983,9 @@ models:
         description: ''
       - name: taxpercent
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6015,9 +6015,9 @@ models:
         description: ''
       - name: line3
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6035,9 +6035,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6055,9 +6055,9 @@ models:
         description: ''
       - name: txntype
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6073,9 +6073,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6093,9 +6093,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6113,9 +6113,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6133,9 +6133,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6189,9 +6189,9 @@ models:
         description: ''
       - name: linkedtxn
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6207,9 +6207,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6227,9 +6227,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6247,9 +6247,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6275,9 +6275,9 @@ models:
         description: ''
       - name: DepartmentRef
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6295,9 +6295,9 @@ models:
         description: ''
       - name: linkedtxn
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6313,9 +6313,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6359,9 +6359,9 @@ models:
         description: ''
       - name: TxnTaxDetail
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6377,9 +6377,9 @@ models:
         description: ''
       - name: address
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6395,9 +6395,9 @@ models:
         description: ''
       - name: freeformnumber
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6419,9 +6419,9 @@ models:
         description: ''
       - name: customerref
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6437,9 +6437,9 @@ models:
         description: ''
       - name: uri
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6457,9 +6457,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6479,9 +6479,9 @@ models:
         description: ''
       - name: amount
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6515,9 +6515,9 @@ models:
           - unique
       - name: name
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6535,9 +6535,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6555,9 +6555,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6573,9 +6573,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6591,9 +6591,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6611,9 +6611,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6639,9 +6639,9 @@ models:
         description: ''
       - name: linkedtxn
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6691,9 +6691,9 @@ models:
           - unique
       - name: VendorRef
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6711,9 +6711,9 @@ models:
         description: ''
       - name: txntype
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6731,9 +6731,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6755,9 +6755,9 @@ models:
         description: ''
       - name: ItemRef
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6779,9 +6779,9 @@ models:
         description: ''
       - name: ItemRef
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6807,9 +6807,9 @@ models:
         description: ''
       - name: id
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6827,9 +6827,9 @@ models:
         description: ''
       - name: value
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6847,9 +6847,9 @@ models:
         description: ''
       - name: lastupdatedtime
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6877,9 +6877,9 @@ models:
         description: ''
       - name: lat
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''
@@ -6907,9 +6907,9 @@ models:
         description: ''
       - name: id
         description: ''
-      - name: _airbyte_ab_id
+      - name: _airbyte_raw_id
         description: ''
-      - name: _airbyte_emitted_at
+      - name: _airbyte_extracted_at
         description: ''
       - name: _airbyte_normalized_at
         description: ''

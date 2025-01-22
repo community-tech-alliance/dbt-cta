@@ -11,6 +11,6 @@ select
     BudgetType,
     Name,
     BudgetEntryType,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_budgets_hashid
 from {{ source('cta','budgets_base') }}

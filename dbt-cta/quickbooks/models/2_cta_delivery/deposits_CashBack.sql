@@ -3,6 +3,6 @@ select
     Amount,
     AccountRef,
     Memo,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_CashBack_hashid
 from {{ source('cta','deposits_CashBack_base') }}

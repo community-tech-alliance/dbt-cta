@@ -7,6 +7,6 @@ select
     Qty,
     ItemRef,
     CustomerRef,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_ItemBasedExpenseLineDetail_hashid
 from {{ source('cta','purchase_orders_Line_ItemBasedExpenseLineDetail_base') }}

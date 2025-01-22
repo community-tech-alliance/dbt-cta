@@ -32,6 +32,6 @@ select
     Balance,
     ApplyTaxAfterDiscount,
     TxnTaxDetail,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_invoices_hashid
 from {{ source('cta','invoices_base') }}

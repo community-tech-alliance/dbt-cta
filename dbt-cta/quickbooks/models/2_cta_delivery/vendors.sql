@@ -25,6 +25,6 @@ select
     Id,
     Fax,
     Balance,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_vendors_hashid
 from {{ source('cta','vendors_base') }}

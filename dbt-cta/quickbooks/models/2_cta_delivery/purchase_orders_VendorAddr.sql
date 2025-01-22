@@ -9,6 +9,6 @@ select
     Lat,
     Line2,
     Line3,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_VendorAddr_hashid
 from {{ source('cta','purchase_orders_VendorAddr_base') }}

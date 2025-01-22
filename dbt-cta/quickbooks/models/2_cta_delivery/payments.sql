@@ -19,6 +19,6 @@ select
     CustomerRef,
     PrivateNote,
     LinkedTxn,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_payments_hashid
 from {{ source('cta','payments_base') }}
