@@ -6,6 +6,6 @@ select
     Amount,
     SalesItemLineDetail,
     Id,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_Line_hashid
 from {{ source('cta','credit_memos_Line_base') }}

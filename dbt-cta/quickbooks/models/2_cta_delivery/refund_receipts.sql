@@ -23,6 +23,6 @@ select
     BillEmail,
     ApplyTaxAfterDiscount,
     TxnTaxDetail,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_refund_receipts_hashid
 from {{ source('cta','refund_receipts_base') }}

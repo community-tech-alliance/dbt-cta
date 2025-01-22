@@ -33,6 +33,6 @@ select
     Fax,
     Balance,
     Taxable,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_customers_hashid
 from {{ source('cta','customers_base') }}

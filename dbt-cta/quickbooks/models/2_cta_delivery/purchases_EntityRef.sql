@@ -3,6 +3,6 @@ select
     name,
     type,
     value,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_EntityRef_hashid
 from {{ source('cta','purchases_EntityRef_base') }}

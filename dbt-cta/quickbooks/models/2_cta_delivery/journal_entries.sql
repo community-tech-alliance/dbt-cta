@@ -14,6 +14,6 @@ select
     Id,
     PrivateNote,
     TxnTaxDetail,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_journal_entries_hashid
 from {{ source('cta','journal_entries_base') }}

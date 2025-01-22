@@ -14,6 +14,6 @@ select
     Id,
     CashBack,
     PrivateNote,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_deposits_hashid
 from {{ source('cta','deposits_base') }}

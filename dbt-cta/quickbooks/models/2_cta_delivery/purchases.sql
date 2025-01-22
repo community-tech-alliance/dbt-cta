@@ -19,6 +19,6 @@ select
     PrintStatus,
     EntityRef,
     PrivateNote,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_purchases_hashid
 from {{ source('cta','purchases_base') }}

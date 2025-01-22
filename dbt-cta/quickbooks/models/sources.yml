@@ -1,37 +1,41 @@
 version: 2
 sources:
+- name: cta_raw
+  database: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
+  schema: airbyte_internal
+  tables:
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_accounts' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_bill_payments' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_bills' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_budgets' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_classes' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_credit_memos' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_customers' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_departments' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_deposits' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_employees' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_estimates' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_invoices' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_items' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_journal_entries' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_payment_methods' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_payments' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_purchase_orders' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_purchases' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_refund_receipts' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_sales_receipts' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_tax_agencies' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_tax_codes' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_tax_rates' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_terms' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_time_activities' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_transfers' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_vendor_credits' }}"
+    - name: "{{ env_var('CTA_DATASET_ID', 'not-set') ~ '_raw__stream_vendors' }}"
 - name: cta
   database: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
   schema: "{{ env_var('CTA_DATASET_ID', 'not-set') }}"
   tables:
-  - name: _airbyte_raw_accounts
-  - name: _airbyte_raw_bill_payments
-  - name: _airbyte_raw_bills
-  - name: _airbyte_raw_budgets
-  - name: _airbyte_raw_classes
-  - name: _airbyte_raw_credit_memos
-  - name: _airbyte_raw_customers
-  - name: _airbyte_raw_departments
-  - name: _airbyte_raw_deposits
-  - name: _airbyte_raw_employees
-  - name: _airbyte_raw_estimates
-  - name: _airbyte_raw_invoices
-  - name: _airbyte_raw_items
-  - name: _airbyte_raw_journal_entries
-  - name: _airbyte_raw_payment_methods
-  - name: _airbyte_raw_payments
-  - name: _airbyte_raw_purchase_orders
-  - name: _airbyte_raw_purchases
-  - name: _airbyte_raw_refund_receipts
-  - name: _airbyte_raw_sales_receipts
-  - name: _airbyte_raw_tax_agencies
-  - name: _airbyte_raw_tax_codes
-  - name: _airbyte_raw_tax_rates
-  - name: _airbyte_raw_terms
-  - name: _airbyte_raw_time_activities
-  - name: _airbyte_raw_transfers
-  - name: _airbyte_raw_vendor_credits
-  - name: _airbyte_raw_vendors
   - name: accounts_base
   - name: accounts_CurrencyRef_base
   - name: accounts_MetaData_base

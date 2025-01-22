@@ -17,6 +17,6 @@ select
     Id,
     AcctNum,
     AccountSubType,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_accounts_hashid
 from {{ source('cta','accounts_base') }}

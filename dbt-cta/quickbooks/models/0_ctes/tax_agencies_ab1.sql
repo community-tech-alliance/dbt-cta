@@ -1,10 +1,11 @@
+{% set raw_table = env_var("CTA_DATASET_ID", "not-set") ~ "_raw__stream_tax_agencies" %}
+
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_ab_id"
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_raw_id"
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
--- depends_on: {{ source('cta', '_airbyte_raw_tax_agencies') }}
 select
     {{ json_extract_scalar('_airbyte_data', ['SyncToken'], ['SyncToken']) }} as SyncToken,
     {{ json_extract_scalar('_airbyte_data', ['TaxTrackedOnPurchases'], ['TaxTrackedOnPurchases']) }} as TaxTrackedOnPurchases,
@@ -16,9 +17,9 @@ select
     {{ json_extract_scalar('_airbyte_data', ['DisplayName'], ['DisplayName']) }} as DisplayName,
     {{ json_extract_scalar('_airbyte_data', ['Id'], ['Id']) }} as Id,
     {{ json_extract_scalar('_airbyte_data', ['TaxTrackedOnSales'], ['TaxTrackedOnSales']) }} as TaxTrackedOnSales,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ source('cta', '_airbyte_raw_tax_agencies') }} as table_alias
+from {{ source('cta_raw', raw_table) }} as table_alias
 -- tax_agencies
 where 1 = 1

@@ -13,6 +13,6 @@ select
     APAccountRef,
     Id,
     VendorRef,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_vendor_credits_hashid
 from {{ source('cta','vendor_credits_base') }}

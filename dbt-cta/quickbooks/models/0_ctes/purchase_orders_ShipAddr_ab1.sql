@@ -1,7 +1,7 @@
 {{ config(
-    cluster_by = "_airbyte_emitted_at",
-    partition_by = {"field": "_airbyte_emitted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_ab_id"
+    cluster_by = "_airbyte_extracted_at",
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_airbyte_raw_id"
 ) }}
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ ref('purchase_orders_base') }}
@@ -13,8 +13,8 @@ select
     {{ json_extract_scalar('ShipAddr', ['Lat'], ['Lat']) }} as Lat,
     {{ json_extract_scalar('ShipAddr', ['Line2'], ['Line2']) }} as Line2,
     {{ json_extract_scalar('ShipAddr', ['Line3'], ['Line3']) }} as Line3,
-    _airbyte_ab_id,
-    _airbyte_emitted_at,
+    _airbyte_raw_id,
+    _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
 from {{ ref('purchase_orders_base') }}
 -- ShipAddr at purchase_orders/ShipAddr

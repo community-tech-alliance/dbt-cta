@@ -26,6 +26,6 @@ select
     Balance,
     ApplyTaxAfterDiscount,
     TxnTaxDetail,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_credit_memos_hashid
 from {{ source('cta','credit_memos_base') }}

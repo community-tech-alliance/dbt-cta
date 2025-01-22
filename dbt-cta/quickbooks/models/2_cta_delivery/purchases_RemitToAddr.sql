@@ -7,6 +7,6 @@ select
     City,
     Line1,
     Lat,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_RemitToAddr_hashid
 from {{ source('cta','purchases_RemitToAddr_base') }}

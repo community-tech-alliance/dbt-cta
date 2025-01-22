@@ -7,6 +7,6 @@ select
     name,
     declaredType,
     value,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_any_hashid
 from {{ source('cta','purchases_PurchaseEx_any_base') }}

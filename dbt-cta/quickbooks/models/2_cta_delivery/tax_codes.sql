@@ -13,6 +13,6 @@ select
     Hidden,
     Id,
     Taxable,
-    _airbyte_emitted_at,
+    _airbyte_extracted_at,
     _airbyte_tax_codes_hashid
 from {{ source('cta','tax_codes_base') }}
