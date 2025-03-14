@@ -15,6 +15,7 @@ select
     cast(`organization_id` as string) as organization_id,
     cast(`updated_at` as timestamp) as updated_at,
     cast(`id` as string) as id,
+    cast(`status` as string) as status,
     to_hex(md5(concat(
         `body`,
         `sending_broadcast_id`,
@@ -27,7 +28,8 @@ select
         `lead_id`,
         `organization_id`,
         `updated_at`,
-        `id`
+        `id`,
+        `status`
     ))) as _cta_hashid,
     current_timestamp() as _cta_sync_datetime_utc
 from {{ source('cta', '_inbox_messages_raw') }}
