@@ -24,11 +24,12 @@ jobs:
         environment: dev
         steps:
             - uses: actions/checkout@v4
-            - name: Get all changed sql files
+            - name: Get changed sql files
               id: changed-sql-files
-              uses: tj-actions/changed-files@v45
+              uses: community-tech-alliance/.github/workflow-templates/get-changed-files.yml@main
               with:
-                files: dbt-cta/**/*.sql
+                file-type: sql
+                environment: dev
             - name: Setup python
               uses: actions/setup-python@v5
               with:
