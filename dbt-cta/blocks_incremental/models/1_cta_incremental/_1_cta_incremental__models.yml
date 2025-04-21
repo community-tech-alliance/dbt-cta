@@ -197,8 +197,6 @@ models:
         description: ''
       - name: ready_at
         description: ''
-      - name: packet_id
-        description: ''
       - name: created_at
         description: ''
       - name: trigger_id
@@ -209,11 +207,9 @@ models:
         description: ''
       - name: reviewed_at
         description: ''
-      - name: canvasser_id
-        description: ''
       - name: completed_at
         description: ''
-      - name: triggered_by_shift_id
+      - name: shift_id
         description: ''
       - name: _airbyte_quality_control_flags_hashid
         description: ''
@@ -253,11 +249,11 @@ models:
         description: ''
       - name: file_data
         description: ''
-      - name: file_hash
-        description: ''
       - name: separated
         description: ''
       - name: created_at
+        description: ''
+      - name: updated_at
         description: ''
       - name: assignee_id
         description: ''
@@ -274,8 +270,6 @@ models:
       - name: original_filename
         description: ''
       - name: created_by_user_id
-        description: ''
-      - name: scans_need_delivery
         description: ''
       - name: scans_with_phones_count
         description: ''
@@ -763,13 +757,13 @@ models:
         description: ''
       - name: threshold_value
         description: ''
-      - name: minimum_scan_count
-        description: ''
       - name: default_action_plan
         description: ''
       - name: implies_canvasser_issue
         description: ''
       - name: threshold_range_in_days
+        description: ''
+      - name: visual_review_implication
         description: ''
       - name: visual_review_response_id
         description: ''
@@ -780,6 +774,8 @@ models:
       - name: canvasser_collection_threshold
         description: ''
       - name: phone_verification_question_id
+        description: ''
+      - name: minimum_form_count
         description: ''
       - name: _airbyte_quality_control_flag_triggers_hashid
         description: ''

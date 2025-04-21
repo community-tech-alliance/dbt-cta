@@ -27,10 +27,8 @@ select
      'id',
     'notes',
     'status',
-    'packet_id',
     'trigger_id',
     'action_plan',
-    'canvasser_id',
-    'triggered_by_shift_id'
+    'shift_id',
     ]) }} as _airbyte_quality_control_flags_hashid
 from {{ source('cta', 'quality_control_flags') }}
