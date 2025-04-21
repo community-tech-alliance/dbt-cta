@@ -31,7 +31,6 @@ select
     'ocr',
     'shift_id',
     'file_data',
-    'file_hash',
     'separated',
     'assignee_id',
     'qc_deadline',
