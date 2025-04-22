@@ -19,6 +19,7 @@ select
     field_end,
     locked_at,
     shift_end,
+    delivered,
     created_at,
     shift_type,
     updated_at,
