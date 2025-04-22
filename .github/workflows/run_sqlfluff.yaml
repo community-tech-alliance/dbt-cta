@@ -26,9 +26,9 @@ jobs:
             - uses: actions/checkout@v4
             - name: Get changed sql files
               id: changed-sql-files
-              uses: community-tech-alliance/.github/workflows/get-changed-files.yaml@main
+              uses: community-tech-alliance/.github/get-changed-files/action.yaml@main
               with:
-                file-type: dbt-cta/**/*.sql
+                file-filter: dbt-cta/**/*.sql
                 environment: dev
             - name: Setup python
               uses: actions/setup-python@v5
