@@ -27,7 +27,7 @@ jobs:
               id: changed-sql-files
               uses: community-tech-alliance/.github/get-changed-files@main
               with:
-                # file-filter: dbt-cta/**/*.sql
+                file-filter: dbt-cta/**/*.sql
                 environment: dev
             - name: Setup python
               uses: actions/setup-python@v5
