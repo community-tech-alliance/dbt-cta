@@ -19,6 +19,7 @@ select
     group_id,
     reply_to,
     tag_list,
+    stream_id,
     permalink,
     send_date,
     timezones,
