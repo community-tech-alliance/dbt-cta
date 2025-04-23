@@ -25,7 +25,7 @@ jobs:
         steps:
             - name: Get changed sql files
               id: changed-sql-files
-              uses: community-tech-alliance/.github/get-changed-files@main
+              uses: community-tech-alliance/.github/actions/get-changed-files@main
               with:
                 file-filter: dbt-cta/**/*.sql
                 environment: dev
