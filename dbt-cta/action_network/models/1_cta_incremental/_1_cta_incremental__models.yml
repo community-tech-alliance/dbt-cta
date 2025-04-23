@@ -4944,6 +4944,8 @@ models:
         description: ''
       - name: tag_list
         description: ''
+      - name: stream_id
+        description: ''
       - name: permalink
         description: ''
       - name: send_date
