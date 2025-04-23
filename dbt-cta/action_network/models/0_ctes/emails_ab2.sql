@@ -19,6 +19,7 @@ select
     cast(group_id as {{ dbt_utils.type_bigint() }}) as group_id,
     cast(reply_to as {{ dbt_utils.type_string() }}) as reply_to,
     cast(tag_list as {{ dbt_utils.type_string() }}) as tag_list,
+    cast(tag_list as {{ dbt_utils.type_string() }}) as stream_id,
     cast(permalink as {{ dbt_utils.type_string() }}) as permalink,
     cast(send_date as {{ dbt_utils.type_string() }}) as send_date,
     cast(timezones as {{ dbt_utils.type_string() }}) as timezones,
