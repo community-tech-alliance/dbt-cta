@@ -21,6 +21,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['group_id'], ['group_id']) }} as group_id,
     {{ json_extract_scalar('_airbyte_data', ['reply_to'], ['reply_to']) }} as reply_to,
     {{ json_extract_scalar('_airbyte_data', ['tag_list'], ['tag_list']) }} as tag_list,
+    {{ json_extract_scalar('_airbyte_data', ['stream_id'], ['stream_id']) }} as stream_id,
     {{ json_extract_scalar('_airbyte_data', ['permalink'], ['permalink']) }} as permalink,
     {{ json_extract_scalar('_airbyte_data', ['send_date'], ['send_date']) }} as send_date,
     {{ json_extract_scalar('_airbyte_data', ['timezones'], ['timezones']) }} as timezones,
