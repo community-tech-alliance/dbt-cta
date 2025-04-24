@@ -23,12 +23,12 @@ jobs:
         runs-on: ubuntu-latest
         environment: dev
         steps:
-            - uses: actions/checkout@v4
-            - name: Get all changed sql files
+            - name: Get changed sql files
               id: changed-sql-files
-              uses: tj-actions/changed-files@v45
+              uses: community-tech-alliance/.github/actions/get-changed-files@v1.0.0
               with:
-                files: dbt-cta/**/*.sql
+                file-filter: dbt-cta/**/*.sql
+                environment: dev
             - name: Setup python
               uses: actions/setup-python@v5
               with:
