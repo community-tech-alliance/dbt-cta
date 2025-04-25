@@ -82,8 +82,6 @@ models:
         description: ''
       - name: p_raw_long
         description: ''
-      - name: p_geom
-        description: ''
       - name: contacted_full_address
         description: ''
       - name: lives_at_contacted

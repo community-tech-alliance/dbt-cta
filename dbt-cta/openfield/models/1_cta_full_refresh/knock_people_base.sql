@@ -51,7 +51,6 @@ select
     p_raw_lat_long,
     p_raw_lat,
     p_raw_long,
-    p_geom,
     contacted_full_address,
     lives_at_contacted,
     reg_full_address,
