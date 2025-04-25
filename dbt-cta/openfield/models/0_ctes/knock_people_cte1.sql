@@ -43,7 +43,6 @@ select
     cast(p_raw_lat_long as {{ dbt_utils.type_string() }}) as p_raw_lat_long,
     cast(p_raw_lat as float64) as p_raw_lat,
     cast(p_raw_long as float64) as p_raw_long,
-    cast(p_geom as {{ dbt_utils.type_string() }}) as p_geom,
     cast(contacted_full_address as {{ dbt_utils.type_string() }}) as contacted_full_address,
     cast(lives_at_contacted as bool) as lives_at_contacted,
     cast(reg_full_address as {{ dbt_utils.type_string() }}) as reg_full_address,
