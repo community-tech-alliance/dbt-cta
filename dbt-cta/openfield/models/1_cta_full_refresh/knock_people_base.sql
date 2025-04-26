@@ -63,7 +63,6 @@ select
     r_raw_lat_long,
     r_raw_lat,
     r_raw_long,
-    r_geom,
     mail_full_address,
     mail_address1,
     mail_address2,
