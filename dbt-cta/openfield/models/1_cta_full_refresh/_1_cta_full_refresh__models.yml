@@ -106,8 +106,6 @@ models:
         description: ''
       - name: r_raw_long
         description: ''
-      - name: r_geom
-        description: ''
       - name: mail_full_address
         description: ''
       - name: mail_address1
