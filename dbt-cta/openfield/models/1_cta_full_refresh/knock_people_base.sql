@@ -72,7 +72,6 @@ select
     m_raw_lat_long,
     m_raw_lat,
     m_raw_long,
-    m_geom,
     early_voted,
     contacted_national_address_id_id,
     mailing_national_address_id_id,

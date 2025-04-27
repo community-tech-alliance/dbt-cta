@@ -124,8 +124,6 @@ models:
         description: ''
       - name: m_raw_long
         description: ''
-      - name: m_geom
-        description: ''
       - name: early_voted
         description: ''
       - name: contacted_national_address_id_id
