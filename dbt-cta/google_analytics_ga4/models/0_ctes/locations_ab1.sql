@@ -34,4 +34,4 @@ select
     'screenPageViews',
     'region'
     ]) }} as _airbyte_locations_hashid
-from {{ source('cta', 'locations') }}
+from {{ source('cta_raw', 'locations') }}

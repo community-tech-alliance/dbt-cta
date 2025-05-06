@@ -18,4 +18,4 @@ select
     'active28DayUsers',
     'property_id'
     ]) }} as _airbyte_four_weekly_active_users_hashid
-from {{ source('cta', 'four_weekly_active_users') }}
+from {{ source('cta_raw', 'four_weekly_active_users') }}
