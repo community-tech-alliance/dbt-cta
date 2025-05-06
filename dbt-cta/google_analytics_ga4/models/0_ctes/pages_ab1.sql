@@ -23,4 +23,4 @@ select
     'pagePathPlusQueryString',
     'property_id'
     ]) }} as _airbyte_pages_hashid
-from {{ source('cta', 'pages') }}
+from {{ source('cta_raw', 'pages') }}

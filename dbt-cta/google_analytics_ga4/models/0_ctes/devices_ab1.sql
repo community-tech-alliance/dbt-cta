@@ -34,4 +34,4 @@ select
     'browser',
     'screenPageViews'
     ]) }} as _airbyte_devices_hashid
-from {{ source('cta', 'devices') }}
+from {{ source('cta_raw', 'devices') }}

@@ -28,4 +28,4 @@ select
     'screenPageViews',
     'property_id'
     ]) }} as _airbyte_website_overview_hashid
-from {{ source('cta', 'website_overview') }}
+from {{ source('cta_raw', 'website_overview') }}

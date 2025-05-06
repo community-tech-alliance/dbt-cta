@@ -20,4 +20,15 @@ sources:
     - name: traffic_sources_base
     - name: website_overview_base
     - name: weekly_active_users_base
-  
+- name: cta_raw
+  database: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
+  schema: "{{ env_var('CTA_RAW_DATASET_ID', 'not-set') }}"
+  tables: 
+    - name: daily_active_users
+    - name: devices
+    - name: four_weekly_active_users
+    - name: locations
+    - name: pages
+    - name: traffic_sources
+    - name: website_overview
+    - name: weekly_active_users

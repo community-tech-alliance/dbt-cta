@@ -32,4 +32,4 @@ select
     'sessionMedium',
     'property_id'
     ]) }} as _airbyte_traffic_sources_hashid
-from {{ source('cta', 'traffic_sources') }}
+from {{ source('cta_raw', 'traffic_sources') }}
