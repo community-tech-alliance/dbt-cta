@@ -9,7 +9,7 @@
 
 select
     cast(id as {{ dbt_utils.type_bigint() }}) as id,
-    cast(created_date as {{ dbt_utils.type_bigint() }}) as created_date,
+    cast(created_date as {{ dbt_utils.type_timestamp() }}) as created_date,
     cast(state_file_id as {{ dbt_utils.type_string() }}) as state_file_id,
     cast(county_file_id as {{ dbt_utils.type_string() }}) as county_file_id,
     cast(action_network_id as {{ dbt_utils.type_string() }}) as action_network_id,
@@ -24,7 +24,7 @@ select
     cast(preferred_name as {{ dbt_utils.type_string() }}) as preferred_name,
     cast(sex as {{ dbt_utils.type_string() }}) as sex,
     cast(age as {{ dbt_utils.type_bigint() }}) as age,
-    cast(dob as {{ dbt_utils.type_bigint() }}) as dob,
+    cast(dob as date) as dob,
     cast(gender_identity as {{ dbt_utils.type_string() }}) as gender_identity,
     cast(phone1 as {{ dbt_utils.type_string() }}) as phone1,
     cast(phone_opt_in1 as bool) as phone_opt_in1,

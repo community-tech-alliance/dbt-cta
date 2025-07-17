@@ -11,7 +11,7 @@ select
 
     cast(of_people_id as {{ dbt_utils.type_bigint() }}) as of_people_id,
     cast(conversation_id as {{ dbt_utils.type_bigint() }}) as conversation_id,
-    cast(conversation_time as {{ dbt_utils.type_bigint() }}) as conversation_time,
+    cast(conversation_time as {{ dbt_utils.type_timestamp() }}) as conversation_time,
     cast(conversation_type as {{ dbt_utils.type_string() }}) as conversation_type,
     cast(contact_type as {{ dbt_utils.type_string() }}) as contact_type,
     cast(canvasser as {{ dbt_utils.type_string() }}) as canvasser,

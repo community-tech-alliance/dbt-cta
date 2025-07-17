@@ -10,10 +10,10 @@
 select
     cast(id as {{ dbt_utils.type_bigint() }}) as id,
     cast(code as {{ dbt_utils.type_string() }}) as code,
-    cast(created_at as {{ dbt_utils.type_bigint() }}) as created_at,
+    cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
     cast(description as {{ dbt_utils.type_string() }}) as description,
     cast(org as {{ dbt_utils.type_string() }}) as org,
-    cast(expires as {{ dbt_utils.type_bigint() }}) as expires,
+    cast(expires as {{ dbt_utils.type_timestamp() }}) as expires,
     cast(conversation_type as {{ dbt_utils.type_string() }}) as conversation_type,
     cast(start_time as {{ dbt_utils.type_string() }}) as start_time,
     cast(end_time as {{ dbt_utils.type_string() }}) as end_time,
