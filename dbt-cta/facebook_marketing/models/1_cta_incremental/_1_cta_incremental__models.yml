@@ -3380,9 +3380,9 @@ models:
         description: ''
       - name: template_url_spec
         description: ''
-      - name: instagram_actor_id
+      - name: instagram_user_id
         description: ''
-      - name: instagram_story_id
+      - name: source_instagram_media_id
         description: ''
       - name: thumbnail_data_url
         description: ''
@@ -3392,7 +3392,7 @@ models:
         description: ''
       - name: effective_object_story_id
         description: ''
-      - name: effective_instagram_story_id
+      - name: effective_instagram_media_id
         description: ''
       - name: _airbyte_ad_creatives_hashid
         description: ''
