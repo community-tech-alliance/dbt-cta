@@ -36,13 +36,13 @@ select
     applink_treatment,
     object_story_spec,
     template_url_spec,
-    instagram_actor_id,
-    instagram_story_id,
+    instagram_user_id,
+    source_instagram_media_id,
     thumbnail_data_url,
     call_to_action_type,
     instagram_permalink_url,
     effective_object_story_id,
-    effective_instagram_story_id,
+    effective_instagram_media_id,
     regexp_extract(url_tags, r'utm_source=([^&]+)') as utm_source,
     regexp_extract(url_tags, r'utm_medium=([^&]+)') as utm_medium,
     regexp_extract(url_tags, r'utm_campaign=([^&]+)') as utm_campaign,
@@ -70,12 +70,12 @@ select
     'product_set_id',
     'object_story_id',
     'applink_treatment',
-    'instagram_actor_id',
-    'instagram_story_id',
+    'instagram_user_id',
+    'source_instagram_media_id',
     'thumbnail_data_url',
     'call_to_action_type',
     'instagram_permalink_url',
     'effective_object_story_id',
-    'effective_instagram_story_id'
+    'effective_instagram_media_id'
     ]) }} as _airbyte_ad_creatives_hashid
 from {{ source('cta', 'ad_creatives') }}
