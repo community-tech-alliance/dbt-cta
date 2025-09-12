@@ -64,6 +64,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['default_reminder_from'], ['default_reminder_from']) }} as default_reminder_from,
     {{ json_extract_scalar('_airbyte_data', ['default_twitter_share'], ['default_twitter_share']) }} as default_twitter_share,
     {{ json_extract_scalar('_airbyte_data', ['events_csv_updated_at'], ['events_csv_updated_at']) }} as events_csv_updated_at,
+    {{ json_extract_scalar('_airbyte_data', ['require_admin_approval'], ['require_admin_approval']) }} as require_admin_approval,
     {{ json_extract_scalar('_airbyte_data', ['default_email_response'], ['default_email_response']) }} as default_email_response,
     {{ json_extract_scalar('_airbyte_data', ['default_facebook_share'], ['default_facebook_share']) }} as default_facebook_share,
     {{ json_extract_scalar('_airbyte_data', ['default_facebook_title'], ['default_facebook_title']) }} as default_facebook_title,
