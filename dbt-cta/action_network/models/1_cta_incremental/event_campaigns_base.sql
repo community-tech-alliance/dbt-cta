@@ -62,6 +62,7 @@ select
     default_reminder_from,
     default_twitter_share,
     events_csv_updated_at,
+    require_admin_approval,
     default_email_response,
     default_facebook_share,
     default_facebook_title,
