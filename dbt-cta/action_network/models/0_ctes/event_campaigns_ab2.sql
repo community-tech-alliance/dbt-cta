@@ -62,6 +62,7 @@ select
     cast(default_reminder_from as {{ dbt_utils.type_string() }}) as default_reminder_from,
     cast(default_twitter_share as {{ dbt_utils.type_string() }}) as default_twitter_share,
     cast(events_csv_updated_at as {{ dbt_utils.type_string() }}) as events_csv_updated_at,
+    cast(require_admin_approval as {{ dbt_utils.type_bigint() }}) as require_admin_approval,
     cast(default_email_response as {{ dbt_utils.type_bigint() }}) as default_email_response,
     cast(default_facebook_share as {{ dbt_utils.type_string() }}) as default_facebook_share,
     cast(default_facebook_title as {{ dbt_utils.type_string() }}) as default_facebook_title,
