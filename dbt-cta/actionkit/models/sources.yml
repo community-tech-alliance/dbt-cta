@@ -25,6 +25,8 @@ sources:
     - name: core_user
     - name: core_user_groups
     - name: core_user_page_tags
+    - name: core_useragent
+    - name: core_userdailysummary
     - name: core_userdivision
     - name: core_userfield
     - name: core_usergroup
@@ -68,6 +70,8 @@ sources:
     - name: core_user_base 
     - name: core_user_groups_base 
     - name: core_user_page_tags_base 
+    - name: core_useragent_base 
+    - name: core_userdailysummary_base 
     - name: core_userdivision_base 
     - name: core_userfield_base 
     - name: core_usergroup_base 

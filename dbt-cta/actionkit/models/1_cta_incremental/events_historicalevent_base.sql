@@ -1,6 +1,7 @@
 {{ config(
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "history_id"
+    unique_key = "history_id",
+    tags=["cta","cursor"]
 ) }}
 
 -- Final base SQL model

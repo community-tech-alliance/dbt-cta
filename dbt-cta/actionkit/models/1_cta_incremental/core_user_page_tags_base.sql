@@ -1,6 +1,7 @@
 {{ config(
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
-    unique_key = "_airbyte_core_user_page_tags_hashid"
+    unique_key = "_airbyte_core_user_page_tags_hashid",
+    tags=["cta","cdc"]
 ) }}
 
 -- Final base SQL model

@@ -11,7 +11,7 @@ select
    _airbyte_meta,
    _airbyte_generation_id,
    id,
-   'to',
+   `to`,
    body,
    name,
    notes,

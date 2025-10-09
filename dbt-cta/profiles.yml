@@ -27,7 +27,7 @@ default:
       job_retry_deadline_seconds: 1200
     cta_delivery:
       project: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
-      dataset: "{{ env_var('CTA_DATASET_ID', 'not-set') }}_delivery"
+      dataset: "{{ env_var('DELIVERY_DATASET_ID', 'not-set') }}"
       location: US
       method: oauth
       priority: batch

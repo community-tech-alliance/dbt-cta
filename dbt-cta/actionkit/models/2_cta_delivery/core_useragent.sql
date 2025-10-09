@@ -1,6 +1,6 @@
 {{ config(
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
-    tags=["cta_delivery","cdc"]
+    tags=["cta_delivery","cursor"]
 ) }}
 select *
-from {{ source('cta', 'events_eventfield_base') }}
+from {{ source('cta', 'core_useragent_base') }}
