@@ -1,0 +1,20 @@
+{{ config(
+    partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
+    unique_key = 'action_ptr_id'
+) }}
+-- SQL model to build a hash column based on the values of this record
+-- depends_on: {{ source('cta', 'core_eventsignupaction') }}
+
+select
+   _airbyte_raw_id,
+   _airbyte_extracted_at,
+   _airbyte_meta,
+   _airbyte_generation_id,
+   signup_id,
+   action_ptr_id,
+   _ab_cdc_cursor,
+   _ab_cdc_log_pos,
+   _ab_cdc_log_file,
+   _ab_cdc_deleted_at,
+   _ab_cdc_updated_at
+from {{ source('cta', 'core_eventsignupaction') }}

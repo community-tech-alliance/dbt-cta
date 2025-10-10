@@ -13,5 +13,5 @@ repos:
     - id: trufflehog
       name: trufflehog
       entry: trufflehog filesystem .
-      excludePathsFile: .venv/
+      excludeGlobs: .venv/*,.git/*
       language: system
