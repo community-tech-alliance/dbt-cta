@@ -1,0 +1,24 @@
+version: 2
+sources:
+  - name: airbyte_usage
+    description: >-
+      This source contains Airbyte usage data synced from the Airbyte
+      cloud instance used by the CTA project.  Airbyte thinks of a 
+      `Connection` as a combination of a Source and Destination with 
+      some additional metadata to know how to process data for each `Job`. 
+      A `Job` is a single instance run of a `Connection`, and completed
+      jobs have metrics for bytes and records synced. Depending on the 
+      `Source Type` (API, Databases, Files or Custom), airbyte will use 
+      either bytes or records to determine the number of credits used by 
+      the `Job`.  A credit is then multiplied by $2.50 to determine the 
+      billed amount.
+    database: airbyte_usage_cta
+    tables:
+      - name: connections
+        identifier: Connections
+      - name: jobs
+        identifier: Jobs
+      - name: sources
+        identifier: Sources
+      - name: workspaces
+        identifier: Workspaces

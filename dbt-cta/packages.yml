@@ -8,6 +8,6 @@ packages:
   - git: "https://github.com/dbt-labs/dbt-codegen.git"
     revision: 0.7.0
   - package: elementary-data/elementary
-    version: 0.10.3
+    version: 0.20.0
   - package: dbt-labs/dbt_external_tables
     version: 0.8.3
