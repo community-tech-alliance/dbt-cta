@@ -20,7 +20,7 @@ select
     -- facts
     rowsSynced as rows_synced,
     bytesSynced as bytes_synced
-from {{ source('airbyte_usage', 'job') }}
+from {{ source('airbyte_usage', 'jobs') }}
 where status in ( -- for now, we'll only consider completed jobs
     'succeeded',
     'failed'

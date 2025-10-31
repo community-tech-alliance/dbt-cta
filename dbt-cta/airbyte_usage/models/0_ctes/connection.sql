@@ -16,4 +16,4 @@ select
     -- attributes
     name as connection_name,
     namespaceFormat as namespace
-from {{ source('airbyte_usage', 'connection') }}
+from {{ source('airbyte_usage', 'connections') }}

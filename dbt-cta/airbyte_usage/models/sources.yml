@@ -1,4 +1,5 @@
 version: 2
+
 sources:
   - name: airbyte_usage
     description: >-
@@ -12,7 +13,8 @@ sources:
       either bytes or records to determine the number of credits used by 
       the `Job`.  A credit is then multiplied by $2.50 to determine the 
       billed amount.
-    database: airbyte_usage_cta
+    database: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
+    schema: airbyte_usage_cta
     tables:
       - name: connections
         identifier: Connections

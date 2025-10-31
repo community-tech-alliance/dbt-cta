@@ -16,4 +16,4 @@ select
         when "mysql" then "bytes"
         else "records"
     end as billing_type
-from {{ source('airbyte_usage', 'source') }}
+from {{ source('airbyte_usage', 'sources') }}
