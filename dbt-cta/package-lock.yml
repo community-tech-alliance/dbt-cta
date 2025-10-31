@@ -6,11 +6,11 @@ packages:
   - git: https://github.com/dbt-labs/dbt-codegen.git
     revision: 81eb3115b165e345e3abfe0912393ecca6871522
   - package: elementary-data/elementary
-    version: 0.10.3
+    version: 0.20.0
   - package: dbt-labs/dbt_external_tables
     version: 0.8.3
   - package: calogica/dbt_date
     version: 0.7.2
   - package: dbt-labs/dbt_utils
     version: 0.8.6
-sha1_hash: 4e38dc5a2dc04387808f379cbf8772985bba174c
+sha1_hash: 2099cde4807f1e8ddcae77678f7ca2b5e0b0c9e5
