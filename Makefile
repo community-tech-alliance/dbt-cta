@@ -3,6 +3,7 @@
 
 # ------ VARIABLES ------
 ARTIFACT_NAME ?= dbt-cta
+EDR_ARTIFACT_NAME ?= dbt-cta-edr
 TAG ?= latest
 GIT_HASH ?= $(shell git rev-parse HEAD)
 
@@ -30,6 +31,18 @@ build:		## Start a cloud build job for dbt-cta artifact.
 	gcloud builds submit --region=us-central1 --tag us-central1-docker.pkg.dev/${PROJECT_ID}/${ARTIFACT_NAME}/${ARTIFACT_NAME}:${GIT_HASH} --gcs-log-dir=gs://${PROJECT_ID}_cloudbuild/logs/
 	echo "Successfully built ${ARTIFACT_NAME} with tag: ${GIT_HASH}"
 
+build-edr:
+#		## Required Args: PROJECT_ID
+#		## Optional Args: ARTIFACT_NAME
+##  
+# Check if PROJECT_ID was passed in
+	@[ "${PROJECT_ID}" ] || ( echo "PROJECT_ID must be passed in. Example: make target PROJECT_ID=myprojectid"; exit 1 )
+# Build and deploy image
+	echo "Building Artifact and Deploying to: us-central1-docker.pkg.dev/${PROJECT_ID}/${EDR_ARTIFACT_NAME}/${EDR_ARTIFACT_NAME}:${GIT_HASH}"
+	gcloud builds submit --region=us-central1 --tag us-central1-docker.pkg.dev/${PROJECT_ID}/${EDR_ARTIFACT_NAME}/${EDR_ARTIFACT_NAME}:${GIT_HASH} --gcs-log-dir=gs://${PROJECT_ID}_cloudbuild/logs/
+	echo "Successfully built ${EDR_ARTIFACT_NAME} with tag: ${GIT_HASH}"
+
+
 tag:		## Add a tag to an existing Artifact.
 #		## Defaults to adding 'latest' tag to current GIT_HASH Artifact
 #		## Required Args: PROJECT_ID
@@ -43,6 +56,20 @@ tag:		## Add a tag to an existing Artifact.
 	us-central1-docker.pkg.dev/${PROJECT_ID}/${ARTIFACT_NAME}/${ARTIFACT_NAME}:${GIT_HASH} \
 	us-central1-docker.pkg.dev/${PROJECT_ID}/${ARTIFACT_NAME}/${ARTIFACT_NAME}:${TAG}
 	echo "Successfully added ${TAG} to us-central1-docker.pkg.dev/${PROJECT_ID}/${ARTIFACT_NAME}/${ARTIFACT_NAME}:${GIT_HASH}"
+
+tag-edr:		## Add a tag to an existing EDR Artifact.
+#		## Defaults to adding 'latest' tag to current GIT_HASH Artifact
+#		## Required Args: PROJECT_ID
+#		## Optional Args: TAG, GIT_HASH
+##  
+# Check if PROJECT_ID was passed in
+	@[ "${PROJECT_ID}" ] || ( echo "PROJECT_ID must be passed in. Example: make target PROJECT_ID=myprojectid"; exit 1 )
+# Add Tag to Artifact
+	echo "Adding tag: ${TAG} to Artifact: us-central1-docker.pkg.dev/${PROJECT_ID}/${EDR_ARTIFACT_NAME}/${EDR_ARTIFACT_NAME}:${GIT_HASH}"
+	gcloud artifacts docker tags add \
+	us-central1-docker.pkg.dev/${PROJECT_ID}/${EDR_ARTIFACT_NAME}/${EDR_ARTIFACT_NAME}:${GIT_HASH} \
+	us-central1-docker.pkg.dev/${PROJECT_ID}/${EDR_ARTIFACT_NAME}/${EDR_ARTIFACT_NAME}:${TAG}
+	echo "Successfully added ${TAG} to us-central1-docker.pkg.dev/${PROJECT_ID}/${EDR_ARTIFACT_NAME}/${EDR_ARTIFACT_NAME}:${GIT_HASH}"
 
 run:		## Run dbt with current Git Hash Artifact
 #		## Required Args: PROJECT_ID

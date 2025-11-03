@@ -1,0 +1,4 @@
+FROM ghcr.io/elementary-data/elementary:v0.20.0
+
+COPY dbt-cta/ .
+
