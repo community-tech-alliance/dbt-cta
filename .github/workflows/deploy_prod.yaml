@@ -13,4 +13,9 @@ jobs:
       environment: prod
       tag: latest
     secrets: inherit
-        
+  build_and_deploy_edr_image:
+    uses: ./.github/workflows/build_and_deploy_cta_edr_image.yaml
+    with:
+      environment: prod
+      tag: latest
+    secrets: inherit

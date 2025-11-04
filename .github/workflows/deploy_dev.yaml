@@ -12,4 +12,9 @@ jobs:
       with:
         environment: dev
       secrets: inherit
-        
+  build_and_deploy_edr_image:
+      uses: ./.github/workflows/build_and_deploy_cta_edr_image.yaml
+      if: ${{ contains(github.event.pull_request.labels.*.name,'dev_deploy') }}
+      with:
+        environment: dev
+      secrets: inherit
