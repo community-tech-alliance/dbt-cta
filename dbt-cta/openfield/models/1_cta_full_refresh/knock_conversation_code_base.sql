@@ -21,7 +21,7 @@ select
     created_at,
     description,
     org,
-    expires,
+    expires_after,
     conversation_type,
     start_time,
     end_time,

@@ -566,7 +566,7 @@ models:
         description: ''
       - name: org
         description: ''
-      - name: expires
+      - name: expires_after
         description: ''
       - name: conversation_type
         description: ''
