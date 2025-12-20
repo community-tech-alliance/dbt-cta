@@ -1,0 +1,21 @@
+select
+  id,
+  zip,
+  cell,
+  notes,
+  last_name,
+  created_at,
+  error_code,
+  first_name,
+  updated_at,
+  campaign_id,
+  external_id,
+  is_opted_out,
+  assignment_id,
+  custom_fields,
+  message_status,
+  script_variant_id,
+  carrier_data_number_type,
+  carrier_data_carrier_name,
+  _cta_loaded_at
+from {{ source('cta', 'campaign_contacts_base') }}
