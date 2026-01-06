@@ -1,0 +1,19 @@
+select
+  id,
+  text,
+  service,
+  user_id,
+  media_url,
+  created_at,
+  error_code,
+  send_status,
+  num_segments,
+  contact_number,
+  is_from_contact,
+  canned_response_id,
+  media_content_type,
+  campaign_contact_id,
+  service_response_at,
+  inbound_phone_number,
+  _cta_loaded_at
+from {{ source('cta', 'messages_base') }}

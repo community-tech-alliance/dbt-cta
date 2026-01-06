@@ -1,0 +1,20 @@
+select
+  id,
+  cell,
+  created_at,
+  created_by,
+  deleted_at,
+  deleted_by,
+  updated_at,
+  reason_code,
+  van_sync_at,
+  assignment_id,
+  opt_out_list_id,
+  organization_id,
+  van_sync_result,
+  campaign_contact_id,
+  deleted_reason_code,
+  deleted_assignment_id,
+  deleted_campaign_contact_id,
+  _cta_loaded_at
+from {{ source('cta', 'opt_outs_base') }}

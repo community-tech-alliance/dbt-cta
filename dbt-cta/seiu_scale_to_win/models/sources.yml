@@ -1,0 +1,72 @@
+version: 2
+sources:
+- name: cta
+  database: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
+  schema: "{{ env_var('CTA_DATASET_ID', 'not-set') }}"
+  tables: 
+  - name: assignments_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: campaign_contacts_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: campaign_contacts_tags_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: campaigns_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: canned_responses_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: interaction_steps_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: messages_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: opt_out_lists_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: opt_outs_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: script_variants_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: users_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
