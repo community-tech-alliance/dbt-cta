@@ -48,6 +48,7 @@ select
     maximum_occupancy,
     created_by_user_id,
     signatures_per_hour,
+    delivery_point_barcode,
     parking_spots_available,
     primary_point_of_contact,
     registration_forms_count,

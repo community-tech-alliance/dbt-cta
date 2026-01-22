@@ -16,6 +16,7 @@ select
     response,
     created_at,
     updated_at,
+    question_key,
     round_number,
     created_by_user_id,
     voter_registration_scan_id,
