@@ -21,7 +21,6 @@ select
     inviter_id,
     updated_at,
     marked_no_show_at,
-    marked_walk_in_at,
     marked_attended_at,
    {{ dbt_utils.surrogate_key([
      'id',

@@ -17,7 +17,6 @@ select
     match_type,
     response_id,
     custom_field,
-    string_value,
    {{ dbt_utils.surrogate_key([
      'id',
     'column',
@@ -26,6 +25,5 @@ select
     'match_type',
     'response_id',
     'custom_field',
-    'string_value'
     ]) }} as _airbyte_visual_review_triggers_hashid
 from {{ source('cta', 'visual_review_triggers') }}

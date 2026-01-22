@@ -14,11 +14,12 @@ select
     number,
     status,
     user_id,
-    external,
+    `external`,
     created_at,
     updated_at,
     twilio_call_id,
     disconnected_at,
+    voter_registration_form_id,
     voter_registration_scan_id,
    {{ dbt_utils.surrogate_key([
      'id',
