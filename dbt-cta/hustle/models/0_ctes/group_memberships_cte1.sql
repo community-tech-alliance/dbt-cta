@@ -11,8 +11,7 @@ select
     cast(`group_id` as string) as `group_id`,
     cast(`organization_id` as string) as `organization_id`,
     to_hex(md5(concat(
-        `updated_at`,
-        `created_at`,
+        `lead_id`,
         `group_id`,
         `organization_id`
     ))) as _cta_hashid,
