@@ -11,10 +11,8 @@ select
     cast(`group_id` as string) as `group_id`,
     cast(`organization_id` as string) as `organization_id`,
     to_hex(md5(concat(
-        `updated_at`,
-        `created_at`,
-        `group_id`,
-        `organization_id`
+        `lead_id`,
+        `group_id`
     ))) as _cta_hashid,
     current_timestamp() as _cta_sync_datetime_utc
 from {{ source('cta', '_group_memberships_raw') }}
