@@ -12,6 +12,6 @@ repos:
   hooks:
     - id: trufflehog
       name: trufflehog
-      entry: trufflehog filesystem .
+      entry: trufflehog filesystem . --no-update
       excludeGlobs: .venv/*,.git/*
       language: system
