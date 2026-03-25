@@ -14,6 +14,7 @@ select
     cast(created_at as {{ dbt_utils.type_string() }}) as created_at,
     cast(updated_at as {{ dbt_utils.type_string() }}) as updated_at,
     cast(source_group_id as {{ dbt_utils.type_bigint() }}) as source_group_id,
+    cast(partial_syndication as {{ dbt_utils.type_bigint() }}) as partial_syndication,
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at

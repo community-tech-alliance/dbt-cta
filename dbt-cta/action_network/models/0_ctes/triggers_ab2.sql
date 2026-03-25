@@ -19,7 +19,10 @@ select
     cast(action_type as {{ dbt_utils.type_string() }}) as action_type,
     cast(trigger_type as {{ dbt_utils.type_string() }}) as trigger_type,
     cast(exclude_uploads as {{ dbt_utils.type_bigint() }}) as exclude_uploads,
+    cast(exclude_one_time as {{ dbt_utils.type_bigint() }}) as exclude_one_time,
+    cast(include_recurring as {{ dbt_utils.type_bigint() }}) as include_recurring,
     cast(only_text_to_join as {{ dbt_utils.type_bigint() }}) as only_text_to_join,
+    cast(briteverify_sync_id as {{ dbt_utils.type_bigint() }}) as briteverify_sync_id,
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at

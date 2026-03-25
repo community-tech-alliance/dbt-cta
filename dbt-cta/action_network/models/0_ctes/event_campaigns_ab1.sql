@@ -42,6 +42,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['photo_file_name'], ['photo_file_name']) }} as photo_file_name,
     {{ json_extract_scalar('_airbyte_data', ['photo_file_size'], ['photo_file_size']) }} as photo_file_size,
     {{ json_extract_scalar('_airbyte_data', ['csv_content_type'], ['csv_content_type']) }} as csv_content_type,
+    {{ json_extract_scalar('_airbyte_data', ['custom_host_html'], ['custom_host_html']) }} as custom_host_html,
     {{ json_extract_scalar('_airbyte_data', ['default_reply_to'], ['default_reply_to']) }} as default_reply_to,
     {{ json_extract_scalar('_airbyte_data', ['host_page_status'], ['host_page_status']) }} as host_page_status,
     {{ json_extract_scalar('_airbyte_data', ['event_description'], ['event_description']) }} as event_description,

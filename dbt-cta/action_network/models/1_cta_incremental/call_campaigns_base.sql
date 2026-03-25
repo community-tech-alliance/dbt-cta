@@ -62,6 +62,7 @@ select
     audio_message_content_type,
     targets_not_found_sms_text,
     targets_not_found_sms_enabled,
+    thankyou_not_subscribed_sms_text,
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,

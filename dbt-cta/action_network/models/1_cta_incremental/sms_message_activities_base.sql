@@ -16,6 +16,7 @@ select
     updated_at,
     action_type,
     recipient_id,
+    num_segments,
     mobile_message_id,
     twilio_message_id,
     mobile_message_stat_id,

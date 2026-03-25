@@ -40,6 +40,7 @@ select
     cast(photo_file_name as {{ dbt_utils.type_string() }}) as photo_file_name,
     cast(photo_file_size as {{ dbt_utils.type_bigint() }}) as photo_file_size,
     cast(csv_content_type as {{ dbt_utils.type_string() }}) as csv_content_type,
+    cast(custom_host_html as {{ dbt_utils.type_string() }}) as custom_host_html,
     cast(default_reply_to as {{ dbt_utils.type_string() }}) as default_reply_to,
     cast(host_page_status as {{ dbt_utils.type_bigint() }}) as host_page_status,
     cast(event_description as {{ dbt_utils.type_string() }}) as event_description,

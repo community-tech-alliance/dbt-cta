@@ -34,6 +34,7 @@ select
     cast(overwrite_subs as {{ dbt_utils.type_bigint() }}) as overwrite_subs,
     cast(uploaded_by_id as {{ dbt_utils.type_bigint() }}) as uploaded_by_id,
     cast(delete_sms_subs as {{ dbt_utils.type_bigint() }}) as delete_sms_subs,
+    cast(remove_tag_list as {{ dbt_utils.type_string() }}) as remove_tag_list,
     cast(unsubscribe_sms as {{ dbt_utils.type_bigint() }}) as unsubscribe_sms,
     cast(csv_content_type as {{ dbt_utils.type_string() }}) as csv_content_type,
     cast(delete_new_users as {{ dbt_utils.type_bigint() }}) as delete_new_users,

@@ -36,6 +36,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['overwrite_subs'], ['overwrite_subs']) }} as overwrite_subs,
     {{ json_extract_scalar('_airbyte_data', ['uploaded_by_id'], ['uploaded_by_id']) }} as uploaded_by_id,
     {{ json_extract_scalar('_airbyte_data', ['delete_sms_subs'], ['delete_sms_subs']) }} as delete_sms_subs,
+    {{ json_extract_scalar('_airbyte_data', ['remove_tag_list'], ['remove_tag_list']) }} as remove_tag_list,
     {{ json_extract_scalar('_airbyte_data', ['unsubscribe_sms'], ['unsubscribe_sms']) }} as unsubscribe_sms,
     {{ json_extract_scalar('_airbyte_data', ['csv_content_type'], ['csv_content_type']) }} as csv_content_type,
     {{ json_extract_scalar('_airbyte_data', ['delete_new_users'], ['delete_new_users']) }} as delete_new_users,

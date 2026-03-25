@@ -55,5 +55,6 @@ select
     audio_message_content_type,
     targets_not_found_sms_text,
     targets_not_found_sms_enabled,
+    thankyou_not_subscribed_sms_text,
     _airbyte_call_campaigns_hashid
 from {{ source('cta','call_campaigns_base') }}

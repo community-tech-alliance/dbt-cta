@@ -12,6 +12,9 @@ select
     action_type,
     trigger_type,
     exclude_uploads,
+    exclude_one_time,
+    include_recurring,
     only_text_to_join,
+    briteverify_sync_id,
     _airbyte_triggers_hashid
 from {{ source('cta','triggers_base') }}

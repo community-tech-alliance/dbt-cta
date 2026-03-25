@@ -19,7 +19,10 @@ select
     action_type,
     trigger_type,
     exclude_uploads,
+    exclude_one_time,
+    include_recurring
     only_text_to_join,
+    briteverify_sync_id,
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,

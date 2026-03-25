@@ -11,6 +11,7 @@ select
     cast(notes as {{ dbt_utils.type_string() }}) as notes,
     cast(footer as {{ dbt_utils.type_string() }}) as footer,
     cast(header as {{ dbt_utils.type_string() }}) as header,
+    cast(hidden as {{ dbt_utils.type_bigint() }}) as hidden,
     cast(user_id as {{ dbt_utils.type_bigint() }}) as user_id,
     cast(group_id as {{ dbt_utils.type_bigint() }}) as group_id,
     cast(created_at as {{ dbt_utils.type_string() }}) as created_at,

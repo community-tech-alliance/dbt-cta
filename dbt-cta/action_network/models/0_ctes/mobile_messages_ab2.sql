@@ -15,6 +15,7 @@ select
     cast(user_id as {{ dbt_utils.type_bigint() }}) as user_id,
     cast(group_id as {{ dbt_utils.type_bigint() }}) as group_id,
     cast(tag_list as {{ dbt_utils.type_string() }}) as tag_list,
+    cast(force_mms as {{ dbt_utils.type_bigint() }}) as force_mms,
     cast(media_url as {{ dbt_utils.type_string() }}) as media_url,
     cast(permalink as {{ dbt_utils.type_string() }}) as permalink,
     cast(send_date as {{ dbt_utils.type_string() }}) as send_date,

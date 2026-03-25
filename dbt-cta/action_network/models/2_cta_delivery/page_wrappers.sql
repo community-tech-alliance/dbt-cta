@@ -4,6 +4,7 @@ select
     notes,
     footer,
     header,
+    hidden,
     user_id,
     group_id,
     created_at,

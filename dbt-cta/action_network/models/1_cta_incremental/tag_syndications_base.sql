@@ -14,6 +14,7 @@ select
     created_at,
     updated_at,
     source_group_id,
+    partial_syndication,
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,

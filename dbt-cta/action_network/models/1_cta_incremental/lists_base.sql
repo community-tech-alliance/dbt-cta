@@ -34,6 +34,7 @@ select
     overwrite_subs,
     uploaded_by_id,
     delete_sms_subs,
+    remove_tag_list,
     unsubscribe_sms,
     csv_content_type,
     delete_new_users,

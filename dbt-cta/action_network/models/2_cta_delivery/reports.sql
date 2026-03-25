@@ -5,6 +5,7 @@ select
     hidden,
     status,
     user_id,
+    end_date,
     group_id,
     permalink,
     created_at,
@@ -19,5 +20,6 @@ select
     csv_content_type,
     recurring_emails,
     recurring_interval,
+    recurring_operations,
     _airbyte_reports_hashid
 from {{ source('cta','reports_base') }}

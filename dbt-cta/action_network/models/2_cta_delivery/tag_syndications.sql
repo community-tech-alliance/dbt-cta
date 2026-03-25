@@ -7,5 +7,6 @@ select
     created_at,
     updated_at,
     source_group_id,
+    partial_syndication,
     _airbyte_tag_syndications_hashid
 from {{ source('cta','tag_syndications_base') }}

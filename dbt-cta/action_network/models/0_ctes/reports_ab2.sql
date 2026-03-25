@@ -12,6 +12,7 @@ select
     cast(hidden as {{ dbt_utils.type_bigint() }}) as hidden,
     cast(status as {{ dbt_utils.type_bigint() }}) as status,
     cast(user_id as {{ dbt_utils.type_bigint() }}) as user_id,
+    cast(end_date as {{ dbt_utils.type_string() }}) as end_date,
     cast(group_id as {{ dbt_utils.type_bigint() }}) as group_id,
     cast(permalink as {{ dbt_utils.type_string() }}) as permalink,
     cast(created_at as {{ dbt_utils.type_string() }}) as created_at,
@@ -26,6 +27,7 @@ select
     cast(csv_content_type as {{ dbt_utils.type_string() }}) as csv_content_type,
     cast(recurring_emails as {{ dbt_utils.type_string() }}) as recurring_emails,
     cast(recurring_interval as {{ dbt_utils.type_string() }}) as recurring_interval,
+    cast(recurring_operations as {{ dbt_utils.type_string() }}) as recurring_operations,
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
