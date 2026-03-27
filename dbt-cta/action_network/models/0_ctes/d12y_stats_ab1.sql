@@ -2,7 +2,7 @@
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = 'id'
 ) }}
--- depends_on: {{ source('cta', 'access_logs') }}
+-- depends_on: {{ source('cta', 'd12y_stats') }}
 
 select
     _airbyte_raw_id,
@@ -62,4 +62,4 @@ select
     unsubscribe_comcast,
     unsubscribe_hotmail,
     unsubscribe_outlook
-from {{ source('cta', 'access_logs') }}
+from {{ source('cta', 'd12y_stats') }}
