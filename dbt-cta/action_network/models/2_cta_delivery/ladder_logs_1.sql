@@ -4,12 +4,11 @@ select
     _airbyte_meta,
     _airbyte_generation_id,
     id,
-    details,
+    exit,
     user_id,
     group_id,
-    action_id,
+    ladder_id,
+    step_uuid,
     created_at,
-    updated_at,
-    action_type,
-    action_taken
+    updated_at
 from {{ source('cta','ladder_logs_1_base') }}
