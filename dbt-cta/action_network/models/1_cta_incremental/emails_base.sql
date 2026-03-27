@@ -38,6 +38,7 @@ select
     typeface_color,
     first_permalink,
     inlined_content,
+    link_appendages,
     parent_email_id,
     button_text_color,
     email_template_id,

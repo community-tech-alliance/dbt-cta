@@ -18,6 +18,7 @@ select
     created_at,
     updated_at,
     image_attribution,
+    hide_signer_personal_information,
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,

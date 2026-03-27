@@ -62,6 +62,7 @@ select
     cast(audio_message_content_type as {{ dbt_utils.type_string() }}) as audio_message_content_type,
     cast(targets_not_found_sms_text as {{ dbt_utils.type_string() }}) as targets_not_found_sms_text,
     cast(targets_not_found_sms_enabled as {{ dbt_utils.type_bigint() }}) as targets_not_found_sms_enabled,
+    cast(thankyou_not_subscribed_sms_text as {{ dbt_utils.type_string() }}) as thankyou_not_subscribed_sms_text,
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at

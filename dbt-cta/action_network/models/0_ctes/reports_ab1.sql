@@ -14,6 +14,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['hidden'], ['hidden']) }} as hidden,
     {{ json_extract_scalar('_airbyte_data', ['status'], ['status']) }} as status,
     {{ json_extract_scalar('_airbyte_data', ['user_id'], ['user_id']) }} as user_id,
+    {{ json_extract_scalar('_airbyte_data', ['end_date'], ['end_date']) }} as end_date,
     {{ json_extract_scalar('_airbyte_data', ['group_id'], ['group_id']) }} as group_id,
     {{ json_extract_scalar('_airbyte_data', ['permalink'], ['permalink']) }} as permalink,
     {{ json_extract_scalar('_airbyte_data', ['created_at'], ['created_at']) }} as created_at,
@@ -28,6 +29,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['csv_content_type'], ['csv_content_type']) }} as csv_content_type,
     {{ json_extract_scalar('_airbyte_data', ['recurring_emails'], ['recurring_emails']) }} as recurring_emails,
     {{ json_extract_scalar('_airbyte_data', ['recurring_interval'], ['recurring_interval']) }} as recurring_interval,
+    {{ json_extract_scalar('_airbyte_data', ['recurring_operations'], ['recurring_operations']) }} as recurring_operations,
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at

@@ -9,6 +9,7 @@ select
     owner_type,
     syndicated,
     updated_at,
+    last_used_at,
     validation_regexp,
     validation_description,
     _airbyte_field_names_hashid

@@ -38,6 +38,7 @@ select
     cast(typeface_color as {{ dbt_utils.type_string() }}) as typeface_color,
     cast(first_permalink as {{ dbt_utils.type_string() }}) as first_permalink,
     cast(inlined_content as {{ dbt_utils.type_string() }}) as inlined_content,
+    cast(link_appendages as {{ dbt_utils.type_string() }}) as link_appendages,
     cast(parent_email_id as {{ dbt_utils.type_bigint() }}) as parent_email_id,
     cast(button_text_color as {{ dbt_utils.type_string() }}) as button_text_color,
     cast(email_template_id as {{ dbt_utils.type_bigint() }}) as email_template_id,

@@ -14,6 +14,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['notes'], ['notes']) }} as notes,
     {{ json_extract_scalar('_airbyte_data', ['footer'], ['footer']) }} as footer,
     {{ json_extract_scalar('_airbyte_data', ['header'], ['header']) }} as header,
+    {{ json_extract_scalar('_airbyte_data', ['hidden'], ['hidden']) }} as hidden,
     {{ json_extract_scalar('_airbyte_data', ['user_id'], ['user_id']) }} as user_id,
     {{ json_extract_scalar('_airbyte_data', ['group_id'], ['group_id']) }} as group_id,
     {{ json_extract_scalar('_airbyte_data', ['created_at'], ['created_at']) }} as created_at,

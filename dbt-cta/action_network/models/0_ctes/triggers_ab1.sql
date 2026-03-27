@@ -21,7 +21,10 @@ select
     {{ json_extract_scalar('_airbyte_data', ['action_type'], ['action_type']) }} as action_type,
     {{ json_extract_scalar('_airbyte_data', ['trigger_type'], ['trigger_type']) }} as trigger_type,
     {{ json_extract_scalar('_airbyte_data', ['exclude_uploads'], ['exclude_uploads']) }} as exclude_uploads,
+    {{ json_extract_scalar('_airbyte_data', ['exclude_one_time'], ['exclude_one_time']) }} as exclude_one_time,
+    {{ json_extract_scalar('_airbyte_data', ['include_recurring'], ['include_recurring']) }} as include_recurring,
     {{ json_extract_scalar('_airbyte_data', ['only_text_to_join'], ['only_text_to_join']) }} as only_text_to_join,
+    {{ json_extract_scalar('_airbyte_data', ['briteverify_sync_id'], ['briteverify_sync_id']) }} as briteverify_sync_id,
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at

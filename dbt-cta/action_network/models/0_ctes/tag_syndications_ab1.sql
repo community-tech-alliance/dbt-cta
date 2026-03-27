@@ -16,6 +16,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['created_at'], ['created_at']) }} as created_at,
     {{ json_extract_scalar('_airbyte_data', ['updated_at'], ['updated_at']) }} as updated_at,
     {{ json_extract_scalar('_airbyte_data', ['source_group_id'], ['source_group_id']) }} as source_group_id,
+    {{ json_extract_scalar('_airbyte_data', ['partial_syndication'], ['partial_syndication']) }} as partial_syndication,
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at

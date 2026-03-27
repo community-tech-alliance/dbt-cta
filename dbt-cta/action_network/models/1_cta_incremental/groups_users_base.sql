@@ -16,6 +16,7 @@ select
     updated_at,
     first_visit,
     join_message,
+    non_inherited,
     user_permissions,
     _airbyte_raw_id,
     _airbyte_extracted_at,

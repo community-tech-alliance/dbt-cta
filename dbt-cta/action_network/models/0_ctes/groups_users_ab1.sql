@@ -18,6 +18,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['updated_at'], ['updated_at']) }} as updated_at,
     {{ json_extract_scalar('_airbyte_data', ['first_visit'], ['first_visit']) }} as first_visit,
     {{ json_extract_scalar('_airbyte_data', ['join_message'], ['join_message']) }} as join_message,
+    {{ json_extract_scalar('_airbyte_data', ['non_inherited'], ['non_inherited']) }} as non_inherited,
     {{ json_extract_scalar('_airbyte_data', ['user_permissions'], ['user_permissions']) }} as user_permissions,
     _airbyte_raw_id,
     _airbyte_extracted_at,

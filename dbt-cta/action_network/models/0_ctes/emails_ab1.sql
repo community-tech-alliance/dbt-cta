@@ -40,6 +40,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['typeface_color'], ['typeface_color']) }} as typeface_color,
     {{ json_extract_scalar('_airbyte_data', ['first_permalink'], ['first_permalink']) }} as first_permalink,
     {{ json_extract_scalar('_airbyte_data', ['inlined_content'], ['inlined_content']) }} as inlined_content,
+    {{ json_extract_scalar('_airbyte_data', ['link_appendages'], ['link_appendages']) }} as link_appendages,
     {{ json_extract_scalar('_airbyte_data', ['parent_email_id'], ['parent_email_id']) }} as parent_email_id,
     {{ json_extract_scalar('_airbyte_data', ['button_text_color'], ['button_text_color']) }} as button_text_color,
     {{ json_extract_scalar('_airbyte_data', ['email_template_id'], ['email_template_id']) }} as email_template_id,

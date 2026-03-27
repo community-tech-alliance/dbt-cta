@@ -17,6 +17,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['created_at'], ['created_at']) }} as created_at,
     {{ json_extract_scalar('_airbyte_data', ['updated_at'], ['updated_at']) }} as updated_at,
     {{ json_extract_scalar('_airbyte_data', ['action_type'], ['action_type']) }} as action_type,
+    {{ json_extract_scalar('_airbyte_data', ['num_segments'], ['num_segments']) }} as num_segments,
     {{ json_extract_scalar('_airbyte_data', ['recipient_id'], ['recipient_id']) }} as recipient_id,
     {{ json_extract_scalar('_airbyte_data', ['mobile_message_id'], ['mobile_message_id']) }} as mobile_message_id,
     {{ json_extract_scalar('_airbyte_data', ['twilio_message_id'], ['twilio_message_id']) }} as twilio_message_id,

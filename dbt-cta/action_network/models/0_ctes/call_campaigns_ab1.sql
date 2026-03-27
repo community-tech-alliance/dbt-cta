@@ -64,6 +64,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['audio_message_content_type'], ['audio_message_content_type']) }} as audio_message_content_type,
     {{ json_extract_scalar('_airbyte_data', ['targets_not_found_sms_text'], ['targets_not_found_sms_text']) }} as targets_not_found_sms_text,
     {{ json_extract_scalar('_airbyte_data', ['targets_not_found_sms_enabled'], ['targets_not_found_sms_enabled']) }} as targets_not_found_sms_enabled,
+    {{ json_extract_scalar('_airbyte_data', ['thankyou_not_subscribed_sms_text'], ['thankyou_not_subscribed_sms_text']) }} as thankyou_not_subscribed_sms_text,
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at

@@ -7,6 +7,7 @@
 -- depends_on: {{ ref('share_options_ab1') }}
 select
     cast(id as {{ dbt_utils.type_bigint() }}) as id,
+     cast(bcc as {{ dbt_utils.type_string() }}) as bcc,
     cast({{ adapter.quote('from') }} as {{ dbt_utils.type_string() }}) as {{ adapter.quote('from') }},
     cast(message as {{ dbt_utils.type_string() }}) as message,
     cast(subject as {{ dbt_utils.type_string() }}) as subject,
@@ -16,6 +17,7 @@ select
     cast(share_type as {{ dbt_utils.type_string() }}) as share_type,
     cast(updated_at as {{ dbt_utils.type_string() }}) as updated_at,
     cast(direct_link as {{ dbt_utils.type_string() }}) as direct_link,
+    cast(bluesky_share as {{ dbt_utils.type_string() }}) as bluesky_share,
     cast(email_share as {{ dbt_utils.type_string() }}) as email_share,
     cast(redirect_url as {{ dbt_utils.type_string() }}) as redirect_url,
     cast(facebook_link as {{ dbt_utils.type_string() }}) as facebook_link,
@@ -25,9 +27,11 @@ select
     cast(facebook_share as {{ dbt_utils.type_string() }}) as facebook_share,
     cast(facebook_title as {{ dbt_utils.type_string() }}) as facebook_title,
     cast(limit_redirect as {{ dbt_utils.type_string() }}) as limit_redirect,
+    cast(mobile_response as {{ dbt_utils.type_bigint() }}) as mobile_response,
     cast(email_template_id as {{ dbt_utils.type_bigint() }}) as email_template_id,
     cast(facebook_pixel_id as {{ dbt_utils.type_string() }}) as facebook_pixel_id,
     cast(google_conversion_id as {{ dbt_utils.type_string() }}) as google_conversion_id,
+    cast(mobile_response_body as {{ dbt_utils.type_string() }}) as mobile_response_body,
     cast(unpublished_redirect as {{ dbt_utils.type_string() }}) as unpublished_redirect,
     cast(speechifai_email_html as {{ dbt_utils.type_string() }}) as speechifai_email_html,
     cast(speechifai_campaign_id as {{ dbt_utils.type_string() }}) as speechifai_campaign_id,

@@ -18,6 +18,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['owner_type'], ['owner_type']) }} as owner_type,
     {{ json_extract_scalar('_airbyte_data', ['syndicated'], ['syndicated']) }} as syndicated,
     {{ json_extract_scalar('_airbyte_data', ['updated_at'], ['updated_at']) }} as updated_at,
+    {{ json_extract_scalar('_airbyte_data', ['last_used_at'], ['last_used_at']) }} as last_used_at,
     {{ json_extract_scalar('_airbyte_data', ['validation_regexp'], ['validation_regexp']) }} as validation_regexp,
     {{ json_extract_scalar('_airbyte_data', ['validation_description'], ['validation_description']) }} as validation_description,
     _airbyte_raw_id,

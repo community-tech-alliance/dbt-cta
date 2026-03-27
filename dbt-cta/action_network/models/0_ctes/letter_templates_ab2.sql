@@ -18,6 +18,7 @@ select
     cast(created_at as {{ dbt_utils.type_string() }}) as created_at,
     cast(updated_at as {{ dbt_utils.type_string() }}) as updated_at,
     cast(image_attribution as {{ dbt_utils.type_string() }}) as image_attribution,
+    cast(hide_signer_personal_information as {{ dbt_utils.type_bigint() }}) as hide_signer_personal_information,
     _airbyte_raw_id,
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at

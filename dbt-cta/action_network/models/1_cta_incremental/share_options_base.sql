@@ -7,6 +7,7 @@
 -- depends_on: {{ ref('share_options_ab4') }}
 select
     id,
+    bcc,
     {{ adapter.quote('from') }},
     message,
     subject,
@@ -18,6 +19,7 @@ select
     direct_link,
     email_share,
     redirect_url,
+    bluesky_share,
     facebook_link,
     twitter_share,
     arbitrary_html,
@@ -25,9 +27,11 @@ select
     facebook_share,
     facebook_title,
     limit_redirect,
+    mobile_response,
     email_template_id,
     facebook_pixel_id,
     google_conversion_id,
+    mobile_response_body,
     unpublished_redirect,
     speechifai_email_html,
     speechifai_campaign_id,

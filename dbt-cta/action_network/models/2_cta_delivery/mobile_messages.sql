@@ -8,6 +8,7 @@ select
     user_id,
     group_id,
     tag_list,
+    force_mms,
     media_url,
     permalink,
     send_date,

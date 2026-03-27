@@ -16,6 +16,7 @@ select
     cast(updated_at as {{ dbt_utils.type_string() }}) as updated_at,
     cast(first_visit as {{ dbt_utils.type_bigint() }}) as first_visit,
     cast(join_message as {{ dbt_utils.type_string() }}) as join_message,
+    cast(non_inherited as {{ dbt_utils.type_bigint() }}) as non_inherited,
     cast(user_permissions as {{ dbt_utils.type_string() }}) as user_permissions,
     _airbyte_raw_id,
     _airbyte_extracted_at,

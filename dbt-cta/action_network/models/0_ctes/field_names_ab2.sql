@@ -16,6 +16,7 @@ select
     cast(owner_type as {{ dbt_utils.type_string() }}) as owner_type,
     cast(syndicated as {{ dbt_utils.type_bigint() }}) as syndicated,
     cast(updated_at as {{ dbt_utils.type_string() }}) as updated_at,
+    cast(last_used_at as {{ dbt_utils.type_string() }}) as last_used_at,
     cast(validation_regexp as {{ dbt_utils.type_string() }}) as validation_regexp,
     cast(validation_description as {{ dbt_utils.type_string() }}) as validation_description,
     _airbyte_raw_id,

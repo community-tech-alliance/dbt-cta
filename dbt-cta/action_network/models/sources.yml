@@ -129,6 +129,8 @@ sources:
   database: "{{ env_var('CTA_PROJECT_ID', 'not-set') }}"
   schema: "{{ env_var('CTA_DATASET_ID', 'not-set') }}"
   tables:
+  - name: access_logs
+  - name: access_logs_base
   - name: action_keywords_base
   - name: action_questions_base
   - name: actions_base
@@ -148,6 +150,8 @@ sources:
   - name: core_fields_counties_base
   - name: core_fields_ocdids_base
   - name: counties_base
+  - name: d12y_stats
+  - name: d12y_stats_base
   - name: deliveries_base
   - name: delivery_targets_base
   - name: donation_payments_base
@@ -195,6 +199,10 @@ sources:
   - name: groups_base
   - name: groups_syndications_base
   - name: groups_users_base
+  - name: ladder_logs_1
+  - name: ladder_logs_1_base
+  - name: ladder_logs
+  - name: ladder_logs_base
   - name: ladders_base
   - name: letter_templates_base
   - name: letters_base
@@ -217,6 +225,10 @@ sources:
   - name: questions_base
   - name: recurring_donations_base
   - name: reports_base
+  - name: response_pages
+  - name: response_pages_base
+  - name: responses
+  - name: responses_base
   - name: rsvps_base
   - name: share_options_base
   - name: signatures_base
@@ -230,6 +242,10 @@ sources:
   - name: subscription_statuses_base
   - name: subscriptions_base
   - name: subscriptions_1_base
+  - name: survey_pages
+  - name: survey_pages_base
+  - name: surveys
+  - name: surveys_base
   - name: syndications_base
   - name: tag_syndications_base
   - name: tags_base

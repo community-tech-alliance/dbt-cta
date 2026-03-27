@@ -8,6 +8,7 @@ select
     created_at,
     updated_at,
     action_type,
+    num_segments,
     recipient_id,
     mobile_message_id,
     twilio_message_id,

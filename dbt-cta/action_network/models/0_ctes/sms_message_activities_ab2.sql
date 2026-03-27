@@ -15,6 +15,7 @@ select
     cast(created_at as {{ dbt_utils.type_string() }}) as created_at,
     cast(updated_at as {{ dbt_utils.type_string() }}) as updated_at,
     cast(action_type as {{ dbt_utils.type_string() }}) as action_type,
+    cast(num_segments as {{ dbt_utils.type_bigint() }}) as num_segments,
     cast(recipient_id as {{ dbt_utils.type_bigint() }}) as recipient_id,
     cast(mobile_message_id as {{ dbt_utils.type_bigint() }}) as mobile_message_id,
     cast(twilio_message_id as {{ dbt_utils.type_string() }}) as twilio_message_id,

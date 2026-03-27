@@ -33,6 +33,7 @@ select
     photo_file_name,
     photo_file_size,
     csv_content_type,
+    custom_host_html,
     default_reply_to,
     host_page_status,
     event_description,
