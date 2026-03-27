@@ -20,8 +20,7 @@ select
     trigger_type,
     exclude_uploads,
     exclude_one_time,
-    include_recurring
-    as only_text_to_join,
+    include_recurring as only_text_to_join,
     briteverify_sync_id,
     _airbyte_raw_id,
     _airbyte_extracted_at,
