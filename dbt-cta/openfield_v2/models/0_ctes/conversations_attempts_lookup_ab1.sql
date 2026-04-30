@@ -12,5 +12,5 @@ select
       'list_id',
       'person_id'
     ]) }} as _conversations_attempts_lookup_hashid,
-    {{ current_timestamp() }} as _cta_loaded_at
+    current_timestamp() as _cta_loaded_at
 from {{ source('cta', '_stg_conversations_attempts_lookup') }}

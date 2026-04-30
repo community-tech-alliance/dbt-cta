@@ -14,5 +14,5 @@ select
     canvasser_id,
     censusblock_id,
     label_id,
-    {{ current_timestamp() }} as _cta_loaded_at
+    current_timestamp() as _cta_loaded_at
 from {{ source('cta', '_stg_turf') }}

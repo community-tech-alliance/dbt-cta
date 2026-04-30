@@ -6,5 +6,5 @@ select
     name,
     created_at,
     created_by_id,
-    {{ current_timestamp() }} as _cta_loaded_at
+    current_timestamp() as _cta_loaded_at
 from {{ source('cta', '_stg_campaigns') }}

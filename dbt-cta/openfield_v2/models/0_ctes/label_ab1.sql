@@ -14,5 +14,5 @@ select
         'id',
         'campaign_id'
     ]) }} as _label_hashid,
-    {{ current_timestamp() }} as _cta_loaded_at
+    current_timestamp() as _cta_loaded_at
 from {{ source('cta', '_stg_label') }}

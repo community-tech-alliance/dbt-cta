@@ -25,5 +25,5 @@ select
         'id',
         'campaign_id'
     ]) }} as _conversation_code_hashid,
-    {{ current_timestamp() }} as _cta_loaded_at
+    current_timestamp() as _cta_loaded_at
 from {{ source('cta', '_stg_conversation_code') }}

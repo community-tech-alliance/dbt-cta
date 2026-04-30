@@ -7,5 +7,5 @@ select
     dwid,
     voterbase_id,
     dnc_person_id,
-    {{ current_timestamp() }} as _cta_loaded_at
+    current_timestamp() as _cta_loaded_at
 from {{ source('cta', '_stg_people_lookup') }}
