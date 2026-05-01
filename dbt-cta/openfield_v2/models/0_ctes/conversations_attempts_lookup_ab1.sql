@@ -1,5 +1,5 @@
 -- SQL model to build a hash column based on the values of this record
--- depends_on: {{ source('cta', '_stg_conversations_attempts_lookup') }}
+-- depends_on: {{ source('cta', '_raw_conversations_attempts_lookup') }}
 
 select
     conversation_id,
@@ -13,4 +13,4 @@ select
       'person_id'
     ]) }} as _conversations_attempts_lookup_hashid,
     current_timestamp() as _cta_loaded_at
-from {{ source('cta', '_stg_conversations_attempts_lookup') }}
+from {{ source('cta', '_raw_conversations_attempts_lookup') }}
