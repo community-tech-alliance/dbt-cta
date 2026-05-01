@@ -4,26 +4,26 @@ sources:
     database: "{{ env_var('CTA_PROJECT_ID') }}"
     schema: "{{ env_var('CTA_DATASET_ID') }}"
     tables:
-      - name: _stg_campaigns
+      - name: _raw_campaigns
       - name: campaigns_base
         tests:
           - unique:
               column_name: id
-      - name: _stg_conversation_code
+      - name: _raw_conversation_code
       - name: conversation_code_base
         tests:
           - dbt_utils.unique_combination_of_columns:
               combination_of_columns:
                 - id
                 - campaign_id
-      - name: _stg_conversations
+      - name: _raw_conversations
       - name: conversations_base
         tests:
           - dbt_utils.unique_combination_of_columns:
               combination_of_columns:
                 - id
                 - campaign_id
-      - name: _stg_conversations_attempts_lookup
+      - name: _raw_conversations_attempts_lookup
       - name: conversations_attempts_lookup_base
         tests:
           - dbt_utils.unique_combination_of_columns:
@@ -32,38 +32,38 @@ sources:
                 - campaign_id
                 - list_id
                 - person_id
-      - name: _stg_customuser
+      - name: _raw_customuser
       - name: customuser_base
         tests:
           - dbt_utils.unique_combination_of_columns:
               combination_of_columns:
                 - id
                 - campaign_id
-      - name: _stg_label
+      - name: _raw_label
       - name: label_base
         tests:
           - dbt_utils.unique_combination_of_columns:
               combination_of_columns:
                 - id
                 - campaign_id
-      - name: _stg_people
+      - name: _raw_people
       - name: people_base
         tests:
           - unique:
               column_name: id
-      - name: _stg_people_labels
+      - name: _raw_people_labels
       - name: people_labels_base
         tests:
           - dbt_utils.unique_combination_of_columns:
               combination_of_columns:
                 - id
                 - campaign_id
-      - name: _stg_people_lookup
+      - name: _raw_people_lookup
       - name: people_lookup_base
         tests:
           - unique:
               column_name: of_person_id
-      - name: _stg_question_dropdown_options
+      - name: _raw_question_dropdown_options
       - name: question_dropdown_options_base
         tests:
           - dbt_utils.unique_combination_of_columns:
@@ -71,35 +71,35 @@ sources:
                 - question_id
                 - campaign_id
                 - option_id
-      - name: _stg_question_responses
+      - name: _raw_question_responses
       - name: question_responses_base
         tests:
           - dbt_utils.unique_combination_of_columns:
               combination_of_columns:
                 - id
                 - campaign_id
-      - name: _stg_questions
+      - name: _raw_questions
       - name: questions_base
         tests:
           - dbt_utils.unique_combination_of_columns:
               combination_of_columns:
                 - id
                 - campaign_id
-      - name: _stg_scripts_question
+      - name: _raw_scripts_question
       - name: scripts_question_base
         tests:
           - dbt_utils.unique_combination_of_columns:
               combination_of_columns:
                 - id
                 - campaign_id
-      - name: _stg_scripts
+      - name: _raw_scripts
       - name: scripts_base
         tests:
           - dbt_utils.unique_combination_of_columns:
               combination_of_columns:
                 - id
                 - campaign_id
-      - name: _stg_turf
+      - name: _raw_turf
       - name: turf_base
         tests:
           - unique:

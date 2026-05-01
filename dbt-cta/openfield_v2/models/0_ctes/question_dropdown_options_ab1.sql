@@ -1,5 +1,5 @@
 -- SQL model to build a hash column based on the values of this record
--- depends_on: {{ source('cta', '_stg_question_dropdown_options') }}
+-- depends_on: {{ source('cta', '_raw_question_dropdown_options') }}
 
 select
     question_id,
@@ -12,4 +12,4 @@ select
         'option_id'
     ]) }} as _question_dropdown_options_hashid,
     current_timestamp() as _cta_loaded_at
-from {{ source('cta', '_stg_question_dropdown_options') }}
+from {{ source('cta', '_raw_question_dropdown_options') }}

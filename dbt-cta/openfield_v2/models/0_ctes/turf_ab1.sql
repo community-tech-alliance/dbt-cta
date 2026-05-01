@@ -1,5 +1,5 @@
 -- SQL model to build a hash column based on the values of this record
--- depends_on: {{ source('cta', '_stg_turf') }}
+-- depends_on: {{ source('cta', '_raw_turf') }}
 
 select
     id,
@@ -15,4 +15,4 @@ select
     censusblock_id,
     label_id,
     current_timestamp() as _cta_loaded_at
-from {{ source('cta', '_stg_turf') }}
+from {{ source('cta', '_raw_turf') }}
