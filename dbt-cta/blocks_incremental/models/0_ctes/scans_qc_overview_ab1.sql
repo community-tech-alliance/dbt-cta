@@ -82,7 +82,6 @@ select
     collection_location_longitude,
     visual_qc_completed_by_user_id,
     collection_location_street_address,
-    voter_registration_scan_batches_id,
     voter_registration_scan_updated_at,
     phone_verification_completed_by_user_id,
    {{ dbt_utils.surrogate_key([
