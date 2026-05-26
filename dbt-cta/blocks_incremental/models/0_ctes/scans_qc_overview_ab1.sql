@@ -79,7 +79,6 @@ select
     mailing_street_address_one,
     mailing_street_address_two,
     collection_location_latitude,
-    voter_registration_scan_id,
     collection_location_longitude,
     visual_qc_completed_by_user_id,
     collection_location_street_address,
@@ -95,7 +94,6 @@ select
         'van_committee_id',
         'visual_qc_completed_by_user_id',
         'collection_location_id',
-        'voter_registration_scan_id',
         'phone_verification_completed_by_user_id' 
     ]) }} as _airbyte_scans_qc_overview_hashid
 from {{ source('cta', 'scans_qc_overview') }}
