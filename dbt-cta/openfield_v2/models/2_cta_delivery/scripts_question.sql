@@ -1,2 +1,2 @@
 select *
-from {{ source('cta', 'scripts_base') }}
+from {{ source('cta', 'scripts_question_base') }}
