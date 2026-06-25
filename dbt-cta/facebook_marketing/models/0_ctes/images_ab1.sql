@@ -12,6 +12,7 @@ select
     _airbyte_meta,
     id,
     url,
+    `hash`,
     name,
     width,
     height,
