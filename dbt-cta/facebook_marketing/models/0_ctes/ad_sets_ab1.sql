@@ -29,6 +29,7 @@ select
     promoted_object,
     budget_remaining,
     effective_status,
+    learning_stage_info,
    {{ dbt_utils.surrogate_key([
      'id',
     'name',
