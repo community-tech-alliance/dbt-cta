@@ -70,6 +70,75 @@ models:
           - not_null
           - unique
 
+  - name: survey_response_v2
+    description: Table for DDx Standard Subscription Stream data with the new combined survey response and question metadata schema (July 2026 egress update)
+    columns:
+      - name: person_id
+        description: A configurable voter identification value. Can be TargetSmart's Voterbase ID, Catalists's DWID SmartVAN's VAN ID, AV's VAN ID, or Votebuilder VAN ID. Will be the primary person id established on client settings.
+      - name: state_code
+        description: 'Two-letter code indicating the state or territory the person is registered to vote in'
+      - name: contact_type_name
+        description: 'The mode of contact used in the effort to reach out to the person'
+      - name: contact_result_name
+        description: 'The result of the effort made to reach out to the person'
+      - name: exchange_survey_question_response_name
+        description: 'The string value of the response given to the exchange survey question'
+      - name: record_id
+        description: 'A unique ID representing a single survey response record.'
+      - name: contact_attempt_record_id
+        description: 'A unique ID representing a single contact attempt. Any survey responses that have the same value for this field were generated from the same contact'
+      - name: datetime_pulled
+        description: 'The date and time that the data was pulled from DDx'
+      - name: datetime_window_start
+        description: 'The start of the abstracted window of time in which the data was collected.'
+      - name: datetime_window_end
+        description: 'The end of the abstracted window of time in which the data was collected.'
+      - name: survey_question_text
+        description: 'Survey question that was asked of the person being contacted'
+      - name: major_question_type
+        description: 'High level description of question type'
+      - name: election_type
+        description: 'Election type (Primary, General, etc)'
+      - name: gov_level
+        description: 'Government level about which the question is being asked (Federal vs State vs Local)'
+      - name: minor_question_type
+        description: 'Further details on type of survey question'
+      - name: office
+        description: 'Political office for which candidate is running'
+      - name: rank
+        description: 'Used for issue ranking and ranked choice voting'
+      - name: survey_response_set
+        description: 'Types/number of options that a survey question contains'
+      - name: language
+        description: 'Language'
+      - name: exchange_survey_question_id
+        description: 'New unique ID for the survey question, replacing exchange_survey_question_code'
+      - name: full_name
+        description: 'Candidate name (JSON-encoded array)'
+      - name: election_date
+        description: 'Date of the election for election-specific questions (JSON-encoded array)'
+      - name: ballot_measure_name
+        description: 'Name of ballot measure for ballot measure-specific questions (JSON-encoded array)'
+      - name: issue
+        description: 'Additional question attributes'
+      - name: collection_method
+        description: 'Polling vs program'
+      - name: district_name
+        description: 'Geography details (JSON-encoded array)'
+      - name: contest_type
+        description: 'Contest-specific election descriptor e.g. Special, Regular (JSON-encoded array)'
+      - name: election_metadata
+        description: 'Raw JSON blob of all election metadata that can be tied to a given question'
+      - name: subscription_name
+        description: 'The name of the DDX Subscription that this record came from'
+      - name: _cta_loaded_at
+        description: 'The timestamp of when CTA loaded this data into BigQuery'
+      - name: _cta_hash_id
+        description: 'A unique identifier for this row. Created using a combination of fields from this record'
+        tests:
+          - not_null
+          - unique
+
   - name: universe_builder
     description: 'Table for a DDX Standard Subscription Stream data with record type of universe-builder'
     columns:

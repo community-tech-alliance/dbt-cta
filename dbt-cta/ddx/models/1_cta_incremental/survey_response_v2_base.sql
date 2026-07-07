@@ -1,0 +1,40 @@
+{{ config(
+    partition_by = {"field": "datetime_pulled", "data_type": "timestamp", "granularity": "day"},
+    unique_key = "_cta_hash_id",
+    tags = [ "survey-response-v2" ],
+    persist_docs = {"columns": true, "relation": true}
+) }}
+
+select
+    person_id,
+    state_code,
+    contact_type_name,
+    contact_result_name,
+    exchange_survey_question_response_name,
+    record_id,
+    contact_attempt_record_id,
+    datetime_pulled,
+    datetime_window_start,
+    datetime_window_end,
+    survey_question_text,
+    major_question_type,
+    election_type,
+    gov_level,
+    minor_question_type,
+    office,
+    rank,
+    survey_response_set,
+    language,
+    exchange_survey_question_id,
+    full_name,
+    election_date,
+    ballot_measure_name,
+    issue,
+    collection_method,
+    district_name,
+    contest_type,
+    election_metadata,
+    subscription_name,
+    _cta_loaded_at,
+    _cta_hash_id
+from {{ ref('survey_response_v2_cte2') }}
