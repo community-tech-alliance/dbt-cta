@@ -7,6 +7,7 @@ sources:
     - name: activities
     - name: ad_account
     - name: ad_creatives
+    - name: ad_creatives_from_ads
     - name: ad_sets
     - name: ads
     - name: ads_insights
@@ -18,15 +19,15 @@ sources:
     - name: ads_insights_action_video_sound
     - name: ads_insights_action_video_type
     - name: ads_insights_age_and_gender
+    - name: ads_insights_comscore_market
     - name: ads_insights_country
     - name: ads_insights_delivery_device
     - name: ads_insights_delivery_platform
     - name: ads_insights_delivery_platform_and_device_platform
     - name: ads_insights_demographics_age
+    - name: ads_insights_demographics_comscore_market_region
     - name: ads_insights_demographics_country
-    - name: ads_insights_demographics_dma_region
     - name: ads_insights_demographics_gender
-    - name: ads_insights_dma
     - name: ads_insights_platform_and_device
     - name: ads_insights_region
     - name: campaigns
@@ -37,6 +38,7 @@ sources:
     - name: activities_base
     - name: ad_account_base
     - name: ad_creatives_base
+    - name: ad_creatives_from_ads_base
     - name: ad_sets_base
     - name: ads_base
     - name: ads_insights_base
@@ -48,15 +50,15 @@ sources:
     - name: ads_insights_action_video_sound_base
     - name: ads_insights_action_video_type_base
     - name: ads_insights_age_and_gender_base
+    - name: ads_insights_comscore_market_base
     - name: ads_insights_country_base
     - name: ads_insights_delivery_device_base
     - name: ads_insights_delivery_platform_base
     - name: ads_insights_delivery_platform_and_device_platform_base
     - name: ads_insights_demographics_age_base
+    - name: ads_insights_demographics_comscore_market_region_base
     - name: ads_insights_demographics_country_base
-    - name: ads_insights_demographics_dma_region_base
     - name: ads_insights_demographics_gender_base
-    - name: ads_insights_dma_base
     - name: ads_insights_platform_and_device_base
     - name: ads_insights_region_base
     - name: campaigns_base
