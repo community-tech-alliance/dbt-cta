@@ -1,5 +1,4 @@
 {{ config(
-    cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_raw_id'
 ) }}
@@ -13,10 +12,10 @@ select
     id,
     uuid,
     format,
-    paused,
     columns,
     user_id,
     frequency,
+    recurring,
     created_at,
     recipients,
     table_name,
@@ -30,10 +29,10 @@ select
      'id',
     'uuid',
     'format',
-    'paused',
     'columns',
     'user_id',
     'frequency',
+    'recurring',
     'recipients',
     'table_name',
     'attachment_name',

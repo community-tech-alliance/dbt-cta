@@ -1,5 +1,4 @@
 {{ config(
-    cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_raw_id'
 ) }}
@@ -17,6 +16,7 @@ select
     turf_id,
     complete,
     shift_id,
+    documents,
     ethnicity,
     field_end,
     last_name,
@@ -50,6 +50,7 @@ select
     packet_filename,
     phone_validated,
     qc_organization,
+    shift_delivered,
     van_committee_id,
     visual_qc_county,
     address_validated,
@@ -61,7 +62,6 @@ select
     eligible_voting_age,
     canvasser_first_name,
     is_registration_form,
-    pledge_card_metadata,
     registration_form_id,
     data_entry_updated_at,
     collection_location_id,
@@ -83,16 +83,5 @@ select
     visual_qc_completed_by_user_id,
     collection_location_street_address,
     voter_registration_scan_updated_at,
-    phone_verification_completed_by_user_id,
-   {{ dbt_utils.surrogate_key([
-        'turf_id',
-        'shift_id',
-        'canvasser_id',
-        'turf_parent_id',
-        'registration_form_id',
-        'van_committee_id',
-        'visual_qc_completed_by_user_id',
-        'collection_location_id',
-        'phone_verification_completed_by_user_id' 
-    ]) }} as _airbyte_scans_qc_overview_hashid
+    phone_verification_completed_by_user_id
 from {{ source('cta', 'scans_qc_overview') }}

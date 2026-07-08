@@ -1,5 +1,4 @@
 {{ config(
-    cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_raw_id'
 ) }}
@@ -11,13 +10,13 @@ select
     _airbyte_extracted_at,
     _airbyte_meta,
     id,
-    slug,
     email,
     extras,
     locale,
     locked,
     role_id,
     turf_id,
+    programs,
     last_name,
     qc_office,
     time_zone,
@@ -35,6 +34,7 @@ select
     last_sign_in_ip,
     training_status,
     current_latitude,
+    favorited_routes,
     last_notified_at,
     two_factor_phone,
     current_longitude,
@@ -60,7 +60,6 @@ select
     encrypted_otp_secret_key_salt,
    {{ dbt_utils.surrogate_key([
      'id',
-    'slug',
     'email',
     'extras',
     'locale',

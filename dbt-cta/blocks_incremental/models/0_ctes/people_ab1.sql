@@ -1,5 +1,4 @@
 {{ config(
-    cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_raw_id'
 ) }}
@@ -11,7 +10,6 @@ select
     _airbyte_extracted_at,
     _airbyte_meta,
     id,
-    slug,
     extras,
     gender,
     issues,
@@ -58,7 +56,6 @@ select
     requested_public_record_exception,
    {{ dbt_utils.surrogate_key([
      'id',
-    'slug',
     'extras',
     'gender',
     'issues',

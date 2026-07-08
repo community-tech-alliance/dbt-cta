@@ -1,5 +1,4 @@
 {{ config(
-    cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_raw_id'
 ) }}
@@ -11,7 +10,6 @@ select
     _airbyte_extracted_at,
     _airbyte_meta,
     id,
-    uuid,
     notes,
     party,
     score,
@@ -21,7 +19,7 @@ select
     van_id,
     scan_id,
     latitude,
-    `metadata`,
+    metadata,
     ocr_data,
     por_data,
     precinct,
@@ -83,7 +81,7 @@ select
     mailing_street_address_two,
    {{ dbt_utils.surrogate_key([
      'id',
-    'uuid',
+    'notes',
     'party',
     'county',
     'extras',
