@@ -31,6 +31,7 @@ sources:
     - name: check_ins
     - name: collections
     - name: collections_roles
+    - name: contact_logs
     - name: contact_methods
     - name: coorganizations
     - name: counties
@@ -93,6 +94,7 @@ sources:
     - name: phone_banking_script_texts
     - name: phone_banking_scripts
     - name: phone_banking_sessions
+    - name: phone_verification_chats
     - name: phone_verification_questions
     - name: phone_verification_responses
     - name: pivot_three
@@ -131,6 +133,7 @@ sources:
     - name: tenant_blocks
     - name: tenant_quick_links
     - name: tenants
+    - name: timeline_events
     - name: turf_levels
     - name: turf_pvqs
     - name: turf_vrrs
@@ -182,6 +185,7 @@ sources:
     - name: check_ins_base
     - name: collections_base
     - name: collections_roles_base
+    - name: contact_logs_base
     - name: contact_methods_base
     - name: coorganizations_base
     - name: counties_base
@@ -244,6 +248,7 @@ sources:
     - name: phone_banking_script_texts_base
     - name: phone_banking_scripts_base
     - name: phone_banking_sessions_base
+    - name: phone_verification_chats_base
     - name: phone_verification_questions_base
     - name: phone_verification_responses_base
     - name: pivot_three_base
@@ -282,6 +287,7 @@ sources:
     - name: tenant_blocks_base
     - name: tenant_quick_links_base
     - name: tenants_base
+    - name: timeline_events_base
     - name: turf_levels_base
     - name: turf_pvqs_base
     - name: turf_vrrs_base
