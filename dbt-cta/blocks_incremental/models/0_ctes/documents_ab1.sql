@@ -1,5 +1,4 @@
 {{ config(
-    cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_raw_id'
 ) }}
@@ -12,7 +11,9 @@ select
     _airbyte_meta,
     id,
     name,
+    type,
     user_id,
+    metadata,
     folder_id,
     tenant_id,
     created_at,

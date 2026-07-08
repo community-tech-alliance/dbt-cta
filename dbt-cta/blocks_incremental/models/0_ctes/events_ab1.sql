@@ -1,5 +1,4 @@
 {{ config(
-    cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_raw_id'
 ) }}
@@ -27,11 +26,13 @@ select
     campaign_id,
     description,
     location_id,
+    custom_groups,
     invited_count,
     no_show_count,
     attended_count,
     organization_id,
     public_settings,
+    custom_field_data,
     created_by_user_id,
     first_occurrence_id,
     public_page_header_data,

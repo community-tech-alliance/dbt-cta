@@ -1,5 +1,4 @@
 {{ config(
-    cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_raw_id'
 ) }}
@@ -18,6 +17,7 @@ select
     extras,
     address,
     turf_id,
+    user_id,
     archived,
     last_name,
     person_id,
@@ -27,8 +27,9 @@ select
     phone_number,
     organization_id,
     created_by_user_id,
-   {{ dbt_utils.surrogate_key([
-     'id',
+    affirmation_file_locator,
+    {{ dbt_utils.surrogate_key([
+    'id',
     'vdrs',
     'email',
     'notes',

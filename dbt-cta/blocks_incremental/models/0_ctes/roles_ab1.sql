@@ -1,5 +1,4 @@
 {{ config(
-    cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_raw_id'
 ) }}
@@ -14,7 +13,6 @@ select
     lft,
     rgt,
     name,
-    admin,
     depth,
     abilities,
     parent_id,
@@ -24,12 +22,12 @@ select
     permissions,
     needs_training,
     dashboard_layout_id,
+    default_favorited_routes,
    {{ dbt_utils.surrogate_key([
      'id',
     'lft',
     'rgt',
     'name',
-    'admin',
     'depth',
     'abilities',
     'parent_id',

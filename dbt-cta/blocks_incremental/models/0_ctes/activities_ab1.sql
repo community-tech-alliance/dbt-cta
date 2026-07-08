@@ -1,5 +1,4 @@
 {{ config(
-    cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_raw_id'
 ) }}
@@ -11,34 +10,18 @@ select
     _airbyte_extracted_at,
     _airbyte_meta,
     id,
-    key,
-    meta,
+    type,
     user_id,
-    owner_id,
-    person_id,
+    object_id,
     created_at,
-    owner_type,
-    parameters,
     updated_at,
-    contact_type,
-    contacted_at,
-    recipient_id,
-    trackable_id,
-    recipient_type,
-    trackable_type,
-   {{ dbt_utils.surrogate_key([
-     'id',
-    'key',
-    'meta',
-    'user_id',
-    'owner_id',
-    'person_id',
-    'owner_type',
-    'parameters',
-    'contact_type',
-    'recipient_id',
-    'trackable_id',
-    'recipient_type',
-    'trackable_type'
+    object_type,
+    occurred_at,
+    {{ dbt_utils.surrogate_key([
+        'id',
+        'type',
+        'user_id',
+        'object_id',
+        'object_type'
     ]) }} as _airbyte_activities_hashid
 from {{ source('cta', 'activities') }}

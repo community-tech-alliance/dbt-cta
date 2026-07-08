@@ -5,7 +5,7 @@ select * except (rownum) from
 (
 select
     *,
-    row_number() over (partition by _airbyte_scans_qc_overview_hashid order by _airbyte_extracted_at desc) as rownum
-from {{ ref('scans_qc_overview_ab1') }}
+    row_number() over (partition by _airbyte_timeline_events_hashid order by _airbyte_extracted_at desc) as rownum
+from {{ ref('timeline_events_ab1') }}
 )
 where rownum = 1

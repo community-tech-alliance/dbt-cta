@@ -1,5 +1,4 @@
 {{ config(
-    cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_raw_id'
 ) }}
@@ -20,8 +19,11 @@ select
     created_at,
     start_time,
     updated_at,
+    campaign_id,
     location_id,
+    custom_groups,
     guest_attended,
+    custom_field_data,
     additional_person_id,
    {{ dbt_utils.surrogate_key([
      'id',
@@ -30,6 +32,7 @@ select
     'user_id',
     'cancelled',
     'person_id',
+    'campaign_id',
     'location_id',
     'guest_attended',
     'additional_person_id'

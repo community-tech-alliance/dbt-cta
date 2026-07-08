@@ -1,5 +1,4 @@
 {{ config(
-    cluster_by = "_airbyte_extracted_at",
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = '_airbyte_raw_id'
 ) }}
@@ -13,11 +12,11 @@ select
     id,
     notes,
     call_id,
+    chat_id,
     response,
     created_at,
     updated_at,
     question_key,
-    round_number,
     created_by_user_id,
     voter_registration_scan_id,
     phone_verification_question_id,
@@ -25,8 +24,8 @@ select
      'id',
     'notes',
     'call_id',
+    'chat_id',
     'response',
-    'round_number',
     'created_by_user_id',
     'voter_registration_scan_id',
     'phone_verification_question_id'
