@@ -47,7 +47,9 @@ select
     encrypted_password,
     two_factor_enabled,
     remember_created_at,
-    notifications_legacy,
+    -- Not all Blocks instances have this column; instances without it override
+    -- the var with a NULL expression (see dbt_vars in the Airflow sync config).
+    {{ var('users_notifications_legacy_expr', 'notifications_legacy') }} as notifications_legacy,
     reset_password_token,
     force_reauthentication,
     reset_password_sent_at,
