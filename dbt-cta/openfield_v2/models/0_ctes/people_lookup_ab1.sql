@@ -7,5 +7,6 @@ select
     dwid,
     voterbase_id,
     dnc_person_id,
+    vf_source_state,
     current_timestamp() as _cta_loaded_at
 from {{ source('cta', '_raw_people_lookup') }}
