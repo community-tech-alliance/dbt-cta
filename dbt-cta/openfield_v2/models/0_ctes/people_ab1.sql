@@ -25,5 +25,6 @@ select
     contacted_national_address_id_id,
     mailing_national_address_id_id,
     provided_national_address_id_id,
+    vf_source_state,
     current_timestamp() as _cta_loaded_at
 from {{ source('cta', '_raw_people') }}

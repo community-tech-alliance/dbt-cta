@@ -25,6 +25,7 @@ select
     contacted_zip_4,
     attempt_after_time,
     is_quarantined,
+    turf_id,
     {{ dbt_utils.surrogate_key([
         'id',
         'campaign_id'
