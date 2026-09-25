@@ -99,3 +99,7 @@ select
     _airbyte_managed_form_contributions_stream_hashid
 from {{ ref('managed_form_contributions_stream_ab4') }}
 where 1 = 1
+{% if is_incremental() %}
+  -- raw accumulates under incremental append, so only read extracts this run
+  and _airbyte_extracted_at >= (select max(_airbyte_extracted_at) from {{ this }})
+{% endif %}
