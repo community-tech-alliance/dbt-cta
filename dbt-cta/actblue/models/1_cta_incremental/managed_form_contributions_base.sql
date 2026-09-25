@@ -11,7 +11,7 @@
 -- depends_on: {{ ref('managed_form_contributions_stream_ab4') }}
 select
     Fee,
-    Date,
+    safe_cast(Date as timestamp) as Date,
     Amount,
     Mobile,
     Approved,
