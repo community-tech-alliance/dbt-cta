@@ -2,7 +2,7 @@
     partition_by = {"field": "_airbyte_extracted_at", "data_type": "timestamp", "granularity": "day"},
     unique_key = 'mailing_id'
 ) }}
--- SQL model to build a hash column based on the values of this record
+-- SQL model to select normalized fields from the summary_mailing source
 -- depends_on: {{ source('cta', 'summary_mailing') }}
 
 select
