@@ -8,10 +8,10 @@
     tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
--- depends_on: {{ ref('managed_form_contributions_stream_ab4') }}
+-- depends_on: {{ ref('managed_form_contributions_stream_ab3') }}
 select
     Fee,
-    Date,
+    safe_cast(Date as timestamp) as Date,
     Amount,
     Mobile,
     Approved,
@@ -97,5 +97,21 @@ select
     _airbyte_extracted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_managed_form_contributions_stream_hashid
-from {{ ref('managed_form_contributions_stream_ab4') }}
+from {{ ref('managed_form_contributions_stream_ab3') }}
 where 1 = 1
+{% if is_incremental() %}
+  {%- set max_extracted_at = get_max_normalized_cursor('_airbyte_extracted_at') %}
+  {%- if max_extracted_at %}
+  -- raw accumulates under incremental append, so only read extracts since the
+  -- last run. The filter sits before the dedupe so it reaches the raw table, and
+  -- the cursor is inlined as a literal so BigQuery can prune raw partitions.
+  and _airbyte_extracted_at >= cast('{{ max_extracted_at }}' as timestamp)
+  {%- endif %}
+{% endif %}
+-- Dedupes on the business key rather than the row hash. The Airbyte source
+-- syncs incrementally with a 14 day lookback, so raw holds several versions of a
+-- recently disbursed contribution -- identical except for Disbursement_ID/Date.
+-- Those differ by hash, so a hash partition would emit all of them and the
+-- merge on Lineitem_ID would fail with "UPDATE/MERGE must match at most one
+-- source row for each target row". Newest extract wins.
+qualify row_number() over (partition by Lineitem_ID order by _airbyte_extracted_at desc) = 1
