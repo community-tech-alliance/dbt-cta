@@ -1,0 +1,11 @@
+-- ensures the base model contains only one row per mailing_id
+-- this deduplicates data even if the source data contains duplicate rows
+
+select * except (rownum) from
+(
+select
+    *,
+    row_number() over (partition by mailing_id order by _airbyte_extracted_at desc) as rownum
+from {{ ref('summary_mailing_ab1') }}
+)
+where rownum = 1

@@ -49,6 +49,8 @@ sources:
     - name: oneclick_storeduser
     - name: oneclick_use
     - name: spam_spamchecklog    
+    - name: summary_mailing
+    - name: summary_user
     - name: core_action_base 
     - name: core_actionfield_base 
     - name: core_actionnotification_base 
@@ -94,3 +96,5 @@ sources:
     - name: oneclick_storeduser_base 
     - name: oneclick_use_base 
     - name: spam_spamchecklog_base
+    - name: summary_mailing_base 
+    - name: summary_user_base 
