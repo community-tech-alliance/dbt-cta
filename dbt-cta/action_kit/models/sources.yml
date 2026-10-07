@@ -9,19 +9,40 @@ sources:
     - name: core_actionnotification
     - name: core_actionnotification_to_staff
     - name: core_alloweduserfield
+    - name: core_blackholeddomain
+    - name: core_blackholedemail
+    - name: core_blackholedhistory
+    - name: core_bounce
+    - name: core_bounce_soft
     - name: core_callaction
     - name: core_callaction_checked
     - name: core_callaction_local_office_checked
     - name: core_callaction_targeted
     - name: core_campaignvolunteeraction
+    - name: core_click
+    - name: core_clickurl
+    - name: core_clientdomain
+    - name: core_emailwrapper
     - name: core_eventcreateaction
     - name: core_eventmoderateaction
     - name: core_eventsignupaction
     - name: core_eventvolunteeraction
+    - name: core_fromline
+    - name: core_list
     - name: core_location
     - name: core_lteaction
+    - name: core_mailing
+    - name: core_mailingsubject
+    - name: core_message_event_raw
+    - name: core_message_event_reason
+    - name: core_open
+    - name: core_open_raw
+    - name: core_page
     - name: core_phone
     - name: core_reengagementlog
+    - name: core_subscription
+    - name: core_transactionalmailing
+    - name: core_transactionalmailingsent
     - name: core_user
     - name: core_user_groups
     - name: core_user_page_tags
@@ -30,6 +51,7 @@ sources:
     - name: core_userdivision
     - name: core_userfield
     - name: core_usergroup
+    - name: core_usermailing
     - name: core_usermerge
     - name: core_usermerge_users
     - name: core_userstaffnote
@@ -50,25 +72,47 @@ sources:
     - name: oneclick_use
     - name: spam_spamchecklog    
     - name: summary_mailing
+    - name: summary_mailingmailboxprovider
     - name: summary_user
     - name: core_action_base 
     - name: core_actionfield_base 
     - name: core_actionnotification_base 
     - name: core_actionnotification_to_staff_base 
     - name: core_alloweduserfield_base 
+    - name: core_blackholeddomain_base
+    - name: core_blackholedemail_base
+    - name: core_blackholedhistory_base
+    - name: core_bounce_base
+    - name: core_bounce_soft_base
     - name: core_callaction_base 
     - name: core_callaction_checked_base 
     - name: core_callaction_local_office_checked_base 
     - name: core_callaction_targeted_base 
     - name: core_campaignvolunteeraction_base 
+    - name: core_click_base
+    - name: core_clickurl_base
+    - name: core_clientdomain_base
+    - name: core_emailwrapper_base
     - name: core_eventcreateaction_base 
     - name: core_eventmoderateaction_base 
     - name: core_eventsignupaction_base 
     - name: core_eventvolunteeraction_base 
+    - name: core_fromline_base
+    - name: core_list_base
     - name: core_location_base 
     - name: core_lteaction_base 
+    - name: core_mailing_base
+    - name: core_mailingsubject_base
+    - name: core_message_event_raw_base
+    - name: core_message_event_reason_base
+    - name: core_open_base
+    - name: core_open_raw_base
+    - name: core_page_base
     - name: core_phone_base 
     - name: core_reengagementlog_base 
+    - name: core_subscription_base
+    - name: core_transactionalmailing_base
+    - name: core_transactionalmailingsent_base
     - name: core_user_base 
     - name: core_user_groups_base 
     - name: core_user_page_tags_base 
@@ -77,6 +121,7 @@ sources:
     - name: core_userdivision_base 
     - name: core_userfield_base 
     - name: core_usergroup_base 
+    - name: core_usermailing_base
     - name: core_usermerge_base 
     - name: core_usermerge_users_base 
     - name: core_userstaffnote_base 
@@ -97,4 +142,5 @@ sources:
     - name: oneclick_use_base 
     - name: spam_spamchecklog_base
     - name: summary_mailing_base 
+    - name: summary_mailingmailboxprovider_base
     - name: summary_user_base 
