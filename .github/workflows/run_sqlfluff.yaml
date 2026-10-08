@@ -20,7 +20,7 @@ env:
 jobs:
     sqlfluff_lint_check:
         name: SQLFluff lint check
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-24.04
         environment: dev
         steps:
             - name: Get changed sql files
