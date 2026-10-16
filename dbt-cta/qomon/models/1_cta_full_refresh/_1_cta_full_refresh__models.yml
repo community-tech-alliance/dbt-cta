@@ -1,0 +1,87 @@
+version: 2
+
+models:
+
+  - name: contacts_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+
+  - name: addresses_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+
+  - name: profiles_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+
+  - name: formdata_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+
+  - name: custom_fields_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+
+  - name: facts_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_contacts_base
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - fact_id
+            - contact_id
+
+  - name: actions_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+
+  - name: action_facts_base
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - action_id
+            - fact_id
+
+  - name: forms_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+
+  - name: refvalues_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+
+  - name: users_base
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
