@@ -15,7 +15,6 @@ select
     user_id,
     end_time,
     cancelled,
-    person_id,
     created_at,
     start_time,
     updated_at,
@@ -24,17 +23,20 @@ select
     custom_groups,
     guest_attended,
     custom_field_data,
-    additional_person_id,
+    public,
+    host_id,
+    guest_id,
    {{ dbt_utils.surrogate_key([
      'id',
     'type',
     'notes',
     'user_id',
     'cancelled',
-    'person_id',
     'campaign_id',
     'location_id',
     'guest_attended',
-    'additional_person_id'
+    'public',
+    'host_id',
+    'guest_id'
     ]) }} as _airbyte_meetings_hashid
 from {{ source('cta', 'meetings') }}
