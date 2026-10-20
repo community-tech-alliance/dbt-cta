@@ -22,8 +22,8 @@ Column names keep Empower's camelCase. A column the API doesn't send for an org 
 The connector syncs every value as a string. Types are set in `ab1` with `safe_cast`, so a value that doesn't fit becomes NULL instead of failing the run:
 
 - `*Mts` columns (epoch milliseconds), `ordering` and `initialPromptResponse`: `int64`
-- `is*`, `should*`, `uses*`, `can*` and `dependsOn*` flags: `bool`
-- everything else, including IDs and JSON-valued columns: `string`
+- `is*`, `should*`, `uses*` and `can*` flags: `bool`
+- everything else, including IDs and JSON-valued columns: `string`. `ctas_prompts.dependsOnInitialDispositionResponse` stays `string` too, because the API doc doesn't make clear whether it's a flag or a response code.
 
 ## Tests
 

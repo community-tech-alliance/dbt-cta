@@ -15,7 +15,7 @@ with extracted as (
         {{ json_extract_scalar('_airbyte_data', ['answerInputType'], ['answerInputType']) }} as answerInputType,
         safe_cast({{ json_extract_scalar('_airbyte_data', ['usesMessageDrafts'], ['usesMessageDrafts']) }} as bool) as usesMessageDrafts,
         safe_cast({{ json_extract_scalar('_airbyte_data', ['usesTalkingPoints'], ['usesTalkingPoints']) }} as bool) as usesTalkingPoints,
-        safe_cast({{ json_extract_scalar('_airbyte_data', ['dependsOnInitialDispositionResponse'], ['dependsOnInitialDispositionResponse']) }} as bool) as dependsOnInitialDispositionResponse
+        {{ json_extract_scalar('_airbyte_data', ['dependsOnInitialDispositionResponse'], ['dependsOnInitialDispositionResponse']) }} as dependsOnInitialDispositionResponse
     from {{ source('cta_raw', raw_table) }}
 )
 
