@@ -42,7 +42,6 @@ select
     complete_forms_count,
     digital_batch_params,
     petition_pages_count,
-    ready_for_delivery_at,
     forms_with_phones_count,
     registration_forms_count,
     incomplete_vr_forms_count,

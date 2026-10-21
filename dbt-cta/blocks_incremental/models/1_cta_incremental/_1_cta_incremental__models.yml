@@ -2713,8 +2713,6 @@ models:
         description: ''
       - name: petition_pages_count
         description: ''
-      - name: ready_for_delivery_at
-        description: ''
       - name: registration_forms_count
         description: ''
       - name: incomplete_vr_forms_count
@@ -4631,8 +4629,6 @@ models:
         description: ''
       - name: cancelled
         description: ''
-      - name: person_id
-        description: ''
       - name: created_at
         description: ''
       - name: start_time
@@ -4643,7 +4639,11 @@ models:
         description: ''
       - name: guest_attended
         description: ''
-      - name: additional_person_id
+      - name: public
+        description: ''
+      - name: host_id
+        description: ''
+      - name: guest_id
         description: ''
       - name: _airbyte_meetings_hashid
         description: ''
@@ -4727,4 +4727,3 @@ models:
         description: ''
       - name: _airbyte_filter_views_hashid
         description: ''
-
