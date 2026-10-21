@@ -1,0 +1,151 @@
+version: 2
+
+models:
+
+  - name: regions_base
+    columns:
+      - name: id
+        tests:
+          - unique:
+              config:
+                severity: warn
+          - not_null:
+              config:
+                severity: warn
+      - name: _airbyte_regions_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: tags_base
+    columns:
+      - name: id
+        tests:
+          - unique:
+              config:
+                severity: warn
+          - not_null:
+              config:
+                severity: warn
+      - name: _airbyte_tags_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: ctas_base
+    columns:
+      - name: id
+        tests:
+          - unique:
+              config:
+                severity: warn
+          - not_null:
+              config:
+                severity: warn
+      - name: _airbyte_ctas_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: ctas_prompts_base
+    columns:
+      - name: id
+        tests:
+          - unique:
+              config:
+                severity: warn
+          - not_null:
+              config:
+                severity: warn
+      - name: _airbyte_ctas_prompts_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: ctas_prompts_answers_base
+    columns:
+      - name: id
+        tests:
+          - unique:
+              config:
+                severity: warn
+          - not_null:
+              config:
+                severity: warn
+      - name: _airbyte_ctas_prompts_answers_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: profiles_base
+    columns:
+      - name: eid
+        tests:
+          - unique:
+              config:
+                severity: warn
+          - not_null:
+              config:
+                severity: warn
+      - name: _airbyte_profiles_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: profiles_tags_base
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - eid
+            - tagId
+          config:
+            severity: warn
+    columns:
+      - name: _airbyte_profiles_tags_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: ctas_results_base
+    columns:
+      - name: id
+        tests:
+          - unique:
+              config:
+                severity: warn
+          - not_null:
+              config:
+                severity: warn
+      - name: _airbyte_ctas_results_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: ctas_results_answers_base
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - resultId
+            - answerId
+          config:
+            severity: warn
+    columns:
+      - name: _airbyte_ctas_results_answers_hashid
+        tests:
+          - unique
+          - not_null
+
+  - name: outreach_entries_base
+    columns:
+      - name: uuid
+        tests:
+          - unique:
+              config:
+                severity: warn
+          - not_null:
+              config:
+                severity: warn
+      - name: _airbyte_outreach_entries_hashid
+        tests:
+          - unique
+          - not_null
