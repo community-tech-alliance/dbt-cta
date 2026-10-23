@@ -46,6 +46,14 @@ sources:
               combination_of_columns:
                 - id
                 - campaign_id
+      - name: _raw_laborids
+      - name: laborids_base
+        tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - dwid
+                - voter_file_vanid
+                - afl_cope_id
       - name: _raw_people
       - name: people_base
         tests:
