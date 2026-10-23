@@ -8,6 +8,7 @@ The dbt models in this project deliver the following deduplicated tables from Op
 - conversations_attempts_lookup
 - customuser
 - label
+- laborids
 - people
 - people_labels
 - people_lookup
