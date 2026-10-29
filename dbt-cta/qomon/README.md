@@ -28,7 +28,7 @@ Timestamps in the files don't match Qomon's docs (which say UTC, e.g. `2026-08-2
 It also adds:
 
 - `_extracted_at`: the extraction timestamp from the file name (`<table>_<YYYYMMDD>T<HHMMSS>Z.csv`)
-- `_feed_prefix`: the folder the file came from, which is one per Qomon group (e.g. `MA/`)
+- `_feed_prefix`: the folder the file came from, which is one per Qomon group (e.g. `MA`). Use it to split tables like `action_facts` that have no `group_id`.
 
 `{table}_ab2` deduplicates. Rows are ordered by `_extracted_at` rather than load time, so files loaded out of order still resolve correctly.
 
