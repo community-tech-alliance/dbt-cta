@@ -13,5 +13,5 @@ select
         safe.parse_timestamp('%F %H:%M:%E*S %z', regexp_replace(drawned_at, r' [A-Z]+$', '')) as drawned_at
     ),
     parse_timestamp('%Y%m%dT%H%M%SZ', regexp_extract(_source_file, r'_(\d{8}T\d{6}Z)\.csv$')) as _extracted_at,
-    regexp_extract(_source_file, r'^gs://[^/]+/(.*)\d{4}/\d{2}/\d{2}/[^/]+$') as _feed_prefix
+    regexp_extract(_source_file, r'^gs://[^/]+/(.*?)/?\d{4}/\d{2}/\d{2}/[^/]+$') as _feed_prefix
 from {{ source('cta', '_raw_facts') }}
